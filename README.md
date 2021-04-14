@@ -1,2 +1,2 @@
-# Fabulous Project (AMOS SS 20xx)
+# Carbon Footprint Visualization (AMOS SS 2021)
 Something something something
