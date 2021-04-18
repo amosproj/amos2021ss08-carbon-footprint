@@ -2,7 +2,6 @@
 name: Bug Report
 about: I tried to do anything, and something unexpected happened
 labels: bug
-projects: https://github.com/Waldleufer/TemplateRepository/projects/2
 ---
 
 <!--- Provide a general summary of the issue in the Title above -->
