@@ -1,6 +1,7 @@
 ---
 name: Feature request
 about: Suggest new feature (using user story)
+labels: feature
 ---
 
 ## User story
