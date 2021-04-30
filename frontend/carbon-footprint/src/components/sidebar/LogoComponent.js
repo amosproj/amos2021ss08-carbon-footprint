@@ -1,8 +1,7 @@
 import React from 'react';
 import { Row } from 'simple-flexbox';
 import { StyleSheet, css } from 'aphrodite';
-
-import Logo from '../../../public/images/Proj8-AMOS-Logo-Carbon-Footprint-Black.png'
+import Logo from '../../assets/icon-logo';
 
 const styles = StyleSheet.create({
     container: {
