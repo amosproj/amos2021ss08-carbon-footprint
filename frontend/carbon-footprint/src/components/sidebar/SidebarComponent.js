@@ -35,9 +35,9 @@ function SidebarComponent(props) {
             <LogoComponent />
             <Column className={css(styles.menuItemList)}>
                 <MenuItemComponent
-                    title="Overview" icon={IconOverview}
-                    onClick={() => props.onChange('Overview')}
-                    active={props.selectedItem === 'Overview'}
+                    title="Folder" icon={IconOverview}
+                    onClick={() => props.onChange('Folder')}
+                    active={props.selectedItem === 'Folder'}
                 />
                 <MenuItemComponent
                     title="Tickets" icon={IconTickets}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row } from 'simple-flexbox';
 import { StyleSheet, css } from 'aphrodite';
-import Logo from '../../assets/icon-logo';
+import Logo from '../../assets/Proj8-AMOS-Logo-Carbon-Footprint-Black.png';
 
 const styles = StyleSheet.create({
     container: {
@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
 function LogoComponent() {
     return (
         <Row className={css(styles.container)} horizontal="center" vertical="center">
-            <Logo />
-            <span className={css(styles.title)}>Dashboard Kit</span>
+            <img src={Logo} height='50px' width='50px' alt="logo"></img>
+            <span className={css(styles.title)}>Carbon Footprint</span>
         </Row>
     );
 }
