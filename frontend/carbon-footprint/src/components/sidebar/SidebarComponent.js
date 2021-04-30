@@ -40,14 +40,14 @@ function SidebarComponent(props) {
                     active={props.selectedItem === 'Folder'}
                 />
                 <MenuItemComponent
-                    title="Tickets" icon={IconTickets}
-                    onClick={() => props.onChange('Tickets')}
-                    active={props.selectedItem === 'Tickets'}
+                    title="Files" icon={IconTickets}
+                    onClick={() => props.onChange('Files')}
+                    active={props.selectedItem === 'Files'}
                 />
                 <MenuItemComponent
-                    title="Ideas" icon={IconIdeas}
-                    onClick={() => props.onChange('Ideas')}
-                    active={props.selectedItem === 'Ideas'} />
+                    title="Mail" icon={IconIdeas}
+                    onClick={() => props.onChange('Mail')}
+                    active={props.selectedItem === 'Mail'} />
                 <MenuItemComponent
                     title="Contacts" icon={IconContacts}
                     onClick={() => props.onChange('Contacts')}
