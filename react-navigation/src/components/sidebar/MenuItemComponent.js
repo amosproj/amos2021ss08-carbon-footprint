@@ -23,11 +23,11 @@ const useStyles = createUseStyles({
         borderLeft: ({ theme, level }) =>
             level > 1 ? 'none' : `3px solid ${theme.color.darkGrayishBlue}`
     },
-    title: {
-        fontSize: 16,
-        lineHeight: '20px',
+    title: { 
+        fontSize: 20, // left bar titles 
+        lineHeight: '25px',
         letterSpacing: '0.2px',
-        color: ({ theme, isActive }) => (isActive ? theme.color.paleBlue : theme.color.grayishBlue),
+        color: ({ theme, isActive }) =>(isActive ? 'green' : 'black'), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
         marginLeft: 24
     }
 });
@@ -43,7 +43,7 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
     const classes = useStyles({ theme, level, isActive });
     const classNameColumn = isActive ? classes.leftBar : '';
     const classNameContainer = [classes.container, isActive && classes.activeContainer].join(' ');
-    const iconColor = isActive ? theme.color.paleBlue : theme.color.grayishBlue2;
+    const iconColor = isActive ? 'green' : 'black';//theme.color.paleBlue : theme.color.grayishBlue2;
 
     function onItemClicked(e) {
         if (onClick) {

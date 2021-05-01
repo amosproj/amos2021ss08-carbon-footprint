@@ -14,7 +14,8 @@ import IconSearch from './icon-search';
 import IconSettings from './icon-settings';
 import IconSubscription from './icon-subscription';
 import IconTickets from './icon-tickets';
-
+import IconInbox from './icon-inbox';
+import IconHome from './icon-home';
 export {
     IconCheckboxOff,
     IconCheckboxOn,
@@ -31,5 +32,7 @@ export {
     IconSearch,
     IconSettings,
     IconSubscription,
-    IconTickets
+    IconTickets, 
+    IconInbox,
+    IconHome
 };

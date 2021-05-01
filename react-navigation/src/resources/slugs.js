@@ -1,6 +1,9 @@
 export default {
     // private
+    comparison: '/comparison',
     dashboard: '/dashboard',
+    scenerios: '/scenerios',
+    inbox:'./inbox',
     overview: '/overview',
     overviewTwo: '/overview/two',
     overviewThree: '/overview/three',

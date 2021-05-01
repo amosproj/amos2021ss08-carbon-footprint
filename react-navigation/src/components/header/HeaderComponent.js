@@ -67,8 +67,14 @@ function HeaderComponent() {
 
     let title;
     switch (true) {
+        case currentItem === SLUGS.home:
+            title = 'Home';
+            break;
         case currentItem === SLUGS.dashboard:
-            title = 'Dashboard';
+            title = 'My Dashboard';
+            break;
+        case currentItem === SLUGS.dashboard:
+            title = 'Inbox';
             break;
         case [SLUGS.overview, SLUGS.overviewTwo, SLUGS.overviewThree].includes(currentItem):
             title = 'Overview';

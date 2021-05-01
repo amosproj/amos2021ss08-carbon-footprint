@@ -11,13 +11,15 @@ import {
     IconOverview,
     IconSettings,
     IconSubscription,
-    IconTickets
+    IconTickets,
+    IconInbox,
+    IconHome
 } from 'assets/icons';
 import { convertSlugToUrl } from 'resources/utilities';
 import LogoComponent from './LogoComponent';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
-
+import logo from './TeamLogo.PNG'
 const useStyles = createUseStyles({
     separator: {
         borderTop: ({ theme }) => `1px solid ${theme.color.lightGrayishBlue}`,
@@ -44,41 +46,48 @@ function SidebarComponent() {
     return (
         <Menu isMobile={isMobile}>
             <div style={{ paddingTop: 30, paddingBottom: 30 }}>
-                <LogoComponent />
+            <img src={logo} style={{padding:10}} />
             </div>
             <MenuItem
                 id={SLUGS.dashboard}
-                title='Dashboard'
-                icon={IconSubscription}
+                title='My Dashboard'
+                icon={IconHome}
                 onClick={() => onClick(SLUGS.dashboard)}
             />
+            {/* <MenuItem
+                id={SLUGS.home}
+                title='Home'
+                icon={IconHome}
+                onClick={() => onClick(SLUGS.home)}
+            /> */}
             <MenuItem
-                id={SLUGS.overview}
-                items={[SLUGS.overviewTwo, SLUGS.overviewThree]}
-                title='Overview'
-                icon={IconOverview}
+                id={SLUGS.scenerios}
+                items={[SLUGS.overview]}
+                title='Scenerios'
+                icon={IconArticles}
+                onClick={() => onClick(SLUGS.scenerios)}
             >
                 <MenuItem
                     id={SLUGS.overview}
-                    title='Sub Item 1'
+                    title='Overview'
                     level={2}
-                    icon={IconAgents}
+                    icon={IconOverview}
                     onClick={() => onClick(SLUGS.overview)}
                 />
                 <MenuItem
-                    id={SLUGS.overviewTwo}
-                    title='Sub Item 2'
+                    id={SLUGS.comparison}
+                    title='Comparison'       // display two senerios for diff scenerison
                     level={2}
                     icon={IconContacts}
-                    onClick={() => onClick(SLUGS.overviewTwo)}
+                    onClick={() => onClick(SLUGS.comparison)}
                 />
-                <MenuItem
+                {/* <MenuItem
                     id={SLUGS.overviewThree}
                     title='Sub Item 3'
                     level={2}
                     icon={IconArticles}
                     onClick={() => onClick(SLUGS.overviewThree)}
-                />
+                /> */}
             </MenuItem>
             <MenuItem
                 id={SLUGS.tickets}
