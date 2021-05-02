@@ -3,7 +3,8 @@ import { Row } from 'simple-flexbox';
 import { createUseStyles, useTheme } from 'react-jss';
 import { IconCheckboxOn, IconCheckboxOff } from 'assets/icons';
 import CardComponent from 'components/cards/CardComponent';
-
+import SLUGS from 'resources/slugs';
+import { Link } from 'react-router-dom';
 const useStyles = createUseStyles((theme) => ({
     addButton: {
         backgroundColor: theme.color.lightGrayishBlue,
@@ -47,14 +48,14 @@ function ScenariosComponent(props) {
     const theme = useTheme();
     const classes = useStyles({ theme });
     // TODO: the place where we need to get the data from SimaPRO!!
-    const [items, setItems] = useState([
+    let [items, setItems] = useState([
         { title: 'Scenarios-bike', checked: false, tag: TAGS.URGENT },
         {
             title: 'Scenarios 2-gas turbin',
             checked: false,
             tag: TAGS.NEW
         },
-        { title: 'Scenarios 3-solar panel', checked: true, tag: TAGS.DEFAULT }
+        { title: 'Scenarios 3-solar panel', checked: false, tag: TAGS.DEFAULT }
     ]);
 
     function onCheckboxClick(index) {
@@ -78,44 +79,68 @@ function ScenariosComponent(props) {
         });
     }
 
+    // array1.forEach(element => console.log(element));
     function onAddButtonClick() {
         setItems((prev) => {
+            const selecteditems=[];
             const newItems = [...prev];
-            newItems.push({
-                title: `Task ${newItems.length + 1}`,
-                checked: false,
-                tag: getNextTag()
+            newItems.forEach(item => { 
+                if(item.checked)
+                    selecteditems.push(item) 
             });
-            return newItems;
+
+            // newItems.push({
+            //     title: `Task ${newItems.length + 1}`,
+            //     checked: true,
+            //     tag: getNextTag()
+            // });
+            console.log(selecteditems);
+            return selecteditems;
         });
     }
 
-    // function renderAddButton() {
-    //     return (
-    //         <Row
-    //             horizontal='center'
-    //             vertical='center'
-    //             className={[classes.tagStyles, classes.addButton].join(' ')}
-    //             onClick={onAddButtonClick}
-    //         >
-    //             +
-    //         </Row>
-    //     );
-    // }
+    function renderAddButton() {
+        return (
+
+            
+            <Link to={SLUGS.overview}>
+                {/* <button onClick={onAddButtonClick} > Click Me </button> */}
+            <Row
+                horizontal='center'
+                vertical='center'
+                className={[classes.tagStyles, classes.addButton].join(' ')}
+                onClick={onAddButtonClick}
+            >
+                +
+            </Row>
+
+            </Link>
+            // <Row
+            //     horizontal='center'
+            //     vertical='center'
+            //     className={[classes.tagStyles, classes.addButton].join(' ')}
+            //     onClick={onAddButtonClick}
+            // >
+            //     +
+            // </Row>
+        );
+    }
 
     return (
+
+
         <CardComponent
             containerStyles={props.containerStyles}
             title='Scenarios'
             // link='View all'
             subtitle='Projects'
             items={[
-                // <Row horizontal='space-between' vertical='center'>
-                //     <span className={[classes.itemTitle, classes.greyTitle].join(' ')}>
-                //         Create new task
-                //     </span>
-                //     {/* {renderAddButton()} */}
-                // </Row>,
+                <Row horizontal='space-between' vertical='center'>
+                    <span className={[classes.itemTitle, classes.greyTitle].join(' ')}>
+                        Create new task
+                    </span>
+                    {renderAddButton()}
+                </Row>,
                 ...items.map((item, index) => (
                     <TaskComponent
                         classes={classes}
@@ -136,7 +161,7 @@ function TaskComponent({ classes, index, item = {}, onCheckboxClick, onTagClick 
     return (
         <Row horizontal='space-between' vertical='center'>
             <Row>
-                <div className={classes.checkboxWrapper} onClick={() => onCheckboxClick(index)}>
+                <div className={classes.checkboxWrapper} onClick={() =>onCheckboxClick(index)}>
                     {item.checked ? <IconCheckboxOn /> : <IconCheckboxOff />}
                 </div>
                 <span className={classes.itemTitle}>{item.title}</span>

@@ -2,9 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import LoadingComponent from 'components/loading';
-// import ScenariosComponent from 'components/scenarios';
-
-
+const ScenariosDashboardComponent = lazy(() => import('./scenarios/scenariosdashboard'));
 const DashboardComponent = lazy(() => import('./dashboard'));
 const ScenariosComponent = lazy(() => import('./scenarios'));
 function PrivateRoutes() {
@@ -13,7 +11,7 @@ function PrivateRoutes() {
             <Switch>
                 <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
                 <Route exact path={SLUGS.scenerios} component={ScenariosComponent} /> 
-                <Route exact path={SLUGS.overview} render={() => <div>overview</div>} />
+                <Route exact path={SLUGS.overview} component={ScenariosDashboardComponent} />
                 <Route exact path={SLUGS.comparison} render={() => <div>comparison!</div>} />   
                 {/* <Route exact path={SLUGS.overviewTwo} component={DropdownComponent}/> */}
                 <Route exact path={SLUGS.overviewThree} render={() => <div>overviewThree</div>} />
