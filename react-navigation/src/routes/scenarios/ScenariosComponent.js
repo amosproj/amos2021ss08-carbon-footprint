@@ -59,9 +59,15 @@ function ScenariosComponent(props) {
     ]);
 
     function onCheckboxClick(index) {
+        console.log("Checkbox Clicked");
+        console.log(index);
         setItems((prev) => {
+            console.log("PREV:");
+            console.log(prev);
             const newItems = [...prev];
             newItems[index].checked = newItems[index].checked ? false : true;
+            console.log("Checkbox Items: ");
+            console.log(newItems); 
             return newItems;
         });
     }
@@ -80,14 +86,18 @@ function ScenariosComponent(props) {
     }
 
     // array1.forEach(element => console.log(element));
-    function onAddButtonClick() {
+    function onAddButtonClick(index) {
+        console.log(index);
+        index = 1 ;
         setItems((prev) => {
-            const selecteditems=[];
+            console.log("Our prev");
+            console.log(prev);
+            const selecteditems=[{}];
             const newItems = [...prev];
-            newItems.forEach(item => { 
-                if(item.checked)
-                    selecteditems.push(item) 
-            });
+            console.log("HI!" + newItems);
+                if(newItems[index].checked) {
+                    selecteditems.push(newItems[index]);
+                }
 
             // newItems.push({
             //     title: `Task ${newItems.length + 1}`,
