@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import ScenariosComponent from 'routes/scenarios';
 
 export default function ProductSolutionsServicesComponent() {
   const { type } = useParams();
@@ -10,6 +11,9 @@ export default function ProductSolutionsServicesComponent() {
       {type === 'products' && <div>This is where all the products of the selected category could be shown.</div>}
       {type === 'solutions' && <div>This is where all the solutions of the selected category could be shown.</div>}
       {type === 'services' && <div>This is where all the services of the selected category could be shown.</div>}
+
+      <ScenariosComponent/>
+
     </>
   );
 }

@@ -2,7 +2,7 @@ export default {
     // private
     comparison: '/comparison',
     dashboard: '/dashboard',
-    scenerios: '/scenerios',
+    details: '/details',
     transmission: '/transmission',
     generation: '/generation',
     industrialApplications: '/industrialApplications',

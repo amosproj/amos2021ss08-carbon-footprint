@@ -126,8 +126,8 @@ function ScenariosComponent(props) {
         return (
 
 
-            <Link to={{
-                pathname: SLUGS.comparison,
+            <Link to={{ // Link to the next page
+                pathname: SLUGS.details,
                 data: selecteditems
               }}>
                 {/* <button onClick={onAddButtonClick} > Click Me </button> */}

@@ -11,15 +11,14 @@ function PrivateRoutes() {
         <Suspense fallback={<LoadingComponent loading />}>
             <Switch>
                 <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
-                <Route exact path={SLUGS.scenerios} component={ScenariosComponent} /> 
+                <Route exact path={SLUGS.details} render={() => <div>The view where the user can select variables and see the graphs will be implemented here.</div>} />
                 <Route exact path={SLUGS.overview} component={ScenariosDashboardComponent} />
-                <Route exact path={SLUGS.generation} render={() => <div>Generation</div>}/>
-                <Route exact path={SLUGS.transmission} render={() => <div>Transmission</div>}/>
-                <Route exact path={SLUGS.industrialApplications} render={() => <div>Industrial Applications</div>} />
+                <Route exact path={SLUGS.generation} render={() => <div>Short info about Generation category</div>}/>
+                <Route exact path={SLUGS.transmission} render={() => <div>Short info about Transmission category</div>}/>
+                <Route exact path={SLUGS.industrialApplications} render={() => <div>Short info about Industrial Applications</div>} />
                 <Route path={SLUGS.generation+'/:type'} component={ProductSolutionsServices} />
                 <Route path={SLUGS.transmission+'/:type'} component={ProductSolutionsServices} />
                 <Route path={SLUGS.industrialApplications+'/:type'} component={ProductSolutionsServices} />
-                <Route exact path={SLUGS.solutions} render={() => <div>This is where all the solutions of the selected category could be shown.</div>} />
                 <Route exact path={SLUGS.overview} component={ScenariosDashboardComponent} />
                 <Route exact path={SLUGS.comparison} render={() => <div>comparison</div>} />   
                 <Route exact path={SLUGS.inbox} render={() => <div>inbox</div>} />

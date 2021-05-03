@@ -78,6 +78,12 @@ function SidebarComponent() {
             </div>
             {console.log(allMenuItems())}
             <MenuItem
+                id={SLUGS.dashboard}
+                title='My Dashboard'
+                icon={IconHome}
+                onClick={() => onClick(SLUGS.dashboard)}
+            />
+            <MenuItem
                 id={SLUGS.categories}
                 items={allMenuItems([SLUGS.generation, SLUGS.transmission, SLUGS.industrialApplications])}
                 title='Browse'
@@ -176,17 +182,11 @@ function SidebarComponent() {
                 </MenuItem>
             </MenuItem>
             <MenuItem
-                id={SLUGS.dashboard}
-                title='My Dashboard'
-                icon={IconHome}
-                onClick={() => onClick(SLUGS.dashboard)}
-            />
-            <MenuItem
-                id={SLUGS.scenerios}
+                id={SLUGS.details}
                 items={[SLUGS.overview, SLUGS.comparison]}
-                title='Scenerios'
-                icon={IconArticles}
-                onClick={() => onClick(SLUGS.scenerios)}
+                title='Details'
+                icon={IconOverview}
+                onClick={() => onClick(SLUGS.details)}
             >
                 <MenuItem
                     id={SLUGS.overview}
@@ -195,28 +195,21 @@ function SidebarComponent() {
                     icon={IconOverview}
                     onClick={() => onClick(SLUGS.overview)}
                 />
-                <MenuItem
+                {/* <MenuItem // Not required for this sprint
                     id={SLUGS.comparison}
                     title='Comparison'       // display two senerios for diff scenerison
                     level={2}
                     icon={IconContacts}
                     onClick={() => onClick(SLUGS.comparison)}
-                />
-                {/* <MenuItem
-                    id={SLUGS.overviewThree}
-                    title='Sub Item 3'
-                    level={2}
-                    icon={IconArticles}
-                    onClick={() => onClick(SLUGS.overviewThree)}
                 /> */}
             </MenuItem>
-            <MenuItem
+           {/*  <MenuItem
                 id={SLUGS.tickets}
                 title='Quick Guide'
                 icon={IconTickets}
                 onClick={() => onClick(SLUGS.tickets)}
-            />
-            <MenuItem
+            /> */}
+            {/* <MenuItem
                 id={SLUGS.ideas}
                 items={[SLUGS.ideasTwo, SLUGS.ideasThree]}
                 title='Ideas'
@@ -243,8 +236,8 @@ function SidebarComponent() {
                     icon={IconArticles}
                     onClick={() => onClick(SLUGS.ideasThree)}
                 />
-            </MenuItem>
-            <MenuItem
+            </MenuItem> */}
+            {/* <MenuItem
                 id={SLUGS.contacts}
                 title='Contacts'
                 icon={IconContacts}
@@ -255,7 +248,7 @@ function SidebarComponent() {
                 title='Agents'
                 icon={IconAgents}
                 onClick={() => onClick(SLUGS.agents)}
-            />
+            /> */}
             {/* <MenuItem
                 id={SLUGS.articles}
                 title='Articles'
