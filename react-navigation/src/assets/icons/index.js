@@ -16,6 +16,8 @@ import IconSubscription from './icon-subscription';
 import IconTickets from './icon-tickets';
 import IconInbox from './icon-inbox';
 import IconHome from './icon-home';
+import IconLogin from './icon-login';
+
 export {
     IconCheckboxOff,
     IconCheckboxOn,
@@ -34,5 +36,6 @@ export {
     IconSubscription,
     IconTickets, 
     IconInbox,
-    IconHome
+    IconHome,
+    IconLogin
 };

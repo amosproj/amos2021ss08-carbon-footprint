@@ -84,7 +84,7 @@ function ScenariosDashboardComponent() {
                 >
                     <MiniCardComponent
                         className={classes.miniCardContainer}
-                        title='Open'
+                        title='open'
                         value='43'
                     />
                     <MiniCardComponent
