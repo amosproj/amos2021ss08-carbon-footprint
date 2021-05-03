@@ -64,7 +64,7 @@ function SidebarComponent() {
             /> */}
             <MenuItem
                 id={SLUGS.scenerios}
-                items={[SLUGS.overview]}
+                items={[SLUGS.overview, SLUGS.comparison]}
                 title='Scenerios'
                 icon={IconArticles}
                 onClick={() => onClick(SLUGS.scenerios)}
