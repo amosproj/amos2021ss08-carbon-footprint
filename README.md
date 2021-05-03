@@ -1,4 +1,4 @@
-# react-admin-dashboard v2.0
+# Carbon Footprint | AMOS Project 8
 
 **Live demo**: [https://llorentegerman.github.io/react-admin-dashboard/](https://llorentegerman.github.io/react-admin-dashboard/)
 
