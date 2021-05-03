@@ -57,6 +57,18 @@ function SidebarComponent() {
         )
     }
 
+    /**
+     * Calculates all possible urls by appending products solutions and services
+     * @param {array} categories the url(s) which should be appended
+     * @returns the array of possible urls
+     */
+    function allMenuItems(categories = []) {
+        const a1 = categories.map((path) => path + SLUGS.products);
+        const a2 = categories.map((path) => path + SLUGS.solutions);
+        const a3 = categories.map((path) => path + SLUGS.services);
+        return categories.concat(a1).concat(a2).concat(a3);
+    }
+
 
     return (
         <Menu isMobile={isMobile}>
@@ -64,9 +76,10 @@ function SidebarComponent() {
             <div style={{ paddingTop: 20, paddingBottom: 20 }}>
             <img src={logo} />
             </div>
+            {console.log(allMenuItems())}
             <MenuItem
                 id={SLUGS.categories}
-                items={[SLUGS.generation, SLUGS.transmission, SLUGS.industrialApplications]}
+                items={allMenuItems([SLUGS.generation, SLUGS.transmission, SLUGS.industrialApplications])}
                 title='Browse'
                 icon={IconHome}
                 onClick={() => onClick(SLUGS.categories)}
@@ -74,24 +87,93 @@ function SidebarComponent() {
                 <MenuItem
                     id={SLUGS.generation}
                     title='Generation'
+                    items={allMenuItems([SLUGS.generation])}
                     level={2}
                     icon={IconOverview}
                     onClick={() => onClick(SLUGS.generation)}
-                />
+                >
+                    <MenuItem
+                        id={SLUGS.generation + SLUGS.products}
+                        title='Products'
+                        level={3}
+                        icon={IconHome}
+                        onClick={() => onClick(SLUGS.generation + SLUGS.products)}
+                    />
+                    <MenuItem
+                        id={SLUGS.generation + SLUGS.solutions}
+                        title='Solutions'
+                        level={3}
+                        icon={IconHome}
+                        onClick={() => onClick(SLUGS.generation + SLUGS.solutions)}
+                    />
+                    <MenuItem
+                        id={SLUGS.generation + SLUGS.services}
+                        title='Services'
+                        level={3}
+                        icon={IconHome}
+                        onClick={() => onClick(SLUGS.generation + SLUGS.services)}
+                    />
+                </MenuItem>
                 <MenuItem
                     id={SLUGS.transmission}
                     title='Transmission'
+                    items={allMenuItems([SLUGS.transmission])}
                     level={2}
                     icon={IconContacts}
                     onClick={() => onClick(SLUGS.transmission)}
-                />
+                >
+                    <MenuItem
+                        id={SLUGS.transmission + SLUGS.products}
+                        title='Products'
+                        level={3}
+                        icon={IconHome}
+                        onClick={() => onClick(SLUGS.transmission + SLUGS.products)}
+                    />
+                    <MenuItem
+                        id={SLUGS.transmission + SLUGS.solutions}
+                        title='Solutions'
+                        level={3}
+                        icon={IconHome}
+                        onClick={() => onClick(SLUGS.transmission + SLUGS.solutions)}
+                    />
+                    <MenuItem
+                        id={SLUGS.transmission + SLUGS.services}
+                        title='Services'
+                        level={3}
+                        icon={IconHome}
+                        onClick={() => onClick(SLUGS.transmission + SLUGS.services)}
+                    />
+                </MenuItem>
                 <MenuItem
                     id={SLUGS.industrialApplications}
                     title='Industrial Applications'
+                    items={allMenuItems([SLUGS.industrialApplications])}
                     level={2}
                     icon={IconHome}
                     onClick={() => onClick(SLUGS.industrialApplications)}
-                />
+                >
+                    <MenuItem
+                        id={SLUGS.industrialApplications + SLUGS.products}
+                        title='Products'
+                        level={3}
+                        icon={IconHome}
+                        onClick={() => onClick(SLUGS.industrialApplications + SLUGS.products)}
+                    />
+                    <MenuItem
+                        id={SLUGS.industrialApplications + SLUGS.solutions}
+                        title='Solutions'
+                        level={3}
+                        icon={IconHome}
+                        onClick={() => onClick(SLUGS.industrialApplications + SLUGS.solutions)}
+                    />
+                    <MenuItem
+                        id={SLUGS.industrialApplications + SLUGS.services}
+                        title='Services'
+                        level={3}
+                        icon={IconHome}
+                        onClick={() => onClick(SLUGS.industrialApplications + SLUGS.services)}
+                    />
+                </MenuItem>
             </MenuItem>
             <MenuItem
                 id={SLUGS.dashboard}

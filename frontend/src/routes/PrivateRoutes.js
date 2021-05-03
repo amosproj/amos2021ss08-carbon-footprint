@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import LoadingComponent from 'components/loading';
 const ScenariosDashboardComponent = lazy(() => import('./scenarios/scenariosdashboard'));
+const ProductSolutionsServices = lazy(() => import('./dynamicPaths/ProductSolutionsServicesComponent'));
 const DashboardComponent = lazy(() => import('./dashboard'));
 const ScenariosComponent = lazy(() => import('./scenarios'));
 function PrivateRoutes() {
@@ -15,11 +16,14 @@ function PrivateRoutes() {
                 <Route exact path={SLUGS.generation} render={() => <div>Generation</div>}/>
                 <Route exact path={SLUGS.transmission} render={() => <div>Transmission</div>}/>
                 <Route exact path={SLUGS.industrialApplications} render={() => <div>Industrial Applications</div>} />
+                <Route path={SLUGS.generation+'/:type'} component={ProductSolutionsServices} />
+                <Route path={SLUGS.transmission+'/:type'} component={ProductSolutionsServices} />
+                <Route path={SLUGS.industrialApplications+'/:type'} component={ProductSolutionsServices} />
+                <Route exact path={SLUGS.solutions} render={() => <div>This is where all the solutions of the selected category could be shown.</div>} />
                 <Route exact path={SLUGS.overview} component={ScenariosDashboardComponent} />
                 <Route exact path={SLUGS.comparison} render={() => <div>comparison</div>} />   
                 <Route exact path={SLUGS.inbox} render={() => <div>inbox</div>} />
                 {/* <Route exact path={SLUGS.overviewTwo} component={DropdownComponent}/> */}
-                <Route exact path={SLUGS.overviewThree} render={() => <div>overviewThree</div>} />
 
                 <Route exact path={SLUGS.categories} render={() => <div>categories</div>} />
                 <Route exact path={SLUGS.ideasTwo} render={() => <div>ideasTwo</div>} />
