@@ -43,12 +43,43 @@ function SidebarComponent() {
         push(convertSlugToUrl(slug, parameters));
     }
 
+    function mapperFunction(value, index) {
+        return (
+            <MenuItem
+                key={'/Category'+index}
+                id={'/Category'+index}
+                title={value}
+                level={2}
+                icon={IconHome}
+                onClick={() => onClick({category: '/Category'+index}) }
+            />
+        )
+    }
+
+
+    let state = {
+        categories: ['Generation', 'Transmission', 'Industrial']
+    }
+    const menuItems = state.categories.map(mapperFunction);
+    console.log(menuItems);
+
     return (
         <Menu isMobile={isMobile}>
 
             <div style={{ paddingTop: 20, paddingBottom: 20 }}>
             <img src={logo} />
             </div>
+            <MenuItem
+                id={SLUGS.categories}
+                items={['/Category1', '/Category2', '/Category3']}
+                title='Browse'
+                icon={IconHome}
+                onClick={() => onClick(SLUGS.categories)}
+            >
+                {
+                    menuItems
+                }
+            </MenuItem>
             <MenuItem
                 id={SLUGS.dashboard}
                 title='My Dashboard'

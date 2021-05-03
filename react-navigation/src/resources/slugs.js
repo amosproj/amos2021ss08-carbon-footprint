@@ -7,7 +7,7 @@ export default {
     overview: '/overview',
     overviewTwo: '/overview/two',
     overviewThree: '/overview/three',
-    tickets: '/tickets',
+    categories: '/categories',
     ideas: '/ideas',
     ideasTwo: '/ideas/two',
     ideasThree: '/ideas/three',

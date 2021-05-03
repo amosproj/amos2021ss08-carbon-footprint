@@ -16,7 +16,7 @@ function PrivateRoutes() {
                 {/* <Route exact path={SLUGS.overviewTwo} component={DropdownComponent}/> */}
                 <Route exact path={SLUGS.overviewThree} render={() => <div>overviewThree</div>} />
 
-                <Route exact path={SLUGS.tickets} render={() => <div>tickets</div>} />
+                <Route exact path={SLUGS.categories} render={() => <div>categories</div>} />
                 <Route exact path={SLUGS.ideasTwo} render={() => <div>ideasTwo</div>} />
                 <Route exact path={SLUGS.ideasThree} render={() => <div>ideasThree</div>} />
                 <Route exact path={SLUGS.ideas} render={() => <div>ideas</div>} />

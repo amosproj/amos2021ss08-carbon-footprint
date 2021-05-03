@@ -32,6 +32,11 @@ const useStyles = createUseStyles({
     }
 });
 
+/** Creates a MenuItemComponent
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, onClick, title }) {
     const theme = useTheme();
     const isCollapsible = children && children.length > 0;
