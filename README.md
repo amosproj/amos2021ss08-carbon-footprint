@@ -1,12 +1,5 @@
 # Carbon Footprint | AMOS Project 8
 
-**Live demo**: [https://llorentegerman.github.io/react-admin-dashboard/](https://llorentegerman.github.io/react-admin-dashboard/)
-
-This UI is based on the following Figma design:
-https://www.figmafreebies.com/download/figma-admin-dashboard-ui-kit/
-
-Although the code has been totally refactored, in order to use of functional components, hooks and integrated 100% with react-router, you can still find the original project post here "Building a UI from scratch, based on a design with ReactJS" [here](POST.md) or [here](https://dev.to/llorentegerman/building-a-ui-from-scratch-based-on-a-design-with-reactjs-3l1e).
-
 ## Folder Structure
 
 ### base folder: /src:
