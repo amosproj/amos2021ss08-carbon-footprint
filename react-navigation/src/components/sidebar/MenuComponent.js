@@ -26,11 +26,11 @@ const getMenuStyles = ({ theme }) => ({
     bmMenuWrap: {
         position: 'fixed',
         height: '100%',
-        width: 255,
+        width: 260,
         zIndex: 30
     },
     bmMenu: {
-        background: 'white'  // left side bar backgroundcolor 
+        background: '#262625'  // left side bar backgroundcolor 
     },
     bmItem: {
         outline: 'none',

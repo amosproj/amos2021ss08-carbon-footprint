@@ -91,12 +91,12 @@ function HeaderComponent() {
         case currentItem === SLUGS.agents:
             title = 'Agents';
             break;
-        case currentItem === SLUGS.articles:
-            title = 'Articles';
-            break;
-        case currentItem === SLUGS.subscription:
-            title = 'Subscription';
-            break;
+        // case currentItem === SLUGS.articles:
+        //     title = 'Articles';
+        //     break;
+        // case currentItem === SLUGS.subscription:
+        //     title = 'Subscription';
+        //     break;
         case currentItem === SLUGS.settings:
             title = 'Settings';
             break;

@@ -4,7 +4,7 @@ import { createUseStyles, useTheme } from 'react-jss';
 import { IconCheckboxOn, IconCheckboxOff } from 'assets/icons';
 import CardComponent from 'components/cards/CardComponent';
 import SLUGS from 'resources/slugs';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 const useStyles = createUseStyles((theme) => ({
     addButton: {
         backgroundColor: theme.color.lightGrayishBlue,
@@ -43,10 +43,11 @@ const TAGS = {
     NEW: { text: 'NEW', backgroundColor: '#29CC97', color: '#FFFFFF' },
     DEFAULT: { text: 'DEFAULT', backgroundColor: '#F0F1F7', color: '#9FA2B4' }
 };
-
 function ScenariosComponent(props) {
     const theme = useTheme();
     const classes = useStyles({ theme });
+    let [selecteditems,setSelecteds]=useState([]);
+    console.log(selecteditems)
     // TODO: the place where we need to get the data from SimaPRO!!
     let [items, setItems] = useState([
         { title: 'Scenarios-bike', checked: false, tag: TAGS.URGENT },
@@ -59,6 +60,7 @@ function ScenariosComponent(props) {
     ]);
 
     function onCheckboxClick(index) {
+
         console.log("Checkbox Clicked");
         console.log(index);
         setItems((prev) => {
@@ -66,10 +68,20 @@ function ScenariosComponent(props) {
             console.log(prev);
             const newItems = [...prev];
             newItems[index].checked = newItems[index].checked ? false : true;
+            console.log("HI!" + newItems);
+            if(newItems[index].checked) {
+                selecteditems.push(newItems[index]);
+            }
             console.log("Checkbox Items: ");
-            console.log(newItems); 
+            console.log(selecteditems); 
             return newItems;
         });
+
+        setSelecteds(() => {
+
+        return selecteditems;
+        
+     } ) 
     }
     function getNextTag(current = 'URGENT') {
         const tagLabels = ['URGENT', 'NEW', 'DEFAULT'];
@@ -86,34 +98,37 @@ function ScenariosComponent(props) {
     }
 
     // array1.forEach(element => console.log(element));
-    function onAddButtonClick(index) {
-        console.log(index);
-        index = 1 ;
-        setItems((prev) => {
-            console.log("Our prev");
-            console.log(prev);
-            const selecteditems=[{}];
-            const newItems = [...prev];
-            console.log("HI!" + newItems);
-                if(newItems[index].checked) {
-                    selecteditems.push(newItems[index]);
-                }
+    function onAddButtonClick() {
+        console.log(selecteditems);
+        return selecteditems;
+        // console.log(index);
+        // index = 1 ;
+    //     setItems((prev) => {
+    //         console.log("Our prev");
+    //         console.log(prev);
+    //         // const newItems = [...prev];
+    //         // console.log("HI!" + newItems);
+    //         //     if(newItems.checked) {
+    //         //         selecteditems.push(newItems);
+    //         //     }
 
-            // newItems.push({
-            //     title: `Task ${newItems.length + 1}`,
-            //     checked: true,
-            //     tag: getNextTag()
-            // });
-            console.log(selecteditems);
-            return selecteditems;
-        });
+    //         // // newItems.push({
+    //         // //     title: `Task ${newItems.length + 1}`,
+    //         // //     checked: true,
+    //         // //     tag: getNextTag()
+    //         // // });
+
+    //     });
     }
 
     function renderAddButton() {
         return (
 
-            
-            <Link to={SLUGS.overview}>
+
+            <Link to={{
+                pathname: SLUGS.comparison,
+                data: selecteditems
+              }}>
                 {/* <button onClick={onAddButtonClick} > Click Me </button> */}
             <Row
                 horizontal='center'
@@ -125,6 +140,8 @@ function ScenariosComponent(props) {
             </Row>
 
             </Link>
+
+            
             // <Row
             //     horizontal='center'
             //     vertical='center'

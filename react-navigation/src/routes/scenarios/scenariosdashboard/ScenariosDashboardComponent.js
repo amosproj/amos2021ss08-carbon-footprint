@@ -103,7 +103,7 @@ function ScenariosDashboardComponent() {
                 breakpoints={{ 1024: 'column' }}
             >
                 {/* <UnresolvedTicketsComponent containerStyles={classes.unresolvedTickets} /> */}
-                <ScenariosComponent />
+                <ScenariosComponent containerStyles={classes.tasks} />
             </Row>
         </Column>
     );

@@ -19,7 +19,7 @@ import { convertSlugToUrl } from 'resources/utilities';
 import LogoComponent from './LogoComponent';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
-import logo from './TeamLogo.PNG'
+import logo from './LogoCarbonteam.png'
 const useStyles = createUseStyles({
     separator: {
         borderTop: ({ theme }) => `1px solid ${theme.color.lightGrayishBlue}`,
@@ -45,8 +45,9 @@ function SidebarComponent() {
 
     return (
         <Menu isMobile={isMobile}>
-            <div style={{ paddingTop: 30, paddingBottom: 30 }}>
-            <img src={logo} style={{padding:10}} />
+
+            <div style={{ paddingTop: 20, paddingBottom: 20 }}>
+            <img src={logo} />
             </div>
             <MenuItem
                 id={SLUGS.dashboard}
@@ -135,7 +136,7 @@ function SidebarComponent() {
                 icon={IconAgents}
                 onClick={() => onClick(SLUGS.agents)}
             />
-            <MenuItem
+            {/* <MenuItem
                 id={SLUGS.articles}
                 title='Articles'
                 icon={IconArticles}
@@ -146,7 +147,7 @@ function SidebarComponent() {
                 title='Subscription'
                 icon={IconSubscription}
                 onClick={() => onClick(SLUGS.subscription)}
-            />
+            /> */}
             <div className={classes.separator}></div>
             <MenuItem
                 id={SLUGS.settings}
