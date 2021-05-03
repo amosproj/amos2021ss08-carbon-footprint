@@ -66,26 +66,39 @@ function SidebarComponent() {
             </div>
             <MenuItem
                 id={SLUGS.categories}
-                items={['/Category1', '/Category2', '/Category3']}
+                items={[SLUGS.generation, SLUGS.transmission, SLUGS.industrialApplications]}
                 title='Browse'
                 icon={IconHome}
                 onClick={() => onClick(SLUGS.categories)}
             >
-
+                <MenuItem
+                    id={SLUGS.generation}
+                    title='Generation'
+                    level={2}
+                    icon={IconOverview}
+                    onClick={() => onClick(SLUGS.generation)}
+                />
+                <MenuItem
+                    id={SLUGS.transmission}
+                    title='Transmission'
+                    level={2}
+                    icon={IconContacts}
+                    onClick={() => onClick(SLUGS.transmission)}
+                />
+                <MenuItem
+                    id={SLUGS.industrialApplications}
+                    title='Industrial Applications'
+                    level={2}
+                    icon={IconHome}
+                    onClick={() => onClick(SLUGS.industrialApplications)}
+                />
             </MenuItem>
-
             <MenuItem
                 id={SLUGS.dashboard}
                 title='My Dashboard'
                 icon={IconHome}
                 onClick={() => onClick(SLUGS.dashboard)}
             />
-            {/* <MenuItem
-                id={SLUGS.home}
-                title='Home'
-                icon={IconHome}
-                onClick={() => onClick(SLUGS.home)}
-            /> */}
             <MenuItem
                 id={SLUGS.scenerios}
                 items={[SLUGS.overview, SLUGS.comparison]}

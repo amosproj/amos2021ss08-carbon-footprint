@@ -73,7 +73,7 @@ function HeaderComponent() {
         case currentItem === SLUGS.dashboard:
             title = 'My Dashboard';
             break;
-        // case currentItem === SLUGS.dashboard:
+        // case currentItem === SLUGS.generation:
         //     title = 'Inbox';
         //     break;
         case [SLUGS.overview, SLUGS.overviewTwo, SLUGS.overviewThree].includes(currentItem):

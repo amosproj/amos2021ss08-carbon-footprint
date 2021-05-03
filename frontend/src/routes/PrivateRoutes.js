@@ -12,8 +12,11 @@ function PrivateRoutes() {
                 <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
                 <Route exact path={SLUGS.scenerios} component={ScenariosComponent} /> 
                 <Route exact path={SLUGS.overview} component={ScenariosDashboardComponent} />
+                <Route exact path={SLUGS.generation} render={() => <div>Generation</div>}/>
+                <Route exact path={SLUGS.transmission} render={() => <div>Transmission</div>}/>
+                <Route exact path={SLUGS.industrialApplications} render={() => <div>Industrial Applications</div>} />
+                <Route exact path={SLUGS.overview} component={ScenariosDashboardComponent} />
                 <Route exact path={SLUGS.comparison} render={() => <div>comparison</div>} />   
-                <Route exact path={SLUGS.quickquide} render={() => <div>Quick Guide!</div>} />
                 <Route exact path={SLUGS.inbox} render={() => <div>inbox</div>} />
                 {/* <Route exact path={SLUGS.overviewTwo} component={DropdownComponent}/> */}
                 <Route exact path={SLUGS.overviewThree} render={() => <div>overviewThree</div>} />
