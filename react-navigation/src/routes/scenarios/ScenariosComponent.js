@@ -5,6 +5,7 @@ import { IconCheckboxOn, IconCheckboxOff } from 'assets/icons';
 import CardComponent from 'components/cards/CardComponent';
 import SLUGS from 'resources/slugs';
 import { Link, Route } from 'react-router-dom';
+window.x=[]
 const useStyles = createUseStyles((theme) => ({
     addButton: {
         backgroundColor: theme.color.lightGrayishBlue,
@@ -70,10 +71,10 @@ function ScenariosComponent(props) {
             newItems[index].checked = newItems[index].checked ? false : true;
             console.log("HI!" + newItems);
             if(newItems[index].checked) {
-                selecteditems.push(newItems[index]);
+                window.x.push(newItems[index]);
             }
             console.log("Checkbox Items: ");
-            console.log(selecteditems); 
+            console.log(selecteditems);
             return newItems;
         });
 

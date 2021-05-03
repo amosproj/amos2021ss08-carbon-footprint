@@ -13,7 +13,8 @@ import {
     IconSubscription,
     IconTickets,
     IconInbox,
-    IconHome
+    IconHome,
+    IconPiChart
 } from 'assets/icons';
 import { convertSlugToUrl } from 'resources/utilities';
 import LogoComponent from './LogoComponent';
@@ -123,7 +124,7 @@ function SidebarComponent() {
             </MenuItem>
             <MenuItem
                 id={SLUGS.tickets}
-                title='Tickets'
+                title='Quick Guide'
                 icon={IconTickets}
                 onClick={() => onClick(SLUGS.tickets)}
             />

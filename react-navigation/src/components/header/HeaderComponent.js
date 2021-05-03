@@ -73,9 +73,9 @@ function HeaderComponent() {
         case currentItem === SLUGS.dashboard:
             title = 'My Dashboard';
             break;
-        case currentItem === SLUGS.dashboard:
-            title = 'Inbox';
-            break;
+        // case currentItem === SLUGS.dashboard:
+        //     title = 'Inbox';
+        //     break;
         case [SLUGS.overview, SLUGS.overviewTwo, SLUGS.overviewThree].includes(currentItem):
             title = 'Overview';
             break;
@@ -83,7 +83,10 @@ function HeaderComponent() {
             title = 'Categories';
             break;
         case [SLUGS.ideas, SLUGS.ideasTwo, SLUGS.ideasThree].includes(currentItem):
-            title = 'Ideas';
+            title = 'My inbox';
+            break;
+        case currentItem === SLUGS.quickguide:
+            title = 'Quick Guide';
             break;
         case currentItem === SLUGS.contacts:
             title = 'Contacts';
