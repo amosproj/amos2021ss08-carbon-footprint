@@ -57,9 +57,3 @@ Although the code has been totally refactored, in order to use of functional com
 ## License
 
 This software is released under the [MIT License](https://github.com/llorentegerman/react-admin-dashboard/blob/master/LICENSE).
-
-## Author
-
-![me](https://avatars3.githubusercontent.com/u/21162888?s=100&v=4)
-
-[Germán Llorente](https://github.com/llorentegerman)
