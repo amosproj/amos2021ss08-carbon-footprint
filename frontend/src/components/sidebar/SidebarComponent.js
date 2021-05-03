@@ -58,12 +58,6 @@ function SidebarComponent() {
     }
 
 
-    let state = {
-        categories: ['Generation', 'Transmission', 'Industrial']
-    }
-    const menuItems = state.categories.map(mapperFunction);
-    console.log(menuItems);
-
     return (
         <Menu isMobile={isMobile}>
 
@@ -77,10 +71,9 @@ function SidebarComponent() {
                 icon={IconHome}
                 onClick={() => onClick(SLUGS.categories)}
             >
-                {
-                    menuItems
-                }
+
             </MenuItem>
+
             <MenuItem
                 id={SLUGS.dashboard}
                 title='My Dashboard'
