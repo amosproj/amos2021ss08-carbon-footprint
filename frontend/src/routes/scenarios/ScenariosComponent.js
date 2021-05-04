@@ -98,7 +98,6 @@ function ScenariosComponent(props) {
             if(newItems[index].checked) {
                 selecteditems.push(newItems[index]);
             }
-            alert (JSON.stringify(selecteditems))
             console.log("Checkbox Items: ");
             console.log(selecteditems[index]);
                 
@@ -127,7 +126,7 @@ function ScenariosComponent(props) {
 
     // array1.forEach(element => console.log(element));
     function onAddButtonClick() {
-        console.log(selecteditems);
+        alert (JSON.stringify(selecteditems))
         return selecteditems;
         // console.log(index);
         // index = 1 ;
