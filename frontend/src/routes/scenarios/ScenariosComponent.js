@@ -5,6 +5,30 @@ import { IconCheckboxOn, IconCheckboxOff } from 'assets/icons';
 import CardComponent from 'components/cards/CardComponent';
 import SLUGS from 'resources/slugs';
 import { Link, Route } from 'react-router-dom';
+import styled, { css } from 'styled-components'
+import { object } from 'prop-types';
+
+
+
+const Button = styled.button`
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  top: 80%;
+  left:50%;
+  font-size: 12;
+  cursor: pointer;
+  box-shadow: rgba(255, 255, 255, 0.05) 0px 3px 20px;
+  background-color: green;
+  color:white;
+  &:hover {
+        background-color: darkgreen;
+        color: grey;
+  }
+`
+
+
+
 window.x=[]
 const useStyles = createUseStyles((theme) => ({
     addButton: {
@@ -16,6 +40,7 @@ const useStyles = createUseStyles((theme) => ({
     itemTitle: {
         ...theme.typography.itemTitle,
         color: theme.color.veryDarkGrayishBlue
+    
 
     },
     itemValue: {
@@ -51,13 +76,13 @@ function ScenariosComponent(props) {
     console.log(selecteditems)
     // TODO: the place where we need to get the data from SimaPRO!!
     let [items, setItems] = useState([
-        { title: 'Scenarios-bike', checked: false, tag: TAGS.URGENT },
+        { title: 'Scenarios-bike', checked: false /*, tag: TAGS.URGENT*/ },
         {
             title: 'Scenarios 2-gas turbin',
             checked: false,
-            tag: TAGS.NEW
+            /*tag: TAGS.NEW*/
         },
-        { title: 'Scenarios 3-solar panel', checked: false, tag: TAGS.DEFAULT }
+        { title: 'Scenarios 3-solar panel', checked: false /*, tag: TAGS.DEFAULT */}
     ]);
 
     function onCheckboxClick(index) {
@@ -71,10 +96,12 @@ function ScenariosComponent(props) {
             newItems[index].checked = newItems[index].checked ? false : true;
             console.log("HI!" + newItems);
             if(newItems[index].checked) {
-                window.x.push(newItems[index]);
+                selecteditems.push(newItems[index]);
             }
+            alert (JSON.stringify(selecteditems))
             console.log("Checkbox Items: ");
-            console.log(selecteditems);
+            console.log(selecteditems[index]);
+                
             return newItems;
         });
 
@@ -122,25 +149,29 @@ function ScenariosComponent(props) {
     //     });
     }
 
+
     function renderAddButton() {
         return (
 
-
+  
             <Link to={{ // Link to the next page
                 pathname: SLUGS.details,
                 data: selecteditems
               }}>
-                {/* <button onClick={onAddButtonClick} > Click Me </button> */}
-            <Row
+                {/* <butt            on onClick={onAddButtonClick} > Click Me </button> */}
+                <Button onClick={onAddButtonClick}>Ok</Button>
+            {/* <Row
                 horizontal='center'
                 vertical='center'
                 className={[classes.tagStyles, classes.addButton].join(' ')}
                 onClick={onAddButtonClick}
             >
                 +
-            </Row>
-
+            </Row> */}
+            
             </Link>
+            
+
 
             
             // <Row
@@ -193,6 +224,7 @@ function TaskComponent({ classes, index, item = {}, onCheckboxClick, onTagClick 
                     {item.checked ? <IconCheckboxOn /> : <IconCheckboxOff />}
                 </div>
                 <span className={classes.itemTitle}>{item.title}</span>
+            
             </Row>
             <TagComponent
                 backgroundColor={tag.backgroundColor}
@@ -213,7 +245,7 @@ function TagComponent({ backgroundColor, classes, color, index, onClick, text })
             vertical='center'
             style={{ backgroundColor, color }}
             className={classes.tagStyles}
-            onClick={() => onClick(index)}
+            onClick={() => onClick(index) }
         >
             {text}
         </Row>
