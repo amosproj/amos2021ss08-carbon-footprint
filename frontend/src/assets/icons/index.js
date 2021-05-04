@@ -17,6 +17,11 @@ import IconTickets from './icon-tickets';
 import IconInbox from './icon-inbox';
 import IconHome from './icon-home';
 import IconLogin from './icon-login';
+import IconPower from './icon-power';
+import IconTransmission from './icon-transmission';
+import IconArrow from './icon-arrow';
+import IconBrowse from './icon-browse';
+import IconBuilding from './icon-building';
 
 export {
     IconCheckboxOff,
@@ -37,5 +42,10 @@ export {
     IconTickets, 
     IconInbox,
     IconHome,
-    IconLogin
+    IconLogin,
+    IconPower,
+    IconTransmission,
+    IconArrow,
+    IconBrowse,
+    IconBuilding
 };

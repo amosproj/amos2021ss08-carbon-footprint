@@ -5,7 +5,7 @@ import { Row } from 'simple-flexbox';
 import { createUseStyles, useTheme } from 'react-jss';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
-import { IconBell, IconSearch } from 'assets/icons';
+import { IconBell, IconBrowse, IconLogin, IconSearch } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
 
 const useStyles = createUseStyles((theme) => ({
@@ -148,14 +148,19 @@ function HeaderComponent() {
                 <div className={classes.separator}></div>
                 <DropdownComponent
                     label={
-                        <>
-                            <span className={classes.name}>Germán Llorente</span>
-                            <img
+                    <span className={classes.name} >User Name
+                        <IconLogin>  
+                        
+  
+                            {/* <img
                                 src='https://avatars3.githubusercontent.com/u/21162888?s=460&v=4'
                                 alt='avatar'
                                 className={classes.avatar}
-                            />
-                        </>
+                            /> */}
+      
+                    </IconLogin>
+                    </span>  
+                       
                     }
                     options={[
                         {
