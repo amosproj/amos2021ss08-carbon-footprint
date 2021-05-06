@@ -1,8 +1,8 @@
 # Carbon Footprint | AMOS Project 8
 
-## Folder Structure
+## [Frontend](/frontend) Folder Structure
 
-### base folder: /src:
+### base folder: [/src](/frontend/src):
 
 -   **/assets**:
     /icons: SVGs icons
