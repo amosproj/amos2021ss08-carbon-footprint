@@ -18,17 +18,17 @@ export function getProducts() {
 export function getModels() {
     return (  [
                             {
-                                key:`option-1#`,
+                                value:`option-1#`,
                                 label: 'Transformer 3-phase GSU',
                                 onClick: () => console.log('Transformer 3-phase GSU')
                             },
                             {
-                                key:`option-2#`,
+                                value:`option-2#`,
                                 label: 'Transformer 3-phase GSU #2',
                                 onClick: () => console.log('Transformer 3-phase GSU')
                             },
                             {
-                                key:`option-3#`,
+                                value:`option-3#`,
                                 label: 'Transformer 3-phase GSU #3',
                                 onClick: () => console.log('Transformer 3-phase GSU')
                             },

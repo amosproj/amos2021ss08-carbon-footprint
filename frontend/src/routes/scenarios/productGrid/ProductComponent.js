@@ -5,6 +5,7 @@ import MiniCardComponent from 'components/cards/MiniCardComponent';
 import logo from 'assets/logo/LogoCarbonteam.png'
 import DropdownComponent from 'components/dropdown';
 import {getModels, getProducts} from 'interface/projectInterface'
+import Dropdownbutton from "./Dropdownbutton"
 
 // Card component style properties
 const useStyles = createUseStyles({
@@ -72,43 +73,14 @@ function ProductComponent() {
                 >
                {products.map((product,index) => 
 
-              
-                    <DropdownComponent 
-                        key={`option-${index}`}
-                        label={    
-                            <MiniCardComponent 
-                            className={classes.miniCardContainer}
-                            // define the path of the image to show on the cards
-                            path={product}
-    
-                       />  }
-                        options={getModels() //TODO: declare and write.
-                            
-                            /* [
-                            {
-                                key:`option-${index}#`,
-                                label: 'Transformer 3-phase GSU',
-                                onClick: () => console.log('Transformer 3-phase GSU')
-                            },
-                            {
-                                key:`option-${index}#`,
-                                label: 'Transformer 3-phase GSU #2',
-                                onClick: () => console.log('Transformer 3-phase GSU')
-                            },
-                            {
-                                key:`option-${index}#`,
-                                label: 'Transformer 3-phase GSU #3',
-                                onClick: () => console.log('Transformer 3-phase GSU')
-                            },
- 
-                        ] */
+                <Column><MiniCardComponent
+
+                className={classes.miniCardContainer}
+                // define the path of the image to show on the cards
+                path={product}
+
+           /> <Dropdownbutton/> </Column>
                     
-                    }
-                        position={{
-                            top: 30,
-                            right: -14
-                        }}
-                        />
 
                   )     
                         
