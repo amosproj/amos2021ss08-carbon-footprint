@@ -2,11 +2,10 @@ import React, { Suspense, lazy } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import LoadingComponent from 'components/loading';
-const ScenariosDashboardComponent = lazy(() => import('./scenarios/scenariosdashboard'));
+const ProductComponent = lazy(() => import('./scenarios/productGrid'));
 const ProductSolutionsServices = lazy(() => import('./dynamicPaths/ProductSolutionsServicesComponent'));
 // importing required components
 const DashboardComponent = lazy(() => import('./dashboard'));
-const ScenariosComponent = lazy(() => import('./scenarios'));
 
 // Defining new Routes using private routes function where they are all defined in navigation bar in the "Sidebar component"
 function PrivateRoutes() {
@@ -23,7 +22,7 @@ function PrivateRoutes() {
                 <Route path={SLUGS.generation+'/:type'} component={ProductSolutionsServices} />
                 <Route path={SLUGS.transmission+'/:type'} component={ProductSolutionsServices} />
                 <Route path={SLUGS.industrialApplications+'/:type'} component={ProductSolutionsServices} />
-                <Route exact path={SLUGS.overview} component={ScenariosDashboardComponent} />
+                <Route exact path={SLUGS.overview} component={ProductComponent} />
                 <Route exact path={SLUGS.comparison} render={() => <div>comparison</div>} />   
                 <Route exact path={SLUGS.inbox} render={() => <div>inbox</div>} />
                 {/* <Route exact path={SLUGS.overviewTwo} component={DropdownComponent}/> */}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { Column, Row } from 'simple-flexbox';
 import { SidebarComponent, SidebarContext } from 'components/sidebar';
@@ -31,6 +31,8 @@ const useStyles = createUseStyles({
 function PrivateSection() {
     const theme = useTheme();
     const classes = useStyles({ theme });
+
+    const [selectedProducts, setSelectedProducts] = useState(null);
 
     return (
         <SidebarContext>

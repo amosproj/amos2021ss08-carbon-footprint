@@ -16,7 +16,9 @@ import {
 import { convertSlugToUrl } from 'resources/utilities';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
-import logo from './LogoCarbonteam.png'
+import logo from 'assets/logo/LogoCarbonteam.png';
+
+
 const useStyles = createUseStyles({
     separator: {
         borderTop: ({ theme }) => `1px solid ${theme.color.lightGrayishBlue}`,

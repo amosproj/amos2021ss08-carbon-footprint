@@ -2,12 +2,9 @@ import React from 'react';
 import { Column, Row } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import logo from './LogoCarbonteam.png'
-import logo_1 from './Image_1.PNG'
-import logo_2 from './Image_2.PNG'
-import SLUGS from 'resources/slugs';
-import { Link } from 'react-router-dom';
+import logo from 'assets/logo/LogoCarbonteam.png'
 import DropdownComponent from 'components/dropdown';
+import {getModels, getProducts} from 'interface/projectInterface'
 
 // Card component style properties
 const useStyles = createUseStyles({
@@ -60,7 +57,8 @@ const useStyles = createUseStyles({
 function ProductComponent() {
 
     //list the product images 
-    const products = [logo,logo_1,logo_2,logo_1,logo_2,logo_1];
+    const products = getProducts(); //TODO: declare and write.
+    // [logo,logo_1,logo_2,logo_1,logo_2,logo_1];
     const classes = useStyles();
     return (
         <Column>                
@@ -72,7 +70,7 @@ function ProductComponent() {
                     vertical='center'
                     breakpoints={{ 50: 'column' }}
                 >
-               {products.map((item,index) => 
+               {products.map((product,index) => 
 
               
                     <DropdownComponent 
@@ -81,10 +79,12 @@ function ProductComponent() {
                             <MiniCardComponent 
                             className={classes.miniCardContainer}
                             // define the path of the image to show on the cards
-                            path={item}
+                            path={product}
     
                        />  }
-                        options={[
+                        options={getModels() //TODO: declare and write.
+                            
+                            /* [
                             {
                                 key:`option-${index}#`,
                                 label: 'Transformer 3-phase GSU',
@@ -101,7 +101,9 @@ function ProductComponent() {
                                 onClick: () => console.log('Transformer 3-phase GSU')
                             },
  
-                        ]}
+                        ] */
+                    
+                    }
                         position={{
                             top: 30,
                             right: -14
