@@ -22,6 +22,12 @@ const useStyles = createUseStyles({
     }
 });
 
+/**
+ * The Top-Level Component of our application, once the User is logged in.
+ * 
+ * @returns A Page that consists out of the Sidebar, a Header and the different Components specified in PrivateRoutes.js
+ */
+
 function PrivateSection() {
     const theme = useTheme();
     const classes = useStyles({ theme });

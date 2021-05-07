@@ -59,9 +59,15 @@ const useStyles = createUseStyles((theme) => ({
     }
 }));
 
+/**
+ * The Header Component is a shared component between all pages. It is capable to display 
+ * a title that changes when the selection in the SidebarComponent changes. 
+ * 
+ * @returns The visualization of exactly that.
+ */
 function HeaderComponent() {
     const { push } = useHistory();
-    const { currentItem } = useContext(SidebarContext);
+    const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
     const theme = useTheme();
     const classes = useStyles({ theme });
 
