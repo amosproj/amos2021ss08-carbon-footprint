@@ -4,12 +4,12 @@ import { createUseStyles, useTheme } from 'react-jss';
 import { IconCheckboxOn, IconCheckboxOff } from 'assets/icons';
 import CardComponent from 'components/cards/CardComponent';
 import SLUGS from 'resources/slugs';
-import { Link, Route } from 'react-router-dom';
-import styled, { css } from 'styled-components'
-import { object } from 'prop-types';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components'
 
 
 
+// button style reconfiguration
 const Button = styled.button`
   position: absolute;
   height: 5%;
@@ -29,7 +29,7 @@ const Button = styled.button`
 
 
 
-window.x=[]
+
 const useStyles = createUseStyles((theme) => ({
     addButton: {
         backgroundColor: theme.color.lightGrayishBlue,
@@ -72,6 +72,7 @@ const TAGS = {
 function ScenariosComponent(props) {
     const theme = useTheme();
     const classes = useStyles({ theme });
+    //selected items values 
     let [selecteditems,setSelecteds]=useState([]);
     console.log(selecteditems)
     // TODO: the place where we need to get the data from SimaPRO!!
@@ -92,9 +93,12 @@ function ScenariosComponent(props) {
         setItems((prev) => {
             console.log("PREV:");
             console.log(prev);
+            // the place where we get the all the list data shown in the table!!
             const newItems = [...prev];
             newItems[index].checked = newItems[index].checked ? false : true;
             console.log("HI!" + newItems);
+
+             // the place where we get the all selected data from the list shown in the table!!
             if(newItems[index].checked) {
                 selecteditems.push(newItems[index]);
             }
@@ -105,11 +109,13 @@ function ScenariosComponent(props) {
         });
 
         setSelecteds(() => {
-
+        
         return selecteditems;
         
      } ) 
     }
+
+    //todo: we may not need this funcs related to Tags!
     function getNextTag(current = 'URGENT') {
         const tagLabels = ['URGENT', 'NEW', 'DEFAULT'];
         const tagIndex = (tagLabels.indexOf(current) + 1) % 3;
@@ -128,24 +134,7 @@ function ScenariosComponent(props) {
     function onAddButtonClick() {
         alert (JSON.stringify(selecteditems))
         return selecteditems;
-        // console.log(index);
-        // index = 1 ;
-    //     setItems((prev) => {
-    //         console.log("Our prev");
-    //         console.log(prev);
-    //         // const newItems = [...prev];
-    //         // console.log("HI!" + newItems);
-    //         //     if(newItems.checked) {
-    //         //         selecteditems.push(newItems);
-    //         //     }
 
-    //         // // newItems.push({
-    //         // //     title: `Task ${newItems.length + 1}`,
-    //         // //     checked: true,
-    //         // //     tag: getNextTag()
-    //         // // });
-
-    //     });
     }
 
 
@@ -157,30 +146,11 @@ function ScenariosComponent(props) {
                 pathname: SLUGS.details,
                 data: selecteditems
               }}>
-                {/* <butt            on onClick={onAddButtonClick} > Click Me </button> */}
                 <Button onClick={onAddButtonClick}>Ok</Button>
-            {/* <Row
-                horizontal='center'
-                vertical='center'
-                className={[classes.tagStyles, classes.addButton].join(' ')}
-                onClick={onAddButtonClick}
-            >
-                +
-            </Row> */}
-            
-            </Link>
+              </Link>
             
 
 
-            
-            // <Row
-            //     horizontal='center'
-            //     vertical='center'
-            //     className={[classes.tagStyles, classes.addButton].join(' ')}
-            //     onClick={onAddButtonClick}
-            // >
-            //     +
-            // </Row>
         );
     }
 
@@ -220,6 +190,7 @@ function TaskComponent({ classes, index, item = {}, onCheckboxClick, onTagClick 
         <Row horizontal='space-between' vertical='center'>
             <Row>
                 <div className={classes.checkboxWrapper} onClick={() =>onCheckboxClick(index)}>
+                    {/* button check control */}
                     {item.checked ? <IconCheckboxOn /> : <IconCheckboxOff />}
                 </div>
                 <span className={classes.itemTitle}>{item.title}</span>

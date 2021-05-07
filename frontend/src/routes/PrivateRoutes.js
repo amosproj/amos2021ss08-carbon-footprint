@@ -4,15 +4,19 @@ import SLUGS from 'resources/slugs';
 import LoadingComponent from 'components/loading';
 const ScenariosDashboardComponent = lazy(() => import('./scenarios/scenariosdashboard'));
 const ProductSolutionsServices = lazy(() => import('./dynamicPaths/ProductSolutionsServicesComponent'));
+// importing required components
 const DashboardComponent = lazy(() => import('./dashboard'));
 const ScenariosComponent = lazy(() => import('./scenarios'));
+
+// Defining new Routes using private routes function where they are all defined in navigation bar in the "Sidebar component"
 function PrivateRoutes() {
     return (
         <Suspense fallback={<LoadingComponent loading />}>
             <Switch>
+
                 <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
                 <Route exact path={SLUGS.details} render={() => <div>The view where the user can select variables and see the graphs will be implemented here.</div>} />
-                <Route exact path={SLUGS.overview} component={ScenariosDashboardComponent} />
+                <Route exact path={SLUGS.overview} component={DashboardComponent} />
                 <Route exact path={SLUGS.generation} render={() => <div>Short info about Generation category</div>}/>
                 <Route exact path={SLUGS.transmission} render={() => <div>Short info about Transmission category</div>}/>
                 <Route exact path={SLUGS.industrialApplications} render={() => <div>Short info about Industrial Applications</div>} />

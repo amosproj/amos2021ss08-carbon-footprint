@@ -3,13 +3,16 @@ import { arrayOf, element, func, number, oneOfType, shape, string } from 'prop-t
 import { Column } from 'simple-flexbox';
 import { createUseStyles, useTheme } from 'react-jss';
 import { IconArrowUp } from 'assets/icons';
-
+import SLUGS from 'resources/slugs';
+import { Link } from 'react-router-dom';
 const useStyles = createUseStyles((theme) => ({
+    //change thwe arrow position 
     arrowContainer: {
         position: 'absolute',
         top: -19,
         right: 15
     },
+    // dropdown button reconfiguration 
     dropdownButton: {
         alignItems: 'center',
         background: 'transparent',
@@ -22,32 +25,36 @@ const useStyles = createUseStyles((theme) => ({
     dropdownContainer: {
         position: 'relative'
     },
+    
     dropdownItemsContainer: {
         background: 'white',
         border: `1px solid ${theme.color.lightGrayishBlue2}`,
         borderRadius: 5,
-        minWidth: 170,
+        minWidth: 100,
         padding: 0,
         position: 'absolute',
-        width: '100%',
+        width: '60%',
         top: ({ position }) => position.top,
-        right: ({ position }) => position.right,
-        bottom: ({ position }) => position.bottom,
+        right: ({ position }) => position.right+52,
+        bottom: ({ position }) => position.bottom-10,
         left: ({ position }) => position.left,
         '& button:first-of-type:hover div > svg > path': {
-            fill: theme.color.paleBlue
+            fill: 'white'
         }
     },
     dropdownItem: {
         cursor: 'pointer',
         background: 'transparent',
         border: 'none',
-        fontSize: 16,
+        fontSize: 10,
         outline: 'none',
         padding: '10px 10px',
+        //color change of the text on the dropdownbox  whhle moving the cursor
         '&:hover': {
-            background: theme.color.paleBlue
+            background: 'green',
+            color:'white'
         },
+        //color of the text on the dropdownbox
         '&:after': {
             content: '" "',
             display: 'block',
@@ -86,6 +93,10 @@ function DropdownComponent({ label, options, position }) {
             {userMenuOpen && (
                 <Column className={classes.dropdownItemsContainer}>
                     {options.map((option, index) => (
+                        // when one of the items in the dropdownbox menu ,navigate the next page !
+                    <Link to={{ // Link to the next page
+                        pathname: SLUGS.details,
+                        }}>
                         <button
                             key={`option-${index}`}
                             className={classes.dropdownItem}
@@ -98,6 +109,7 @@ function DropdownComponent({ label, options, position }) {
                                 </div>
                             )}
                         </button>
+                        </Link>
                     ))}
                 </Column>
             )}
@@ -123,8 +135,8 @@ DropdownComponent.propTypes = {
 
 DropdownComponent.defaultProps = {
     position: {
-        top: 52,
-        right: -6
+        top: 100,
+        right: -3
     }
 };
 

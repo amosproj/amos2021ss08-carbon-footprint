@@ -3,10 +3,6 @@ import { createUseStyles, useTheme } from 'react-jss';
 import { useHistory } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import {
-    IconAgents,
-    IconArticles,
-    IconContacts,
-    IconIdeas,
     IconLogout,
     IconOverview,
     IconSettings,
@@ -18,7 +14,6 @@ import {
     IconBuilding
 } from 'assets/icons';
 import { convertSlugToUrl } from 'resources/utilities';
-import LogoComponent from './LogoComponent';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
 import logo from './LogoCarbonteam.png'
@@ -81,6 +76,7 @@ function SidebarComponent() {
             <MenuItem
                 id={SLUGS.dashboard}
                 title='My Dashboard'
+                // where all the icons are defined in 'assets/icons' in svg format
                 icon={IconHome}
                 onClick={() => onClick(SLUGS.dashboard)}
             />
@@ -196,72 +192,8 @@ function SidebarComponent() {
                     icon={IconOverview}
                     onClick={() => onClick(SLUGS.overview)}
                 />
-                {/* <MenuItem // Not required for this sprint
-                    id={SLUGS.comparison}
-                    title='Comparison'       // display two senerios for diff scenerison
-                    level={2}
-                    icon={IconContacts}
-                    onClick={() => onClick(SLUGS.comparison)}
-                /> */}
             </MenuItem>
-           {/*  <MenuItem
-                id={SLUGS.tickets}
-                title='Quick Guide'
-                icon={IconTickets}
-                onClick={() => onClick(SLUGS.tickets)}
-            /> */}
-            {/* <MenuItem
-                id={SLUGS.ideas}
-                items={[SLUGS.ideasTwo, SLUGS.ideasThree]}
-                title='Ideas'
-                icon={IconIdeas}
-            >
-                <MenuItem
-                    id={SLUGS.ideas}
-                    title='Sub Item 1'
-                    level={2}
-                    icon={IconAgents}
-                    onClick={() => onClick(SLUGS.ideas)}
-                />
-                <MenuItem
-                    id={SLUGS.ideasTwo}
-                    title='Sub Item 2'
-                    level={2}
-                    icon={IconContacts}
-                    onClick={() => onClick(SLUGS.ideasTwo)}
-                />
-                <MenuItem
-                    id={SLUGS.ideasThree}
-                    title='Sub Item 3'
-                    level={2}
-                    icon={IconArticles}
-                    onClick={() => onClick(SLUGS.ideasThree)}
-                />
-            </MenuItem> */}
-            {/* <MenuItem
-                id={SLUGS.contacts}
-                title='Contacts'
-                icon={IconContacts}
-                onClick={() => onClick(SLUGS.contacts)}
-            />
-            <MenuItem
-                id={SLUGS.agents}
-                title='Agents'
-                icon={IconAgents}
-                onClick={() => onClick(SLUGS.agents)}
-            /> */}
-            {/* <MenuItem
-                id={SLUGS.articles}
-                title='Articles'
-                icon={IconArticles}
-                onClick={() => onClick(SLUGS.articles)}
-            />
-            <MenuItem
-                id={SLUGS.subscription}
-                title='Subscription'
-                icon={IconSubscription}
-                onClick={() => onClick(SLUGS.subscription)}
-            /> */}
+
             <div className={classes.separator}></div>
             <MenuItem
                 id={SLUGS.settings}

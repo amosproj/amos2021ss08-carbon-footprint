@@ -1,3 +1,2 @@
-import ScenariosDashboardComponent from './ScenariosDashboardComponent';
-
-export default ScenariosDashboardComponent;
+import ProductComponent from './ProductComponent';
+export default ProductComponent;
