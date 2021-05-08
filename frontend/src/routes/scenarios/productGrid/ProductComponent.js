@@ -62,32 +62,25 @@ function ProductComponent() {
     // [logo,logo_1,logo_2,logo_1,logo_2,logo_1];
     const classes = useStyles();
     return (
-        <Column>                
+        <Column>
 
-               <Row
-                    className={classes.cardRow}
-                    wrap
-                    flexGrow={1}
-                    vertical='center'
-                    breakpoints={{ 50: 'column' }}
-                >
-               {products.map((product,index) => 
-
-                <Column><MiniCardComponent
-
-                className={classes.miniCardContainer}
-                // define the path of the image to show on the cards
-                path={product}
-
-           /> <Dropdownbutton/> </Column>
-                    
-
-                  )     
-                        
-}
-
-
-
+            <Row
+                className={classes.cardRow}
+                wrap
+                flexGrow={1}
+                vertical='center'
+                breakpoints={{ 50: 'column' }}
+            >
+                {products.map((product, index) =>
+                    <Column>
+                        <MiniCardComponent
+                            className={classes.miniCardContainer}
+                            // define the path of the image to show on the cards
+                            path={product}
+                        />
+                        <Dropdownbutton />
+                    </Column>
+                )}
             </Row>
         </Column>
     );
