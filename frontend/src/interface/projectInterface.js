@@ -3,7 +3,7 @@ import logo_1 from 'assets/dummyImages/Image_1.PNG'
 import logo_2 from 'assets/dummyImages/Image_2.PNG'
 
 /**
- * should get all the Products from the backend (soon)
+ * should get all the Products from the backend (soon) //TODO: declare and write.
  * @returns 
  */
 export function getProducts() {

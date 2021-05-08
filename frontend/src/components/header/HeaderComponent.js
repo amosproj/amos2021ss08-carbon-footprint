@@ -7,6 +7,7 @@ import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
 import { IconBell, IconBrowse, IconLogin, IconSearch } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
+import {PrivateSectionContext} from 'resources/PrivateSectionContext';
 
 const useStyles = createUseStyles((theme) => ({
     avatar: {
@@ -68,9 +69,12 @@ const useStyles = createUseStyles((theme) => ({
 function HeaderComponent() {
     const { push } = useHistory();
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
+    const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
     const theme = useTheme();
     const classes = useStyles({ theme });
 
+
+    console.log(selectedProducts);
     let title;
     switch (true) {
         case currentItem === SLUGS.home:
@@ -91,8 +95,8 @@ function HeaderComponent() {
         case [SLUGS.ideas, SLUGS.ideasTwo, SLUGS.ideasThree].includes(currentItem):
             title = 'My inbox';
             break;
-        case currentItem === SLUGS.quickguide:
-            title = 'Quick Guide';
+        case currentItem === SLUGS.details:
+            title = selectedProducts[0];
             break;
         case currentItem === SLUGS.contacts:
             title = 'Contacts';
