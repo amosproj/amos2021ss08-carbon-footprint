@@ -10,7 +10,10 @@ const ProductSolutionsServices = lazy(() =>
 // importing required components
 const DashboardComponent = lazy(() => import('./dashboard'));
 
-// Defining new Routes using private routes function where they are all defined in navigation bar in the "Sidebar component"
+/**
+ * Defining new Routes using private routes function
+ * linking Components to the selected Menuitem in the "Sidebar component"
+  */
 function PrivateRoutes() {
     return (
         <Suspense fallback={<LoadingComponent loading />}>

@@ -5,7 +5,7 @@ import MiniCardComponent from 'components/cards/MiniCardComponent';
 import logo from 'assets/logo/LogoCarbonteam.png'
 import DropdownComponent from 'components/dropdown';
 import {getModels, getProducts} from 'interface/projectInterface'
-import Dropdownbutton from "./Dropdownbutton"
+import DropdownButton from "./DropdownButton"
 
 // Card component style properties
 const useStyles = createUseStyles({
@@ -57,9 +57,8 @@ const useStyles = createUseStyles({
  */
 function ProductComponent() {
 
-    //list the product images 
-    const products = getProducts(); //TODO: declare and write.
-    // [logo,logo_1,logo_2,logo_1,logo_2,logo_1];
+    //list the product images
+    const products = getProducts();
     const classes = useStyles();
     return (
         <Column>
@@ -78,7 +77,7 @@ function ProductComponent() {
                             // define the path of the image to show on the cards
                             path={product}
                         />
-                        <Dropdownbutton />
+                        <DropdownButton />
                     </Column>
                 )}
             </Row>

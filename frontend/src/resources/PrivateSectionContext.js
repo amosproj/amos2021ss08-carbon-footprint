@@ -8,17 +8,20 @@ export const PrivateSectionContext = createContext();
  * @param {*} props 
  * @returns 
  */
-export const StateProvider = props => {
+export const PrivateStateProvider = props => {
     const [selectedProducts, setSelectedProducts] = useState([
-        {a: 0}
+        {
+            productID: 0,
+            productName: 'Ich bin ein TEST'
+        },
+        {
+            productID: 1,
+            productName: 'Ich bin ein TE5T'
+        }
     ]);
 
-
-
-
-
     return (
-        <PrivateSectionContext.Provider >
+        <PrivateSectionContext.Provider value={[selectedProducts, setSelectedProducts]}>
             {props.children}
         </PrivateSectionContext.Provider>
     )
