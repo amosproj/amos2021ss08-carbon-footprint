@@ -71,7 +71,7 @@ function ProductComponent() {
                 breakpoints={{ 50: 'column' }}
             >
                 {products.map((product, index) =>
-                    <Column>
+                    <Column key={index}>
                         <MiniCardComponent
                             className={classes.miniCardContainer}
                             // define the path of the image to show on the cards
