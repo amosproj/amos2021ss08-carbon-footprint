@@ -1,8 +1,8 @@
-/*
+/** 
 the main component for detail page which includes 
 canvas page and variable drop down list 
 
-parham, 08.05
+@author parham, 08.05
 */
 
 import React, { Component } from 'react';
