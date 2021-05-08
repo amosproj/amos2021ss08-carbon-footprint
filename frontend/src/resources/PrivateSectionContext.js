@@ -1,6 +1,6 @@
 import React, {useState, createContext} from 'react';
 
-export const PrivateRoutesContext = createContext();
+export const PrivateSectionContext = createContext();
 
 /**
  * Defines a StateProvider, that passes down all its data to every child component.
@@ -18,9 +18,9 @@ export const StateProvider = props => {
 
 
     return (
-        <PrivateRoutesContext.Provider >
+        <PrivateSectionContext.Provider >
             {props.children}
-        </PrivateRoutesContext.Provider>
+        </PrivateSectionContext.Provider>
     )
 
 };
