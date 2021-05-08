@@ -17,21 +17,9 @@ export function getProducts() {
  */
 export function getModels() {
     return (  [
-                            {
-                                value:`option-1#`,
-                                label: 'Transformer 3-phase GSU',
-                                onClick: () => console.log('Transformer 3-phase GSU')
-                            },
-                            {
-                                value:`option-2#`,
-                                label: 'Transformer 3-phase GSU #2',
-                                onClick: () => console.log('Transformer 3-phase GSU')
-                            },
-                            {
-                                value:`option-3#`,
-                                label: 'Transformer 3-phase GSU #3',
-                                onClick: () => console.log('Transformer 3-phase GSU')
-                            },
+        { value: '1', country: 'variable 1' },
+        { id: '2', country: 'variable 2' },
+        { id: '3', country: 'variable 3' }
  
                         ]);
 }
