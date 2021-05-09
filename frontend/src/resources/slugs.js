@@ -1,3 +1,7 @@
+/**
+ * slugs.js defines all known path extensions
+ */
+
 export default {
     // private
     comparison: '/comparison',

@@ -1,9 +1,9 @@
-/** 
-the main component for detail page which includes 
-canvas page and variable drop down list 
-
-@author parham, 08.05
-*/
+/**
+ * the main component for detail page which includes  
+ * canvas page and variable drop down list  
+ * 
+ * @author parham, 08.05  
+ */
 
 import React, { Component } from 'react';
 import CanvasPage from './CanvasPageComponent';

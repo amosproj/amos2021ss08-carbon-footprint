@@ -1,3 +1,9 @@
+/**
+ * The projectInterface is the interface between frontend and backend.
+ * 
+ * @author Martin Wagner
+ */
+
 import logo from 'assets/logo/LogoCarbonteam.png'
 import logo_1 from 'assets/dummyImages/Image_1.PNG'
 import logo_2 from 'assets/dummyImages/Image_2.PNG'

@@ -7,6 +7,7 @@ import ProductComponent from 'routes/scenarios/productGrid';
  * This component differenciates between the three different possible subcategories.
  * 
  * @returns Three different lines of text, depending on the `:type` parameter used in routes/PrivateRoutes.js
+ * @author Martin Wagner
  */
 export default function ProductSolutionsServicesComponent() {
   const { type } = useParams();

@@ -1,3 +1,8 @@
+/**
+ * Top level Private Component (after Login)
+ * Here the look and feel for the whole webpage is defined.
+ */
+
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { Column, Row } from 'simple-flexbox';

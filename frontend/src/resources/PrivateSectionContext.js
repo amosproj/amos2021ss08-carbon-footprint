@@ -1,3 +1,9 @@
+/**
+ * The PrivateSectionContext enables cross-Component State-Management
+ * 
+ * @author Martin Wagner
+ */
+
 import React, {useState, createContext} from 'react';
 
 export const PrivateSectionContext = createContext();

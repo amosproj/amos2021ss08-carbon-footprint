@@ -1,3 +1,7 @@
+/**
+ * The PrivedRoutes Component handels all possible routes. Routing is used for linking the Sidebar-MenuItems to Components on the right handside canvas
+ */
+
 import React, { Suspense, lazy } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
