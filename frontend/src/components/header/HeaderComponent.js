@@ -76,6 +76,7 @@ function HeaderComponent() {
 
     console.log(selectedProducts);
     let title;
+    let subtitle;
     switch (true) {
         case currentItem === SLUGS.home:
             title = 'Home';
@@ -96,7 +97,7 @@ function HeaderComponent() {
             title = 'My inbox';
             break;
         case currentItem === SLUGS.details:
-            title = selectedProducts[0].productName;
+            title = selectedProducts[0].modelName;
             break;
         case currentItem === SLUGS.contacts:
             title = 'Contacts';

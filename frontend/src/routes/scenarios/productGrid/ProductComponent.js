@@ -1,18 +1,77 @@
 /**
- * The Componenet that displays all products of a certain category as a list.
+ * The Componenet creates new cards   for the product items using the minicard components form 'components/cards/MiniCardComponent'
+ * it displays all the related products images attached to each card in a certain category.
+ * Also stores the product and model properties and pass this values to the detail page once clicking on the image
+ * /**
  * 
+ * @returns the product and model properties
  * @author Irem
- */
+ */ 
 
-import React from 'react';
+import React, { useContext, useState }  from 'react';
 import { Column, Row } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import {getModels, getProducts} from 'interface/projectInterface'
+import { getProducts } from 'interface/projectInterface'
 import Productdropdown from './ProductDropdown'
 import SLUGS from 'resources/slugs';
 import { Link } from 'react-router-dom';
-import {PrivateSectionContext} from 'resources/PrivateSectionContext';
+import { PrivateSectionContext } from 'resources/PrivateSectionContext';
+ 
+
+function ProductComponent() {
+    const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
+    const NewSelectedProducts = 
+    [
+        {   
+            productID: '',
+            productName: '',
+            modelID: selectedProducts[0].modelID,
+            modelName: selectedProducts[0].modelName
+        }] 
+    
+
+    //list the product images
+    const products = getProducts();
+    const classes = useStyles();
+
+    return (
+        <Column>
+            <Row
+                className={classes.cardRow}
+                wrap
+                flexGrow={1}
+                vertical='center'
+                breakpoints={{ 50: 'column' }}
+            >
+                {products.map((product, index) =>
+                    <Column key={index}>
+                        <Link 
+                        
+                        onClick={(props) => {
+                            console.log(props);
+                            NewSelectedProducts[0].productName='ProductName';
+                            NewSelectedProducts[0].productID='2';
+                            setSelectedProducts(NewSelectedProducts);
+                        }}
+                        to={{ // Link to the next page
+                        pathname: SLUGS.details,
+                        }}>
+                        <MiniCardComponent 
+                            className={classes.miniCardContainer}
+                            // define the path of the image to show on the cards
+                            path={product}
+                            
+                        />
+                        </Link>
+                        <Productdropdown/>
+                    </Column>
+                )}
+            </Row>
+        </Column>
+    );
+}
+
 
 
 // Card component style properties
@@ -55,47 +114,5 @@ const useStyles = createUseStyles({
         }
     }
 });
-
-
-  
-
-/**
- * 
- * @returns create new cards for the product items
- */
-function ProductComponent() {
-
-    //list the product images
-    const products = getProducts();
-    const classes = useStyles();
-
-    return (
-        <Column>
-
-            <Row
-                className={classes.cardRow}
-                wrap
-                flexGrow={1}
-                vertical='center'
-                breakpoints={{ 50: 'column' }}
-            >
-                {products.map((product, index) =>
-                    <Column key={index}>
-                        <Link to={{ // Link to the next page
-                        pathname: SLUGS.details,
-                        }}>
-                        <MiniCardComponent 
-                            className={classes.miniCardContainer}
-                            // define the path of the image to show on the cards
-                            path={product}
-                        />
-                        </Link>
-                        <Productdropdown/>
-                    </Column>
-                )}
-            </Row>
-        </Column>
-    );
-}
 
 export default ProductComponent;
