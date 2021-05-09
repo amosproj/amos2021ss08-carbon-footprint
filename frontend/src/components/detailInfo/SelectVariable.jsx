@@ -37,7 +37,9 @@ class SelectVariable extends Component {
             <div>
                 Pick your desire variable:
                 <div className='w3-dropdown-hover w3-margin-left w3-margin-right w3-margin-top'>
-                    <button className='w3-button w3-black'>{this.state.selectedVariable}</button>
+                    <button className='w3-button w3-2018-sailor-blue'>
+                        {this.state.selectedVariable}
+                    </button>
                     <div className='w3-dropdown-content w3-bar-block w3-border'>
                         {this.state.variables.map((item) => (
                             <a

@@ -4,7 +4,7 @@ div.mainDiv {
 }
 
 div.piDiv {
-    margin: 0;
+    margin-top: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
