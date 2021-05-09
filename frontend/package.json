@@ -4,8 +4,10 @@
     "private": true,
     "homepage": "https://llorentegerman.github.io/react-admin-dashboard",
     "dependencies": {
+        "apexcharts": "^3.26.1",
         "prop-types": "^15.7.2",
         "react": "^16.13.1",
+        "react-apexcharts": "^1.3.9",
         "react-burger-menu": "^2.6.13",
         "react-collapsible-content": "^1.0.0",
         "react-dom": "^16.8.6",

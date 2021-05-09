@@ -1,3 +1,7 @@
+/**
+ * The theme provides cross component UI like Colors and Fonts.
+ */
+
 const color = {
     brightBlue: '#3498db',
     darkGrayishBlue: '#8b8d94',

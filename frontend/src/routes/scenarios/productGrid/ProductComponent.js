@@ -1,3 +1,9 @@
+/**
+ * The Componenet that displays all products of a certain category as a list.
+ * 
+ * @author Irem
+ */
+
 import React from 'react';
 import { Column, Row } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
@@ -55,7 +61,7 @@ const useStyles = createUseStyles({
 
 /**
  * 
- * @returns create new cards for the each product items
+ * @returns create new cards for the product items
  */
 function ProductComponent() {
 

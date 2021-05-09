@@ -1,3 +1,8 @@
+/**
+ * The top Level Public Component.
+ * Login, Signup and possibly a landing Page is routed and handled here.
+ */
+
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import SLUGS from 'resources/slugs';

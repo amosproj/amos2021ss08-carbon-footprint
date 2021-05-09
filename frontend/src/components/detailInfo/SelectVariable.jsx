@@ -1,7 +1,7 @@
-/*
+/** 
 a drop down component for selecting variable
 
-parham, 08.05
+@author parham, 08.05
 */
 import React, { Component } from 'react';
 
