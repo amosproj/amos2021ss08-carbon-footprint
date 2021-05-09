@@ -24,8 +24,7 @@ function DropdownButton() {
             onChange={(props) => {
                 console.log(props);
                 const newSelectedProducts = 
-                [
-                {   
+                [{   
                     productID: 'abiut-08fbw-asdhi',
                     productName: 'Ich bin ein TEST',
                     modelID: 'efba-9sdfs-hallo',

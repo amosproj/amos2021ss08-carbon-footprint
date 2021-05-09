@@ -6,7 +6,7 @@
  */
 
 import React, { Component } from 'react';
-import CanvasPage from './CanvasPageComponent';
+import CanvasPage from './CanvasComponent';
 import SelectVariable from './SelectVariable';
 
 class DetailInfo extends Component {

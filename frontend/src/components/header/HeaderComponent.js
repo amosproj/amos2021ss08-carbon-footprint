@@ -78,39 +78,34 @@ function HeaderComponent() {
     let title;
     let subtitle;
     switch (true) {
-        case currentItem === SLUGS.home:
-            title = 'Home';
-            break;
         case currentItem === SLUGS.dashboard:
             title = 'My Dashboard';
-            break;
-        // case currentItem === SLUGS.generation:
-        //     title = 'Inbox';
-        //     break;
-        case [SLUGS.overview, SLUGS.overviewTwo, SLUGS.overviewThree].includes(currentItem):
-            title = 'Overview';
             break;
         case currentItem === SLUGS.categories:
             title = 'Categories';
             break;
-        case [SLUGS.ideas, SLUGS.ideasTwo, SLUGS.ideasThree].includes(currentItem):
-            title = 'My inbox';
+        case currentItem === SLUGS.generation:
+            title = 'Generation';
+            break;
+        case currentItem === SLUGS.transmission:
+            title = 'Transmission';
+            break;
+        case currentItem === SLUGS.industrialApplications:
+            title = 'Industrial Applications';
+            break;
+        case currentItem === SLUGS.generation + '/products':
+            title = 'Products';
+            break;
+        case currentItem === SLUGS.generation + '/solutions':
+            title = 'Solutions';
+            break;
+        case currentItem === SLUGS.generation + '/services':
+            title = 'Services';
             break;
         case currentItem === SLUGS.details:
-            title = selectedProducts[0].modelName;
+            title = "Statistics and Insights"
+            subtitle = selectedProducts[0].modelName;
             break;
-        case currentItem === SLUGS.contacts:
-            title = 'Contacts';
-            break;
-        case currentItem === SLUGS.agents:
-            title = 'Agents';
-            break;
-        // case currentItem === SLUGS.articles:
-        //     title = 'Articles';
-        //     break;
-        // case currentItem === SLUGS.subscription:
-        //     title = 'Subscription';
-        //     break;
         case currentItem === SLUGS.settings:
             title = 'Settings';
             break;

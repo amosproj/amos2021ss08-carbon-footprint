@@ -85,7 +85,7 @@ function SidebarComponent() {
             <MenuItem
                 id={SLUGS.categories}
                 items={allMenuItems([SLUGS.generation, SLUGS.transmission, SLUGS.industrialApplications])}
-                title='Browse'
+                title='Categories'
                 icon={IconBrowse}
                 onClick={() => onClick(SLUGS.categories)}
             >
@@ -204,7 +204,12 @@ function SidebarComponent() {
                 onClick={() => onClick(SLUGS.settings)}
             />
 
-            <MenuItem id='logout' title='Logout' icon={IconLogout} onClick={logout} />
+            <MenuItem
+                id='logout'
+                title='Logout'
+                icon={IconLogout}
+                onClick={logout}
+            />
         </Menu>
     );
 }

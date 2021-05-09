@@ -1,7 +1,7 @@
 /**
  * The projectInterface is the interface between frontend and backend.
  * 
- * @author Martin Wagner
+ * @author Martin Wagner, Julian Oelhaf
  */
 
 import logo from 'assets/logo/LogoCarbonteam.png'
