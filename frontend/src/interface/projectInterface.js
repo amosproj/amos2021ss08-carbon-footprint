@@ -27,5 +27,35 @@ export function getModels() {
         { ProjectID: '2', models: 'Transformer 3-phase#2' },
         { ProjectID: '3', models: 'Transformer 3-phase#3' }
  
-                        ]);
+    ]);
+}
+
+/**
+ * should get the material compositon of a specific model
+ * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
+ * @param modelID the id of the specific model, which we want to display data
+ * data is for the pie chart
+ */
+export function getMaterialComposition(){
+    return null;
+}
+
+/**
+ * should get the material compositon of a specific model
+ * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
+ * @param modelID the id of the specific model, which we want to display data
+ * data is for the pie chart
+ */
+ export function getImpactCategories(){
+    return null;
+}
+
+/**
+ * should get the material compositon of a specific model
+ * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
+ * @param modelID the id of the specific model, which we want to display data
+ * data is for the pie chart
+ */
+ export function getResultsImpactAssessment(){
+    return null;
 }
