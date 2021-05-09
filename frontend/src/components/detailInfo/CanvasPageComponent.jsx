@@ -14,10 +14,13 @@ class CanvasPage extends Component {
     render() {
         return (
             <div className='mainDiv'>
-                <h2 className='c3-margin-bottom w3-margin-top'> Canvas Page </h2>
+                <div className='w3-panel w3-2019-bluestone c3-margin-bottom w3-margin-top w3-padding-16'>
+                    <h2 className='w3-opacity'>Canvas Page </h2>
+                </div>
+
                 <h3 className='c3-margin-bottom w3-margin-top'> Pie Chart Diagram </h3>
                 <div
-                    className='piDiv w3-margin-top'
+                    className='piDiv'
                     style={{
                         width: '50%',
                         height: '100px'
