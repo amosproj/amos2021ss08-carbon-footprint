@@ -49,4 +49,4 @@
 
 ## License
 
-This software is released under the [MIT License](https://github.com/llorentegerman/react-admin-dashboard/blob/master/LICENSE).
+This software is released under the MIT License

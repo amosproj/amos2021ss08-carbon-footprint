@@ -1,8 +1,7 @@
 {
-    "name": "react-admin-dashboard",
+    "name": "AMOS Project | Carbon Footprint",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://llorentegerman.github.io/react-admin-dashboard",
     "dependencies": {
         "apexcharts": "^3.26.1",
         "prop-types": "^15.7.2",
@@ -13,9 +12,9 @@
         "react-dom": "^16.8.6",
         "react-jss": "^10.4.0",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.3",
+        "react-scripts": "^4.0.3",
         "react-select": "^4.3.0",
-        "react-svg-line-chart": "^2.0.1",
+        "react-svg-line-chart": "^1.0.6",
         "simple-flexbox": "^2.3.1"
     },
     "scripts": {
