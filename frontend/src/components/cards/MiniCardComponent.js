@@ -10,7 +10,7 @@ const useStyles = createUseStyles((theme) => ({
         border: `1px solid ${theme.color.lightGrayishBlue2}`,
         borderRadius: 4,
         cursor: 'pointer',
-        maxWidth: 200,
+        maxWidth: 205,
         maxHeight:160,
         marginTop:50,
         padding: '8px 16px 8px 16px',
@@ -25,7 +25,7 @@ const useStyles = createUseStyles((theme) => ({
         ...theme.typography.cardTitle,
         color: theme.color.grayishBlue2,
         marginBottom: 12,
-        minWidth: 150,
+        minWidth: 205,
         textAlign: 'center'
     },
     value: {
@@ -47,7 +47,7 @@ function MiniCardComponent({ className = '', title, value, path }) {
     return (
         <Column flexGrow={1} className={composedClassName} horizontal='center' vertical='center'>
         {/*  Resize the image on the cards (product images)            */}
-            <div style={{width: 130, paddingLeft: 20, paddingRight: 10, paddingTop: 20, paddingBottom: 20 }}>
+            <div style={{width: 150, paddingLeft: 20, paddingTop: 20, paddingBottom: 20 }}>
             {/* define the image path */}
             <img src={path} alt=''/>
             </div>

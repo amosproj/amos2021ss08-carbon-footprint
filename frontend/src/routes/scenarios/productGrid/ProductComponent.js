@@ -2,11 +2,12 @@ import React from 'react';
 import { Column, Row } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import logo from 'assets/logo/LogoCarbonteam.png'
-import DropdownComponent from 'components/dropdown';
 import {getModels, getProducts} from 'interface/projectInterface'
-import DropdownButton from './DropdownButton'
 import Productdropdown from './ProductDropdown'
+import SLUGS from 'resources/slugs';
+import { Link } from 'react-router-dom';
+import {PrivateSectionContext} from 'resources/PrivateSectionContext';
+
 
 // Card component style properties
 const useStyles = createUseStyles({
@@ -61,6 +62,7 @@ function ProductComponent() {
     //list the product images
     const products = getProducts();
     const classes = useStyles();
+
     return (
         <Column>
 
@@ -73,11 +75,15 @@ function ProductComponent() {
             >
                 {products.map((product, index) =>
                     <Column key={index}>
-                        <MiniCardComponent
+                        <Link to={{ // Link to the next page
+                        pathname: SLUGS.details,
+                        }}>
+                        <MiniCardComponent 
                             className={classes.miniCardContainer}
                             // define the path of the image to show on the cards
                             path={product}
                         />
+                        </Link>
                         <Productdropdown/>
                     </Column>
                 )}

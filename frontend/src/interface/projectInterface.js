@@ -17,9 +17,9 @@ export function getProducts() {
  */
 export function getModels() {
     return (  [
-        { value: '1', country: 'variable 1' },
-        { id: '2', country: 'variable 2' },
-        { id: '3', country: 'variable 3' }
+        { ProjectID: '1', models: 'Transformer 3-phase#1' },
+        { ProjectID: '2', models: 'Transformer 3-phase#2' },
+        { ProjectID: '3', models: 'Transformer 3-phase#3' }
  
                         ]);
 }

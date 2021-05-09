@@ -22,6 +22,7 @@ import IconTransmission from './icon-transmission';
 import IconArrow from './icon-arrow';
 import IconBrowse from './icon-browse';
 import IconBuilding from './icon-building';
+import IconArrowDown from './icon-arrow-down';
 
 export {
     IconCheckboxOff,
@@ -47,5 +48,6 @@ export {
     IconTransmission,
     IconArrow,
     IconBrowse,
-    IconBuilding
+    IconBuilding,
+    IconArrowDown
 };
