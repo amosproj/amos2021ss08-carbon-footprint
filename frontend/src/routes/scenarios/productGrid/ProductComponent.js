@@ -31,7 +31,6 @@ function ProductComponent() {
         }]
 
 
-    //list the product images
     const products = getProducts();
     const classes = useStyles();
 
@@ -45,10 +44,12 @@ function ProductComponent() {
                 breakpoints={{50: 'column'}}
             >
                 {products.map((product, index) =>
-                    <Column key={index}>
+                    <Column key={'Column' + index}>
                         <Link
                             onClick={(props) => {
                                 // Save selection to ContextProvider
+                                NewSelectedProducts[0].productID = product.productID;
+                                NewSelectedProducts[0].productName = product.productName;
                             }}
                             to={{ // Link to the next page
                                 pathname: SLUGS.details,

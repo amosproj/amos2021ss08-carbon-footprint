@@ -12,8 +12,6 @@ import {PrivateSectionContext} from "resources/PrivateSectionContext";
 
 function DetailInfo() {
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
-    console.log('DEBUG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-    console.log(selectedProducts);
         return (
             <React.Fragment>
                 <h2 className='w3-margin-bottom'>

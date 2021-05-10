@@ -34,46 +34,37 @@ export function getModels(productID) {
     switch (productID) {
         case "09f64eeb-13b0-4e09-9fb4-50398483ecfd":
             return ([
-                { modelID: 1, productID: productID, model: 'Electric Motor Type 25b' }
+                { modelID: 1, productID: productID, modelName: 'Electric Motor Type 25b' }
             ]);
         case "aufwlc93-kldp-4fer-15s7-51245631fega":
             return ([
-                { modelID: 2, productID: productID, model: 'Motor Type 42a' },
-                { modelID: 3, productID: productID, model: 'Motor Type 42b' },
-                { modelID: 4, productID: productID, model: 'Motor Type 42b' },
-                { modelID: 5, productID: productID, model: 'Motor Type 42b' }
+                { modelID: 2, productID: productID, modelName: 'Motor Type 42a' },
+                { modelID: 3, productID: productID, modelName: 'Motor Type 42b' },
+                { modelID: 4, productID: productID, modelName: 'Motor Type 42b' },
+                { modelID: 5, productID: productID, modelName: 'Motor Type 42b' }
             ]);
         case "7ghnaoeb-kfue-qp04-slfg-12059492begp":
             return ([
-                { modelID: 6, productID: productID, model: 'Transformer DIN42a' },
-                { modelID: 7, productID: productID, model: 'Transformer DIN42b' },
-                { modelID: 8, productID: productID, model: 'Transformer DIN42b' },
-                { modelID: 9, productID: productID, model: 'Transformer DIN42b' }
+                { modelID: 6, productID: productID, modelName: 'Transformer DIN42a' },
+                { modelID: 7, productID: productID, modelName: 'Transformer DIN42b' },
+                { modelID: 8, productID: productID, modelName: 'Transformer DIN42b' },
+                { modelID: 9, productID: productID, modelName: 'Transformer DIN42b' }
             ]);
         case "whatis00-this-id00-just-d01n9352rnow":
             return ([
-                { modelID: 10, productID: productID, model: 'Gas Turbine Type 1' },
-                { modelID: 11, productID: productID, model: 'Gas Turbine Type 2' },
-                { modelID: 12, productID: productID, model: 'Gas Turbine Type 3' },
-                { modelID: 13, productID: productID, model: 'Gas Turbine Type 4' }
+                { modelID: 10, productID: productID, modelName: 'Gas Turbine Type 1' },
+                { modelID: 11, productID: productID, modelName: 'Gas Turbine Type 2' },
+                { modelID: 12, productID: productID, modelName: 'Gas Turbine Type 3' },
+                { modelID: 13, productID: productID, modelName: 'Gas Turbine Type 4' }
             ]);
         case "aufglc25-kldd-4ger-16s2-51002631fell":
             return ([
-                { modelID: 14, productID: productID, model: 'Allround Product 1' },
-                { modelID: 15, productID: productID, model: 'Allround Product 2' },
-                { modelID: 16, productID: productID, model: 'Allround Product 3' },
-                { modelID: 17, productID: productID, model: 'Allround Product 4' }
+                { modelID: 14, productID: productID, modelName: 'Allround Product 1' },
+                { modelID: 15, productID: productID, modelName: 'Allround Product 2' },
+                { modelID: 16, productID: productID, modelName: 'Allround Product 3' },
+                { modelID: 17, productID: productID, modelName: 'Allround Product 4' }
             ]);
-
     }
-
-
-    return ([
-        {ProjectID: '1', models: 'Transformer 3-phase#1'},
-        {ProjectID: '2', models: 'Transformer 3-phase#2'},
-        {ProjectID: '3', models: 'Transformer 3-phase#3'}
-
-    ]);
 }
 
 function getDummyProducts() {

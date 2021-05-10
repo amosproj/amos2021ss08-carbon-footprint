@@ -22,8 +22,6 @@ const SelectModelVariable = (props) =>  {
     // set the initial values for the dropdown list derived from getModels
     const variables = getModels(productID);  
     const [ selected, setSelected ] = useState('Select a model');
-    console.log('variables');
-    console.log(variables);
 
         return (
             <div>
@@ -40,19 +38,16 @@ const SelectModelVariable = (props) =>  {
                                     [{
                                         productID: productID,
                                         productName: productName,
-                                        modelID: item.model,
+                                        modelID: item.modelID,
                                         modelName: item.modelName
                                     }]
-                                    setSelected(item.model) ;
-                                    console.log("MAAAAAAN");
-                                    console.log(newSelectedProducts);
+                                    setSelected(item.modelName) ;
                                     setSelectedProducts(newSelectedProducts);
-                                    console.log(selectedProducts);
                                 }} 
                                 className='w3-bar-item w3-button'
                                 key={item.modelID}
                             >
-                                {item.model}
+                                {item.modelName}
                             </a>
                         ))}
                     </div>
