@@ -1,15 +1,18 @@
 /**
  * Pie Chart Diagram
  *
- * @author parham, 09.05
+ * @author parham, Julian
  */
 import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import { getMaterialComposition} from 'interface/projectInterface';
 
 const PieChartDiagramComponent = () => {
-    const series = [44, 55, 41, 17, 15, 42, 21];
-    series.sort();
-    series.reverse();
+    //const series = [17, 13, 3, 2, 1, 42, 21];
+    const series = getMaterialComposition();
+    //series.sort();
+    //series.reverse();
+    // commented the two lines, because otherwise the numbers don't match the labels
     const options = {
         chart: {
             type: 'donut'
@@ -20,10 +23,10 @@ const PieChartDiagramComponent = () => {
             'Pressboard',
             'Stainless steel',
             'Aluminium',
-            'Copper',
-            'Silicon steel'
+            'Silicon steel',
+            'Copper'
         ],
-        colors: ['#040f13', '#0b2d39', '#165a72', '#2596be', '#3ba1c5', '#92cbdf', '#d3eaf2'],
+        colors: ['#040f13', '#0b2d39', '#165a72', '#2596be', '#3ba1c5', '#00308F', '#d3eaf2'],
         fill: {
             type: 'gradient'
         },
@@ -43,7 +46,9 @@ const PieChartDiagramComponent = () => {
     };
 
     return (
+        
         <div id='chart'>
+            
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );

@@ -6,19 +6,17 @@
  */
 
 import React, {Component, useContext} from 'react';
-import CanvasPage from './CanvasPageComponent';
-import SelectVariable from './SelectVariable';
+import Canvas from './CanvasComponent';
+import SelectVariable from './SelectVariableComponent';
 import {PrivateSectionContext} from "resources/PrivateSectionContext";
 
 function DetailInfo() {
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
         return (
             <React.Fragment>
-                <h2 className='w3-margin-bottom'>
-                    The chosen Model is {selectedProducts[0].modelName}
-                </h2>
-                <SelectVariable className='w3-section'></SelectVariable>
-                <CanvasPage></CanvasPage>
+                <h2>The chosen Model is {selectedProducts[0].modelName}</h2>
+                <SelectVariable></SelectVariable>
+                <Canvas></Canvas>
             </React.Fragment>
         );
 }

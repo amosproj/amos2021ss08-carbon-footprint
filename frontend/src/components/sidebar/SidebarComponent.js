@@ -91,7 +91,7 @@ function SidebarComponent() {
             <MenuItem
                 id={SLUGS.categories}
                 items={allMenuItems([SLUGS.generation, SLUGS.transmission, SLUGS.industrialApplications])}
-                title='Browse'
+                title='Categories'
                 icon={IconBrowse}
                 onClick={() => onClick(SLUGS.categories)}
             >
@@ -186,9 +186,11 @@ function SidebarComponent() {
                     />
                 </MenuItem>
             </MenuItem>
+
+
             <MenuItem
                 id={SLUGS.details}
-                items={[SLUGS.overview, SLUGS.comparison]}
+                items={allMenuItems([SLUGS.overview, SLUGS.comparison])}
                 title='Details'
                 icon={IconOverview}
                 onClick={() => onClick(SLUGS.details)}
@@ -200,6 +202,14 @@ function SidebarComponent() {
                     icon={IconOverview}
                     onClick={() => onClick(SLUGS.overview)}
                 />
+
+                <MenuItem
+                    id={SLUGS.comparison}
+                    title='Comparison'
+                    level={2}
+                    icon={IconOverview}
+                    onClick={() => onClick(SLUGS.comparison)}
+                />
             </MenuItem>
 
             <div className={classes.separator}></div>
@@ -210,7 +220,12 @@ function SidebarComponent() {
                 onClick={() => onClick(SLUGS.settings)}
             />
 
-            <MenuItem id='logout' title='Logout' icon={IconLogout} onClick={logout} />
+            <MenuItem
+                id='logout'
+                title='Logout'
+                icon={IconLogout}
+                onClick={logout}
+            />
         </Menu>
     );
 }
