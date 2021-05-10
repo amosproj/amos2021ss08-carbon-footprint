@@ -12,7 +12,7 @@ import React, { useContext, useState }  from 'react';
 import { Column, Row } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import { getProducts } from 'interface/projectInterface'
+import { getProducts } from 'interface/simaProInterface'
 import Productdropdown from './ProductDropdown'
 import SLUGS from 'resources/slugs';
 import { Link } from 'react-router-dom';
@@ -21,17 +21,16 @@ import { PrivateSectionContext } from 'resources/PrivateSectionContext';
 
 function ProductComponent() {
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
-    const NewSelectedProducts = 
-    [
-        {   
-            productID: '',
-            productName: '',
-            modelID: selectedProducts[0].modelID,
-            modelName: selectedProducts[0].modelName
-        }] 
-    
+    const NewSelectedProducts =
 
-    //list the product images
+        [{
+            productID: selectedProducts.productID,
+            productName: selectedProducts.productName,
+            modelID: selectedProducts.modelID,
+            modelName: selectedProducts.modelName
+        }]
+
+
     const products = getProducts();
     const classes = useStyles();
 
@@ -42,29 +41,26 @@ function ProductComponent() {
                 wrap
                 flexGrow={1}
                 vertical='center'
-                breakpoints={{ 50: 'column' }}
+                breakpoints={{50: 'column'}}
             >
                 {products.map((product, index) =>
-                    <Column key={index}>
-                        <Link 
-                        
-                        onClick={(props) => {
-                            console.log(props);
-                            NewSelectedProducts[0].productName='ProductName';
-                            NewSelectedProducts[0].productID='2';
-                            setSelectedProducts(NewSelectedProducts);
-                        }}
-                        to={{ // Link to the next page
-                        pathname: SLUGS.details,
-                        }}>
-                        <MiniCardComponent 
-                            className={classes.miniCardContainer}
-                            // define the path of the image to show on the cards
-                            path={product}
-                            
-                        />
+                    <Column key={'Column' + index}>
+                        <Link
+                            onClick={(props) => {
+                                // Save selection to ContextProvider
+                                NewSelectedProducts[0].productID = product.productID;
+                                NewSelectedProducts[0].productName = product.productName;
+                            }}
+                            to={{ // Link to the next page
+                                pathname: SLUGS.details,
+                            }}>
+                            <MiniCardComponent
+                                className={classes.miniCardContainer}
+                                // define the path of the image to show on the cards
+                                path={product.productImage}
+                            />
                         </Link>
-                        <Productdropdown/>
+                        <Productdropdown productID={product.productID} productName={product.productName}/>
                     </Column>
                 )}
             </Row>

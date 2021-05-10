@@ -73,8 +73,6 @@ function HeaderComponent() {
     const theme = useTheme();
     const classes = useStyles({ theme });
 
-
-    console.log(selectedProducts);
     let title;
     let subtitle;
     switch (true) {
@@ -92,6 +90,8 @@ function HeaderComponent() {
             break;
         case currentItem === SLUGS.industrialApplications:
             title = 'Industrial Applications';
+        case currentItem === SLUGS.details:
+            title = 'Details: ' + (selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
             break;
         case currentItem === SLUGS.generation + '/products':
             title = 'Products';
@@ -101,10 +101,6 @@ function HeaderComponent() {
             break;
         case currentItem === SLUGS.generation + '/services':
             title = 'Services';
-            break;
-        case currentItem === SLUGS.details:
-            title = "Statistics and Insights"
-            subtitle = selectedProducts[0].modelName;
             break;
         case currentItem === SLUGS.settings:
             title = 'Settings';

@@ -1,3 +1,3 @@
-import projectInterface from './projectInterface';
+import simaProInterface from './simaProInterface';
 
-export default {projectInterface};
+export default {projectInterface: simaProInterface};

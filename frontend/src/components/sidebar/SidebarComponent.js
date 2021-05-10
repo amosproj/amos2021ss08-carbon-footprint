@@ -81,7 +81,6 @@ function SidebarComponent() {
             <div style={{width: 160, paddingLeft: 20, paddingRight: 20, paddingTop: 20, paddingBottom: 20 }}>
             <img src={logo}/>
             </div>
-            {console.log(allMenuItems())}
             <MenuItem
                 id={SLUGS.dashboard}
                 title='My Dashboard'
