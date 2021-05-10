@@ -5,6 +5,7 @@
  */
 
 import React, {useState, createContext} from 'react';
+import {categories} from "interface/categories";
 
 export const PrivateSectionContext = createContext();
 
@@ -16,13 +17,19 @@ export const PrivateSectionContext = createContext();
  */
 export const PrivateStateProvider = props => {
     const [selectedProducts, setSelectedProducts] = useState([
-        {
-            productID: 0,
-            productName: 'Ich bin ein TEST'
+ { 
+            productID: 'dummydum-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
+            productName: '\"please select a Product\"', //final_process_name? -> probably rather the project name later. But unclear!
+            modelID: 'none',
+            modelName : '\"please select a Product\"',
+            categories: [categories.generation, categories.transmission],
+            productImage: '',
         },
-        {
-            productID: 1,
-            productName: 'Ich bin ein TE5T'
+        { 
+            productID: 'dummydum-kldp-4fer-15s7-51245631fega', //(project_id?) final_process_id? (final_product_id?)
+            productName: 'Dummy Product', //final_process_name? 
+            categories: [categories.transmission],
+            productImage: '',
         }
     ]);
 

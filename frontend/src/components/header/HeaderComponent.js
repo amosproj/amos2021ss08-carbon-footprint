@@ -95,7 +95,7 @@ function HeaderComponent() {
             title = 'My inbox';
             break;
         case currentItem === SLUGS.details:
-            title = 'Details: ' + (selectedProducts[0].modelName === undefined ? 'Please select a model first' : selectedProducts[0].modelName);
+            title = 'Details: ' + (selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
             break;
         case currentItem === SLUGS.contacts:
             title = 'Contacts';

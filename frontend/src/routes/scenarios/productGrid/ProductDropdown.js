@@ -1,30 +1,26 @@
 
 import React, { useContext, useState } from 'react';
 import { IconArrowDown } from 'assets/icons';
-import {getModels, getProducts} from 'interface/projectInterface'
+import {getModels, getProducts} from 'interface/simaProInterface'
 import {PrivateSectionContext} from 'resources/PrivateSectionContext';
 import iconBellNew from 'assets/icons/icon-bell-new';
 
-const newSelectedProducts = 
-[
-    {   
-        productID: '',
-        productName: '',
-        modelID: '',
-        modelName: ''
-    }] 
+
 /**
  * This component creates the dropdownboxes for the related products 
  * 
- * @returns the model properties of the related product depending on the model values from getModels func from interface/projectInterface
- *  @author parham, Martin, Irem 
+ * @returns the model properties of the related product depending on the model values from getModels func from interface/simaProInterface
+ * @author parham, Martin Wagner, Irem 
  */
 
-function SelectModelVariable() {
+const SelectModelVariable = (props) =>  {
+    const productID = props.productID;
+    const productName = props.productName;
     
+
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
     // set the initial values for the dropdown list derived from getModels
-    const [ variables, setVariables ] = useState(getModels());  
+    const variables = getModels(productID);  
     const [ selected, setSelected ] = useState('Select a model');
     console.log('variables');
     console.log(variables);
@@ -38,28 +34,31 @@ function SelectModelVariable() {
                     <div className=' w3-dropdown-content w3-dropdown-hover w3-bar-block w3-border '>
                     {variables.map((item) => (
                        
-                            <a
-                                onClick={(props) => {
-                                    console.log(props);
-                                    newSelectedProducts[0].modelName=item.models;
-                                    newSelectedProducts[0].modelID=item.ProjectID;
-                                    //SelectedProducts[0].modelName=item.models;
-                                    //SelectedProducts[0].modelName=item.models;
-                                    console.log(item.models);
-                                    setSelected(item.models) ;
-                                    console.log(newSelectedProducts) ; 
+                        <a
+                            onClick={(props) => {
+                                const newSelectedProducts =
+                                    [{
+                                        productID: productID,
+                                        productName: productName,
+                                        modelID: item.model,
+                                        modelName: item.modelName
+                                    }]
+                                    setSelected(item.model) ;
+                                    console.log("MAAAAAAN");
+                                    console.log(newSelectedProducts);
                                     setSelectedProducts(newSelectedProducts);
+                                    console.log(selectedProducts);
                                 }} 
                                 className='w3-bar-item w3-button'
-                                key={item.ProjectID}
+                                key={item.modelID}
                             >
-                                {item.models}
+                                {item.model}
                             </a>
                         ))}
                     </div>
                 </div>
             </div>
         );
-    }
+    };
 
 export default SelectModelVariable;

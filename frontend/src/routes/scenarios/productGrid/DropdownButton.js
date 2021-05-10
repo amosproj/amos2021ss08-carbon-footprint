@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { getModels } from 'interface/projectInterface';
+import { getModels } from 'interface/simaProInterface';
 import Select from 'react-select'
 import {PrivateSectionContext} from 'resources/PrivateSectionContext';
 
