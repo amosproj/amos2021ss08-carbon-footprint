@@ -73,8 +73,6 @@ function HeaderComponent() {
     const theme = useTheme();
     const classes = useStyles({ theme });
 
-
-    console.log(selectedProducts);
     let title;
     let subtitle;
     switch (true) {
@@ -97,7 +95,7 @@ function HeaderComponent() {
             title = 'My inbox';
             break;
         case currentItem === SLUGS.details:
-            title = selectedProducts[0].modelName;
+            title = 'Details: ' + (selectedProducts[0].modelName === undefined ? 'Please select a model first' : selectedProducts[0].modelName);
             break;
         case currentItem === SLUGS.contacts:
             title = 'Contacts';
