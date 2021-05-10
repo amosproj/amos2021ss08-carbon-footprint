@@ -1,3 +1,10 @@
+/**
+ * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
+ * 
+ * @author Irem
+ * @author Martin Wagner 
+ */
+
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { useHistory } from 'react-router-dom';

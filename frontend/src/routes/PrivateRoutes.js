@@ -1,5 +1,10 @@
 /**
- * The PrivedRoutes Component handels all possible routes. Routing is used for linking the Sidebar-MenuItems to Components on the right handside canvas
+ * The PrivedRoutes Component handels all possible routes. 
+ * Routing is used for linking the Sidebar-MenuItems to Components 
+ * on the right handside canvas.
+ * 
+ * @author Martin Wagner
+ * @author Irem
  */
 
 import React, { Suspense, lazy } from 'react';
