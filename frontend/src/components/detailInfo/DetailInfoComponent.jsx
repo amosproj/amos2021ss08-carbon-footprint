@@ -7,17 +7,15 @@
 
 import React, { Component } from 'react';
 import CanvasPage from './CanvasComponent';
-import SelectVariable from './SelectVariable';
+import SelectVariable from './SelectVariableComponent';
 
 class DetailInfo extends Component {
     state = {};
     render() {
         return (
             <React.Fragment>
-                <h2 className='w3-margin-bottom'>
-                    The choosen Model is {this.props.selectedModel}
-                </h2>
-                <SelectVariable className='w3-section'></SelectVariable>
+                <h2>The choosen Model is {this.props.selectedModel}</h2>
+                <SelectVariable></SelectVariable>
                 <CanvasPage></CanvasPage>
             </React.Fragment>
         );

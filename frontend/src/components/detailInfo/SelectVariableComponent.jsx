@@ -5,7 +5,7 @@ a drop down component for selecting variable
 */
 import React, { Component } from 'react';
 
-class SelectVariable extends Component {
+class SelectVariableComponent extends Component {
     /*
     hard coded state for storing variabes array 
     and selected variable 
@@ -60,4 +60,4 @@ class SelectVariable extends Component {
     }
 }
 
-export default SelectVariable;
+export default SelectVariableComponent;

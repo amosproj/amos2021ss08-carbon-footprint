@@ -37,25 +37,19 @@ export function getModels() {
  * data is for the pie chart
  */
 export function getMaterialComposition(){
-    return null;
+    return [17, 13, 3, 2, 1, 42, 21];
 }
 
 /**
- * should get the material compositon of a specific model
- * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
  * @param modelID the id of the specific model, which we want to display data
- * data is for the pie chart
  */
  export function getImpactCategories(){
     return null;
 }
 
 /**
- * should get the material compositon of a specific model
- * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
  * @param modelID the id of the specific model, which we want to display data
- * data is for the pie chart
  */
  export function getResultsImpactAssessment(){
-    return null;
+    return [37, 3, 90, -50];
 }

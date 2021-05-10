@@ -34,23 +34,43 @@ class DetailTable extends Component {
             },
             {
                 id: '3',
-                impactCategory: 'Global Warming',
-                unit: 'kg CO2 eq',
+                impactCategory: 'Photochemical oxidant formation (POCP)',
+                unit: 'kg C2H4 eq',
                 total: '2,350,811',
                 materialsLPT: '874,356',
                 manufacturing: '71,532',
                 operations: '2,114,344',
-                endOfLife: '-790,420'
+                endOfLife: '-332'
             },
             {
                 id: '4',
-                impactCategory: 'Ozon layer depletion',
-                unit: 'kg CFC-11 eq',
+                impactCategory: 'Acidification',
+                unit: 'kg SO2 eq',
                 total: '12',
                 materialsLPT: '0',
                 manufacturing: '0',
                 operations: '12',
-                endOfLife: '0'
+                endOfLife: '12,159'
+            },
+            {
+                id: '5',
+                impactCategory: 'Eutrophication',
+                unit: 'kg PO4 eq',
+                total: '12',
+                materialsLPT: '0',
+                manufacturing: '0',
+                operations: '12',
+                endOfLife: '–5,016'
+            },
+            {
+                id: '6',
+                impactCategory: 'Nonrenewable energy',
+                unit: 'MJ eq',
+                total: '2,781,500,619',
+                materialsLPT: '14,672,424',
+                manufacturing: '1,454,845',
+                operations: '2,774,610,300',
+                endOfLife: '–9,236,950'
             }
         ]
     };
