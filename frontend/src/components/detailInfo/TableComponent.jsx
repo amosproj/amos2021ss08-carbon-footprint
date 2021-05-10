@@ -77,6 +77,7 @@ class DetailTable extends Component {
     render() {
         return (
             <div className='w3-container'>
+                {/* TODO: dynamic display of product and model */}
                 <h5>Large Power Transformer</h5>
                 <h6>3 Phase GSU transformer</h6>
 

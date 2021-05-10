@@ -10,7 +10,7 @@ import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent'
 import './canvas.css';
-import { Hidden, Visible, Container, Row, Col } from 'react-grid-system';
+import {Container, Row, Col } from 'react-grid-system';
 
 
 class CanvasPage extends Component {
@@ -19,17 +19,17 @@ class CanvasPage extends Component {
             <Container fluid={true}>
             <Row>
                 <Col debug xs={5}>
-                    <h1> Pie Chart </h1>
+                    <h3> Material Composition </h3>
                     <PieChart></PieChart>
                 </Col>
                 <Col debug xs={5}>
-                    <h1> Column Chart </h1>
+                    <h3> Results of the impact assessment </h3>
                     <ColumnChart></ColumnChart>
                 </Col>
             </Row>
             <Row>
             <Col debug xs={10}>
-                <h1> Table </h1>
+                <h3> Impact categories </h3>
                 <Table></Table>
             </Col>
             </Row>
