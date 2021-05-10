@@ -18,7 +18,6 @@ const getMenuStyles = ({ theme }) => ({
         background: theme.color.darkRed
     },
     bmCrossButton: {
-        display: 'none'
     },
     bmCross: {
         background: theme.color.grayishBlue3

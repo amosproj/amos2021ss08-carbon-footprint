@@ -180,9 +180,11 @@ function SidebarComponent() {
                     />
                 </MenuItem>
             </MenuItem>
+
+
             <MenuItem
                 id={SLUGS.details}
-                items={[SLUGS.overview, SLUGS.comparison]}
+                items={allMenuItems([SLUGS.overview, SLUGS.comparison])}
                 title='Details'
                 icon={IconOverview}
                 onClick={() => onClick(SLUGS.details)}
@@ -193,6 +195,14 @@ function SidebarComponent() {
                     level={2}
                     icon={IconOverview}
                     onClick={() => onClick(SLUGS.overview)}
+                />
+
+                <MenuItem
+                    id={SLUGS.comparison}
+                    title='Comparison'
+                    level={2}
+                    icon={IconOverview}
+                    onClick={() => onClick(SLUGS.comparison)}
                 />
             </MenuItem>
 
