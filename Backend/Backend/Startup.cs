@@ -41,7 +41,7 @@ namespace Backend
                 {
                     var baseUrl = Environment.GetEnvironmentVariable("BaseUrl") ?? Configuration["BaseUrl"];
                     client.BaseAddress = new Uri(baseUrl);
-                    client.Timeout = TimeSpan.FromSeconds(30);
+                    //client.Timeout = TimeSpan.FromSeconds(30);
                 })
                 .AddHttpMessageHandler<SimaProLoginDelegatingHandler>();
         }

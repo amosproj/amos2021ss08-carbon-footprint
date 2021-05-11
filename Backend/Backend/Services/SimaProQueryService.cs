@@ -13,10 +13,9 @@ namespace Backend.Services
             _httpClient = httpClient;
         }
 
-        public async Task TestAsync()
+        public async Task<HttpResponseMessage> TestAsync()
         {
-            //var body = new StringContent(JsonConvert.SerializeObject(new ParentAccountIdModel { parentAccountId = resellerAccountId }));
-            var response = await _httpClient.GetAsync("GetCompanies");
+            return await _httpClient.GetAsync("projects");
         }
     }
 
