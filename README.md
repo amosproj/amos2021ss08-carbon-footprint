@@ -16,6 +16,10 @@
     every hook should be in this folder, and its name should start with the prefix "use":
     i.e.: useSidebar, useQuery, etc.
 
+-   **/interface**:
+    every functionality that handles communication between front-end and back-end
+    i.e.: getting data for the charts, getting products, etc.
+
 -   **/resources**:
     -   slugs.js: a list of the routes that will be used in the app
     -   theme.js: an object with the theme structure, colors, typographies.
@@ -28,14 +32,14 @@
     Each main section of the application has its own route:
     -   auth (for login, signup, etc)
     -   dashboard
-    -   overview
-    -   tickets
-    -   ideas
-    -   contacts
-    -   agents
-    -   articles
+    -   categories
+    -   generation, transmission, industrial applications
+    -   products, solutions, services
+    -   details
     -   settings
-    -   subscription
+
+## [Backend](/backend) Folder Structure
+
 
 ## Current dependencies:
 
@@ -46,6 +50,10 @@
 [react-router-dom](https://www.npmjs.com/package/react-router-dom): routing.
 
 [simple-flexbox](https://www.npmjs.com/package/simple-flexbox): flexbox utility.
+
+[react-grid-system](https://www.npmjs.com/package/react-grid-system): page layout
+
+[react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart
 
 ## License
 
