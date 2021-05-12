@@ -9,7 +9,7 @@ import { Column, Row } from 'simple-flexbox';
 import { SidebarComponent, SidebarContext } from 'components/sidebar';
 import HeaderComponent from 'components/header/HeaderComponent';
 import PrivateRoutes from './PrivateRoutes';
-import {PrivateStateProvider} from 'resources/PrivateSectionContext'
+import {PrivateStateProvider} from 'hooks/PrivateSectionContext'
 
 const useStyles = createUseStyles({
     container: {

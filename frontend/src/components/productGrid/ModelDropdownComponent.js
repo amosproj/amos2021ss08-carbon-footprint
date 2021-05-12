@@ -1,10 +1,10 @@
 
 import React, { useContext, useState } from 'react';
 import { IconArrowDown } from 'assets/icons';
-import {getModels, getProducts} from 'interface/simaProInterface'
-import {PrivateSectionContext} from 'resources/PrivateSectionContext';
-import iconBellNew from 'assets/icons/icon-bell-new';
+import {getModels} from 'interface/simaProInterface'
+import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 
+//TODO: When only one model is available, => How to do that then? Should a click on the image link in that case?
 
 /**
  * This component creates the dropdownboxes for the related products 
@@ -13,7 +13,7 @@ import iconBellNew from 'assets/icons/icon-bell-new';
  * @author parham, Martin Wagner, Irem 
  */
 
-const SelectModelVariable = (props) =>  {
+const ModelDropdownComponent = (props) =>  {
     const productID = props.productID;
     const productName = props.productName;
     
@@ -56,4 +56,4 @@ const SelectModelVariable = (props) =>  {
         );
     };
 
-export default SelectModelVariable;
+export default ModelDropdownComponent;

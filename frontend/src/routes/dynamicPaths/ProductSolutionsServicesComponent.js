@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import ProductComponent from 'routes/scenarios/productGrid';
+import ProductGridComponent from 'components/productGrid';
 
 
 /**
@@ -19,7 +19,7 @@ export default function ProductSolutionsServicesComponent() {
       {type === 'solutions' && <div>This is where all the solutions of the selected category could be shown.</div>}
       {type === 'services' && <div>This is where all the services of the selected category could be shown.</div>}
       
-      <ProductComponent/>
+      <ProductGridComponent/>
 
     </>
   );

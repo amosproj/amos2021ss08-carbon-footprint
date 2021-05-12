@@ -8,7 +8,7 @@
 import React, {Component, useContext} from 'react';
 import Canvas from './CanvasComponent';
 import SelectVariable from './SelectVariableComponent';
-import {PrivateSectionContext} from "resources/PrivateSectionContext";
+import {PrivateSectionContext} from "hooks/PrivateSectionContext";
 
 function DetailInfo() {
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);

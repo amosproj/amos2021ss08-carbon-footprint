@@ -190,27 +190,10 @@ function SidebarComponent() {
 
             <MenuItem
                 id={SLUGS.details}
-                items={allMenuItems([SLUGS.overview, SLUGS.comparison])}
                 title='Details'
                 icon={IconOverview}
                 onClick={() => onClick(SLUGS.details)}
-            >
-                <MenuItem
-                    id={SLUGS.overview}
-                    title='Overview'
-                    level={2}
-                    icon={IconOverview}
-                    onClick={() => onClick(SLUGS.overview)}
-                />
-
-                <MenuItem
-                    id={SLUGS.comparison}
-                    title='Comparison'
-                    level={2}
-                    icon={IconOverview}
-                    onClick={() => onClick(SLUGS.comparison)}
-                />
-            </MenuItem>
+            />
 
             <div className={classes.separator}></div>
             <MenuItem

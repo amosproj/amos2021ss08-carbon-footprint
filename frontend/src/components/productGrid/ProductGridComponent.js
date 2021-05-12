@@ -6,20 +6,20 @@
  * 
  * @returns the product and model properties
  * @author Irem
- */ 
+ */
 
-import React, { useContext, useState }  from 'react';
-import { Column, Row } from 'simple-flexbox';
-import { createUseStyles } from 'react-jss';
+import React, {useContext} from 'react';
+import {Column, Row} from 'simple-flexbox';
+import {createUseStyles} from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import { getProducts } from 'interface/simaProInterface'
-import Productdropdown from './ProductDropdown'
+import {getProducts} from 'interface/simaProInterface'
+import ProductDropdown from './ModelDropdownComponent'
 import SLUGS from 'resources/slugs';
-import { Link } from 'react-router-dom';
-import { PrivateSectionContext } from 'resources/PrivateSectionContext';
- 
+import {Link} from 'react-router-dom';
+import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 
-function ProductComponent() {
+
+function ProductGridComponent() {
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
     const NewSelectedProducts =
 
@@ -60,7 +60,7 @@ function ProductComponent() {
                                 path={product.productImage}
                             />
                         </Link>
-                        <Productdropdown productID={product.productID} productName={product.productName}/>
+                        <ProductDropdown productID={product.productID} productName={product.productName}/>
                     </Column>
                 )}
             </Row>
@@ -111,4 +111,4 @@ const useStyles = createUseStyles({
     }
 });
 
-export default ProductComponent;
+export default ProductGridComponent;

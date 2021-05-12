@@ -7,7 +7,7 @@ import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
 import { IconBell, IconBrowse, IconLogin, IconSearch } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
-import {PrivateSectionContext} from 'resources/PrivateSectionContext';
+import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 
 const useStyles = createUseStyles((theme) => ({
     avatar: {

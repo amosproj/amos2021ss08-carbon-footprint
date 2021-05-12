@@ -1,7 +1,7 @@
 import CanvasComponent from './CanvasComponent';
-import DetailedInfoComponent from './DetailInfoComponent';
+import DetailsComponent from './DetailsComponent';
 import PieChartComponent from './PieChartComponent';
 import ColumnChartComponent from './ColumnChartComponent';
 import SelectVariable from './SelectVariableComponent';
 
-export { CanvasComponent, DetailedInfoComponent,PieChartComponent,ColumnChartComponent, SelectVariable};
+export { CanvasComponent, DetailsComponent,PieChartComponent,ColumnChartComponent, SelectVariable};
