@@ -18,17 +18,17 @@ class CanvasPage extends Component {
         return (
             <Container fluid={true}>
             <Row>
-                <Col debug xs={5}>
+                <Col xs={5}>
                     <h3> Material Composition </h3>
                     <PieChart></PieChart>
                 </Col>
-                <Col debug xs={5}>
+                <Col xs={5}>
                     <h3> Results of the impact assessment </h3>
                     <ColumnChart></ColumnChart>
                 </Col>
             </Row>
             <Row>
-            <Col debug xs={10}>
+            <Col xs={10}>
                 <h3> Impact categories </h3>
                 <Table></Table>
             </Col>
