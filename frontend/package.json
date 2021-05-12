@@ -11,6 +11,7 @@
         "react-burger-menu": "^2.6.13",
         "react-collapsible-content": "^1.0.0",
         "react-dom": "^16.8.6",
+        "react-hook-form": "^7.5.1",
         "react-jss": "^10.4.0",
         "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.3",
