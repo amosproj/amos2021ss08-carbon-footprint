@@ -13,7 +13,7 @@ function Routes() {
         window.scrollTo(0, 0);
     }, [pathname]);
 
-    const isUserLoggedIn = false; // log in page e git
+    const isUserLoggedIn = true; // log in page e git
     return isUserLoggedIn ? <PrivateSection /> : <PublicRoutes />;
 }
 

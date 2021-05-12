@@ -1,8 +1,7 @@
 {
-    "name": "react-admin-dashboard",
+    "name": "carbon_footprint",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://llorentegerman.github.io/react-admin-dashboard",
     "dependencies": {
         "apexcharts": "^3.26.1",
         "prop-types": "^15.7.2",
@@ -11,13 +10,15 @@
         "react-burger-menu": "^2.6.13",
         "react-collapsible-content": "^1.0.0",
         "react-dom": "^16.8.6",
-        "react-hook-form": "^7.5.1",
-        "react-jss": "^10.4.0",
+        "react-grid-system": "^7.1.2",
+        "react-hook-form": "^7.4.2",
+        "react-jss": "^10.6.0",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.3",
+        "react-scripts": "^4.0.3",
         "react-select": "^4.3.0",
-        "react-svg-line-chart": "^2.0.1",
-        "simple-flexbox": "^2.3.1"
+        "react-svg-line-chart": "^1.0.6",
+        "react-table": "^7.7.0",
+        "simple-flexbox": "^2.3.2"
     },
     "scripts": {
         "start": "react-scripts start",
