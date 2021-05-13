@@ -19,6 +19,8 @@ import {Link} from 'react-router-dom';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 
 
+
+
 function ProductGridComponent() {
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
     const NewSelectedProducts =
