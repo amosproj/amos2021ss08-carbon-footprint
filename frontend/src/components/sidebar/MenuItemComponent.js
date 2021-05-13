@@ -16,7 +16,7 @@ const useStyles = createUseStyles({
         '&:hover': {
             backgroundColor: ({ theme }) => theme.color.paleBlueTransparent
         },
-        paddingLeft: ({ level }) => 32 * level,
+        paddingLeft: ({ level }) => 24 * level,
         transition: 'all 0.2s ease-in-out'
     },
     leftBar: {
@@ -25,10 +25,10 @@ const useStyles = createUseStyles({
     },
     title: { 
         fontSize: 15, // left bar titles 
-        lineHeight: '25px',
+        lineHeight: '20px',
         letterSpacing: '0.2px',
         color: ({ theme, isActive }) =>(isActive ? '#00b300' : '#b5b4b9'), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
-        marginLeft: 20
+        marginLeft: 10
     }
 });
 

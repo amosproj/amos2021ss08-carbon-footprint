@@ -7,7 +7,7 @@ const getMenuStyles = ({ theme }) => ({
         position: 'absolute',
         width: 26,
         height: 20,
-        left: 30,
+        left: 20,
         top: 40,
         zIndex: 19
     },

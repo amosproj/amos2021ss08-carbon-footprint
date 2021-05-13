@@ -7,15 +7,15 @@ const useStyles = createUseStyles((theme) => ({
 
     container: {
         backgroundColor: '#FFFFFF',
-        border: `1px solid ${theme.color.lightGrayishBlue2}`,
+        border: `3px solid ${theme.color.lightGrayishBlue2}`,
         borderRadius: 4,
         cursor: 'pointer',
-        maxWidth: 205,
-        maxHeight:160,
+        maxWidth: 200,
+        maxHeight:150,
         marginTop:50,
         padding: '8px 16px 8px 16px',
         '&:hover': {
-            borderColor: theme.color.lightBlue,
+            borderColor: '#7b9095', //'#00b300'
             '&:nth-child(n) > span': {
                 color: theme.color.lightBlue
             }

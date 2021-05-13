@@ -8,6 +8,12 @@ import SLUGS from 'resources/slugs';
 import { IconBell, IconBrowse, IconLogin, IconSearch } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
+/**
+ * The Header Component is a shared component between all pages. It is capable to display 
+ * a title that changes when the selection in the SidebarComponent changes. 
+ * 
+ * @returns The visualization of exactly that.
+ */
 
 const useStyles = createUseStyles((theme) => ({
     avatar: {
@@ -45,7 +51,7 @@ const useStyles = createUseStyles((theme) => ({
     title: {
         ...theme.typography.title,
         '@media (max-width: 1080px)': {
-            marginLeft: 50
+            marginLeft: 60
         },
         '@media (max-width: 468px)': {
             fontSize: 20
@@ -60,22 +66,18 @@ const useStyles = createUseStyles((theme) => ({
     }
 }));
 
-/**
- * The Header Component is a shared component between all pages. It is capable to display 
- * a title that changes when the selection in the SidebarComponent changes. 
- * 
- * @returns The visualization of exactly that.
- */
 function HeaderComponent() {
     const { push } = useHistory();
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
     const theme = useTheme();
     const classes = useStyles({ theme });
-
+    
     let title;
     let subtitle;
+
     switch (true) {
+        
         case currentItem === SLUGS.dashboard:
             title = 'My Dashboard';
             break;
@@ -91,10 +93,10 @@ function HeaderComponent() {
         case currentItem === SLUGS.industrialApplications:
             title = 'Industrial Applications';
         case currentItem === SLUGS.details:
-            title = 'Details: ' + (selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
+            title = 'Selected product: ' + (selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
             break;
         case currentItem === SLUGS.generation + '/products':
-            title = 'Products';
+            title = 'Product Catagory';
             break;
         case currentItem === SLUGS.generation + '/solutions':
             title = 'Solutions';

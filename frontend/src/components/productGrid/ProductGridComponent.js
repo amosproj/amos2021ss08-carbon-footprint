@@ -5,7 +5,7 @@
  * /**
  * 
  * @returns the product and model properties
- * @author Irem
+ * @author Irem Toroslu
  */
 
 import React, {useContext} from 'react';
