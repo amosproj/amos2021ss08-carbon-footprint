@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class DetailTable extends Component {
+class TableComponent extends Component {
     state = {
         headers: [
             { id: '1', value: 'Impact Category' },
@@ -106,4 +106,4 @@ class DetailTable extends Component {
     }
 }
 
-export default DetailTable;
+export default TableComponent;

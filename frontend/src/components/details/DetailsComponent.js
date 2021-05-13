@@ -11,7 +11,7 @@ import SelectVariable from './SelectVariableComponent';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import DividerPannel from './PanelComponent';
 
-class DetailInfo extends Component {
+class DetailComponent extends Component {
     state = {
         compareCanvas: false
     };
@@ -51,4 +51,4 @@ class DetailInfo extends Component {
     }
 }
 
-export default DetailInfo;
+export default DetailComponent;

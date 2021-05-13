@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { getMaterialComposition } from 'interface/projectInterface';
 
-const PieChartDiagramComponent = () => {
+const PieChartComponent = () => {
     //const series = [17, 13, 3, 2, 1, 42, 21];
     const series = getMaterialComposition();
     //series.sort();
@@ -52,4 +52,4 @@ const PieChartDiagramComponent = () => {
     );
 };
 
-export default PieChartDiagramComponent;
+export default PieChartComponent;

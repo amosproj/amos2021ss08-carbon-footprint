@@ -6,7 +6,7 @@
  */
 import React, { Component } from 'react';
 
-const DividerPannel = (props) => {
+const PanelComponent = (props) => {
     return (
         <div className='w3-panel w3-2019-bluestone w3-padding-small'>
             <div className='w3-row'>
@@ -28,4 +28,4 @@ const DividerPannel = (props) => {
     );
 };
 
-export default DividerPannel;
+export default PanelComponent;

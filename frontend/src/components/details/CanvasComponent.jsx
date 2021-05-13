@@ -1,9 +1,9 @@
-/** 
-in this main component come all the canvas page components 
-such as diagrams and tables 
-
-@author parham, 08.05
-*/
+/**
+ * The CanvasComponent displays either the Detailed Information and graphs for one model
+ * of a specific product or a comparison between two models if requested.
+ *
+ * @author parham, 08.05
+ */
 
 import React, { Component } from 'react';
 import PieChart from './PieChartComponent';
@@ -12,7 +12,7 @@ import Table from './TableComponent';
 import { Container, Row, Col } from 'react-grid-system';
 import CompareCanvas from './CompareCanvas';
 
-class CanvasPage extends Component {
+class CanvasComponent extends Component {
     render() {
         /*
         if the loadComparePage state from its parrent (the detail Component) 
@@ -21,7 +21,7 @@ class CanvasPage extends Component {
         if (this.props.loadComparePage) {
             return <CompareCanvas></CompareCanvas>;
         } else {
-        /*
+            /*
         the normal scenario 
         a canvas page without any comparisons 
         */
@@ -49,4 +49,4 @@ class CanvasPage extends Component {
     }
 }
 
-export default CanvasPage;
+export default CanvasComponent;
