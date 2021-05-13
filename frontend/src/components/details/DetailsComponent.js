@@ -11,24 +11,38 @@ import SelectVariable from './SelectVariableComponent';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import DividerPannel from './PanelComponent';
 
-function DetailInfo() {
-    /*
-         the default canvas has to be divided into two canvases
-    */
-    let handleCompareButton = () => {
-        alert('compare button clicked');
+class DetailInfo extends Component {
+    state = {
+        compareCanvas: false
     };
+    render() {
+        /*
+        we should later on find a way to make this line also compatible with class component 
+        */
+        //const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
 
-    const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
-    return (
-        <React.Fragment>
-            <h2>The chosen Model is {selectedProducts[0].modelName}</h2>
-            <SelectVariable></SelectVariable>
-            <DividerPannel onCompareClick={handleCompareButton}></DividerPannel>
+        /*
+         the default canvas has to be divided into two canvases
+         */
+        let handleCompareButton = () => {
+            const compareCanvas = true;
+            /*
+            now canvas component should be notified 
+            by setting the compareCanvas state to true
+            */
+            this.setState({ compareCanvas });
+        };
 
-            <Canvas></Canvas>
-        </React.Fragment>
-    );
+        return (
+            <React.Fragment>
+                {/* <h2>The chosen Model is {selectedProducts[0].modelName}</h2> */}
+                <SelectVariable></SelectVariable>
+                <DividerPannel onCompareClick={handleCompareButton}></DividerPannel>
+
+                <Canvas loadComparePage={this.state.compareCanvas}></Canvas>
+            </React.Fragment>
+        );
+    }
 }
 
 export default DetailInfo;
