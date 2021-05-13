@@ -5,7 +5,7 @@
  */
 import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { getMaterialComposition} from 'interface/projectInterface';
+import { getMaterialComposition } from 'interface/projectInterface';
 
 const PieChartDiagramComponent = () => {
     //const series = [17, 13, 3, 2, 1, 42, 21];
@@ -35,7 +35,7 @@ const PieChartDiagramComponent = () => {
                 breakpoint: 480,
                 options: {
                     chart: {
-                        height: '400px'
+                        height: '300px'
                     },
                     legend: {
                         position: 'bottom'
@@ -46,9 +46,7 @@ const PieChartDiagramComponent = () => {
     };
 
     return (
-        
-        <div id='chart'>
-            
+        <div style={{ width: '400px', height: '300px' }} id='chart'>
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );
