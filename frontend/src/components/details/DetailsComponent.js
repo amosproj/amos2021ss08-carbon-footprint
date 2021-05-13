@@ -23,11 +23,14 @@ class DetailInfo extends Component {
 
         /*
          the default canvas has to be divided into two canvases
+         an extra drom down button for second variable should be rendered 
+         the compare button should be disabled 
          */
         let handleCompareButton = () => {
             const compareCanvas = true;
             /*
-            now canvas component should be notified 
+            now all components such as 
+            canvas component should be notified 
             by setting the compareCanvas state to true
             */
             this.setState({ compareCanvas });
@@ -36,7 +39,7 @@ class DetailInfo extends Component {
         return (
             <React.Fragment>
                 {/* <h2>The chosen Model is {selectedProducts[0].modelName}</h2> */}
-                <SelectVariable></SelectVariable>
+                <SelectVariable loadComparePage={this.state.compareCanvas}></SelectVariable>
                 <DividerPannel onCompareClick={handleCompareButton}></DividerPannel>
 
                 <Canvas loadComparePage={this.state.compareCanvas}></Canvas>
