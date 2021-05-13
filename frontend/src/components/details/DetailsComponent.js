@@ -40,7 +40,10 @@ class DetailInfo extends Component {
             <React.Fragment>
                 {/* <h2>The chosen Model is {selectedProducts[0].modelName}</h2> */}
                 <SelectVariable loadComparePage={this.state.compareCanvas}></SelectVariable>
-                <DividerPannel onCompareClick={handleCompareButton}></DividerPannel>
+                <DividerPannel
+                    loadComparePage={this.state.compareCanvas}
+                    onCompareClick={handleCompareButton}
+                ></DividerPannel>
 
                 <Canvas loadComparePage={this.state.compareCanvas}></Canvas>
             </React.Fragment>

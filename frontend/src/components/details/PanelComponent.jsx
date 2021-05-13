@@ -15,7 +15,11 @@ const DividerPannel = (props) => {
                 </div>
                 <div className='w3-col s3  w3-center'>
                     {/* calling the compare button by using props which its parrent has provided*/}
-                    <button onClick={props.onCompareClick} className='w3-button w3-border'>
+                    <button
+                        onClick={props.onCompareClick}
+                        className='w3-button w3-border'
+                        disabled={props.loadComparePage}
+                    >
                         <b>Compare</b>
                     </button>
                 </div>

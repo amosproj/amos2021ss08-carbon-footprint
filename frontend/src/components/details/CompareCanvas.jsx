@@ -34,7 +34,7 @@ const CompareCanvas = () => {
                     <Table></Table>
                 </Col>
             </Row>
-            <Row>
+            <Row className='w3-margin-top'>
                 <Col xs={10}>
                     <h3> Impact categories </h3>
                     <Table></Table>
