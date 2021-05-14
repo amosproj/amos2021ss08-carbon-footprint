@@ -9,7 +9,7 @@
  */
 
 import React, {useContext} from 'react';
-import {Column, Row} from 'simple-flexbox';
+//import {Column, Row} from 'simple-flexbox';
 import {createUseStyles} from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import {getProducts} from 'interface/simaProInterface'
@@ -17,7 +17,7 @@ import ProductDropdown from './ModelDropdownComponent'
 import SLUGS from 'resources/slugs';
 import {Link} from 'react-router-dom';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
-
+import {Container, Row, Col } from 'react-grid-system';
 
 
 
@@ -37,7 +37,8 @@ function ProductGridComponent() {
     const classes = useStyles();
 
     return (
-        <Column>
+        <Container fluid={true}>
+        <Col>
             <Row
                 className={classes.cardRow}
                 wrap
@@ -46,7 +47,7 @@ function ProductGridComponent() {
                 breakpoints={{50: 'column'}}
             >
                 {products.map((product, index) =>
-                    <Column key={'Column' + index}>
+                    <Col key={'Column' + index} style="width:70px">
                         <Link
                             onClick={(props) => {
                                 // Save selection to ContextProvider
@@ -63,10 +64,11 @@ function ProductGridComponent() {
                             />
                         </Link>
                         <ProductDropdown productID={product.productID} productName={product.productName}/>
-                    </Column>
+                    </Col>
                 )}
             </Row>
-        </Column>
+        </Col>
+        </Container>
     );
 }
 
