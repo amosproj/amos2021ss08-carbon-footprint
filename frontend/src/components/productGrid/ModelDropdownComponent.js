@@ -13,7 +13,7 @@ import {Container, Row, Col } from 'react-grid-system';
  * This component creates the dropdownboxes for the related products 
  * 
  * @returns the model properties of the related product depending on the model values from getModels func from interface/simaProInterface
- * @author parham, Martin Wagner, Irem Toroslu
+ * @author parham, Martin Wagner, Irem Toroslu, Mani Anand
  */
 
 const ModelDropdownComponent = (props) =>  {
@@ -30,7 +30,7 @@ const ModelDropdownComponent = (props) =>  {
             <Container fluid={true}>
                 <Row className=' w3-dropdown-hover w3-card-4 w3-lightgrey w3-margin-bottom w3-margin-left:5em w3-margin-right w3-margin-top w3-margin-bottom:2em' >
                     <Col xs={2}>                         
-                    <button className=' w3-button w3-border w3-lightgrey'>{selected}</button>
+                    <button className=' w3-button w3-border w3-white'>{selected}</button>
                     
                     
                     <div className='w3-dropdown-content w3-dropdown-hover w3-bar-block w3-border'>
