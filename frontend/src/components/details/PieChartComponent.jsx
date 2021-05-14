@@ -6,6 +6,7 @@
 import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { getMaterialComposition} from 'interface/projectInterface';
+import theme from 'resources/theme';
 
 const PieChartDiagramComponent = () => {
     //const series = [17, 13, 3, 2, 1, 42, 21];
@@ -26,7 +27,7 @@ const PieChartDiagramComponent = () => {
             'Silicon steel',
             'Copper'
         ],
-        colors: ['#040f13', '#0b2d39', '#165a72', '#2596be', '#3ba1c5', '#00308F', '#d3eaf2'],
+        colors: [theme.color.TransformerOil, theme.color.Steel, theme.color.Pressboard, theme.color.StainlessSteel, theme.color.Alminium, theme.color.SiliconSteel, theme.color.Copper],
         fill: {
             type: 'gradient'
         },

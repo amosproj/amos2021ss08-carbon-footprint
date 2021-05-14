@@ -28,7 +28,9 @@ const useStyles = createUseStyles((theme) => ({
         }
     },
     container: {
-        height: 40
+        height: 20,
+        color:'#00b300'
+  
     },
     name: {
         ...theme.typography.itemTitle,
@@ -51,10 +53,10 @@ const useStyles = createUseStyles((theme) => ({
     title: {
         ...theme.typography.title,
         '@media (max-width: 1080px)': {
-            marginLeft: 60
+            marginLeft: 100
         },
         '@media (max-width: 468px)': {
-            fontSize: 20
+            fontSize: 50
         }
     },
     iconStyles: {
@@ -116,8 +118,8 @@ function HeaderComponent() {
     }
 
     return (
-        <Row className={classes.container} vertical='center' horizontal='space-between'>
-            <span className={classes.title}>{title}</span>
+        <Row className={classes.container} style={{background:'#262625', marginLeft:-15,marginTop:-30,height:50}} vertical='center' horizontal='space-between'>
+            <span className={classes.title} style={{marginLeft:10, fontSize:20,marginTop:10}}>{title}</span>
             <Row vertical='center'>
                 <div className={classes.iconStyles}>
                     <IconSearch />

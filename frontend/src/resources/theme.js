@@ -15,7 +15,17 @@ const color = {
     paleBlue: '#DDE2FF',
     paleBlueTransparent: 'rgba(221, 226, 255, 0.08)',
     veryDarkGrayishBlue: '#373a47',
-    lightgreen: '#b5b4b9',
+    lightgreen: '#66a103',
+    teal:'#008081',
+    Copper:'#BF6016',//B87333
+    Alminium:'#6093AC',//'#A9ACB6',
+    SiliconSteel:'#0c6c84',//'#8FB1CC',016064,8EA0B3, 016A86,006994,04657e,0c6c84
+    TransformerOil: '#FACA0F',//'#D4AF37 cca42b',
+    StainlessSteel:'#caccce', //
+    Pressboard:'#C38888',//BC8379,
+    Steel:'#8C9BA1'
+
+
 };
 
 const typography = {

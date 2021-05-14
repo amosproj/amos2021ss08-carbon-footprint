@@ -79,7 +79,7 @@ function SidebarComponent() {
     return (
         <Menu isMobile={isMobile}>
 
-            <div style={{width: 180, marginLeft:25,paddingLeft: 25, paddingRight: 20, paddingTop: 20, paddingBottom: 20 }}>
+            <div style={{width: 180, marginLeft:30,paddingLeft: 25, paddingRight: 20, paddingTop: 20, paddingBottom: 20 }}>
             <img src={logo} style={{marginTop:20, marginBottom:20}}/>
             </div>
             <MenuItem

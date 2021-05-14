@@ -24,11 +24,12 @@ const useStyles = createUseStyles({
             level > 1 ? 'none' : `3px solid ${theme.color.darkGrayishBlue}`
     },
     title: { 
-        fontSize: 15, // left bar titles 
+        fontSize: 13, // left bar titles 
         lineHeight: '20px',
         letterSpacing: '0.2px',
         color: ({ theme, isActive }) =>(isActive ? '#00b300' : '#b5b4b9'), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
-        marginLeft: 10
+        marginLeft: 10,
+        fontWeight:'inherit'
     }
 });
 
