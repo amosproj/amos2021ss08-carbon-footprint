@@ -17,8 +17,9 @@ const useStyles = createUseStyles({
         minHeight: 850
     },
     mainBlock: {
-        marginLeft: 255,
-        padding: 30,
+        marginLeft: 225,
+        marginTop:30,
+        padding: 0,
         '@media (max-width: 1080px)': {
             marginLeft: 0
         }

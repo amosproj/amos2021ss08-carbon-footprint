@@ -26,6 +26,7 @@ import logo from 'assets/logo/LogoCarbonteam.png';
  * @author Martin Wagner 
  */
 
+
 const useStyles = createUseStyles({
     separator: {
         borderTop: ({ theme }) => `1px solid ${theme.color.lightGrayishBlue}`,
