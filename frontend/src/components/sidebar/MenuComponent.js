@@ -29,7 +29,7 @@ const getMenuStyles = ({ theme }) => ({
         zIndex: 30
     },
     bmMenu: {
-        background: '#212121'  // left side bar backgroundcolor  1e231c 202121
+        background: theme.uniformStyle.color.secondaryBackgroundColor // left side bar backgroundcolor 
     },
     bmItem: {
         outline: 'none',

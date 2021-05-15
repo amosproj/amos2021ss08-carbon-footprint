@@ -8,13 +8,6 @@ import SLUGS from 'resources/slugs';
 import { IconBell, IconUser, IconSearch, IconLogin, IconArrow, IconBurger, IconBrowse } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
-/**
- * The Header Component is a shared component between all pages. It is capable to display 
- * a title that changes when the selection in the SidebarComponent changes. 
- * 
- * @returns The visualization of exactly that.
- * @author reconfigured by Irem Toroslu
- */ 
 
 const useStyles = createUseStyles((theme) => ({
     avatar: {
@@ -85,8 +78,12 @@ const useStyles = createUseStyles((theme) => ({
     }
 }));
 
-
-
+/**
+ * The Header Component is a shared component between all pages. It is capable to display 
+ * a title that changes when the selection in the SidebarComponent changes. 
+ * 
+ * @returns The visualization of exactly that.
+ */
 function HeaderComponent() {
     
     const { push } = useHistory();
@@ -150,8 +147,9 @@ function HeaderComponent() {
     }
 
     return (
-        <Row className={classes.container} style={{background:'#212121', marginLeft:-90,marginTop:-40,height:60}} vertical='center' horizontal='space-between'>
-            <span className={classes.title} style={{marginLeft:20, marginTop:20}}>{ title  } <UseArrow isProductSelected={selectedProducts[0].productName} />{subtitle}<UseArrow isProductSelected={selectedProducts[0].productName} />{subsubtitle}</span>
+        <Row className={classes.container} style={{background: theme.uniformStyle.color.secondaryBackgroundColor, marginLeft:-15,marginTop:-30,height:50}} vertical='center' horizontal='space-between'>
+            <span className={classes.title} style={{marginLeft:10, fontSize:20,marginTop:10}}>{title}</span>
+
             <Row vertical='center'>
                 <div className={classes.iconStyles}>
                     <IconSearch />

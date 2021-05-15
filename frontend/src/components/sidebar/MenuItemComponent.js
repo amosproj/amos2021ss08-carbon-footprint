@@ -27,7 +27,7 @@ const useStyles = createUseStyles({
         fontSize: 15, // left bar titles 
         lineHeight: '20px',
         letterSpacing: '0.2px',
-        color: ({ theme, isActive }) =>(isActive ? '#00b300' : '#b5b4b9'), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
+        color: ({ theme, isActive }) =>(isActive ? theme.uniformStyle.color.highlightingColor : theme.uniformStyle.color.secondaryFontColor), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
         marginLeft: 10,
         fontWeight:'inherit'
     }
