@@ -151,7 +151,7 @@ function HeaderComponent() {
 
     return (
         <Row className={classes.container} style={{background:'#212121', marginLeft:-90,marginTop:-40,height:60}} vertical='center' horizontal='space-between'>
-            <span className={classes.title} style={{marginLeft:20, fontSize:20, fontWeight:'inherit',marginTop:20}}>{ title  } <UseArrow isProductSelected={selectedProducts[0].productName} />{subtitle}<UseArrow isProductSelected={selectedProducts[0].productName} />{subsubtitle}</span>
+            <span className={classes.title} style={{marginLeft:20, marginTop:20}}>{ title  } <UseArrow isProductSelected={selectedProducts[0].productName} />{subtitle}<UseArrow isProductSelected={selectedProducts[0].productName} />{subsubtitle}</span>
             <Row vertical='center'>
                 <div className={classes.iconStyles}>
                     <IconSearch />

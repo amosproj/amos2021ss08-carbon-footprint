@@ -61,7 +61,7 @@ const typography = {
     },
     title: {
         fontWeight: 'bold',
-        fontSize: 24,
+        fontSize: 40,
         lineHeight: '30px',
         letterSpacing: 0.3
     }

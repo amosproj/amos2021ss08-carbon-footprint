@@ -13,7 +13,7 @@ const useStyles = createUseStyles((theme) => ({
         maxWidth: 350,
         maxHeight:150,
         marginTop:50,
-        padding: '8px 16px 8px 16px',
+        // padding: '8px 16px 8px 16px',
         '&:hover': {
             borderColor: '#8b8d94',//'#7b9095', //'#00b300'
             '&:nth-child(n) > span': {
@@ -47,7 +47,7 @@ function MiniCardComponent({ className = '', title, value, path }) {
     return (
         <Column flexGrow={1} className={composedClassName} horizontal='center' vertical='center'>
         {/*  Resize the image on the cards (product images)            */}
-            <div style={{ width: 150, paddingLeft: 20, paddingTop: 20, paddingBottom: 20 }}>
+            <div style={{ width: 130,  paddingTop: 20, paddingBottom: 20 }}>
                     {/* define the image path */}
                     <img src={path} alt='' />
             </div>
