@@ -1,13 +1,3 @@
-/**
- * The Componenet creates new cards   for the product items using the minicard components form 'components/cards/MiniCardComponent'
- * it displays all the related products images attached to each card in a certain category.
- * Also stores the product and model properties and pass this values to the detail page once clicking on the image
- * /**
- * 
- * @returns the product and model properties
- * @author Irem Toroslu, Martin Wagner, Mani Anand
- */
-
 import React, {useContext} from 'react';
 import {Column, Row} from 'simple-flexbox';
 import {createUseStyles} from 'react-jss';
@@ -20,25 +10,15 @@ import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 import { Component } from 'react';
 import LabelComponent from './LabelComponent'
 
-const myStyles = createUseStyles((theme) => ({
-
-    title: {
-        ...theme.typography.cardTitle,
-        color: theme.color.grayishBlue2,
-        marginBottom: 12,
-        minWidth: 205,
-        textAlign: 'center'
-    },
-    value: {
-        color: theme.color.veryDarkGrayishBlue,
-        fontWeight: 'bold',
-        fontSize: 20,
-        letterSpacing: '1px',
-        lineHeight: '50px',
-        textAlign: 'center'
-    }
-}));
-
+/**
+ * The Componenet creates new cards   for the product items using the minicard components form 'components/cards/MiniCardComponent'
+ * it displays all the related products images attached to each card in a certain category.
+ * Also stores the product and model properties and pass this values to the detail page once clicking on the image
+ * /**
+ * 
+ * @returns the product and model properties
+ * @author Irem Toroslu, Martin Wagner, Mani Anand
+ */
 
 function ProductGridComponent() {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);

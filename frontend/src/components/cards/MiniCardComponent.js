@@ -10,7 +10,7 @@ const useStyles = createUseStyles((theme) => ({
         border: `3px solid ${theme.color.lightGrayishBlue2}`,
         borderRadius: 4,
         cursor: 'pointer',
-        maxWidth: 200,
+        maxWidth: 350,
         maxHeight:150,
         marginTop:50,
         padding: '8px 16px 8px 16px',

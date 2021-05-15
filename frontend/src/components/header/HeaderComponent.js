@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { string } from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Row } from 'simple-flexbox';
-import { createUseStyles, useTheme } from 'react-jss';
+import { createUseStyles, ThemeProvider, useTheme } from 'react-jss';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
-import { IconBell, IconBrowse, IconLogin, IconSearch } from 'assets/icons';
+import { IconBell, IconUser, IconSearch, IconLogin, IconArrow, IconBurger, IconBrowse } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 
@@ -22,35 +22,51 @@ const useStyles = createUseStyles((theme) => ({
         }
     },
     container: {
-        height: 20,
-        color:'#00b300'
+        height: 50,
+        widht:200,
+        color:'#00b300', // header title color 
+        marginRight:-30
   
     },
     name: {
         ...theme.typography.itemTitle,
         textAlign: 'right',
         '@media (max-width: 768px)': {
-            display: 'none'
+            display: 'none',
+            
         }
     },
     separator: {
         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
         marginLeft: 32,
         marginRight: 32,
-        height: 32,
-        width: 2,
+        height: 30,
+        width: 3,
         '@media (max-width: 768px)': {
             marginLeft: 14,
             marginRight: 0
         }
     },
+    subtitle: {
+        ...theme.typography.title,
+        '@media (max-width: 1080px)': {
+            marginLeft: -50,
+
+        },
+        '@media (max-width: 468px)': {
+            fontSize: 50,
+
+        }
+    },
     title: {
         ...theme.typography.title,
         '@media (max-width: 1080px)': {
-            marginLeft: 100
+            marginLeft: 80,
+
         },
         '@media (max-width: 468px)': {
-            fontSize: 50
+            fontSize: 50,
+
         }
     },
     iconStyles: {
@@ -69,6 +85,7 @@ const useStyles = createUseStyles((theme) => ({
  * @returns The visualization of exactly that.
  */
 function HeaderComponent() {
+    
     const { push } = useHistory();
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
@@ -77,6 +94,8 @@ function HeaderComponent() {
     
     let title;
     let subtitle;
+    let subsubtitle;
+
 
     switch (true) {
         
@@ -95,7 +114,9 @@ function HeaderComponent() {
         case currentItem === SLUGS.industrialApplications:
             title = 'Industrial Applications';
         case currentItem === SLUGS.details:
-            title = 'Selected product: ' + (selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
+            title='Details '
+            subtitle = ' Selected product  ' ;
+            subsubtitle =(selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
             break;
         case currentItem === SLUGS.generation + '/products':
             title = 'Product Catagory';
@@ -113,6 +134,14 @@ function HeaderComponent() {
             title = '';
     }
 
+    function UseArrow(selected) {
+
+        if (title === 'Details ' && !(selected === undefined)) {
+            return <IconArrow height='10'/>;
+        }
+       return null;
+    
+      }
     function onSettingsClick() {
         push(SLUGS.settings);
     }
@@ -125,7 +154,7 @@ function HeaderComponent() {
                     <IconSearch />
                 </div>
                 <div className={classes.iconStyles}>
-                    <DropdownComponent
+                    {/* <DropdownComponent
                         label={<IconBell />}
                         options={[
                             {
@@ -149,13 +178,13 @@ function HeaderComponent() {
                             top: 42,
                             right: -14
                         }}
-                    />
+                    /> */}
                 </div>
                 <div className={classes.separator}></div>
                 <DropdownComponent
                     label={
-                    <span className={classes.name} >User Name
-                        <IconLogin>  
+                    <span className={classes.name} style={{color:'#b5b4b9', fontWeight:'inherit'}} >User Name
+                        <IconLogin fill= {'#b5b4b9'}>  
                         
   
                             {/* <img
@@ -179,7 +208,7 @@ function HeaderComponent() {
                         }
                     ]}
                     position={{
-                        top: 52,
+                        top: 45,
                         right: -6
                     }}
                 />

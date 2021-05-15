@@ -11,12 +11,12 @@ const useStyles = createUseStyles({
     },
     container: {
         display: 'flex',
-        height: 56,
+        height: 40,
         cursor: 'pointer',
         '&:hover': {
             backgroundColor: ({ theme }) => theme.color.paleBlueTransparent
         },
-        paddingLeft: ({ level }) => 24 * level,
+        paddingLeft: ({ level }) => 16 * level,
         transition: 'all 0.2s ease-in-out'
     },
     leftBar: {
@@ -24,7 +24,7 @@ const useStyles = createUseStyles({
             level > 1 ? 'none' : `3px solid ${theme.color.darkGrayishBlue}`
     },
     title: { 
-        fontSize: 13, // left bar titles 
+        fontSize: 15, // left bar titles 
         lineHeight: '20px',
         letterSpacing: '0.2px',
         color: ({ theme, isActive }) =>(isActive ? theme.uniformStyle.color.highlightingColor : theme.uniformStyle.color.secondaryFontColor), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
