@@ -4,7 +4,7 @@
  * on the right handside canvas.
  * 
  * @author Martin Wagner
- * @author Irem
+ * @author Irem Toroslu
  */
 
 import React, { Suspense, lazy } from 'react';
