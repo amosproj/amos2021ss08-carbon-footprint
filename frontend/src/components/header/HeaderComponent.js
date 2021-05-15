@@ -8,12 +8,6 @@ import SLUGS from 'resources/slugs';
 import { IconBell, IconBrowse, IconLogin, IconSearch } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
-/**
- * The Header Component is a shared component between all pages. It is capable to display 
- * a title that changes when the selection in the SidebarComponent changes. 
- * 
- * @returns The visualization of exactly that.
- */
 
 const useStyles = createUseStyles((theme) => ({
     avatar: {
@@ -68,6 +62,12 @@ const useStyles = createUseStyles((theme) => ({
     }
 }));
 
+/**
+ * The Header Component is a shared component between all pages. It is capable to display 
+ * a title that changes when the selection in the SidebarComponent changes. 
+ * 
+ * @returns The visualization of exactly that.
+ */
 function HeaderComponent() {
     const { push } = useHistory();
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
@@ -118,7 +118,7 @@ function HeaderComponent() {
     }
 
     return (
-        <Row className={classes.container} style={{background:'#262625', marginLeft:-15,marginTop:-30,height:50}} vertical='center' horizontal='space-between'>
+        <Row className={classes.container} style={{background: theme.uniformStyle.color.secondaryBackgroundColor, marginLeft:-15,marginTop:-30,height:50}} vertical='center' horizontal='space-between'>
             <span className={classes.title} style={{marginLeft:10, fontSize:20,marginTop:10}}>{title}</span>
             <Row vertical='center'>
                 <div className={classes.iconStyles}>
