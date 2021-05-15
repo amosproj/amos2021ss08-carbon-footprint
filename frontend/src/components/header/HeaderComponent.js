@@ -97,6 +97,7 @@ function HeaderComponent() {
     
     let title;
     let subtitle;
+    let subsubtitle;
 
 
     switch (true) {
@@ -117,7 +118,8 @@ function HeaderComponent() {
             title = 'Industrial Applications';
         case currentItem === SLUGS.details:
             title='Details '
-            subtitle = ' Selected product: ' + (selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
+            subtitle = ' Selected product  ' ;
+            subsubtitle =(selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
             break;
         case currentItem === SLUGS.generation + '/products':
             title = 'Product Catagory';
@@ -138,7 +140,7 @@ function HeaderComponent() {
     function UseArrow(selected) {
 
         if (title === 'Details ' && !(selected === undefined)) {
-            return <IconArrow/>;
+            return <IconArrow height='10'/>;
         }
        return null;
     
@@ -149,7 +151,7 @@ function HeaderComponent() {
 
     return (
         <Row className={classes.container} style={{background:'#212121', marginLeft:-90,marginTop:-40,height:60}} vertical='center' horizontal='space-between'>
-            <span className={classes.title} style={{marginLeft:20, fontSize:20, fontWeight:'inherit',marginTop:15}}>{ title  } <UseArrow isProductSelected={selectedProducts[0].productName} />{subtitle}</span>
+            <span className={classes.title} style={{marginLeft:20, fontSize:20, fontWeight:'inherit',marginTop:20}}>{ title  } <UseArrow isProductSelected={selectedProducts[0].productName} />{subtitle}<UseArrow isProductSelected={selectedProducts[0].productName} />{subsubtitle}</span>
             <Row vertical='center'>
                 <div className={classes.iconStyles}>
                     <IconSearch />
