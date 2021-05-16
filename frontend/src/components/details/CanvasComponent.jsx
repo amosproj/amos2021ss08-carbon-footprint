@@ -19,7 +19,7 @@ class CanvasComponent extends Component {
         is set to true, here the canvas page should be divided into two canvases
         */
         if (this.props.loadComparePage) {
-            return <CompareCanvas></CompareCanvas>;
+            return <CompareCanvas/>;
         } else {
             /*
         the normal scenario 
@@ -30,17 +30,17 @@ class CanvasComponent extends Component {
                     <Row>
                         <Col xs={5}>
                             <h3> Material Composition </h3>
-                            <PieChart></PieChart>
+                            <PieChart/>
                         </Col>
                         <Col xs={5}>
                             <h3> Results of the impact assessment </h3>
-                            <ColumnChart></ColumnChart>
+                            <ColumnChart/>
                         </Col>
                     </Row>
                     <Row>
                         <Col xs={10}>
                             <h3> Impact categories </h3>
-                            <Table></Table>
+                            <Table/>
                         </Col>
                     </Row>
                 </Container>
