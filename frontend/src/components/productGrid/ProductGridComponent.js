@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-//import {Column, Row} from 'simple-flexbox';
+import {Column, Row} from 'simple-flexbox';
 import {createUseStyles} from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import {getProducts} from 'interface/simaProInterface'
@@ -7,7 +7,8 @@ import ProductDropdown from './ModelDropdownComponent'
 import SLUGS from 'resources/slugs';
 import {Link} from 'react-router-dom';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
-import {Container, Row, Col } from 'react-grid-system';
+import { Component } from 'react';
+import LabelComponent from './LabelComponent'
 
 /**
  * The Componenet creates new cards   for the product items using the minicard components form 'components/cards/MiniCardComponent'
@@ -19,54 +20,59 @@ import {Container, Row, Col } from 'react-grid-system';
  * @author Irem Toroslu, Martin Wagner, Mani Anand
  */
 
-function ProductGridComponent() {
-    const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
-    const NewSelectedProducts =
 
-        [{
+function ProductGridComponent() {
+    const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
+    const NewSelectedProducts = [
+        {
             productID: selectedProducts.productID,
             productName: selectedProducts.productName,
             modelID: selectedProducts.modelID,
             modelName: selectedProducts.modelName
-        }]
-
+        }
+    ];
 
     const products = getProducts();
     const classes = useStyles();
 
     return (
-        <Container fluid={true}>
-        <Col>
+        <Column>
             <Row
                 className={classes.cardRow}
                 wrap
                 flexGrow={1}
                 vertical='center'
-                breakpoints={{50: 'column'}}
+                breakpoints={{ 50: 'column' }}
             >
-                {products.map((product, index) =>
-                    <Col key={'Column' + index}>
+                {products.map((product, index) => (
+                    <Column key={'Column' + index}>
                         <Link
                             onClick={(props) => {
                                 // Save selection to ContextProvider
                                 NewSelectedProducts[0].productID = product.productID;
                                 NewSelectedProducts[0].productName = product.productName;
                             }}
-                            to={{ // Link to the next page
-                                pathname: SLUGS.details,
-                            }}>
+                            to={{
+                                // Link to the next page
+                                pathname: SLUGS.details
+                            }}
+                        >
                             <MiniCardComponent
+                                title={product.productName}
                                 className={classes.miniCardContainer}
                                 // define the path of the image to show on the cards
                                 path={product.productImage}
                             />
                         </Link>
-                        <ProductDropdown productID={product.productID} productName={product.productName}/>
-                    </Col>
-                )}
+                        <LabelComponent productName={product.productName}/>
+                        <ProductDropdown
+                            productID={product.productID}
+                            productName={product.productName}
+                        />
+                    </Column>
+                ))}
             </Row>
-        </Col>
-        </Container>
+        </Column>
     );
 }
 

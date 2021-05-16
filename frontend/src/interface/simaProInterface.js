@@ -45,10 +45,10 @@ export function getModels(productID) {
             ]);
         case "7ghnaoeb-kfue-qp04-slfg-12059492begp":
             return ([
-                { modelID: 6, productID: productID, modelName: 'Transformer Type DIN42a' },
-                { modelID: 7, productID: productID, modelName: 'Transformer Type DIN42b' },
-                { modelID: 8, productID: productID, modelName: 'Transformer Type DIN42b' },
-                { modelID: 9, productID: productID, modelName: 'Transformer Type DIN42b' }
+                { modelID: 6, productID: productID, modelName: 'Transformer DIN42a' },
+                { modelID: 7, productID: productID, modelName: 'Transformer DIN42b' },
+                { modelID: 8, productID: productID, modelName: 'Transformer DIN42b' },
+                { modelID: 9, productID: productID, modelName: 'Transformer DIN42b' }
             ]);
         case "whatis00-this-id00-just-d01n9352rnow":
             return ([
@@ -78,7 +78,7 @@ function getDummyProducts() {
         },
         { 
             productID: 'aufwlc93-kldp-4fer-15s7-51245631fega', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Motors', //final_process_name? 
+            productName: 'Motors Type XYZb', //final_process_name? 
             categories: [categories.transmission],
             productImage: logo_1,
         },
