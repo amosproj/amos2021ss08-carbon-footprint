@@ -33,13 +33,14 @@ const useStyles = createUseStyles((theme) => ({
         textAlign: 'right',
         '@media (max-width: 768px)': {
             display: 'none',
+
             
         }
     },
     separator: {
         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
-        marginLeft: 32,
-        marginRight: 32,
+        marginLeft: 50,
+        marginRight: 120,
         height: 30,
         width: 3,
         '@media (max-width: 768px)': {
@@ -71,7 +72,7 @@ const useStyles = createUseStyles((theme) => ({
     },
     iconStyles: {
         cursor: 'pointer',
-        marginLeft: 25,
+        marginLeft:0,
         '@media (max-width: 768px)': {
             marginLeft: 12
         }
@@ -148,13 +149,21 @@ function HeaderComponent() {
 
     return (
         <Row className={classes.container} style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:-30,marginLeft:-30,height:50}} vertical='center' horizontal='space-between'>
-            <span className={classes.title} style={{marginLeft:10, fontSize:20,marginTop:10}}>{title}</span>
+            <span className={classes.title} style={{marginLeft:10,marginTop:10}}>{title}</span>
 
             <Row vertical='center'>
                 <div className={classes.iconStyles}>
                     <IconSearch />
                 </div>
+                <div className={classes.separator}>
                 <div className={classes.iconStyles}>
+                <IconLogin fill= {'white'}  /></div>
+            {/* <IconSearch/>  
+            <Row vertical='center'>
+                <div className={classes.iconStyles}>
+                <div className={classes.separator}><IconLogin fill= {'white'}  /></div>
+                </div>
+                <div className={classes.iconStyles}> */}
                     {/* <DropdownComponent
                         label={<IconBell />}
                         options={[
@@ -181,39 +190,8 @@ function HeaderComponent() {
                         }}
                     /> */}
                 </div>
-                <div className={classes.separator}></div>
-                <DropdownComponent
-                    label={
-                    <span className={classes.name} style={{color:'#b5b4b9', fontWeight:'inherit'}} >User Name
-                        <IconLogin fill= {'#b5b4b9'}>  
-                        
-  
-                            {/* <img
-                                src='https://avatars3.githubusercontent.com/u/21162888?s=460&v=4'
-                                alt='avatar'
-                                className={classes.avatar}
-                            /> */}
-      
-                    </IconLogin>
-                    </span>  
-                       
-                    }
-                    options={[
-                        {
-                            label: 'Settings',
-                            onClick: onSettingsClick
-                        },
-                        {
-                            label: 'Logout',
-                            onClick: () => console.log('logout')
-                        }
-                    ]}
-                    position={{
-                        top: 45,
-                        right: -6
-                    }}
-                />
-            </Row>
+
+                </Row>
         </Row>
     );
 }

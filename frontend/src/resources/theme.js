@@ -35,18 +35,23 @@ const color = {
 const typography = {
     cardTitle: {
         fontWeight: 'bold',
-        fontSize: 19,
+        fontSize: 15,
         lineHeight: '24px',
         letterSpacing: '0.4px'
     },
+    icontitle: {
+        fontSize: 16,
+        lineHeight: '16px',
+        letterSpacing: '0.1px'
+    },
     smallSubtitle: {
-        fontSize: 12,
+        fontSize: 16,
         lineHeight: '16px',
         letterSpacing: '0.1px'
     },
     link: {
         fontWeight: '600',
-        fontSize: 14,
+        fontSize: 15,
         lineHeight: '20px',
         letterSpacing: '0.2px',
         color: color.lightBlue,
@@ -59,13 +64,19 @@ const typography = {
     },
     itemTitle: {
         fontWeight: 600,
-        fontSize: 14,
+        fontSize: 15,
         lineHeight: '20px',
         letterSpacing: 0.2
     },
     title: {
-        fontWeight: 'bold',
-        fontSize: 40,
+        fontWeight: 'inherit',
+        fontSize: 24,
+        lineHeight: '30px',
+        letterSpacing: 0.3
+    },
+    subtitle: {
+        fontWeight: 'inherit',
+        fontSize: 18,
         lineHeight: '30px',
         letterSpacing: 0.3
     }

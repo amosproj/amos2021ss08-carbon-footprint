@@ -24,7 +24,7 @@ const useStyles = createUseStyles({
             level > 1 ? 'none' : `3px solid ${theme.color.darkGrayishBlue}`
     },
     title: { 
-        fontSize: 15, // left bar titles 
+        fontSize: ({ theme }) => theme.typography.icontitle.fontSize , // left bar titles 
         lineHeight: '20px',
         letterSpacing: '0.2px',
         color: ({ theme, isActive }) =>(isActive ? theme.uniformStyle.color.highlightingColor : theme.uniformStyle.color.secondaryFontColor), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
