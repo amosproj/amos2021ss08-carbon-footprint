@@ -7,11 +7,12 @@
  * @author Irem
  */
 
-import React, { Suspense, lazy } from 'react';
+import React, { useContext, Suspense, lazy } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import LoadingComponent from 'components/loading';
 import DetailsComponent from 'components/details/DetailsComponent';
+import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 const ProductSolutionsServices = lazy(() =>
     import('./dynamicPaths/ProductSolutionsServicesComponent')
 );
@@ -23,6 +24,7 @@ const DashboardComponent = lazy(() => import('../components/dashboard'));
  * linking Components to the selected Menuitem in the "Sidebar component"
   */
 function PrivateRoutes() {
+    const [ selectedProducts ] = useContext(PrivateSectionContext);
     return (
         <Suspense fallback={<LoadingComponent loading />}>
             <Switch>
@@ -51,8 +53,7 @@ function PrivateRoutes() {
                 />
                 
                 <Route exact path={SLUGS.details}
-                    // hardcoded selected model (Transformer 3-phase#1), TODO: it should be passed by its parent state
-                    render={() => <DetailsComponent selectedModel='Transformer 3-phase#1' />}
+                    render={() => <DetailsComponent selectedProduct={selectedProducts[0]} />}
                 />
 
                 <Route exact path={SLUGS.settings}      render={() => <div>settings</div>} />
