@@ -14,9 +14,6 @@ const useStyles = createUseStyles((theme) => ({
       textAlign: 'left',
       '@media (max-width: 768px)': {
           display: 'none',
-          
-
-          
       }
   },
 
@@ -61,8 +58,8 @@ export default function ProductSolutionsServicesComponent() {
       
       <Row className={classes.subtitle}>
       {type === 'products' && <div >All the products<div className={classes.textcontent}>  This is where all the products of the selected category could be shown.</div></div>}
-      {type === 'solutions' && <div>This is where all the solutions of the selected category could be shown.</div>}
-      {type === 'services' && <div>This is where all the services of the selected category could be shown.</div>}
+      {type === 'solutions' && <div className={classes.textcontent}>This is where all the solutions of the selected category could be shown.</div>}
+      {type === 'services' && <div className={classes.textcontent}>This is where all the services of the selected category could be shown.</div>}
       </Row>
       <ProductGridComponent/>
 

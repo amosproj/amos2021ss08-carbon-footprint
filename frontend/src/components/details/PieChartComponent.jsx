@@ -1,7 +1,7 @@
 /**
  * Pie Chart Diagram
  *
- * @author parham, Julian
+ * @author parham, Julian, Irem Toroslu
  */
 import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
@@ -19,7 +19,8 @@ const PieChartDiagramComponent = () => {
             type: 'donut'
         },
         legend: {
-            fontSize: theme.typography.chartItemstitle.fontSize
+            fontSize: theme.typography.chartItemstitle.fontSize,
+            fontWeight:theme.typography.chartItemstitle.fontWeight
           },
         labels: 
         [
@@ -33,7 +34,17 @@ const PieChartDiagramComponent = () => {
         ],
         colors: [theme.color.TransformerOil, theme.color.Steel, theme.color.Pressboard, theme.color.StainlessSteel, theme.color.Alminium, theme.color.SiliconSteel, theme.color.Copper],
         fill: {
-            type: 'gradient'
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                type: "horizontal",
+                shadeIntensity: 0.5,
+                gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+                inverseColors: true,
+                opacityFrom: 1,
+                opacityTo: 1,
+                stops: [0, 50, 100],
+                colorStops: []}
         },
         responsive: [
             {

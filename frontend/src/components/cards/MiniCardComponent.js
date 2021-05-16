@@ -11,6 +11,7 @@ const useStyles = createUseStyles((theme) => ({
         borderRadius: 4,
         cursor: 'pointer',
         maxWidth: 350,
+        minWidth:210, // eesizing the card min widht
         maxHeight:150,
         marginTop:50,
         // padding: '8px 16px 8px 16px',
@@ -30,8 +31,8 @@ const useStyles = createUseStyles((theme) => ({
     },
     value: {
         color: theme.color.veryDarkGrayishBlue,
-        fontWeight: 'bold',
-        fontSize: 20,
+        fontWeight: 'inherit',
+        fontSize: 14,
         letterSpacing: '1px',
         lineHeight: '50px',
         textAlign: 'center'

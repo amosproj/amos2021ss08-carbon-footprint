@@ -5,6 +5,7 @@ import {getModels} from 'interface/simaProInterface'
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 import { Component } from 'react';
 import {Container, Row, Col } from 'react-grid-system';
+import theme from 'resources/theme';
 
 
 //TODO: When only one model is available, => How to do that then? Should a click on the image link in that case?
@@ -28,12 +29,12 @@ const ModelDropdownComponent = (props) =>  {
     
     return (
             <Container fluid={true}>
-                <Row className=' w3-dropdown-hover w3-card-4 w3-lightgrey w3-margin-bottom w3-margin-left:5em w3-margin-right w3-margin-top w3-margin-bottom:2em' >
+                <Row className=' w3-dropdown-hover  w3-margin-bottom w3-margin-left:5em w3-margin-right w3-margin-top w3-margin-bottom:2em' >
                     <Col xs={2}>                         
-                    <button className=' w3-button w3-border w3-white'>{selected}</button>
+                    <button className=' w3-button w3-border w3-white' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight}}>{selected}</button>
                     
                     
-                    <div className='w3-dropdown-content w3-dropdown-hover w3-bar-block w3-border'>
+                    <div style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight}} className='w3-dropdown-content w3-dropdown-hover w3-bar-block w3-border w3-white'>
                    
                     {variables.map((item) => (
                     

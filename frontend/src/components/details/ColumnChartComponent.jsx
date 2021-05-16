@@ -30,7 +30,7 @@ const ColumnChartComponent = () => {
           
         },
         fill: {
-          colors: ['#48D1CC']//['#00bcd4'] 0CA8CA 52bfb2
+          colors: [theme.uniformStyle.color.barChartColor]//['#00bcd4'] 0CA8CA 52bfb2,
         },
         dataLabels: {
           enabled: false,
@@ -45,7 +45,13 @@ const ColumnChartComponent = () => {
           labels: {
             formatter: function (y) {
               return y.toFixed(0) + "%";
-            }
+            },
+            style: {
+              fontSize: theme.typography.chartItemstitle.fontSize,
+              fontWeight: theme.typography.chartItemstitle.fontWeight
+          }
+
+
           }
         },
         xaxis: {
@@ -55,7 +61,8 @@ const ColumnChartComponent = () => {
           labels: {
             rotate: -90,
             style: {
-              fontSize: theme.typography.chartItemstitle.fontSize
+              fontSize: theme.typography.chartItemstitle.fontSize,
+              fontWeight: theme.typography.chartItemstitle.fontWeight
           }
           }
         }

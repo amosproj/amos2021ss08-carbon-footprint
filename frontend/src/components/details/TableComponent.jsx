@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Container } from 'react-grid-system';
+import theme from 'resources/theme';
 
 class DetailTable extends Component {
     state = {
@@ -76,14 +78,16 @@ class DetailTable extends Component {
     };
     render() {
         return (
-            <div className='w3-container'>
+            // TODO:left margin value needed to be fixed
+            <Container fluid={true} style={{marginLeft:-15}}>  
+
                 {/* TODO: dynamic display of product and model */}
-                <h5>Large Power Transformer</h5>
-                <h6>3 Phase GSU transformer</h6>
+                <h5 style={{fontSize:theme.typography.smallSubtitle.fontSize,fontWeight:theme.typography.smallSubtitle.fontWeight}}>Large Power Transformer</h5>
+                <h6 style={{fontSize:theme.typography.secondSmallSubtitle.fontSize,fontWeight:theme.typography.secondSmallSubtitle.fontWeight}}>3 Phase GSU transformer</h6>
 
                 <table className='w3-table-all w3-card-4 w3-small'>
                     <thead>
-                        <tr className='w3-blue-gray'>
+                        <tr style={{backgroundColor:theme.uniformStyle.color.tableHeaderColor}}>
                             {this.state.headers.map((item) => (
                                 <th key={item.id}>{item.value}</th>
                             ))}
@@ -101,7 +105,7 @@ class DetailTable extends Component {
                         </tr>
                     ))}
                 </table>
-            </div>
+            </Container>
         );
     }
 }
