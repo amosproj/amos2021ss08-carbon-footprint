@@ -10,7 +10,7 @@ using System.Net.Http;
 using Microsoft.Extensions.Primitives;
 
 namespace Backend.Controllers
-{
+{   
     [Route("api/[controller]")]
     [ApiController]
     public class SimaProController : ControllerBase

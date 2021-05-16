@@ -1,3 +1,4 @@
+using Backend.ProxyMiddleware;
 using Backend.Security;
 using Backend.Services;
 using Microsoft.AspNetCore.Builder;
@@ -22,7 +23,6 @@ namespace Backend
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -30,15 +30,13 @@ namespace Backend
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
+            services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Backend", Version = "v1" });
             });
 
             services.AddTransient<SimaProLoginDelegatingHandler>();
             services.AddHttpClient<SimaProQueryService>(
-                client =>
-                {
+                client => {
                     var baseUrl = Environment.GetEnvironmentVariable("BaseUrl") ?? Configuration["BaseUrl"];
                     client.BaseAddress = new Uri(baseUrl);
                     //client.Timeout = TimeSpan.FromSeconds(30);
@@ -54,6 +52,7 @@ namespace Backend
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Backend v1"));
+                app.UseProxyServer();
             }
 
             app.UseHttpsRedirection();
@@ -62,10 +61,17 @@ namespace Backend
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
+            app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });
+        }
+    }
+
+    public static class ProxyServerMiddlewareExtension
+    {
+        public static IApplicationBuilder UseProxyServer(this IApplicationBuilder builder)
+        {
+            return builder.Use(next => new ProxyServerMiddleware(next).Invoke);
         }
     }
 }
