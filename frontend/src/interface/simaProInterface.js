@@ -7,7 +7,7 @@
 
 import logo from 'assets/logo/LogoCarbonteam.png'
 import logo_1 from 'assets/dummyImages/Image_1.PNG'
-import logo_2 from 'assets/dummyImages/Image_2.PNG'
+import logo_2 from 'assets/dummyImages/Logo2.png'
 import { categories } from './categories';
 
 /**

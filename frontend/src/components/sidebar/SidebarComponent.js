@@ -1,10 +1,3 @@
-/**
- * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
- * 
- * @author Irem Toroslu
- * @author Martin Wagner 
- */
-
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { useHistory } from 'react-router-dom';
@@ -25,6 +18,13 @@ import { convertSlugToUrl } from 'resources/utilities';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
 import logo from 'assets/logo/LogoCarbonteam.png';
+
+/**
+ * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
+ * 
+ * @author Irem Toroslu
+ * @author Martin Wagner 
+ */
 
 
 const useStyles = createUseStyles({
@@ -79,7 +79,7 @@ function SidebarComponent() {
     return (
         <Menu isMobile={isMobile}>
 
-            <div style={{width: 180, marginLeft:25,paddingLeft: 25, paddingRight: 20, paddingTop: 20, paddingBottom: 20 }}>
+            <div style={{width: 150, marginLeft:20,paddingLeft: 15, paddingRight: 20, paddingTop: 15, paddingBottom: 25 }}>
             <img src={logo} style={{marginTop:20, marginBottom:20}}/>
             </div>
             <MenuItem

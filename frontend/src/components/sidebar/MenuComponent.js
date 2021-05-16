@@ -6,7 +6,7 @@ const getMenuStyles = ({ theme }) => ({
     bmBurgerButton: {
         position: 'absolute',
         width: 26,
-        height: 20,
+        height: 10,
         left: 20,
         top: 40,
         zIndex: 19
@@ -25,11 +25,11 @@ const getMenuStyles = ({ theme }) => ({
     bmMenuWrap: {
         position: 'fixed',
         height: '100%',
-        width: 260,
+        width: 200, 
         zIndex: 30
     },
     bmMenu: {
-        background: '#262625'  // left side bar backgroundcolor 
+        background: theme.uniformStyle.color.secondaryBackgroundColor // left side bar backgroundcolor 
     },
     bmItem: {
         outline: 'none',

@@ -6,6 +6,7 @@
 import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import {getResultsImpactAssessment} from 'interface/projectInterface';
+import theme from 'resources/theme';
 
 const ColumnChartComponent = () => {
     const series = [{
@@ -22,9 +23,13 @@ const ColumnChartComponent = () => {
         },
         plotOptions: {
           bar: {
-            color: '#00308F',
+            //color: '#00308F',
             columnWidth: '60%',
           }
+          
+        },
+        fill: {
+          colors: ['#48D1CC']//['#00bcd4'] 0CA8CA 52bfb2
         },
         dataLabels: {
           enabled: false,
@@ -57,7 +62,7 @@ const ColumnChartComponent = () => {
 
     return (
         <div id='chart'>
-            <ReactApexChart options={options} series={series} type="bar" height={350} />
+            <ReactApexChart options={options} series={series} type="bar" color='green' height={350} />
         </div>
     );
 

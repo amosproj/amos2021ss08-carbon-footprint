@@ -1,5 +1,5 @@
 import React from 'react';
-import { Column, Row } from 'simple-flexbox';
+import { Column } from 'simple-flexbox';
 import { createUseStyles, useTheme } from 'react-jss';
 
 //reconfiguration of the dropdown boxes
@@ -10,12 +10,12 @@ const useStyles = createUseStyles((theme) => ({
         border: `3px solid ${theme.color.lightGrayishBlue2}`,
         borderRadius: 4,
         cursor: 'pointer',
-        maxWidth: 300,
+        maxWidth: 350,
         maxHeight:150,
         marginTop:50,
-        padding: '8px 16px 8px 16px',
+        // padding: '8px 16px 8px 16px',
         '&:hover': {
-            borderColor: '#7b9095', //'#00b300'
+            borderColor: '#8b8d94',//'#7b9095', //'#00b300'
             '&:nth-child(n) > span': {
                 color: theme.color.lightBlue
             }
@@ -46,11 +46,12 @@ function MiniCardComponent({ className = '', title, value, path }) {
     const composedClassName = [classes.container, className].join(' ');
     return (
         <Column flexGrow={1} className={composedClassName} horizontal='center' vertical='center'>
-            {/*  Resize the image on the cards (product images) */}
-                <div style={{ width: 150, paddingLeft: 20, paddingTop: 20, paddingBottom: 20 }}>
+        {/*  Resize the image on the cards (product images)            */}
+            <div style={{ width: 130,  paddingTop: 20, paddingBottom: 20 }}>
                     {/* define the image path */}
                     <img src={path} alt='' />
-                </div>
+            </div>
+            
         </Column>
     );
 }

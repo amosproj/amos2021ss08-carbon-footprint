@@ -17,14 +17,15 @@ const useStyles = createUseStyles({
         minHeight: 850
     },
     mainBlock: {
-        marginLeft: 255,
+        marginLeft: 200,
         padding: 30,
         '@media (max-width: 1080px)': {
             marginLeft: 0
         }
     },
     contentBlock: {
-        marginTop: 54
+        marginTop: 54,
+        marginLeft:0
     }
 });
 
