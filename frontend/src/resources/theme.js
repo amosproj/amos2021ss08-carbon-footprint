@@ -36,7 +36,8 @@ const color = {
     TransformerOil: '#FACA0F',//'#D4AF37 cca42b',
     StainlessSteel:'#caccce', //
     Pressboard:'#C38888',//BC8379,
-    Steel:'#8C9BA1'
+    Steel:'#8C9BA1',
+    lightGreenishBlue:' #7dbec7'
 
 
 };
@@ -135,7 +136,7 @@ const uniformStyle = {
         secondaryBackgroundColor: color.darkGray,
         barChartColor: color.darkBlue ,
         tableHeaderColor: color.GreenGray,
-        sendButtonColor: color.darkGreenGray
+        sendButtonColor: color.lightGreenishBlue
     }
 }
 
