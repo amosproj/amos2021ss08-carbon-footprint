@@ -22,7 +22,7 @@ class CanvasPage extends Component {
             <Row>
                 <Col xs={5} style={{marginTop:30}}>
                     <h3  style={{fontSize:theme.typography.subtitle.fontSize,fontWeight:theme.typography.subtitle.fontWeight, lineHeight:theme.typography.subtitle.lineHeight,
-                    letterSpacing:theme.typography.subtitle.letterSpacing,marginLeft:90}}> Material Composition </h3>
+                    letterSpacing:theme.typography.subtitle.letterSpacing,marginLeft:100}}> Material Composition </h3>
                     <PieChart></PieChart>
                 </Col>
                 <Col xs={5} style={{marginTop:30,marginLeft:20}}>

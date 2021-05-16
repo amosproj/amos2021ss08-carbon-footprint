@@ -21,10 +21,14 @@ const color = {
     lightGrayishBlue: '#F7F8FC', // background color
     lightGrayishBlue2: '#DFE0EB',
     paleBlue: '#DDE2FF',
+    darkBlue:'#008caf',
     paleBlueTransparent: 'rgba(221, 226, 255, 0.08)',
     veryDarkGrayishBlue: '#373a47',
     lightgreen: '#66a103',
-    lightblueGray:'#5ba688',//009092, 80a7af
+    lightblueGray:'#2e9db0',
+    lightGreenGray:'#9dccca',
+    GreenGray:'#88b598',
+    darkGreenGray:'#94b0a5',//009092,94b0a5 5ba68880a7af
     darkskyblue:'#01a1c1',//1a1c1
     Copper:'#BF6016',//B87333
     Alminium:'#6093AC',//'#A9ACB6',
@@ -109,6 +113,12 @@ const typography = {
         fontSize: 12,
         lineHeight: '30px',
         letterSpacing: 0.3
+    },
+    buttonSendtitle: {
+        fontWeight: 'inherit',
+        fontSize: 14,
+        lineHeight: '30px',
+        letterSpacing: 0.3
     }
 };
 
@@ -123,8 +133,9 @@ const uniformStyle = {
         highlightingColor: color.limeGreen,
         primaryBackgroundColor: color.white,
         secondaryBackgroundColor: color.darkGray,
-        barChartColor: color.darkskyblue ,
-        tableHeaderColor: color.lightblueGray,
+        barChartColor: color.darkBlue ,
+        tableHeaderColor: color.GreenGray,
+        sendButtonColor: color.darkGreenGray
     }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Column } from 'simple-flexbox';
 import { createUseStyles, useTheme } from 'react-jss';
-
+import theme from 'resources/theme';
 //reconfiguration of the dropdown boxes
 const useStyles = createUseStyles((theme) => ({
 
@@ -11,12 +11,12 @@ const useStyles = createUseStyles((theme) => ({
         borderRadius: 4,
         cursor: 'pointer',
         maxWidth: 350,
-        minWidth:210, // eesizing the card min widht
+        minWidth:210, // resizing the card min widht
         maxHeight:150,
         marginTop:50,
         // padding: '8px 16px 8px 16px',
         '&:hover': {
-            borderColor: '#8b8d94',//'#7b9095', //'#00b300'
+            borderColor: theme.uniformStyle.color.tableHeaderColor ,
             '&:nth-child(n) > span': {
                 color: theme.color.lightBlue
             }
