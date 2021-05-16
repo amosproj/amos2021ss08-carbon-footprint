@@ -20,6 +20,7 @@ import LabelComponent from './LabelComponent'
  * @author Irem Toroslu, Martin Wagner, Mani Anand
  */
 
+
 function ProductGridComponent() {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const NewSelectedProducts = [
