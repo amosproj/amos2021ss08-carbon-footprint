@@ -9,11 +9,12 @@ const useStyles = createUseStyles((theme) => ({
     display: 'flex'
 
   },
-  name: {
-      ...theme.typography.itemTitle,
-      textAlign: 'right',
+  textcontent: {
+      ...theme.typography.textcontent,
+      textAlign: 'left',
       '@media (max-width: 768px)': {
           display: 'none',
+          
 
           
       }
@@ -58,9 +59,8 @@ export default function ProductSolutionsServicesComponent() {
 
     <Column className={classes.container}>
       
-      <h2 className={classes.title} >At this location the component which shows all the products / models will be implemented</h2>
-      <Row className={classes.Itemtitle}>
-      {type === 'products' && <div>This is where all the products of the selected category could be shown.</div>}
+      <Row className={classes.subtitle}>
+      {type === 'products' && <div >All the products<div className={classes.textcontent}>  This is where all the products of the selected category could be shown.</div></div>}
       {type === 'solutions' && <div>This is where all the solutions of the selected category could be shown.</div>}
       {type === 'services' && <div>This is where all the services of the selected category could be shown.</div>}
       </Row>

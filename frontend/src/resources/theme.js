@@ -4,6 +4,7 @@
 
 const color = {
     brightBlue: '#3498db',
+    white:'white',
     darkGrayishBlue: '#8b8d94',
     whitish: '#b5b4b9',
     white:'#000000',
@@ -45,7 +46,7 @@ const typography = {
         letterSpacing: '0.1px'
     },
     smallSubtitle: {
-        fontSize: 16,
+        fontSize: 18,
         lineHeight: '16px',
         letterSpacing: '0.1px'
     },
@@ -76,7 +77,25 @@ const typography = {
     },
     subtitle: {
         fontWeight: 'inherit',
+        fontSize: 20,
+        lineHeight: '30px',
+        letterSpacing: 0.3
+    },
+    textcontent: {
+        fontWeight: 'inherit',
         fontSize: 18,
+        lineHeight: '30px',
+        letterSpacing: 0.3
+    },
+    chartItemstitle: {
+        fontWeight: 'inherit',
+        fontSize: 12,
+        lineHeight: '30px',
+        letterSpacing: 0.3
+    },
+    buttontitle: {
+        fontWeight: 'inherit',
+        fontSize: 12,
         lineHeight: '30px',
         letterSpacing: 0.3
     }
@@ -88,6 +107,7 @@ const typography = {
 const uniformStyle = {
     color: { 
         primaryFontColor:  color.darkGrayishBlue,
+        primaryIconColor: 'white',
         secondaryFontColor: color.whitish,
         highlightingColor: color.limeGreen,
         primaryBackgroundColor: color.white,

@@ -158,37 +158,6 @@ function HeaderComponent() {
                 <div className={classes.separator}>
                 <div className={classes.iconStyles}>
                 <IconLogin fill= {'white'}  /></div>
-            {/* <IconSearch/>  
-            <Row vertical='center'>
-                <div className={classes.iconStyles}>
-                <div className={classes.separator}><IconLogin fill= {'white'}  /></div>
-                </div>
-                <div className={classes.iconStyles}> */}
-                    {/* <DropdownComponent
-                        label={<IconBell />}
-                        options={[
-                            {
-                                label: 'Notification #1',
-                                onClick: () => console.log('Notification #1')
-                            },
-                            {
-                                label: 'Notification #2',
-                                onClick: () => console.log('Notification #2')
-                            },
-                            {
-                                label: 'Notification #3',
-                                onClick: () => console.log('Notification #3')
-                            },
-                            {
-                                label: 'Notification #4',
-                                onClick: () => console.log('Notification #4')
-                            }
-                        ]}
-                        position={{
-                            top: 42,
-                            right: -14
-                        }}
-                    /> */}
                 </div>
 
                 </Row>

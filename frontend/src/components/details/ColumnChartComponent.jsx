@@ -21,6 +21,7 @@ const ColumnChartComponent = () => {
           type: 'bar',
           height: '150'
         },
+        
         plotOptions: {
           bar: {
             //color: '#00308F',
@@ -52,7 +53,10 @@ const ColumnChartComponent = () => {
             'Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'
           ],
           labels: {
-            rotate: -90
+            rotate: -90,
+            style: {
+              fontSize: theme.typography.chartItemstitle.fontSize
+          }
           }
         }
     };

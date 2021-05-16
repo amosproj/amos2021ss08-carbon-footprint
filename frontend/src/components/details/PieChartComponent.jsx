@@ -18,7 +18,11 @@ const PieChartDiagramComponent = () => {
         chart: {
             type: 'donut'
         },
-        labels: [
+        legend: {
+            fontSize: theme.typography.chartItemstitle.fontSize
+          },
+        labels: 
+        [
             'Transformer oil',
             'Steel',
             'Pressboard',
@@ -40,6 +44,7 @@ const PieChartDiagramComponent = () => {
                     },
                     legend: {
                         position: 'bottom'
+                        
                     }
                 }
             }
@@ -49,7 +54,6 @@ const PieChartDiagramComponent = () => {
     return (
         
         <div id='chart'>
-            
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );
