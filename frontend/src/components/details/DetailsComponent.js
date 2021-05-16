@@ -6,7 +6,7 @@ import DividerPanel from './PanelComponent';
 /**
  * the main component for detail page which includes
  * canvas page and variable drop down list
- * 
+ *
  * @param props the recently selected model of a product.
  * @author parham, Martin Wagner
  */
@@ -29,18 +29,18 @@ class DetailComponent extends Component {
             */
             this.setState({ compareCanvas });
         };
-        const {selectedProduct} = this.props;
+        const { selectedProduct } = this.props;
 
         return (
             <React.Fragment>
                 <h2>The chosen Model is {selectedProduct.modelName}</h2>
-                <SelectVariable loadComparePage={this.state.compareCanvas}/>
+                <SelectVariable loadComparePage={this.state.compareCanvas} />
                 <DividerPanel
                     loadComparePage={this.state.compareCanvas}
                     onCompareClick={handleCompareButton}
                 />
 
-                <Canvas loadComparePage={this.state.compareCanvas}/>
+                <Canvas loadComparePage={this.state.compareCanvas} />
             </React.Fragment>
         );
     }
