@@ -5,11 +5,11 @@
  * /**
  * 
  * @returns the product and model properties
- * @author Irem Toroslu, Martin Wagner, Mani Anand
+ * @author Irem Toroslu
  */
 
 import React, {useContext} from 'react';
-import {Column, Row} from 'simple-flexbox';
+//import {Column, Row} from 'simple-flexbox';
 import {createUseStyles} from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import {getProducts} from 'interface/simaProInterface'
@@ -17,81 +17,58 @@ import ProductDropdown from './ModelDropdownComponent'
 import SLUGS from 'resources/slugs';
 import {Link} from 'react-router-dom';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
-import { Component } from 'react';
-import LabelComponent from './LabelComponent'
+import {Container, Row, Col } from 'react-grid-system';
 
-const myStyles = createUseStyles((theme) => ({
-
-    title: {
-        ...theme.typography.cardTitle,
-        color: theme.color.grayishBlue2,
-        marginBottom: 12,
-        minWidth: 205,
-        textAlign: 'center'
-    },
-    value: {
-        color: theme.color.veryDarkGrayishBlue,
-        fontWeight: 'bold',
-        fontSize: 20,
-        letterSpacing: '1px',
-        lineHeight: '50px',
-        textAlign: 'center'
-    }
-}));
 
 
 function ProductGridComponent() {
-    const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
-    const NewSelectedProducts = [
-        {
+    const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
+    const NewSelectedProducts =
+
+        [{
             productID: selectedProducts.productID,
             productName: selectedProducts.productName,
             modelID: selectedProducts.modelID,
             modelName: selectedProducts.modelName
-        }
-    ];
+        }]
+
 
     const products = getProducts();
     const classes = useStyles();
 
     return (
-        <Column>
+        <Container fluid={true}>
+        <Col>
             <Row
                 className={classes.cardRow}
                 wrap
                 flexGrow={1}
                 vertical='center'
-                breakpoints={{ 50: 'column' }}
+                breakpoints={{50: 'column'}}
             >
-                {products.map((product, index) => (
-                    <Column key={'Column' + index}>
+                {products.map((product, index) =>
+                    <Col key={'Column' + index}>
                         <Link
                             onClick={(props) => {
                                 // Save selection to ContextProvider
                                 NewSelectedProducts[0].productID = product.productID;
                                 NewSelectedProducts[0].productName = product.productName;
                             }}
-                            to={{
-                                // Link to the next page
-                                pathname: SLUGS.details
-                            }}
-                        >
+                            to={{ // Link to the next page
+                                pathname: SLUGS.details,
+                            }}>
                             <MiniCardComponent
-                                title={product.productName}
                                 className={classes.miniCardContainer}
                                 // define the path of the image to show on the cards
                                 path={product.productImage}
                             />
                         </Link>
-                        <LabelComponent productName={product.productName}/>
-                        <ProductDropdown
-                            productID={product.productID}
-                            productName={product.productName}
-                        />
-                    </Column>
-                ))}
+                        <ProductDropdown productID={product.productID} productName={product.productName}/>
+                    </Col>
+                )}
             </Row>
-        </Column>
+        </Col>
+        </Container>
     );
 }
 
