@@ -24,7 +24,6 @@ const ColumnChartComponent = () => {
         
         plotOptions: {
           bar: {
-            //color: '#00308F',
             columnWidth: '60%',
           }
           

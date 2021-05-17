@@ -7,6 +7,7 @@
 import logo from 'assets/logo/LogoCarbonteam.png'
 import logo_1 from 'assets/dummyImages/Image_1.PNG'
 import logo_3 from 'assets/dummyImages/Logo2.png'
+import { number } from 'prop-types';
 
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.

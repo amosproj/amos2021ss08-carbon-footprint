@@ -36,7 +36,6 @@ function ProductGridComponent() {
     const classes = useStyles();
 
     return (
-        <Column>
             <Row
                 className={classes.cardRow}
                 wrap
@@ -45,7 +44,7 @@ function ProductGridComponent() {
                 breakpoints={{ 50: 'column' }}
             >
                 {products.map((product, index) => (
-                    <Column key={'Column' + index}>
+                    <Column key={'Column' + index} horizontal='center'>
                         <Link
                             onClick={(props) => {
                                 // Save selection to ContextProvider
@@ -57,7 +56,7 @@ function ProductGridComponent() {
                                 pathname: SLUGS.details
                             }}
                         >
-                            <MiniCardComponent
+                            <MiniCardComponent 
                                 title={product.productName}
                                 className={classes.miniCardContainer}
                                 // define the path of the image to show on the cards
@@ -72,7 +71,6 @@ function ProductGridComponent() {
                     </Column>
                 ))}
             </Row>
-        </Column>
     );
 }
 
@@ -80,10 +78,6 @@ function ProductGridComponent() {
 
 // Card component style properties
 const useStyles = createUseStyles({
-    cardsContainer: {
-        marginRight: -30,
-        marginTop: -30
-    },
     cardRow: {
         marginTop: 30,
         '@media (max-width: 768px)': {
@@ -91,30 +85,12 @@ const useStyles = createUseStyles({
         }
     },
     miniCardContainer: {
-        flexGrow: 1,
-        marginRight: 30,
+         marginRight: 30,
+         marginLeft:30,
         '@media (max-width: 768px)': {
             marginTop: 30,
             maxWidth: 'none',
             maxHeight:160
-        }
-    },
-    todayTrends: {
-        marginTop: 30
-    },
-    lastRow: {
-        marginTop: 30
-    },
-    unresolvedTickets: {
-        marginRight: 30,
-        '@media (max-width: 1024px)': {
-            marginRight: 0
-        }
-    },
-    tasks: {
-        marginTop: 0,
-        '@media (max-width: 1024px)': {
-            marginTop: 30
         }
     }
 });

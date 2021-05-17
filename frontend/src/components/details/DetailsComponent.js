@@ -57,9 +57,9 @@ function DetailInfo() {
     const classes = useStyles({ theme });
         return (
             <React.Fragment>
-                <h2 className={classes.subtitle} >The chosen Model is {selectedProducts[0].modelName}</h2>
-                <SelectVariable></SelectVariable>
-                <Canvas></Canvas>
+                <h2 className={classes.subtitle} style={{marginLeft:15}}>The chosen Model is {selectedProducts[0].modelName}</h2>
+                <div style={{marginLeft:15}}><SelectVariable ></SelectVariable></div>
+                <Canvas ></Canvas>
             </React.Fragment>
         );
 }

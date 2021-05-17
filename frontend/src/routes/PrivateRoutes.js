@@ -32,6 +32,7 @@ const useStyles = createUseStyles((theme) => ({
     },
     subtitle: {
         ...theme.typography.title,
+        marginLeft:15,
         '@media (max-width: 1080px)': {
             marginLeft: -50,
         },
@@ -41,6 +42,7 @@ const useStyles = createUseStyles((theme) => ({
     },
     title: {
         ...theme.typography.title,
+        marginLeft:15,
         '@media (max-width: 1080px)': {
             marginLeft: 80,
         },
@@ -85,7 +87,7 @@ function PrivateRoutes() {
                 
                 <Route exact path={SLUGS.details}
                     // hardcoded selected model (Transformer 3-phase#1), TODO: it should be passed by its parent state
-                    render={() => <DetailsComponent selectedModel='Transformer 3-phase#1' />}
+                    render={() =><DetailsComponent selectedModel='Transformer 3-phase#1' /> }
                 />
 
                 <Route exact path={SLUGS.settings}      render={() => <div className={classes.subtitle}>settings</div>} />

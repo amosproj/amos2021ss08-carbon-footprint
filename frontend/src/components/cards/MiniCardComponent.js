@@ -11,7 +11,7 @@ const useStyles = createUseStyles((theme) => ({
         borderRadius: 4,
         cursor: 'pointer',
         maxWidth: 350,
-        minWidth:210, // resizing the card min widht
+        minWidth:210, // resizing the card min width
         maxHeight:150,
         marginTop:50,
         // padding: '8px 16px 8px 16px',

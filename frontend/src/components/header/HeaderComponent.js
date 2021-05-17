@@ -159,7 +159,7 @@ function HeaderComponent() {
     }
 
     return (
-        <Row className={classes.container} style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:-30,marginLeft:-30,height:50}} vertical='center' horizontal='space-between'>
+        <Row className={classes.container} style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:0,marginLeft:0,height:50}} vertical='center' horizontal='space-between'>
             <span className={classes.title} style={{marginLeft:10,marginTop:10}}>{title}<UseArrow/>{subtitle}<UseArrow/>{subsubtitle}</span>
 
             <Row vertical='center'>

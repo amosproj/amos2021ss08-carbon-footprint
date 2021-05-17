@@ -28,7 +28,7 @@ const ModelDropdownComponent = (props) =>  {
     //className=' w3-dropdown-hover w3-border w3-white w3-margin-bottom w3-margin-left:5em w3-margin-right w3-margin-top w3-margin-bottom:2em' >
     return (
             <Container fluid={true}>
-                <Row className='w3-dropdown-hover w3-margin-left:5em w3-margin-right w3-margin-top w3-margin-bottom:2em'>
+                <Row className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em'>
                     <Col xs={2}>  
                     <button className='w3-button' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
                         {selected}

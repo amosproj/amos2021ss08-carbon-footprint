@@ -79,7 +79,7 @@ class DetailTable extends Component {
     render() {
         return (
             // TODO:left margin value needed to be fixed
-            <Container fluid={true} style={{marginLeft:-15}}>  
+            <Container fluid={true}>  
 
                 {/* TODO: dynamic display of product and model */}
                 <h5 style={{fontSize:theme.typography.smallSubtitle.fontSize,fontWeight:theme.typography.smallSubtitle.fontWeight}}>Large Power Transformer</h5>
