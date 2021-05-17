@@ -61,7 +61,7 @@ const useStyles = createUseStyles((theme) => ({
     subtitle: {
         ...theme.typography.title,
         '@media (max-width: 1080px)': {
-            marginLeft: -50,
+            marginLeft: 0,
 
         },
         '@media (max-width: 468px)': {
@@ -90,10 +90,11 @@ const useStyles = createUseStyles((theme) => ({
 }));
 
 /**
- * The Header Component is a shared component between all pages. It is capable to display 
- * a title that changes when the selection in the SidebarComponent changes. 
+ * The Header Component is a shared component between all pages. It displays 
+ * the related header title of the selected section in the SidebarComponent changes. 
+ * 
  * @author Irem Toroslu
- * @returns The visualization of exactly that.
+ * @returns the header title, subtitles related to the selected section in the SidebarComponent. It also displays the user name in the header bar as well. 
  */
 function HeaderComponent() {
     
@@ -159,7 +160,7 @@ function HeaderComponent() {
 
     return (
         <Row className={classes.container} style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:-30,marginLeft:-30,height:50}} vertical='center' horizontal='space-between'>
-            <span className={classes.title} style={{marginLeft:10,marginTop:10}}>{title}</span>
+            <span className={classes.title} style={{marginLeft:10,marginTop:10}}>{title}<UseArrow/>{subtitle}<UseArrow/>{subsubtitle}</span>
 
             <Row vertical='center'>
 
