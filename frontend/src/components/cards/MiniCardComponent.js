@@ -13,7 +13,7 @@ const useStyles = createUseStyles((theme) => ({
         maxWidth: 350,
         minWidth:210, // resizing the card min width
         maxHeight:150,
-        marginTop:50,
+        // marginTop:50,
         // padding: '8px 16px 8px 16px',
         '&:hover': {
             borderColor: theme.uniformStyle.color.tableHeaderColor ,

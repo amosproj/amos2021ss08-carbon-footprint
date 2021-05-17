@@ -79,14 +79,15 @@ function ProductGridComponent() {
 // Card component style properties
 const useStyles = createUseStyles({
     cardRow: {
-        marginTop: 30,
+        marginTop:-50,
         '@media (max-width: 768px)': {
-            marginTop: 0
+            // marginTop: 30
         }
     },
     miniCardContainer: {
          marginRight: 30,
          marginLeft:30,
+         marginTop:30,
         '@media (max-width: 768px)': {
             marginTop: 30,
             maxWidth: 'none',
