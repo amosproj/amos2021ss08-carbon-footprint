@@ -7,7 +7,6 @@ const useStyles = createUseStyles((theme) => ({
 
   container: {
     display: 'flex'
-
   },
   textcontent: {
       ...theme.typography.textcontent,
@@ -16,27 +15,22 @@ const useStyles = createUseStyles((theme) => ({
           display: 'none',
       }
   },
-
   subtitle: {
       ...theme.typography.title,
       '@media (max-width: 1080px)': {
           marginLeft: -50,
-
       },
       '@media (max-width: 468px)': {
           fontSize: 50,
-
       }
   },
   title: {
       ...theme.typography.title,
       '@media (max-width: 1080px)': {
           marginLeft: 80,
-
       },
       '@media (max-width: 468px)': {
           fontSize: 50,
-
       }
   }
 }));
