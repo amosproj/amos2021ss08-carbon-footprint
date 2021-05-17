@@ -48,6 +48,16 @@ const useStyles = createUseStyles((theme) => ({
             marginRight: 0
         }
     },
+    icontitle: {
+        ...theme.typography.isontitle,
+        '@media (max-width: 1080px)': {
+            marginLeft:50
+        },
+        '@media (max-width: 468px)': {
+            fontSize: 50,
+
+        }
+    },
     subtitle: {
         ...theme.typography.title,
         '@media (max-width: 1080px)': {
@@ -82,7 +92,7 @@ const useStyles = createUseStyles((theme) => ({
 /**
  * The Header Component is a shared component between all pages. It is capable to display 
  * a title that changes when the selection in the SidebarComponent changes. 
- * 
+ * @author Irem Toroslu
  * @returns The visualization of exactly that.
  */
 function HeaderComponent() {
@@ -152,9 +162,8 @@ function HeaderComponent() {
             <span className={classes.title} style={{marginLeft:10,marginTop:10}}>{title}</span>
 
             <Row vertical='center'>
-                <div className={classes.iconStyles}>
-                    <IconSearch />
-                </div>
+
+                <div className={classes.icontitle}>user name</div>
                 <div className={classes.separator}>
                 <div className={classes.iconStyles}>
                 <IconLogin fill= {'white'}  /></div>

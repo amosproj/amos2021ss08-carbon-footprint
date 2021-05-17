@@ -1,7 +1,7 @@
 /**
  * Column Chart
  *
- * @author Julian Oelhaf
+ * @author Julian Oelhaf, Irem Toroslu
  */
 import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
@@ -30,7 +30,7 @@ const ColumnChartComponent = () => {
           
         },
         fill: {
-          colors: [theme.uniformStyle.color.barChartColor]//['#00bcd4'] 0CA8CA 52bfb2,
+          colors: [theme.uniformStyle.color.barChartColor]
         },
         dataLabels: {
           enabled: false,
