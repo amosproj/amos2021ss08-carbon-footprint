@@ -28,14 +28,14 @@ const color = {
     lightblueGray:'#2e9db0',
     lightGreenGray:'#9dccca',
     GreenGray:'#88b598',
-    darkGreenGray:'#94b0a5',//009092,94b0a5 5ba68880a7af
-    darkskyblue:'#01a1c1',//1a1c1
-    Copper:'#BF6016',//B87333
-    Alminium:'#6093AC',//'#A9ACB6',
-    SiliconSteel:'#0c6c84',//'#8FB1CC',016064,8EA0B3, 016A86,006994,04657e,0c6c84
-    TransformerOil: '#FACA0F',//'#D4AF37 cca42b',
-    StainlessSteel:'#caccce', //
-    Pressboard:'#C38888',//BC8379,
+    darkGreenGray:'#94b0a5',
+    darkskyblue:'#01a1c1',
+    Copper:'#BF6016',
+    Alminium:'#6093AC',
+    SiliconSteel:'#0c6c84',
+    TransformerOil: '#FACA0F',
+    StainlessSteel:'#caccce',
+    Pressboard:'#C38888',
     Steel:'#8C9BA1',
     lightGreenishBlue:' #7dbec7'
 
