@@ -32,7 +32,7 @@ class CanvasPage extends Component {
                 </Col>
             </Row>
             <Row>
-            <Col xs={10} style={{marginTop:30}}>
+            <Col xs={10} style={{marginTop:30,marginBottom:30}}>
                 <h3 style={{fontSize:theme.typography.subtitle.fontSize,fontWeight:theme.typography.subtitle.fontWeight, lineHeight:theme.typography.subtitle.lineHeight,
                 letterSpacing:theme.typography.subtitle.letterSpacing}} > Impact categories </h3>
                 <Table></Table>

@@ -24,8 +24,8 @@ const useStyles = createUseStyles((theme) => ({
     container: {
         height: 50,
         widht:200,
-        color:'#00b300', // header title color 
-        marginRight:-30
+        color:theme.uniformStyle.color.highlightingColor, // header title color 
+
   
     },
     name: {
@@ -40,7 +40,7 @@ const useStyles = createUseStyles((theme) => ({
     separator: {
         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
         marginLeft: 50,
-        marginRight: 120,
+        marginRight: 90,
         height: 30,
         width: 3,
         '@media (max-width: 768px)': {
@@ -49,9 +49,10 @@ const useStyles = createUseStyles((theme) => ({
         }
     },
     icontitle: {
-        ...theme.typography.isontitle,
+        ...theme.typography.icontitle,
+        marginLeft:-60,
         '@media (max-width: 1080px)': {
-            marginLeft:50
+            // marginLeft:50
         },
         '@media (max-width: 468px)': {
             fontSize: 50,
@@ -127,8 +128,8 @@ function HeaderComponent() {
             title = 'Industrial Applications';
         case currentItem === SLUGS.details:
             title='Details '
-            subtitle = ' Selected product  ' ;
-            subsubtitle =(selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
+            subtitle = ' Selected product   ' ;
+            subsubtitle =(selectedProducts[0].productName === undefined ? ' Please select a model first' : " " + selectedProducts[0].productName);
             break;
         case currentItem === SLUGS.generation + '/products':
             title = 'Product Catagory';
@@ -159,18 +160,18 @@ function HeaderComponent() {
     }
 
     return (
-        <Row className={classes.container} style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:0,marginLeft:0,height:50}} vertical='center' horizontal='space-between'>
+        <Row className={classes.container} vertical='center' horizontal='space-between' style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:0,marginLeft:0,height:50}} >
             <span className={classes.title} style={{marginLeft:10,marginTop:10}}>{title}<UseArrow/>{subtitle}<UseArrow/>{subsubtitle}</span>
 
-            <Row vertical='center'>
-
-                <div className={classes.icontitle}>user name</div>
+            <Row vertical ='baseline' horizontal='flex-start' style={{marginRight:30}}>
                 <div className={classes.separator}>
                 <div className={classes.iconStyles}>
                 <IconLogin fill= {'white'}  /></div>
                 </div>
+                <div className={classes.icontitle}>user name</div>
 
-                </Row>
+
+            </Row>
         </Row>
     );
 }
