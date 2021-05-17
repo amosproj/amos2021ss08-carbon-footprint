@@ -22,8 +22,7 @@ import logo from 'assets/logo/LogoCarbonteam.png';
 /**
  * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
  * 
- * @author Irem Toroslu
- * @author Martin Wagner 
+ * @author Irem Toroslu, Martin Wagner 
  */
 
 
