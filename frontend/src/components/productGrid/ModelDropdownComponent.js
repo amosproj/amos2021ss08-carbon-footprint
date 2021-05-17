@@ -8,7 +8,6 @@ import {Container, Row, Col } from 'react-grid-system';
 import theme from 'resources/theme';
 
 
-//TODO: When only one model is available, => How to do that then? Should a click on the image link in that case?
 
 /**
  * This component creates the dropdownboxes for the related products 
