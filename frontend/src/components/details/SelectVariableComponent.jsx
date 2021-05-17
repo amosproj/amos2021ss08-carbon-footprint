@@ -4,6 +4,7 @@ a drop down component for selecting variable
 @author parham, 08.05
 */
 import React, { Component } from 'react';
+import theme from 'resources/theme';
 
 class SelectVariableComponent extends Component {
     /*
@@ -90,10 +91,10 @@ class SelectVariableComponent extends Component {
             <div>
                 Pick your desire variable:
                 <div className='w3-dropdown-hover w3-margin-left w3-margin-right w3-margin-top'>
-                    <button className='w3-button w3-2018-sailor-blue'>
+                    <button className='w3-button w3-2018-sailor-blue' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
                         {this.state.selectedVariable}
                     </button>
-                    <div className='w3-dropdown-content w3-bar-block w3-border'>
+                    <div className='w3-dropdown-content w3-bar-block w3-border' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
                         {this.state.variables.map((item) => (
                             <a
                                 onClick={() => this.onDropDownItemSelectedHandler(item.name)}
@@ -105,8 +106,8 @@ class SelectVariableComponent extends Component {
                         ))}
                     </div>
                 </div>
-                <button onClick={this.handleSubmit} className='w3-button w3-teal w3-wide'>
-                    <b>Send Request</b>
+                <button  style={{backgroundColor:theme.uniformStyle.color.sendButtonColor}} onClick={this.handleSubmit} className='w3-button w3-wide'>
+                    <b style={{fontSize:theme.typography.buttonSendtitle.fontSize,fontWeight:theme.typography.buttonSendtitle.fontWeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing,lineHeight:theme.typography.buttonSendtitle.lineHeight}}>Send Request</b>
                 </button>
             </div>
         );

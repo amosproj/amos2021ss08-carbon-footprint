@@ -1,15 +1,16 @@
-/**
- * The CanvasComponent displays either the Detailed Information and graphs for one model
- * of a specific product or a comparison between two models if requested.
- *
- * @author parham, 08.05
- */
+/** 
+in this main component come all the canvas page components 
+such as diagrams and tables 
+
+@author parham, 08.05, Irem Toroslu
+*/
 
 import React, { Component } from 'react';
 import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent';
 import { Container, Row, Col } from 'react-grid-system';
+import theme from 'resources/theme';
 import CompareCanvas from './CompareCanvas';
 
 class CanvasComponent extends Component {
@@ -19,7 +20,7 @@ class CanvasComponent extends Component {
         is set to true, here the canvas page should be divided into two canvases
         */
         if (this.props.loadComparePage) {
-            return <CompareCanvas/>;
+            return <CompareCanvas />;
         } else {
             /*
         the normal scenario 
@@ -28,19 +29,51 @@ class CanvasComponent extends Component {
             return (
                 <Container fluid={true}>
                     <Row>
-                        <Col xs={5}>
-                            <h3> Material Composition </h3>
-                            <PieChart/>
+                        <Col xs={5} style={{ marginTop: 30 }}>
+                            <h3
+                                style={{
+                                    fontSize: theme.typography.subtitle.fontSize,
+                                    fontWeight: theme.typography.subtitle.fontWeight,
+                                    lineHeight: theme.typography.subtitle.lineHeight,
+                                    letterSpacing: theme.typography.subtitle.letterSpacing,
+                                    marginLeft: 100
+                                }}
+                            >
+                                {' '}
+                                Material Composition{' '}
+                            </h3>
+                            <PieChart />
                         </Col>
-                        <Col xs={5}>
-                            <h3> Results of the impact assessment </h3>
-                            <ColumnChart/>
+                        <Col xs={5} style={{ marginTop: 30, marginLeft: 20 }}>
+                            <h3
+                                style={{
+                                    fontSize: theme.typography.subtitle.fontSize,
+                                    fontWeight: theme.typography.subtitle.fontWeight,
+                                    lineHeight: theme.typography.subtitle.lineHeight,
+                                    letterSpacing: theme.typography.subtitle.letterSpacing,
+                                    marginLeft: 90
+                                }}
+                            >
+                                {' '}
+                                Results of the impact assessment{' '}
+                            </h3>
+                            <ColumnChart />
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={10}>
-                            <h3> Impact categories </h3>
-                            <Table/>
+                        <Col xs={10} style={{ marginTop: 30, marginBottom: 30 }}>
+                            <h3
+                                style={{
+                                    fontSize: theme.typography.subtitle.fontSize,
+                                    fontWeight: theme.typography.subtitle.fontWeight,
+                                    lineHeight: theme.typography.subtitle.lineHeight,
+                                    letterSpacing: theme.typography.subtitle.letterSpacing
+                                }}
+                            >
+                                {' '}
+                                Impact categories{' '}
+                            </h3>
+                            <Table />
                         </Col>
                     </Row>
                 </Container>
