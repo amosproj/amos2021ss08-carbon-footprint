@@ -34,11 +34,6 @@ const ModelDropdownComponent = (props) =>  {
                         {selected}
                     </button>
                     <div className='w3-dropdown-content w3-bar-block w3-border' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>                       
-                    {/* <button className=' w3-button w3-white' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight}}>{selected}</button>
-                    
-                    
-                    <div style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight}} className='w3-dropdown-content  w3-white'>
-                    */}
                     {variables.map((item) => (
                     
                         <a
