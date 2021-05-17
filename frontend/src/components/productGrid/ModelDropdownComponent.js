@@ -28,12 +28,12 @@ const ModelDropdownComponent = (props) =>  {
     //className=' w3-dropdown-hover w3-border w3-white w3-margin-bottom w3-margin-left:5em w3-margin-right w3-margin-top w3-margin-bottom:2em' >
     return (
             <Container fluid={true}>
-                <Row className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em'>
+                <Row className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em' style={{backgroundColor:theme.uniformStyle.color.secondaryBackgroundColor}}>
                     <Col xs={2}>  
-                    <button className='w3-button' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
+                    <button className='w3-button' style={{ color:theme.uniformStyle.color.secondaryFontColor,backgroundColor:theme.uniformStyle.color.secondaryBackgroundColor, fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
                         {selected}
                     </button>
-                    <div className='w3-dropdown-content w3-bar-block w3-border' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>                       
+                    <div className='w3-dropdown-content w3-bar-block w3-border' style={{color:theme.uniformStyle.color.secondaryFontColor ,backgroundColor:theme.uniformStyle.color.secondaryBackgroundColor, fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>                       
                     {variables.map((item) => (
                     
                         <a
@@ -50,7 +50,6 @@ const ModelDropdownComponent = (props) =>  {
                                 }} 
                                 
                                 className=' w3-bar w3-button'
-                                
                                 key={item.modelID}
                             >
                                 {item.modelName}
