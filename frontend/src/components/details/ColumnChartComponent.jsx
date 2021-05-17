@@ -1,11 +1,12 @@
 /**
  * Column Chart
  *
- * @author Julian Oelhaf
+ * @author Julian Oelhaf, Irem Toroslu
  */
 import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import {getResultsImpactAssessment} from 'interface/projectInterface';
+import theme from 'resources/theme';
 
 const ColumnChartComponent = () => {
     const series = [{
@@ -20,11 +21,15 @@ const ColumnChartComponent = () => {
           type: 'bar',
           height: '150'
         },
+        
         plotOptions: {
           bar: {
-            color: '#00308F',
             columnWidth: '60%',
           }
+          
+        },
+        fill: {
+          colors: [theme.uniformStyle.color.barChartColor]
         },
         dataLabels: {
           enabled: false,
@@ -39,7 +44,13 @@ const ColumnChartComponent = () => {
           labels: {
             formatter: function (y) {
               return y.toFixed(0) + "%";
-            }
+            },
+            style: {
+              fontSize: theme.typography.chartItemstitle.fontSize,
+              fontWeight: theme.typography.chartItemstitle.fontWeight
+          }
+
+
           }
         },
         xaxis: {
@@ -47,7 +58,11 @@ const ColumnChartComponent = () => {
             'Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'
           ],
           labels: {
-            rotate: -90
+            rotate: -90,
+            style: {
+              fontSize: theme.typography.chartItemstitle.fontSize,
+              fontWeight: theme.typography.chartItemstitle.fontWeight
+          }
           }
         }
     };
@@ -57,7 +72,7 @@ const ColumnChartComponent = () => {
 
     return (
         <div id='chart'>
-            <ReactApexChart options={options} series={series} type="bar" height={350} />
+            <ReactApexChart options={options} series={series} type="bar" color='green' height={350} />
         </div>
     );
 
