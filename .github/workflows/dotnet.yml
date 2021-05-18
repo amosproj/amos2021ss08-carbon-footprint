@@ -1,15 +1,14 @@
 name: .NET
 
 on:
-  push:
-    branches: [ backend-dev ]
+  push
 
 
 jobs:
   build:
 
     runs-on: windows-latest
-
+    #Steps for building the project.
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -20,4 +19,4 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-
+#Steps for testing can be added at a later stage.
