@@ -1,67 +1,59 @@
-/**
- * the main component for detail page which includes  
- * canvas page and variable drop down list  
- * 
- * @author parham, 08.05  
- * */
-
-import React, {Component, useContext} from 'react';
+import React, { Component, useContext } from 'react';
 import Canvas from './CanvasComponent';
 import SelectVariable from './SelectVariableComponent';
-import {PrivateSectionContext} from "hooks/PrivateSectionContext";
-import { useTheme, createUseStyles } from 'react-jss';
-const useStyles = createUseStyles((theme) => ({
+import DividerPanel from './PanelComponent';
+import theme from 'resources/theme';
 
-    container: {
-      display: 'flex'
-  
-    },
-    textcontent: {
-        ...theme.typography.textcontent,
-        textAlign: 'left',
-        '@media (max-width: 768px)': {
-            display: 'none',
-            
-  
-            
-        }
-    },
-  
-    subtitle: {
-        ...theme.typography.title,
-        '@media (max-width: 1080px)': {
-            marginLeft: -50,
-  
-        },
-        '@media (max-width: 468px)': {
-            fontSize: 50,
-  
-        }
-    },
-    title: {
-        ...theme.typography.title,
-        '@media (max-width: 1080px)': {
-            marginLeft: 80,
-  
-        },
-        '@media (max-width: 468px)': {
-            fontSize: 50,
-  
-        }
-    }
-  }));
+/**
+ * the main component for detail page which includes
+ * canvas page and variable drop down list
+ *
+ * @param props the recently selected model of a product.
+ * @author Parham Gandomkar, Martin Wagner
+ */
+class DetailsComponent extends Component {
+    state = {
+        compareCanvas: false
+    };
 
-function DetailInfo() {
-    const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
-    const theme = useTheme();
-    const classes = useStyles({ theme });
+    render() {
+        let styleSubtitle = {
+            fontSize: theme.typography.subtitle.fontSize,
+            fontWeight: theme.typography.subtitle.fontWeight,
+            lineHeight: theme.typography.subtitle.lineHeight,
+            letterSpacing: theme.typography.subtitle.letterSpacing,
+            marginLeft: 15
+        };
+        /*
+         the default canvas has to be divided into two canvases
+         an extra drop down button for second variable should be rendered
+         the compare button should be disabled 
+         */
+        let handleCompareButton = () => {
+            const compareCanvas = true;
+            /*
+            now all components such as 
+            canvas component should be notified 
+            by setting the compareCanvas state to true
+            */
+            this.setState({ compareCanvas });
+        };
+        const { selectedProduct } = this.props;
+
         return (
             <React.Fragment>
-                <h2 className={classes.subtitle} style={{marginLeft:15}}>The chosen Model is {selectedProducts[0].modelName}</h2>
-                <div style={{marginLeft:15}}><SelectVariable ></SelectVariable></div>
-                <Canvas ></Canvas>
+                <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
+                <div style={{ marginLeft: 15 }}>
+                    <SelectVariable loadComparePage={this.state.compareCanvas} />
+                </div>
+                <DividerPanel
+                    loadComparePage={this.state.compareCanvas}
+                    onCompareClick={handleCompareButton}
+                />
+                <Canvas loadComparePage={this.state.compareCanvas} />
             </React.Fragment>
         );
+    }
 }
 
-export default DetailInfo;
+export default DetailsComponent;

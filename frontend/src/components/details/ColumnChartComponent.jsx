@@ -1,7 +1,7 @@
 /**
  * Column Chart
  *
- * @author Julian Oelhaf, Irem Toroslu
+ * @author Julian Oelhaf
  */
 import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
