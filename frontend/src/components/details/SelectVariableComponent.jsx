@@ -1,8 +1,7 @@
 /** 
 a drop down component for selecting variable
 
-@author parham, 08.05
-@author Irem Toroslu
+ @author parham, Irem Toroslu
 */
 import React, { Component } from 'react';
 import theme from 'resources/theme';
