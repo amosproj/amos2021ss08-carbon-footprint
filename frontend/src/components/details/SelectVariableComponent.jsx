@@ -82,7 +82,7 @@ class SelectVariableComponent extends Component {
                             ))}
                         </div>
                     </div>
-                    <button onClick={this.handleSubmit} style={{backgroundColor:theme.uniformStyle.color.sendButtonColor}} className='w3-button w3-teal w3-wide'>
+                    <button onClick={this.handleSubmit} style={{backgroundColor:theme.uniformStyle.color.sendButtonColor}} className='w3-button w3-wide'>
                         <b style={{fontSize:theme.typography.buttonSendtitle.fontSize,fontWeight:theme.typography.buttonSendtitle.fontWeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing,lineHeight:theme.typography.buttonSendtitle.lineHeight}}>Send Request</b>
                     </button>
                 </div>

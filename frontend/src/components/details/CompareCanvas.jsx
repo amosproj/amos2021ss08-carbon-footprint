@@ -17,18 +17,18 @@ const CompareCanvas = () => {
                         fontWeight: theme.typography.subtitle.fontWeight,
                         lineHeight: theme.typography.subtitle.lineHeight,
                         letterSpacing: theme.typography.subtitle.letterSpacing,
-                        marginLeft:80
+                        marginLeft:120
                     }}> Material Composition </h3>
                     <PieChart></PieChart>
                 </Col>
-                <Col xs={5}>
+                <Col xs={5} style={{marginLeft:150}}>
                     <h3
                     style={{
                         fontSize: theme.typography.subtitle.fontSize,
                         fontWeight: theme.typography.subtitle.fontWeight,
                         lineHeight: theme.typography.subtitle.lineHeight,
                         letterSpacing: theme.typography.subtitle.letterSpacing,
-                        marginLeft:80
+                        marginLeft:120
                     }}
                     > Material Composition </h3>
                     <PieChart></PieChart>
@@ -46,7 +46,7 @@ const CompareCanvas = () => {
                     }}> Results of the impact assessment </h3>
                     <ColumnChart></ColumnChart>
                 </Col>
-                <Col xs={5}>
+                <Col xs={5} style={{marginLeft:150}}>
                     <h3
                     style={{
                         fontSize: theme.typography.subtitle.fontSize,
@@ -81,7 +81,7 @@ const CompareCanvas = () => {
                         lineHeight: theme.typography.subtitle.lineHeight,
                         letterSpacing: theme.typography.subtitle.letterSpacing,
                     }}> Impact categories </h3>
-                    <Table></Table>
+                    <div style={{marginBottom:30}}><Table></Table></div>
                 </Col>
             </Row>
         </Container>
