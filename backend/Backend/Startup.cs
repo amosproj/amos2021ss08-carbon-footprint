@@ -37,7 +37,7 @@ namespace Backend
             });
 
             services.AddProxies();
-
+            //Used to  get the authenticate/process the Http requests.
             services.AddTransient<SimaProLoginDelegatingHandler>();
             services.AddHttpClient("SimaProClient",
                  client => {
