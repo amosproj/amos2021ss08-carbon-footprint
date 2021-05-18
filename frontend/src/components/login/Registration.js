@@ -1,5 +1,5 @@
 /** Setting up registration/signup page
- * author : @mani 
+ * @author Mani Anand
  * */ 
 
 import React from 'react';
