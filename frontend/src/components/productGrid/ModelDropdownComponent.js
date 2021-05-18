@@ -30,7 +30,7 @@ const ModelDropdownComponent = (props) =>  {
             <Container fluid={true}>
                 <Row className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em' style={{backgroundColor:theme.uniformStyle.color.secondaryBackgroundColor}}>
                     <Col xs={2}>  
-                    <button className='w3-button' style={{ color:theme.uniformStyle.color.secondaryFontColor,backgroundColor:theme.uniformStyle.color.secondaryBackgroundColor, fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
+                    <button className='w3-button' style={{ color:theme.uniformStyle.color.secondaryFontColor,backgroundColor:theme.uniformStyle.color.secondaryBackgroundColor, fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttontitle.letterSpacing}}>
                         {selected}
                     </button>
                     <div className='w3-dropdown-content w3-bar-block w3-border' style={{color:theme.uniformStyle.color.secondaryFontColor ,backgroundColor:theme.uniformStyle.color.secondaryBackgroundColor, fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>                       

@@ -3,6 +3,8 @@ import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent';
 import { Container, Row, Col } from 'react-grid-system';
+import theme from 'resources/theme';
+
 
 const CompareCanvas = () => {
     return (
@@ -15,6 +17,7 @@ const CompareCanvas = () => {
                         fontWeight: theme.typography.subtitle.fontWeight,
                         lineHeight: theme.typography.subtitle.lineHeight,
                         letterSpacing: theme.typography.subtitle.letterSpacing,
+                        marginLeft:80
                     }}> Material Composition </h3>
                     <PieChart></PieChart>
                 </Col>
@@ -25,6 +28,7 @@ const CompareCanvas = () => {
                         fontWeight: theme.typography.subtitle.fontWeight,
                         lineHeight: theme.typography.subtitle.lineHeight,
                         letterSpacing: theme.typography.subtitle.letterSpacing,
+                        marginLeft:80
                     }}
                     > Material Composition </h3>
                     <PieChart></PieChart>
@@ -38,6 +42,7 @@ const CompareCanvas = () => {
                         fontWeight: theme.typography.subtitle.fontWeight,
                         lineHeight: theme.typography.subtitle.lineHeight,
                         letterSpacing: theme.typography.subtitle.letterSpacing,
+                        marginLeft:80
                     }}> Results of the impact assessment </h3>
                     <ColumnChart></ColumnChart>
                 </Col>
@@ -48,6 +53,7 @@ const CompareCanvas = () => {
                         fontWeight: theme.typography.subtitle.fontWeight,
                         lineHeight: theme.typography.subtitle.lineHeight,
                         letterSpacing: theme.typography.subtitle.letterSpacing,
+                        marginLeft:80
                     }}> Results of the impact assessment </h3>
                     <ColumnChart></ColumnChart>
                 </Col>
@@ -61,6 +67,7 @@ const CompareCanvas = () => {
                         fontWeight: theme.typography.subtitle.fontWeight,
                         lineHeight: theme.typography.subtitle.lineHeight,
                         letterSpacing: theme.typography.subtitle.letterSpacing,
+
                     }}> Impact categories </h3>
                     <Table></Table>
                 </Col>
