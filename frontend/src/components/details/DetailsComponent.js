@@ -9,7 +9,7 @@ import theme from 'resources/theme';
  * canvas page and variable drop down list
  *
  * @param props the recently selected model of a product.
- * @author parham, Martin Wagner
+ * @author Parham Gandomkar, Martin Wagner
  */
 class DetailsComponent extends Component {
     state = {
