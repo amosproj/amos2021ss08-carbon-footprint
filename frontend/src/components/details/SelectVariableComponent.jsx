@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import theme from 'resources/theme';
+import CompareVariablesComponent from './CompareVariablesComponent';
 
 /** 
 a drop down component for selecting variable
@@ -48,44 +49,12 @@ class SelectVariableComponent extends Component {
         */
         if (this.props.loadComparePage) {
             return (
-                <div>
-                    Pick your desire variable:
-                    <div className='w3-dropdown-hover w3-margin-left w3-margin-right w3-margin-top'>
-                        <button className='w3-button w3-2018-sailor-blue' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
-                            {this.state.selectedVariable}
-                        </button>
-                        <div className='w3-dropdown-content w3-bar-block w3-border' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
-                            {this.state.variables.map((item) => (
-                                <a
-                                    onClick={() => this.onDropDownItemSelectedHandler(item.name)}
-                                    className='w3-bar-item w3-button'
-                                    key={item.id}
-                                >
-                                    {item.name}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                    <div className='w3-dropdown-hover w3-margin-left w3-margin-right w3-margin-top'>
-                        <button className='w3-button w3-2018-sailor-blue' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
-                            {this.state.secondVariable}
-                        </button>
-                        <div className='w3-dropdown-content w3-bar-block w3-border' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
-                            {this.state.variables.map((item) => (
-                                <a
-                                    onClick={() => this.onSecondDropDownSelectedHandler(item.name)}
-                                    className='w3-bar-item w3-button'
-                                    key={item.id}
-                                >
-                                    {item.name}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                    <button onClick={this.handleSubmit} style={{backgroundColor:theme.uniformStyle.color.sendButtonColor}} className='w3-button w3-wide'>
-                        <b style={{fontSize:theme.typography.buttonSendtitle.fontSize,fontWeight:theme.typography.buttonSendtitle.fontWeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing,lineHeight:theme.typography.buttonSendtitle.lineHeight}}>Send Request</b>
-                    </button>
-                </div>
+                <CompareVariablesComponent
+                state = {this.state}
+                firstDropDownHandler={this.onDropDownItemSelectedHandler}
+                secondDropDownHandler={this.onSecondDropDownSelectedHandler}
+                submitHandler={this.handleSubmit}
+                />
             );
         }
         return (

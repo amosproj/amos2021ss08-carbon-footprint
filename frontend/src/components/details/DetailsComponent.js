@@ -11,7 +11,7 @@ import theme from 'resources/theme';
  * @param props the recently selected model of a product.
  * @author parham, Martin Wagner
  */
-class DetailComponent extends Component {
+class DetailsComponent extends Component {
     state = {
         compareCanvas: false
     };
@@ -56,4 +56,4 @@ class DetailComponent extends Component {
     }
 }
 
-export default DetailComponent;
+export default DetailsComponent;
