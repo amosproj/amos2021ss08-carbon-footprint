@@ -6,6 +6,6 @@
 	</PropertyGroup>
   
     <ItemGroup>
-    <ProjectReference Include="backend\backend.csproj" />
+    <ProjectReference Include="backend" />
   </ItemGroup>
 </Project>
