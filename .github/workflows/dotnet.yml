@@ -1,4 +1,4 @@
-name: .NET
+name: CarbonFootPrintVisualization Backend
 
 on:
   push
@@ -20,5 +20,5 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build /backend/CarbonFootprintVisualization.sln --configuration Release --no-restore
+      run: dotnet build CarbonFootprintVisualization.sln --configuration Release --no-restore
       #Steps for testing can be added at a later stage.
