@@ -10,7 +10,7 @@ import iconBellNew from 'assets/icons/icon-bell-new';
  * This component creates the dropdownboxes for the related products 
  * 
  * @returns the model properties of the related product depending on the model values from getModels func from interface/simaProInterface
- * @author parham, Martin Wagner, Irem Toroslu
+ * @author parham, Martin Wagner, Irem Toroslu, Mani Anand
  */
 
 const SelectModelVariable = (props) =>  {
