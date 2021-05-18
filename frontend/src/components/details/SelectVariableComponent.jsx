@@ -1,10 +1,11 @@
+import React, { Component } from 'react';
+import theme from 'resources/theme';
+
 /** 
 a drop down component for selecting variable
 
- @author parham, Irem Toroslu
+ @author Parham Gandomkar, Irem Toroslu
 */
-import React, { Component } from 'react';
-import theme from 'resources/theme';
 
 class SelectVariableComponent extends Component {
     /*

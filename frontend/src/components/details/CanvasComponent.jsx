@@ -2,7 +2,7 @@
 in this main component come all the canvas page components 
 such as diagrams and tables 
 
-@author parham, 08.05, Irem Toroslu
+@author Parham Gandomkar, Irem Toroslu
 */
 
 import React, { Component } from 'react';

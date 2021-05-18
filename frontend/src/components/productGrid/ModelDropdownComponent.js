@@ -13,7 +13,7 @@ import theme from 'resources/theme';
  * This component creates the dropdownboxes for the related products 
  * 
  * @returns the model properties of the related product depending on the model values from getModels func from interface/simaProInterface
- * @author parham, Martin Wagner, Irem Toroslu, Mani Anand
+ * @author Parham Gandomkar, Martin Wagner, Irem Toroslu, Mani Anand
  */
 
 const ModelDropdownComponent = (props) =>  {

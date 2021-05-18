@@ -1,11 +1,13 @@
+import React, { Component } from 'react';
+import theme from 'resources/theme';
+
 /**
  * a divider Pannel for seperating search compoents and result components
  * and also providing the comparison feature by compare button
  *
- * @author parham
+ * @author Parham Gandomkar, Irem Toroslu
  */
-import React, { Component } from 'react';
-import theme from 'resources/theme';
+
 const PanelComponent = (props) => {
     return (
         <div className='w3-panel w3-padding-small' style={{backgroundColor:'#466e78',marginLeft:15}}>

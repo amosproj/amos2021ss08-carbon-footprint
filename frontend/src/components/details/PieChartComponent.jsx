@@ -1,13 +1,12 @@
-/**
- * Pie Chart Diagram
- *
- * @author parham, Julian, Irem Toroslu
- */
 import React, { Component } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { getMaterialComposition } from 'interface/projectInterface';
 import theme from 'resources/theme';
-
+/**
+ * Pie Chart Diagram
+ *
+ * @author Parham Gandomkar, Julian Oelhaf, Irem Toroslu
+ */
 const PieChartComponent = () => {
     //const series = [17, 13, 3, 2, 1, 42, 21];
     const series = getMaterialComposition();

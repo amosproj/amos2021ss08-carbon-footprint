@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { Container } from 'react-grid-system';
 import theme from 'resources/theme';
-
+/**
+ * 
+ * @returns the impact catagories table of the selected model of the related product.
+ * 
+ * @author Parham Gandomkar, Irem Toroslu 
+ * 
+ * 
+ */
 class TableComponent extends Component {
     state = {
         headers: [

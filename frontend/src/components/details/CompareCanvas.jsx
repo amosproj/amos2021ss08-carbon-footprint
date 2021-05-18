@@ -4,7 +4,15 @@ import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent';
 import { Container, Row, Col } from 'react-grid-system';
 import theme from 'resources/theme';
-
+/**
+ * This component displays the difference/comparison between the dashboards of two different type of variables of the same model 
+ * will be compared when clicking on the "comparison" button.
+ * 
+ * @returns the dasboard comparison 
+ * @author Parham Gandomkar, Irem Toroslu
+ * 
+ * 
+ */
 
 const CompareCanvas = () => {
     return (
