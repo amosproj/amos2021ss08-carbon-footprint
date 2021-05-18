@@ -4,8 +4,7 @@ import theme from 'resources/theme';
 /**
  * Displaying a label.
  * 
- * @author Mani
- * @author Martin Wagner
+ * @author Mani Anand, Martin Wagner
  */
 
 function LabelComponent({productName}) {
