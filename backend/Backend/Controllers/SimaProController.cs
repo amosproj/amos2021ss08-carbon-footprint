@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Backend.Services;
 using System.Net.Http;
 using Microsoft.Extensions.Primitives;
+using AspNetCore.Proxy.Options;
+using AspNetCore.Proxy;
 
 namespace Backend.Controllers
 {   
@@ -56,5 +58,16 @@ namespace Backend.Controllers
                 }
             }
         }
+
+        [Route("{**rest}")]
+        public Task ProxyCatchAll(string rest)
+        {
+            // If you don't need the query string, then you can remove this.
+            var queryString = this.Request.QueryString.Value;
+            return this.HttpProxyAsync($"{rest}{queryString}", HttpProxyOptions);
+        }
     }
+
+        
+
 }

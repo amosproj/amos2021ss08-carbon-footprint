@@ -1,4 +1,4 @@
-using Backend.ProxyMiddleware;
+using AspNetCore.Proxy;
 using Backend.Security;
 using Backend.Services;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +30,7 @@ namespace Backend
         {
 
             services.AddControllers();
+            services.AddProxies();
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Backend", Version = "v1" });
             });
@@ -52,7 +53,6 @@ namespace Backend
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Backend v1"));
-                app.UseProxyServer();
             }
 
             app.UseHttpsRedirection();
@@ -64,14 +64,6 @@ namespace Backend
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });
-        }
-    }
-
-    public static class ProxyServerMiddlewareExtension
-    {
-        public static IApplicationBuilder UseProxyServer(this IApplicationBuilder builder)
-        {
-            return builder.Use(next => new ProxyServerMiddleware(next).Invoke);
         }
     }
 }

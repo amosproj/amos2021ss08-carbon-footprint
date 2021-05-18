@@ -90,3 +90,6 @@ csharp_preferred_modifier_order = public,private,protected,readonly,async,static
 dotnet_style_qualification_for_field = false:suggestion
 #prefer properties not to be prefaced with this. or Me. in Visual Basic
 dotnet_style_qualification_for_property = false:suggestion
+
+# CS0436: Type conflicts with imported type
+dotnet_diagnostic.CS0436.severity = silent
