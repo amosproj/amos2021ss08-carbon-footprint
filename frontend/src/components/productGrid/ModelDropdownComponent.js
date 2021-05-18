@@ -25,7 +25,6 @@ const ModelDropdownComponent = (props) =>  {
     // set the initial values for the dropdown list derived from getModels
     const variables = getModels(productID);  
     const [ selected, setSelected ] = useState('Select a model');
-    //className=' w3-dropdown-hover w3-border w3-white w3-margin-bottom w3-margin-left:5em w3-margin-right w3-margin-top w3-margin-bottom:2em' >
     return (
             <Container fluid={true}>
                 <Row className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em' style={{backgroundColor:theme.uniformStyle.color.secondaryBackgroundColor}}>
