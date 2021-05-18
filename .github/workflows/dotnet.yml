@@ -18,7 +18,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Nuget Command
-    - run: nuget restore backend/CarbonFootprintVisualization.sln
+      run: nuget restore backend/CarbonFootprintVisualization.sln
     - name: Build
       run: dotnet build backend/CarbonFootprintVisualization.sln --no-restore
     - name: Test
