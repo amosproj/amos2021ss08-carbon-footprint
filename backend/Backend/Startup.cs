@@ -1,8 +1,8 @@
 using AspNetCore.Proxy;
 using Backend.Security;
-using Backend.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +23,7 @@ namespace Backend
         {
             Configuration = configuration;
         }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -30,18 +31,20 @@ namespace Backend
         {
 
             services.AddControllers();
-            services.AddProxies();
-            services.AddSwaggerGen(c => {
+            services.AddSwaggerGen(c =>
+            {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Backend", Version = "v1" });
             });
 
+            services.AddProxies();
+            //Used to  get the authenticate/process the Http requests.
             services.AddTransient<SimaProLoginDelegatingHandler>();
-            services.AddHttpClient<SimaProQueryService>(
-                client => {
-                    var baseUrl = Environment.GetEnvironmentVariable("BaseUrl") ?? Configuration["BaseUrl"];
-                    client.BaseAddress = new Uri(baseUrl);
-                    //client.Timeout = TimeSpan.FromSeconds(30);
-                })
+            services.AddHttpClient("SimaProClient",
+                 client => {
+                     var baseUrl = Environment.GetEnvironmentVariable("BaseUrl") ?? Configuration["BaseUrl"];
+                     client.BaseAddress = new Uri(baseUrl);
+                     //client.Timeout = TimeSpan.FromSeconds(30);
+                 })
                 .AddHttpMessageHandler<SimaProLoginDelegatingHandler>();
         }
 
@@ -51,8 +54,8 @@ namespace Backend
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Backend v1"));
+                //app.UseSwagger();
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Backend v1"));
             }
 
             app.UseHttpsRedirection();
@@ -61,9 +64,11 @@ namespace Backend
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => {
+            app.UseEndpoints(endpoints =>
+            {
                 endpoints.MapControllers();
             });
         }
+
     }
 }
