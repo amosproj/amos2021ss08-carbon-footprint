@@ -18,7 +18,7 @@ jobs:
         run: yarn
 
       - name: Build
-        run: yarn build
+        run: yarn build frantend/package.json
 
       - name: Test
         run: yarn test --watchAll=false
