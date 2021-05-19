@@ -11,12 +11,12 @@ const useStyles = createUseStyles({
     },
     container: {
         display: 'flex',
-        height: 56,
+        height: 40,
         cursor: 'pointer',
         '&:hover': {
             backgroundColor: ({ theme }) => theme.color.paleBlueTransparent
         },
-        paddingLeft: ({ level }) => 32 * level,
+        paddingLeft: ({ level }) => 16 * level,
         transition: 'all 0.2s ease-in-out'
     },
     leftBar: {
@@ -24,11 +24,12 @@ const useStyles = createUseStyles({
             level > 1 ? 'none' : `3px solid ${theme.color.darkGrayishBlue}`
     },
     title: { 
-        fontSize: 15, // left bar titles 
-        lineHeight: '25px',
+        fontSize: ({ theme }) => theme.typography.icontitle.fontSize , // left bar titles 
+        lineHeight: '20px',
         letterSpacing: '0.2px',
-        color: ({ theme, isActive }) =>(isActive ? '#00b300' : '#b5b4b9'), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
-        marginLeft: 20
+        color: ({ theme, isActive }) =>(isActive ? theme.uniformStyle.color.highlightingColor : theme.uniformStyle.color.secondaryFontColor), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
+        marginLeft: 10,
+        fontWeight:'inherit'
     }
 });
 
@@ -48,7 +49,7 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
     const classes = useStyles({ theme, level, isActive });
     const classNameColumn = isActive ? classes.leftBar : '';
     const classNameContainer = [classes.container, isActive && classes.activeContainer].join(' ');
-    const iconColor = isActive ? '#00b300' : 'white';//theme.color.paleBlue : theme.color.grayishBlue2;
+    const iconColor = isActive ? theme.uniformStyle.color.highlightingColor : theme.uniformStyle.color.primaryIconColor;
 
     function onItemClicked(e) {
         if (onClick) {

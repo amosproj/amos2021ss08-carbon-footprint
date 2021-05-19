@@ -19,7 +19,7 @@ namespace Backend.Security
         private readonly string simaProPassword;
 
         private string accessToken = "";
-
+        //Gets the credentials from Environment variables.
         public SimaProLoginDelegatingHandler(IConfiguration configuration)
         {
             baseUrl = Environment.GetEnvironmentVariable("BaseUrl") ?? configuration["BaseUrl"];
@@ -27,9 +27,11 @@ namespace Backend.Security
             simaProPassword = Environment.GetEnvironmentVariable("Password") ?? configuration["Password"];
         }
 
+        //This will be called everytime a http request comes through HttpClient.
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
        CancellationToken cancellationToken)
         {
+            //Get a new access token if the access token expires/not available.
             if (accessToken != "")
             {
                 //use token if we already have one
@@ -57,7 +59,7 @@ namespace Backend.Security
                     }), Encoding.UTF8, "application/json")
             };
             var loginResponse = await base.SendAsync(loginRequest, cancellationToken);
-
+           
             if (loginResponse.IsSuccessStatusCode)
             {
 
