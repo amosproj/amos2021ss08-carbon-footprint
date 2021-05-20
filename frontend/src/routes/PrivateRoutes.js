@@ -5,6 +5,7 @@
  *
  * @author Martin Wagner
  * @author Irem Toroslu
+ * @author Mani Anand
  */
 
 import React, { useContext, Suspense, lazy } from 'react';
@@ -37,7 +38,7 @@ const useStyles = createUseStyles((theme) => ({
             marginLeft: -50
         },
         '@media (max-width: 468px)': {
-            fontSize: 50
+            fontSize: 15
         }
     },
     title: {
@@ -47,7 +48,7 @@ const useStyles = createUseStyles((theme) => ({
             marginLeft: 80
         },
         '@media (max-width: 468px)': {
-            fontSize: 50
+            fontSize: 15
         }
     }
 }));

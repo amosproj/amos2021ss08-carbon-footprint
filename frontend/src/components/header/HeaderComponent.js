@@ -55,7 +55,7 @@ const useStyles = createUseStyles((theme) => ({
             // marginLeft:50
         },
         '@media (max-width: 468px)': {
-            fontSize: 50,
+            fontSize: 15,
 
         }
     },
@@ -66,7 +66,7 @@ const useStyles = createUseStyles((theme) => ({
 
         },
         '@media (max-width: 468px)': {
-            fontSize: 50,
+            fontSize: 15,
 
         }
     },
@@ -77,7 +77,7 @@ const useStyles = createUseStyles((theme) => ({
 
         },
         '@media (max-width: 468px)': {
-            fontSize: 50,
+            fontSize: 15,
 
         }
     },

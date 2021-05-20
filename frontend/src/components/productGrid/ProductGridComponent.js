@@ -41,7 +41,7 @@ function ProductGridComponent() {
                 wrap
                 flexGrow={1}
                 vertical='center'
-                breakpoints={{ 50: 'column' }}
+                breakpoints={{ 320: { flexDirection: 'column' }}}
             >
                 {products.map((product, index) => (
                     <Column key={'Column' + index} horizontal='center'>

@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from 'react';
 import { IconArrowDown } from 'assets/icons';
 import {getModels} from 'interface/simaProInterface'
@@ -66,3 +65,5 @@ const ModelDropdownComponent = (props) =>  {
     
 
 export default ModelDropdownComponent;
+
+
