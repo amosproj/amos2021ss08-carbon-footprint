@@ -68,21 +68,21 @@ function PrivateRoutes() {
                 <Route
                     exact
                     path={SLUGS.categories}
-                    render={() => <div className={classes.subtitle}>categories</div>}
+                    render={() => <div className={classes.subtitle} style={{marginLeft:5}}>categories</div>}
                 />
 
                 <Route
                     exact
                     path={SLUGS.generation}
                     render={() => (
-                        <div className={classes.subtitle}>Short info about Generation category</div>
+                        <div className={classes.subtitle} style={{marginLeft:5}}>Short info about Generation category</div>
                     )}
                 />
                 <Route
                     exact
                     path={SLUGS.transmission}
                     render={() => (
-                        <div className={classes.subtitle}>
+                        <div className={classes.subtitle} style={{marginLeft:5}}>
                             Short info about Transmission category
                         </div>
                     )}
@@ -91,7 +91,7 @@ function PrivateRoutes() {
                     exact
                     path={SLUGS.industrialApplications}
                     render={() => (
-                        <div className={classes.subtitle}>
+                        <div className={classes.subtitle} style={{marginLeft:5}}>
                             Short info about Industrial Applications
                         </div>
                     )}
