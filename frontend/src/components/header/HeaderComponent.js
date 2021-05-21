@@ -40,7 +40,7 @@ const useStyles = createUseStyles((theme) => ({
     separator: {
         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
         marginLeft: 50,
-        marginRight: 90,
+        marginRight: 40,
         height: 30,
         width: 3,
         '@media (max-width: 768px)': {
@@ -50,7 +50,7 @@ const useStyles = createUseStyles((theme) => ({
     },
     icontitle: {
         ...theme.typography.icontitle,
-        marginLeft:-60,
+        marginLeft:40,
         '@media (max-width: 1080px)': {
             // marginLeft:50
         },
@@ -168,7 +168,7 @@ function HeaderComponent() {
                 <div className={classes.iconStyles}>
                 <IconLogin fill= {'white'}  /></div>
                 </div>
-                <div className={classes.icontitle}>user name</div>
+                <div className={classes.icontitle} >user name</div>
 
 
             </Row>
