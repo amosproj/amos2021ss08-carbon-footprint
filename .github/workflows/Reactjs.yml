@@ -8,10 +8,14 @@ on:
     branches: [ backend-CI-Pipeline ]
 
 jobs:
-  buildAndTest:
-    name: Build and Test
+  buildAndTest-frontend:
+    name: Build and Test Frontend
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
+      - name: Checkout git repository
       - uses: actions/checkout@v1
 
       - name: Install Dependencies
