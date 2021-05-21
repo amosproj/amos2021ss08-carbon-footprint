@@ -8,7 +8,7 @@ on:
     branches: [ backend-CI-Pipeline ]
 
 jobs:
-  buildAndTest-frontend:
+  buildAndTest:
     name: Build and Test Frontend
     runs-on: ubuntu-latest
     defaults:
@@ -16,7 +16,7 @@ jobs:
         working-directory: ./frontend
     steps:
       - name: Checkout git repository
-      - uses: actions/checkout@v1
+        uses: actions/checkout@v1
 
       - name: Install Dependencies
         run: yarn --no-progress --non-interactive --no-lockfile 
