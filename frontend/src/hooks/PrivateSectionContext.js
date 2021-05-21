@@ -18,9 +18,9 @@ export const PrivateStateProvider = props => {
     const [selectedProducts, setSelectedProducts] = useState([
  { 
             productID: 'dummydum-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
-            productName: '\"please select a Product\"', //final_process_name? -> probably rather the project name later. But unclear!
+            productName: '"please select a Product"', //final_process_name? -> probably rather the project name later. But unclear!
             modelID: 'none',
-            modelName : '\"please select a Product\"',
+            modelName : '"please select a Product"',
             categories: [categories.generation, categories.transmission],
             productImage: '',
         },

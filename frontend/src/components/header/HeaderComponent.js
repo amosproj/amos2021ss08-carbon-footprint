@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
-import { string } from 'prop-types';
-import { useHistory } from 'react-router-dom';
-import { Row } from 'simple-flexbox';
-import { createUseStyles, ThemeProvider, useTheme } from 'react-jss';
-import { SidebarContext } from 'hooks/useSidebar';
+import React, {useContext} from 'react';
+import {string} from 'prop-types';
+import {Row} from 'simple-flexbox';
+import {createUseStyles, useTheme} from 'react-jss';
+import {SidebarContext} from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
-import { IconBell, IconUser, IconSearch, IconLogin, IconArrow, IconBurger, IconBrowse } from 'assets/icons';
-import DropdownComponent from 'components/dropdown';
+import {IconArrow, IconLogin} from 'assets/icons';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 
 const useStyles = createUseStyles((theme) => ({
@@ -99,9 +97,8 @@ const useStyles = createUseStyles((theme) => ({
  */
 function HeaderComponent() {
     
-    const { push } = useHistory();
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
-    const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
+    const [ selectedProducts] = useContext(PrivateSectionContext);
     const theme = useTheme();
     const classes = useStyles({ theme });
     
@@ -126,6 +123,7 @@ function HeaderComponent() {
             break;
         case currentItem === SLUGS.industrialApplications:
             title = 'Industrial Applications';
+            break;
         case currentItem === SLUGS.details:
             title='Details '
             subtitle = ' Selected product   ' ;
@@ -155,9 +153,6 @@ function HeaderComponent() {
        return null;
     
       }
-    function onSettingsClick() {
-        push(SLUGS.settings);
-    }
 
     return (
         <Row className={classes.container} vertical='center' horizontal='space-between' style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:0,marginLeft:0,height:50}} >

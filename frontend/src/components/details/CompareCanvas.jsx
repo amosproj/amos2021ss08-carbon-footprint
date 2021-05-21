@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent';
-import { Container, Row, Col } from 'react-grid-system';
+import { Col, Container, Row } from 'react-grid-system';
 import theme from 'resources/theme';
+
 /**
  * This component displays the difference/comparison between the dashboards of two different type of variables of the same model
  * will be compared when clicking on the "comparison" button.
@@ -31,7 +32,7 @@ const CompareCanvas = () => {
                         {' '}
                         Material Composition{' '}
                     </h3>
-                    <PieChart></PieChart>
+                    <PieChart />
                 </Col>
                 <Col xs={5}>
                     <h3
@@ -46,7 +47,7 @@ const CompareCanvas = () => {
                         {' '}
                         Material Composition{' '}
                     </h3>
-                    <PieChart></PieChart>
+                    <PieChart />
                 </Col>
             </Row>
             <Row>
@@ -63,7 +64,7 @@ const CompareCanvas = () => {
                         {' '}
                         Results of the impact assessment{' '}
                     </h3>
-                    <ColumnChart></ColumnChart>
+                    <ColumnChart />
                 </Col>
                 <Col xs={5}>
                     <h3
@@ -78,7 +79,7 @@ const CompareCanvas = () => {
                         {' '}
                         Results of the impact assessment{' '}
                     </h3>
-                    <ColumnChart></ColumnChart>
+                    <ColumnChart />
                 </Col>
             </Row>
 
@@ -95,7 +96,7 @@ const CompareCanvas = () => {
                         {' '}
                         Impact categories{' '}
                     </h3>
-                    <Table></Table>
+                    <Table />
                 </Col>
             </Row>
             <Row className='w3-margin-top'>
@@ -112,7 +113,7 @@ const CompareCanvas = () => {
                         Impact categories{' '}
                     </h3>
                     <div style={{ marginBottom: 30 }}>
-                        <Table></Table>
+                        <Table />
                     </div>
                 </Col>
             </Row>

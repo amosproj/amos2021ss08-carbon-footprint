@@ -3,16 +3,15 @@ import { createUseStyles, useTheme } from 'react-jss';
 import { useHistory } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import {
-    IconLogout,
-    IconOverview,
-    IconSettings,
-    IconPower,
-    IconHome,
-    IconArrow,
-    IconTransmission,
     IconBrowse,
     IconBuilding,
-    IconCircle
+    IconCircle,
+    IconHome,
+    IconLogout,
+    IconOverview,
+    IconPower,
+    IconSettings,
+    IconTransmission
 } from 'assets/icons';
 import { convertSlugToUrl } from 'resources/utilities';
 import Menu from './MenuComponent';
@@ -21,10 +20,9 @@ import logo from 'assets/logo/LogoCarbonteam.png';
 
 /**
  * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
- * 
- * @author Irem Toroslu, Martin Wagner 
+ *
+ * @author Irem Toroslu, Martin Wagner
  */
-
 
 const useStyles = createUseStyles({
     separator: {
@@ -49,19 +47,6 @@ function SidebarComponent() {
         push(convertSlugToUrl(slug, parameters));
     }
 
-    function mapperFunction(value, index) {
-        return (
-            <MenuItem
-                key={'/Category'+index}
-                id={'/Category'+index}
-                title={value}
-                level={2}
-                icon={IconHome}
-                onClick={() => onClick({category: '/Category'+index}) }
-            />
-        )
-    }
-
     /**
      * Calculates all possible urls by appending products solutions and services
      * @param {array} categories the url(s) which should be appended
@@ -74,12 +59,19 @@ function SidebarComponent() {
         return categories.concat(a1).concat(a2).concat(a3);
     }
 
-
     return (
         <Menu isMobile={isMobile}>
-
-            <div style={{width: 150, marginLeft:20,paddingLeft: 15, paddingRight: 20, paddingTop: 15, paddingBottom: 25 }}>
-            <img src={logo} style={{marginTop:20, marginBottom:20}}/>
+            <div
+                style={{
+                    width: 150,
+                    marginLeft: 20,
+                    paddingLeft: 15,
+                    paddingRight: 20,
+                    paddingTop: 15,
+                    paddingBottom: 25
+                }}
+            >
+                <img alt='' src={logo} style={{ marginTop: 20, marginBottom: 20 }} />
             </div>
             <MenuItem
                 id={SLUGS.dashboard}
@@ -90,7 +82,11 @@ function SidebarComponent() {
             />
             <MenuItem
                 id={SLUGS.categories}
-                items={allMenuItems([SLUGS.generation, SLUGS.transmission, SLUGS.industrialApplications])}
+                items={allMenuItems([
+                    SLUGS.generation,
+                    SLUGS.transmission,
+                    SLUGS.industrialApplications
+                ])}
                 title='Categories'
                 icon={IconBrowse}
                 onClick={() => onClick(SLUGS.categories)}
@@ -187,7 +183,6 @@ function SidebarComponent() {
                 </MenuItem>
             </MenuItem>
 
-
             <MenuItem
                 id={SLUGS.details}
                 title='Details'
@@ -203,12 +198,7 @@ function SidebarComponent() {
                 onClick={() => onClick(SLUGS.settings)}
             />
 
-            <MenuItem
-                id='logout'
-                title='Logout'
-                icon={IconLogout}
-                onClick={logout}
-            />
+            <MenuItem id='logout' title='Logout' icon={IconLogout} onClick={logout} />
         </Menu>
     );
 }

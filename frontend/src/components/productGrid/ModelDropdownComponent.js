@@ -1,12 +1,8 @@
-
-import React, { useContext, useState } from 'react';
-import { IconArrowDown } from 'assets/icons';
+import React, {useContext, useState} from 'react';
 import {getModels} from 'interface/simaProInterface'
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
-import { Component } from 'react';
-import {Container, Row, Col } from 'react-grid-system';
+import {Col, Container, Row} from 'react-grid-system';
 import theme from 'resources/theme';
-
 
 
 /**
@@ -20,8 +16,8 @@ const ModelDropdownComponent = (props) =>  {
     const productID = props.productID;
     const productName = props.productName;
     
-
-    const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
+// eslint-disable-next-line
+    const [getSelectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
     // set the initial values for the dropdown list derived from getModels
     const variables = getModels(productID);  
     const [ selected, setSelected ] = useState('Select a model');
@@ -35,7 +31,7 @@ const ModelDropdownComponent = (props) =>  {
                     <div className='w3-dropdown-content w3-bar-block w3-border' style={{color:theme.uniformStyle.color.secondaryFontColor ,backgroundColor:theme.uniformStyle.color.secondaryBackgroundColor, fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>                       
                     {variables.map((item) => (
                     
-                        <a
+                        <button
                             onClick={(props) => {
                                 const newSelectedProducts =
                                     [{
@@ -52,7 +48,7 @@ const ModelDropdownComponent = (props) =>  {
                                 key={item.modelID}
                             >
                                 {item.modelName}
-                            </a>
+                            </button>
                             
                         ))}
                     </div>
