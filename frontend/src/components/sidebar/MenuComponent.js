@@ -6,9 +6,9 @@ const getMenuStyles = ({ theme }) => ({
     bmBurgerButton: {
         position: 'absolute',
         width: 26,
-        height: 10,
-        left: 20,
-        top: 40,
+        height: 15,
+        left: 10,
+        top: 60,
         zIndex: 19
     },
     bmBurgerBars: {

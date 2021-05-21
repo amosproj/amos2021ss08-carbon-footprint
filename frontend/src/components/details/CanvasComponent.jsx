@@ -29,7 +29,7 @@ class CanvasComponent extends Component {
             return (
                 <Container fluid={true}>
                     <Row>
-                        <Col xs={5} style={{ marginTop: 30 }}>
+                        <Col xs={5} style={{ marginTop: 30 , marginRight: 120 }}>
                             <h3
                                 style={{
                                     fontSize: theme.typography.subtitle.fontSize,
@@ -44,7 +44,7 @@ class CanvasComponent extends Component {
                             </h3>
                             <PieChart />
                         </Col>
-                        <Col xs={5} style={{ marginTop: 30, marginLeft: 20 }}>
+                        <Col xs={5} style={{ marginTop: 30 }}>
                             <h3
                                 style={{
                                     fontSize: theme.typography.subtitle.fontSize,

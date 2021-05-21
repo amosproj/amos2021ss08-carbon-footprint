@@ -5,7 +5,7 @@ import { Row } from 'simple-flexbox';
 import { createUseStyles, ThemeProvider, useTheme } from 'react-jss';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
-import { IconBell, IconUser, IconSearch, IconLogin, IconArrow, IconBurger, IconBrowse } from 'assets/icons';
+import { IconBell, IconUser, IconSearch, IconLogin, IconArrow } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 
@@ -39,8 +39,8 @@ const useStyles = createUseStyles((theme) => ({
     },
     separator: {
         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
-        marginLeft: 50,
-        marginRight: 40,
+        marginLeft: 40,
+        marginRight: 20,
         height: 30,
         width: 3,
         '@media (max-width: 768px)': {
