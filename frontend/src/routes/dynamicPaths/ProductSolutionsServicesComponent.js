@@ -53,10 +53,11 @@ export default function ProductSolutionsServicesComponent() {
                 {/* {type === 'products' && <div >All the products<div className={classes.textcontent}>  This is where all the products of the selected category could be shown.</div></div>}
       {type === 'solutions' && <div className={classes.textcontent}>This is where all the solutions of the selected category could be shown.</div>}
       {type === 'services' && <div className={classes.textcontent}>This is where all the services of the selected category could be shown.</div>} */}
-            </Row>
+
             <div style={{ marginLeft: 15 }}>
                 <ProductGridComponent />
             </div>
+            </Row>
         </Column>
     );
 }
