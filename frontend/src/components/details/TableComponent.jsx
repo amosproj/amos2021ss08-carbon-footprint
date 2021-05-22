@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Container } from 'react-grid-system';
 import theme from 'resources/theme';
 /**
- * 
+ *
  * @returns the impact catagories table of the selected model of the related product.
- * 
- * @author Parham Gandomkar, Irem Toroslu 
- * 
- * 
+ *
+ * @author Parham Gandomkar, Irem Toroslu
+ *
+ *
  */
 class TableComponent extends Component {
     state = {
@@ -86,15 +86,28 @@ class TableComponent extends Component {
     render() {
         return (
             // TODO:left margin value needed to be fixed
-            <Container fluid={true}>  
-
+            <Container fluid={true}>
                 {/* TODO: dynamic display of product and model */}
-                <h5 style={{fontSize:theme.typography.smallSubtitle.fontSize,fontWeight:theme.typography.smallSubtitle.fontWeight}}>Large Power Transformer</h5>
-                <h6 style={{fontSize:theme.typography.secondSmallSubtitle.fontSize,fontWeight:theme.typography.secondSmallSubtitle.fontWeight}}>3 Phase GSU transformer</h6>
+                <h5
+                    style={{
+                        fontSize: theme.typography.smallSubtitle.fontSize,
+                        fontWeight: theme.typography.smallSubtitle.fontWeight
+                    }}
+                >
+                    Large Power Transformer
+                </h5>
+                <h6
+                    style={{
+                        fontSize: theme.typography.secondSmallSubtitle.fontSize,
+                        fontWeight: theme.typography.secondSmallSubtitle.fontWeight
+                    }}
+                >
+                    3 Phase GSU transformer
+                </h6>
 
-                <table className='w3-table-all w3-card-4 w3-small'>
+                <table className='w3-table-all w3-card-4 w3-small w3-center'>
                     <thead>
-                        <tr style={{backgroundColor:theme.uniformStyle.color.tableHeaderColor}}>
+                        <tr style={{ backgroundColor: theme.uniformStyle.color.tableHeaderColor }}>
                             {this.state.headers.map((item) => (
                                 <th key={item.id}>{item.value}</th>
                             ))}
