@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent';
-import { Container, Row, Col } from 'react-grid-system';
 import theme from 'resources/theme';
 /**
  * This component displays the difference/comparison between the dashboards of two different type of variables of the same model
@@ -16,9 +15,9 @@ import theme from 'resources/theme';
 
 const CompareCanvas = () => {
     return (
-        <Container fluid={true}>
-            <Row>
-                <Col xs={5} style={{ marginRight: 150 }}>
+        <div className='w3-row w3-container' fluid={true}>
+            <div className='w3-row'>
+                <div className='w3-col l6 s6 w3-left'>
                     <h3
                         style={{
                             fontSize: theme.typography.subtitle.fontSize,
@@ -32,8 +31,8 @@ const CompareCanvas = () => {
                         Material Composition{' '}
                     </h3>
                     <PieChart></PieChart>
-                </Col>
-                <Col xs={5}>
+                </div>
+                <div className='w3-col l5 s5 w3-right'>
                     <h3
                         style={{
                             fontSize: theme.typography.subtitle.fontSize,
@@ -47,10 +46,10 @@ const CompareCanvas = () => {
                         Material Composition{' '}
                     </h3>
                     <PieChart></PieChart>
-                </Col>
-            </Row>
-            <Row>
-                <Col xs={5} style={{ marginRight: 150 }}>
+                </div>
+            </div>
+            <div className='w3-row'>
+                <div className='w3-col l6 s6 w3-left w3-padding'>
                     <h3
                         style={{
                             fontSize: theme.typography.subtitle.fontSize,
@@ -64,8 +63,8 @@ const CompareCanvas = () => {
                         Results of the impact assessment{' '}
                     </h3>
                     <ColumnChart></ColumnChart>
-                </Col>
-                <Col xs={5}>
+                </div>
+                <div className='w3-col l6 s6 w3-right w3-padding'>
                     <h3
                         style={{
                             fontSize: theme.typography.subtitle.fontSize,
@@ -79,11 +78,11 @@ const CompareCanvas = () => {
                         Results of the impact assessment{' '}
                     </h3>
                     <ColumnChart></ColumnChart>
-                </Col>
-            </Row>
+                </div>
+            </div>
 
-            <Row>
-                <Col xs={10}>
+            <div className='w3-row'>
+                <div className='w3-col l12 s12' style={{ marginTop: 30, marginBottom: 30 }}>
                     <h3
                         style={{
                             fontSize: theme.typography.subtitle.fontSize,
@@ -96,10 +95,10 @@ const CompareCanvas = () => {
                         Impact categories{' '}
                     </h3>
                     <Table></Table>
-                </Col>
-            </Row>
-            <Row className='w3-margin-top'>
-                <Col xs={10}>
+                </div>
+            </div>
+            <div className='w3-row'>
+                <div className='w3-col l12 s12' style={{ marginTop: 30, marginBottom: 30 }}>
                     <h3
                         style={{
                             fontSize: theme.typography.subtitle.fontSize,
@@ -114,9 +113,9 @@ const CompareCanvas = () => {
                     <div style={{ marginBottom: 30 }}>
                         <Table></Table>
                     </div>
-                </Col>
-            </Row>
-        </Container>
+                </div>
+            </div>
+        </div>
     );
 };
 
