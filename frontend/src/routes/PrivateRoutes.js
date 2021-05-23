@@ -3,9 +3,7 @@
  * Routing is used for linking the Sidebar-MenuItems to Components
  * on the right handside canvas.
  *
- * @author Martin Wagner
- * @author Irem Toroslu
- * @author Mani Anand
+  * @author Martin Wagner, Irem Toroslu, Mani Anand
  */
 
 import React, { useContext, Suspense, lazy } from 'react';
