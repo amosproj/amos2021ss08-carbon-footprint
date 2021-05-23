@@ -1,9 +1,12 @@
+import React, { Component } from 'react';
+import theme from 'resources/theme';
+import CompareVariablesComponent from './CompareVariablesComponent';
+
 /** 
 a drop down component for selecting variable
 
-@author parham, 08.05
+ @author Parham Gandomkar, Irem Toroslu
 */
-import React, { Component } from 'react';
 
 class SelectVariableComponent extends Component {
     /*
@@ -16,10 +19,11 @@ class SelectVariableComponent extends Component {
   */
     state = {
         selectedVariable: 'variable 1',
+        secondVariable: 'variable 2',
         variables: [
-            { id: '1', country: 'variable 1' },
-            { id: '2', country: 'variable 2' },
-            { id: '3', country: 'variable 3' }
+            { id: '1', name: 'variable 1' },
+            { id: '2', name: 'variable 2' },
+            { id: '3', name: 'variable 3' }
         ]
     };
 
@@ -27,33 +31,53 @@ class SelectVariableComponent extends Component {
         alert('The choosen variable is: ' + this.state.selectedVariable);
     };
 
-    onDropDownItemSelectedHandler = (country) => {
-        const selectedVariable = country;
+    onDropDownItemSelectedHandler = (name) => {
+        const selectedVariable = name;
         this.setState({ selectedVariable });
     };
 
+    onSecondDropDownSelectedHandler = (name) => {
+        const secondVariable = name;
+        this.setState({ secondVariable });
+    };
+
     render() {
+        /*
+        if the loadComparePage state from its parrent (the detail Component) 
+        is set to true, here an extra drop down for the second variable
+         should be rendered 
+        */
+        if (this.props.loadComparePage) {
+            return (
+                <CompareVariablesComponent
+                state = {this.state}
+                firstDropDownHandler={this.onDropDownItemSelectedHandler}
+                secondDropDownHandler={this.onSecondDropDownSelectedHandler}
+                submitHandler={this.handleSubmit}
+                />
+            );
+        }
         return (
             <div>
                 Pick your desire variable:
                 <div className='w3-dropdown-hover w3-margin-left w3-margin-right w3-margin-top'>
-                    <button className='w3-button w3-2018-sailor-blue'>
+                    <button className='w3-button w3-2018-sailor-blue' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
                         {this.state.selectedVariable}
                     </button>
-                    <div className='w3-dropdown-content w3-bar-block w3-border'>
+                    <div className='w3-dropdown-content w3-bar-block w3-border' style={{fontSize:theme.typography.buttontitle.fontSize,fontWeight:theme.typography.buttontitle.fontWeight,lineHeight:theme.typography.buttontitle.lineHeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing}}>
                         {this.state.variables.map((item) => (
                             <a
-                                onClick={() => this.onDropDownItemSelectedHandler(item.country)}
+                                onClick={() => this.onDropDownItemSelectedHandler(item.name)}
                                 className='w3-bar-item w3-button'
                                 key={item.id}
                             >
-                                {item.country}
+                                {item.name}
                             </a>
                         ))}
                     </div>
                 </div>
-                <button onClick={this.handleSubmit} className='w3-button w3-teal w3-wide'>
-                    <b>Send Request</b>
+                <button  style={{backgroundColor:theme.uniformStyle.color.sendButtonColor}} onClick={this.handleSubmit} className='w3-button w3-wide'>
+                    <b style={{fontSize:theme.typography.buttonSendtitle.fontSize,fontWeight:theme.typography.buttonSendtitle.fontWeight,letterSpacing:theme.typography.buttonSendtitle.letterSpacing,lineHeight:theme.typography.buttonSendtitle.lineHeight}}>Send Request</b>
                 </button>
             </div>
         );

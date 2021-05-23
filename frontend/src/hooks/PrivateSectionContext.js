@@ -12,8 +12,7 @@ export const PrivateSectionContext = createContext();
 /**
  * Defines a StateProvider, that passes down all its data to every child component.
  * 
- * @param {*} props 
- * @returns 
+ * @param {*} props the previous state that has been used.
  */
 export const PrivateStateProvider = props => {
     const [selectedProducts, setSelectedProducts] = useState([

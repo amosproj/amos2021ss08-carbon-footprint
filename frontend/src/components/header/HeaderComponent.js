@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { string } from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Row } from 'simple-flexbox';
-import { createUseStyles, useTheme } from 'react-jss';
+import { createUseStyles, ThemeProvider, useTheme } from 'react-jss';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
-import { IconBell, IconBrowse, IconLogin, IconSearch } from 'assets/icons';
+import { IconBell, IconUser, IconSearch, IconLogin, IconArrow, IconBurger, IconBrowse } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
 import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
 
@@ -22,38 +22,68 @@ const useStyles = createUseStyles((theme) => ({
         }
     },
     container: {
-        height: 40
+        height: 50,
+        widht:200,
+        color:theme.uniformStyle.color.highlightingColor, // header title color 
+
+  
     },
     name: {
         ...theme.typography.itemTitle,
         textAlign: 'right',
         '@media (max-width: 768px)': {
-            display: 'none'
+            display: 'none',
+
+            
         }
     },
     separator: {
         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
-        marginLeft: 32,
-        marginRight: 32,
-        height: 32,
-        width: 2,
+        marginLeft: 50,
+        marginRight: 90,
+        height: 30,
+        width: 3,
         '@media (max-width: 768px)': {
             marginLeft: 14,
             marginRight: 0
         }
     },
+    icontitle: {
+        ...theme.typography.icontitle,
+        marginLeft:-60,
+        '@media (max-width: 1080px)': {
+            // marginLeft:50
+        },
+        '@media (max-width: 468px)': {
+            fontSize: 50,
+
+        }
+    },
+    subtitle: {
+        ...theme.typography.title,
+        '@media (max-width: 1080px)': {
+            marginLeft: 0,
+
+        },
+        '@media (max-width: 468px)': {
+            fontSize: 50,
+
+        }
+    },
     title: {
         ...theme.typography.title,
         '@media (max-width: 1080px)': {
-            marginLeft: 50
+            marginLeft: 80,
+
         },
         '@media (max-width: 468px)': {
-            fontSize: 20
+            fontSize: 50,
+
         }
     },
     iconStyles: {
         cursor: 'pointer',
-        marginLeft: 25,
+        marginLeft:0,
         '@media (max-width: 768px)': {
             marginLeft: 12
         }
@@ -61,21 +91,27 @@ const useStyles = createUseStyles((theme) => ({
 }));
 
 /**
- * The Header Component is a shared component between all pages. It is capable to display 
- * a title that changes when the selection in the SidebarComponent changes. 
+ * The Header Component is a shared component between all pages. It displays 
+ * the related header title of the selected section in the SidebarComponent changes. 
  * 
- * @returns The visualization of exactly that.
+ * @author Irem Toroslu
+ * @returns the header title, subtitles related to the selected section in the SidebarComponent. It also displays the user name in the header bar as well. 
  */
 function HeaderComponent() {
+    
     const { push } = useHistory();
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
     const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
     const theme = useTheme();
     const classes = useStyles({ theme });
-
+    
     let title;
     let subtitle;
+    let subsubtitle;
+
+
     switch (true) {
+        
         case currentItem === SLUGS.dashboard:
             title = 'My Dashboard';
             break;
@@ -91,10 +127,12 @@ function HeaderComponent() {
         case currentItem === SLUGS.industrialApplications:
             title = 'Industrial Applications';
         case currentItem === SLUGS.details:
-            title = 'Details: ' + (selectedProducts[0].productName === undefined ? 'Please select a model first' : selectedProducts[0].productName);
+            title='Details '
+            subtitle = ' Selected product   ' ;
+            subsubtitle =(selectedProducts[0].productName === undefined ? ' Please select a model first' : " " + selectedProducts[0].productName);
             break;
         case currentItem === SLUGS.generation + '/products':
-            title = 'Products';
+            title = 'Product Catagory';
             break;
         case currentItem === SLUGS.generation + '/solutions':
             title = 'Solutions';
@@ -109,76 +147,30 @@ function HeaderComponent() {
             title = '';
     }
 
+    function UseArrow(selected) {
+
+        if (title === 'Details ' && !(selected === undefined)) {
+            return <IconArrow height='10'/>;
+        }
+       return null;
+    
+      }
     function onSettingsClick() {
         push(SLUGS.settings);
     }
 
     return (
-        <Row className={classes.container} vertical='center' horizontal='space-between'>
-            <span className={classes.title}>{title}</span>
-            <Row vertical='center'>
+        <Row className={classes.container} vertical='center' horizontal='space-between' style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:0,marginLeft:0,height:50}} >
+            <span className={classes.title} style={{marginLeft:10,marginTop:10}}>{title}<UseArrow/>{subtitle}<UseArrow/>{subsubtitle}</span>
+
+            <Row vertical ='baseline' horizontal='flex-start' style={{marginRight:30}}>
+                <div className={classes.separator}>
                 <div className={classes.iconStyles}>
-                    <IconSearch />
+                <IconLogin fill= {'white'}  /></div>
                 </div>
-                <div className={classes.iconStyles}>
-                    <DropdownComponent
-                        label={<IconBell />}
-                        options={[
-                            {
-                                label: 'Notification #1',
-                                onClick: () => console.log('Notification #1')
-                            },
-                            {
-                                label: 'Notification #2',
-                                onClick: () => console.log('Notification #2')
-                            },
-                            {
-                                label: 'Notification #3',
-                                onClick: () => console.log('Notification #3')
-                            },
-                            {
-                                label: 'Notification #4',
-                                onClick: () => console.log('Notification #4')
-                            }
-                        ]}
-                        position={{
-                            top: 42,
-                            right: -14
-                        }}
-                    />
-                </div>
-                <div className={classes.separator}></div>
-                <DropdownComponent
-                    label={
-                    <span className={classes.name} >User Name
-                        <IconLogin>  
-                        
-  
-                            {/* <img
-                                src='https://avatars3.githubusercontent.com/u/21162888?s=460&v=4'
-                                alt='avatar'
-                                className={classes.avatar}
-                            /> */}
-      
-                    </IconLogin>
-                    </span>  
-                       
-                    }
-                    options={[
-                        {
-                            label: 'Settings',
-                            onClick: onSettingsClick
-                        },
-                        {
-                            label: 'Logout',
-                            onClick: () => console.log('logout')
-                        }
-                    ]}
-                    position={{
-                        top: 52,
-                        right: -6
-                    }}
-                />
+                <div className={classes.icontitle}>user name</div>
+
+
             </Row>
         </Row>
     );
