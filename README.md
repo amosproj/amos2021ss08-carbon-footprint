@@ -55,6 +55,9 @@
 
 [react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart
 
+[axios](https://www.npmjs.com/package/axios): frontend and backend connection
+
+
 ## License
 
 This software is released under the MIT License
