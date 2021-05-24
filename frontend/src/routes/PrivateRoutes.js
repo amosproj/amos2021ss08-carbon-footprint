@@ -111,7 +111,7 @@ function PrivateRoutes() {
                 <Route
                     exact
                     path={SLUGS.settings}
-                    render={() => <div className={classes.subtitle}>settings</div>}
+                    render={() => <div className={classes.subtitle} style={{marginLeft:5}} >settings</div>}
                 />
 
                 <Redirect to={SLUGS.dashboard} />
