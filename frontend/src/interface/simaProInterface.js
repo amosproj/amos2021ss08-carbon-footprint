@@ -18,9 +18,10 @@ export function getProducts(scope = 'All') {
     // We need to be able to get either all products from the backend, or only the Products of a selected Category
     // e.g. '/generation/products'; '/transmission/services'; 'industrialApplications/solutions'
     // The expected Product has a unique productID, a productName and an imagePath (if any)
-    switch (scope) {
-        case "All":
-            return getDummyProducts();
+    if (scope === "All") {
+        return getDummyProducts();
+    } else {
+        return getDummyProducts();
     }
 }
 
@@ -64,6 +65,8 @@ export function getModels(productID) {
                 { modelID: 16, productID: productID, modelName: 'Allround Product 3' },
                 { modelID: 17, productID: productID, modelName: 'Allround Product 4' }
             ]);
+        default:
+            break;
     }
 }
 

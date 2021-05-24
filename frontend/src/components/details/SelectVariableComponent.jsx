@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import theme from 'resources/theme';
 import CompareVariablesComponent from './CompareVariablesComponent';
 
-/** 
-a drop down component for selecting variable
-
- @author Parham Gandomkar, Irem Toroslu
-*/
+/**
+ * a drop down component for selecting variable
+ *
+ * @author Parham Gandomkar, Irem Toroslu
+ */
 
 class SelectVariableComponent extends Component {
     /*

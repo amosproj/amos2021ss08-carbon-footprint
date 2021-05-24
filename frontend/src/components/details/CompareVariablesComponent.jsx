@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import theme from 'resources/theme';
 
 /** 
@@ -100,6 +100,22 @@ const CompareVariablesComponent = (props) => {
                     </b>
                 </button>
             </div>
+            <button
+                onClick={props.submitHandler}
+                style={{ backgroundColor: theme.uniformStyle.color.sendButtonColor }}
+                className='w3-button w3-wide'
+            >
+                <b
+                    style={{
+                        fontSize: theme.typography.buttonSendtitle.fontSize,
+                        fontWeight: theme.typography.buttonSendtitle.fontWeight,
+                        letterSpacing: theme.typography.buttonSendtitle.letterSpacing,
+                        lineHeight: theme.typography.buttonSendtitle.lineHeight
+                    }}
+                >
+                    Send Request
+                </b>
+            </button>
         </div>
     );
 };

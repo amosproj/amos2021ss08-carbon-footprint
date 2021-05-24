@@ -6,7 +6,6 @@
 
 const color = {
     brightBlue: '#3498db',
-    white:'white',
     darkGrayishBlue: '#8b8d94',
     whitish: '#b5b4b9',
     white:'#000000',
@@ -140,9 +139,11 @@ const uniformStyle = {
     }
 }
 
-export default {
+const styles = {
     // https://www.colorhexa.com/A4A6B3
     color,
     typography,
     uniformStyle
 };
+
+export default styles

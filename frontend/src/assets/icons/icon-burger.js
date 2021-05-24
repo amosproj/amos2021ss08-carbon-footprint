@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default (props) => (
     <svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px"
         xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
