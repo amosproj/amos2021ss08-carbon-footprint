@@ -38,6 +38,10 @@
     -   details
     -   settings
 
+-   **/utilities**:
+    code that purely functional
+    - PdfReport.js: create the PDF report
+
 ## [Backend](/backend) Folder Structure
 
 
@@ -54,6 +58,10 @@
 [react-grid-system](https://www.npmjs.com/package/react-grid-system): page layout
 
 [react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart
+
+[jsPDF](https://www.npmjs.com/package/jspdf):  library to generate PDFs in JavaScript
+
+[jQuery](https://www.npmjs.com/package/jquery): JavaScript library for DOM operations
 
 ## License
 
