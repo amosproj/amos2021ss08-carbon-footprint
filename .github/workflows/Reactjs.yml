@@ -5,7 +5,9 @@ name: Frontend CI
 
 on:
   push:
-    branches: [ backend-CI-Pipeline ]
+    branches: [ main, frontend-dev, release ]
+  pull_request:
+    branches: [ main, frontend-dev, release ]
 
 jobs:
   buildAndTest:
