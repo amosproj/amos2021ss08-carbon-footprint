@@ -7,7 +7,7 @@ import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
 import { IconBell, IconUser, IconSearch, IconLogin, IconArrow } from 'assets/icons';
 import DropdownComponent from 'components/dropdown';
-import {PrivateSectionContext} from 'hooks/PrivateSectionContext';
+import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 
 const useStyles = createUseStyles((theme) => ({
     avatar: {
@@ -23,25 +23,21 @@ const useStyles = createUseStyles((theme) => ({
     },
     container: {
         height: 50,
-        widht:200,
-        color:theme.uniformStyle.color.highlightingColor, // header title color 
-
-  
+        widht: 200,
+        color: theme.uniformStyle.color.highlightingColor // header title color
     },
     name: {
         ...theme.typography.itemTitle,
         textAlign: 'right',
         '@media (max-width: 768px)': {
-            display: 'none',
-
-            
+            display: 'none'
         }
     },
     separator: {
         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
         marginLeft: 40,
         marginRight: 10,
-        marginTop:5,
+        marginTop: 5,
         height: 30,
         width: 3,
         '@media (max-width: 768px)': {
@@ -51,43 +47,38 @@ const useStyles = createUseStyles((theme) => ({
     },
     icontitle: {
         ...theme.typography.icontitle,
-        marginLeft:40,
-        marginTop:0,
+        marginLeft: 40,
+        marginTop: 0,
         '@media (max-width: 1080px)': {
             // marginLeft:50
         },
         '@media (max-width: 468px)': {
-            fontSize: 15,
-
+            fontSize: 15
         }
     },
     subtitle: {
         ...theme.typography.title,
         '@media (max-width: 1080px)': {
-            marginLeft: 0,
-
+            marginLeft: 0
         },
         '@media (max-width: 468px)': {
-            fontSize: 15,
-
+            fontSize: 15
         }
     },
     title: {
         ...theme.typography.title,
         '@media (max-width: 1080px)': {
-            marginLeft: 80,
-
+            marginLeft: 80
         },
         '@media (max-width: 468px)': {
-            fontSize: 15,
-
+            fontSize: 15
         }
     },
     iconStyles: {
         cursor: 'pointer',
-        marginLeft:0,
-        width:200,
-        height:200,
+        marginLeft: 0,
+        width: 200,
+        height: 200,
 
         '@media (max-width: 768px)': {
             marginLeft: 12
@@ -96,27 +87,24 @@ const useStyles = createUseStyles((theme) => ({
 }));
 
 /**
- * The Header Component is a shared component between all pages. It displays 
- * the related header title of the selected section in the SidebarComponent changes. 
- * 
+ * The Header Component is a shared component between all pages. It displays
+ * the related header title of the selected section in the SidebarComponent changes.
+ *
  * @author Irem Toroslu
- * @returns the header title, subtitles related to the selected section in the SidebarComponent. It also displays the user name in the header bar as well. 
+ * @returns the header title, subtitles related to the selected section in the SidebarComponent. It also displays the user name in the header bar as well.
  */
 function HeaderComponent() {
-    
     const { push } = useHistory();
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
-    const [ selectedProducts, setSelectedProducts ] = useContext(PrivateSectionContext);
+    const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const theme = useTheme();
     const classes = useStyles({ theme });
-    
+
     let title;
     let subtitle;
     let subsubtitle;
 
-
     switch (true) {
-        
         case currentItem === SLUGS.dashboard:
             title = 'My Dashboard';
             break;
@@ -132,9 +120,12 @@ function HeaderComponent() {
         case currentItem === SLUGS.industrialApplications:
             title = 'Industrial Applications';
         case currentItem === SLUGS.details:
-            title='Details '
-            subtitle = ' Selected product   ' ;
-            subsubtitle =(selectedProducts[0].productName === undefined ? ' Please select a model first' : " " + selectedProducts[0].productName);
+            title = 'Details ';
+            subtitle = ' Selected product   ';
+            subsubtitle =
+                selectedProducts[0].productName === undefined
+                    ? ' Please select a model first'
+                    : ' ' + selectedProducts[0].productName;
             break;
         case currentItem === SLUGS.generation + '/products':
             title = 'Product Catagory';
@@ -153,29 +144,42 @@ function HeaderComponent() {
     }
 
     function UseArrow(selected) {
-
         if (title === 'Details ' && !(selected === undefined)) {
-            return <IconArrow height='10'/>;
+            return <IconArrow height='10' />;
         }
-       return null;
-    
-      }
+        return null;
+    }
     function onSettingsClick() {
         push(SLUGS.settings);
     }
 
     return (
-        <Row className={classes.container} vertical='center' horizontal='space-between' style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:0,marginLeft:0,height:70}} >
-            <span className={classes.title} style={{marginLeft:10,marginTop:10}}>{title}<UseArrow/>{subtitle}<UseArrow/>{subsubtitle}</span>
+        <Row
+            className={classes.container}
+            vertical='center'
+            horizontal='space-between'
+            style={{
+                background: theme.uniformStyle.color.secondaryBackgroundColor,
+                marginTop: 0,
+                marginLeft: 0,
+                height: 70
+            }}
+        >
+            <span className={classes.title} className='w3-padding-16 w3-margin-left'>
+                {title}
+                <UseArrow />
+                {subtitle}
+                <UseArrow />
+                {subsubtitle}
+            </span>
 
-            <Row vertical ='baseline' horizontal='flex-start' style={{marginRight:20}}>
+            <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
                 <div className={classes.separator}>
-                <div className={classes.iconStyles}>
-                <IconLogin fill= {'white'}  /></div>
+                    <div className={classes.iconStyles}>
+                        <IconLogin fill={'white'} />
+                    </div>
                 </div>
-                <div className={classes.icontitle} >user name</div>
-
-
+                <div className={classes.icontitle}>user name</div>
             </Row>
         </Row>
     );
