@@ -1,19 +1,21 @@
-import React from 'react';
 import axios from 'axios';
 
-class GetRequestSetHeaders{
-    state = {
-        totalReactPackages: null
-    };
-    componentDidMount() {
+class BackendConnect {
+    getSimaProProjects() {
         // GET request using axios with set headers
         const headers = {
-            'Authorization': 'Bearer',
+            Authorization: 'Bearer',
             'My-Custom-Header': 'foobar'
         };
-        const response= axios.get('https://localhost:44323/SimaPro/api/projects', { headers });
-            //.then(response => this.setState({ totalReactPackages: response.data.total }));
-        console.log(response)
+        let result;
+        axios
+            .get('https://localhost:44323/SimaPro/api/projects', { headers })
+            .then(function (data) {
+                const items = data;
+                result = items.data.Result.Data;
+                console.log(result);
+            });
+        return result;
     }
 
     /*render() {
@@ -29,4 +31,4 @@ class GetRequestSetHeaders{
     }*/
 }
 
-export { GetRequestSetHeaders }; 
+export { BackendConnect };

@@ -5,7 +5,6 @@ import MiniCardComponent from 'components/cards/MiniCardComponent';
 import TodayTrendsComponent from './TodayTrendsComponent';
 import UnresolvedTicketsComponent from './UnresolvedTicketsComponent';
 import TasksComponent from './TasksComponent';
-import { GetRequestSetHeaders } from 'interface/httpget';
 
 const useStyles = createUseStyles({
     cardsContainer: {
@@ -48,8 +47,6 @@ const useStyles = createUseStyles({
 
 function DashboardComponent() {
     const classes = useStyles();
-    const httpreq = new GetRequestSetHeaders();
-    httpreq.componentDidMount();
     return (
         <Column>
             <Row
