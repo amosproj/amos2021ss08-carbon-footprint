@@ -8,10 +8,10 @@ class GetRequestSetHeaders{
     componentDidMount() {
         // GET request using axios with set headers
         const headers = {
-            'Authorization': 'Bearer my-token',
+            'Authorization': 'Bearer',
             'My-Custom-Header': 'foobar'
         };
-        const response= axios.get('https://apps.simapro.com/api/', { headers });
+        const response= axios.get('https://localhost:44323/SimaPro/api/projects', { headers });
             //.then(response => this.setState({ totalReactPackages: response.data.total }));
         console.log(response)
     }
