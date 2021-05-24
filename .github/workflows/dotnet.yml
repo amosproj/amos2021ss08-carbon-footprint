@@ -1,0 +1,27 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ main, backend-dev, release ]
+  pull_request:
+    branches: [ main, backend-dev, release ]
+    
+jobs:
+  buildAndTest:
+    name: Build and Test Backend
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Nuget Command
+      run: nuget restore backend/CarbonFootprintVisualization.sln
+    - name: Build
+      run: dotnet build backend/CarbonFootprintVisualization.sln --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
