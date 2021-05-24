@@ -4,21 +4,23 @@
  */
 
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import {Redirect, Route, Router, Switch, useHistory} from 'react-router-dom';
 import SLUGS from 'resources/slugs';
-import Registration from 'components/login/Registration.js'
+import Registration from 'components/login/Registration.js';
 function PublicRoutes() {
     return (
-        <Switch>
-            {/* <img src={logo} style={{padding:20}} /> */}
-            <Route path={SLUGS.login} render={() => <div>login</div>} />
-            {/* <button onClick={activateLasers}>
+        <Router history={useHistory()}>
+            <Switch>
+                {/* <img src={logo} style={{padding:20}} /> */}
+                <Route path={SLUGS.login} render={() => <div>login</div>} />
+                {/* <button onClick={activateLasers}>
             Activate Lasers
             </button> */}
-            <Route path={SLUGS.signup} component={Registration}/>
-            <Route path={SLUGS.forgotPassword} render={() => <div>forgotPassword</div>} />
-            <Redirect to={SLUGS.login} />
-        </Switch>
+                <Route path={SLUGS.signup} component={Registration} />
+                <Route path={SLUGS.forgotPassword} render={() => <div>forgotPassword</div>} />
+                <Redirect to={SLUGS.login} />
+            </Switch>
+        </Router>
     );
 }
 

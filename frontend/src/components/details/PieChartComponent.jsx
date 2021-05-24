@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { getMaterialComposition } from 'interface/projectInterface';
 import theme from 'resources/theme';
+
 /**
  * Pie Chart Diagram
  *

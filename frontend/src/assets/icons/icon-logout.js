@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default (props) => (
     <svg width="20" height="20" viewBox="0 0 290 290" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path opacity={props.opacity || ''} d="M155,6.5c-30.147,0-58.95,9.335-83.294,26.995c-2.789,2.023-3.547,5.853-1.739,8.787L92.83,79.374
