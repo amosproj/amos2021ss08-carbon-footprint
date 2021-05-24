@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import theme from 'resources/theme';
-import ExportPDF from './PdfComponent';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
-const pdfConverter = require('jspdf');
+import ExportPDF from '../../utilities/PdfReport';
 
 /**
  * a divider Pannel for seperating search compoents and result components
@@ -56,7 +53,7 @@ const PanelComponent = (props) => {
                         </b>
                     </button>
 
-                    {/* button: create pdf report by calling ExportPDF from PdfComponent*/}
+                    {/* button: create pdf report by calling ExportPDF from PdfReport.js*/}
                     <button onClick={() => ExportPDF()} className='w3-button w3-border'>
                         <b
                             style={{
