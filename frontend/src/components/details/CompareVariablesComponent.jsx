@@ -12,7 +12,7 @@ const CompareVariablesComponent = (props) => {
     return (
         <div className='w3-row w3-margin-top'>
             <div className='w3-col l3 m3 s3 w3-left w3-margin-right'>
-                <h4 className='w3-center'>Select variables to compare:</h4>
+                <h4>Select variables to compare:</h4>
             </div>
             <div className='w3-col l3 m3 s3 w3-left'>
                 <div className='w3-dropdown-hover '>

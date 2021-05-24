@@ -60,7 +60,7 @@ class SelectVariableComponent extends Component {
         return (
             <div className='w3-row w3-margin-top'>
                 <div className='w3-col l3 m3 s3'>
-                    <h4 className='w3-center'>Select your desire variable:</h4>
+                    <h4>Select your desire variable:</h4>
                 </div>
                 <div className='w3-col l8 m8 s8 w3-left'>
                     <div className='w3-dropdown-hover w3-margin-left w3-margin-right'>
