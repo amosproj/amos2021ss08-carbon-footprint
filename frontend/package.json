@@ -5,7 +5,7 @@
     "dependencies": {
         "@react-pdf/renderer": "^2.0.12",
         "apexcharts": "^3.26.1",
-        "html2canvas": "*",
+        "html2canvas": "^1.0.0-rc.7",
         "jspdf": "^2.3.1",
         "jspdf-autotable": "^3.5.14",
         "prop-types": "^15.7.2",
