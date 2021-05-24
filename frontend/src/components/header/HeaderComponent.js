@@ -40,7 +40,8 @@ const useStyles = createUseStyles((theme) => ({
     separator: {
         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
         marginLeft: 40,
-        marginRight: 20,
+        marginRight: 10,
+        marginTop:5,
         height: 30,
         width: 3,
         '@media (max-width: 768px)': {
@@ -51,6 +52,7 @@ const useStyles = createUseStyles((theme) => ({
     icontitle: {
         ...theme.typography.icontitle,
         marginLeft:40,
+        marginTop:0,
         '@media (max-width: 1080px)': {
             // marginLeft:50
         },
@@ -84,6 +86,9 @@ const useStyles = createUseStyles((theme) => ({
     iconStyles: {
         cursor: 'pointer',
         marginLeft:0,
+        width:200,
+        height:200,
+
         '@media (max-width: 768px)': {
             marginLeft: 12
         }
@@ -160,10 +165,10 @@ function HeaderComponent() {
     }
 
     return (
-        <Row className={classes.container} vertical='center' horizontal='space-between' style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:0,marginLeft:0,height:50}} >
+        <Row className={classes.container} vertical='center' horizontal='space-between' style={{background: theme.uniformStyle.color.secondaryBackgroundColor,marginTop:0,marginLeft:0,height:70}} >
             <span className={classes.title} style={{marginLeft:10,marginTop:10}}>{title}<UseArrow/>{subtitle}<UseArrow/>{subsubtitle}</span>
 
-            <Row vertical ='baseline' horizontal='flex-start' style={{marginRight:30}}>
+            <Row vertical ='baseline' horizontal='flex-start' style={{marginRight:20}}>
                 <div className={classes.separator}>
                 <div className={classes.iconStyles}>
                 <IconLogin fill= {'white'}  /></div>
