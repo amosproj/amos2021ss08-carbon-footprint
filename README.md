@@ -55,6 +55,10 @@
 
 [react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart
 
+[jsPDF](https://www.npmjs.com/package/jspdf):  library to generate PDFs in JavaScript
+
+[jQuery](https://www.npmjs.com/package/jquery): JavaScript library for DOM operations
+
 ## License
 
 This software is released under the MIT License
