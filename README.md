@@ -38,6 +38,10 @@
     -   details
     -   settings
 
+-   **/utilities**:
+    code that purely functional
+    - PdfReport.js: create the PDF report
+
 ## [Backend](/backend) Folder Structure
 
 
