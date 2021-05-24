@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "apexcharts": "^3.26.1",
+        "axios": "^0.21.1",
         "prop-types": "^15.7.2",
         "react": "^16.13.1",
         "react-apexcharts": "^1.3.9",
