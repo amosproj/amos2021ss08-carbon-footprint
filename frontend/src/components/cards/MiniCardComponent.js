@@ -1,22 +1,19 @@
 import React from 'react';
 import { Column } from 'simple-flexbox';
 import { createUseStyles, useTheme } from 'react-jss';
-import theme from 'resources/theme';
-//reconfiguration of the dropdown boxes
 const useStyles = createUseStyles((theme) => ({
-
     container: {
         backgroundColor: '#FFFFFF',
         border: `3px solid ${theme.color.lightGrayishBlue2}`,
         borderRadius: 4,
         cursor: 'pointer',
         maxWidth: 350,
-        minWidth:210, // resizing the card min width
-        maxHeight:150,
+        minWidth: 210, // resizing the card min width
+        maxHeight: 150,
         // marginTop:50,
         // padding: '8px 16px 8px 16px',
         '&:hover': {
-            borderColor: theme.uniformStyle.color.tableHeaderColor ,
+            borderColor: theme.uniformStyle.color.tableHeaderColor,
             '&:nth-child(n) > span': {
                 color: theme.color.lightBlue
             }
@@ -39,7 +36,7 @@ const useStyles = createUseStyles((theme) => ({
     }
 }));
 
-// create cards for selection of the products 
+// create cards for selection of the products
 
 function MiniCardComponent({ className = '', title, value, path }) {
     const theme = useTheme();
@@ -47,12 +44,11 @@ function MiniCardComponent({ className = '', title, value, path }) {
     const composedClassName = [classes.container, className].join(' ');
     return (
         <Column flexGrow={1} className={composedClassName} horizontal='center' vertical='center'>
-        {/*  Resize the image on the cards (product images)            */}
-            <div style={{ width: 130,  paddingTop: 20, paddingBottom: 20 }}>
-                    {/* define the image path */}
-                    <img src={path} alt='' />
+            {/*  Resize the image on the cards (product images)            */}
+            <div style={{ width: 130, paddingTop: 20, paddingBottom: 20 }}>
+                {/* define the image path */}
+                <img src={path} alt='' />
             </div>
-            
         </Column>
     );
 }

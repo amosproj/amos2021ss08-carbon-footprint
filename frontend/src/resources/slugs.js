@@ -2,7 +2,7 @@
  * slugs.js defines all known path extensions
  */
 
-export default {
+const slugs = {
     // private
     comparison: '/comparison',
     dashboard: '/dashboard',
@@ -25,3 +25,5 @@ export default {
     signup: '/signup',
     forgotPassword: '/forgot_password'
 };
+
+export default slugs
