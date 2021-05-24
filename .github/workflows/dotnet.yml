@@ -2,7 +2,9 @@ name: CarbonFootPrintVisualization Backend
 
 on:
   push:
-    branches: [backend-CI-Pipeline]
+    branches: [ main, backend-dev, release ]
+  pull_request:
+    branches: [ main, backend-dev, release ]
     
 jobs:
   build:
