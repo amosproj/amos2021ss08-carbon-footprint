@@ -1,19 +1,18 @@
 import axios from 'axios';
 
 class BackendConnect {
-    getSimaProProjects() {
+    async getSimaProProjects() {
         // GET request using axios with set headers
         const headers = {
             Authorization: 'Bearer',
             'My-Custom-Header': 'foobar'
         };
         let result;
-        axios
+        await axios
             .get('https://localhost:44323/SimaPro/api/projects', { headers })
             .then(function (data) {
                 const items = data;
                 result = items.data.Result.Data;
-                console.log(result);
             });
         return result;
     }
