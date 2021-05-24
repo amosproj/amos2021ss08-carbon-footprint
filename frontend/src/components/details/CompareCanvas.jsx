@@ -39,7 +39,7 @@ const CompareCanvas = () => {
                             fontWeight: theme.typography.subtitle.fontWeight,
                             lineHeight: theme.typography.subtitle.lineHeight,
                             letterSpacing: theme.typography.subtitle.letterSpacing,
-                            marginLeft: 90
+                            marginLeft: 60
                         }}
                     >
                         {' '}
