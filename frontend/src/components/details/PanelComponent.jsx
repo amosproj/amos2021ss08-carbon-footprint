@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import theme from 'resources/theme';
 import ExportPDF from '../../utilities/PdfReport';
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import theme from 'resources/theme';
 
 /** 
@@ -34,13 +34,13 @@ const CompareVariablesComponent = (props) => {
                     }}
                 >
                     {state.variables.map((item) => (
-                        <a
+                        <button
                             onClick={() => props.firstDropDownHandler(item.name)}
                             className='w3-bar-item w3-button'
                             key={item.id}
                         >
                             {item.name}
-                        </a>
+                        </button>
                     ))}
                 </div>
             </div>
@@ -66,13 +66,13 @@ const CompareVariablesComponent = (props) => {
                     }}
                 >
                     {state.variables.map((item) => (
-                        <a
+                        <button
                             onClick={() => props.secondDropDownHandler(item.name)}
                             className='w3-bar-item w3-button'
                             key={item.id}
                         >
                             {item.name}
-                        </a>
+                        </button>
                     ))}
                 </div>
             </div>

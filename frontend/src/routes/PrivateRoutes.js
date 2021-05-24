@@ -8,7 +8,7 @@
  */
 
 import React, { useContext, Suspense, lazy } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import {Router, Redirect, Route, Switch, useHistory} from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import LoadingComponent from 'components/loading';
 import DetailsComponent from 'components/details/DetailsComponent';
@@ -60,64 +60,74 @@ function PrivateRoutes() {
     const theme = useTheme();
     const classes = useStyles({ theme });
     return (
-        <Suspense fallback={<LoadingComponent loading />}>
-            <Switch>
-                <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
+        <Router history={useHistory()}>
+            <Suspense fallback={<LoadingComponent loading />}>
+                <Switch>
+                    <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
 
-                <Route
-                    exact
-                    path={SLUGS.categories}
-                    render={() => <div className={classes.subtitle}>categories</div>}
-                />
+                    <Route
+                        exact
+                        path={SLUGS.categories}
+                        render={() => <div className={classes.subtitle}>categories</div>}
+                    />
 
-                <Route
-                    exact
-                    path={SLUGS.generation}
-                    render={() => (
-                        <div className={classes.subtitle}>Short info about Generation category</div>
-                    )}
-                />
-                <Route
-                    exact
-                    path={SLUGS.transmission}
-                    render={() => (
-                        <div className={classes.subtitle}>
-                            Short info about Transmission category
-                        </div>
-                    )}
-                />
-                <Route
-                    exact
-                    path={SLUGS.industrialApplications}
-                    render={() => (
-                        <div className={classes.subtitle}>
-                            Short info about Industrial Applications
-                        </div>
-                    )}
-                />
+                    <Route
+                        exact
+                        path={SLUGS.generation}
+                        render={() => (
+                            <div className={classes.subtitle}>
+                                Short info about Generation category
+                            </div>
+                        )}
+                    />
+                    <Route
+                        exact
+                        path={SLUGS.transmission}
+                        render={() => (
+                            <div className={classes.subtitle}>
+                                Short info about Transmission category
+                            </div>
+                        )}
+                    />
+                    <Route
+                        exact
+                        path={SLUGS.industrialApplications}
+                        render={() => (
+                            <div className={classes.subtitle}>
+                                Short info about Industrial Applications
+                            </div>
+                        )}
+                    />
 
-                <Route path={SLUGS.generation + '/:type'} component={ProductSolutionsServices} />
-                <Route path={SLUGS.transmission + '/:type'} component={ProductSolutionsServices} />
-                <Route
-                    path={SLUGS.industrialApplications + '/:type'}
-                    component={ProductSolutionsServices}
-                />
+                    <Route
+                        path={SLUGS.generation + '/:type'}
+                        component={ProductSolutionsServices}
+                    />
+                    <Route
+                        path={SLUGS.transmission + '/:type'}
+                        component={ProductSolutionsServices}
+                    />
+                    <Route
+                        path={SLUGS.industrialApplications + '/:type'}
+                        component={ProductSolutionsServices}
+                    />
 
-                <Route
-                    exact
-                    path={SLUGS.details}
-                    render={() => <DetailsComponent selectedProduct={selectedProducts[0]} />}
-                />
+                    <Route
+                        exact
+                        path={SLUGS.details}
+                        render={() => <DetailsComponent selectedProduct={selectedProducts[0]} />}
+                    />
 
-                <Route
-                    exact
-                    path={SLUGS.settings}
-                    render={() => <div className={classes.subtitle}>settings</div>}
-                />
+                    <Route
+                        exact
+                        path={SLUGS.settings}
+                        render={() => <div className={classes.subtitle}>settings</div>}
+                    />
 
-                <Redirect to={SLUGS.dashboard} />
-            </Switch>
-        </Suspense>
+                    <Redirect to={SLUGS.dashboard} />
+                </Switch>
+            </Suspense>
+        </Router>
     );
 }
 
