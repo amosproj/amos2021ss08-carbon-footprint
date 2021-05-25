@@ -89,6 +89,8 @@ These are determined by the key/value pairs with the keys "applicationUrl" and "
 
 Frontend:
 
+## Current dependencies:
+
 [react-hook-form](https://www.npmjs.com/package/react-hook-form): form handling.
 
 [react-jss](https://www.npmjs.com/package/react-jss): styles.
@@ -97,11 +99,15 @@ Frontend:
 
 [simple-flexbox](https://www.npmjs.com/package/simple-flexbox): flexbox utility.
 
-[react-grid-system](https://www.npmjs.com/package/react-grid-system): page layout
+[react-grid-system](https://www.npmjs.com/package/react-grid-system): page layout.
 
-[react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart
+[react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart.
 
-[axios](https://www.npmjs.com/package/axios): frontend and backend connection
+[w3.css](https://www.w3schools.com/w3css/): styles.
+
+[jsPDF](https://www.npmjs.com/package/jspdf): PDF generator.
+
+[axios](https://www.npmjs.com/package/axios): Frontend-Backend Connection.
 
 Backend:
 
