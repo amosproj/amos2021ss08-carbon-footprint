@@ -17,7 +17,7 @@ const PanelComponent = (props) => {
             <div className='w3-row'>
                 {/* "l" will be used in large screen sizes in terms of scaling the screen 
                 and "s" will be used when the size of screen is small */}
-                <div className='w3-col l9 s6'>
+                <div className='w3-col l8 m6 s6'>
                     <h2
                         className='w3-opacity'
                         style={{
@@ -32,7 +32,7 @@ const PanelComponent = (props) => {
                         Canvas
                     </h2>
                 </div>
-                <div className='w3-col l3 s6  w3-center'>
+                <div className='w3-col l4 m6 s6  w3-center'>
                     {/* calling the compare button by using props which its parrent has provided*/}
                     <button
                         onClick={props.onCompareClick}
@@ -67,7 +67,6 @@ const PanelComponent = (props) => {
                         </b>
                     </button> */}
                 </div>
-                <div className='w3-col s3  w3-center'></div>
             </div>
         </div>
     );
