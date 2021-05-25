@@ -2,7 +2,7 @@
     "name": "carbon_footprint_visualizer_frontend",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://SaiVarunVaranasi.github.io/amosproj/amos-ss2021-carbon-footprint/frontend/",
+    "homepage": "https://amosproj.github.io/amos-ss2021-carbon-footprint/",
     "dependencies": {
         "apexcharts": "^3.26.1",
         "axios": "^0.21.1",
