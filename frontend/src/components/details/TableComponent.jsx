@@ -2,27 +2,27 @@ import React, { Component } from 'react';
 import { Container } from 'react-grid-system';
 import theme from 'resources/theme';
 /**
- * 
+ *
  * @returns the impact catagories table of the selected model of the related product.
- * 
- * @author Parham Gandomkar, Irem Toroslu 
- * 
- * 
+ *
+ * @author Parham Gandomkar, Irem Toroslu
+ *
+ *
  */
 class TableComponent extends Component {
     state = {
         headers: [
-            { id: '1', value: 'Impact Category' },
-            { id: '2', value: 'Unit' },
-            { id: '3', value: 'total' },
-            { id: '4', value: 'Materials LPT' },
-            { id: '5', value: 'Manufacturing and Transport' },
-            { id: '6', value: 'Operations' },
-            { id: '7', value: 'End of Life' }
+            { key: 'header-1', value: 'Impact Category' },
+            { key: 'header-2', value: 'Unit' },
+            { key: 'header-3', value: 'total' },
+            { key: 'header-4', value: 'Materials LPT' },
+            { key: 'header-5', value: 'Manufacturing and Transport' },
+            { key: 'header-6', value: 'Operations' },
+            { key: 'header-7', value: 'End of Life' }
         ],
         rows: [
             {
-                id: '1',
+                key: 'row-1',
                 impactCategory: 'Global Warming',
                 unit: 'kg CO2 eq',
                 total: '2,350,811',
@@ -32,7 +32,7 @@ class TableComponent extends Component {
                 endOfLife: '-790,420'
             },
             {
-                id: '2',
+                key: 'row-2',
                 impactCategory: 'Ozon layer depletion',
                 unit: 'kg CFC-11 eq',
                 total: '12',
@@ -42,7 +42,7 @@ class TableComponent extends Component {
                 endOfLife: '0'
             },
             {
-                id: '3',
+                key: 'row-3',
                 impactCategory: 'Photochemical oxidant formation (POCP)',
                 unit: 'kg C2H4 eq',
                 total: '2,350,811',
@@ -52,7 +52,7 @@ class TableComponent extends Component {
                 endOfLife: '-332'
             },
             {
-                id: '4',
+                key: 'row-4',
                 impactCategory: 'Acidification',
                 unit: 'kg SO2 eq',
                 total: '12',
@@ -62,7 +62,7 @@ class TableComponent extends Component {
                 endOfLife: '12,159'
             },
             {
-                id: '5',
+                key: 'row-5',
                 impactCategory: 'Eutrophication',
                 unit: 'kg PO4 eq',
                 total: '12',
@@ -72,7 +72,7 @@ class TableComponent extends Component {
                 endOfLife: '–5,016'
             },
             {
-                id: '6',
+                key: 'row-6',
                 impactCategory: 'Nonrenewable energy',
                 unit: 'MJ eq',
                 total: '2,781,500,619',
@@ -84,33 +84,52 @@ class TableComponent extends Component {
         ]
     };
     render() {
+        const idKey = this.props.id;
         return (
             // TODO:left margin value needed to be fixed
-            <Container fluid={true}>  
-
+            <Container fluid={true}>
                 {/* TODO: dynamic display of product and model */}
-                <h5 style={{fontSize:theme.typography.smallSubtitle.fontSize,fontWeight:theme.typography.smallSubtitle.fontWeight}}>Large Power Transformer</h5>
-                <h6 style={{fontSize:theme.typography.secondSmallSubtitle.fontSize,fontWeight:theme.typography.secondSmallSubtitle.fontWeight}}>3 Phase GSU transformer</h6>
+                <h5
+                    style={{
+                        fontSize: theme.typography.smallSubtitle.fontSize,
+                        fontWeight: theme.typography.smallSubtitle.fontWeight
+                    }}
+                >
+                    Large Power Transformer
+                </h5>
+                <h6
+                    style={{
+                        fontSize: theme.typography.secondSmallSubtitle.fontSize,
+                        fontWeight: theme.typography.secondSmallSubtitle.fontWeight
+                    }}
+                >
+                    3 Phase GSU transformer
+                </h6>
 
-                <table className='w3-table-all w3-card-4 w3-small'>
+                <table className='w3-table-all w3-card-4 w3-small w3-center'>
                     <thead>
-                        <tr style={{backgroundColor:theme.uniformStyle.color.tableHeaderColor}}>
+                        <tr
+                            key={'FirstRow'}
+                            style={{ backgroundColor: theme.uniformStyle.color.tableHeaderColor }}
+                        >
                             {this.state.headers.map((item) => (
-                                <th key={item.id}>{item.value}</th>
+                                <th key={idKey + 'thead' + item.key}>{item.value}</th>
                             ))}
                         </tr>
                     </thead>
-                    {this.state.rows.map((item) => (
-                        <tr>
-                            <td key={item.id}>{item.impactCategory}</td>
-                            <td key={item.id}>{item.unit}</td>
-                            <td key={item.id}>{item.total}</td>
-                            <td key={item.id}>{item.materialsLPT}</td>
-                            <td key={item.id}>{item.manufacturing}</td>
-                            <td key={item.id}>{item.operations}</td>
-                            <td key={item.id}>{item.endOfLife}</td>
-                        </tr>
-                    ))}
+                    <tbody>
+                        {this.state.rows.map((item, index) => (
+                            <tr key={idKey + index}>
+                                <td key={idKey + 'td-a' + item.key}>{item.impactCategory}</td>
+                                <td key={idKey + 'td-b' + item.key}>{item.unit}</td>
+                                <td key={idKey + 'td-c' + item.key}>{item.total}</td>
+                                <td key={idKey + 'td-e' + item.key}>{item.materialsLPT}</td>
+                                <td key={idKey + 'td-f' + item.key}>{item.manufacturing}</td>
+                                <td key={idKey + 'td-g' + item.key}>{item.operations}</td>
+                                <td key={idKey + 'td-h' + item.key}>{item.endOfLife}</td>
+                            </tr>
+                        ))}
+                    </tbody>
                 </table>
             </Container>
         );

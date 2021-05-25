@@ -58,56 +58,61 @@ class SelectVariableComponent extends Component {
             );
         }
         return (
-            <div>
-                Pick your desire variable:
-                <div className='w3-dropdown-hover w3-margin-left w3-margin-right w3-margin-top'>
-                    <button
-                        className='w3-button w3-2018-sailor-blue'
-                        style={{
-                            fontSize: theme.typography.buttontitle.fontSize,
-                            fontWeight: theme.typography.buttontitle.fontWeight,
-                            lineHeight: theme.typography.buttontitle.lineHeight,
-                            letterSpacing: theme.typography.buttonSendtitle.letterSpacing
-                        }}
-                    >
-                        {this.state.selectedVariable}
-                    </button>
-                    <div
-                        className='w3-dropdown-content w3-bar-block w3-border'
-                        style={{
-                            fontSize: theme.typography.buttontitle.fontSize,
-                            fontWeight: theme.typography.buttontitle.fontWeight,
-                            lineHeight: theme.typography.buttontitle.lineHeight,
-                            letterSpacing: theme.typography.buttonSendtitle.letterSpacing
-                        }}
-                    >
-                        {this.state.variables.map((item) => (
-                            <button
-                                onClick={() => this.onDropDownItemSelectedHandler(item.name)}
-                                className='w3-bar-item w3-button'
-                                key={item.id}
-                            >
-                                {item.name}
-                            </button>
-                        ))}
-                    </div>
+            <div className='w3-row w3-margin-top'>
+                <div className='w3-col l3 m3 s3'>
+                    <h4>Select your desire variable:</h4>
                 </div>
-                <button
-                    style={{ backgroundColor: theme.uniformStyle.color.sendButtonColor }}
-                    onClick={this.handleSubmit}
-                    className='w3-button w3-wide'
-                >
-                    <b
-                        style={{
-                            fontSize: theme.typography.buttonSendtitle.fontSize,
-                            fontWeight: theme.typography.buttonSendtitle.fontWeight,
-                            letterSpacing: theme.typography.buttonSendtitle.letterSpacing,
-                            lineHeight: theme.typography.buttonSendtitle.lineHeight
-                        }}
+                <div className='w3-col l8 m8 s8 w3-left'>
+                    <div className='w3-dropdown-hover w3-margin-left w3-margin-right'>
+                        <button
+                            className='w3-button w3-2018-sailor-blue'
+                            style={{
+                                fontSize: theme.typography.buttontitle.fontSize,
+                                fontWeight: theme.typography.buttontitle.fontWeight,
+                                lineHeight: theme.typography.buttontitle.lineHeight,
+                                letterSpacing: theme.typography.buttonSendtitle.letterSpacing
+                            }}
+                        >
+                            {this.state.selectedVariable}
+                        </button>
+                        <div
+                            className='w3-dropdown-content w3-bar-block w3-border'
+                            style={{
+                                fontSize: theme.typography.buttontitle.fontSize,
+                                fontWeight: theme.typography.buttontitle.fontWeight,
+                                lineHeight: theme.typography.buttontitle.lineHeight,
+                                letterSpacing: theme.typography.buttonSendtitle.letterSpacing
+                            }}
+                        >
+                            {this.state.variables.map((item) => (
+                                <button
+                                    onClick={() => this.onDropDownItemSelectedHandler(item.name)}
+                                    className='w3-bar-item w3-button'
+                                    key={item.id}
+                                >
+                                    {item.name}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <button
+                        style={{ backgroundColor: theme.uniformStyle.color.sendButtonColor }}
+                        onClick={this.handleSubmit}
+                        className='w3-button w3-wide'
                     >
-                        Send Request
-                    </b>
-                </button>
+                        <b
+                            style={{
+                                fontSize: theme.typography.buttonSendtitle.fontSize,
+                                fontWeight: theme.typography.buttonSendtitle.fontWeight,
+                                letterSpacing: theme.typography.buttonSendtitle.letterSpacing,
+                                lineHeight: theme.typography.buttonSendtitle.lineHeight
+                            }}
+                        >
+                            Send Request
+                        </b>
+                    </button>
+                </div>
             </div>
         );
     }

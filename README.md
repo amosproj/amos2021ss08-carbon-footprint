@@ -59,6 +59,10 @@ All the information that is essential to the build and deployment process is unf
     -   details
     -   settings
 
+-   **/utilities**:
+    code that purely functional
+    - PdfReport.js: create the PDF report
+
 ## [Backend](/backend) Folder Structure
 
 ### base folder: [/backend](/backend):
@@ -96,6 +100,10 @@ Includes the git files, Solution.sln, and a [project] folder for every [project]
 
 - [react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart
 
+- [jsPDF](https://www.npmjs.com/package/jspdf):  library to generate PDFs in JavaScript
+
+- [jQuery](https://www.npmjs.com/package/jquery): JavaScript library for DOM operations
+
 - [axios](https://www.npmjs.com/package/axios): frontend and backend connection
 
 **Backend**:
@@ -115,6 +123,7 @@ Includes the git files, Solution.sln, and a [project] folder for every [project]
   * In a CLI navigate to the frontend folder
   * Run yarn install to install all used dependencies
   * Run yarn start to start the development server
+
 
 ## Setup and start of the Backend
 
