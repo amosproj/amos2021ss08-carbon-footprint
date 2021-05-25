@@ -51,9 +51,15 @@
 
 [simple-flexbox](https://www.npmjs.com/package/simple-flexbox): flexbox utility.
 
-[react-grid-system](https://www.npmjs.com/package/react-grid-system): page layout
+[react-grid-system](https://www.npmjs.com/package/react-grid-system): page layout.
 
-[react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart
+[react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart.
+
+[w3.css](https://www.w3schools.com/w3css/): styles.
+
+[jsPDF](https://www.npmjs.com/package/jspdf): PDF generator.
+
+[axios](https://www.npmjs.com/package/axios): Frontend-Backend Connection.
 
 ## License
 
