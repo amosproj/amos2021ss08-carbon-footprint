@@ -40,6 +40,7 @@
 
 ## [Backend](/backend) Folder Structure
 
+see README.md in [/backend](/backend).
 
 ## Current dependencies:
 
