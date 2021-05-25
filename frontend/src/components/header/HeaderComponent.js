@@ -160,7 +160,7 @@ function HeaderComponent() {
                 height: 70
             }}
         >
-            <span className={classes.title} className='w3-padding-16 w3-margin-left'>
+            <span className={classes.title + ' ' + 'w3-padding-16 w3-margin-left'}>
                 {title}
                 <UseArrow />
                 {subtitle}

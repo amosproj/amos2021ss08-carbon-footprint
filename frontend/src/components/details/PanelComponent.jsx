@@ -30,7 +30,7 @@ const PanelComponent = (props) => {
                             marginTop: 6
                         }}
                     >
-                        Canvas page
+                        Canvas
                     </h2>
                 </div>
                 <div className='w3-col l3 s6  w3-center'>
@@ -54,7 +54,7 @@ const PanelComponent = (props) => {
                     </button>
 
                     {/* button: create pdf report by calling ExportPDF from PdfReport.js*/}
-                    <button onClick={() => ExportPDF()} className='w3-button w3-border'>
+                    {/* <button onClick={() => ExportPDF()} className='w3-button w3-border'>
                         <b
                             style={{
                                 color: 'white',
@@ -66,7 +66,7 @@ const PanelComponent = (props) => {
                         >
                             Create PDF Report
                         </b>
-                    </button>
+                    </button> */}
                 </div>
                 <div className='w3-col s3  w3-center'></div>
             </div>
