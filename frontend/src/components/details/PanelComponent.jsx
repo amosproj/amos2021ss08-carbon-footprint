@@ -1,6 +1,5 @@
 import React from 'react';
 import theme from 'resources/theme';
-import ExportPDF from '../../utilities/PdfReport';
 
 /**
  * a divider Pannel for seperating search compoents and result components
