@@ -1,34 +1,15 @@
-import jsPDF, { AcroFormTextField } from "jspdf";
+import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 //const pdfConverter = require('jspdf');
 
-const $ = window.$;
-
-function addElement() {
-  // create a new div element
-  const newDiv = document.createElement("div");
-
-  // and give it some content
-  const newContent = document.createTextNode("Hi there and greetings!");
-
-  // add the text node to the newly created div
-  newDiv.appendChild(newContent);
-
-  // add the newly created element and its content into the DOM
-  const currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv);
-}
-
 function exportPDF(props) {
-  const unit = "pt";
-  const size = "A4"; // Use A1, A2, A3 or A4
-  const orientation = "portrait"; // portrait or landscape
-  const margins = [20, 30, 20, 30];
-  const doc = new jsPDF(orientation, unit, size);
-  doc.setFontSize(15);
+    const unit = 'pt';
+    const size = 'A4'; // Use A1, A2, A3 or A4
+    const orientation = 'portrait'; // portrait or landscape
+    const doc = new jsPDF(orientation, unit, size);
+    doc.setFontSize(15);
 
-
-  var html_page2_col1_cont = `
+    var html_page2_col1_cont = `
   <h3>Sustainability is the basis for how we do business</h3>
   <p>Our goal at Siemens is to create long-term value by treating people and the environment in a responsible manner.</p>
   <h3>Innovative products and solutions are the foundation of our success</h3>
@@ -39,8 +20,8 @@ function exportPDF(props) {
   <p>Siemens aims to set the highest standards for environmental protection in the industry. We urge our business partners to share this ambition and cooperate with both customers and suppliers to strive for continual improvement.</p>
   <p>The main objective of our environmental work is to prevent pollution and continually reduce the environmental impact of our activities in order to protect the environment for future generations.</p>
   <p>To meet these objectives, we will maintain and further develop a culture in which reducing the environmental impact over each product’s life cycle is an integral part of our daily work practices. Our integrated management system for quality, environmental, health, and safety according to ISO 9001, ISO 14001, and OHSAS 18001 is implemented worldwide within the Siemens Energy Sector.</p>
-  `
-  var html_page2_col2_cont = `
+  `;
+    var html_page2_col2_cont = `
   <h3>Large power transformers</h3>
   <p>The entire energy system is in a state of profound
   change. This poses new challenges to the entire power
@@ -79,10 +60,17 @@ function exportPDF(props) {
   design. Siemens large power transformers also boast the
   lowest noise emissions worldwide thanks to continuous
   research and development.</p>
-  `
-  var html_page2_col1 = "<div style='color:white; font-size:11px; border:1px solid; background-color: rgb(51 102 153); padding: 05px 05px; width:250px;'>" + html_page2_col1_cont + "</div>";
-  var html_page2_col2 = "<div style='color:white; font-size:11px; border:1px solid; background-color: rgb(51 102 153); padding: 05px 05px; width:250px;'>" + html_page2_col2_cont + "</div>";
-  var hmtl_page2 = `
+  `;
+    var html_page2_col1 =
+        "<div style='color:white; font-size:11px; border:1px solid; background-color: rgb(51 102 153); padding: 05px 05px; width:250px;'>" +
+        html_page2_col1_cont +
+        '</div>';
+    var html_page2_col2 =
+        "<div style='color:white; font-size:11px; border:1px solid; background-color: rgb(51 102 153); padding: 05px 05px; width:250px;'>" +
+        html_page2_col2_cont +
+        '</div>';
+    var hmtl_page2 =
+        `
   <html>
     <head>
       <style>
@@ -108,39 +96,41 @@ function exportPDF(props) {
     <body>
       <h1 style='color: red; display: block; font-size: 2em; margin-top: 0.67em; margin-bottom: 0.67em; margin-left: 0; margin-right: 0; font-weight: bold;'>Sustainability as opportunity</h1>
       <div class="row">
-        <div class="column">` + html_page2_col1 + `</div>
+        <div class="column">` +
+        html_page2_col1 +
+        `</div>
         <div class="column"></div>
-        <div class="column">` + html_page2_col2 + `</div>
+        <div class="column">` +
+        html_page2_col2 +
+        `</div>
       </div>
     </body>
   </html>`;
-  //page 2
-  doc.addPage();
+    //page 2
+    doc.addPage();
 
-  doc.html(hmtl_page2, {
-    callback: function () {
-      doc.save();
-    },
-    x: 30,
-    y: 30
-  });
+    doc.html(hmtl_page2, {
+        callback: function () {
+            doc.save();
+        },
+        x: 30,
+        y: 30
+    });
 
-  //page 3
-  doc.addPage();
-  //page 4
-  doc.addPage();
-  //page 5
-  doc.addPage();
-  //page 6
-  doc.addPage();
-  doc.text("Published by and copyright © 2014: Siemens AG\nEnergy Sector\nFreyeslebenstrasse 1\n91058 Erlangen, Germany", 20, 30);
-  doc.output("report.pdf");
-};
+    //page 3
+    doc.addPage();
+    //page 4
+    doc.addPage();
+    //page 5
+    doc.addPage();
+    //page 6
+    doc.addPage();
+    doc.text(
+        'Published by and copyright © 2014: Siemens AG\nEnergy Sector\nFreyeslebenstrasse 1\n91058 Erlangen, Germany',
+        20,
+        30
+    );
+    doc.output('report.pdf');
+}
 
 export default exportPDF;
-
-
-
-
-
-

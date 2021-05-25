@@ -9,7 +9,6 @@ import React, { Component } from 'react';
 import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent';
-import { Container, Row, Col } from 'react-grid-system';
 import theme from 'resources/theme';
 import CompareCanvas from './CompareCanvas';
 
@@ -27,24 +26,9 @@ class CanvasComponent extends Component {
         a canvas page without any comparisons 
         */
             return (
-                <Container fluid={true}>
-                    <Row>
-                        <Col xs={5} style={{ marginTop: 30 }}>
-                            <h3
-                                style={{
-                                    fontSize: theme.typography.subtitle.fontSize,
-                                    fontWeight: theme.typography.subtitle.fontWeight,
-                                    lineHeight: theme.typography.subtitle.lineHeight,
-                                    letterSpacing: theme.typography.subtitle.letterSpacing,
-                                    marginLeft: 100
-                                }}
-                            >
-                                {' '}
-                                Material Composition{' '}
-                            </h3>
-                            <PieChart />
-                        </Col>
-                        <Col xs={5} style={{ marginTop: 30, marginLeft: 20 }}>
+                <div className='w3-row w3-container' fluid='true'>
+                    <div className='w3-row'>
+                        <div className='w3-col l6 m6 s12 w3-left' style={{ marginTop: 30 }}>
                             <h3
                                 style={{
                                     fontSize: theme.typography.subtitle.fontSize,
@@ -58,10 +42,28 @@ class CanvasComponent extends Component {
                                 Results of the impact assessment{' '}
                             </h3>
                             <ColumnChart />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={10} style={{ marginTop: 30, marginBottom: 30 }}>
+                        </div>
+                        <div className='w3-col l6 m6 s12 w3-right' style={{ marginTop: 30 }}>
+                            <h3
+                                style={{
+                                    fontSize: theme.typography.subtitle.fontSize,
+                                    fontWeight: theme.typography.subtitle.fontWeight,
+                                    lineHeight: theme.typography.subtitle.lineHeight,
+                                    letterSpacing: theme.typography.subtitle.letterSpacing,
+                                    marginLeft: 100
+                                }}
+                            >
+                                {' '}
+                                Material Composition{' '}
+                            </h3>
+                            <PieChart />
+                        </div>
+                    </div>
+                    <div className='w3-row'>
+                        <div
+                            className='w3-col l12 m12 s12'
+                            style={{ marginTop: 30, marginBottom: 30 }}
+                        >
                             <h3
                                 style={{
                                     fontSize: theme.typography.subtitle.fontSize,
@@ -73,10 +75,10 @@ class CanvasComponent extends Component {
                                 {' '}
                                 Impact categories{' '}
                             </h3>
-                            <Table />
-                        </Col>
-                    </Row>
-                </Container>
+                            <Table id='table-0' />
+                        </div>
+                    </div>
+                </div>
             );
         }
     }

@@ -3,12 +3,11 @@
  * Routing is used for linking the Sidebar-MenuItems to Components
  * on the right handside canvas.
  *
- * @author Martin Wagner
- * @author Irem Toroslu
+ * @author Martin Wagner, Irem Toroslu, Mani Anand
  */
 
 import React, { useContext, Suspense, lazy } from 'react';
-import {Router, Redirect, Route, Switch, useHistory} from 'react-router-dom';
+import { Router, Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import LoadingComponent from 'components/loading';
 import DetailsComponent from 'components/details/DetailsComponent';
@@ -19,6 +18,7 @@ const ProductSolutionsServices = lazy(() =>
 );
 // importing required components
 const DashboardComponent = lazy(() => import('../components/dashboard'));
+
 const useStyles = createUseStyles((theme) => ({
     container: {
         display: 'flex'
@@ -37,7 +37,7 @@ const useStyles = createUseStyles((theme) => ({
             marginLeft: -50
         },
         '@media (max-width: 468px)': {
-            fontSize: 50
+            fontSize: 15
         }
     },
     title: {
@@ -47,10 +47,11 @@ const useStyles = createUseStyles((theme) => ({
             marginLeft: 80
         },
         '@media (max-width: 468px)': {
-            fontSize: 50
+            fontSize: 15
         }
     }
 }));
+
 /**
  * Defining new Routes using private routes function
  * linking Components to the selected Menuitem in the "Sidebar component"
@@ -68,14 +69,18 @@ function PrivateRoutes() {
                     <Route
                         exact
                         path={SLUGS.categories}
-                        render={() => <div className={classes.subtitle}>categories</div>}
+                        render={() => (
+                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
+                                categories
+                            </div>
+                        )}
                     />
 
                     <Route
                         exact
                         path={SLUGS.generation}
                         render={() => (
-                            <div className={classes.subtitle}>
+                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
                                 Short info about Generation category
                             </div>
                         )}
@@ -84,7 +89,7 @@ function PrivateRoutes() {
                         exact
                         path={SLUGS.transmission}
                         render={() => (
-                            <div className={classes.subtitle}>
+                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
                                 Short info about Transmission category
                             </div>
                         )}
@@ -93,7 +98,7 @@ function PrivateRoutes() {
                         exact
                         path={SLUGS.industrialApplications}
                         render={() => (
-                            <div className={classes.subtitle}>
+                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
                                 Short info about Industrial Applications
                             </div>
                         )}
@@ -121,7 +126,11 @@ function PrivateRoutes() {
                     <Route
                         exact
                         path={SLUGS.settings}
-                        render={() => <div className={classes.subtitle}>settings</div>}
+                        render={() => (
+                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
+                                settings
+                            </div>
+                        )}
                     />
 
                     <Redirect to={SLUGS.dashboard} />
