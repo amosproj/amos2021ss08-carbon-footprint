@@ -1,4 +1,4 @@
-# Carbon Footprint Visualization
+# Carbon Footprint Visualization | AMOS Project 8
 ## Software Build and Deployment Document
 
 - [Introduction](#introduction)
