@@ -85,13 +85,13 @@ class SelectVariableComponent extends Component {
                             }}
                         >
                             {this.state.variables.map((item) => (
-                                <a
+                                <button
                                     onClick={() => this.onDropDownItemSelectedHandler(item.name)}
                                     className='w3-bar-item w3-button'
                                     key={item.id}
                                 >
                                     {item.name}
-                                </a>
+                                </button>
                             ))}
                         </div>
                     </div>
