@@ -74,18 +74,22 @@ export function getModels(productID) {
 async function getSimaProducts() {
     const httpreq = new BackendConnect();
     const products = await httpreq.getSimaProProjects();
-    const formattedProducts = [];
-    console.log(products);
-    /*await products.map((product) => {
-        const productObject = {
-            productID: product.Id,
-            productName: product.Name,
-            productImage: logo
-        };
-        formattedProducts.push(productObject);
-    });*/
-    //return formattedProducts;
-    return getDummyProducts();
+    let formattedProducts = [];
+    //console.log(products);
+    Promise.all(
+        products.map((product) => {
+            const productObject = {
+                productID: product.Id,
+                productName: product.Name,
+                categories: [categories.generation, categories.transmission],
+                productImage: logo
+            };
+            formattedProducts.push(productObject);
+        })
+    );
+    return formattedProducts;
+
+    //return getDummyProducts();
 }
 
 function getDummyProducts() {

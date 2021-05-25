@@ -30,7 +30,8 @@ function ProductGridComponent() {
         }
     ];
 
-    const products = getProducts();
+    const { products = [] } = getProducts();
+    console.log(products);
     const classes = useStyles();
 
     return (
@@ -41,7 +42,7 @@ function ProductGridComponent() {
             vertical='center'
             breakpoints={{ 50: 'column' }}
         >
-            {products.map((product, index) => (
+            {products?.map((product, index) => (
                 <Column key={'Column' + index} horizontal='center'>
                     <Link
                         onClick={(props) => {
