@@ -26,7 +26,7 @@ class CanvasComponent extends Component {
         a canvas page without any comparisons 
         */
             return (
-                <div className='w3-row w3-container' fluid={true}>
+                <div className='w3-row w3-container' fluid='true'>
                     <div className='w3-row'>
                         <div className='w3-col l6 m6 s12 w3-left' style={{ marginTop: 30 }}>
                             <h3
@@ -75,7 +75,7 @@ class CanvasComponent extends Component {
                                 {' '}
                                 Impact categories{' '}
                             </h3>
-                            <Table />
+                            <Table id='table-0' />
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
-import Table from './TableComponent';
+import TableComponent from './TableComponent';
 import theme from 'resources/theme';
 
 /**
@@ -16,7 +16,7 @@ import theme from 'resources/theme';
 
 const CompareCanvas = () => {
     return (
-        <div className='w3-row w3-container' fluid={true}>
+        <div className='w3-row w3-container' fluid='true'>
             <div className='w3-row'>
                 <div className='w3-col l6 m6 s6 w3-left'>
                     <h3
@@ -95,7 +95,7 @@ const CompareCanvas = () => {
                         {' '}
                         Impact categories{' '}
                     </h3>
-                    <Table />
+                    <TableComponent id='table-1' />
                 </div>
             </div>
             <div className='w3-row'>
@@ -112,7 +112,7 @@ const CompareCanvas = () => {
                         Impact categories{' '}
                     </h3>
                     <div style={{ marginBottom: 30 }}>
-                        <Table />
+                        <TableComponent id='table-2' />
                     </div>
                 </div>
             </div>
