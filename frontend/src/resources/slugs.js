@@ -18,7 +18,7 @@ const slugs = {
     overviewTwo: '/overview/two',
     overviewThree: '/overview/three',
     categories: '/categories',
-    inbox:'./inbox',
+    inbox: './inbox',
     settings: '/settings',
     // auth
     login: '/login',
@@ -26,4 +26,4 @@ const slugs = {
     forgotPassword: '/forgot_password'
 };
 
-export default slugs
+export default slugs;

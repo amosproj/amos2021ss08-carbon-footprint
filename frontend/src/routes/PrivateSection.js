@@ -9,7 +9,7 @@ import { Column, Row } from 'simple-flexbox';
 import { SidebarComponent, SidebarContext } from 'components/sidebar';
 import HeaderComponent from 'components/header/HeaderComponent';
 import PrivateRoutes from './PrivateRoutes';
-import {PrivateStateProvider} from 'hooks/PrivateSectionContext'
+import { PrivateStateProvider } from 'hooks/PrivateSectionContext';
 
 const useStyles = createUseStyles({
     container: {
@@ -25,13 +25,13 @@ const useStyles = createUseStyles({
     },
     contentBlock: {
         marginTop: 54,
-        marginLeft:0
+        marginLeft: 0
     }
 });
 
 /**
  * The Top-Level Component of our application, once the User is logged in.
- * 
+ *
  * @returns A Page that consists out of the Sidebar, a Header and the different Components specified in PrivateRoutes.js
  */
 

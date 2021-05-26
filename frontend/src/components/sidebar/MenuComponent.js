@@ -17,19 +17,18 @@ const getMenuStyles = ({ theme }) => ({
     bmBurgerBarsHover: {
         background: theme.color.darkRed
     },
-    bmCrossButton: {
-    },
+    bmCrossButton: {},
     bmCross: {
         background: theme.color.grayishBlue3
     },
     bmMenuWrap: {
         position: 'fixed',
         height: '100%',
-        width: 200, 
+        width: 200,
         zIndex: 30
     },
     bmMenu: {
-        background: theme.uniformStyle.color.secondaryBackgroundColor // left side bar backgroundcolor 
+        background: theme.uniformStyle.color.secondaryBackgroundColor // left side bar backgroundcolor
     },
     bmItem: {
         outline: 'none',
