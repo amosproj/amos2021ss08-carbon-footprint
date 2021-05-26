@@ -1,0 +1,30 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Frontend CI
+
+on:
+  push:
+    branches: [ main, frontend-dev, release ]
+  pull_request:
+    branches: [ main, frontend-dev, release ]
+
+jobs:
+  buildAndTest:
+    name: Build and Test Frontend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - name: Checkout git repository
+        uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        run: yarn --no-progress --non-interactive --no-lockfile 
+
+      - name: Build
+        run: yarn build frontend/public/index.html
+
+      - name: Test
+        run: yarn test --watchAll=false

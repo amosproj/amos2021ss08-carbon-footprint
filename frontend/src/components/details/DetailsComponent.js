@@ -1,4 +1,4 @@
-import React, { Component, useContext } from 'react';
+import React, { Component } from 'react';
 import Canvas from './CanvasComponent';
 import SelectVariable from './SelectVariableComponent';
 import DividerPanel from './PanelComponent';

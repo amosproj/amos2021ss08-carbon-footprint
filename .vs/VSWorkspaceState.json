@@ -4,13 +4,8 @@
     "\\Backend",
     "\\Backend\\Backend",
     "\\Backend\\Backend\\Controllers",
-    "\\Backend\\Backend\\Properties",
-    "\\Backend\\Backend\\Security",
-    "\\Backend\\Backend\\Services",
-    "\\Backend\\CarbonFootprintVisualization",
-    "\\Deliverables",
-    "\\docs"
+    "\\Backend\\CarbonFootprintVisualization"
   ],
-  "SelectedNode": "\\Backend\\Backend",
+  "SelectedNode": "\\Backend\\CarbonFootprintVisualization.sln",
   "PreviewInSolutionExplorer": false
 }

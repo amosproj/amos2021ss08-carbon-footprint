@@ -10,10 +10,12 @@ labels: feature
 3. So that {}
 
 ## Acceptance criteria
-* Criterion 1
-* Criterion 2
-* ...
+* [ ] Criterion 1
+* [ ] Criterion 2
+* [ ] ...
 
 ## Definition of done
-* Added only after week 5
-* The same for all features
+* [ ] Documentation for the feature is done
+* [ ] Feature branch has been merged
+* [ ] Code has been reviewed by at least one other team member
+* [ ] Unit tests are written
