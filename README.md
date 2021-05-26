@@ -158,3 +158,6 @@ However, a CI pipeline running implemented tests and building the software to al
 Backend:
 - The CI pipeline for the backend is configured in Github Actions as "Backend CI".
 - The CI pipeline will execute the unit tests from the Test Project.
+
+## License
+This software is released under the [MIT License](https://github.com/amosproj/amos-ss2021-carbon-footprint/blob/main/LICENSE).
