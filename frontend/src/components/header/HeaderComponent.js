@@ -33,8 +33,9 @@ const useStyles = createUseStyles((theme) => ({
     },
     separator: {
         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
-        marginLeft: 50,
-        marginRight: 90,
+        marginLeft: 40,
+        marginRight: 10,
+        marginTop: 5,
         height: 30,
         width: 3,
         '@media (max-width: 768px)': {
@@ -44,12 +45,13 @@ const useStyles = createUseStyles((theme) => ({
     },
     icontitle: {
         ...theme.typography.icontitle,
-        marginLeft: -60,
+        marginLeft: 40,
+        marginTop: 0,
         '@media (max-width: 1080px)': {
             // marginLeft:50
         },
         '@media (max-width: 468px)': {
-            fontSize: 50
+            fontSize: 15
         }
     },
     subtitle: {
@@ -58,7 +60,7 @@ const useStyles = createUseStyles((theme) => ({
             marginLeft: 0
         },
         '@media (max-width: 468px)': {
-            fontSize: 50
+            fontSize: 15
         }
     },
     title: {
@@ -67,12 +69,15 @@ const useStyles = createUseStyles((theme) => ({
             marginLeft: 80
         },
         '@media (max-width: 468px)': {
-            fontSize: 50
+            fontSize: 15
         }
     },
     iconStyles: {
         cursor: 'pointer',
         marginLeft: 0,
+        width: 200,
+        height: 200,
+
         '@media (max-width: 768px)': {
             marginLeft: 12
         }
@@ -152,10 +157,10 @@ function HeaderComponent() {
                 background: theme.uniformStyle.color.secondaryBackgroundColor,
                 marginTop: 0,
                 marginLeft: 0,
-                height: 50
+                height: 70
             }}
         >
-            <span className={classes.title} style={{ marginLeft: 10, marginTop: 10 }}>
+            <span className={classes.title + ' w3-padding-16 w3-margin-left'}>
                 {title}
                 <UseArrow />
                 {subtitle}
@@ -163,7 +168,7 @@ function HeaderComponent() {
                 {subsubtitle}
             </span>
 
-            <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 30 }}>
+            <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
                 <div className={classes.separator}>
                     <div className={classes.iconStyles}>
                         <IconLogin fill={'white'} />
