@@ -79,5 +79,3 @@ const ModelDropdownComponent = (props) => {
 };
 
 export default ModelDropdownComponent;
-
-

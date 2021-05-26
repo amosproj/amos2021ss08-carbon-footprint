@@ -6,13 +6,13 @@ import { IconArrowUp } from 'assets/icons';
 import SLUGS from 'resources/slugs';
 import { Link } from 'react-router-dom';
 const useStyles = createUseStyles((theme) => ({
-    //change thwe arrow position 
+    //change thwe arrow position
     arrowContainer: {
         position: 'absolute',
         top: -19,
         right: 15
     },
-    // dropdown button reconfiguration 
+    // dropdown button reconfiguration
     dropdownButton: {
         alignItems: 'center',
         background: 'transparent',
@@ -25,7 +25,7 @@ const useStyles = createUseStyles((theme) => ({
     dropdownContainer: {
         position: 'relative'
     },
-    
+
     dropdownItemsContainer: {
         background: 'white',
         border: `1px solid ${theme.color.lightGrayishBlue2}`,
@@ -35,8 +35,8 @@ const useStyles = createUseStyles((theme) => ({
         position: 'absolute',
         width: '60%',
         top: ({ position }) => position.top,
-        right: ({ position }) => position.right+52,
-        bottom: ({ position }) => position.bottom-10,
+        right: ({ position }) => position.right + 52,
+        bottom: ({ position }) => position.bottom - 10,
         left: ({ position }) => position.left,
         '& button:first-of-type:hover div > svg > path': {
             fill: 'white'
@@ -52,7 +52,7 @@ const useStyles = createUseStyles((theme) => ({
         //color change of the text on the dropdownbox  whhle moving the cursor
         '&:hover': {
             background: 'green',
-            color:'white'
+            color: 'white'
         },
         //color of the text on the dropdownbox
         '&:after': {
@@ -94,21 +94,24 @@ function DropdownComponent({ label, options, position }) {
                 <Column className={classes.dropdownItemsContainer}>
                     {options.map((option, index) => (
                         // when one of the items in the dropdownbox menu ,navigate the next page !
-                    <Link to={{ // Link to the next page
-                        pathname: SLUGS.details,
-                        }}>
-                        <button
-                            key={`option-${index}`}
-                            className={classes.dropdownItem}
-                            onClick={() => onItemClick(option.onClick)}
+                        <Link
+                            to={{
+                                // Link to the next page
+                                pathname: SLUGS.details
+                            }}
                         >
-                            {option.label}
-                            {index === 0 && (
-                                <div className={classes.arrowContainer}>
-                                    <IconArrowUp />
-                                </div>
-                            )}
-                        </button>
+                            <button
+                                key={`option-${index}`}
+                                className={classes.dropdownItem}
+                                onClick={() => onItemClick(option.onClick)}
+                            >
+                                {option.label}
+                                {index === 0 && (
+                                    <div className={classes.arrowContainer}>
+                                        <IconArrowUp />
+                                    </div>
+                                )}
+                            </button>
                         </Link>
                     ))}
                 </Column>
@@ -141,4 +144,3 @@ DropdownComponent.defaultProps = {
 };
 
 export default DropdownComponent;
-
