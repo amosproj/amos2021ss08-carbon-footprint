@@ -4,15 +4,19 @@
  * */
 
 import './Loginstyle.css';
+import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
+import { uniformStyle } from 'resources/theme';
 
 function LoginComponent() {
     return (
-        <>
+        <div
+            className='w3-container w3-padding-24 w3-auto'
+            style={{ backgroundColor: uniformStyle.color.primaryBackgroundColor }}
+        >
             <meta name='viewport' content='width=device-width, initial-scale=1' />
-            <h2>Login Form</h2>
             <form action='/action_page.php' method='post'>
                 <div className='imgcontainer'>
-                    <img src='img_avatar2.png' alt='Avatar' className='avatar' />
+                    <img src={CarbonFootprintLogo} alt='Carbon Footprint' className='avatar' />
                 </div>
                 <div className='container'>
                     <label htmlFor='uname'>
@@ -29,16 +33,18 @@ function LoginComponent() {
                         me
                     </label>
                 </div>
-                <div className='container' style={{ backgroundColor: '#f1f1f1' }}>
-                    <button type='button' className='cancelbtn'>
-                        Cancel
-                    </button>
-                    <span className='psw'>
-                        Forgot <a href='#'>password?</a>
-                    </span>
+                <div
+                    className='container'
+                    style={{
+                        marginBottom: '10px',
+                        textAlign: 'right',
+                        backgroundColor: '#f1f1f1'
+                    }}
+                >
+                    <a href='#'>Forgot password?</a>
                 </div>
             </form>
-        </>
+        </div>
     );
 }
 

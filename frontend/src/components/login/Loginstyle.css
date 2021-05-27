@@ -45,13 +45,16 @@ button:hover {
 
 /* Avatar image */
 img.avatar {
-    width: 40%;
-    border-radius: 50%;
+    width: 25%;
+    border-radius: 0%;
+    margin: auto;
 }
 
 /* Add padding to containers */
 .container {
     padding: 16px;
+    max-width: 600px;
+    margin: auto;
 }
 
 /* The "Forgot password" text */

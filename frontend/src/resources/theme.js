@@ -8,7 +8,7 @@ const color = {
     brightBlue: '#3498db',
     darkGrayishBlue: '#8b8d94',
     whitish: '#b5b4b9',
-    white: '#000000',
+    white: '#ffffff',
     darkGray: '#262625',
     darkRed: '#a90000',
     grayishBlue: '#A4A6B3',
@@ -123,7 +123,7 @@ const typography = {
 /**
  * Defining uniform Colors.
  */
-const uniformStyle = {
+export const uniformStyle = {
     color: {
         primaryFontColor: color.darkGrayishBlue,
         primaryIconColor: 'white',
