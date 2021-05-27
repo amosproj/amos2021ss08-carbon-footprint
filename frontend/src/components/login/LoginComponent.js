@@ -6,6 +6,7 @@
 import './Loginstyle.css';
 import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
 import { uniformStyle } from 'resources/theme';
+import slugs from 'resources/slugs';
 
 function LoginComponent() {
     return (
@@ -14,7 +15,8 @@ function LoginComponent() {
             style={{ backgroundColor: uniformStyle.color.primaryBackgroundColor }}
         >
             <meta name='viewport' content='width=device-width, initial-scale=1' />
-            <form action='/action_page.php' method='post'>
+            {/* this form does not have any function other than relaying right now */}
+            <form action={slugs.categories} method='post'>
                 <div className='imgcontainer'>
                     <img src={CarbonFootprintLogo} alt='Carbon Footprint' className='avatar' />
                 </div>
@@ -41,7 +43,7 @@ function LoginComponent() {
                         backgroundColor: '#f1f1f1'
                     }}
                 >
-                    <a href='#'>Forgot password?</a>
+                    <a href={slugs.forgotPassword}>Forgot password?</a>
                 </div>
             </form>
         </div>
