@@ -1,13 +1,13 @@
-/** Setting up login page
- * @author Mani Anand
- * @author Martin Wagner
- * */
-
 import './Loginstyle.css';
 import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
 import { uniformStyle } from 'resources/theme';
 import slugs from 'resources/slugs';
 
+/**
+ * The LoginComponent realizes the Login Page.
+ *
+ * @author Mani Anand, Martin Wagner
+ */
 function LoginComponent() {
     return (
         <div
