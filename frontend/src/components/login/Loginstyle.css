@@ -1,6 +1,13 @@
+/**
+* Stylefile for the LoginComponent.
+*
+*/
+
 /* Bordered form */
 form {
     border: 3px solid #f1f1f1;
+    margin: auto;
+    border-radius: 25px;
 }
 
 /* Full-width inputs */
@@ -12,6 +19,7 @@ input[type='password'] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 /* Set a style for all buttons */
@@ -23,6 +31,7 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 10px;
 }
 
 /* Add a hover effect for buttons */
@@ -46,7 +55,6 @@ button:hover {
 /* Avatar image */
 img.avatar {
     width: 25%;
-    border-radius: 0%;
     margin: auto;
 }
 
@@ -64,7 +72,11 @@ span.psw {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 450px) {
+    img.avatar {
+        width: 75%;
+        margin: auto;
+    }
     span.psw {
         display: block;
         float: none;
