@@ -1,7 +1,10 @@
 import './Loginstyle.css';
+import { useContext } from React;
 import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
 import { uniformStyle, color } from 'resources/theme';
 import slugs from 'resources/slugs';
+import { GlobalContext } from 'hooks/GlobalContext';
+import React from 'react';
 
 /**
  * The LoginComponent realizes the Login Page.
@@ -9,6 +12,10 @@ import slugs from 'resources/slugs';
  * @author Mani Anand, Martin Wagner
  */
 function LoginComponent() {
+
+
+    const [state, setState] = useContext(GlobalContext);
+
     return (
         <div
             className='flex-container'

@@ -54,6 +54,7 @@ const ModelDropdownComponent = (props) => {
                         {variables.map((item) => (
                             <button
                                 onClick={(props) => {
+                                    // Set the Selected Product to the one that has been clicked.
                                     const newSelectedProducts = [
                                         {
                                             productID: productID,
