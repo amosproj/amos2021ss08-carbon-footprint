@@ -13,10 +13,11 @@ body,
 /* Vertically Centering Container */
 .flex-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
 }
 
 /* Bordered form */
@@ -26,7 +27,6 @@ form.login {
     border: 3px solid;
     margin: auto;
     border-radius: 25px;
-    height: 100%;
     max-width: 800px;
 }
 
@@ -66,9 +66,6 @@ button.login:hover {
 
 /* Center the logo inside this container */
 .imgcontainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: fit-content;
     text-align: center;
     margin: 24px 0 12px 0;
@@ -76,7 +73,6 @@ button.login:hover {
 
 /* Avatar image */
 img.avatar {
-    height: fit-content;
     width: 25%;
     margin: auto;
 }

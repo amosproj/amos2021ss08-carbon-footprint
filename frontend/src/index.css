@@ -104,6 +104,6 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: darkgrey;
+    background: #b5b4b9;
     border-radius: 10px;
 }
