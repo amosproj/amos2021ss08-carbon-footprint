@@ -14,11 +14,7 @@ export const GlobalContext = createContext();
  * @param {*} props the previous state that has been used.
  */
 export const GlobalStateProvider = (props) => {
-    const [state, setState] = useState([
-        {
-            userIsLoggedIn: true
-        }
-    ]);
+    const [state, setState] = useState({ userIsLoggedIn: false });
 
     return (
         <GlobalContext.Provider value={[state, setState]}>{props.children}</GlobalContext.Provider>

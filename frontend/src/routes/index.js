@@ -14,7 +14,10 @@ function Routes() {
         window.scrollTo(0, 0);
     }, [pathname]);
 
-    const [state, setState] = useContext(GlobalContext);
+    const [state] = useContext(GlobalContext);
+
+    console.log(state);
+    console.log(state.userIsLoggedIn);
 
     return state.userIsLoggedIn ? <PrivateSection /> : <PublicRoutes />;
 }

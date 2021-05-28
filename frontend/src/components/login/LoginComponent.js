@@ -1,5 +1,5 @@
 import './Loginstyle.css';
-import { useContext } from React;
+import { useContext } from 'react';
 import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
 import { uniformStyle, color } from 'resources/theme';
 import slugs from 'resources/slugs';
@@ -12,9 +12,7 @@ import React from 'react';
  * @author Mani Anand, Martin Wagner
  */
 function LoginComponent() {
-
-
-    const [state, setState] = useContext(GlobalContext);
+    const [, setState] = useContext(GlobalContext);
 
     return (
         <div
@@ -30,6 +28,7 @@ function LoginComponent() {
                 {/* this form does not have any function other than relaying right now */}
                 <form
                     action={slugs.categories}
+                    onSubmit={() => setState({ userIsLoggedIn: true })}
                     style={{
                         backgroundColor: uniformStyle.color.primaryBackgroundColor,
                         borderColor: uniformStyle.color.accentColor
