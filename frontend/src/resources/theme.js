@@ -4,7 +4,7 @@
  * @author Martin Wagner
  */
 
-const color = {
+export const color = {
     brightBlue: '#3498db',
     darkGrayishBlue: '#8b8d94',
     whitish: '#b5b4b9',
@@ -15,8 +15,10 @@ const color = {
     grayishBlue2: '#9fa2b4',
     grayishBlue3: '#bdc3c7',
     limeGreen: '#00b300',
+    darkLimeGreen: '#38792D',
     blueGray: '#33b3a6', //687f8c016064018788019799
     lightBlue: '#3751FF',
+    lightGray: '#f1f1f1',
     lightGrayishBlue: '#F7F8FC', // background color
     lightGrayishBlue2: '#DFE0EB',
     paleBlue: '#DDE2FF',
@@ -129,6 +131,7 @@ export const uniformStyle = {
         primaryIconColor: 'white',
         secondaryFontColor: color.whitish,
         highlightingColor: color.limeGreen,
+        accentColor: color.darkLimeGreen,
         primaryBackgroundColor: color.white,
         secondaryBackgroundColor: color.darkGray,
         barChartColor: color.darkBlue,

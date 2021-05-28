@@ -1,6 +1,6 @@
 import './Loginstyle.css';
 import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
-import { uniformStyle } from 'resources/theme';
+import { uniformStyle, color } from 'resources/theme';
 import slugs from 'resources/slugs';
 
 /**
@@ -10,7 +10,10 @@ import slugs from 'resources/slugs';
  */
 function LoginComponent() {
     return (
-        <div className='flex-container'>
+        <div
+            className='flex-container'
+            style={{ backgroundColor: uniformStyle.color.secondaryBackgroundColor }}
+        >
             <div className='w3-padding-24 w3-auto'>
                 <meta
                     style={{ height: '100%' }}
@@ -20,8 +23,10 @@ function LoginComponent() {
                 {/* this form does not have any function other than relaying right now */}
                 <form
                     action={slugs.categories}
-                    method='post'
-                    style={{ backgroundColor: uniformStyle.color.primaryBackgroundColor }}
+                    style={{
+                        backgroundColor: uniformStyle.color.primaryBackgroundColor,
+                        borderColor: uniformStyle.color.accentColor
+                    }}
                 >
                     <div className='imgcontainer'>
                         <img src={CarbonFootprintLogo} alt='Carbon Footprint' className='avatar' />
@@ -35,7 +40,12 @@ function LoginComponent() {
                             <b>Password</b>
                         </label>
                         <input type='password' placeholder='Enter Password' name='psw' required />
-                        <button type='submit'>Login</button>
+                        <button
+                            style={{ backgroundColor: uniformStyle.color.accentColor }}
+                            type='submit'
+                        >
+                            Login
+                        </button>
                         <label>
                             <input type='checkbox' defaultChecked='checked' name='remember' />{' '}
                             Remember me
@@ -46,7 +56,7 @@ function LoginComponent() {
                                 marginTop: '10px',
                                 marginBottom: '10px',
                                 textAlign: 'right',
-                                backgroundColor: '#f1f1f1'
+                                backgroundColor: color.lightGray
                             }}
                         >
                             <a href={slugs.forgotPassword}>Forgot password?</a>

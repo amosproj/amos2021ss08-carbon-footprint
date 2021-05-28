@@ -10,12 +10,11 @@ body,
     height: 100%;
 }
 
-/* Centering Container */
+/* Vertically Centering Container */
 .flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: DodgerBlue;
     height: 100%;
 }
 
@@ -23,10 +22,11 @@ body,
 form {
     display: flex;
     flex-direction: column;
-    border: 3px solid #f1f1f1;
+    border: 3px solid;
     margin: auto;
     border-radius: 25px;
     height: 100%;
+    max-width: 800px;
 }
 
 /* Full-width inputs */
@@ -41,9 +41,14 @@ input[type='password'] {
     border-radius: 10px;
 }
 
+/* Making the selected text field appearance also rounded */
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px;
+}
+
 /* Set a style for all buttons */
 button {
-    background-color: #04aa6d;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -65,14 +70,19 @@ button:hover {
     background-color: #f44336;
 }
 
-/* Center the avatar image inside this container */
+/* Center the logo inside this container */
 .imgcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
     text-align: center;
     margin: 24px 0 12px 0;
 }
 
 /* Avatar image */
 img.avatar {
+    height: fit-content;
     width: 25%;
     margin: auto;
 }
@@ -80,7 +90,7 @@ img.avatar {
 /* Add padding to containers */
 .container {
     padding: 16px;
-    max-width: 600px;
+    max-width: 500px;
     margin: auto;
 }
 
