@@ -3,11 +3,30 @@
 *
 */
 
+html,
+body,
+#root,
+.App {
+    height: 100%;
+}
+
+/* Centering Container */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: DodgerBlue;
+    height: 100%;
+}
+
 /* Bordered form */
 form {
+    display: flex;
+    flex-direction: column;
     border: 3px solid #f1f1f1;
     margin: auto;
     border-radius: 25px;
+    height: 100%;
 }
 
 /* Full-width inputs */
