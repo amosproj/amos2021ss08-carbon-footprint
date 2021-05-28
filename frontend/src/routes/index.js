@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import useWindowSize from 'hooks/useWindowSize';
 import PrivateSection from 'routes/PrivateSection';
 import PublicRoutes from 'routes/PublicRoutes';
+import { GlobalContext } from 'hooks/GlobalContext';
 
 function Routes() {
     const { pathname } = useLocation();
@@ -13,8 +14,9 @@ function Routes() {
         window.scrollTo(0, 0);
     }, [pathname]);
 
-    const isUserLoggedIn = false; // log in page e git
-    return isUserLoggedIn ? <PrivateSection /> : <PublicRoutes />;
+    const [state, setState] = useContext(GlobalContext);
+
+    return state.userIsLoggedIn ? <PrivateSection /> : <PublicRoutes />;
 }
 
 export default Routes;
