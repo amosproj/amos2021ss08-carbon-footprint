@@ -87,4 +87,23 @@ body {
     font-size: 20px;
     line-height: 26px;
     color: #424147;
+    overflow: hidden;
+}
+
+/* Custom Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: darkgrey;
+    border-radius: 10px;
 }

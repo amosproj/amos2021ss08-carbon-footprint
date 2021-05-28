@@ -27,6 +27,7 @@ function LoginComponent() {
                 />
                 {/* this form does not have any function other than relaying right now */}
                 <form
+                    className='login'
                     action={slugs.categories}
                     onSubmit={() => setState({ userIsLoggedIn: true })}
                     style={{
@@ -37,16 +38,29 @@ function LoginComponent() {
                     <div className='imgcontainer'>
                         <img src={CarbonFootprintLogo} alt='Carbon Footprint' className='avatar' />
                     </div>
-                    <div className='container'>
+                    <div className='login-container'>
                         <label htmlFor='uname'>
                             <b>Username</b>
                         </label>
-                        <input type='text' placeholder='Enter Username' name='uname' required />
+                        <input
+                            className='login'
+                            type='text'
+                            placeholder='Enter Username'
+                            name='uname'
+                            required
+                        />
                         <label htmlFor='psw'>
                             <b>Password</b>
                         </label>
-                        <input type='password' placeholder='Enter Password' name='psw' required />
+                        <input
+                            className='login'
+                            type='password'
+                            placeholder='Enter Password'
+                            name='psw'
+                            required
+                        />
                         <button
+                            className='login'
                             style={{ backgroundColor: uniformStyle.color.accentColor }}
                             type='submit'
                         >
@@ -57,7 +71,7 @@ function LoginComponent() {
                             Remember me
                         </label>
                         <div
-                            className='container'
+                            className='login-container'
                             style={{
                                 marginTop: '10px',
                                 marginBottom: '10px',
