@@ -71,25 +71,22 @@ export function getModels(productID) {
  * Reducing the SimaPro projects to products.
  *
  */
-async function getSimaProducts() {
+export async function getSimaProducts() {
     const httpreq = new BackendConnect();
     const products = await httpreq.getSimaProProjects();
+    return products;
     let formattedProducts = [];
     //console.log(products);
-    Promise.all(
-        products.map((product) => {
-            const productObject = {
-                productID: product.Id,
-                productName: product.Name,
-                categories: [categories.generation, categories.transmission],
-                productImage: logo
-            };
-            formattedProducts.push(productObject);
-        })
-    );
+    products.map((product) => {
+        const productObject = {
+            productID: product.Id,
+            productName: product.Name,
+            categories: [categories.generation, categories.transmission],
+            productImage: logo
+        };
+        formattedProducts.push(productObject);
+    });
     return formattedProducts;
-
-    //return getDummyProducts();
 }
 
 function getDummyProducts() {

@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Column, Row } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import { getProducts } from 'interface/simaProInterface';
+import { getSimaProducts } from 'interface/simaProInterface';
 import ProductDropdown from './ModelDropdownComponent';
 import SLUGS from 'resources/slugs';
 import { Link } from 'react-router-dom';
@@ -21,6 +21,25 @@ import LabelComponent from './LabelComponent';
 
 function ProductGridComponent() {
     const [selectedProducts] = useContext(PrivateSectionContext);
+    const [productList, setProductList] = useState([
+        {
+            productID: 'dummydum-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
+            productName: '"please select a Product"', //final_process_name? -> probably rather the project name later. But unclear!
+            modelID: 'none',
+            modelName: '"please select a Product"',
+            productImage: ''
+        }
+    ]);
+    console.log('Tallo');
+    useEffect(() => {
+        async function getProducts() {
+            const products = await getSimaProducts();
+            setProductList(products);
+            console.log(products);
+        }
+        getProducts();
+    }, []);
+
     const NewSelectedProducts = [
         {
             productID: selectedProducts.productID,
@@ -30,8 +49,7 @@ function ProductGridComponent() {
         }
     ];
 
-    const { products = [] } = getProducts();
-    console.log(products);
+    // const { products = [] } = getProducts();
     const classes = useStyles();
 
     return (
@@ -42,33 +60,37 @@ function ProductGridComponent() {
             vertical='center'
             breakpoints={{ 320: { flexDirection: 'column' } }}
         >
-            {products?.map((product, index) => (
-                <Column key={'Column' + index} horizontal='center'>
-                    <Link
-                        onClick={(props) => {
-                            // Save selection to ContextProvider
-                            NewSelectedProducts[0].productID = product.productID;
-                            NewSelectedProducts[0].productName = product.productName;
-                        }}
-                        to={{
-                            // Link to the next page
-                            pathname: SLUGS.details
-                        }}
-                    >
-                        <MiniCardComponent
-                            title={product.productName}
-                            className={classes.miniCardContainer}
-                            // define the path of the image to show on the cards
-                            path={product.productImage}
-                        />
-                    </Link>
-                    <LabelComponent productName={product.productName} />
-                    <ProductDropdown
-                        productID={product.productID}
-                        productName={product.productName}
-                    />
-                </Column>
-            ))}
+            {console.log('State:')}
+            {console.log(productList)}
+            {productList.map((product, index) =>
+                console.log('H')
+
+                // <Column key={'Column' + index} horizontal='center'>
+                //     <Link
+                //         onClick={(props) => {
+                //             // Save selection to ContextProvider
+                //             NewSelectedProducts[0].productID = product.productID;
+                //             NewSelectedProducts[0].productName = product.productName;
+                //         }}
+                //         to={{
+                //             // Link to the next page
+                //             pathname: SLUGS.details
+                //         }}
+                //     >
+                //         <MiniCardComponent
+                //             title={product.productName}
+                //             className={classes.miniCardContainer}
+                //             // define the path of the image to show on the cards
+                //             path={product.productImage}
+                //         />
+                //     </Link>
+                //     <LabelComponent productName={product.productName} />
+                //     <ProductDropdown
+                //         productID={product.productID}
+                //         productName={product.productName}
+                //     />
+                // </Column>
+            )}
         </Row>
     );
 }
