@@ -42,14 +42,15 @@ class DetailsComponent extends Component {
 
         return (
             <React.Fragment>
-                <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
-                <div style={{ marginLeft: 15 }}>
-                    <SelectVariable loadComparePage={this.state.compareCanvas} />
-                </div>
                 <DividerPanel
                     loadComparePage={this.state.compareCanvas}
                     onCompareClick={handleCompareButton}
                 />
+                <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
+                <div style={{ marginLeft: 15 }}>
+                    <SelectVariable loadComparePage={this.state.compareCanvas} />
+                </div>
+
                 <Canvas loadComparePage={this.state.compareCanvas} />
             </React.Fragment>
         );
