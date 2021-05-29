@@ -3,6 +3,7 @@ import Canvas from './CanvasComponent';
 import SelectVariable from './SelectVariableComponent';
 import DividerPanel from './PanelComponent';
 import theme from 'resources/theme';
+import { Col, Container, Row } from 'react-grid-system';
 
 /**
  * the main component for detail page which includes
@@ -38,22 +39,82 @@ class DetailsComponent extends Component {
             */
             this.setState({ compareCanvas });
         };
+        const scenarioNames = {
+            baseline: 'Baseline Scenario',
+            modified: 'modified Scenario'
+        }
         const { selectedProduct } = this.props;
+        if (!this.state.compareCanvas) {
+            return (
+                <React.Fragment>
+                    <DividerPanel
+                        loadComparePage={this.state.compareCanvas}
+                        onCompareClick={handleCompareButton}
+                        scenarioName={scenarioNames.modified}
+                    />
+                    <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
+                    <div style={{ marginLeft: 15 }}>
+                        <SelectVariable loadComparePage={this.state.compareCanvas} />
+                    </div>
 
-        return (
-            <React.Fragment>
-                <DividerPanel
-                    loadComparePage={this.state.compareCanvas}
-                    onCompareClick={handleCompareButton}
-                />
-                <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
-                <div style={{ marginLeft: 15 }}>
-                    <SelectVariable loadComparePage={this.state.compareCanvas} />
-                </div>
+                    <Canvas loadComparePage={this.state.compareCanvas} />
+                </React.Fragment>
+            );
+        } else {
+            return (
+                <Container fluid={true}>
+                    <Row>
+                        <div
+                            style={{
+                                width: 15,
+                            }}>
+                        </div>
+                        <Col
+                            style={{ backgroundColor: 'white' }}
+                        >
+                            <DividerPanel
+                                loadComparePage={this.state.compareCanvas}
+                                onCompareClick={handleCompareButton}
+                                scenarioName={scenarioNames.baseline}
+                            />
+                            <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
+                            <div style={{ marginLeft: 15 }}>
+                                <SelectVariable loadComparePage={this.state.compareCanvas} />
+                            </div>
 
-                <Canvas loadComparePage={this.state.compareCanvas} />
-            </React.Fragment>
-        );
+                            <Canvas loadComparePage={this.state.compareCanvas} />
+                        </Col>
+                        <div
+                            style={{
+                                width: 15,
+                            }}>
+                        </div>
+                        <Col
+                            style={{ backgroundColor: 'white' }}
+                        >
+                            <DividerPanel
+                                loadComparePage={this.state.compareCanvas}
+                                onCompareClick={handleCompareButton}
+                                scenarioName={scenarioNames.modified}
+                            />
+                            <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
+                            <div style={{ marginLeft: 15 }}>
+                                <SelectVariable loadComparePage={this.state.compareCanvas} />
+                            </div>
+
+                            <Canvas loadComparePage={this.state.compareCanvas} />
+                        </Col>
+                        <div
+                            style={{
+                                width: 15,
+                            }}>
+                        </div>
+                    </Row>
+                </Container>
+            );
+
+        }
+
     }
 }
 
