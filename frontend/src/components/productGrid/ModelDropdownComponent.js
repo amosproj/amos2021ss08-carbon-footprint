@@ -7,6 +7,8 @@ import theme from 'resources/theme';
 /**
  * This component creates the dropdownboxes for the related products
  *
+ * It calls the Backend to get the Models for a specific productID
+ *
  * @returns the model properties of the related product depending on the model values from getModels func from interface/simaProInterface
  * @author Parham Gandomkar, Martin Wagner, Irem Toroslu, Mani Anand
  */
@@ -20,6 +22,32 @@ const ModelDropdownComponent = (props) => {
     // set the initial values for the dropdown list derived from getModels
     const variables = getModels(productID);
     const [selected, setSelected] = useState('Select a model');
+    if (variables === null || variables === undefined) {
+        return (
+            <Container fluid={true}>
+                <Row
+                    className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em'
+                    disabled={true}
+                    style={{ backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor }}
+                >
+                    <button
+                        className='w3-button'
+                        style={{
+                            color: theme.uniformStyle.color.secondaryFontColor,
+                            backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
+                            fontSize: theme.typography.buttontitle.fontSize,
+                            fontWeight: theme.typography.buttontitle.fontWeight,
+                            lineHeight: theme.typography.buttontitle.lineHeight,
+                            letterSpacing: theme.typography.buttontitle.letterSpacing
+                        }}
+                    >
+                        Default Model
+                    </button>
+                </Row>
+            </Container>
+        );
+    }
+    // else:
     return (
         <Container fluid={true}>
             <Row
@@ -79,5 +107,3 @@ const ModelDropdownComponent = (props) => {
 };
 
 export default ModelDropdownComponent;
-
-

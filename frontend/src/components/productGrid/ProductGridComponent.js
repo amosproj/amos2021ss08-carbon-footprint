@@ -8,6 +8,7 @@ import SLUGS from 'resources/slugs';
 import { Link } from 'react-router-dom';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import LabelComponent from './LabelComponent';
+import LoadingComponent from 'components/loading';
 
 /**
  * The Component creates new cards for the product items using the minicard components form 'components/cards/MiniCardComponent'
@@ -21,16 +22,12 @@ import LabelComponent from './LabelComponent';
 
 function ProductGridComponent() {
     const [selectedProducts] = useContext(PrivateSectionContext);
-    const [productList, setProductList] = useState([
-        {
-            productID: 'dummydum-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
-            productName: '"please select a Product"', //final_process_name? -> probably rather the project name later. But unclear!
-            modelID: 'none',
-            modelName: '"please select a Product"',
-            productImage: ''
-        }
-    ]);
+    const [productList, setProductList] = useState([]);
     console.log('Tallo');
+    /*
+     * useEffect declars the async function getProducts to be executed after the initial render and
+     * hooks it so the Component reloads on change.
+     */
     useEffect(() => {
         async function getProducts() {
             const products = await getSimaProducts();
@@ -52,6 +49,10 @@ function ProductGridComponent() {
     // const { products = [] } = getProducts();
     const classes = useStyles();
 
+    if (productList === [] || productList === undefined || productList === null) {
+        return <LoadingComponent />;
+    }
+    // else:
     return (
         <Row
             className={classes.cardRow}
@@ -62,35 +63,33 @@ function ProductGridComponent() {
         >
             {console.log('State:')}
             {console.log(productList)}
-            {productList.map((product, index) =>
-                console.log('H')
-
-                // <Column key={'Column' + index} horizontal='center'>
-                //     <Link
-                //         onClick={(props) => {
-                //             // Save selection to ContextProvider
-                //             NewSelectedProducts[0].productID = product.productID;
-                //             NewSelectedProducts[0].productName = product.productName;
-                //         }}
-                //         to={{
-                //             // Link to the next page
-                //             pathname: SLUGS.details
-                //         }}
-                //     >
-                //         <MiniCardComponent
-                //             title={product.productName}
-                //             className={classes.miniCardContainer}
-                //             // define the path of the image to show on the cards
-                //             path={product.productImage}
-                //         />
-                //     </Link>
-                //     <LabelComponent productName={product.productName} />
-                //     <ProductDropdown
-                //         productID={product.productID}
-                //         productName={product.productName}
-                //     />
-                // </Column>
-            )}
+            {productList.map((product, index) => (
+                <Column key={'Column' + index} horizontal='center'>
+                    <Link
+                        onClick={(props) => {
+                            // Save selection to ContextProvider
+                            //NewSelectedProducts[0].productID = product.productID;
+                            //NewSelectedProducts[0].productName = product.productName;
+                        }}
+                        to={{
+                            // Link to the next page
+                            pathname: SLUGS.details
+                        }}
+                    >
+                        <MiniCardComponent
+                            title={product.productName}
+                            className={classes.miniCardContainer}
+                            // define the path of the image to show on the cards
+                            path={product.productImage}
+                        />
+                    </Link>
+                    <LabelComponent productName={product.productName} />
+                    <ProductDropdown
+                        productID={product.productID}
+                        productName={product.productName}
+                    />
+                </Column>
+            ))}
         </Row>
     );
 }

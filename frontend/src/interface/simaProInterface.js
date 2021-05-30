@@ -64,6 +64,7 @@ export function getModels(productID) {
                 { modelID: 17, productID: productID, modelName: 'Allround Product 4' }
             ];
         default:
+            return null;
             break;
     }
 }
@@ -74,10 +75,9 @@ export function getModels(productID) {
 export async function getSimaProducts() {
     const httpreq = new BackendConnect();
     const products = await httpreq.getSimaProProjects();
-    return products;
     let formattedProducts = [];
     //console.log(products);
-    products.map((product) => {
+    await products.map((product) => {
         const productObject = {
             productID: product.Id,
             productName: product.Name,
