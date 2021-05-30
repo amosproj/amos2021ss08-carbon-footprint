@@ -60,20 +60,25 @@ class SelectVariableComponent extends Component {
         }
         return (
             <div className='w3-row w3-margin-top'>
-                <div className='w3-col l3 m3 s3'>
-                    <h4>Select your desire variable:</h4>
+                <div className='w3-col l4 m3 s3'>
+                    {this.state.variables > 0 ? (
+                        <h4>Select your desire variable:</h4>
+                    ) : (
+                        <h4>There is only one Model for this product: </h4>
+                    )}
                 </div>
-                <div className='w3-col l8 m8 s8 w3-left'>
+                <div className='w3-col l3 m4 s4 w3-left'>
                     <DropDownComponent
                         selectedVariable={this.state.selectedVariable}
                         variables={this.state.variables}
                         dropDownHandler={this.onDropDownItemSelectedHandler}
                     />
-
+                </div>
+                <div className='w3-col l3 m4 s4 w3-left'>
                     <button
                         style={{ backgroundColor: theme.uniformStyle.color.sendButtonColor }}
                         onClick={this.handleSubmit}
-                        className='w3-button w3-wide'
+                        className='w3-button w3-wide w3-left'
                     >
                         <b
                             style={{
