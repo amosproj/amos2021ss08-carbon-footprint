@@ -32,23 +32,27 @@ export function getProducts(scope = 'All') {
  * @param productID the id of the Project to get the models for
  * @returns
  */
-export function getModels(productID) {
+//export async function getModels(productID) {
+export async function getModels(productID) {
 
-    const headers = {
+    /* const headers = {
         Authorization: 'Bearer',
         'My-Custom-Header': 'foobar'
     };
-    //let result;
     console.log("------");
     console.log(productID);
-    const result2 = axios.get(`https://localhost:44323/SimaPro/api/processes/referencedata/${productID}`, { headers });
-        console.log(result2);
-        //.then(function (data) {
-            //const items = data;
-            //result = items.data.Result.Data;
-        //});
-    //return result;
-    /* switch (productID) {
+    let resultProcess;
+    await axios.get(`https://localhost:44323/SimaPro/api/processes/referencedata/${productID}`, { headers })
+        .then(function (data) {
+            const items = data;
+            resultProcess = items.data.Result.Data;
+            console.log(resultProcess);
+        });
+    //return resultProcess; */
+    //const httpPostReq = BackendConnect();
+
+
+    switch (productID) {
         case '09f64eeb-13b0-4e09-9fb4-50398483ecfd':
             return [{ modelID: 1, productID: productID, modelName: 'Electric Motor Type 25b' }];
         case 'aufwlc93-kldp-4fer-15s7-51245631fega':
@@ -78,11 +82,11 @@ export function getModels(productID) {
                 { modelID: 15, productID: productID, modelName: 'Allround Product 2' },
                 { modelID: 16, productID: productID, modelName: 'Allround Product 3' },
                 { modelID: 17, productID: productID, modelName: 'Allround Product 4' }
-            ]; */
-        //default:
-        //    return null;
-      //      break;
-    //}
+            ]; 
+        default:
+            return null;
+            break;
+    }
 }
 /**
  * Reducing the SimaPro projects to products.

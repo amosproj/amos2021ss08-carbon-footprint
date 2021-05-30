@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { getModels } from 'interface/simaProInterface';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import { Col, Container, Row } from 'react-grid-system';
@@ -21,9 +21,21 @@ const ModelDropdownComponent = (props) => {
     const [getSelectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     // set the initial values for the dropdown list derived from getModels
     const variables = getModels(productID);
+    //const [variableList,setVariableList] = useState([productID]);
     const [selected, setSelected] = useState('Select a model');
+
+    /*useEffect(() => {
+        async function getProductModels() {
+            const variables = getModels(productID);
+            setVariableList(variables);
+            console.log(variables);
+        }
+        getProductModels();
+    }, [productID]);
+    */
     if (variables === null || variables === undefined) {
-        return (
+    if (variableList === null || variableList === undefined) { 
+    return (
             <Container fluid={true}>
                 <Row
                     className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em'

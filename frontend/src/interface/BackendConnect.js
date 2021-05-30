@@ -17,17 +17,27 @@ class BackendConnect {
         return result;
     }
 
-    /*render() {
-        const { totalReactPackages } = this.state;
-        return (
-            <div className="card text-center m-3">
-                <h5 className="card-header">GET Request with Set Headers</h5>
-                <div className="card-body">
-                    Total react packages: {totalReactPackages}
-                </div>
-            </div>
-        );
-    }*/
+    postCalculationRequest(projectId) {
+        // POST request using axios with set headers
+        const calcId;
+        const headers = { 
+            'Authorization': 'Bearer',
+            'My-Custom-Header': 'foobar'
+        };
+        axios.post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`,{ headers });
+            //.then(response => this.setState({ articleId: response.data.id }));
+        postCalculationResultRequest(calcId);
+    }
+
+    postCalculationResultRequest(calculationId){
+        // POST request using axios with set headers
+        const headers = { 
+            'Authorization': 'Bearer',
+            'My-Custom-Header': 'foobar'
+        };
+        axios.post(`https://localhost:44323/SimaPro/api/calculation/result/${calculationId}`,{ headers })
+            .then(response => this.setState({ articleId: response.data.id }));
+    }
 }
 
 export { BackendConnect };
