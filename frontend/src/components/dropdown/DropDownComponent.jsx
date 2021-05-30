@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import theme from 'resources/theme';
 
+/**
+ * a seperate DropDownComponent
+ * here will be decided if the number of variables are more than one
+ * then a drop down list should be shown
+ * otherwise there is nothing to select
+ *
+ * @author Parham Gandomkar
+ */
+
 const DropDownComponent = (props) => {
     const { selectedVariable, variables, dropDownHandler } = props;
     return (
