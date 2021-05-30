@@ -10,7 +10,7 @@ import { Col, Container, Row } from 'react-grid-system';
  * canvas page and variable drop down list
  *
  * @param props the recently selected model of a product.
- * @author Parham Gandomkar, Martin Wagner
+ * @author Parham Gandomkar, Martin Wagner, Irem Toroslu, Julian Oelhaf
  */
 class DetailsComponent extends Component {
     state = {
