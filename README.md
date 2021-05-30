@@ -1,16 +1,20 @@
 # Carbon Footprint Visualization | AMOS Project 8
+
+![Carbon Footpront Visuakization Banner-Logo](https://github.com/amosproj/amos-ss2021-carbon-footprint/blob/main/deliverables/Proj8-AMOS-Banner-Logo-Carbon-Footprint-Black.png?raw=true)
+
+
 ## Software Build and Deployment Document
 
 - [Introduction](#introduction)
 - [Project Repository](#project-repository)
-- [Current Dependencies:](#current-dependencies-)
+- [Current Dependencies:](#current-dependencies)
 - [Build Process](#build-process)
   * [Setup and start the Frontend](#setup-and-start-the-frontend)
   * [Setup and start of the Backend](#setup-and-start-of-the-backend)
     + [General](#general)
     + [Launching](#launching)
   * [Testing](#testing)
-  * [CI/CD](#ci-cd)
+  * [CI](#ci)
 
 # Introduction
 
@@ -84,7 +88,7 @@ Includes the git files, Solution.sln, and a [project] folder for every [project]
 *  **/Test**:
   includes the source code files of the unit test project for the backend.
 
-# Current Dependencies:
+# Current Dependencies
 
 **Frontend**:
 
@@ -149,7 +153,7 @@ Frontend: Unit tests will automatically be executed by the CI pipeline.
 
 Backend: Existing unit tests can be found, modified, and executed via the Test Project.
 
-## CI/CD
+## CI
 Frontend:
 
 Currently, there is no real deployment planned as this project is a proof-of-concept to show the end-to-end process of the described project.
