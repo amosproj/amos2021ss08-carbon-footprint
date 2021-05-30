@@ -41,7 +41,7 @@ export function getModels(productID) {
     //let result;
     console.log("------");
     console.log(productID);
-    const result2 = axios.get(`https://localhost:44323/SimaPro/api/projects/${productID}`, { headers });
+    const result2 = axios.get(`https://localhost:44323/SimaPro/api/processes/referencedata/${productID}`, { headers });
         console.log(result2);
         //.then(function (data) {
             //const items = data;
