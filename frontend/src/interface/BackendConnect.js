@@ -26,7 +26,7 @@ class BackendConnect {
      *   This request returns the calculationId(calcd). which is then used to retrieve the impact
      *   results of a project.
      */
-    postCalculationRequest(projectId) {
+    async postCalculationRequest(projectId) {
         // POST request using axios with set headers
         let calcId;
         const headers = {
@@ -68,7 +68,7 @@ class BackendConnect {
         //console.log(productID);
         let resultProcess;
         await axios
-            .get(`https://localhost:44323/SimaPro/api/processes/referencedata/${productID}`, {
+            .get(`https://localhost:44323/SimaPro/api/processes/referencedata/${projectId}`, {
                 headers
             })
             .then(function (data) {

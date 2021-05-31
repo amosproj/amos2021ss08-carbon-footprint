@@ -32,7 +32,7 @@ export function getProducts(scope = 'All') {
  * @returns
  */
 //export async function getModels(productID) {
-export async function getModels(productID) {
+export function getModels(productID) {
     switch (productID) {
         case '09f64eeb-13b0-4e09-9fb4-50398483ecfd':
             return [{ modelID: 1, productID: productID, modelName: 'Electric Motor Type 25b' }];
@@ -63,7 +63,7 @@ export async function getModels(productID) {
                 { modelID: 15, productID: productID, modelName: 'Allround Product 2' },
                 { modelID: 16, productID: productID, modelName: 'Allround Product 3' },
                 { modelID: 17, productID: productID, modelName: 'Allround Product 4' }
-            ]; 
+            ];
         default:
             return null;
             break;
@@ -77,7 +77,7 @@ export async function getSimaProducts() {
     const httpreq = new BackendConnect();
     const products = await httpreq.getSimaProProjects();
     let formattedProducts = [];
-    //console.log(products);
+    console.log(products);
     await products.map((product) => {
         const productObject = {
             productID: product.Id,
@@ -91,7 +91,7 @@ export async function getSimaProducts() {
 }
 
 function getDummyProducts() {
-    // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes?
+    // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes? --> We need to iterate over projects. :)
     const products = [
         {
             productID: '09f64eeb-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { getModels } from 'interface/simaProInterface';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import { Col, Container, Row } from 'react-grid-system';
@@ -13,7 +13,7 @@ import LoadingComponent from 'components/loading';
  * @returns the model properties of the related product depending on the model values from getModels func from interface/simaProInterface
  * @author Parham Gandomkar, Martin Wagner, Irem Toroslu, Mani Anand
  */
- const ModelDropdownComponent = (props) => {
+const ModelDropdownComponent = (props) => {
     const productID = props.productID;
     const productName = props.productName;
 
@@ -21,11 +21,24 @@ import LoadingComponent from 'components/loading';
     const [getSelectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     // set the initial values for the dropdown list derived from getModels
     const variables = getModels(productID);
+    console.log('variables');
+    console.log(variables);
     const [selected, setSelected] = useState('Select a model');
     //checking if the variable list is empty
+
+    /* useEffect(() => {
+        async function getProductModels() {
+            const variables = getModels(productID);
+            setVariableList(variables);
+            console.log(variables);
+        }
+        getProductModels();
+    }, []); */
+
     if (variables === [] || variables === undefined || variables === null) {
         return <LoadingComponent />;
     }
+    // else:
 
     return (
         <Container fluid={true}>
@@ -86,7 +99,6 @@ import LoadingComponent from 'components/loading';
 };
 
 export default ModelDropdownComponent;
-
 
 /*
 const ModelDropdownComponent = (props) => {
