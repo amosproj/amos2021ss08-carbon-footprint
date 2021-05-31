@@ -20,12 +20,6 @@ function LoginComponent() {
             style={{ backgroundColor: uniformStyle.color.secondaryBackgroundColor }}
         >
             <div className='w3-padding-24 w3-auto'>
-                <meta
-                    style={{ height: '100%' }}
-                    name='viewport'
-                    content='width=device-width, initial-scale=1'
-                />
-                {/* this form does not have any function other than relaying right now */}
                 <form
                     className='login'
                     action={slugs.categories}
