@@ -10,7 +10,6 @@ import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_2 from 'assets/dummyImages/Logo2.png';
 import { categories } from './categories';
 import { BackendConnect } from 'interface/BackendConnect';
-import axios from 'axios';
 
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
@@ -34,24 +33,6 @@ export function getProducts(scope = 'All') {
  */
 //export async function getModels(productID) {
 export async function getModels(productID) {
-
-    /* const headers = {
-        Authorization: 'Bearer',
-        'My-Custom-Header': 'foobar'
-    };
-    console.log("------");
-    console.log(productID);
-    let resultProcess;
-    await axios.get(`https://localhost:44323/SimaPro/api/processes/referencedata/${productID}`, { headers })
-        .then(function (data) {
-            const items = data;
-            resultProcess = items.data.Result.Data;
-            console.log(resultProcess);
-        });
-    //return resultProcess; */
-    //const httpPostReq = BackendConnect();
-
-
     switch (productID) {
         case '09f64eeb-13b0-4e09-9fb4-50398483ecfd':
             return [{ modelID: 1, productID: productID, modelName: 'Electric Motor Type 25b' }];
