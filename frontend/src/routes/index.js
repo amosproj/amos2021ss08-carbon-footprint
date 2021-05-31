@@ -16,9 +16,6 @@ function Routes() {
 
     const [state] = useContext(GlobalContext);
 
-    console.log(state);
-    console.log(state.userIsLoggedIn);
-
     return state.userIsLoggedIn ? <PrivateSection /> : <PublicRoutes />;
 }
 
