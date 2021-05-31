@@ -18,7 +18,7 @@ const ModelDropdownComponent = (props) => {
     const productName = props.productName;
 
     // eslint-disable-next-line
-    const [getSelectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
+    const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     // set the initial values for the dropdown list derived from getModels
     const variables = getModels(productID);
     console.log('variables');

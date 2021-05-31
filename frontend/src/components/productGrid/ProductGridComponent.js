@@ -72,7 +72,6 @@ function ProductGridComponent() {
                             newSelectedProducts[0].productName = product.productName;
                             newSelectedProducts[0].modelID = product.productID; // for now 1 Product has 1 Model (itself)
                             newSelectedProducts[0].modelName = product.productName;
-
                             setSelectedProducts(newSelectedProducts);
                         }}
                         to={{
