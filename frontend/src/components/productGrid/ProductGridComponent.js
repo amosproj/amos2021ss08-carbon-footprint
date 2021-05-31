@@ -21,7 +21,7 @@ import LoadingComponent from 'components/loading';
  */
 
 function ProductGridComponent() {
-    const [selectedProducts] = useContext(PrivateSectionContext);
+    const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList, setProductList] = useState([]);
     console.log('Tallo');
     /*
@@ -37,16 +37,16 @@ function ProductGridComponent() {
         getProducts();
     }, []);
 
-    const NewSelectedProducts = [
+    // TODO: We cannot keep the selection like this, if models are implemented. See #58
+    const newSelectedProducts = [
         {
-            productID: selectedProducts.productID,
-            productName: selectedProducts.productName,
-            modelID: selectedProducts.modelID,
-            modelName: selectedProducts.modelName
+            productID: selectedProducts[0].productID,
+            productName: selectedProducts[0].productName,
+            modelID: selectedProducts[0].modelID,
+            modelName: selectedProducts[0].modelName
         }
     ];
 
-    // const { products = [] } = getProducts();
     const classes = useStyles();
 
     if (productList === [] || productList === undefined || productList === null) {
@@ -68,8 +68,12 @@ function ProductGridComponent() {
                     <Link
                         onClick={(props) => {
                             // Save selection to ContextProvider
-                            //NewSelectedProducts[0].productID = product.productID;
-                            //NewSelectedProducts[0].productName = product.productName;
+                            newSelectedProducts[0].productID = product.productID;
+                            newSelectedProducts[0].productName = product.productName;
+                            newSelectedProducts[0].modelID = product.productID; // for now 1 Product has 1 Model (itself)
+                            newSelectedProducts[0].modelName = product.productName;
+
+                            setSelectedProducts(newSelectedProducts);
                         }}
                         to={{
                             // Link to the next page
