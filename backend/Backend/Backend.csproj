@@ -1,11 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
   <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>87db58ea-202e-4b41-8dc7-1fe430479a63</UserSecretsId>
   </PropertyGroup>
 
-	<ItemGroup>
-    		<PackageReference Include="./Backend.Controllers"/>
-		<PackageReference Include="./Backend.Security"/>
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Proxy" Version="4.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="local.settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
->
+
