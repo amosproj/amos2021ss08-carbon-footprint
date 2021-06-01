@@ -12,7 +12,7 @@ import { categories } from './categories';
 import { BackendConnect } from 'interface/BackendConnect';
 
 /**
- * should get all the Products from the backend (soon) 
+ * should get all the Products from the backend (soon)
  * @returns
  */
 export function getProducts(scope = 'All') {
@@ -104,6 +104,7 @@ function getDummyProducts() {
         }
     ];
     return products;
+}
 
 /**
  * Reducing the SimaPro projects to products.
