@@ -65,13 +65,13 @@ class DetailsComponent extends Component {
             return (
                 <Container fluid={true}>
                     <Row>
-                        <div
-                            style={{
-                                width: 15
-                            }}
-                        ></div>
-
-                        <Col sm={12} md={5} lg={6} style={{ backgroundColor: 'white' }}>
+                        <Col
+                            xs={12}
+                            sm={12}
+                            md={5}
+                            lg={5}
+                            style={{ backgroundColor: 'white', margin: '1em' }}
+                        >
                             <DividerPanel
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
@@ -86,12 +86,14 @@ class DetailsComponent extends Component {
 
                             <Canvas loadComparePage={this.state.compareCanvas} />
                         </Col>
-                        <div
-                            style={{
-                                width: 15
-                            }}
-                        ></div>
-                        <Col sm={12} md={5} lg={6} style={{ backgroundColor: 'white' }}>
+
+                        <Col
+                            xs={12}
+                            sm={12}
+                            md={5}
+                            lg={5}
+                            style={{ backgroundColor: 'white', margin: '1em' }}
+                        >
                             <DividerPanel
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
@@ -106,11 +108,6 @@ class DetailsComponent extends Component {
 
                             <Canvas loadComparePage={this.state.compareCanvas} />
                         </Col>
-                        <div
-                            style={{
-                                width: 15
-                            }}
-                        ></div>
                     </Row>
                 </Container>
             );
