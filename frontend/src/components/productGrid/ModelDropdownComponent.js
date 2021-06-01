@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { getModels } from 'interface/simaProInterface';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import { Col, Container, Row } from 'react-grid-system';
