@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Column, Row } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import { getProducts } from 'interface/simaProInterface';
+import { getSimaProducts } from 'interface/simaProInterface';
 import ProductDropdown from './ModelDropdownComponent';
 import SLUGS from 'resources/slugs';
 import { Link } from 'react-router-dom';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import LabelComponent from './LabelComponent';
+import LoadingComponent from 'components/loading';
 
 /**
  * The Component creates new cards for the product items using the minicard components form 'components/cards/MiniCardComponent'
@@ -20,19 +21,38 @@ import LabelComponent from './LabelComponent';
  */
 
 function ProductGridComponent() {
-    const [selectedProducts] = useContext(PrivateSectionContext);
-    const NewSelectedProducts = [
+    const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
+    const [productList, setProductList] = useState([]);
+    console.log('Tallo');
+    /*
+     * useEffect declars the async function getProducts to be executed after the initial render and
+     * hooks it so the Component reloads on change.
+     */
+    useEffect(() => {
+        async function getProducts() {
+            const products = await getSimaProducts();
+            setProductList(products);
+            console.log(products);
+        }
+        getProducts();
+    }, []);
+
+    // TODO: We cannot keep the selection like this, if models are implemented. See #58
+    const newSelectedProducts = [
         {
-            productID: selectedProducts.productID,
-            productName: selectedProducts.productName,
-            modelID: selectedProducts.modelID,
-            modelName: selectedProducts.modelName
+            productID: selectedProducts[0].productID,
+            productName: selectedProducts[0].productName,
+            modelID: selectedProducts[0].modelID,
+            modelName: selectedProducts[0].modelName
         }
     ];
 
-    const products = getProducts();
     const classes = useStyles();
 
+    if (productList === [] || productList === undefined || productList === null) {
+        return <LoadingComponent />;
+    }
+    // else:
     return (
         <Row
             className={classes.cardRow}
@@ -41,13 +61,18 @@ function ProductGridComponent() {
             vertical='center'
             breakpoints={{ 320: { flexDirection: 'column' } }}
         >
-            {products.map((product, index) => (
+            {console.log('State:')}
+            {console.log(productList)}
+            {productList.map((product, index) => (
                 <Column key={'Column' + index} horizontal='center'>
                     <Link
                         onClick={(props) => {
                             // Save selection to ContextProvider
-                            NewSelectedProducts[0].productID = product.productID;
-                            NewSelectedProducts[0].productName = product.productName;
+                            newSelectedProducts[0].productID = product.productID;
+                            newSelectedProducts[0].productName = product.productName;
+                            newSelectedProducts[0].modelID = product.productID; // for now 1 Product has 1 Model (itself)
+                            newSelectedProducts[0].modelName = product.productName;
+                            setSelectedProducts(newSelectedProducts);
                         }}
                         to={{
                             // Link to the next page
