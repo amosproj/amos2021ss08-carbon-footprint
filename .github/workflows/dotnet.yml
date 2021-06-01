@@ -22,4 +22,4 @@ jobs:
     - name: Nuget Command
       run: nuget restore backend/CarbonFootprintVisualization.sln
     - name: Build
-      run: dotnet build backend/CarbonFootprintVisualization.sln --no-restore
+      run: dotnet --no-restore
