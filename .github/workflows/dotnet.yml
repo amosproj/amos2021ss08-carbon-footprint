@@ -8,7 +8,7 @@ on:
     
 jobs:
   buildAndTest:
-    name: Build and Test Backend
+    name: Build Backend
     runs-on: ubuntu-latest
     
     steps:
@@ -22,4 +22,4 @@ jobs:
     - name: Nuget Command
       run: nuget restore backend/CarbonFootprintVisualization.sln
     - name: Build
-      run: dotnet --no-restore
+      run: dotnet build backend/CarbonFootprintVisualization.sln --no-restore
