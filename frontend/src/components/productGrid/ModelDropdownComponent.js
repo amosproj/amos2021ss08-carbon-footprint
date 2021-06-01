@@ -21,8 +21,8 @@ const ModelDropdownComponent = (props) => {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     // set the initial values for the dropdown list derived from getModels
     const variables = getModels(productID);
-    console.log('variables');
-    console.log(variables);
+    // console.log('variables');
+    // console.log(variables);
     const [selected, setSelected] = useState('Select a model');
     //checking if the variable list is empty
 

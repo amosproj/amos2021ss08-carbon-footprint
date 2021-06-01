@@ -15,14 +15,16 @@ import { BackendConnect } from 'interface/BackendConnect';
  * should get all the Products from the backend (soon)
  * @returns
  */
-export function getProducts(scope = 'All') {
+export async function getCategorizedProducts(scope = 'All') {
     // We need to be able to get either all products from the backend, or only the Products of a selected Category
     // e.g. '/generation/products'; '/transmission/services'; 'industrialApplications/solutions'
     // The expected Product has a unique productID, a productName and an imagePath (if any)
     if (scope === 'All') {
-        return getSimaProducts();
+        return await getSimaProducts();
+    } else if (scope === 'solutions') {
+        return getDummyProducts();
     } else {
-        return getSimaProducts();
+        return await getSimaProducts();
     }
 }
 
