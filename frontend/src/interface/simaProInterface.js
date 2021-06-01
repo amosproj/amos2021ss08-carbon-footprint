@@ -31,6 +31,7 @@ export function getProducts(scope = 'All') {
  * @param productID the id of the Project to get the models for
  * @returns
  */
+//export async function getModels(productID) {
 export function getModels(productID) {
     switch (productID) {
         case '09f64eeb-13b0-4e09-9fb4-50398483ecfd':
@@ -64,6 +65,7 @@ export function getModels(productID) {
                 { modelID: 17, productID: productID, modelName: 'Allround Product 4' }
             ];
         default:
+            return null;
             break;
     }
 }
@@ -71,29 +73,25 @@ export function getModels(productID) {
  * Reducing the SimaPro projects to products.
  *
  */
-async function getSimaProducts() {
+export async function getSimaProducts() {
     const httpreq = new BackendConnect();
     const products = await httpreq.getSimaProProjects();
     let formattedProducts = [];
-    //console.log(products);
-    Promise.all(
-        products.map((product) => {
-            const productObject = {
-                productID: product.Id,
-                productName: product.Name,
-                categories: [categories.generation, categories.transmission],
-                productImage: logo
-            };
-            formattedProducts.push(productObject);
-        })
-    );
+    console.log(products);
+    await products.map((product) => {
+        const productObject = {
+            productID: product.Id,
+            productName: product.Name,
+            categories: [categories.generation, categories.transmission],
+            productImage: logo
+        };
+        formattedProducts.push(productObject);
+    });
     return formattedProducts;
-
-    //return getDummyProducts();
 }
 
 function getDummyProducts() {
-    // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes?
+    // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes? --> We need to iterate over projects. :)
     const products = [
         {
             productID: '09f64eeb-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
