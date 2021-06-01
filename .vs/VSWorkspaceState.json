@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Backend",
-    "\\Backend\\Backend",
-    "\\Backend\\Backend\\Controllers",
-    "\\Backend\\CarbonFootprintVisualization"
+    "\\backend"
   ],
-  "SelectedNode": "\\Backend\\CarbonFootprintVisualization.sln",
+  "SelectedNode": "\\backend\\CarbonFootprintVisualization.sln",
   "PreviewInSolutionExplorer": false
 }
