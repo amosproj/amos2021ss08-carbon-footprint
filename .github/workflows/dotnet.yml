@@ -2,9 +2,9 @@ name: Backend CI
 
 on:
   push:
-    branches: [ main, backend-dev, release ]
+    branches: [ main, backend-dev-#46, release ]
   pull_request:
-    branches: [ main, backend-dev, release ]
+    branches: [ main, backend-dev-#46, release ]
     
 jobs:
   buildAndTest:
@@ -23,5 +23,3 @@ jobs:
       run: nuget restore backend/CarbonFootprintVisualization.sln
     - name: Build
       run: dotnet build backend/CarbonFootprintVisualization.sln --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
