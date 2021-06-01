@@ -45,7 +45,7 @@ function ProductGridComponent() {
                 <Column key={'Column' + index} horizontal='center'>
                     <Link
                         onClick={(props) => {
-                            // Save selection to ContextProvider
+                            // Save selection to ContextProvider (Which it currently does not do)
                             NewSelectedProducts[0].productID = product.productID;
                             NewSelectedProducts[0].productName = product.productName;
                         }}
