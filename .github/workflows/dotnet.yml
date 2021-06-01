@@ -7,16 +7,14 @@ on:
     branches: [ main, backend-dev-#46, release ]
     
 jobs:
-  buildAndTest:
-    name: Build Backend
-    runs-on: [ubuntu-latest, windows-latest]
-    
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET3
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.0.x
     - name: Setup .NET5
       uses: actions/setup-dotnet@v1
       with:
