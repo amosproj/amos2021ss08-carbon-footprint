@@ -3,9 +3,6 @@ import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import TableComponent from './TableComponent';
 import theme from 'resources/theme';
-import PanelComponent from './PanelComponent';
-import { IconHeart } from 'assets/icons';
-import iconHeart from 'assets/icons/icon-heart';
 
 /**
  * This component displays the difference/comparison between the dashboards of two different type of variables of the same model
@@ -13,7 +10,6 @@ import iconHeart from 'assets/icons/icon-heart';
  *
  * @returns the dasboard comparison
  * @author Parham Gandomkar, Irem Toroslu
- *
  *
  */
 

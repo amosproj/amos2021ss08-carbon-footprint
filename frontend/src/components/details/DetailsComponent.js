@@ -4,6 +4,7 @@ import SelectVariable from './SelectVariableComponent';
 import DividerPanel from './PanelComponent';
 import theme from 'resources/theme';
 import { Col, Container, Row } from 'react-grid-system';
+import './navbar.css';
 
 /**
  * the main component for detail page which includes
@@ -42,7 +43,7 @@ class DetailsComponent extends Component {
         const scenarioNames = {
             baseline: 'Baseline Scenario',
             modified: 'modified Scenario'
-        }
+        };
         const { selectedProduct } = this.props;
         if (!this.state.compareCanvas) {
             return (
@@ -50,7 +51,7 @@ class DetailsComponent extends Component {
                     <DividerPanel
                         loadComparePage={this.state.compareCanvas}
                         onCompareClick={handleCompareButton}
-                        scenarioName={scenarioNames.modified}
+                        scenarioName={scenarioNames.baseline}
                     />
                     <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
                     <div style={{ marginLeft: 15 }}>
@@ -66,18 +67,19 @@ class DetailsComponent extends Component {
                     <Row>
                         <div
                             style={{
-                                width: 15,
-                            }}>
-                        </div>
-                        <Col
-                            style={{ backgroundColor: 'white' }}
-                        >
+                                width: 15
+                            }}
+                        ></div>
+
+                        <Col sm={12} md={5} lg={6} style={{ backgroundColor: 'white' }}>
                             <DividerPanel
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames.baseline}
                             />
-                            <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
+                            <h2 style={styleSubtitle}>
+                                The chosen Model is {selectedProduct.modelName}
+                            </h2>
                             <div style={{ marginLeft: 15 }}>
                                 <SelectVariable loadComparePage={this.state.compareCanvas} />
                             </div>
@@ -86,18 +88,18 @@ class DetailsComponent extends Component {
                         </Col>
                         <div
                             style={{
-                                width: 15,
-                            }}>
-                        </div>
-                        <Col
-                            style={{ backgroundColor: 'white' }}
-                        >
+                                width: 15
+                            }}
+                        ></div>
+                        <Col sm={12} md={5} lg={6} style={{ backgroundColor: 'white' }}>
                             <DividerPanel
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames.modified}
                             />
-                            <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
+                            <h2 style={styleSubtitle}>
+                                The chosen Model is {selectedProduct.modelName}
+                            </h2>
                             <div style={{ marginLeft: 15 }}>
                                 <SelectVariable loadComparePage={this.state.compareCanvas} />
                             </div>
@@ -106,15 +108,13 @@ class DetailsComponent extends Component {
                         </Col>
                         <div
                             style={{
-                                width: 15,
-                            }}>
-                        </div>
+                                width: 15
+                            }}
+                        ></div>
                     </Row>
                 </Container>
             );
-
         }
-
     }
 }
 

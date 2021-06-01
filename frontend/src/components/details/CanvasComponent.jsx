@@ -10,7 +10,6 @@ import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent';
 import theme from 'resources/theme';
-import CompareCanvas from './CompareCanvas';
 
 class CanvasComponent extends Component {
     render() {
@@ -21,7 +20,7 @@ class CanvasComponent extends Component {
         return (
             <div className='w3-row w3-container' fluid='true'>
                 <div className='w3-row'>
-                    <div className='w3-col l6 m6 s12 w3-left' style={{ marginTop: 30 }}>
+                    <div className='w3-col l6 m12 s12 w3-left' style={{ marginTop: 30 }}>
                         <h3
                             style={{
                                 fontSize: theme.typography.subtitle.fontSize,
@@ -32,11 +31,11 @@ class CanvasComponent extends Component {
                             }}
                         >
                             {' '}
-                                Results of the impact assessment{' '}
+                            Results of the impact assessment{' '}
                         </h3>
                         <ColumnChart />
                     </div>
-                    <div className='w3-col l6 m6 s12 w3-right' style={{ marginTop: 30 }}>
+                    <div className='w3-col l6 m12 s12 w3-right' style={{ marginTop: 30 }}>
                         <h3
                             style={{
                                 fontSize: theme.typography.subtitle.fontSize,
@@ -47,16 +46,13 @@ class CanvasComponent extends Component {
                             }}
                         >
                             {' '}
-                                Material Composition{' '}
+                            Material Composition{' '}
                         </h3>
                         <PieChart />
                     </div>
                 </div>
                 <div className='w3-row'>
-                    <div
-                        className='w3-col l12 m12 s12'
-                        style={{ marginTop: 30, marginBottom: 30 }}
-                    >
+                    <div className='w3-col l12 m12 s12' style={{ marginTop: 30, marginBottom: 30 }}>
                         <h3
                             style={{
                                 fontSize: theme.typography.subtitle.fontSize,
@@ -66,7 +62,7 @@ class CanvasComponent extends Component {
                             }}
                         >
                             {' '}
-                                Impact categories{' '}
+                            Impact categories{' '}
                         </h3>
                         <Table id='table-0' />
                     </div>
@@ -75,6 +71,5 @@ class CanvasComponent extends Component {
         );
     }
 }
-
 
 export default CanvasComponent;

@@ -1,4 +1,5 @@
 import React from 'react';
+import slugs from 'resources/slugs';
 
 /**
  * a divider Pannel for seperating search compoents and result components
@@ -7,18 +8,20 @@ import React from 'react';
  * @author Parham Gandomkar, Irem Toroslu, Julian Oelhaf
  */
 
-
 const PanelComponent = (props) => {
     return (
         <>
-            <div className="navbar" vertical='center' horizontal='space-between'>
+            <div className='navbar' vertical='center' horizontal='space-between'>
                 <b>{props.scenarioName}</b>
-                <a href="#"><i className="fa fa-fw fa-heart" /> Favorites</a>
-                <a href="#" onClick={props.onCompareClick}><i className="fa fa-fw fa-plus-circle" /> Add</a>
+                <button href={slugs.details}>
+                    <i className='fa fa-fw fa-heart' /> Favorites
+                </button>
+                <button href={slugs.details} onClick={props.onCompareClick}>
+                    <i className='fa fa-fw fa-plus-circle' /> Add
+                </button>
             </div>
         </>
     );
-
 };
 
 export default PanelComponent;
