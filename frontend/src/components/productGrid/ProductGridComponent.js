@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Column, Row } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import { getSimaProducts } from 'interface/simaProInterface';
+import { getCategorizedProducts } from 'interface/simaProInterface';
 import ProductDropdown from './ModelDropdownComponent';
 import SLUGS from 'resources/slugs';
 import { Link } from 'react-router-dom';
@@ -20,22 +20,23 @@ import LoadingComponent from 'components/loading';
  * @author Irem Toroslu, Martin Wagner, Mani Anand
  */
 
-function ProductGridComponent() {
+function ProductGridComponent({ selectedCategory }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList, setProductList] = useState([]);
-    console.log('Tallo');
+
+    console.log(selectedCategory);
     /*
      * useEffect declars the async function getProducts to be executed after the initial render and
-     * hooks it so the Component reloads on change.
+     * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
      */
     useEffect(() => {
-        async function getProducts() {
-            const products = await getSimaProducts();
+        async function getProducts(theSelectedCategory) {
+            const products = await getCategorizedProducts(theSelectedCategory);
             setProductList(products);
             console.log(products);
         }
-        getProducts();
-    }, []);
+        getProducts(selectedCategory);
+    }, [selectedCategory]);
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
     const newSelectedProducts = [
@@ -61,8 +62,6 @@ function ProductGridComponent() {
             vertical='center'
             breakpoints={{ 320: { flexDirection: 'column' } }}
         >
-            {console.log('State:')}
-            {console.log(productList)}
             {productList.map((product, index) => (
                 <Column key={'Column' + index} horizontal='center'>
                     <Link

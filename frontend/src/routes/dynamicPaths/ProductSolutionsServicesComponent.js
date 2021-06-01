@@ -36,6 +36,7 @@ const useStyles = createUseStyles((theme) => ({
 
 /**
  * This component differenciates between the three different possible subcategories.
+ * type will be either 'products', 'solutions' or 'services'.
  *
  * @returns Three different lines of text, depending on the `:type` parameter used in routes/PrivateRoutes.js
  * @author Martin Wagner
@@ -48,15 +49,9 @@ export default function ProductSolutionsServicesComponent() {
     return (
         <Column className={classes.container}>
             <Row className={classes.subtitle}>
-                {console.log(type)}
-                {/*The following code can be used to detect the selected category: */}
-                {/* {type === 'products' && <div >All the products<div className={classes.textcontent}>  This is where all the products of the selected category could be shown.</div></div>}
-      {type === 'solutions' && <div className={classes.textcontent}>This is where all the solutions of the selected category could be shown.</div>}
-      {type === 'services' && <div className={classes.textcontent}>This is where all the services of the selected category could be shown.</div>} */}
-
-            <div style={{ marginLeft: 15 }}>
-                <ProductGridComponent />
-            </div>
+                <div style={{ marginLeft: 15 }}>
+                    <ProductGridComponent selectedCategory={type} />
+                </div>
             </Row>
         </Column>
     );

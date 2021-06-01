@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import theme from 'resources/theme';
-import CompareVariablesComponent from './CompareVariablesComponent';
 
 /**
  * a drop down component for selecting variable
@@ -47,16 +46,7 @@ class SelectVariableComponent extends Component {
         is set to true, here an extra drop down for the second variable
          should be rendered 
         */
-        if (this.props.loadComparePage) {
-            return (
-                <CompareVariablesComponent
-                    state={this.state}
-                    firstDropDownHandler={this.onDropDownItemSelectedHandler}
-                    secondDropDownHandler={this.onSecondDropDownSelectedHandler}
-                    submitHandler={this.handleSubmit}
-                />
-            );
-        }
+
         return (
             <div className='w3-row w3-margin-top'>
                 <div className='w3-col l3 m3 s3'>
@@ -96,7 +86,7 @@ class SelectVariableComponent extends Component {
                         </div>
                     </div>
 
-                    <button
+                    {/* <button
                         style={{ backgroundColor: theme.uniformStyle.color.sendButtonColor }}
                         onClick={this.handleSubmit}
                         className='w3-button w3-wide'
@@ -111,7 +101,7 @@ class SelectVariableComponent extends Component {
                         >
                             Send Request
                         </b>
-                    </button>
+                    </button> */}
                 </div>
             </div>
         );

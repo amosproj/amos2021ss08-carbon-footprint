@@ -6,21 +6,25 @@
  */
 
 import logo from 'assets/logo/LogoCarbonteam.png';
+import logo_1 from 'assets/dummyImages/Image_1.PNG';
+import logo_2 from 'assets/dummyImages/Logo2.png';
 import { categories } from './categories';
 import { BackendConnect } from 'interface/BackendConnect';
 
 /**
- * should get all the Products from the backend (soon) //TODO: declare and write.
+ * should get all the Products from the backend (soon)
  * @returns
  */
-export function getProducts(scope = 'All') {
+export async function getCategorizedProducts(scope = 'All') {
     // We need to be able to get either all products from the backend, or only the Products of a selected Category
     // e.g. '/generation/products'; '/transmission/services'; 'industrialApplications/solutions'
     // The expected Product has a unique productID, a productName and an imagePath (if any)
     if (scope === 'All') {
-        return getSimaProducts();
+        return await getSimaProducts();
+    } else if (scope === 'solutions') {
+        return getDummyProducts();
     } else {
-        return getSimaProducts();
+        return await getSimaProducts();
     }
 }
 
@@ -66,6 +70,44 @@ export function getModels(productID) {
             return null;
     }
 }
+
+function getDummyProducts() {
+    // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes?
+    const products = [
+        {
+            productID: '09f64eeb-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
+            productName: 'Electric Motors', //final_process_name? -> probably rather the project name later. But unclear!
+            categories: [categories.generation, categories.transmission],
+            productImage: logo
+        },
+        {
+            productID: 'aufwlc93-kldp-4fer-15s7-51245631fega', //(project_id?) final_process_id? (final_product_id?)
+            productName: 'Motors Type XYZb', //final_process_name?
+            categories: [categories.transmission],
+            productImage: logo_1
+        },
+        {
+            productID: '7ghnaoeb-kfue-qp04-slfg-12059492begp', //(project_id?) final_process_id? (final_product_id?)
+            productName: 'Transformers', //final_process_name?
+            categories: [categories.transmission],
+            productImage: logo_2
+        },
+        {
+            productID: 'whatis00-this-id00-just-d01n9352rnow', //(project_id?) final_process_id? (final_product_id?)
+            productName: 'Gas Turbines', //final_process_name?
+            categories: [categories.generation],
+            productImage: logo
+        },
+        {
+            productID: 'aufglc25-kldd-4ger-16s2-51002631fell', //(project_id?) final_process_id? (final_product_id?)
+            productName: 'Allround Product', //final_process_name?
+            categories: [categories.transmission, categories.generation],
+            productImage: logo_1
+        }
+    ];
+    return products;
+}
+
 /**
  * Reducing the SimaPro projects to products.
  *

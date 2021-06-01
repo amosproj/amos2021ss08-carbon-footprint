@@ -25,6 +25,8 @@ import IconBuilding from './icon-building';
 import IconArrowDown from './icon-arrow-down';
 import IconCircle from './icon-circle'
 import IconUser from './icon-user'
+import IconHeart from './icon-heart'
+import IconPlus from './icon-plus'
 
 export {
     IconCheckboxOff,
@@ -53,5 +55,7 @@ export {
     IconBuilding,
     IconArrowDown,
     IconCircle, 
-    IconUser
+    IconUser,
+    IconHeart,
+    IconPlus
 };
