@@ -1,17 +1,21 @@
 # Carbon Footprint Visualization | AMOS Project 8
 
+
+![Carbon Footpront Visuakization Banner-Logo](https://github.com/amosproj/amos-ss2021-carbon-footprint/blob/main/deliverables/Proj8-AMOS-Banner-Logo-Carbon-Footprint-Black.png?raw=true)
+
+
 ## Software Build and Deployment Document
 
 - [Introduction](#introduction)
 - [Project Repository](#project-repository)
-- [Current Dependencies:](#current-dependencies-)
+- [Current Dependencies:](#current-dependencies)
 - [Build Process](#build-process)
-  - [Setup and start the Frontend](#setup-and-start-the-frontend)
-  - [Setup and start of the Backend](#setup-and-start-of-the-backend)
-    - [General](#general)
-    - [Launching](#launching)
-  - [Testing](#testing)
-  - [CI/CD](#ci-cd)
+  * [Setup and start the Frontend](#setup-and-start-the-frontend)
+  * [Setup and start of the Backend](#setup-and-start-of-the-backend)
+    + [General](#general)
+    + [Launching](#launching)
+  * [Testing](#testing)
+  * [CI](#ci)
 
 # Introduction
 
@@ -132,27 +136,8 @@ Includes the git files, Solution.sln, and a [project] folder for every [project]
 - **/Test**:
   includes the source code files of the unit test project for the backend.
 
-[react-grid-system](https://www.npmjs.com/package/react-grid-system): page layout.
 
-[react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart.
-
-[w3.css](https://www.w3schools.com/w3css/): styles.
-
-[jsPDF](https://www.npmjs.com/package/jspdf): PDF generator.
-
-[axios](https://www.npmjs.com/package/axios): Frontend-Backend Connection.
-
-Backend:
-
-[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/): JSON handling.
-
-[AspNetCore.Proxy](https://www.nuget.org/packages/AspNetCore.Proxy/): REST-API proxy.
-
-[xunit](https://www.nuget.org/packages/xunit/): Unit testing framework.
-
-[Moq](https://www.nuget.org/packages/moq/) Mocking framework.
-
-# Current Dependencies:
+# Current Dependencies
 
 **Frontend**:
 
@@ -218,7 +203,8 @@ Frontend: Unit tests will automatically be executed by the CI pipeline.
 
 Backend: Existing unit tests can be found, modified, and executed via the Test Project.
 
-## CI/CD
+
+## CI
 
 Frontend:
 
