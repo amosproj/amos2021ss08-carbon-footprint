@@ -6,12 +6,15 @@ import Theme from 'resources/theme';
 import Routes from 'routes';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import { GlobalStateProvider } from 'hooks/GlobalContext';
 
 ReactDOM.render(
     <ThemeProvider theme={Theme}>
-        <Router>
-            <Routes />
-        </Router>
+        <GlobalStateProvider>
+            <Router>
+                <Routes />
+            </Router>
+        </GlobalStateProvider>
     </ThemeProvider>,
     document.getElementById('root')
 );
