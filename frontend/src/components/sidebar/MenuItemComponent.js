@@ -23,20 +23,23 @@ const useStyles = createUseStyles({
         borderLeft: ({ theme, level }) =>
             level > 1 ? 'none' : `3px solid ${theme.color.darkGrayishBlue}`
     },
-    title: { 
-        fontSize: ({ theme }) => theme.typography.icontitle.fontSize , // left bar titles 
+    title: {
+        fontSize: ({ theme }) => theme.typography.icontitle.fontSize, // left bar titles
         lineHeight: '20px',
         letterSpacing: '0.2px',
-        color: ({ theme, isActive }) =>(isActive ? theme.uniformStyle.color.highlightingColor : theme.uniformStyle.color.secondaryFontColor), //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
+        color: ({ theme, isActive }) =>
+            isActive
+                ? theme.uniformStyle.color.highlightingColor
+                : theme.uniformStyle.color.secondaryFontColor, //(isActive ? theme.color.paleBlue : theme.color.grayishBlue),
         marginLeft: 10,
-        fontWeight:'inherit'
+        fontWeight: 'inherit'
     }
 });
 
 /** Creates a MenuItemComponent
- * 
- * @param {*} param0 
- * @returns 
+ *
+ * @param {*} param0
+ * @returns
  */
 function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, onClick, title }) {
     const theme = useTheme();
@@ -49,7 +52,9 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
     const classes = useStyles({ theme, level, isActive });
     const classNameColumn = isActive ? classes.leftBar : '';
     const classNameContainer = [classes.container, isActive && classes.activeContainer].join(' ');
-    const iconColor = isActive ? theme.uniformStyle.color.highlightingColor : theme.uniformStyle.color.primaryIconColor;
+    const iconColor = isActive
+        ? theme.uniformStyle.color.highlightingColor
+        : theme.uniformStyle.color.primaryIconColor;
 
     function onItemClicked(e) {
         if (onClick) {
