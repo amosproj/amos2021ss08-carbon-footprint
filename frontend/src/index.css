@@ -132,3 +132,8 @@ body {
 .SideBarTitle:active{
     color:#00b300
 }
+
+.SideBarTitle::selection{
+
+    color:#00b300
+}

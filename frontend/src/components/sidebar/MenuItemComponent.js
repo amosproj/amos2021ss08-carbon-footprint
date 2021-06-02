@@ -67,7 +67,7 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
         <Column key={id} className={classNameColumn}>
             <Row vertical='center' onClick={onItemClicked} className={classNameContainer}>
                 <Icon fill={iconColor} opacity={!isActive && '0.4'} />
-                <span className={classes.title}>{title}</span>
+                <span className="SideBarTitle">{title}</span>
             </Row>
             {isCollapsible && (
                 <CollapsibleContent expanded={isExpanded}>
