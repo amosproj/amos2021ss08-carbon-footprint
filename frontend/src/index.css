@@ -107,3 +107,52 @@ body {
     background: #b5b4b9;
     border-radius: 10px;
 }
+/* Reconfiguration of  the title style on the header bar */
+.TitleHeader{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+    color: #00b300;
+}
+
+/* Reconfiguration of the text style on pages */
+.TextStyle{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+/* Reconfiguration of  the title style on the side bar */
+.SideBarTitle{
+
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #8b8d94;
+}
+.SideBarTitle:hover{
+    color: #00b300;
+}
+
+.SideBarTitle:focus{
+    color: #00b300;
+}
+
+.SideBarTitle:active{
+    color:#00b300
+}
+
+.SideBarTitle::selection{
+
+    color:#00b300
+}
