@@ -87,6 +87,25 @@ body {
     font-size: 20px;
     line-height: 26px;
     color: #424147;
+    overflow: hidden;
+}
+
+/* Custom Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b5b4b9;
+    border-radius: 10px;
 }
 /* Reconfiguration of  the title style on the header bar */
 .TitleHeader{

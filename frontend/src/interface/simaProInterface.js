@@ -9,19 +9,22 @@ import logo from 'assets/logo/LogoCarbonteam.png';
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_2 from 'assets/dummyImages/Logo2.png';
 import { categories } from './categories';
+import { BackendConnect } from 'interface/BackendConnect';
 
 /**
- * should get all the Products from the backend (soon) //TODO: declare and write.
+ * should get all the Products from the backend (soon)
  * @returns
  */
-export function getProducts(scope = 'All') {
+export async function getCategorizedProducts(scope = 'All') {
     // We need to be able to get either all products from the backend, or only the Products of a selected Category
     // e.g. '/generation/products'; '/transmission/services'; 'industrialApplications/solutions'
     // The expected Product has a unique productID, a productName and an imagePath (if any)
     if (scope === 'All') {
+        return await getSimaProducts();
+    } else if (scope === 'solutions') {
         return getDummyProducts();
     } else {
-        return getDummyProducts();
+        return await getSimaProducts();
     }
 }
 
@@ -30,6 +33,7 @@ export function getProducts(scope = 'All') {
  * @param productID the id of the Project to get the models for
  * @returns
  */
+//export async function getModels(productID) {
 export function getModels(productID) {
     switch (productID) {
         case '09f64eeb-13b0-4e09-9fb4-50398483ecfd':
@@ -63,7 +67,7 @@ export function getModels(productID) {
                 { modelID: 17, productID: productID, modelName: 'Allround Product 4' }
             ];
         default:
-            break;
+            return null;
     }
 }
 
@@ -102,4 +106,25 @@ function getDummyProducts() {
         }
     ];
     return products;
+}
+
+/**
+ * Reducing the SimaPro projects to products.
+ *
+ */
+export async function getSimaProducts() {
+    const httpreq = new BackendConnect();
+    const products = await httpreq.getSimaProProjects();
+    let formattedProducts = [];
+    console.log(products);
+    await products.forEach((product) => {
+        const productObject = {
+            productID: product.Id,
+            productName: product.Name,
+            categories: [categories.generation, categories.transmission],
+            productImage: logo
+        };
+        formattedProducts.push(productObject);
+    });
+    return formattedProducts;
 }

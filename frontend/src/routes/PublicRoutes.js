@@ -7,12 +7,13 @@ import React from 'react';
 import { Redirect, Route, Router, Switch, useHistory } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import Registration from 'components/login/Registration.js';
+import LoginComponent from 'components/login/LoginComponent';
 function PublicRoutes() {
     return (
         <Router history={useHistory()}>
             <Switch>
                 {/* <img src={logo} style={{padding:20}} /> */}
-                <Route path={SLUGS.login} render={() => <div>login</div>} />
+                <Route path={SLUGS.login} component={LoginComponent} />
                 {/* <button onClick={activateLasers}>
             Activate Lasers
             </button> */}

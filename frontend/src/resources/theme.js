@@ -4,19 +4,21 @@
  * @author Martin Wagner
  */
 
-const color = {
+export const color = {
     brightBlue: '#3498db',
     darkGrayishBlue: '#8b8d94',
     whitish: '#b5b4b9',
-    white: '#000000',
+    white: '#ffffff',
     darkGray: '#262625',
     darkRed: '#a90000',
     grayishBlue: '#A4A6B3',
     grayishBlue2: '#9fa2b4',
     grayishBlue3: '#bdc3c7',
     limeGreen: '#00b300',
+    darkLimeGreen: '#38792D',
     blueGray: '#33b3a6', //687f8c016064018788019799
     lightBlue: '#3751FF',
+    lightGray: '#f1f1f1',
     lightGrayishBlue: '#F7F8FC', // background color
     lightGrayishBlue2: '#DFE0EB',
     paleBlue: '#DDE2FF',
@@ -123,12 +125,13 @@ const typography = {
 /**
  * Defining uniform Colors.
  */
-const uniformStyle = {
+export const uniformStyle = {
     color: {
         primaryFontColor: color.darkGrayishBlue,
         primaryIconColor: 'white',
         secondaryFontColor: color.whitish,
         highlightingColor: color.limeGreen,
+        accentColor: color.darkLimeGreen,
         primaryBackgroundColor: color.white,
         secondaryBackgroundColor: color.darkGray,
         barChartColor: color.darkBlue,
