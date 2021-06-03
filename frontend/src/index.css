@@ -122,12 +122,93 @@ body {
 .HeaderTitle{
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 30px;
     letter-spacing: 0.5px;
     margin-left: 0px;
     color: #00b300;
 }
+
+.HeaderUserName{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    margin-left: 40;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+    color: #00b300;
+
+}
+
+/* Reconfiguration of  the title style on the header bar */
+.PanelHeaderTitle{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+    margin-left: 0px;
+    color: #dbdbdb;
+}
+
+
+
+/* Reconfiguration of the name of the product style on pages */
+.LabelTextContent{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+/* Reconfiguration of the text style on pages */
+.TextContent{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-left: 18px;
+
+}
+
+.ChartItemsTitle{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+/* Reconfiguration of the text style on details pages */
+.DetailsPageTextContent{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-top: 10px;
+}
+.ButtonTitle{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+
 
 .Separator {
     border-left:'1px';
@@ -145,81 +226,8 @@ body {
     color: #dbdbdb;
     padding-right: 100;
 }
-.HeaderUserName{
-    font-family: Muli;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    margin-left: 40;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    color: #00b300;
-
-}
 
 
-/* Reconfiguration of the text style on pages */
-.TextContent{
-    font-family: Muli;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    color: #000000;
-    margin-left: 18px;
-
-}
-
-
-
-/* Reconfiguration of the text style on details pages */
-.DetailsPageTextContent{
-    font-family: Muli;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    color: #000000;
-    margin-left: 18px;
-    margin-top: 10px;
-}
-
-
-
-
-/* Reconfiguration of the name of the product style on pages */
-.LabelTextContent{
-    font-family: Muli;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    color: #000000;
-}
-
-
-.ChartItemsTitle{
-    font-family: Muli;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    color: #000000;
-}
-
-.ButtonTitle{
-    font-family: Muli;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    color: #000000;
-}
 /* Reconfiguration of  the icon style on the side bar */
 .SideBarIconStyle{
     font-size: 20px;
