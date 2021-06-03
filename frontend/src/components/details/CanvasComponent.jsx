@@ -18,7 +18,7 @@ class CanvasComponent extends Component {
         is set to true, here the canvas page should be divided into two canvases
         */
         return (
-            <div className='w3-row w3-container' fluid='true'>
+            <div className='w3-row w3-container' fluid='true' style={{ padding: 0 }}>
                 <div className='w3-row'>
                     <div className='w3-col l6 m12 s12 w3-left' style={{ marginTop: 30 }}>
                         <h3
@@ -26,8 +26,7 @@ class CanvasComponent extends Component {
                                 fontSize: theme.typography.subtitle.fontSize,
                                 fontWeight: theme.typography.subtitle.fontWeight,
                                 lineHeight: theme.typography.subtitle.lineHeight,
-                                letterSpacing: theme.typography.subtitle.letterSpacing,
-                                marginLeft: 90
+                                letterSpacing: theme.typography.subtitle.letterSpacing
                             }}
                         >
                             {' '}
@@ -41,8 +40,7 @@ class CanvasComponent extends Component {
                                 fontSize: theme.typography.subtitle.fontSize,
                                 fontWeight: theme.typography.subtitle.fontWeight,
                                 lineHeight: theme.typography.subtitle.lineHeight,
-                                letterSpacing: theme.typography.subtitle.letterSpacing,
-                                marginLeft: 100
+                                letterSpacing: theme.typography.subtitle.letterSpacing
                             }}
                         >
                             {' '}

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import CanvasComponent from './CanvasComponent';
-import SelectVariableComponent from './SelectVariableComponent';
-import NavbarComponent from './NavbarComponent';
+import ScenarioComponent from './ScenarioComponent';
 import theme from 'resources/theme';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
@@ -47,66 +45,51 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
         if (!this.state.compareCanvas) {
             return (
-                <React.Fragment>
-                    <NavbarComponent
-                        loadComparePage={this.state.compareCanvas}
-                        onCompareClick={handleCompareButton}
-                        scenarioName={scenarioNames.baseline}
-                    />
-                    <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
-                    <div style={{ marginLeft: 15 }}>
-                        <SelectVariableComponent loadComparePage={this.state.compareCanvas} />
-                    </div>
-
-                    <CanvasComponent loadComparePage={this.state.compareCanvas} />
-                </React.Fragment>
+                <Container fluid={true} style={{ padding: 0 }}>
+                    <Row>
+                        <Col>
+                            <ScenarioComponent
+                                loadComparePage={this.state.compareCanvas}
+                                onCompareClick={handleCompareButton}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
+                            />
+                        </Col>
+                    </Row>
+                </Container>
             );
         } else {
             return (
-                <Container fluid={true}>
+                <Container fluid={true} style={{ padding: 0 }}>
                     <Row>
                         <Col
                             xs={12}
                             sm={12}
-                            md={5}
-                            lg={5}
-                            style={{ backgroundColor: 'white', margin: '1em' }}
+                            md={6}
+                            lg={6}
+                            style={{ backgroundColor: 'white', padding: 0 }}
                         >
-                            <NavbarComponent
+                            <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames.baseline}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
                             />
-                            <h2 style={styleSubtitle}>
-                                The chosen Model is {selectedProduct.modelName}
-                            </h2>
-                            <div style={{ marginLeft: 15 }}>
-                                <SelectVariableComponent loadComparePage={this.state.compareCanvas} />
-                            </div>
-
-                            <CanvasComponent loadComparePage={this.state.compareCanvas} />
                         </Col>
 
                         <Col
                             xs={12}
                             sm={12}
-                            md={5}
-                            lg={5}
-                            style={{ backgroundColor: 'white', margin: '1em' }}
+                            md={6}
+                            lg={6}
+                            style={{ backgroundColor: 'white', padding: 0 }}
                         >
-                            <NavbarComponent
+                            <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames.modified}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
                             />
-                            <h2 style={styleSubtitle}>
-                                The chosen Model is {selectedProduct.modelName}
-                            </h2>
-                            <div style={{ marginLeft: 15 }}>
-                                <SelectVariableComponent loadComparePage={this.state.compareCanvas} />
-                            </div>
-
-                            <CanvasComponent loadComparePage={this.state.compareCanvas} />
                         </Col>
                     </Row>
                 </Container>
