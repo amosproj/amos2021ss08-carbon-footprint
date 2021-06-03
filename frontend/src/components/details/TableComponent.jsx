@@ -87,7 +87,7 @@ class TableComponent extends Component {
         const idKey = this.props.id;
         return (
             // TODO:left margin value needed to be fixed
-            <Container fluid={true}>
+            <Container fluid={true} style={{ padding: 0 }}>
                 {/* TODO: dynamic display of product and model */}
                 <h5
                     style={{
