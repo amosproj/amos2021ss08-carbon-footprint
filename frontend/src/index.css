@@ -142,7 +142,7 @@ body {
 
 .HeaderIconSyle{
     font-size: 35px;
-    color: #b5b4b9;
+    color: #dbdbdb;
     padding-right: 100;
 }
 .HeaderUserName{
@@ -194,9 +194,11 @@ body {
 /* Reconfiguration of  the icon style on the side bar */
 .SideBarIconStyle{
     font-size: 20px;
-    color: #b5b4b9;
+    color: #dbdbdb;
     padding-right: 100;
+    
 }
+
 
 
 .SideBarIconStyle:hover{
@@ -226,6 +228,7 @@ body {
     line-height: 16px;
     letter-spacing: 0.5px;
     color: #b5b4b9;
+    margin-left: 5px;
 }
 .SideBarTitle:hover{
     color: #00b300;
