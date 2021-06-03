@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Canvas from './CanvasComponent';
-import SelectVariable from './SelectVariableComponent';
-import DividerPanel from './PanelComponent';
+import CanvasComponent from './CanvasComponent';
+import SelectVariableComponent from './SelectVariableComponent';
+import NavbarComponent from './NavbarComponent';
 import theme from 'resources/theme';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
@@ -48,17 +48,17 @@ class DetailsComponent extends Component {
         if (!this.state.compareCanvas) {
             return (
                 <React.Fragment>
-                    <DividerPanel
+                    <NavbarComponent
                         loadComparePage={this.state.compareCanvas}
                         onCompareClick={handleCompareButton}
                         scenarioName={scenarioNames.baseline}
                     />
                     <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
                     <div style={{ marginLeft: 15 }}>
-                        <SelectVariable loadComparePage={this.state.compareCanvas} />
+                        <SelectVariableComponent loadComparePage={this.state.compareCanvas} />
                     </div>
 
-                    <Canvas loadComparePage={this.state.compareCanvas} />
+                    <CanvasComponent loadComparePage={this.state.compareCanvas} />
                 </React.Fragment>
             );
         } else {
@@ -72,7 +72,7 @@ class DetailsComponent extends Component {
                             lg={5}
                             style={{ backgroundColor: 'white', margin: '1em' }}
                         >
-                            <DividerPanel
+                            <NavbarComponent
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames.baseline}
@@ -81,10 +81,10 @@ class DetailsComponent extends Component {
                                 The chosen Model is {selectedProduct.modelName}
                             </h2>
                             <div style={{ marginLeft: 15 }}>
-                                <SelectVariable loadComparePage={this.state.compareCanvas} />
+                                <SelectVariableComponent loadComparePage={this.state.compareCanvas} />
                             </div>
 
-                            <Canvas loadComparePage={this.state.compareCanvas} />
+                            <CanvasComponent loadComparePage={this.state.compareCanvas} />
                         </Col>
 
                         <Col
@@ -94,7 +94,7 @@ class DetailsComponent extends Component {
                             lg={5}
                             style={{ backgroundColor: 'white', margin: '1em' }}
                         >
-                            <DividerPanel
+                            <NavbarComponent
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames.modified}
@@ -103,10 +103,10 @@ class DetailsComponent extends Component {
                                 The chosen Model is {selectedProduct.modelName}
                             </h2>
                             <div style={{ marginLeft: 15 }}>
-                                <SelectVariable loadComparePage={this.state.compareCanvas} />
+                                <SelectVariableComponent loadComparePage={this.state.compareCanvas} />
                             </div>
 
-                            <Canvas loadComparePage={this.state.compareCanvas} />
+                            <CanvasComponent loadComparePage={this.state.compareCanvas} />
                         </Col>
                     </Row>
                 </Container>

@@ -8,7 +8,7 @@ import slugs from 'resources/slugs';
  * @author Parham Gandomkar, Irem Toroslu, Julian Oelhaf
  */
 
-const PanelComponent = (props) => {
+const NavbarComponent = (props) => {
     return (
         <>
             <div className='navbar' vertical='center' horizontal='space-between'>
@@ -24,4 +24,4 @@ const PanelComponent = (props) => {
     );
 };
 
-export default PanelComponent;
+export default NavbarComponent;
