@@ -19,38 +19,38 @@ const ProductSolutionsServices = lazy(() =>
 // importing required components
 const DashboardComponent = lazy(() => import('../components/dashboard'));
 
-const useStyles = createUseStyles((theme) => ({
-    container: {
-        display: 'flex'
-    },
-    textcontent: {
-        ...theme.typography.textcontent,
-        textAlign: 'left',
-        '@media (max-width: 768px)': {
-            display: 'none'
-        }
-    },
-    subtitle: {
-        ...theme.typography.title,
-        marginLeft: 15,
-        '@media (max-width: 1080px)': {
-            marginLeft: -50
-        },
-        '@media (max-width: 468px)': {
-            fontSize: 15
-        }
-    },
-    title: {
-        ...theme.typography.title,
-        marginLeft: 15,
-        '@media (max-width: 1080px)': {
-            marginLeft: 80
-        },
-        '@media (max-width: 468px)': {
-            fontSize: 15
-        }
-    }
-}));
+// const useStyles = createUseStyles((theme) => ({
+//     container: {
+//         display: 'flex'
+//     },
+//     textcontent: {
+//         ...theme.typography.textcontent,
+//         textAlign: 'left',
+//         '@media (max-width: 768px)': {
+//             display: 'none'
+//         }
+//     },
+//     subtitle: {
+//         ...theme.typography.title,
+//         marginLeft: 15,
+//         '@media (max-width: 1080px)': {
+//             marginLeft: -50
+//         },
+//         '@media (max-width: 468px)': {
+//             fontSize: 15
+//         }
+//     },
+//     title: {
+//         ...theme.typography.title,
+//         marginLeft: 15,
+//         '@media (max-width: 1080px)': {
+//             marginLeft: 80
+//         },
+//         '@media (max-width: 468px)': {
+//             fontSize: 15
+//         }
+//     }
+// }));
 
 /**
  * Defining new Routes using private routes function
@@ -58,8 +58,8 @@ const useStyles = createUseStyles((theme) => ({
  */
 function PrivateRoutes() {
     const [selectedProducts] = useContext(PrivateSectionContext);
-    const theme = useTheme();
-    const classes = useStyles({ theme });
+    // const theme = useTheme();
+    // const classes = useStyles({ theme });
     return (
         <Router history={useHistory()}>
             <Suspense fallback={<LoadingComponent loading />}>
@@ -70,7 +70,7 @@ function PrivateRoutes() {
                         exact
                         path={SLUGS.categories}
                         render={() => (
-                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
+                            <div className='TextContent'>
                                 categories
                             </div>
                         )}
@@ -80,7 +80,7 @@ function PrivateRoutes() {
                         exact
                         path={SLUGS.generation}
                         render={() => (
-                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
+                            <div className='TextContent'>
                                 Short info about Generation category
                             </div>
                         )}
@@ -89,7 +89,7 @@ function PrivateRoutes() {
                         exact
                         path={SLUGS.transmission}
                         render={() => (
-                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
+                            <div className='TextContent'>
                                 Short info about Transmission category
                             </div>
                         )}
@@ -98,7 +98,7 @@ function PrivateRoutes() {
                         exact
                         path={SLUGS.industrialApplications}
                         render={() => (
-                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
+                            <div className='TextContent'>
                                 Short info about Industrial Applications
                             </div>
                         )}
@@ -127,7 +127,7 @@ function PrivateRoutes() {
                         exact
                         path={SLUGS.settings}
                         render={() => (
-                            <div className={classes.subtitle} style={{ marginLeft: 5 }}>
+                            <div className='TextContent'>
                                 settings
                             </div>
                         )}

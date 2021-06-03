@@ -77,7 +77,9 @@ function SidebarComponent() {
                 id={SLUGS.dashboard}
                 title='My Dashboard'
                 // where all the icons are defined in 'assets/icons' in svg format
-                icon={IconHome}
+                icon="fa fa-home"            
+
+
                 onClick={() => onClick(SLUGS.dashboard)}
             />
             <MenuItem
@@ -88,7 +90,7 @@ function SidebarComponent() {
                     SLUGS.industrialApplications
                 ])}
                 title='Categories'
-                icon={IconBrowse}
+                icon="fa fa-list"
                 onClick={() => onClick(SLUGS.categories)}
             >
                 <MenuItem
@@ -186,7 +188,7 @@ function SidebarComponent() {
             <MenuItem
                 id={SLUGS.details}
                 title='Details'
-                icon={IconOverview}
+                icon="fa fa-pie-chart"
                 onClick={() => onClick(SLUGS.details)}
             />
 
