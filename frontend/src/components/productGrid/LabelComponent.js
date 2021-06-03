@@ -10,7 +10,7 @@ import theme from 'resources/theme';
 function LabelComponent({ productName }) {
     return (
         <span
-        className='TextContent'
+        className='LabelTextContent'
             // style={{
             //     fontSize: theme.typography.textcontent.fontSize,
             //     fontWeight: theme.typography.textcontent.fontWeight

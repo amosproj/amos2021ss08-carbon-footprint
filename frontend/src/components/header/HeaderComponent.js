@@ -161,9 +161,9 @@ function HeaderComponent() {
         >
             <span className={'HeaderTitle' + ' w3-padding-16 w3-margin-left'}>
                 {title}
-                <UseArrow />
+                <UseArrow/>
                 {subtitle}
-                <UseArrow />
+                <UseArrow/>
                 {subsubtitle}
             </span>
 

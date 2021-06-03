@@ -53,7 +53,8 @@ class DetailsComponent extends Component {
                         onCompareClick={handleCompareButton}
                         scenarioName={scenarioNames.baseline}
                     />
-                    <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
+                    <h2 className='DetailsPageTextContent' >The chosen Model is </h2>
+                    <h2 className='DetailsPageTextContent' >{selectedProduct.modelName}</h2>
                     <div style={{ marginLeft: 15 }}>
                         <SelectVariable loadComparePage={this.state.compareCanvas} />
                     </div>
@@ -77,7 +78,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames.baseline}
                             />
-                            <h2 style={styleSubtitle}>
+                            <h2 className='DetailsPageTextContent'>
                                 The chosen Model is {selectedProduct.modelName}
                             </h2>
                             <div style={{ marginLeft: 15 }}>
@@ -99,7 +100,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames.modified}
                             />
-                            <h2 style={styleSubtitle}>
+                            <h2 className='DetailsPageTextContent'>
                                 The chosen Model is {selectedProduct.modelName}
                             </h2>
                             <div style={{ marginLeft: 15 }}>

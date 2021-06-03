@@ -168,8 +168,37 @@ body {
     letter-spacing: 0.5px;
     color: #000000;
     margin-left: 18px;
+
 }
 
+
+
+/* Reconfiguration of the text style on details pages */
+.DetailsPageTextContent{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-left: 18px;
+    margin-top: 10px;
+}
+
+
+
+
+/* Reconfiguration of the name of the product style on pages */
+.LabelTextContent{
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
 
 
 .ChartItemsTitle{
