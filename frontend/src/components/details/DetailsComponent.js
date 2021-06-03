@@ -21,8 +21,7 @@ class DetailsComponent extends Component {
             fontSize: theme.typography.subtitle.fontSize,
             fontWeight: theme.typography.subtitle.fontWeight,
             lineHeight: theme.typography.subtitle.lineHeight,
-            letterSpacing: theme.typography.subtitle.letterSpacing,
-            marginLeft: 15
+            letterSpacing: theme.typography.subtitle.letterSpacing
         };
         /*
          the default canvas has to be divided into two canvases
@@ -60,11 +59,11 @@ class DetailsComponent extends Component {
             );
         } else {
             return (
-                <Container fluid={true} style={{ padding: 0 }}>
+                <Container fluid={true} style={{ padding: 0, margin: 0 }}>
                     <Row>
                         <Col
-                            xs={12}
-                            sm={12}
+                            xs={6}
+                            sm={6}
                             md={6}
                             lg={6}
                             style={{ backgroundColor: 'white', padding: 0 }}
@@ -78,11 +77,11 @@ class DetailsComponent extends Component {
                         </Col>
 
                         <Col
-                            xs={12}
-                            sm={12}
+                            xs={6}
+                            sm={6}
                             md={6}
                             lg={6}
-                            style={{ backgroundColor: 'white', padding: 0 }}
+                            style={{ backgroundColor: 'white', padding: 0, margin: 0 }}
                         >
                             <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
