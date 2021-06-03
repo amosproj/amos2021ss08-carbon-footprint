@@ -230,9 +230,10 @@ body {
 
 /* Reconfiguration of  the icon style on the side bar */
 .SideBarIconStyle{
-    font-size: 20px;
+    font-size: 15px;
     color: #dbdbdb;
     padding-right: 100;
+    margin-bottom: 3px;
     
 }
 

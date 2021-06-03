@@ -6,6 +6,7 @@ import { convertSlugToUrl } from 'resources/utilities';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
 import logo from 'assets/logo/LogoCarbonteam.png';
+import LoginComponent from 'components/login/LoginComponent';
 
 /**
  * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
@@ -87,28 +88,28 @@ function SidebarComponent() {
                     title='Generation'
                     items={allMenuItems([SLUGS.generation])}
                     level={2}
-                    icon="fa fa-lightbulb-o"
+                    icon="fa fa-power-off"
                     onClick={() => onClick(SLUGS.generation)}
                 >
                     <MenuItem
                         id={SLUGS.generation + SLUGS.products}
                         title='Products'
                         level={3}
-                        icon="fa fa-genderless"
+                        icon="fa fa-circle"
                         onClick={() => onClick(SLUGS.generation + SLUGS.products)}
                     />
                     <MenuItem
                         id={SLUGS.generation + SLUGS.solutions}
                         title='Solutions'
                         level={3}
-                        icon="fa fa-genderless"
+                        icon="fa fa-circle"
                         onClick={() => onClick(SLUGS.generation + SLUGS.solutions)}
                     />
                     <MenuItem
                         id={SLUGS.generation + SLUGS.services}
                         title='Services'
                         level={3}
-                        icon="fa fa-genderless"
+                        icon="fa fa-circle"
                         onClick={() => onClick(SLUGS.generation + SLUGS.services)}
                     />
                 </MenuItem>
@@ -124,21 +125,21 @@ function SidebarComponent() {
                         id={SLUGS.transmission + SLUGS.products}
                         title='Products'
                         level={3}
-                        icon="fa fa-genderless"
+                        icon="fa fa-circle"
                         onClick={() => onClick(SLUGS.transmission + SLUGS.products)}
                     />
                     <MenuItem
                         id={SLUGS.transmission + SLUGS.solutions}
                         title='Solutions'
                         level={3}
-                        icon="fa fa-genderless"
+                        icon="fa fa-circle"
                         onClick={() => onClick(SLUGS.transmission + SLUGS.solutions)}
                     />
                     <MenuItem
                         id={SLUGS.transmission + SLUGS.services}
                         title='Services'
                         level={3}
-                        icon="fa fa-genderless"
+                        icon="fa fa-circle"
                         onClick={() => onClick(SLUGS.transmission + SLUGS.services)}
                     />
                 </MenuItem>
@@ -154,21 +155,21 @@ function SidebarComponent() {
                         id={SLUGS.industrialApplications + SLUGS.products}
                         title='Products'
                         level={3}
-                        icon="fa fa-genderless"
+                        icon="fa fa-circle"
                         onClick={() => onClick(SLUGS.industrialApplications + SLUGS.products)}
                     />
                     <MenuItem
                         id={SLUGS.industrialApplications + SLUGS.solutions}
                         title='Solutions'
                         level={3}
-                        icon="fa fa-genderless"
+                        icon="fa fa-circle"
                         onClick={() => onClick(SLUGS.industrialApplications + SLUGS.solutions)}
                     />
                     <MenuItem
                         id={SLUGS.industrialApplications + SLUGS.services}
                         title='Services'
                         level={3}
-                        icon="fa fa-genderless"
+                        icon="fa fa-circle"
                         onClick={() => onClick(SLUGS.industrialApplications + SLUGS.services)}
                     />
                 </MenuItem>
@@ -189,7 +190,7 @@ function SidebarComponent() {
                 onClick={() => onClick(SLUGS.settings)}
             />
 
-            <MenuItem id='logout' title='Logout' icon="fa fa-sign-out" onClick={logout} />
+            <MenuItem id='logout' title='Logout' icon="fa fa-sign-out" onClick={LoginComponent} />
         </Menu>
     );
 }
