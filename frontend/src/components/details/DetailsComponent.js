@@ -48,23 +48,29 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
         if (!this.state.compareCanvas) {
             return (
-                <ScenarioComponent
-                    loadComparePage={this.state.compareCanvas}
-                    onCompareClick={handleCompareButton}
-                    scenarioName={scenarioNames}
-                    selectedProduct={selectedProduct}
-                />
+                <Container fluid={true} style={{ padding: 0 }}>
+                    <Row>
+                        <Col>
+                            <ScenarioComponent
+                                loadComparePage={this.state.compareCanvas}
+                                onCompareClick={handleCompareButton}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
+                            />
+                        </Col>
+                    </Row>
+                </Container>
             );
         } else {
             return (
-                <Container fluid={true}>
+                <Container fluid={true} style={{ padding: 0 }}>
                     <Row>
                         <Col
                             xs={12}
                             sm={12}
-                            md={5}
-                            lg={5}
-                            style={{ backgroundColor: 'white', margin: '1em' }}
+                            md={6}
+                            lg={6}
+                            style={{ backgroundColor: 'white', padding: 0 }}
                         >
                             <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
@@ -77,9 +83,9 @@ class DetailsComponent extends Component {
                         <Col
                             xs={12}
                             sm={12}
-                            md={5}
-                            lg={5}
-                            style={{ backgroundColor: 'white', margin: '1em' }}
+                            md={6}
+                            lg={6}
+                            style={{ backgroundColor: 'white', padding: 0 }}
                         >
                             <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}

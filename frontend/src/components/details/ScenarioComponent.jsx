@@ -10,7 +10,7 @@ class ScenarioComponent extends Component {
         console.log(this.props);
 
         return (
-            <Container style={{ backgroundColor: 'white' }}>
+            <Container style={{ backgroundColor: 'white', padding: 0 }}>
                 <DividerPanel
                     loadComparePage={this.props.compareCanvas}
                     onCompareClick={this.props.onCompareClick}
