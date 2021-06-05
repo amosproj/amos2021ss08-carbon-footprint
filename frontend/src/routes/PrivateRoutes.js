@@ -13,6 +13,9 @@ import LoadingComponent from 'components/loading';
 import DetailsComponent from 'components/details/DetailsComponent';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import { useTheme, createUseStyles } from 'react-jss';
+import GenerationInfo from 'components/productGrid/GenerationInfo';
+import TransmissionInfo from 'components/productGrid/TransmissionInfo';
+import IndustrialApplicationInfo from 'components/productGrid/IndustrialApplicationInfo';
 const ProductSolutionsServices = lazy(() =>
     import('./dynamicPaths/ProductSolutionsServicesComponent')
 );
@@ -81,7 +84,8 @@ function PrivateRoutes() {
                         path={SLUGS.generation}
                         render={() => (
                             <div className='TextContent'>
-                                Short info about Generation category
+                                Short info about Generation category                               
+
                             </div>
                         )}
                     />
@@ -106,15 +110,18 @@ function PrivateRoutes() {
 
                     <Route
                         path={SLUGS.generation + '/:type'}
-                        component={ProductSolutionsServices}
+                        component={GenerationInfo}
+                        //render={() => <GenerationInfo/>}
                     />
                     <Route
                         path={SLUGS.transmission + '/:type'}
                         component={ProductSolutionsServices}
+                        render={() => <TransmissionInfo/>}
                     />
                     <Route
                         path={SLUGS.industrialApplications + '/:type'}
                         component={ProductSolutionsServices}
+                        render={() => <IndustrialApplicationInfo/>}
                     />
 
                     <Route
