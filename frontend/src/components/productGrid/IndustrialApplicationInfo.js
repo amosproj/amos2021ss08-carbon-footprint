@@ -1,5 +1,6 @@
 import React from 'react';
 import "./ProductGridIndex.css"
+import IndustrialImage from "assets/dummyImages/Industrialapplications.jpg" 
 
 function IndustrialApplicationInfo() {
   return (
@@ -19,8 +20,7 @@ function IndustrialApplicationInfo() {
       <div class="w3-col m6 l6 w3-padding-small">
         <div class="w3-card-4">
           <img
-            src="https://assets.siemens-energy.com/siemens/assets/api/uuid:e2e6f12202f09dcbb45ca93555d0457d2cde78d1/width:750/quality:high/gas-turbines.jpg"
-            alt="Alps"
+            src= {IndustrialImage}
           />
           <div class="w3-container w3-center">
             <p>Industrial Application</p>

@@ -82,46 +82,46 @@ function PrivateRoutes() {
                     <Route
                         exact
                         path={SLUGS.generation}
-                        render={() => (
-                            <div className='TextContent'>
-                                Short info about Generation category                               
+                        component={GenerationInfo}
+                        // render={() => (
+                        //     <div className='TextContent'>
+                        //         Short info about Generation category                               
 
-                            </div>
-                        )}
+                        //     </div>
+                        // )}
                     />
                     <Route
                         exact
                         path={SLUGS.transmission}
-                        render={() => (
-                            <div className='TextContent'>
-                                Short info about Transmission category
-                            </div>
-                        )}
+                        component={TransmissionInfo}
+                        // render={() => (
+                        //     <div className='TextContent'>
+                        //         Short info about Transmission category
+                        //     </div>
+                        // )}
                     />
                     <Route
                         exact
                         path={SLUGS.industrialApplications}
-                        render={() => (
-                            <div className='TextContent'>
-                                Short info about Industrial Applications
-                            </div>
-                        )}
+                        component={IndustrialApplicationInfo}
+                        // render={() => (
+                        //     <div className='TextContent'>
+                        //         Short info about Industrial Applications
+                        //     </div>
+                        // )}
                     />
 
                     <Route
                         path={SLUGS.generation + '/:type'}
-                        component={GenerationInfo}
-                        //render={() => <GenerationInfo/>}
+                        component={ProductSolutionsServices}
                     />
                     <Route
                         path={SLUGS.transmission + '/:type'}
                         component={ProductSolutionsServices}
-                        render={() => <TransmissionInfo/>}
                     />
                     <Route
                         path={SLUGS.industrialApplications + '/:type'}
                         component={ProductSolutionsServices}
-                        render={() => <IndustrialApplicationInfo/>}
                     />
 
                     <Route
