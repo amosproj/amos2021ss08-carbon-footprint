@@ -19,26 +19,20 @@ const ModelDropdownComponent = (props) => {
 
     // eslint-disable-next-line
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
+
     // set the initial values for the dropdown list derived from getModels
     const variables = getModels(productID);
-    // console.log('variables');
-    // console.log(variables);
+
     const [selected, setSelected] = useState('Select a model');
+
     //checking if the variable list is empty
-
-    /* useEffect(() => {
-        async function getProductModels() {
-            const variables = getModels(productID);
-            setVariableList(variables);
-            console.log(variables);
-        }
-        getProductModels();
-    }, []); */
-
     if (variables === [] || variables === undefined || variables === null) {
         return <LoadingComponent />;
     }
-    // else:
+
+    if (variables.length === 1) {
+        return <h3>{variables[0].modelName}</h3>;
+    }
 
     return (
         <Container fluid={true}>
