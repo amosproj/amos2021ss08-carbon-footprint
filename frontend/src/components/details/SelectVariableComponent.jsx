@@ -1,7 +1,6 @@
 import DropDownComponent from 'components/dropdown/DropDownComponent';
 import React, { Component } from 'react';
 import theme from 'resources/theme';
-import CompareVariablesComponent from './CompareVariablesComponent';
 
 /**
  * a drop down component for selecting variable
@@ -48,20 +47,11 @@ class SelectVariableComponent extends Component {
         is set to true, here an extra drop down for the second variable
          should be rendered 
         */
-        if (this.props.loadComparePage) {
-            return (
-                <CompareVariablesComponent
-                    state={this.state}
-                    firstDropDownHandler={this.onDropDownItemSelectedHandler}
-                    secondDropDownHandler={this.onSecondDropDownSelectedHandler}
-                    submitHandler={this.handleSubmit}
-                />
-            );
-        }
+
         return (
             <div className='w3-row w3-margin-top'>
                 <div className='w3-col l4 m3 s3'>
-                    {this.state.variables > 0 ? (
+                    {this.state.variables.length > 1 ? (
                         <h4>Select your desire variable:</h4>
                     ) : (
                         <h4>There is only one Model for this product: </h4>

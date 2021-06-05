@@ -13,7 +13,7 @@ import theme from 'resources/theme';
 const DropDownComponent = (props) => {
     const { selectedVariable, variables, dropDownHandler } = props;
 
-    if (variables.length < 1)
+    if (variables.length > 1)
         return (
             <div className='w3-dropdown-hover w3-margin-left w3-margin-right'>
                 <button

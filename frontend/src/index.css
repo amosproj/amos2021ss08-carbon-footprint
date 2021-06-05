@@ -80,11 +80,30 @@ select {
 }
 
 body {
-    background-color: #f7f8fc;
+    background-color: #e7e7e7;
     font-family: Muli;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 26px;
     color: #424147;
+    overflow: hidden;
+}
+
+/* Custom Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b5b4b9;
+    border-radius: 10px;
 }
