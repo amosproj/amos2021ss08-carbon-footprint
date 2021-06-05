@@ -7,6 +7,7 @@ import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
 import logo from 'assets/logo/LogoCarbonteam.png';
 import LoginComponent from 'components/login/LoginComponent';
+import slugs from 'resources/slugs';
 
 /**
  * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
@@ -190,7 +191,7 @@ function SidebarComponent() {
                 onClick={() => onClick(SLUGS.settings)}
             />
 
-            <MenuItem id='logout' title='Logout' icon="fa fa-sign-out" onClick={LoginComponent} />
+            <MenuItem id='logout' title='Logout' icon="fa fa-sign-out"  onClick={() => onClick(SLUGS.login)} />
         </Menu>
     );
 }
