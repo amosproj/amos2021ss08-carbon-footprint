@@ -16,6 +16,9 @@ const PanelComponent = (props) => {
                 <button href={slugs.details}>
                     <i className='fa fa-fw fa-heart' /> Favorites
                 </button>
+                <button href={slugs.details} onClick={props.onExportClicked}>
+                    <i className='far fa-file' /> Export Pdf
+                </button>
                 <button href={slugs.details} onClick={props.onCompareClick}>
                     <i className='fa fa-fw fa-plus-circle' /> Add
                 </button>

@@ -40,6 +40,11 @@ class DetailsComponent extends Component {
             */
             this.setState({ compareCanvas });
         };
+
+        let handleExportPdfButton = async () => {
+            console.log('handle export');
+        };
+
         const scenarioNames = {
             baseline: 'Baseline Scenario',
             modified: 'modified Scenario'
@@ -51,6 +56,7 @@ class DetailsComponent extends Component {
                     <DividerPanel
                         loadComparePage={this.state.compareCanvas}
                         onCompareClick={handleCompareButton}
+                        onExportClicked={handleExportPdfButton}
                         scenarioName={scenarioNames.baseline}
                     />
                     <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
@@ -75,6 +81,7 @@ class DetailsComponent extends Component {
                             <DividerPanel
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
+                                onExportClicked={handleExportPdfButton}
                                 scenarioName={scenarioNames.baseline}
                             />
                             <h2 style={styleSubtitle}>
