@@ -109,3 +109,16 @@ body {
     background: #b5b4b9;
     border-radius: 10px;
 }
+
+.BurgerMenuItems{
+
+    position: 'absolute';
+    width: 26;
+    height: 20;
+    left: 10;
+    margin-top: 25;
+    z-index: 19;
+    background: 'white'
+}
+
+
