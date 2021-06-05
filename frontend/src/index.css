@@ -120,7 +120,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 16px;
     letter-spacing: 0.5px;
     margin-left: 0px;
@@ -131,6 +131,9 @@ body {
     font-size: 35px;
     color: #dbdbdb;
     padding-right: 100;
+    margin-right:10px;
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 /* Reconfiguration of  the username style on the header bar */
@@ -140,9 +143,11 @@ body {
     font-weight: normal;
     font-size: 18px;
     margin-left: 40;
-    line-height: 16px;
     letter-spacing: 0.5px;
+    line-height: 16px;
     color: #00b300;
+    margin-bottom: 15px;
+    margin-top:5px;
 
 }
 
@@ -151,8 +156,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
-    line-height: 16px;
+    font-size: 22px;
     letter-spacing: 0.5px;
     margin-left: 0px;
     color: #dbdbdb;
@@ -163,8 +167,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 16px;
+    font-size: 20px;
     letter-spacing: 0.5px;
     color: #000000;
     margin-left: 18px;
@@ -175,8 +178,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
-    font-size: 18.5px;
-    line-height: 16px;
+    font-size: 18px;
     letter-spacing: 0.5px;
     color: #000000;
 }
@@ -185,9 +187,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 5px;
-    line-height: 16px;
-    letter-spacing: 0.5px;
+    font-size: 8px;
     color: #000000;
     
 
@@ -198,8 +198,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 16px;
+    font-size: 20px;
     letter-spacing: 0.5px;
     color: #000000;
     margin-top: 10px;
@@ -209,8 +208,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 18px;
     letter-spacing: 0.5px;
     color: #000000;
 }
@@ -222,7 +220,6 @@ body {
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 16px;
     letter-spacing: 0.5px;
     color: #000000;
 }
@@ -241,10 +238,14 @@ body {
 }
 /* Reconfiguration of  the icon style on the side bar */
 .SideBarIconStyle{
-    font-size: 13px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
     color: #dbdbdb;
     padding-right: 100;
     margin-bottom: 3px;
+    letter-spacing: 4px;
     
 }
 .SideBarIconStyle:hover{
@@ -270,9 +271,8 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
-    letter-spacing: 0.5px;
+    font-size: 18px;
+    letter-spacing: 0.2px;
     color: #b5b4b9;
     margin-left: 5px;
 }

@@ -144,7 +144,7 @@ function HeaderComponent() {
     function UseArrow(selected) {
         if (title === 'Details ' && !(selected === undefined)) {
             // return <IconArrow height='10' />;
-            return <i className='fa fa-fw fa-arrow-right' /> 
+            return <i className="fa fa-long-arrow-right" /> 
         }
         return null;
     }
@@ -171,7 +171,7 @@ function HeaderComponent() {
                 <div className='HeaderIconSyle'>
                     <i className='fa fa-user-circle-o' color='white' />
                 </div>
-                <div className='HeaderUserName'>user name</div>
+                <div className='HeaderUserName'> user name</div>
             </Row>
         </Row>
     );

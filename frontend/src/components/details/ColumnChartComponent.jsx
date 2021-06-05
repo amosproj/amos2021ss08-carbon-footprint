@@ -44,10 +44,10 @@ const ColumnChartComponent = () => {
                 formatter: function (y) {
                     return y.toFixed(0) + '%';
                 },
-                style: {
-                    fontSize: theme.typography.chartItemstitle.fontSize,
-                    fontWeight: theme.typography.chartItemstitle.fontWeight
-                }
+                // style: {
+                //     fontSize: theme.typography.chartItemstitle.fontSize,
+                //     fontWeight: theme.typography.chartItemstitle.fontWeight
+                // }
             }
         },
         xaxis: {
@@ -59,16 +59,16 @@ const ColumnChartComponent = () => {
             ],
             labels: {
                 rotate: -90,
-                style: {
-                    fontSize: theme.typography.chartItemstitle.fontSize,
-                    fontWeight: theme.typography.chartItemstitle.fontWeight
-                }
+                // style: {
+                //     fontSize: theme.typography.chartItemstitle.fontSize,
+                //     fontWeight: theme.typography.chartItemstitle.fontWeight
+                // }
             }
         }
     };
 
     return (
-        <div id='chart'>
+        <div className='ChartItems' id='chart'>
             <ReactApexChart
                 options={options}
                 series={series}

@@ -81,7 +81,7 @@ function SidebarComponent() {
                     SLUGS.industrialApplications
                 ])}
                 title='Categories'
-                icon="fa fa-list"
+                icon="fa fa-list "
                 onClick={() => onClick(SLUGS.categories)}
             >
                 <MenuItem
@@ -96,21 +96,21 @@ function SidebarComponent() {
                         id={SLUGS.generation + SLUGS.products}
                         title='Products'
                         level={3}
-                        icon="fa fa-circle"
+                        icon="fa fa-minus"
                         onClick={() => onClick(SLUGS.generation + SLUGS.products)}
                     />
                     <MenuItem
                         id={SLUGS.generation + SLUGS.solutions}
                         title='Solutions'
                         level={3}
-                        icon="fa fa-circle"
+                        icon="fa fa-minus"
                         onClick={() => onClick(SLUGS.generation + SLUGS.solutions)}
                     />
                     <MenuItem
                         id={SLUGS.generation + SLUGS.services}
                         title='Services'
                         level={3}
-                        icon="fa fa-circle"
+                        icon="fa fa-minus"
                         onClick={() => onClick(SLUGS.generation + SLUGS.services)}
                     />
                 </MenuItem>
@@ -126,21 +126,21 @@ function SidebarComponent() {
                         id={SLUGS.transmission + SLUGS.products}
                         title='Products'
                         level={3}
-                        icon="fa fa-circle"
+                        icon="fa fa-minus"
                         onClick={() => onClick(SLUGS.transmission + SLUGS.products)}
                     />
                     <MenuItem
                         id={SLUGS.transmission + SLUGS.solutions}
                         title='Solutions'
                         level={3}
-                        icon="fa fa-circle"
+                        icon="fa fa-minus"
                         onClick={() => onClick(SLUGS.transmission + SLUGS.solutions)}
                     />
                     <MenuItem
                         id={SLUGS.transmission + SLUGS.services}
                         title='Services'
                         level={3}
-                        icon="fa fa-circle"
+                        icon="fa fa-minus"
                         onClick={() => onClick(SLUGS.transmission + SLUGS.services)}
                     />
                 </MenuItem>
@@ -156,21 +156,21 @@ function SidebarComponent() {
                         id={SLUGS.industrialApplications + SLUGS.products}
                         title='Products'
                         level={3}
-                        icon="fa fa-circle"
+                        icon="fa fa-minus"
                         onClick={() => onClick(SLUGS.industrialApplications + SLUGS.products)}
                     />
                     <MenuItem
                         id={SLUGS.industrialApplications + SLUGS.solutions}
                         title='Solutions'
                         level={3}
-                        icon="fa fa-circle"
+                        icon="fa fa-minus"
                         onClick={() => onClick(SLUGS.industrialApplications + SLUGS.solutions)}
                     />
                     <MenuItem
                         id={SLUGS.industrialApplications + SLUGS.services}
                         title='Services'
                         level={3}
-                        icon="fa fa-circle"
+                        icon="fa fa-minus"
                         onClick={() => onClick(SLUGS.industrialApplications + SLUGS.services)}
                     />
                 </MenuItem>
@@ -187,7 +187,7 @@ function SidebarComponent() {
             <MenuItem
                 id={SLUGS.settings}
                 title='Settings'
-                icon="fa fa-cog"
+                icon="fa fa-cogs"
                 onClick={() => onClick(SLUGS.settings)}
             />
 
