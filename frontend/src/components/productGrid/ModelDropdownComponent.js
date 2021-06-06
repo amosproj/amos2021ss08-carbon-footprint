@@ -31,7 +31,35 @@ const ModelDropdownComponent = (props) => {
     }
 
     if (variables.length === 1) {
-        return <h3>{variables[0].modelName}</h3>;
+        let variableName = variables[0].modelName;
+
+        return (
+            <Container fluid={true}>
+                <Row
+                    className='w3-margin-top w3-margin-bottom:2em'
+                    style={{ backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor }}
+                >
+                    <Col xs={2}>
+                        <button
+                            title={variableName}
+                            className='w3-button'
+                            style={{
+                                color: theme.uniformStyle.color.secondaryFontColor,
+                                backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
+                                fontSize: theme.typography.buttontitle.fontSize,
+                                fontWeight: theme.typography.buttontitle.fontWeight,
+                                lineHeight: theme.typography.buttontitle.lineHeight,
+                                letterSpacing: theme.typography.buttontitle.letterSpacing
+                            }}
+                        >
+                            {variableName.length > 25
+                                ? variableName.substring(0, 25 - 3) + '...'
+                                : variableName}
+                        </button>
+                    </Col>
+                </Row>
+            </Container>
+        );
     }
 
     return (
@@ -43,6 +71,7 @@ const ModelDropdownComponent = (props) => {
                 <Col xs={2}>
                     <button
                         className='w3-button'
+                        title={selected}
                         style={{
                             color: theme.uniformStyle.color.secondaryFontColor,
                             backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
@@ -52,7 +81,7 @@ const ModelDropdownComponent = (props) => {
                             letterSpacing: theme.typography.buttontitle.letterSpacing
                         }}
                     >
-                        {selected}
+                        {selected.length > 25 ? selected.substring(0, 25 - 3) + '...' : selected}
                     </button>
                     <div
                         className='w3-dropdown-content w3-bar-block w3-border'
@@ -83,7 +112,9 @@ const ModelDropdownComponent = (props) => {
                                 className=' w3-bar w3-button'
                                 key={item.modelID}
                             >
-                                {item.modelName}
+                                {item.modelName.length > 35
+                                    ? item.modelName.substring(0, 35 - 3) + '...'
+                                    : item.modelName}
                             </button>
                         ))}
                     </div>
