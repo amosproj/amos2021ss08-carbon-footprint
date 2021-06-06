@@ -64,7 +64,7 @@ const PieChartComponent = () => {
         },
         responsive: [
             {
-                breakpoint: 2400,
+                breakpoint: 5000,
                 options: {
                     chart: {
                         height: '300px'
