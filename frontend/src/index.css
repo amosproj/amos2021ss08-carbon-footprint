@@ -19,6 +19,8 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 ul[class],
 ol[class],
@@ -108,15 +110,14 @@ body {
     border-radius: 10px;
 }
 
-
 /* Reconfiguration of the header bar */
-.HeaderContainer{
+.HeaderContainer {
     height: 70;
     width: 200;
-    color: #000000
+    color: #000000;
 }
 /* Reconfiguration of  the title style on the header bar */
-.HeaderTitle{
+.HeaderTitle {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -127,17 +128,17 @@ body {
     color: #00b300;
 }
 /* Reconfiguration of  the icon style on the header bar */
-.HeaderIconSyle{
+.HeaderIconSyle {
     font-size: 35px;
     color: #dbdbdb;
     padding-right: 100;
-    margin-right:10px;
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* Reconfiguration of  the username style on the header bar */
-.HeaderUserName{
+.HeaderUserName {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -147,12 +148,11 @@ body {
     line-height: 16px;
     color: #00b300;
     margin-bottom: 15px;
-    margin-top:5px;
-
+    margin-top: 5px;
 }
 
 /* Reconfiguration of  the title style on the header bar */
-.PanelHeaderTitle{
+.PanelHeaderTitle {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -163,7 +163,7 @@ body {
 }
 
 /* Reconfiguration of the text style on pages */
-.TextContent{
+.TextContent {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -171,10 +171,9 @@ body {
     letter-spacing: 0.5px;
     color: #000000;
     margin-left: 18px;
-
 }
 /* Reconfiguration of the title style on chart  */
-.ChartItemsTitle{
+.ChartItemsTitle {
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
@@ -183,18 +182,16 @@ body {
     color: #000000;
 }
 
-.ChartItems{
+.ChartItems {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
     font-size: 8px;
     color: #000000;
-    
-
 }
 
 /* Reconfiguration of the text style on details pages */
-.DetailsPageTextContent{
+.DetailsPageTextContent {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -204,7 +201,7 @@ body {
     margin-top: 10px;
 }
 /* Reconfiguration of the name of the product style on pages */
-.LabelTextContent{
+.LabelTextContent {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -213,9 +210,7 @@ body {
     color: #000000;
 }
 
-
-
-.ButtonTitle{
+.ButtonTitle {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -224,20 +219,17 @@ body {
     color: #000000;
 }
 
-
-
 .Separator {
-    border-left:'1px';
+    border-left: '1px';
     /* margin-left: 40;
     margin-right: 10; */
     margin-top: 5;
     height: 30;
     width: 5;
     color: #8b8d94;
-
 }
 /* Reconfiguration of  the icon style on the side bar */
-.SideBarIconStyle{
+.SideBarIconStyle {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -246,28 +238,25 @@ body {
     padding-right: 100;
     margin-bottom: 3px;
     letter-spacing: 4px;
-    
 }
-.SideBarIconStyle:hover{
+.SideBarIconStyle:hover {
     color: #00b300;
 }
 
-.SideBarIconStyle:focus{
+.SideBarIconStyle:focus {
     background-color: #00b300;
 }
 
-.SideBarIconStyle:active{
-    color:#00b300
+.SideBarIconStyle:active {
+    color: #00b300;
 }
 
-.SideBarIconStyle:visited{
-
-    color:#00b300
+.SideBarIconStyle:visited {
+    color: #00b300;
 }
 
 /* Reconfiguration of  the title style on the side bar */
-.SideBarTitle{
-
+.SideBarTitle {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -276,19 +265,18 @@ body {
     color: #b5b4b9;
     margin-left: 5px;
 }
-.SideBarTitle:hover{
+.SideBarTitle:hover {
     color: #00b300;
 }
 
-.SideBarTitle:focus{
+.SideBarTitle:focus {
     color: #00b300;
 }
 
-.SideBarTitle:active{
-    color:#00b300
+.SideBarTitle:active {
+    color: #00b300;
 }
 
-.SideBarTitle::selection{
-
-    color:#00b300
+.SideBarTitle::selection {
+    color: #00b300;
 }

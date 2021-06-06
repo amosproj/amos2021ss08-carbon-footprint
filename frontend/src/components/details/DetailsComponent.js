@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Canvas from './CanvasComponent';
-import SelectVariable from './SelectVariableComponent';
-import DividerPanel from './PanelComponent';
+import ScenarioComponent from './ScenarioComponent';
 import theme from 'resources/theme';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
@@ -23,8 +21,7 @@ class DetailsComponent extends Component {
             fontSize: theme.typography.subtitle.fontSize,
             fontWeight: theme.typography.subtitle.fontWeight,
             lineHeight: theme.typography.subtitle.lineHeight,
-            letterSpacing: theme.typography.subtitle.letterSpacing,
-            marginLeft: 15
+            letterSpacing: theme.typography.subtitle.letterSpacing
         };
         /*
          the default canvas has to be divided into two canvases
@@ -47,66 +44,51 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
         if (!this.state.compareCanvas) {
             return (
-                <React.Fragment>
-                    <DividerPanel
-                        loadComparePage={this.state.compareCanvas}
-                        onCompareClick={handleCompareButton}
-                        scenarioName={scenarioNames.baseline}
-                    />
-                    <h2 className='DetailsPageTextContent' >The chosen Model is {selectedProduct.modelName}</h2>
-                    <div style={{ marginLeft: 15 }}>
-                        <SelectVariable loadComparePage={this.state.compareCanvas} />
-                    </div>
-
-                    <Canvas loadComparePage={this.state.compareCanvas} />
-                </React.Fragment>
+                <Container fluid={true} style={{ padding: 0 }}>
+                    <Row>
+                        <Col>
+                            <ScenarioComponent
+                                loadComparePage={this.state.compareCanvas}
+                                onCompareClick={handleCompareButton}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
+                            />
+                        </Col>
+                    </Row>
+                </Container>
             );
         } else {
             return (
-                <Container fluid={true}>
+                <Container fluid={true} style={{ padding: 0, margin: 0 }}>
                     <Row>
                         <Col
-                            xs={12}
-                            sm={12}
-                            md={5}
-                            lg={5}
-                            style={{ backgroundColor: 'white', margin: '1em' }}
+                            xs={6}
+                            sm={6}
+                            md={6}
+                            lg={6}
+                            style={{ backgroundColor: 'white', padding: 0 }}
                         >
-                            <DividerPanel
+                            <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames.baseline}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
                             />
-                            <h2 className='DetailsPageTextContent'>
-                                The chosen Model is {selectedProduct.modelName}
-                            </h2>
-                            <div style={{ marginLeft: 15 }}>
-                                <SelectVariable loadComparePage={this.state.compareCanvas} />
-                            </div>
-
-                            <Canvas loadComparePage={this.state.compareCanvas} />
                         </Col>
 
                         <Col
-                            xs={12}
-                            sm={12}
-                            md={5}
-                            lg={5}
-                            style={{ backgroundColor: 'white', margin: '1em' }}
+                            xs={6}
+                            sm={6}
+                            md={6}
+                            lg={6}
+                            style={{ backgroundColor: 'white', padding: 0, margin: 0 }}
                         >
-                            <DividerPanel
+                            <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames.modified}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
                             />
-                            <h2 className='DetailsPageTextContent'>
-                                The chosen Model is {selectedProduct.modelName}
-                            </h2>
-                            <div style={{ marginLeft: 15 }}>
-                                <SelectVariable loadComparePage={this.state.compareCanvas} />
-                            </div>
-
-                            <Canvas loadComparePage={this.state.compareCanvas} />
                         </Col>
                     </Row>
                 </Container>

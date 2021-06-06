@@ -49,18 +49,13 @@ class SelectVariableComponent extends Component {
 
         return (
             <div className='w3-row w3-margin-top'>
-                <h4 className='DetailsPageTextContent'>Select your desire variable:</h4>
-
-                <div className='w3-col l8 m8 s8 w3-left' >
+                <div className='w3-col l6 m6 s3'>
+                    <h4>Select your desire variable:</h4>
+                </div>
+                <div className='w3-col l6 m6 s8 w3-left'>
                     <div className='w3-dropdown-hover w3-margin-left w3-margin-right'>
-                        <button
-                            className='w3-button w3-2018-sailor-blue'
-
-
-                        >
-                            <div className='ButtonTitle'>
-                                {this.state.selectedVariable}
-                            </div>
+                        <button className='w3-button w3-2018-sailor-blue'>
+                            <div className='ButtonTitle'>{this.state.selectedVariable}</div>
                         </button>
                         <div
                             className='w3-dropdown-content w3-bar-block w3-border'
@@ -82,23 +77,6 @@ class SelectVariableComponent extends Component {
                             ))}
                         </div>
                     </div>
-
-                    {/* <button
-                        style={{ backgroundColor: theme.uniformStyle.color.sendButtonColor }}
-                        onClick={this.handleSubmit}
-                        className='w3-button w3-wide'
-                    >
-                        <b
-                            style={{
-                                fontSize: theme.typography.buttonSendtitle.fontSize,
-                                fontWeight: theme.typography.buttonSendtitle.fontWeight,
-                                letterSpacing: theme.typography.buttonSendtitle.letterSpacing,
-                                lineHeight: theme.typography.buttonSendtitle.lineHeight
-                            }}
-                        >
-                            Send Request
-                        </b>
-                    </button> */}
                 </div>
             </div>
         );

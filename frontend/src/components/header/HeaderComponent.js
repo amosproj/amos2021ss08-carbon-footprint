@@ -144,7 +144,7 @@ function HeaderComponent() {
     function UseArrow(selected) {
         if (title === 'Details ' && !(selected === undefined)) {
             // return <IconArrow height='10' />;
-            return <i className="fa fa-long-arrow-right" /> 
+            return <i className='fa fa-long-arrow-right' />;
         }
         return null;
     }
@@ -161,9 +161,9 @@ function HeaderComponent() {
         >
             <span className={'HeaderTitle' + ' w3-padding-16 w3-margin-left'}>
                 {title}
-                <UseArrow/>
+                <UseArrow />
                 {subtitle}
-                <UseArrow/>
+                <UseArrow />
                 {subsubtitle}
             </span>
 
