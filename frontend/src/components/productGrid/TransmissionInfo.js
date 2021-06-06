@@ -6,10 +6,10 @@ function TransmissionInfo() {
   return (
     <div class="w3-row w3-padding">
       <div class="w3-col m6 l6 w3-padding-small">
-        <strong>
+        <strong className='SubTitle'>
           Acting at the forefront of renewables and electrification
         </strong>
-        <p>
+        <p className='TextContent'>
         For the future of power transmission, there’s much to be excited about: 
         a rise in global demand, an increased focus on our environment, the 
         adaptation of digital solutions that optimize our performance and more.

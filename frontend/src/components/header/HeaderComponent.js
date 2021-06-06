@@ -159,13 +159,15 @@ function HeaderComponent() {
                 height: 70
             }}
         >
-            <span className={'HeaderTitle' + ' w3-padding-16 w3-margin-left'}>
-                {title}
-                <UseArrow />
-                {subtitle}
-                <UseArrow />
-                {subsubtitle}
-            </span>
+            <div className='HeaderTitle'>
+                <span className=' w3-padding-16 w3-margin-left'>
+                    {title}
+                    <UseArrow />
+                    {subtitle}
+                    <UseArrow />
+                    {subsubtitle}
+                </span>
+            </div>
 
             <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
                 <div className='HeaderIconSyle'>

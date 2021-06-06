@@ -19,8 +19,8 @@ class ScenarioComponent extends Component {
                     onCompareClick={this.props.onCompareClick}
                     scenarioName={this.props.scenarioName.baseline}
                 />
-
-                <h2>The chosen Model is {this.props.selectedProduct.modelName}</h2>
+                
+                <h2 className='TextContent'>The chosen Model is {this.props.selectedProduct.modelName}</h2>
                 <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
                 <Row>
                     <Col xs={12} sm={12} md={12} lg={6}>
@@ -34,7 +34,6 @@ class ScenarioComponent extends Component {
                     <Table></Table>
                 </Row>
 
-                {/* <CanvasComponent loadComparePage={this.props.loadComparePage} /> */}
             </Container>
         );
     }

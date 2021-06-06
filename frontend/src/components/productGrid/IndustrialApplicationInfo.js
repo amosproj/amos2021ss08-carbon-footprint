@@ -6,10 +6,10 @@ function IndustrialApplicationInfo() {
   return (
     <div class="w3-row w3-padding">
       <div class="w3-col m6 l6 w3-padding-small">
-        <strong>
+        <strong className='SubTitle'>
           Creating sustainable value throughout the decarbonization journey
         </strong>
-        <p>
+        <p className='TextContent'>
         The industrial sector accounts for approximately 37 percent* of all energy
          used worldwide and a large share of global CO₂ emissions. Our Industrial
          Applications division plays a crucial role in helping customers transition

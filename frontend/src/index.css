@@ -124,7 +124,7 @@ body {
     font-size: 24px;
     line-height: 16px;
     letter-spacing: 0.5px;
-    margin-left: 0px;
+    margin-left: 40px;
     color: #00b300;
 }
 /* Reconfiguration of  the icon style on the header bar */
@@ -162,22 +162,34 @@ body {
     color: #dbdbdb;
 }
 
+.SubTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    margin-left: 0px;
+    color: #000000;
+    margin-bottom:10px;
+}
+
 /* Reconfiguration of the text style on pages */
 .TextContent {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0.5px;
     color: #000000;
-    margin-left: 18px;
+    margin-top:25px;
+    
 }
 /* Reconfiguration of the title style on chart  */
 .ChartItemsTitle {
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
     letter-spacing: 0.5px;
     color: #000000;
 }
@@ -195,7 +207,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0.5px;
     color: #000000;
     margin-top: 10px;
@@ -205,7 +217,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 0.5px;
     color: #000000;
 }
@@ -237,8 +249,36 @@ body {
     color: #dbdbdb;
     padding-right: 100;
     margin-bottom: 3px;
-    letter-spacing: 4px;
+    letter-spacing: 0.5px;
 }
+.TeamLogo{
+    height: fit-content;
+    text-align: center;
+    width: fit-content;
+    margin-left:10px;
+    margin-right:10px;
+
+}
+
+.ActiveContainer{
+
+    background-color: 'rgba(221, 226, 255, 0.08)' ;
+}
+
+.MenuContainer {
+    display: 'flex';
+    height: 40;
+    cursor: 'pointer';
+    padding-left: 16px,
+}
+
+.MenuContainer:hover{
+    background-color:'rgba(221, 226, 255, 0.08)' ;
+
+
+}
+
+
 .SideBarIconStyle:hover {
     color: #00b300;
 }

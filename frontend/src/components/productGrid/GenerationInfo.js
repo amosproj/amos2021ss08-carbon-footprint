@@ -8,10 +8,10 @@ function GenerationInfo() {
     return (
         <div className="w3-row w3-padding">
             <div className="w3-col m6 l6 w3-padding-small">
-                <strong>
+                <strong className='SubTitle'>
                 Utilizing conventional and renewable energy sources efficiently
                 </strong>
-                <p>
+                <p className='TextContent'>
                 Urbanization, scarce resources, and climate change: Wherever we look,
                 global challenges are spurring a demand for increasingly efficient
                 power generation products, solutions, and services. Trends like

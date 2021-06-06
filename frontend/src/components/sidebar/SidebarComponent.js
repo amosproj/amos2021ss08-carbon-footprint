@@ -52,17 +52,8 @@ function SidebarComponent() {
 
     return (
         <Menu isMobile={isMobile}>
-            <div
-                style={{
-                    width: 150,
-                    marginLeft: 20,
-                    paddingLeft: 15,
-                    paddingRight: 20,
-                    paddingTop: 15,
-                    paddingBottom: 25
-                }}
-            >
-                <img alt='' src={logo} style={{ marginTop: 20, marginBottom: 20 }} />
+            <div className='TeamLogo'>
+                <img alt='' src={logo}/>
             </div>
             <MenuItem
                 id={SLUGS.dashboard}
@@ -191,7 +182,7 @@ function SidebarComponent() {
                 onClick={() => onClick(SLUGS.settings)}
             />
 
-            <MenuItem id='logout' title='Logout' icon="fa fa-sign-out"  onClick={() => onClick(SLUGS.login)} />
+            <MenuItem id='logout' title='Logout' icon="fa fa-sign-out"  onClick={() => onClick(logout)} />
         </Menu>
     );
 }
