@@ -39,7 +39,7 @@ class DetailsComponent extends Component {
         if (!this.state.compareCanvas) {
             return (
                 <Container fluid={true} style={{ padding: 0 }}>
-                    <Row>
+                    <Row style={{ padding: 0 }}>
                         <Col>
                             <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
