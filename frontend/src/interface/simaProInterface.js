@@ -9,7 +9,7 @@ import logo from 'assets/logo/LogoCarbonteam.png';
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_2 from 'assets/dummyImages/Logo2.png';
 import { categories } from './categories';
-import { BackendConnect } from 'interface/BackendConnect';
+import { getSimaProProjects } from 'interface/BackendConnect';
 
 /**
  * should get all the Products from the backend (soon)
@@ -113,8 +113,7 @@ function getDummyProducts() {
  *
  */
 export async function getSimaProducts() {
-    const httpreq = new BackendConnect();
-    const products = await httpreq.getSimaProProjects();
+    const products = await getSimaProProjects();
     let formattedProducts = [];
     console.log(products);
     await products.forEach((product) => {
