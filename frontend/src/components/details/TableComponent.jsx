@@ -100,7 +100,7 @@ class TableComponent extends Component {
                     <thead>
                         <tr
                             key={'FirstRow'}
-                            style={{ backgroundColor: theme.uniformStyle.color.tableHeaderColor }}
+                            style={{ backgroundColor:'#6aa66a'}}
                         >
                             {this.state.headers.map((item) => (
                                 <th key={idKey + 'thead' + item.key}>{item.value}</th>
