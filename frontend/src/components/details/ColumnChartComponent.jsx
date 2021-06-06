@@ -63,7 +63,21 @@ const ColumnChartComponent = () => {
                 //     fontSize: theme.typography.chartItemstitle.fontSize,
                 //     fontWeight: theme.typography.chartItemstitle.fontWeight
                 // }
-            }
+            },
+            responsive: [
+                {
+                  breakpoint: 300,
+                  options: {
+                    chart: {
+                      width: 500
+                    },
+                    legend: {
+                      position: "bottom"
+                    }
+                  }
+                }
+              ]
+            
         }
     };
 
@@ -75,6 +89,7 @@ const ColumnChartComponent = () => {
                 type='bar'
                 color='green'
                 height={350}
+
             />
         </div>
     );

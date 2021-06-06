@@ -13,7 +13,7 @@ class ScenarioComponent extends Component {
         console.log(this.props);
 
         return (
-            <Container fluid={true} style={{ backgroundColor: 'white', padding: 0 }}>
+            <Container fluid={true} style={{ backgroundColor: 'white', padding: 0}} >
                 <NavbarComponent
                     loadComparePage={this.props.compareCanvas}
                     onCompareClick={this.props.onCompareClick}
@@ -22,16 +22,20 @@ class ScenarioComponent extends Component {
                 
                 <h2 className='TextContent'>The chosen Model is {this.props.selectedProduct.modelName}</h2>
                 <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
-                <Row>
-                    <Col xs={12} sm={12} md={12} lg={6}>
-                        <ColumnChart></ColumnChart>
+                <Row   style={{marginLeft:10}}>
+                    <Col xs={12} sm={12} md={12} lg={6}  className='CardsContainer'  >
+                        <ColumnChart/>
                     </Col>
-                    <Col xs={12} sm={12} md={12} lg={6}>
-                        <PieChart></PieChart>
+                    <Col lg={1}/>
+                    <Col xs={12} sm={12} md={12} lg={4} className='PieChartCardsContainer'>
+                        <PieChart/>
                     </Col>
                 </Row>
-                <Row>
-                    <Table></Table>
+                <Row style={{marginLeft:10,marginBottom:10}}>
+                    <Col xs={12} sm={12} md={12} lg={11} className='TableContainer' >
+                        <Table></Table>
+                    </Col>
+
                 </Row>
 
             </Container>

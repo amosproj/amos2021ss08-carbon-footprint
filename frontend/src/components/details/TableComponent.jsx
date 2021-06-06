@@ -89,20 +89,10 @@ class TableComponent extends Component {
             // TODO:left margin value needed to be fixed
             <Container fluid={true} style={{ padding: 0 }}>
                 {/* TODO: dynamic display of product and model */}
-                <h5
-                    style={{
-                        fontSize: theme.typography.smallSubtitle.fontSize,
-                        fontWeight: theme.typography.smallSubtitle.fontWeight
-                    }}
-                >
+                <h5 className='TableTitle'>
                     Large Power Transformer
                 </h5>
-                <h6
-                    style={{
-                        fontSize: theme.typography.secondSmallSubtitle.fontSize,
-                        fontWeight: theme.typography.secondSmallSubtitle.fontWeight
-                    }}
-                >
+                <h6 className='TableSubTitle'>
                     3 Phase GSU transformer
                 </h6>
 

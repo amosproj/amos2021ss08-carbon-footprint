@@ -124,7 +124,7 @@ body {
     font-size: 24px;
     line-height: 16px;
     letter-spacing: 0.5px;
-    margin-left: 40px;
+    margin-left: 30px;
     color: #00b300;
 }
 /* Reconfiguration of  the icon style on the header bar */
@@ -168,7 +168,7 @@ body {
     font-weight: bold;
     font-size: 22px;
     letter-spacing: 0.5px;
-    margin-left: 0px;
+    margin-left:15px;
     color: #000000;
     margin-bottom:10px;
 }
@@ -182,6 +182,7 @@ body {
     letter-spacing: 0.5px;
     color: #000000;
     margin-top:25px;
+    margin-left:15px;
     
 }
 /* Reconfiguration of the title style on chart  */
@@ -194,12 +195,62 @@ body {
     color: #000000;
 }
 
+.ColumnChartItems {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 6px;
+    margin-left: 0;
+    color: #000000;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
 .ChartItems {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 8px;
+    font-size: 6px;
+    margin-left: 0;
     color: #000000;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.TableTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-bottom:10px;
+}
+
+.TableSubTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-bottom:10px;
+
+}
+
+.TableContainer{
+
+    background-color: #FFFFFF;
+    border:2px solid #00b300;
+    border-color: #00b300;
+    border-radius: 4px;
+    cursor: 'pointer';
+    /* min-width: 500px;
+    max-width: 500px; */
+    margin-left: 10px;
+    margin-right:10px;
+    margin-bottom: 5px;
+    margin-top:5px;
+    min-height: 600px;
+    max-height: 600px;
 }
 
 /* Reconfiguration of the text style on details pages */
@@ -230,6 +281,39 @@ body {
     letter-spacing: 0.5px;
     color: #000000;
 }
+
+.CardsContainer {
+
+    background-color: #FFFFFF;
+    border:2px solid #00b300;
+    border-color: #00b300;
+    border-radius: 4px;
+    cursor: 'pointer';
+    min-width: 360;
+    max-width: 450;
+    min-height: 400px;
+
+}
+
+.PieChartCardsContainer {
+
+    background-color: #FFFFFF;
+    border:2px solid #00b300;
+    border-color: #00b300;
+    border-radius: 4px;
+    cursor: 'pointer';
+    min-width: 300;
+    max-width: 360;
+}
+.miniCardContainer {
+    display: inline-block;
+    margin-right: 30;
+    margin-Left:0;
+    background-color: #FFFFFF;
+
+}
+
+
 
 .Separator {
     border-left: '1px';

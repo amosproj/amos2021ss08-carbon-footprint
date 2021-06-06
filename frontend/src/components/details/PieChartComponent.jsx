@@ -64,7 +64,7 @@ const PieChartComponent = () => {
         },
         responsive: [
             {
-                breakpoint: 1300,
+                breakpoint: 2400,
                 options: {
                     chart: {
                         height: '300px'
@@ -78,7 +78,7 @@ const PieChartComponent = () => {
     };
 
     return (
-        <div className='ChartItems' style={{ width: '360px', height: '300px' }} id='chart'>
+        <div className='ChartItems' style={{ width: '%100', height: '300px' }} id='chart'>
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );
