@@ -3,6 +3,7 @@ import Canvas from './CanvasComponent';
 import SelectVariable from './SelectVariableComponent';
 import DividerPanel from './PanelComponent';
 import theme from 'resources/theme';
+import axios from 'axios';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 
@@ -43,6 +44,14 @@ class DetailsComponent extends Component {
 
         let handleExportPdfButton = async () => {
             console.log('handle export');
+            const user = {
+                name: 'parham'
+            };
+
+            const res = await axios.post(`https://jsonplaceholder.typicode.com/users`, { user });
+
+            console.log(res);
+            console.log(res.data);
         };
 
         const scenarioNames = {
