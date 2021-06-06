@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+const headers = {
+    Authorization: 'Bearer',
+    'My-Custom-Header': 'foobar'
+};
+
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -7,10 +12,6 @@ import axios from 'axios';
  */
 export async function getSimaProProjects() {
     // GET request using axios with set headers
-    const headers = {
-        Authorization: 'Bearer',
-        'My-Custom-Header': 'foobar'
-    };
     let result;
     await axios
         .get('https://localhost:44323/SimaPro/api/projects', { headers })
@@ -29,33 +30,71 @@ export async function getSimaProProjects() {
 export async function postCalculationRequest(projectId) {
     // POST request using axios with set headers
     let calcId;
-    const headers = {
-        Authorization: 'Bearer',
-        'My-Custom-Header': 'foobar'
-    };
-    let result = axios.post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
-        headers
-    });
-    //.then(response => this.setState({ articleId: response.data.id }));
+    await axios
+        .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
+            headers
+        })
+        .then(function (data) {
+            const items = data;
+            calcId = items.data.Result.CalculationId;
+        });
     console.log('RESULT!!!!!!1');
-    console.log(result);
-    postCalculationResultRequest(calcId);
+    console.log(calcId);
+
+    let calculationIsStored = setInterval(isCalculationStored(calcId), 2000);
+    console.log(calculationIsStored);
+    //while (!calculationIsStored) {}
+    clearInterval(calculationIsStored);
+
     return true;
+    //return await postCalculationResultRequest(calcId);
+}
+
+/**
+ * Asks for the status of a scheduled calculation.
+ *
+ * @param {*} calculationId
+ * @returns {String} "Calculating", "Storing", "Stored" (Done when "Stored")
+ */
+async function getCalculationState(calculationId) {
+    let calculationState;
+    await axios
+        .get(`https://localhost:44323/SimaPro/api/calculation/state/${calculationId}`, {
+            headers
+        })
+        .then(function (data) {
+            const items = data;
+            calculationState = items.data.Result;
+        });
+    console.log('calculationState');
+    console.log(calculationState);
+    return calculationState;
+}
+
+/**
+ *
+ * @param {*} calculationId
+ * @returns true if the calculation is stored
+ */
+async function isCalculationStored(calculationId) {
+    console.log('isCalculationStored');
+    return getCalculationState(calculationId) === 'Stored' ? true : false;
 }
 
 /**
  * Post request to retrieve the impact calculations for a project based on the calculationId
  * from the previous request.
  */
-function postCalculationResultRequest(calculationId) {
+async function postCalculationResultRequest(calculationId) {
     // POST request using axios with set headers
-    const headers = {
-        Authorization: 'Bearer',
-        'My-Custom-Header': 'foobar'
-    };
-    axios.post(`https://localhost:44323/SimaPro/api/calculation/result/${calculationId}`, {
-        headers
-    });
+    let result = axios.post(
+        `https://localhost:44323/SimaPro/api/calculation/result/${calculationId}`,
+        {
+            headers
+        }
+    );
+    console.log('RESULT!!!!!!2');
+    console.log(result);
     //.then(response => this.setState({ articleId: response.data.id }));
     return true;
 }
@@ -65,10 +104,6 @@ function postCalculationResultRequest(calculationId) {
  *
  */
 export async function getProjectProcesses(projectId) {
-    const headers = {
-        Authorization: 'Bearer',
-        'My-Custom-Header': 'foobar'
-    };
     //console.log("------");
     //console.log(productID);
     let resultProcess;
@@ -89,10 +124,6 @@ export async function getProjectProcesses(projectId) {
  * @returns the list of methods
  */
 export async function getMethods() {
-    const headers = {
-        Authorization: 'Bearer',
-        'My-Custom-Header': 'foobar'
-    };
     let methods;
     await axios
         .get('https://localhost:44323/SimaPro/api/methods', { headers })
