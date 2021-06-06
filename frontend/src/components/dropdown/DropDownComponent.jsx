@@ -18,6 +18,7 @@ const DropDownComponent = (props) => {
             <div className='w3-dropdown-hover w3-margin-left w3-margin-right'>
                 <button
                     className='w3-button w3-2018-sailor-blue'
+                    title={selectedVariable}
                     style={{
                         fontSize: theme.typography.buttontitle.fontSize,
                         fontWeight: theme.typography.buttontitle.fontWeight,
@@ -25,7 +26,9 @@ const DropDownComponent = (props) => {
                         letterSpacing: theme.typography.buttonSendtitle.letterSpacing
                     }}
                 >
-                    {selectedVariable}
+                    {selectedVariable.length > 25
+                        ? selectedVariable.substring(0, 25 - 3) + '...'
+                        : selectedVariable}
                 </button>
                 <div
                     className='w3-dropdown-content w3-bar-block w3-border'
@@ -48,7 +51,25 @@ const DropDownComponent = (props) => {
                 </div>
             </div>
         );
-    else return <h3 className='w3-margin-left w3-margin-right'>{selectedVariable}</h3>;
+    else
+        return (
+            <div className='w3-dropdown-hover w3-margin-left w3-margin-right'>
+                <button
+                    className='w3-button w3-2018-sailor-blue'
+                    title={selectedVariable}
+                    style={{
+                        fontSize: theme.typography.buttontitle.fontSize,
+                        fontWeight: theme.typography.buttontitle.fontWeight,
+                        lineHeight: theme.typography.buttontitle.lineHeight,
+                        letterSpacing: theme.typography.buttonSendtitle.letterSpacing
+                    }}
+                >
+                    {selectedVariable.length > 25
+                        ? selectedVariable.substring(0, 25 - 3) + '...'
+                        : selectedVariable}
+                </button>
+            </div>
+        );
 };
 
 export default DropDownComponent;
