@@ -59,10 +59,10 @@ const ColumnChartComponent = () => {
             ],
             labels: {
                 rotate: -90,
-                // style: {
-                //     fontSize: theme.typography.chartItemstitle.fontSize,
-                //     fontWeight: theme.typography.chartItemstitle.fontWeight
-                // }
+                style:{
+                    fontSize:10,
+
+                },
             },
             responsive: [
                 {
@@ -89,6 +89,7 @@ const ColumnChartComponent = () => {
                 type='bar'
                 color='green'
                 height={350}
+                
 
             />
         </div>

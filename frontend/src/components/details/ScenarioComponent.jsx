@@ -22,13 +22,18 @@ class ScenarioComponent extends Component {
                 
                 <h2 className='TextContent'>The chosen Model is {this.props.selectedProduct.modelName}</h2>
                 <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
-                <Row   style={{marginLeft:10}}>
+                <Row style={{marginLeft:10}}>
+
                     <Col xs={12} sm={12} md={12} lg={6}  className='CardsContainer'  >
-                        <ColumnChart/>
+                        <div className='CardTitle' >Results of the impact assessment
+                            <ColumnChart/>                    
+                        </div>
                     </Col>
                     <Col lg={1}/>
                     <Col xs={12} sm={12} md={12} lg={4} className='PieChartCardsContainer'>
-                        <PieChart/>
+                        <div className='CardTitle' >Material Composition
+                            <PieChart/>
+                        </div>
                     </Col>
                 </Row>
                 <Row style={{marginLeft:10,marginBottom:10,marginTop:35}}>

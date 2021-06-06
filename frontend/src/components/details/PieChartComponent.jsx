@@ -26,10 +26,10 @@ const PieChartComponent = () => {
         chart: {
             type: 'donut'
         },
-        // legend: {
-        //     // fontSize: theme.typography.chartItemstitle.fontSize,
-        //     // fontWeight: theme.typography.chartItemstitle.fontWeight
-        // },
+        legend: {
+            fontSize: 10,
+
+        },
         labels: [
             'Transformer oil',
             'Steel',

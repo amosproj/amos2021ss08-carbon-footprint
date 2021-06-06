@@ -199,7 +199,6 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 6px;
     margin-left: 0;
     color: #000000;
     margin-top:10px;
@@ -209,7 +208,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 6px;
+    font-size: 8px;
     margin-left: 0;
     color: #000000;
     margin-top:10px;
@@ -219,7 +218,16 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-bottom:10px;
+}
+.CardTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18;
     letter-spacing: 0.5px;
     color: #000000;
     margin-bottom:10px;
@@ -236,6 +244,17 @@ body {
 
 }
 
+.TableItems {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    margin-left: 0;
+    color: #000000;
+    margin-top:10px;
+    margin-bottom: 10px;
+
+}
 
 
 /* Reconfiguration of the text style on details pages */
@@ -276,7 +295,8 @@ body {
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 400px;
+    min-height: 500px;
+    max-height: 600px;
     margin-top:10px;
 
 }
