@@ -13,7 +13,7 @@ class ScenarioComponent extends Component {
         console.log(this.props);
 
         return (
-            <Container fluid={true} style={{ backgroundColor: 'white',paddingRight:0,paddingLeft:0}} >
+            <Container fluid={true} style={{ backgroundColor: '#ededed',paddingRight:0,paddingLeft:0}} >
                 <NavbarComponent
                     loadComparePage={this.props.compareCanvas}
                     onCompareClick={this.props.onCompareClick}
@@ -31,7 +31,7 @@ class ScenarioComponent extends Component {
                         <PieChart/>
                     </Col>
                 </Row>
-                <Row style={{marginLeft:10,marginBottom:10}}>
+                <Row style={{marginLeft:10,marginBottom:10,marginTop:35}}>
                     <Col xs={12} sm={12} md={12} lg={11} className='TableContainer' >
                         <Table></Table>
                     </Col>

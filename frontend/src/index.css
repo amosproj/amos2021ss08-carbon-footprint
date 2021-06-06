@@ -82,7 +82,7 @@ select {
 }
 
 body {
-    background-color: #e7e7e7;
+    background-color: #ededed;
     font-family: Muli;
     font-style: normal;
     font-weight: normal;
@@ -130,7 +130,7 @@ body {
 /* Reconfiguration of  the icon style on the header bar */
 .HeaderIconSyle {
     font-size: 35px;
-    color: #dbdbdb;
+    color: #ededed;
     padding-right: 100;
     margin-right: 10px;
     margin-top: 10px;
@@ -236,22 +236,7 @@ body {
 
 }
 
-.TableContainer{
 
-    background-color: #FFFFFF;
-    border:2px solid #00b300;
-    border-color: #00b300;
-    border-radius: 4px;
-    cursor: 'pointer';
-    /* min-width: 500px;
-    max-width: 500px; */
-    margin-left: 10px;
-    margin-right:10px;
-    margin-bottom: 5px;
-    margin-top:5px;
-    min-height: 600px;
-    max-height: 600px;
-}
 
 /* Reconfiguration of the text style on details pages */
 .DetailsPageTextContent {
@@ -285,7 +270,7 @@ body {
 .CardsContainer {
 
     background-color: #FFFFFF;
-    border:2px solid #00b300;
+    /* border:0.5px solid #00b300; */
     border-color: #00b300;
     border-radius: 4px;
     cursor: 'pointer';
@@ -298,12 +283,28 @@ body {
 .PieChartCardsContainer {
 
     background-color: #FFFFFF;
-    border:2px solid #00b300;
+    /* border:0.5px solid #00b300; */
     border-color: #00b300;
     border-radius: 4px;
     cursor: 'pointer';
     min-width: 300;
     max-width: 360;
+}
+.TableContainer{
+
+    background-color: #FFFFFF;
+    /* border:0.5px solid #00b300; */
+    border-color: #00b300;
+    border-radius: 4px;
+    cursor: 'pointer';
+    /* min-width: 500px;
+    max-width: 500px; */
+    margin-left: 10px;
+    margin-right:10px;
+    margin-bottom: 5px;
+    margin-top:5px;
+    min-height: 600px;
+    max-height: 600px;
 }
 .miniCardContainer {
     display: inline-block;
@@ -330,7 +331,7 @@ body {
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    color: #dbdbdb;
+    color: #ededed;
     padding-right: 100;
     margin-bottom: 3px;
     letter-spacing: 0.5px;
@@ -386,7 +387,7 @@ body {
     font-weight: normal;
     font-size: 18px;
     letter-spacing: 0.2px;
-    color: #b5b4b9;
+    color: #ededed;
     margin-left: 5px;
 }
 .SideBarTitle:hover {
