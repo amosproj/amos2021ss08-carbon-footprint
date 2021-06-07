@@ -144,7 +144,7 @@ function HeaderComponent() {
     function UseArrow(selected) {
         if (title === 'Details ' && !(selected === undefined)) {
             // return <IconArrow height='10' />;
-            return <i className='fa fa-long-arrow-right' />;
+            return <i className='fa fa-arrow-right' />;
         }
         return null;
     }
