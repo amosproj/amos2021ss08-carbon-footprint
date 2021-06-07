@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ScenarioComponent from './ScenarioComponent';
-import theme from 'resources/theme';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 
@@ -17,12 +16,6 @@ class DetailsComponent extends Component {
     };
 
     render() {
-        let styleSubtitle = {
-            fontSize: theme.typography.subtitle.fontSize,
-            fontWeight: theme.typography.subtitle.fontWeight,
-            lineHeight: theme.typography.subtitle.lineHeight,
-            letterSpacing: theme.typography.subtitle.letterSpacing
-        };
         /*
          the default canvas has to be divided into two canvases
          an extra drop down button for second variable should be rendered
