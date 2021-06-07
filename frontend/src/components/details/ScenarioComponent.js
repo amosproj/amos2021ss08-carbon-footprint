@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CanvasComponent from './CanvasComponent';
 import SelectVariableComponent from './SelectVariableComponent';
 import NavbarComponent from './NavbarComponent';
 import PieChart from './PieChartComponent';
@@ -8,6 +7,10 @@ import Table from './TableComponent';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 
+/**
+ * Displays one Scenario, containing a ColumnChart, a PieChart and a Table,
+ * with information about the current Scenario
+ */
 class ScenarioComponent extends Component {
     render() {
         console.log(this.props);
