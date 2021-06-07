@@ -335,10 +335,8 @@ body {
     max-width: 500px; */
     margin-left: 10px;
     margin-right:10px;
-    margin-bottom: 5px;
-    margin-top:5px;
-    min-height: 600px;
-    max-height: 600px;
+    margin-top:15px;
+
 }
 .miniCardContainer {
     display: inline-block;

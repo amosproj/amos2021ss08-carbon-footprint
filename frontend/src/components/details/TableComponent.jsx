@@ -87,7 +87,7 @@ class TableComponent extends Component {
         const idKey = this.props.id;
         return (
             // TODO:left margin value needed to be fixed
-            <Container fluid={true} style={{ padding: 0 }}>
+            <Container fluid={true} >
                 {/* TODO: dynamic display of product and model */}
                 <h5 className='TableTitle'>
                     Large Power Transformer
