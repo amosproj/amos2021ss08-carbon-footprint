@@ -37,9 +37,9 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
         if (!this.state.compareCanvas) {
             return (
-                <Container fluid={true} style={{ padding: 0 }}>
+                <Container fluid={true} style={{ padding: 'auto' }}>
                     <Row>
-                        <Col>
+                        <Col style={{ padding: 0 }}>
                             <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
@@ -53,14 +53,8 @@ class DetailsComponent extends Component {
         } else {
             return (
                 <Container fluid={true} style={{ padding: 0, margin: 0 }}>
-                    <Row>
-                        <Col
-                            xs={6}
-                            sm={6}
-                            md={6}
-                            lg={6}
-                            style={{ backgroundColor: 'white', padding: 0 }}
-                        >
+                    <Row gutterWidth={0}>
+                        <Col xs={6} sm={6} md={6} lg={6} style={{ padding: 0 }}>
                             <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}
@@ -69,13 +63,7 @@ class DetailsComponent extends Component {
                             />
                         </Col>
 
-                        <Col
-                            xs={6}
-                            sm={6}
-                            md={6}
-                            lg={6}
-                            style={{ backgroundColor: 'white', padding: 0, margin: 0 }}
-                        >
+                        <Col xs={6} sm={6} md={6} lg={6} style={{ padding: 0 }}>
                             <ScenarioComponent
                                 loadComparePage={this.state.compareCanvas}
                                 onCompareClick={handleCompareButton}

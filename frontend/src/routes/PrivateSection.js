@@ -44,7 +44,11 @@ function PrivateSection() {
             <SidebarContext>
                 <Row className={classes.container}>
                     <SidebarComponent />
-                    <Col flexGrow={1} className={classes.mainBlock}>
+                    <Col
+                        flexGrow={1}
+                        className={classes.mainBlock}
+                        style={{ padding: 'auto', margin: 0 }}
+                    >
                         <HeaderComponent />
                         <div className={classes.contentBlock}>
                             <PrivateRoutes />
