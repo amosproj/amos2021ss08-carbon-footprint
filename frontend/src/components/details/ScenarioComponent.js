@@ -27,17 +27,15 @@ class ScenarioComponent extends Component {
                 <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
                 <Row>
                     <Col xs={12} sm={12} md={12} lg={6}>
-                        <ColumnChart></ColumnChart>
+                        <ColumnChart />
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={6}>
-                        <PieChart></PieChart>
+                        <PieChart />
                     </Col>
                 </Row>
                 <Row>
-                    <Table></Table>
+                    <Table />
                 </Row>
-
-                {/* <CanvasComponent loadComparePage={this.props.loadComparePage} /> */}
             </Container>
         );
     }
