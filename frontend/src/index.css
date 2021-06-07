@@ -195,6 +195,7 @@ body {
     color: #000000;
 }
 
+/* Reconfiguration of the title style on Column chart  */
 .ColumnChartItems {
     font-family: inherit;
     font-style: normal;
@@ -204,6 +205,7 @@ body {
     margin-top:10px;
     margin-bottom: 10px;
 }
+/* Reconfiguration of the subtitle style on chart  */
 .ChartItems {
     font-family: inherit;
     font-style: normal;
@@ -214,6 +216,8 @@ body {
     margin-top:10px;
     margin-bottom: 10px;
 }
+
+/* Reconfiguration of the title style on table  */
 .TableTitle {
     font-family: inherit;
     font-style: normal;
@@ -223,6 +227,7 @@ body {
     color: #000000;
     margin-bottom:10px;
 }
+/* Reconfiguration of the title style on cards  */
 .CardTitle {
     font-family: inherit;
     font-style: normal;
@@ -233,6 +238,7 @@ body {
     margin-bottom:10px;
 }
 
+/* Reconfiguration of the subtitle style on table  */
 .TableSubTitle {
     font-family: inherit;
     font-style: normal;
@@ -244,6 +250,7 @@ body {
 
 }
 
+/* Reconfiguration of the text style on table  */
 .TableItems {
     font-family: inherit;
     font-style: normal;
@@ -277,6 +284,8 @@ body {
     color: #000000;
 }
 
+/* Reconfiguration of the title style on buttons  */
+
 .ButtonTitle {
     font-family: inherit;
     font-style: normal;
@@ -300,6 +309,7 @@ body {
     margin-top:10px;
 
 }
+
 
 .PieChartCardsContainer {
 
@@ -354,6 +364,8 @@ body {
     margin-bottom: 3px;
     letter-spacing: 0.5px;
 }
+
+/* Reconfiguration of the logo style on sidebar  */
 .TeamLogo{
     height: fit-content;
     text-align: center;
