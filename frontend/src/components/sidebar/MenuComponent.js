@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from 'react-jss';
-import { slide as Menu } from 'react-burger-menu';
+import { push as Menu } from 'react-burger-menu';
 
 const getMenuStyles = ({ theme }) => ({
     /* Position and sizing of burger button */
@@ -27,9 +27,9 @@ const getMenuStyles = ({ theme }) => ({
         background: theme.color.grayishBlue3
     },
     /*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
+      Sidebar wrapper styles
+      Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+    */
     bmMenuWrap: {
         position: 'fixed',
         height: '100%',
