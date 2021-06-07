@@ -9,7 +9,6 @@ import React, { Component } from 'react';
 import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent';
-import theme from 'resources/theme';
 
 class CanvasComponent extends Component {
     render() {
@@ -22,11 +21,9 @@ class CanvasComponent extends Component {
                 <div className='w3-row'>
                     <div className='w3-col l6 m12 s12 w3-left' style={{ marginTop: 30 }}>
                         <h3
+                            className='ChartItemsTitle'
                             style={{
-                                fontSize: theme.typography.subtitle.fontSize,
-                                fontWeight: theme.typography.subtitle.fontWeight,
-                                lineHeight: theme.typography.subtitle.lineHeight,
-                                letterSpacing: theme.typography.subtitle.letterSpacing
+                                marginLeft: 85
                             }}
                         >
                             {' '}
@@ -36,11 +33,9 @@ class CanvasComponent extends Component {
                     </div>
                     <div className='w3-col l6 m12 s12 w3-right' style={{ marginTop: 30 }}>
                         <h3
+                            className='ChartItemsTitle'
                             style={{
-                                fontSize: theme.typography.subtitle.fontSize,
-                                fontWeight: theme.typography.subtitle.fontWeight,
-                                lineHeight: theme.typography.subtitle.lineHeight,
-                                letterSpacing: theme.typography.subtitle.letterSpacing
+                                marginLeft: 100
                             }}
                         >
                             {' '}
@@ -51,17 +46,7 @@ class CanvasComponent extends Component {
                 </div>
                 <div className='w3-row'>
                     <div className='w3-col l12 m12 s12' style={{ marginTop: 30, marginBottom: 30 }}>
-                        <h3
-                            style={{
-                                fontSize: theme.typography.subtitle.fontSize,
-                                fontWeight: theme.typography.subtitle.fontWeight,
-                                lineHeight: theme.typography.subtitle.lineHeight,
-                                letterSpacing: theme.typography.subtitle.letterSpacing
-                            }}
-                        >
-                            {' '}
-                            Impact categories{' '}
-                        </h3>
+                        <h3 className='ChartItemsTitle'> Impact categories </h3>
                         <Table id='table-0' />
                     </div>
                 </div>

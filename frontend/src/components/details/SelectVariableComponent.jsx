@@ -54,16 +54,8 @@ class SelectVariableComponent extends Component {
                 </div>
                 <div className='w3-col l6 m6 s8 w3-left'>
                     <div className='w3-dropdown-hover w3-margin-left w3-margin-right'>
-                        <button
-                            className='w3-button w3-2018-sailor-blue'
-                            style={{
-                                fontSize: theme.typography.buttontitle.fontSize,
-                                fontWeight: theme.typography.buttontitle.fontWeight,
-                                lineHeight: theme.typography.buttontitle.lineHeight,
-                                letterSpacing: theme.typography.buttonSendtitle.letterSpacing
-                            }}
-                        >
-                            {this.state.selectedVariable}
+                        <button className='w3-button w3-2018-sailor-blue'>
+                            <div className='ButtonTitle'>{this.state.selectedVariable}</div>
                         </button>
                         <div
                             className='w3-dropdown-content w3-bar-block w3-border'

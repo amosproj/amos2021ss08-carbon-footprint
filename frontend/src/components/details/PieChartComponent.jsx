@@ -15,13 +15,21 @@ const PieChartComponent = () => {
     //series.reverse();
     // commented the two lines, because otherwise the numbers don't match the labels
     const options = {
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+            position: 'bottom',
+            // labels: {
+            // boxWidth: 10
+            // }
+        },     
         chart: {
             type: 'donut'
         },
-        legend: {
-            fontSize: theme.typography.chartItemstitle.fontSize,
-            fontWeight: theme.typography.chartItemstitle.fontWeight
-        },
+        // legend: {
+        //     // fontSize: theme.typography.chartItemstitle.fontSize,
+        //     // fontWeight: theme.typography.chartItemstitle.fontWeight
+        // },
         labels: [
             'Transformer oil',
             'Steel',
@@ -70,7 +78,7 @@ const PieChartComponent = () => {
     };
 
     return (
-        <div style={{ width: '400px', height: '300px' }} id='chart'>
+        <div className='ChartItems' style={{ width: '360px', height: '300px' }} id='chart'>
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );

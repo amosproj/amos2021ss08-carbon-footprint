@@ -110,15 +110,173 @@ body {
     border-radius: 10px;
 }
 
-.BurgerMenuItems{
-
-    position: 'absolute';
-    width: 26;
-    height: 20;
-    left: 10;
-    margin-top: 25;
-    z-index: 19;
-    background: 'white'
+/* Reconfiguration of the header bar */
+.HeaderContainer {
+    height: 70;
+    width: 200;
+    color: #000000;
+}
+/* Reconfiguration of  the title style on the header bar */
+.HeaderTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    margin-left: 0px;
+    color: #00b300;
+}
+/* Reconfiguration of  the icon style on the header bar */
+.HeaderIconSyle {
+    font-size: 35px;
+    color: #dbdbdb;
+    padding-right: 100;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
+/* Reconfiguration of  the username style on the header bar */
+.HeaderUserName {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    margin-left: 40;
+    letter-spacing: 0.5px;
+    line-height: 16px;
+    color: #00b300;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
 
+/* Reconfiguration of  the title style on the header bar */
+.PanelHeaderTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    margin-left: 0px;
+    color: #dbdbdb;
+}
+
+/* Reconfiguration of the text style on pages */
+.TextContent {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-left: 18px;
+}
+/* Reconfiguration of the title style on chart  */
+.ChartItemsTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+.ChartItems {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8px;
+    color: #000000;
+}
+
+/* Reconfiguration of the text style on details pages */
+.DetailsPageTextContent {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-top: 10px;
+}
+/* Reconfiguration of the name of the product style on pages */
+.LabelTextContent {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+.ButtonTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+.Separator {
+    border-left: '1px';
+    /* margin-left: 40;
+    margin-right: 10; */
+    margin-top: 5;
+    height: 30;
+    width: 5;
+    color: #8b8d94;
+}
+/* Reconfiguration of  the icon style on the side bar */
+.SideBarIconStyle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #dbdbdb;
+    padding-right: 100;
+    margin-bottom: 3px;
+    letter-spacing: 4px;
+}
+.SideBarIconStyle:hover {
+    color: #00b300;
+}
+
+.SideBarIconStyle:focus {
+    background-color: #00b300;
+}
+
+.SideBarIconStyle:active {
+    color: #00b300;
+}
+
+.SideBarIconStyle:visited {
+    color: #00b300;
+}
+
+/* Reconfiguration of  the title style on the side bar */
+.SideBarTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 0.2px;
+    color: #b5b4b9;
+    margin-left: 5px;
+}
+.SideBarTitle:hover {
+    color: #00b300;
+}
+
+.SideBarTitle:focus {
+    color: #00b300;
+}
+
+.SideBarTitle:active {
+    color: #00b300;
+}
+
+.SideBarTitle::selection {
+    color: #00b300;
+}
