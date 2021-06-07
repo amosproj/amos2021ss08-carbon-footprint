@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { Col, Row } from 'react-grid-system';
 import { SidebarComponent, SidebarContext } from 'components/sidebar';
 import HeaderComponent from 'components/header/HeaderComponent';
 import PrivateRoutes from './PrivateRoutes';
@@ -42,19 +41,18 @@ function PrivateSection() {
     return (
         <PrivateStateProvider>
             <SidebarContext>
-                <Row className={classes.container}>
-                    <SidebarComponent />
-                    <Col
-                        flexGrow={1}
-                        className={classes.mainBlock}
-                        style={{ padding: 'auto', margin: 0 }}
-                    >
+                <div id='outer-private-container'>
+                    <SidebarComponent
+                        pageWrapId={'page-wrap'}
+                        outerContainerId={'outer-private-container'}
+                    />
+                    <div id='page-wrap'>
                         <HeaderComponent />
                         <div className={classes.contentBlock}>
                             <PrivateRoutes />
                         </div>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </SidebarContext>
         </PrivateStateProvider>
     );

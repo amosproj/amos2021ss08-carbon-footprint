@@ -32,9 +32,7 @@ const getMenuStyles = ({ theme }) => ({
     */
     bmMenuWrap: {
         position: 'fixed',
-        height: '100%',
-        width: 200,
-        zIndex: 30
+        height: '100%'
     },
     /* General sidebar styles */
     bmMenu: {
@@ -55,18 +53,28 @@ const getMenuStyles = ({ theme }) => ({
     }
 });
 
-function MenuComponent({ children, isMobile }) {
+function MenuComponent({ pageWrapId, outerContainerId, children, isMobile }) {
     const theme = useTheme();
     const menuStyles = getMenuStyles({ theme });
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <Menu
+            width={'200px'}
+            pageWrapId={pageWrapId}
+            outerContainerId={outerContainerId}
             isOpen={!isMobile || isOpen}
             noOverlay={!isMobile}
             disableCloseOnEsc
             styles={menuStyles}
-            onStateChange={(state) => setIsOpen(state.isOpen)}
+            onStateChange={(state) => {
+                setIsOpen(state.isOpen);
+                if (state.isOpen) {
+                    document.getElementById('page-wrap').style.width = 'calc(100% - 200px)';
+                } else {
+                    document.getElementById('page-wrap').style.width = '100%';
+                }
+            }}
         >
             {children}
         </Menu>

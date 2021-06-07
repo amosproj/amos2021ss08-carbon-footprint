@@ -9,12 +9,6 @@ import logo from 'assets/logo/LogoCarbonteam.png';
 import { useContext } from 'react';
 import { GlobalContext } from 'hooks/GlobalContext';
 
-/**
- * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
- *
- * @author Irem Toroslu, Martin Wagner
- */
-
 const useStyles = createUseStyles({
     separator: {
         borderTop: ({ theme }) => `1px solid ${theme.color.lightGrayishBlue}`,
@@ -24,7 +18,12 @@ const useStyles = createUseStyles({
     }
 });
 
-function SidebarComponent() {
+/**
+ * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
+ *
+ * @author Irem Toroslu, Martin Wagner
+ */
+function SidebarComponent({ pageWrapId, outerContainerId }) {
     const { push } = useHistory();
     const theme = useTheme();
     const classes = useStyles({ theme });
@@ -53,7 +52,7 @@ function SidebarComponent() {
     }
 
     return (
-        <Menu isMobile={isMobile}>
+        <Menu pageWrapId={pageWrapId} outerContainerId={outerContainerId} isMobile={isMobile}>
             <div
                 style={{
                     width: 150,
