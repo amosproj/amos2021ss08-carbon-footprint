@@ -56,14 +56,14 @@ const getMenuStyles = ({ theme }) => ({
 function MenuComponent({ pageWrapId, outerContainerId, children, isMobile }) {
     const theme = useTheme();
     const menuStyles = getMenuStyles({ theme });
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     return (
         <Menu
             width={'200px'}
             pageWrapId={pageWrapId}
             outerContainerId={outerContainerId}
-            isOpen={!isMobile || isOpen}
+            isOpen={!isMobile && isOpen}
             noOverlay={!isMobile}
             disableCloseOnEsc
             styles={menuStyles}

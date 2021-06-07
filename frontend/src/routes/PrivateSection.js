@@ -46,7 +46,7 @@ function PrivateSection() {
                         pageWrapId={'page-wrap'}
                         outerContainerId={'outer-private-container'}
                     />
-                    <div id='page-wrap'>
+                    <div id='page-wrap' style={{ width: 'calc(100% - 200px)' }}>
                         <HeaderComponent />
                         <div className={classes.contentBlock}>
                             <PrivateRoutes />
