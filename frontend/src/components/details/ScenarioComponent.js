@@ -16,7 +16,7 @@ class ScenarioComponent extends Component {
         console.log(this.props);
 
         return (
-            <Container fluid={true} style={{ backgroundColor: 'white', padding: 0 }}>
+            <Container fluid={true} style={{ backgroundColor: 'white', padding: 'auto' }}>
                 <NavbarComponent
                     loadComparePage={this.props.compareCanvas}
                     onCompareClick={this.props.onCompareClick}
