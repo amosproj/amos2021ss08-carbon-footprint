@@ -25,15 +25,17 @@ class ScenarioComponent extends Component {
                 <Row style={{marginLeft:10}}>
 
                     <Col xs={12} sm={12} md={12} lg={6}  className='CardsContainer'  >
-                        <div className='CardTitle' >Results of the impact assessment
-                            <ColumnChart/>                    
+                        <div className='CardTitle' >
+                            <span>Results of the impact assessment</span>           
                         </div>
+                        <ColumnChart/>
                     </Col>
                     <Col lg={1}/>
                     <Col xs={12} sm={12} md={12} lg={4} className='PieChartCardsContainer'>
-                        <div className='CardTitle' >Material Composition
-                            <PieChart/>
+                        <div className='CardTitle' >
+                            <span>Material Composition</span>
                         </div>
+                        <PieChart/>
                     </Col>
                 </Row>
                 <Row style={{marginLeft:10,marginBottom:10,marginTop:35}}>

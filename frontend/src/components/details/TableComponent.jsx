@@ -87,7 +87,7 @@ class TableComponent extends Component {
         const idKey = this.props.id;
         return (
             // TODO:left margin value needed to be fixed
-            <Container fluid={true} style={{ padding: 0 }}>
+            <Container fluid={true} >
                 {/* TODO: dynamic display of product and model */}
                 <h5 className='TableTitle'>
                     Large Power Transformer
@@ -100,7 +100,7 @@ class TableComponent extends Component {
                     <thead>
                         <tr
                             key={'FirstRow'}
-                            style={{ backgroundColor:'#88b598'}}
+                            style={{ backgroundColor:'#82baa9'}}
                         >
                             {this.state.headers.map((item) => (
                                 <th key={idKey + 'thead' + item.key}>{item.value}</th>
