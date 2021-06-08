@@ -1,5 +1,4 @@
 import React from 'react';
-import theme from 'resources/theme';
 
 /**
  * Displaying a label.
@@ -8,11 +7,7 @@ import theme from 'resources/theme';
  */
 
 function LabelComponent({ productName }) {
-    return (
-        <span className='LabelTextContent'>
-            {productName}
-        </span>
-    );
+    return <span className='LabelTextContent'>{productName}</span>;
 }
 
 export default LabelComponent;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from 'react-grid-system';
-import theme from 'resources/theme';
+import { getImpactCategoriesTableHeaders } from 'interface/projectInterface';
 /**
  *
  * @returns the impact catagories table of the selected model of the related product.
@@ -11,15 +11,7 @@ import theme from 'resources/theme';
  */
 class TableComponent extends Component {
     state = {
-        headers: [
-            { key: 'header-1', value: 'Impact Category' },
-            { key: 'header-2', value: 'Unit' },
-            { key: 'header-3', value: 'total' },
-            { key: 'header-4', value: 'Materials LPT' },
-            { key: 'header-5', value: 'Manufacturing and Transport' },
-            { key: 'header-6', value: 'Operations' },
-            { key: 'header-7', value: 'End of Life' }
-        ],
+        headers: getImpactCategoriesTableHeaders(),
         rows: [
             {
                 key: 'row-1',
@@ -87,21 +79,14 @@ class TableComponent extends Component {
         const idKey = this.props.id;
         return (
             // TODO:left margin value needed to be fixed
-            <Container fluid={true} >
+            <Container fluid={true}>
                 {/* TODO: dynamic display of product and model */}
-                <h5 className='TableTitle'>
-                    Large Power Transformer
-                </h5>
-                <h6 className='TableSubTitle'>
-                    3 Phase GSU transformer
-                </h6>
+                <h5 className='TableTitle'>Large Power Transformer</h5>
+                <h6 className='TableSubTitle'>3 Phase GSU transformer</h6>
 
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
                     <thead>
-                        <tr
-                            key={'FirstRow'}
-                            style={{ backgroundColor:'#82baa9'}}
-                        >
+                        <tr key={'FirstRow'} style={{ backgroundColor: '#82baa9' }}>
                             {this.state.headers.map((item) => (
                                 <th key={idKey + 'thead' + item.key}>{item.value}</th>
                             ))}

@@ -68,3 +68,28 @@ export function getLifeCycleStages(modelName) {
 export function getImpactAssessmentData(modelName) {
     return [37, 3, 90, -50];
 }
+
+/**
+ * * QUESTION: life cycle stages fixed?
+ * @param modelName name of the model, which we want to get the Data
+ */
+export function getImpactCategoriesTableHeaders(modelName) {
+    return [
+        { key: 'header-1', value: 'Impact Category' },
+        { key: 'header-2', value: 'Unit' },
+        { key: 'header-3', value: 'Total' },
+        { key: 'header-4', value: 'Materials LPT' },
+        { key: 'header-5', value: 'Manufacturing and Transport' },
+        { key: 'header-6', value: 'Operations' },
+        { key: 'header-7', value: 'End of Life' }
+    ];
+}
+/**
+ * QUESTION: how is the data structured?
+ * Do we need to extract the data from a data structure?
+ * @param modelName name of the model, which we want to get the Data
+ */
+export function getImpactCategoriesTableData(modelName) {
+    //TODO:
+    return null;
+}

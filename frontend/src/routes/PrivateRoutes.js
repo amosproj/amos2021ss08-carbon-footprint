@@ -12,7 +12,6 @@ import SLUGS from 'resources/slugs';
 import LoadingComponent from 'components/loading';
 import DetailsComponent from 'components/details/DetailsComponent';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
-import { useTheme, createUseStyles } from 'react-jss';
 import GenerationInfo from 'components/productGrid/GenerationInfo';
 import TransmissionInfo from 'components/productGrid/TransmissionInfo';
 import IndustrialApplicationInfo from 'components/productGrid/IndustrialApplicationInfo';
@@ -73,11 +72,7 @@ function PrivateRoutes() {
                     <Route
                         exact
                         path={SLUGS.categories}
-                        render={() => (
-                            <div className='TextContent'>
-                                categories
-                            </div>
-                        )}
+                        render={() => <div className='TextContent'>categories</div>}
                     />
 
                     <Route
@@ -86,7 +81,7 @@ function PrivateRoutes() {
                         component={GenerationInfo}
                         // render={() => (
                         //     <div className='TextContent'>
-                        //         Short info about Generation category                               
+                        //         Short info about Generation category
 
                         //     </div>
                         // )}
@@ -134,21 +129,11 @@ function PrivateRoutes() {
                     <Route
                         exact
                         path={SLUGS.settings}
-                        render={() => (
-                            <div className='TextContent'>
-                                settings
-                            </div>
-                        )}
+                        render={() => <div className='TextContent'>settings</div>}
                     />
-                    
-                    <Route                                          
-                        exact
-                        path={SLUGS.logout}
-                        Component = {LoginComponent}>                                         
-                        
-                    </Route>  
-                    
-                    
+
+                    <Route exact path={SLUGS.logout} Component={LoginComponent}></Route>
+
                     <Redirect to={SLUGS.login} />
                 </Switch>
             </Suspense>
