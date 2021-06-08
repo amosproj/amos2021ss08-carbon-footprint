@@ -44,41 +44,11 @@ export async function postCalculationRequest(projectId) {
         });
     console.log('RESULT!!!!!!1');
     console.log(calcId);
-    //let storageData = false;
     await timeout(500);
-    //let itr = 1;
-    //var delayInMilliseconds = 500;
-    /* do {
-        //setTimeout(function (calcId) {
-        //  storageData = isCalculationStored(calcId);
-        //}, delayInMilliseconds);
-        //setTimeout(isCalculationStored(calcId), 500, calcId);
-        console.log('inside do while');
-        /*setTimeout(function () {
-            alert('Loading');
-        }, 500);
-       
-        if (isCalculationStored(calcId) !== true) {
-            storageData = false;
-        } else {
-            storageData = true;
-            console.log('True');
-        }
-        //function delay() {}
-        console.log(storageData);
-    } while (storageData === false);
-    console.log(storageData);
-    console.log('out of do while'); */
-
     while (isCalculationStored(calcId) === false) {
         await timeout(5000);
         console.log(isCalculationStored(calcId));
     }
-    //else {
-    //  await timeout(5000);
-    //console.log('5 Sec timer');
-    //}
-
     let rtr = await postCalculationResultRequest(calcId);
     console.log(rtr);
     return true;
@@ -101,8 +71,6 @@ async function getCalculationState(calculationId) {
             const items = data;
             calculationState = items.data.Result;
         });
-    //console.log('calculationState');
-    //console.log(calculationState);
     return calculationState;
 }
 
@@ -123,6 +91,8 @@ async function postCalculationResultRequest(calculationId) {
     // POST request using axios with set headers
     console.log('post result retirve');
     console.log(calculationId);
+    // Tried changing headers to fix the 404 error during the run time which is not working.
+    //Getting a 404 error.It is the issue with the post request.
     const headers = {
         Authorization: 'Bearer',
         MyCustomHeader: 'foobar',
