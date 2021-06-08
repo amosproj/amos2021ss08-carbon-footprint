@@ -5,6 +5,10 @@ const headers = {
     'My-Custom-Header': 'foobar'
 };
 
+function timeout(delay) {
+    return new Promise((res) => setTimeout(res, delay));
+}
+
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -40,12 +44,41 @@ export async function postCalculationRequest(projectId) {
         });
     console.log('RESULT!!!!!!1');
     console.log(calcId);
+    //let storageData = false;
+    await timeout(500);
+    //let itr = 1;
+    //var delayInMilliseconds = 500;
+    /* do {
+        //setTimeout(function (calcId) {
+        //  storageData = isCalculationStored(calcId);
+        //}, delayInMilliseconds);
+        //setTimeout(isCalculationStored(calcId), 500, calcId);
+        console.log('inside do while');
+        /*setTimeout(function () {
+            alert('Loading');
+        }, 500);
+       
+        if (isCalculationStored(calcId) !== true) {
+            storageData = false;
+        } else {
+            storageData = true;
+            console.log('True');
+        }
+        //function delay() {}
+        console.log(storageData);
+    } while (storageData === false);
+    console.log(storageData);
+    console.log('out of do while'); */
 
-    let calculationIsStored = setInterval(isCalculationStored(calcId), 2000);
-    console.log(calculationIsStored);
-    //while (!calculationIsStored) {}
-    clearInterval(calculationIsStored);
+    if (isCalculationStored(calcId) === true) {
+        console.log(isCalculationStored(calcId));
+    } else {
+        await timeout(5000);
+        console.log('5 Sec timer');
+    }
 
+    let rtr = await postCalculationResultRequest(calcId);
+    console.log(rtr);
     return true;
     //return await postCalculationResultRequest(calcId);
 }
@@ -66,8 +99,8 @@ async function getCalculationState(calculationId) {
             const items = data;
             calculationState = items.data.Result;
         });
-    console.log('calculationState');
-    console.log(calculationState);
+    //console.log('calculationState');
+    //console.log(calculationState);
     return calculationState;
 }
 
@@ -77,7 +110,6 @@ async function getCalculationState(calculationId) {
  * @returns true if the calculation is stored
  */
 async function isCalculationStored(calculationId) {
-    console.log('isCalculationStored');
     return getCalculationState(calculationId) === 'Stored' ? true : false;
 }
 
@@ -87,6 +119,9 @@ async function isCalculationStored(calculationId) {
  */
 async function postCalculationResultRequest(calculationId) {
     // POST request using axios with set headers
+    console.log('post result retirve');
+    console.log(calculationId);
+
     let result = axios.post(
         `https://localhost:44323/SimaPro/api/calculation/result/${calculationId}`,
         {
