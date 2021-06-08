@@ -126,7 +126,7 @@ function PrivateRoutes() {
                     </Route>   */}
                     
                     
-                    <Redirect to={SLUGS.logout} />
+                    <Redirect to={SLUGS.dashboard} />
                 </Switch>
             </Suspense>
         </Router>
