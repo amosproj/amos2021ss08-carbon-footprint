@@ -4,6 +4,7 @@ import SelectVariable from './SelectVariableComponent';
 import DividerPanel from './PanelComponent';
 import theme from 'resources/theme';
 import axios from 'axios';
+import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 
@@ -42,16 +43,11 @@ class DetailsComponent extends Component {
             this.setState({ compareCanvas });
         };
 
-        let handleExportPdfButton = async () => {
-            console.log('handle export');
-            const user = {
-                name: 'parham'
-            };
-
-            const res = await axios.post(`https://jsonplaceholder.typicode.com/users`, { user });
-
-            console.log(res);
-            console.log(res.data);
+        let handleExportPdfButton = () => {
+            let div = document.getElementById('capture');
+            html2canvas(div).then(function (canvas) {
+                document.getElementById('capture').appendChild(canvas);
+            });
         };
 
         const scenarioNames = {
@@ -61,7 +57,7 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
         if (!this.state.compareCanvas) {
             return (
-                <React.Fragment>
+                <div id='capture'>
                     <DividerPanel
                         loadComparePage={this.state.compareCanvas}
                         onCompareClick={handleCompareButton}
@@ -74,11 +70,11 @@ class DetailsComponent extends Component {
                     </div>
 
                     <Canvas loadComparePage={this.state.compareCanvas} />
-                </React.Fragment>
+                </div>
             );
         } else {
             return (
-                <Container fluid={true}>
+                <Container id='capture' fluid={true}>
                     <Row>
                         <Col
                             xs={12}
