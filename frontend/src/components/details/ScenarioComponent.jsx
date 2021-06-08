@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CanvasComponent from './CanvasComponent';
 import SelectVariableComponent from './SelectVariableComponent';
 import NavbarComponent from './NavbarComponent';
 import PieChart from './PieChartComponent';
@@ -13,38 +12,40 @@ class ScenarioComponent extends Component {
         console.log(this.props);
 
         return (
-            <Container fluid={true} style={{ backgroundColor: '#ededed',paddingRight:0,paddingLeft:0}} >
+            <Container
+                fluid={true}
+                style={{ backgroundColor: '#ededed', paddingRight: 0, paddingLeft: 0 }}
+            >
                 <NavbarComponent
-                    loadComparePage={this.props.compareCanvas}
+                    loadComparePage={this.props.loadComparePage}
                     onCompareClick={this.props.onCompareClick}
                     scenarioName={this.props.scenarioName.baseline}
                 />
-                
-                <h2 className='TextContent'>The chosen Model is <b>{this.props.selectedProduct.modelName}</b></h2>
-                <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
-                <Row style={{marginLeft:10}}>
 
-                    <Col xs={12} sm={12} md={12} lg={6}  className='CardsContainer'  >
-                        <div className='CardTitle' >
-                            <span>Results of the impact assessment</span>           
+                <h2 className='TextContent'>
+                    The chosen Model is <b>{this.props.selectedProduct.modelName}</b>
+                </h2>
+                <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
+                <Row style={{ marginLeft: 10 }}>
+                    <Col xs={12} sm={12} md={12} lg={6} className='CardsContainer'>
+                        <div className='CardTitle'>
+                            <span>Results of the impact assessment</span>
                         </div>
-                        <ColumnChart/>
+                        <ColumnChart />
                     </Col>
-                    <Col lg={1}/>
+                    <Col lg={1} />
                     <Col xs={12} sm={12} md={12} lg={4} className='PieChartCardsContainer'>
-                        <div className='CardTitle' >
+                        <div className='CardTitle'>
                             <span>Material Composition</span>
                         </div>
-                        <PieChart/>
+                        <PieChart />
                     </Col>
                 </Row>
-                <Row style={{marginLeft:10,marginBottom:10,marginTop:35}}>
-                    <Col xs={12} sm={12} md={12} lg={11} className='TableContainer' >
+                <Row style={{ marginLeft: 10, marginBottom: 10, marginTop: 35 }}>
+                    <Col xs={12} sm={12} md={12} lg={11} className='TableContainer'>
                         <Table></Table>
                     </Col>
-
                 </Row>
-
             </Container>
         );
     }

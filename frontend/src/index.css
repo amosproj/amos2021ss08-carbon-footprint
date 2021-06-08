@@ -140,6 +140,19 @@ body {
     margin-bottom: 10px;
 }
 
+
+/* Reconfiguration of  the back icon style on the header bar */
+.HeaderBackIconSyle {
+    float: left;
+    padding: 12px;
+    background-color: #468c46 ;/* #466e78;*/
+    text-decoration: none;
+    font-size: 20px;
+    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: right; /* If you want the text to be centered */
+    border-style: none;
+}
+
 /* Reconfiguration of  the username style on the header bar */
 .HeaderUserName {
     font-family: inherit;
@@ -239,8 +252,7 @@ body {
     letter-spacing: 0.5px;
     color: #000000;
     margin-bottom:10px;
-    padding-left:90px;
-    padding-right:90px;
+
 }
 
 /* Reconfiguration of the subtitle style on table  */
@@ -349,12 +361,12 @@ body {
 
 }
 .Separator {
-    border-left: '1px';
+    border: 5px;
     /* margin-left: 40;
     margin-right: 10; */
-    margin-top: 5;
-    height: 30;
-    width: 5;
+    margin-top: 5px;
+    height: 100px;
+    width: 10px;
     color: #8b8d94;
 }
 /* Reconfiguration of  the icon style on the side bar */

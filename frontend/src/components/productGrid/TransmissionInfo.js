@@ -14,8 +14,18 @@ function TransmissionInfo() {
         a rise in global demand, an increased focus on our environment, the 
         adaptation of digital solutions that optimize our performance and more.
         Creating a sustainable, digital, and stable transmission grid comes with
-        challenges – challenges that our team at Siemens Energy is best equipped 
-        for as your leading industry partner.
+        challenges – challenges that our team- Carbon Footprint Visualization at 
+        Siemens is best equipped for as your leading industry partner.
+        We meet the rising global demand for electricity by maintaining reliable
+        power supply with interconnected grids, load balancing and power flow 
+        management – increasing both transmission capacity and efficiency for a 
+        stabilized grid. We contribute to making energy greener by connecting 
+        renewables reliably and with lowest losses, bridging long distances 
+        from generation to where energy is needed. We open the door to a world 
+        of opportunity by adopting and fostering digital solutions. Through our 
+        digitalization transformation, we use advanced intelligence that enhances 
+        productivity, optimizes performance, and protects your assets with extended 
+        cybersecurity.
         </p>
       </div>
       <div class="w3-col m6 l6 w3-padding-small">

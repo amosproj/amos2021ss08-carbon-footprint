@@ -14,7 +14,15 @@ function IndustrialApplicationInfo() {
          used worldwide and a large share of global CO₂ emissions. Our Industrial
          Applications division plays a crucial role in helping customers transition
          to a lower-carbon world that protects our health and environment without 
-         compromising competitiveness, efficiency, safety, and reliability.
+         compromising competitiveness, efficiency, safety, and reliability.It is 
+         committed to serving diverse industrial markets by delivering innovative 
+         products, solutions, and services that address environmental, societal, 
+         and financial concerns.
+         The transition to a low-carbon future is a journey with many steps. It 
+         will take time and require a range of both mature and emerging technologies.
+        We help our customers navigate this dynamic journey by providing a strong 
+        portfolio of Rotating equipment, a full suite of services for that equipment, 
+        and Electrical, Automation, and Digitalization solutions, systems, and services. 
         </p>
       </div>
       <div class="w3-col m6 l6 w3-padding-small">
