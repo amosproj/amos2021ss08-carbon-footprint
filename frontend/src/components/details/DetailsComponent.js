@@ -4,7 +4,6 @@ import SelectVariable from './SelectVariableComponent';
 import DividerPanel from './PanelComponent';
 import theme from 'resources/theme';
 import { jsPDF } from 'jspdf';
-import axios from 'axios';
 import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
