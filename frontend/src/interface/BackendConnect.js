@@ -123,12 +123,15 @@ async function postCalculationResultRequest(calculationId) {
     // POST request using axios with set headers
     console.log('post result retirve');
     console.log(calculationId);
-
+    const headers = {
+        Authorization: 'Bearer',
+        MyCustomHeader: 'foobar',
+        AcceptEncoding: 'gzip, deflate, br',
+        Connection: 'keep-alive'
+    };
     let result = axios.post(
         `https://localhost:44323/SimaPro/api/calculation/result/${calculationId}`,
-        {
-            headers
-        }
+        { headers }
     );
     console.log('RESULT!!!!!!2');
     console.log(result);
