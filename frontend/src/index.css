@@ -239,6 +239,8 @@ body {
     letter-spacing: 0.5px;
     color: #000000;
     margin-bottom:10px;
+    padding-left:90px;
+    padding-right:90px;
 }
 
 /* Reconfiguration of the subtitle style on table  */
@@ -296,6 +298,7 @@ body {
     font-size: 14px;
     letter-spacing: 0.5px;
     color: #000000;
+
 }
 
 .CardsContainer {
