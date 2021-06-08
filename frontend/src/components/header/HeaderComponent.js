@@ -105,6 +105,7 @@ function HeaderComponent() {
             </div>
 
             <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
+
                 <div className='HeaderIconSyle'>
                     <i className='fa fa-user-circle-o' color='white' />
                 </div>
