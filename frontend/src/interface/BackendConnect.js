@@ -70,12 +70,14 @@ export async function postCalculationRequest(projectId) {
     console.log(storageData);
     console.log('out of do while'); */
 
-    if (isCalculationStored(calcId) === true) {
-        console.log(isCalculationStored(calcId));
-    } else {
+    while (isCalculationStored(calcId) === false) {
         await timeout(5000);
-        console.log('5 Sec timer');
+        console.log(isCalculationStored(calcId));
     }
+    //else {
+    //  await timeout(5000);
+    //console.log('5 Sec timer');
+    //}
 
     let rtr = await postCalculationResultRequest(calcId);
     console.log(rtr);
@@ -131,7 +133,7 @@ async function postCalculationResultRequest(calculationId) {
     console.log('RESULT!!!!!!2');
     console.log(result);
     //.then(response => this.setState({ articleId: response.data.id }));
-    return true;
+    return result;
 }
 
 /**
