@@ -20,7 +20,7 @@ class ScenarioComponent extends Component {
                     scenarioName={this.props.scenarioName.baseline}
                 />
                 
-                <h2 className='TextContent'>The chosen Model is {this.props.selectedProduct.modelName}</h2>
+                <h2 className='TextContent'>The chosen Model is <b>{this.props.selectedProduct.modelName}</b></h2>
                 <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
                 <Row style={{marginLeft:10}}>
 

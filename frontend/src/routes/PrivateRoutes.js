@@ -84,32 +84,15 @@ function PrivateRoutes() {
                         exact
                         path={SLUGS.generation}
                         component={GenerationInfo}
-                        // render={() => (
-                        //     <div className='TextContent'>
-                        //         Short info about Generation category                               
-
-                        //     </div>
-                        // )}
                     />
                     <Route
                         exact
                         path={SLUGS.transmission}
                         component={TransmissionInfo}
-                        // render={() => (
-                        //     <div className='TextContent'>
-                        //         Short info about Transmission category
-                        //     </div>
-                        // )}
                     />
                     <Route
                         exact
                         path={SLUGS.industrialApplications}
-                        component={IndustrialApplicationInfo}
-                        // render={() => (
-                        //     <div className='TextContent'>
-                        //         Short info about Industrial Applications
-                        //     </div>
-                        // )}
                     />
 
                     <Route
@@ -136,20 +119,19 @@ function PrivateRoutes() {
                         path={SLUGS.settings}
                         render={() => (
                             <div className='TextContent'>
-                                settings
+                                <span>settings</span>
                             </div>
                         )}
                     />
                     
-                    <Route                                          
+                    {/* <Route                                          
                         exact
                         path={SLUGS.logout}
                         Component = {LoginComponent}>                                         
-                        
-                    </Route>  
+                    </Route>   */}
                     
                     
-                    <Redirect to={SLUGS.login} />
+                    <Redirect to={SLUGS.logout} />
                 </Switch>
             </Suspense>
         </Router>

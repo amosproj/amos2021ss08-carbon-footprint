@@ -6,8 +6,7 @@ import { convertSlugToUrl } from 'resources/utilities';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
 import logo from 'assets/logo/LogoCarbonteam.png';
-import LoginComponent from 'components/login/LoginComponent';
-import slugs from 'resources/slugs';
+import { Link } from 'react-router-dom';
 
 /**
  * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
@@ -182,7 +181,22 @@ function SidebarComponent() {
                 onClick={() => onClick(SLUGS.settings)}
             />
 
-            <MenuItem id='logout' title='Logout' icon="fa fa-sign-out"  onClick={() => onClick(logout)} />
+            <MenuItem
+                id={SLUGS.logout}
+                title='Logout'
+                icon="fa fa-sign-out"
+                onClick={() => onClick(logout)}
+            />
+
+
+            {/* // <Link
+            //     to={{
+            //         // Link to the next page
+            //         pathname: SLUGS.details
+            //     }}
+            // >
+            //     <MenuItem title='Logout' icon="fa fa-sign-out" />
+            // </Link> */}
         </Menu>
     );
 }
