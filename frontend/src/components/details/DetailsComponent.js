@@ -3,6 +3,7 @@ import Canvas from './CanvasComponent';
 import SelectVariable from './SelectVariableComponent';
 import DividerPanel from './PanelComponent';
 import theme from 'resources/theme';
+import { jsPDF } from 'jspdf';
 import axios from 'axios';
 import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
@@ -44,9 +45,25 @@ class DetailsComponent extends Component {
         };
 
         let handleExportPdfButton = () => {
-            let div = document.getElementById('capture');
-            html2canvas(div).then(function (canvas) {
-                document.getElementById('capture').appendChild(canvas);
+            // geting the element that should be exported
+            var div = document.getElementById('capture');
+
+            // converting html to an image and then exporting it by pdf
+            html2canvas(div).then((canvas) => {
+                var imgData = canvas.toDataURL('image/jpeg', 1);
+                // pdf configuration
+                var pdf = new jsPDF('p', 'mm', 'a4');
+                var pageWidth = pdf.internal.pageSize.getWidth();
+                var pageHeight = pdf.internal.pageSize.getHeight();
+                var imageWidth = canvas.width;
+                var imageHeight = canvas.height;
+
+                var ratio =
+                    imageWidth / imageHeight >= pageWidth / pageHeight
+                        ? pageWidth / imageWidth
+                        : pageHeight / imageHeight;
+                pdf.addImage(imgData, 'JPEG', 0, 0, imageWidth * ratio, imageHeight * ratio);
+                pdf.save('invoice.pdf');
             });
         };
 
