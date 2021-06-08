@@ -45,7 +45,7 @@ namespace Backend
 
             //Used to intercept and process frontend requests.
             services.AddTransient<RequestInterceptorDelegatingHandler>();
-
+            //Decompress the gZip results recieved from the api
             HttpClientHandler handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
 
             services.AddHttpClient("SimaProClient",
