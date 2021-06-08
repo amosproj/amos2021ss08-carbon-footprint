@@ -16,6 +16,7 @@ import { useTheme, createUseStyles } from 'react-jss';
 import GenerationInfo from 'components/productGrid/GenerationInfo';
 import TransmissionInfo from 'components/productGrid/TransmissionInfo';
 import IndustrialApplicationInfo from 'components/productGrid/IndustrialApplicationInfo';
+import LoginComponent from 'components/login/LoginComponent';
 const ProductSolutionsServices = lazy(() =>
     import('./dynamicPaths/ProductSolutionsServicesComponent')
 );
@@ -139,8 +140,16 @@ function PrivateRoutes() {
                             </div>
                         )}
                     />
-
-                    <Redirect to={SLUGS.dashboard} />
+                    
+                    <Route                                          
+                        exact
+                        path={SLUGS.logout}
+                        Component = {LoginComponent}>                                         
+                        
+                    </Route>  
+                    
+                    
+                    <Redirect to={SLUGS.login} />
                 </Switch>
             </Suspense>
         </Router>

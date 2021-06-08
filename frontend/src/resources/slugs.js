@@ -20,6 +20,7 @@ const slugs = {
     categories: '/categories',
     inbox: './inbox',
     settings: '/settings',
+    logout: '/logout',
     // auth
     login: '/login',
     signup: '/signup',
