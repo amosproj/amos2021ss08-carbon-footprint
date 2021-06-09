@@ -19,11 +19,7 @@ class SelectVariableComponent extends Component {
     state = {
         selectedVariable: 'variable 1',
         secondVariable: 'variable 2',
-        variables: [
-            { id: '1', name: 'variable 1' },
-            { id: '2', name: 'variable 2' },
-            { id: '3', name: 'variable 3' }
-        ]
+        variables: [{ id: '1', name: 'variable 1' }]
     };
 
     handleSubmit = () => {
