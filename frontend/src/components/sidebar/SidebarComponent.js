@@ -6,7 +6,6 @@ import { convertSlugToUrl } from 'resources/utilities';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
 import logo from 'assets/logo/LogoCarbonteam.png';
-import { Link } from 'react-router-dom';
 
 /**
  * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar

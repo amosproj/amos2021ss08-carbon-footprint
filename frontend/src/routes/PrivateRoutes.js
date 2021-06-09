@@ -14,8 +14,6 @@ import DetailsComponent from 'components/details/DetailsComponent';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import GenerationInfo from 'components/productGrid/GenerationInfo';
 import TransmissionInfo from 'components/productGrid/TransmissionInfo';
-import IndustrialApplicationInfo from 'components/productGrid/IndustrialApplicationInfo';
-import LoginComponent from 'components/login/LoginComponent';
 const ProductSolutionsServices = lazy(() =>
     import('./dynamicPaths/ProductSolutionsServicesComponent')
 );

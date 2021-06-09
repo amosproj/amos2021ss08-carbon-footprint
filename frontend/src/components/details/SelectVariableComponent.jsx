@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import theme from 'resources/theme';
 
 /**
  * a drop down component for selecting variable
@@ -52,17 +51,19 @@ class SelectVariableComponent extends Component {
                 <div className='w3-col l6 m6 s3'>
                     <h4 className='TextContent'>Select your desire variable:</h4>
                 </div>
-                <div className='w3-col l6 m6 s8 w3-left' >
+                <div className='w3-col l6 m6 s8 w3-left'>
                     <div className='w3-dropdown-hover  w3-margin-right w3-margin-top w3-margin-bottom'>
-                        <button className='w3-button' style={{backgroundColor:'#468c46'}}>
+                        <button className='w3-button' style={{ backgroundColor: '#468c46' }}>
                             <div className='ButtonTitle'>{this.state.selectedVariable}</div>
                         </button>
-                        <div className='w3-dropdown-content w3-bar-block w3-border' >
+                        <div className='w3-dropdown-content w3-bar-block w3-border'>
                             {this.state.variables.map((item) => (
                                 <div className='ButtonTitle'>
-                                    <button 
-                                        onClick={() => this.onDropDownItemSelectedHandler(item.name)}
-                                        className='w3-bar-item w3-button' 
+                                    <button
+                                        onClick={() =>
+                                            this.onDropDownItemSelectedHandler(item.name)
+                                        }
+                                        className='w3-bar-item w3-button'
                                         key={item.id}
                                     >
                                         {item.name}

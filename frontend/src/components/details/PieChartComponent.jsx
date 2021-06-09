@@ -18,15 +18,12 @@ const PieChartComponent = () => {
     const options = {
         //TODO
         maintainAspectRatio: true,
-        responsive: true,
         legend: {
-            position: 'top'
+            position: 'top',
+            fontSize: 10
         },
         chart: {
             type: 'donut'
-        },
-        legend: {
-            fontSize: 10
         },
         pie: {
             expandOnClick: true
@@ -42,7 +39,6 @@ const PieChartComponent = () => {
             theme.color.SiliconSteel,
             theme.color.Copper
         ],
-
         responsive: [
             {
                 breakpoint: 5000,
