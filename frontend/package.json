@@ -3,11 +3,11 @@
     "name": "carbon_footprint_visualizer_frontend",
     "version": "0.1.0",
     "private": true,
-    "proxy": "https://localhost:44323/SimaPro",
     "dependencies": {
         "@react-pdf/renderer": "^2.0.12",
         "apexcharts": "^3.26.1",
         "axios": "^0.21.1",
+        "cors": "^2.8.5",
         "html2canvas": "^1.0.0-rc.7",
         "jspdf": "^2.3.1",
         "jspdf-autotable": "^3.5.14",

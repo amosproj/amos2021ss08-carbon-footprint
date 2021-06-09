@@ -4,6 +4,7 @@ import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
+// import { postCalculationRequest } from 'interface/BackendConnect';
 
 /**
  * the main component for detail page which includes
@@ -61,6 +62,8 @@ class DetailsComponent extends Component {
             modified: 'modified Scenario'
         };
         const { selectedProduct } = this.props;
+
+        // postCalculationRequest(selectedProduct.productID);
 
         if (!this.state.loadComparePage) {
             return (
