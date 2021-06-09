@@ -3,14 +3,6 @@
 *
 */
 
-html,
-body,
-#root,
-.App {
-    height: 100%;
-    overflow: auto;
-}
-
 /* Vertically Centering Container */
 .flex-container {
     display: flex;

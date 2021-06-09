@@ -20,7 +20,6 @@ class ScenarioComponent extends Component {
                     loadComparePage={this.props.loadComparePage}
                     onCompareClick={this.props.onCompareClick}
                     scenarioName={this.props.scenarioName.baseline}
-                    onExportClicked={this.props.onExportClicked}
                 />
 
                 <h2 className='TextContent'>

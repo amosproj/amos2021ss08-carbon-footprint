@@ -64,7 +64,7 @@ class DetailsComponent extends Component {
 
         if (!this.state.loadComparePage) {
             return (
-                <Container id='capture' fluid={true} style={{ padding: 0 }}>
+                <Container id='capture' fluid={true} style={{ padding: 'auto' }}>
                     <Row style={{ padding: 0 }}>
                         <Col>
                             <ScenarioComponent
@@ -81,14 +81,8 @@ class DetailsComponent extends Component {
         } else {
             return (
                 <Container id='capture' fluid={true} style={{ padding: 0, margin: 0 }}>
-                    <Row>
-                        <Col
-                            xs={6}
-                            sm={6}
-                            md={6}
-                            lg={6}
-                            style={{ backgroundColor: 'white', padding: 0 }}
-                        >
+                    <Row gutterWidth={0}>
+                        <Col xs={6} sm={6} md={6} lg={6} style={{ padding: 0 }}>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
@@ -98,13 +92,7 @@ class DetailsComponent extends Component {
                             />
                         </Col>
 
-                        <Col
-                            xs={6}
-                            sm={6}
-                            md={6}
-                            lg={6}
-                            style={{ backgroundColor: 'white', padding: 0, margin: 0 }}
-                        >
+                        <Col xs={6} sm={6} md={6} lg={6} style={{ padding: 0 }}>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}

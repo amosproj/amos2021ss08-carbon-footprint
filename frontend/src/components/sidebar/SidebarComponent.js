@@ -6,12 +6,8 @@ import { convertSlugToUrl } from 'resources/utilities';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
 import logo from 'assets/logo/LogoCarbonteam.png';
-
-/**
- * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
- *
- * @author Irem Toroslu, Martin Wagner
- */
+import { useContext } from 'react';
+import { GlobalContext } from 'hooks/GlobalContext';
 
 const useStyles = createUseStyles({
     separator: {
@@ -22,13 +18,20 @@ const useStyles = createUseStyles({
     }
 });
 
-function SidebarComponent() {
+/**
+ * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
+ *
+ * @author Irem Toroslu, Martin Wagner
+ */
+function SidebarComponent({ pageWrapId, outerContainerId }) {
     const { push } = useHistory();
     const theme = useTheme();
     const classes = useStyles({ theme });
     const isMobile = window.innerWidth <= 1080;
+    const [, setState] = useContext(GlobalContext);
 
     async function logout() {
+        setState({ userIsLoggedIn: false });
         push(SLUGS.login);
     }
 
@@ -49,9 +52,9 @@ function SidebarComponent() {
     }
 
     return (
-        <Menu isMobile={isMobile}>
+        <Menu pageWrapId={pageWrapId} outerContainerId={outerContainerId} isMobile={isMobile}>
             <div className='TeamLogo'>
-                <img alt='' src={logo} />
+                <img alt='' src={logo} style={{ marginTop: 20, marginBottom: 20 }} />
             </div>
             <MenuItem
                 id={SLUGS.dashboard}
@@ -178,21 +181,7 @@ function SidebarComponent() {
                 onClick={() => onClick(SLUGS.settings)}
             />
 
-            <MenuItem
-                id={SLUGS.logout}
-                title='Logout'
-                icon='fa fa-sign-out'
-                onClick={() => onClick(logout)}
-            />
-
-            {/* // <Link
-            //     to={{
-            //         // Link to the next page
-            //         pathname: SLUGS.details
-            //     }}
-            // >
-            //     <MenuItem title='Logout' icon="fa fa-sign-out" />
-            // </Link> */}
+            <MenuItem id='logout' title='Logout' icon='fa fa-sign-out' onClick={() => logout()} />
         </Menu>
     );
 }

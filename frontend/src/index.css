@@ -10,6 +10,16 @@
     box-sizing: border-box;
 }
 
+/* Page Boder and scroll behaviour*/
+html,
+body,
+#root,
+.App {
+    height: 100%;
+    overflow-x: inherit;
+    overflow-y: auto;
+}
+
 /* Remove default padding */
 ul[class],
 ol[class] {
@@ -116,7 +126,7 @@ body {
 /* Reconfiguration of the header bar */
 .HeaderContainer {
     height: 70;
-    width: 200;
+    width: 100%;
     color: #000000;
 }
 /* Reconfiguration of  the title style on the header bar */
