@@ -31,23 +31,65 @@ export function getModels() {
 /**
  * should get the material compositon of a specific model
  * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
- * @param modelID the id of the specific model, which we want to display data
- * data is for the pie chart
+ * @param modelName name of the model, which we want to get the Data
  */
-export function getMaterialComposition() {
+export function getMaterialCompositionData(modelName) {
     return [17, 13, 3, 2, 1, 42, 21];
 }
-
 /**
- * @param modelID the id of the specific model, which we want to display data
+ * @param modelName name of the model, which we want to get the Data
  */
-export function getImpactCategories() {
-    return null;
+export function getMaterialCompositionLabels(modelName) {
+    return [
+        'Transformer oil',
+        'Steel',
+        'Pressboard',
+        'Stainless steel',
+        'Aluminium',
+        'Silicon steel',
+        'Copper'
+    ];
 }
 
 /**
- * @param modelID the id of the specific model, which we want to display data
+ * QUESTON: Do these categories stay the same?
+ * Impact Assessment is done for each of the life cycle stage
+ * @param modelName name of the model, which we want to get the Data
  */
-export function getResultsImpactAssessment() {
+export function getLifeCycleStages(modelName) {
+    return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
+}
+
+/**
+ * Impact Assessment is done for each life cycle stage
+ * QUESTION: amount of stages fixed?
+ * @param modelName name of the model, which we want to get the Data
+ */
+export function getImpactAssessmentData(modelName) {
     return [37, 3, 90, -50];
+}
+
+/**
+ * * QUESTION: life cycle stages fixed?
+ * @param modelName name of the model, which we want to get the Data
+ */
+export function getImpactCategoriesTableHeaders(modelName) {
+    return [
+        { key: 'header-1', value: 'Impact Category' },
+        { key: 'header-2', value: 'Unit' },
+        { key: 'header-3', value: 'Total' },
+        { key: 'header-4', value: 'Materials LPT' },
+        { key: 'header-5', value: 'Manufacturing and Transport' },
+        { key: 'header-6', value: 'Operations' },
+        { key: 'header-7', value: 'End of Life' }
+    ];
+}
+/**
+ * QUESTION: how is the data structured?
+ * Do we need to extract the data from a data structure?
+ * @param modelName name of the model, which we want to get the Data
+ */
+export function getImpactCategoriesTableData(modelName) {
+    //TODO:
+    return null;
 }

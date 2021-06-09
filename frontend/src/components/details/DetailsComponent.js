@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import Canvas from './CanvasComponent';
-import SelectVariable from './SelectVariableComponent';
-import DividerPanel from './PanelComponent';
-import theme from 'resources/theme';
+import ScenarioComponent from './ScenarioComponent';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
-import { postCalculationRequest } from 'interface/BackendConnect';
+// import { postCalculationRequest } from 'interface/BackendConnect';
 
 /**
  * the main component for detail page which includes
@@ -16,101 +15,94 @@ import { postCalculationRequest } from 'interface/BackendConnect';
  */
 class DetailsComponent extends Component {
     state = {
-        compareCanvas: false
+        loadComparePage: false
     };
 
     render() {
-        let styleSubtitle = {
-            fontSize: theme.typography.subtitle.fontSize,
-            fontWeight: theme.typography.subtitle.fontWeight,
-            lineHeight: theme.typography.subtitle.lineHeight,
-            letterSpacing: theme.typography.subtitle.letterSpacing,
-            marginLeft: 15
-        };
         /*
          the default canvas has to be divided into two canvases
          an extra drop down button for second variable should be rendered
          the compare button should be disabled 
          */
         let handleCompareButton = () => {
-            const compareCanvas = true;
+            const loadComparePage = true;
             /*
             now all components such as 
             canvas component should be notified 
             by setting the compareCanvas state to true
             */
-            this.setState({ compareCanvas });
+            this.setState({ loadComparePage });
         };
+
+        let handleExportPdfButton = () => {
+            // geting the element that should be exported
+            var div = document.getElementById('capture');
+
+            // converting html to an image and then exporting it by pdf
+            html2canvas(div).then((canvas) => {
+                var imgData = canvas.toDataURL('image/jpeg', 1);
+                // pdf configuration
+                var pdf = new jsPDF('p', 'mm', 'a4');
+                var pageWidth = pdf.internal.pageSize.getWidth();
+                var pageHeight = pdf.internal.pageSize.getHeight();
+                var imageWidth = canvas.width;
+                var imageHeight = canvas.height;
+
+                var ratio =
+                    imageWidth / imageHeight >= pageWidth / pageHeight
+                        ? pageWidth / imageWidth
+                        : pageHeight / imageHeight;
+                pdf.addImage(imgData, 'JPEG', 0, 0, imageWidth * ratio, imageHeight * ratio);
+                pdf.save('invoice.pdf');
+            });
+        };
+
         const scenarioNames = {
             baseline: 'Baseline Scenario',
             modified: 'modified Scenario'
         };
         const { selectedProduct } = this.props;
 
-        postCalculationRequest(selectedProduct.productID);
+        // postCalculationRequest(selectedProduct.productID);
 
-        if (!this.state.compareCanvas) {
+        if (!this.state.loadComparePage) {
             return (
-                <React.Fragment>
-                    <DividerPanel
-                        loadComparePage={this.state.compareCanvas}
-                        onCompareClick={handleCompareButton}
-                        scenarioName={scenarioNames.baseline}
-                    />
-                    <h2 style={styleSubtitle}>The chosen Model is {selectedProduct.modelName}</h2>
-                    <div style={{ marginLeft: 15 }}>
-                        <SelectVariable loadComparePage={this.state.compareCanvas} />
-                    </div>
-
-                    <Canvas loadComparePage={this.state.compareCanvas} />
-                </React.Fragment>
+                <Container id='capture' fluid={true} style={{ padding: 'auto' }}>
+                    <Row style={{ padding: 0 }}>
+                        <Col>
+                            <ScenarioComponent
+                                loadComparePage={this.state.loadComparePage}
+                                onCompareClick={handleCompareButton}
+                                onExportClicked={handleExportPdfButton}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
+                            />
+                        </Col>
+                    </Row>
+                </Container>
             );
         } else {
             return (
-                <Container fluid={true}>
-                    <Row>
-                        <Col
-                            xs={12}
-                            sm={12}
-                            md={5}
-                            lg={5}
-                            style={{ backgroundColor: 'white', margin: '1em' }}
-                        >
-                            <DividerPanel
-                                loadComparePage={this.state.compareCanvas}
+                <Container id='capture' fluid={true} style={{ padding: 0, margin: 0 }}>
+                    <Row gutterWidth={0}>
+                        <Col xs={6} sm={6} md={6} lg={6} style={{ padding: 0 }}>
+                            <ScenarioComponent
+                                loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames.baseline}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
+                                onExportClicked={handleExportPdfButton}
                             />
-                            <h2 style={styleSubtitle}>
-                                The chosen Model is {selectedProduct.modelName}
-                            </h2>
-                            <div style={{ marginLeft: 15 }}>
-                                <SelectVariable loadComparePage={this.state.compareCanvas} />
-                            </div>
-
-                            <Canvas loadComparePage={this.state.compareCanvas} />
                         </Col>
 
-                        <Col
-                            xs={12}
-                            sm={12}
-                            md={5}
-                            lg={5}
-                            style={{ backgroundColor: 'white', margin: '1em' }}
-                        >
-                            <DividerPanel
-                                loadComparePage={this.state.compareCanvas}
+                        <Col xs={6} sm={6} md={6} lg={6} style={{ padding: 0 }}>
+                            <ScenarioComponent
+                                loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames.modified}
+                                scenarioName={scenarioNames}
+                                selectedProduct={selectedProduct}
+                                onExportClicked={handleExportPdfButton}
                             />
-                            <h2 style={styleSubtitle}>
-                                The chosen Model is {selectedProduct.modelName}
-                            </h2>
-                            <div style={{ marginLeft: 15 }}>
-                                <SelectVariable loadComparePage={this.state.compareCanvas} />
-                            </div>
-
-                            <Canvas loadComparePage={this.state.compareCanvas} />
                         </Col>
                     </Row>
                 </Container>

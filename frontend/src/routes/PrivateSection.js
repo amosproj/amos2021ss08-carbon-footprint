@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { Column, Row } from 'simple-flexbox';
 import { SidebarComponent, SidebarContext } from 'components/sidebar';
 import HeaderComponent from 'components/header/HeaderComponent';
 import PrivateRoutes from './PrivateRoutes';
@@ -13,8 +12,9 @@ import { PrivateStateProvider } from 'hooks/PrivateSectionContext';
 
 const useStyles = createUseStyles({
     container: {
-        height: '100%',
-        minHeight: 850
+        marginLeft: 0,
+        marginRight: 0,
+        height: '100%'
     },
     mainBlock: {
         marginLeft: 200,
@@ -24,7 +24,6 @@ const useStyles = createUseStyles({
         }
     },
     contentBlock: {
-        marginTop: 54,
         marginLeft: 0
     }
 });
@@ -42,15 +41,18 @@ function PrivateSection() {
     return (
         <PrivateStateProvider>
             <SidebarContext>
-                <Row className={classes.container}>
-                    <SidebarComponent />
-                    <Column flexGrow={1} className={classes.mainBlock}>
+                <div id='outer-private-container'>
+                    <SidebarComponent
+                        pageWrapId={'page-wrap'}
+                        outerContainerId={'outer-private-container'}
+                    />
+                    <div id='page-wrap' style={{ width: 'calc(100% - 200px)' }}>
                         <HeaderComponent />
                         <div className={classes.contentBlock}>
                             <PrivateRoutes />
                         </div>
-                    </Column>
-                </Row>
+                    </div>
+                </div>
             </SidebarContext>
         </PrivateStateProvider>
     );
