@@ -5,6 +5,7 @@ import DividerPanel from './PanelComponent';
 import theme from 'resources/theme';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
+import { postCalculationRequest } from 'interface/BackendConnect';
 
 /**
  * the main component for detail page which includes
@@ -45,7 +46,10 @@ class DetailsComponent extends Component {
             modified: 'modified Scenario'
         };
         const { selectedProduct } = this.props;
-        if (!this.state.compareCanvas) {
+
+        postCalculationRequest(selectedProduct.productID);
+
+        if (!this.state.loadComparePage) {
             return (
                 <React.Fragment>
                     <DividerPanel
