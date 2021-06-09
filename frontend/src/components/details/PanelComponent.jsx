@@ -13,8 +13,10 @@ const PanelComponent = (props) => {
         <>
             <div className='navbar' vertical='center' horizontal='space-between'>
                 <b>{props.scenarioName}</b>
-                <button href={slugs.details}>
-                    <i className='fa fa-fw fa-heart' /> Favorites
+
+                <button href={slugs.details} onClick={props.onExportClicked}>
+                    <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
+                    Export Pdf
                 </button>
                 <button href={slugs.details} onClick={props.onCompareClick}>
                     <i className='fa fa-fw fa-plus-circle' /> Add
