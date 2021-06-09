@@ -34,28 +34,47 @@ const ModelDropdownComponent = (props) => {
         let variableName = variables[0].modelName;
 
         return (
-            <Container fluid={true}>
-                <Row className='w3-margin-top w3-margin-bottom:2em'>
-                    <Col xs={2}>
-                        <button
-                            title={variableName}
-                            className='w3-button'
-                            style={{
-                                color: theme.uniformStyle.color.secondaryFontColor,
-                                backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
-                                fontSize: theme.typography.buttontitle.fontSize,
-                                fontWeight: theme.typography.buttontitle.fontWeight,
-                                lineHeight: theme.typography.buttontitle.lineHeight,
-                                letterSpacing: theme.typography.buttontitle.letterSpacing
-                            }}
-                        >
-                            {variableName.length > 25
-                                ? variableName.substring(0, 25 - 3) + '...'
-                                : variableName}
-                        </button>
-                    </Col>
-                </Row>
-            </Container>
+            <div>
+                <div className='w3-margin-top w3-margin-bottom:2em'>
+                    <button
+                        title={variableName}
+                        className='w3-button'
+                        style={{
+                            color: theme.uniformStyle.color.secondaryFontColor,
+                            backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
+                            fontSize: theme.typography.buttontitle.fontSize,
+                            fontWeight: theme.typography.buttontitle.fontWeight,
+                            lineHeight: theme.typography.buttontitle.lineHeight,
+                            letterSpacing: theme.typography.buttontitle.letterSpacing
+                        }}
+                    >
+                        {variableName.length > 25
+                            ? variableName.substring(0, 25 - 3) + '...'
+                            : variableName}
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    if (variables.length === 0) {
+        return (
+            <div className='w3-margin-top w3-margin-bottom:2em'>
+                <button
+                    className='w3-button'
+                    disabled
+                    style={{
+                        color: theme.uniformStyle.color.secondaryFontColor,
+                        backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
+                        fontSize: theme.typography.buttontitle.fontSize,
+                        fontWeight: theme.typography.buttontitle.fontWeight,
+                        lineHeight: theme.typography.buttontitle.lineHeight,
+                        letterSpacing: theme.typography.buttontitle.letterSpacing
+                    }}
+                >
+                    There is no model available
+                </button>
+            </div>
         );
     }
 
