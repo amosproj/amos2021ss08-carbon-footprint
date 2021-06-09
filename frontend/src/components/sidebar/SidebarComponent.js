@@ -29,9 +29,9 @@ function SidebarComponent() {
     const classes = useStyles({ theme });
     const isMobile = window.innerWidth <= 1080;
 
-    // async function logout() {
-    //     push(SLUGS.login);
-    // }
+    async function logout() {
+        push(SLUGS.login);
+    }
 
     function onClick(slug, parameters = {}) {
         push(convertSlugToUrl(slug, parameters));
