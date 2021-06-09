@@ -12,7 +12,7 @@ import './navbar.css';
  */
 class DetailsComponent extends Component {
     state = {
-        compareCanvas: false
+        loadComparePage: false
     };
 
     render() {
@@ -22,26 +22,26 @@ class DetailsComponent extends Component {
          the compare button should be disabled 
          */
         let handleCompareButton = () => {
-            const compareCanvas = true;
+            const loadComparePage = true;
             /*
             now all components such as 
             canvas component should be notified 
             by setting the compareCanvas state to true
             */
-            this.setState({ compareCanvas });
+            this.setState({ loadComparePage });
         };
         const scenarioNames = {
             baseline: 'Baseline Scenario',
             modified: 'modified Scenario'
         };
         const { selectedProduct } = this.props;
-        if (!this.state.compareCanvas) {
+        if (!this.state.loadComparePage) {
             return (
                 <Container fluid={true} style={{ padding: 0 }}>
-                    <Row>
+                    <Row style={{ padding: 0 }}>
                         <Col>
                             <ScenarioComponent
-                                loadComparePage={this.state.compareCanvas}
+                                loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames}
                                 selectedProduct={selectedProduct}
@@ -62,7 +62,7 @@ class DetailsComponent extends Component {
                             style={{ backgroundColor: 'white', padding: 0 }}
                         >
                             <ScenarioComponent
-                                loadComparePage={this.state.compareCanvas}
+                                loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames}
                                 selectedProduct={selectedProduct}
@@ -77,7 +77,7 @@ class DetailsComponent extends Component {
                             style={{ backgroundColor: 'white', padding: 0, margin: 0 }}
                         >
                             <ScenarioComponent
-                                loadComparePage={this.state.compareCanvas}
+                                loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames}
                                 selectedProduct={selectedProduct}

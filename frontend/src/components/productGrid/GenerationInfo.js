@@ -6,8 +6,10 @@ function GenerationInfo() {
     return (
         <div className='w3-row w3-padding'>
             <div className='w3-col m6 l6 w3-padding-small'>
-                <strong>Utilizing conventional and renewable energy sources efficiently</strong>
-                <p>
+                <strong className='SubTitle'>
+                    Utilizing conventional and renewable energy sources efficiently
+                </strong>
+                <p className='TextContent'>
                     Urbanization, scarce resources, and climate change: Wherever we look, global
                     challenges are spurring a demand for increasingly efficient power generation
                     products, solutions, and services. Trends like digitalization open up a variety
@@ -17,7 +19,9 @@ function GenerationInfo() {
                     to successfully meet their challenges. Whether we’re talking about conventional
                     or renewable energy: We know every market environment and their particular
                     economic and ecological requirements. Put your trust in forward-thinking power
-                    generation from Siemens Energy – worldwide.
+                    generation from Carbon Footprint Visualization Team of Siemens –
+                    worldwide.Modernization, upgrades, and maintenance, remote diagnostics and spare
+                    part programs – we customize your individual service package to meet you needs
                 </p>
             </div>
             <div class='w3-col m6 l6 w3-padding-small'>

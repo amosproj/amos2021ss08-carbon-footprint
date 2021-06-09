@@ -15,6 +15,7 @@ import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import GenerationInfo from 'components/productGrid/GenerationInfo';
 import TransmissionInfo from 'components/productGrid/TransmissionInfo';
 import IndustrialApplicationInfo from 'components/productGrid/IndustrialApplicationInfo';
+import LoginComponent from 'components/login/LoginComponent';
 const ProductSolutionsServices = lazy(() =>
     import('./dynamicPaths/ProductSolutionsServicesComponent')
 );
@@ -41,37 +42,9 @@ function PrivateRoutes() {
                         render={() => <div className='TextContent'>categories</div>}
                     />
 
-                    <Route
-                        exact
-                        path={SLUGS.generation}
-                        component={GenerationInfo}
-                        // render={() => (
-                        //     <div className='TextContent'>
-                        //         Short info about Generation category
-
-                        //     </div>
-                        // )}
-                    />
-                    <Route
-                        exact
-                        path={SLUGS.transmission}
-                        component={TransmissionInfo}
-                        // render={() => (
-                        //     <div className='TextContent'>
-                        //         Short info about Transmission category
-                        //     </div>
-                        // )}
-                    />
-                    <Route
-                        exact
-                        path={SLUGS.industrialApplications}
-                        component={IndustrialApplicationInfo}
-                        // render={() => (
-                        //     <div className='TextContent'>
-                        //         Short info about Industrial Applications
-                        //     </div>
-                        // )}
-                    />
+                    <Route exact path={SLUGS.generation} component={GenerationInfo} />
+                    <Route exact path={SLUGS.transmission} component={TransmissionInfo} />
+                    <Route exact path={SLUGS.industrialApplications} />
 
                     <Route
                         path={SLUGS.generation + '/:type'}
@@ -95,8 +68,18 @@ function PrivateRoutes() {
                     <Route
                         exact
                         path={SLUGS.settings}
-                        render={() => <div className='TextContent'>settings</div>}
+                        render={() => (
+                            <div className='TextContent'>
+                                <span>settings</span>
+                            </div>
+                        )}
                     />
+
+                    {/* <Route                                          
+                        exact
+                        path={SLUGS.logout}
+                        Component = {LoginComponent}>                                         
+                    </Route>   */}
 
                     <Redirect to={SLUGS.dashboard} />
                 </Switch>

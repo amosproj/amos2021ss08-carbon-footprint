@@ -5,6 +5,8 @@ import { useTheme } from 'react-jss';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
+import slugs from 'resources/slugs';
+import { Link } from 'react-router-dom';
 
 /**
  * The Header Component is a shared component between all pages. It displays
@@ -65,8 +67,14 @@ function HeaderComponent() {
 
     function UseArrow(selected) {
         if (title === 'Details ' && !(selected === undefined)) {
-            // return <IconArrow height='10' />;
-            return <i className='fa fa-long-arrow-right' />;
+            return <i className='fa fa-arrow-right' />;
+        }
+        return null;
+    }
+
+    function UseBack(selected) {
+        if (title === 'Details ' && !(selected === undefined)) {
+            return <i class='fa fa-chevron-circle-left' />;
         }
         return null;
     }
@@ -81,18 +89,24 @@ function HeaderComponent() {
                 height: 70
             }}
         >
-            <span className={'HeaderTitle w3-padding-16 w3-margin-left'}>
-                {title}
-                <UseArrow />
-                {subtitle}
-                <UseArrow />
-                {subsubtitle}
-            </span>
+            <div className='HeaderTitle' vertical='center' horizontal='space-between'>
+                <span className=' w3-padding-16 w3-margin-left'>
+                    <Link to={{ pathname: slugs.categories }}>
+                        <UseBack />
+                    </Link>
+                    {title}
+                    <UseArrow />
+                    {subtitle}
+                    <UseArrow />
+                    {subsubtitle}
+                </span>
+            </div>
 
             <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
                 <div className='HeaderIconSyle'>
                     <i className='fa fa-user-circle-o' color='white' />
                 </div>
+
                 <div className='HeaderUserName'> user name</div>
             </Row>
         </Row>
