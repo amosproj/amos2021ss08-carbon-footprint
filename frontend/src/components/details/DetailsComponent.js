@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ScenarioComponent from './ScenarioComponent';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 
@@ -30,19 +32,45 @@ class DetailsComponent extends Component {
             */
             this.setState({ loadComparePage });
         };
+
+        let handleExportPdfButton = () => {
+            // geting the element that should be exported
+            var div = document.getElementById('capture');
+
+            // converting html to an image and then exporting it by pdf
+            html2canvas(div).then((canvas) => {
+                var imgData = canvas.toDataURL('image/jpeg', 1);
+                // pdf configuration
+                var pdf = new jsPDF('p', 'mm', 'a4');
+                var pageWidth = pdf.internal.pageSize.getWidth();
+                var pageHeight = pdf.internal.pageSize.getHeight();
+                var imageWidth = canvas.width;
+                var imageHeight = canvas.height;
+
+                var ratio =
+                    imageWidth / imageHeight >= pageWidth / pageHeight
+                        ? pageWidth / imageWidth
+                        : pageHeight / imageHeight;
+                pdf.addImage(imgData, 'JPEG', 0, 0, imageWidth * ratio, imageHeight * ratio);
+                pdf.save('invoice.pdf');
+            });
+        };
+
         const scenarioNames = {
             baseline: 'Baseline Scenario',
             modified: 'modified Scenario'
         };
         const { selectedProduct } = this.props;
+
         if (!this.state.loadComparePage) {
             return (
-                <Container fluid={true} style={{ padding: 0 }}>
+                <Container id='capture' fluid={true} style={{ padding: 0 }}>
                     <Row style={{ padding: 0 }}>
                         <Col>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
+                                onExportClicked={handleExportPdfButton}
                                 scenarioName={scenarioNames}
                                 selectedProduct={selectedProduct}
                             />
@@ -52,7 +80,7 @@ class DetailsComponent extends Component {
             );
         } else {
             return (
-                <Container fluid={true} style={{ padding: 0, margin: 0 }}>
+                <Container id='capture' fluid={true} style={{ padding: 0, margin: 0 }}>
                     <Row>
                         <Col
                             xs={6}
@@ -66,6 +94,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames}
                                 selectedProduct={selectedProduct}
+                                onExportClicked={handleExportPdfButton}
                             />
                         </Col>
 
@@ -81,6 +110,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 scenarioName={scenarioNames}
                                 selectedProduct={selectedProduct}
+                                onExportClicked={handleExportPdfButton}
                             />
                         </Col>
                     </Row>

@@ -3,6 +3,7 @@
     "name": "carbon_footprint_visualizer_frontend",
     "version": "0.1.0",
     "private": true,
+    "proxy": "https://localhost:44323/SimaPro",
     "dependencies": {
         "@react-pdf/renderer": "^2.0.12",
         "apexcharts": "^3.26.1",

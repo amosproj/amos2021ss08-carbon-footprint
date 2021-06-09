@@ -14,8 +14,9 @@ const NavbarComponent = (props) => {
             <>
                 <div className='navbar' vertical='center' horizontal='space-between'>
                     <b className='PanelHeaderTitle'>{props.scenarioName}</b>
-                    <button href={slugs.details} className='PanelHeaderTitle'>
-                        <i className='fa fa-fw fa-heart' /> Favorites
+                    <button href={slugs.details} onClick={props.onExportClicked}>
+                        <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
+                        Export Pdf
                     </button>
                     <button
                         href={slugs.details}
@@ -32,8 +33,9 @@ const NavbarComponent = (props) => {
             <>
                 <div className='navbar' vertical='center' horizontal='space-between'>
                     <b className='PanelHeaderTitle'>{props.scenarioName}</b>
-                    <button href={slugs.details} className='PanelHeaderTitle'>
-                        <i className='fa fa-fw fa-heart' /> Favorites
+                    <button href={slugs.details} onClick={props.onExportClicked}>
+                        <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
+                        Export Pdf
                     </button>
                 </div>
             </>
