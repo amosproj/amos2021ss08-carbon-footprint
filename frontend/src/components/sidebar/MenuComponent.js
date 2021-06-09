@@ -6,13 +6,13 @@ const getMenuStyles = ({ theme }) => ({
     bmBurgerButton: {
         position: 'absolute',
         width: 26,
-        height: 15,
+        height: 20,
         left: 10,
-        top: 75,
+        top: 25,
         zIndex: 19
     },
     bmBurgerBars: {
-        background: theme.color.veryDarkGrayishBlue
+        background: '#ededed'
     },
     bmBurgerBarsHover: {
         background: theme.color.darkRed

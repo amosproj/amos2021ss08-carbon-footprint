@@ -2,17 +2,6 @@ import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { useHistory } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
-import {
-    IconBrowse,
-    IconBuilding,
-    IconCircle,
-    IconHome,
-    IconLogout,
-    IconOverview,
-    IconPower,
-    IconSettings,
-    IconTransmission
-} from 'assets/icons';
 import { convertSlugToUrl } from 'resources/utilities';
 import Menu from './MenuComponent';
 import MenuItem from './MenuItemComponent';
@@ -61,23 +50,14 @@ function SidebarComponent() {
 
     return (
         <Menu isMobile={isMobile}>
-            <div
-                style={{
-                    width: 150,
-                    marginLeft: 20,
-                    paddingLeft: 15,
-                    paddingRight: 20,
-                    paddingTop: 15,
-                    paddingBottom: 25
-                }}
-            >
-                <img alt='' src={logo} style={{ marginTop: 20, marginBottom: 20 }} />
+            <div className='TeamLogo'>
+                <img alt='' src={logo} />
             </div>
             <MenuItem
                 id={SLUGS.dashboard}
                 title='My Dashboard'
                 // where all the icons are defined in 'assets/icons' in svg format
-                icon={IconHome}
+                icon='fa fa-home'
                 onClick={() => onClick(SLUGS.dashboard)}
             />
             <MenuItem
@@ -88,7 +68,7 @@ function SidebarComponent() {
                     SLUGS.industrialApplications
                 ])}
                 title='Categories'
-                icon={IconBrowse}
+                icon='fa fa-list '
                 onClick={() => onClick(SLUGS.categories)}
             >
                 <MenuItem
@@ -96,28 +76,28 @@ function SidebarComponent() {
                     title='Generation'
                     items={allMenuItems([SLUGS.generation])}
                     level={2}
-                    icon={IconPower}
+                    icon='fa fa-power-off'
                     onClick={() => onClick(SLUGS.generation)}
                 >
                     <MenuItem
                         id={SLUGS.generation + SLUGS.products}
                         title='Products'
                         level={3}
-                        icon={IconCircle}
+                        icon='fa fa-minus'
                         onClick={() => onClick(SLUGS.generation + SLUGS.products)}
                     />
                     <MenuItem
                         id={SLUGS.generation + SLUGS.solutions}
                         title='Solutions'
                         level={3}
-                        icon={IconCircle}
+                        icon='fa fa-minus'
                         onClick={() => onClick(SLUGS.generation + SLUGS.solutions)}
                     />
                     <MenuItem
                         id={SLUGS.generation + SLUGS.services}
                         title='Services'
                         level={3}
-                        icon={IconCircle}
+                        icon='fa fa-minus'
                         onClick={() => onClick(SLUGS.generation + SLUGS.services)}
                     />
                 </MenuItem>
@@ -126,28 +106,28 @@ function SidebarComponent() {
                     title='Transmission'
                     items={allMenuItems([SLUGS.transmission])}
                     level={2}
-                    icon={IconTransmission}
+                    icon='fa fa-plug'
                     onClick={() => onClick(SLUGS.transmission)}
                 >
                     <MenuItem
                         id={SLUGS.transmission + SLUGS.products}
                         title='Products'
                         level={3}
-                        icon={IconCircle}
+                        icon='fa fa-minus'
                         onClick={() => onClick(SLUGS.transmission + SLUGS.products)}
                     />
                     <MenuItem
                         id={SLUGS.transmission + SLUGS.solutions}
                         title='Solutions'
                         level={3}
-                        icon={IconCircle}
+                        icon='fa fa-minus'
                         onClick={() => onClick(SLUGS.transmission + SLUGS.solutions)}
                     />
                     <MenuItem
                         id={SLUGS.transmission + SLUGS.services}
                         title='Services'
                         level={3}
-                        icon={IconCircle}
+                        icon='fa fa-minus'
                         onClick={() => onClick(SLUGS.transmission + SLUGS.services)}
                     />
                 </MenuItem>
@@ -156,28 +136,28 @@ function SidebarComponent() {
                     title='Industrial Applications'
                     items={allMenuItems([SLUGS.industrialApplications])}
                     level={2}
-                    icon={IconBuilding}
+                    icon='fa fa-industry'
                     onClick={() => onClick(SLUGS.industrialApplications)}
                 >
                     <MenuItem
                         id={SLUGS.industrialApplications + SLUGS.products}
                         title='Products'
                         level={3}
-                        icon={IconCircle}
+                        icon='fa fa-minus'
                         onClick={() => onClick(SLUGS.industrialApplications + SLUGS.products)}
                     />
                     <MenuItem
                         id={SLUGS.industrialApplications + SLUGS.solutions}
                         title='Solutions'
                         level={3}
-                        icon={IconCircle}
+                        icon='fa fa-minus'
                         onClick={() => onClick(SLUGS.industrialApplications + SLUGS.solutions)}
                     />
                     <MenuItem
                         id={SLUGS.industrialApplications + SLUGS.services}
                         title='Services'
                         level={3}
-                        icon={IconCircle}
+                        icon='fa fa-minus'
                         onClick={() => onClick(SLUGS.industrialApplications + SLUGS.services)}
                     />
                 </MenuItem>
@@ -186,7 +166,7 @@ function SidebarComponent() {
             <MenuItem
                 id={SLUGS.details}
                 title='Details'
-                icon={IconOverview}
+                icon='fa fa-pie-chart'
                 onClick={() => onClick(SLUGS.details)}
             />
 
@@ -194,11 +174,25 @@ function SidebarComponent() {
             <MenuItem
                 id={SLUGS.settings}
                 title='Settings'
-                icon={IconSettings}
+                icon='fa fa-cogs'
                 onClick={() => onClick(SLUGS.settings)}
             />
 
-            <MenuItem id='logout' title='Logout' icon={IconLogout} onClick={logout} />
+            <MenuItem
+                id={SLUGS.logout}
+                title='Logout'
+                icon='fa fa-sign-out'
+                onClick={() => onClick(logout)}
+            />
+
+            {/* // <Link
+            //     to={{
+            //         // Link to the next page
+            //         pathname: SLUGS.details
+            //     }}
+            // >
+            //     <MenuItem title='Logout' icon="fa fa-sign-out" />
+            // </Link> */}
         </Menu>
     );
 }

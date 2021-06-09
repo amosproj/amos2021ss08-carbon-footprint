@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { Column, Row } from 'simple-flexbox';
+import { Col, Row } from 'react-grid-system';
 import { SidebarComponent, SidebarContext } from 'components/sidebar';
 import HeaderComponent from 'components/header/HeaderComponent';
 import PrivateRoutes from './PrivateRoutes';
@@ -13,8 +13,9 @@ import { PrivateStateProvider } from 'hooks/PrivateSectionContext';
 
 const useStyles = createUseStyles({
     container: {
-        height: '100%',
-        minHeight: 850
+        marginLeft: 0,
+        marginRight: 0,
+        height: '100%'
     },
     mainBlock: {
         marginLeft: 200,
@@ -24,7 +25,6 @@ const useStyles = createUseStyles({
         }
     },
     contentBlock: {
-        marginTop: 54,
         marginLeft: 0
     }
 });
@@ -44,12 +44,12 @@ function PrivateSection() {
             <SidebarContext>
                 <Row className={classes.container}>
                     <SidebarComponent />
-                    <Column flexGrow={1} className={classes.mainBlock}>
+                    <Col flexGrow={1} className={classes.mainBlock}>
                         <HeaderComponent />
                         <div className={classes.contentBlock}>
                             <PrivateRoutes />
                         </div>
-                    </Column>
+                    </Col>
                 </Row>
             </SidebarContext>
         </PrivateStateProvider>
