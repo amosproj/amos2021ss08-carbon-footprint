@@ -16,13 +16,12 @@ const PieChartComponent = () => {
     // commented the two lines, because otherwise the numbers don't match the labels
     const options = {
         maintainAspectRatio: false,
-        responsive: true,
         legend: {
-            position: 'bottom',
+            position: 'bottom'
             // labels: {
             // boxWidth: 10
             // }
-        },     
+        },
         chart: {
             type: 'donut'
         },

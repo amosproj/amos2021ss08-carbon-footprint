@@ -1,5 +1,4 @@
 import React from 'react';
-import theme from 'resources/theme';
 
 /**
  * Displaying a label.
@@ -9,14 +8,7 @@ import theme from 'resources/theme';
 
 function LabelComponent({ productName }) {
     return (
-        <span
-        className='LabelTextContent'
-            // style={{
-            //     fontSize: theme.typography.textcontent.fontSize,
-            //     fontWeight: theme.typography.textcontent.fontWeight
-            // }}
-            // className='w3-container w3-center w3-lightgrey w3-margin-bottom:2em  w3-margin-top'
-        >
+        <span className='LabelTextContent w3-container w3-center w3-lightgrey w3-margin-bottom:2em  w3-margin-top'>
             {productName}
         </span>
     );

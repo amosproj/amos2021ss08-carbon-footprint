@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CanvasComponent from './CanvasComponent';
 import SelectVariableComponent from './SelectVariableComponent';
 import NavbarComponent from './NavbarComponent';
 import PieChart from './PieChartComponent';

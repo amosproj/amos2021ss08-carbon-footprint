@@ -1,88 +1,10 @@
 import React, { useContext } from 'react';
 import { string } from 'prop-types';
 import { Row } from 'simple-flexbox';
-import { createUseStyles, useTheme } from 'react-jss';
+import { useTheme } from 'react-jss';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
-import { IconArrow, IconLogin } from 'assets/icons';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
-
-// const useStyles = createUseStyles((theme) => ({
-//     avatar: {
-//         height: 35,
-//         width: 35,
-//         minWidth: 35,
-//         borderRadius: 50,
-//         marginLeft: 14,
-//         border: `1px solid ${theme.color.lightGrayishBlue2}`,
-//         '@media (max-width: 768px)': {
-//             marginLeft: 14
-//         }
-//     },
-//     container: {
-//         height: 50,
-//         widht: 200,
-//         color: theme.uniformStyle.color.highlightingColor // header title color
-//     },
-//     name: {
-//         ...theme.typography.itemTitle,
-//         textAlign: 'right',
-//         '@media (max-width: 768px)': {
-//             display: 'none'
-//         }
-//     },
-//     separator: {
-//         borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
-//         marginLeft: 40,
-//         marginRight: 10,
-//         marginTop: 5,
-//         height: 30,
-//         width: 3,
-//         '@media (max-width: 768px)': {
-//             marginLeft: 14,
-//             marginRight: 0
-//         }
-//     },
-//     icontitle: {
-//         ...theme.typography.icontitle,
-//         marginLeft: 40,
-//         marginTop: 0,
-//         '@media (max-width: 1080px)': {
-//             // marginLeft:50
-//         },
-//         '@media (max-width: 468px)': {
-//             fontSize: 15
-//         }
-//     },
-//     subtitle: {
-//         ...theme.typography.title,
-//         '@media (max-width: 1080px)': {
-//             marginLeft: 0
-//         },
-//         '@media (max-width: 468px)': {
-//             fontSize: 15
-//         }
-//     },
-//     title: {
-//         ...theme.typography.title,
-//         '@media (max-width: 1080px)': {
-//             marginLeft: 80
-//         },
-//         '@media (max-width: 468px)': {
-//             fontSize: 15
-//         }
-//     },
-//     iconStyles: {
-//         cursor: 'pointer',
-//         marginLeft: 0,
-//         width: 200,
-//         height: 200,
-
-//         '@media (max-width: 768px)': {
-//             marginLeft: 12
-//         }
-//     }
-// }));
 
 /**
  * The Header Component is a shared component between all pages. It displays
@@ -159,7 +81,7 @@ function HeaderComponent() {
                 height: 70
             }}
         >
-            <span className={'HeaderTitle' + ' w3-padding-16 w3-margin-left'}>
+            <span className={'HeaderTitle w3-padding-16 w3-margin-left'}>
                 {title}
                 <UseArrow />
                 {subtitle}
