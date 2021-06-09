@@ -9,19 +9,38 @@ import slugs from 'resources/slugs';
  */
 
 const NavbarComponent = (props) => {
-    return (
-        <>
-            <div className='navbar' vertical='center' horizontal='space-between'>
-                <b className='PanelHeaderTitle'>{props.scenarioName}</b>
-                <button href={slugs.details} className='PanelHeaderTitle'>
-                    <i className='fa fa-fw fa-heart' /> Favorites
-                </button>
-                <button href={slugs.details} onClick={props.onCompareClick} className='PanelHeaderTitle'>
-                    <i className='fa fa-fw fa-plus-circle' /> Add
-                </button>
-            </div>
-        </>
-    );
+    if (!props.loadComparePage) {
+        return (
+            <>
+                <div className='navbar' vertical='center' horizontal='space-between'>
+                    <b className='PanelHeaderTitle'>{props.scenarioName}</b>
+                    <button href={slugs.details} onClick={props.onExportClicked}>
+                        <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
+                        Export Pdf
+                    </button>
+                    <button
+                        href={slugs.details}
+                        onClick={props.onCompareClick}
+                        className='PanelHeaderTitle'
+                    >
+                        <i className='fa fa-fw fa-plus-circle' /> Add
+                    </button>
+                </div>
+            </>
+        );
+    } else {
+        return (
+            <>
+                <div className='navbar' vertical='center' horizontal='space-between'>
+                    <b className='PanelHeaderTitle'>{props.scenarioName}</b>
+                    <button href={slugs.details} onClick={props.onExportClicked}>
+                        <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
+                        Export Pdf
+                    </button>
+                </div>
+            </>
+        );
+    }
 };
 
 export default NavbarComponent;

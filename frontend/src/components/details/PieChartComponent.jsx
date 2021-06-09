@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { getMaterialComposition } from 'interface/projectInterface';
+import {
+    getMaterialCompositionData,
+    getMaterialCompositionLabels
+} from 'interface/projectInterface';
 import theme from 'resources/theme';
 
 /**
@@ -9,36 +12,24 @@ import theme from 'resources/theme';
  * @author Parham Gandomkar, Julian Oelhaf, Irem Toroslu
  */
 const PieChartComponent = () => {
-    //const series = [17, 13, 3, 2, 1, 42, 21];
-    const series = getMaterialComposition();
-    //series.sort();
-    //series.reverse();
-    // commented the two lines, because otherwise the numbers don't match the labels
+    const series = getMaterialCompositionData();
+    const labels = getMaterialCompositionLabels();
+
     const options = {
-        maintainAspectRatio: false,
-        responsive: true,
+        //TODO
+        maintainAspectRatio: true,
         legend: {
-            position: 'bottom',
-            // labels: {
-            // boxWidth: 10
-            // }
-        },     
+            position: 'top',
+            fontSize: 10
+        },
         chart: {
             type: 'donut'
         },
-        // legend: {
-        //     // fontSize: theme.typography.chartItemstitle.fontSize,
-        //     // fontWeight: theme.typography.chartItemstitle.fontWeight
-        // },
-        labels: [
-            'Transformer oil',
-            'Steel',
-            'Pressboard',
-            'Stainless steel',
-            'Aluminium',
-            'Silicon steel',
-            'Copper'
-        ],
+        pie: {
+            expandOnClick: true
+        },
+        labels: labels,
+        // TODO: do the materials stay the same? otherwise doesn't make sense to use fixed color / hardcode them
         colors: [
             theme.color.TransformerOil,
             theme.color.Steel,
@@ -48,23 +39,9 @@ const PieChartComponent = () => {
             theme.color.SiliconSteel,
             theme.color.Copper
         ],
-        fill: {
-            type: 'gradient',
-            gradient: {
-                shade: 'dark',
-                type: 'horizontal',
-                shadeIntensity: 0.5,
-                gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
-                inverseColors: true,
-                opacityFrom: 1,
-                opacityTo: 1,
-                stops: [0, 50, 100],
-                colorStops: []
-            }
-        },
         responsive: [
             {
-                breakpoint: 1300,
+                breakpoint: 5000,
                 options: {
                     chart: {
                         height: '300px'
@@ -76,9 +53,8 @@ const PieChartComponent = () => {
             }
         ]
     };
-
     return (
-        <div className='ChartItems' style={{ width: '360px', height: '300px' }} id='chart'>
+        <div className='ChartItems' style={{ width: '%100', height: '300px' }} id='chart'>
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );

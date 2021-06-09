@@ -21,20 +21,36 @@ class ScenarioComponent extends Component {
                     loadComparePage={this.props.compareCanvas}
                     onCompareClick={this.props.onCompareClick}
                     scenarioName={this.props.scenarioName.baseline}
+                    onExportClicked={this.props.onExportClicked}
                 />
                 <Container fluid={true} style={{ padding: 'auto' }}>
-                    <h2>The chosen Model is {this.props.selectedProduct.modelName}</h2>
+                    <h2 className='TextContent'>
+                        The chosen Model is <b>{this.props.selectedProduct.modelName}</b>
+                    </h2>
                     <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
                     <Row>
-                        <Col xs={12} sm={12} md={12} lg={6}>
+                        <Col xs={12} sm={12} md={12} lg={6} className='CardsContainer'>
+                            <div className='CardTitle'>
+                                <span>Results of the impact assessment</span>
+                            </div>
                             <ColumnChart />
                         </Col>
-                        <Col xs={12} sm={12} md={12} lg={6} style={{ margin: 'auto' }}>
+                        <Col
+                            xs={12}
+                            sm={12}
+                            md={12}
+                            lg={4}
+                            style={{ margin: 'auto' }}
+                            className='PieChartCardsContainer'
+                        >
+                            <div className='CardTitle'>
+                                <span>Material Composition</span>
+                            </div>
                             <PieChart />
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col xs={12} sm={12} md={12} lg={11} className='TableContainer'>
                             <Table />
                         </Col>
                     </Row>

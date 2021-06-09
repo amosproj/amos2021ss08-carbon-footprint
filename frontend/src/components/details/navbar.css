@@ -1,7 +1,7 @@
 /* Style the navigation menu */
 .navbar {
     width: 100%;
-    background-color: #466e78;
+    background-color: #468c46;
     overflow: auto;
 }
 
@@ -9,10 +9,10 @@
 .navbar button {
     float: left;
     padding: 12px;
-    color: white;
-    background-color: #466e78;
+    color: #dbdbdb;
+    background-color: #468c46 ;/* #466e78;*/
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: right; /* If you want the text to be centered */
     border-style: none;
@@ -21,9 +21,9 @@
 .navbar b {
     float: left;
     padding: 12px;
-    color: white;
+    color: #dbdbdb;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 22px;
     width: 60%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
 }

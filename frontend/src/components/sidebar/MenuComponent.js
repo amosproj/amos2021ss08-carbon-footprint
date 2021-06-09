@@ -14,7 +14,7 @@ const getMenuStyles = ({ theme }) => ({
     },
     /* Color/shape of burger icon bars */
     bmBurgerBars: {
-        background: 'white'
+        background: '#ededed'
     },
     /* Color/shape of burger icon bars on hover*/
     bmBurgerBarsHover: {
