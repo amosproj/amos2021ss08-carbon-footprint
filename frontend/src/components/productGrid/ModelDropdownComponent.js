@@ -35,10 +35,7 @@ const ModelDropdownComponent = (props) => {
 
         return (
             <Container fluid={true}>
-                <Row
-                    className='w3-margin-top w3-margin-bottom:2em'
-                    style={{ backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor }}
-                >
+                <Row className='w3-margin-top w3-margin-bottom:2em'>
                     <Col xs={2}>
                         <button
                             title={variableName}
@@ -63,64 +60,57 @@ const ModelDropdownComponent = (props) => {
     }
 
     return (
-        <Container fluid={true}>
-            <Row
-                className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em'
-                style={{ backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor }}
+        <div className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em'>
+            <button
+                className='w3-button'
+                title={selected}
+                style={{
+                    color: theme.uniformStyle.color.secondaryFontColor,
+                    backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
+                    fontSize: theme.typography.buttontitle.fontSize,
+                    fontWeight: theme.typography.buttontitle.fontWeight,
+                    lineHeight: theme.typography.buttontitle.lineHeight,
+                    letterSpacing: theme.typography.buttontitle.letterSpacing
+                }}
             >
-                <Col xs={2}>
+                {selected.length > 25 ? selected.substring(0, 25 - 3) + '...' : selected}
+            </button>
+            <div
+                className='w3-dropdown-content w3-bar-block w3-border'
+                style={{
+                    color: theme.uniformStyle.color.secondaryFontColor,
+                    backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
+                    fontSize: theme.typography.buttontitle.fontSize,
+                    fontWeight: theme.typography.buttontitle.fontWeight,
+                    lineHeight: theme.typography.buttontitle.lineHeight,
+                    letterSpacing: theme.typography.buttonSendtitle.letterSpacing
+                }}
+            >
+                {variables.map((item) => (
                     <button
-                        className='w3-button'
-                        title={selected}
-                        style={{
-                            color: theme.uniformStyle.color.secondaryFontColor,
-                            backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
-                            fontSize: theme.typography.buttontitle.fontSize,
-                            fontWeight: theme.typography.buttontitle.fontWeight,
-                            lineHeight: theme.typography.buttontitle.lineHeight,
-                            letterSpacing: theme.typography.buttontitle.letterSpacing
+                        onClick={(props) => {
+                            // Set the Selected Product to the one that has been clicked.
+                            const newSelectedProducts = [
+                                {
+                                    productID: productID,
+                                    productName: productName,
+                                    modelID: item.modelID,
+                                    modelName: item.modelName
+                                }
+                            ];
+                            setSelected(item.modelName);
+                            setSelectedProducts(newSelectedProducts);
                         }}
+                        className='w3-bar-item w3-button'
+                        key={item.modelID}
                     >
-                        {selected.length > 25 ? selected.substring(0, 25 - 3) + '...' : selected}
+                        {item.modelName.length > 35
+                            ? item.modelName.substring(0, 35 - 3) + '...'
+                            : item.modelName}
                     </button>
-                    <div
-                        className='w3-dropdown-content w3-bar-block w3-border'
-                        style={{
-                            color: theme.uniformStyle.color.secondaryFontColor,
-                            backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
-                            fontSize: theme.typography.buttontitle.fontSize,
-                            fontWeight: theme.typography.buttontitle.fontWeight,
-                            lineHeight: theme.typography.buttontitle.lineHeight,
-                            letterSpacing: theme.typography.buttonSendtitle.letterSpacing
-                        }}
-                    >
-                        {variables.map((item) => (
-                            <button
-                                onClick={(props) => {
-                                    // Set the Selected Product to the one that has been clicked.
-                                    const newSelectedProducts = [
-                                        {
-                                            productID: productID,
-                                            productName: productName,
-                                            modelID: item.modelID,
-                                            modelName: item.modelName
-                                        }
-                                    ];
-                                    setSelected(item.modelName);
-                                    setSelectedProducts(newSelectedProducts);
-                                }}
-                                className=' w3-bar w3-button'
-                                key={item.modelID}
-                            >
-                                {item.modelName.length > 35
-                                    ? item.modelName.substring(0, 35 - 3) + '...'
-                                    : item.modelName}
-                            </button>
-                        ))}
-                    </div>
-                </Col>
-            </Row>
-        </Container>
+                ))}
+            </div>
+        </div>
     );
 };
 
