@@ -2,12 +2,9 @@ import axios from 'axios';
 
 const headers = {
     Authorization: 'Bearer',
+    'Access-Control-Allow-Origin': 'POST',
     'My-Custom-Header': 'foobar'
 };
-
-//function timeout(delay) {
-//    return new Promise((res) => setTimeout(res, delay));
-//}
 
 /**
  * Get request to det the details of all the projects from the API via backend.
@@ -16,6 +13,11 @@ const headers = {
  */
 export async function getSimaProProjects() {
     // GET request using axios with set headers
+    const headers = {
+        Authorization: 'Bearer',
+        'Access-Control-Allow-Origin': 'GET',
+        'My-Custom-Header': 'foobar'
+    };
     let result;
     await axios
         .get('https://localhost:44323/SimaPro/api/projects', { headers })
@@ -33,6 +35,11 @@ export async function getSimaProProjects() {
  */
 export async function postCalculationRequest(projectId) {
     // POST request using axios with set headers
+    const headers = {
+        Authorization: 'Bearer',
+        'Access-Control-Allow-Origin': 'POST',
+        'My-Custom-Header': 'foobar'
+    };
     let result = await axios.post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
         headers
     });

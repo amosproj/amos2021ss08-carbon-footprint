@@ -5,7 +5,7 @@ import html2canvas from 'html2canvas';
 import axios from 'axios';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
-// import { postCalculationRequest } from 'interface/BackendConnect';
+import { postCalculationRequest } from 'interface/BackendConnect';
 
 /**
  * the main component for detail page which includes
@@ -118,7 +118,7 @@ class DetailsComponent extends Component {
             margin: 0
         };
 
-        // postCalculationRequest(selectedProduct.productID);
+        postCalculationRequest(selectedProduct.productID);
 
         if (!this.state.loadComparePage) {
             return (
