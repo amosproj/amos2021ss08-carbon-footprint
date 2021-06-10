@@ -1,7 +1,7 @@
 @import url('theme.css');
 /* Reconfiguration of the header bar */
 .HeaderContainer {
-    height: 85;
+    height: 65px;
     width: 100%;
     /* background-color: #4D217A; */
     background: var(--global--headerbar--color);
@@ -15,7 +15,8 @@
     font-size: var(--global--header-title--FontSize);
     line-height: 16px;
     letter-spacing: 0.5px;
-    margin-left: 30px;
+    padding-left: 25px;
+    margin-top:5px;
     color: var( --global--header--title--color);
 }
 /* Reconfiguration of  the icon style on the header bar */

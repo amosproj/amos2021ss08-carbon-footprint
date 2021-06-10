@@ -94,9 +94,7 @@ function HeaderComponent() {
             <Row
                 vertical='center'
                 horizontal='space-between'
-                style={{
-                    height: 70
-                }}
+
             >
                 <div className='HeaderTitle' vertical='center' horizontal='space-between'>
                     <span className=' w3-padding-16 w3-margin-left'>
