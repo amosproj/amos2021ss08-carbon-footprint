@@ -76,6 +76,36 @@ article > * + * {
     margin-top: 1em;
 }
 
+:root {
+    /* --global--concept--size */
+    --global--header--color: #ededed;
+    --global--icon--color: #00b300;
+    --global--panel--color: 2rem;
+    --global--text--color: .5rem;
+
+  
+    /* --global--concept--PropertyCamelCase */
+    --global--header-title--FontSize: 24px;
+    --global--header-icon-title--FontSize: 35px;
+    --global--header-back-icon-title--FontSize: 20px;
+    --global--panel-title--FontSize: 22px;
+    --global--icon-title--FontSize: 18px;
+    --global--text--FontSize: 18px;
+    --global--text-label--FontSize: 16px;
+    --global--text-title--FontSize: 20px;
+    --global--text-subtitle--FontSize: 19px;
+    --global--chart-items--FontSize: 10px;
+    --global--table-items--FontSize: 10px;
+    --global--button-title--FontSize: 14px;
+
+
+
+    
+  
+    /* --global--state--PropertyCamelCase */
+    --global--hover--BackgroundColor: #ccc;
+  }
+
 /* Inherit fonts for inputs and buttons */
 input,
 button,
@@ -95,7 +125,7 @@ select {
 }
 
 body {
-    background-color: #ededed;
+    background-color: var(--global--header--color);
     font-family: Muli;
     font-style: normal;
     font-weight: normal;
@@ -134,7 +164,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: var(--global--header-title--FontSize);
     line-height: 16px;
     letter-spacing: 0.5px;
     margin-left: 30px;
@@ -142,8 +172,8 @@ body {
 }
 /* Reconfiguration of  the icon style on the header bar */
 .HeaderIconSyle {
-    font-size: 35px;
-    color: #ededed;
+    font-size: var(--global--header-icon-title--FontSize);
+    color: var(--global--header--color);
     padding-right: 100;
     margin-right: 10px;
     margin-top: 10px;
@@ -157,7 +187,7 @@ body {
     padding: 12px;
     background-color: #468c46 ;/* #466e78;*/
     text-decoration: none;
-    font-size: 20px;
+    font-size: var( --global--header-back-icon-title--FontSize);
     width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: right; /* If you want the text to be centered */
     border-style: none;
@@ -182,7 +212,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 22px;
+    font-size: var(--global--panel-title--FontSize);
     letter-spacing: 0.5px;
     margin-left: 0px;
     color: #dbdbdb;
@@ -204,7 +234,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: var(--global--text--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
     margin-top:25px;
@@ -216,7 +246,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
+    font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
 }
@@ -236,7 +266,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 8px;
+    font-size: var(--global--chart-items--FontSize);
     margin-left: 0;
     color: #000000;
     margin-top:10px;
@@ -248,7 +278,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
+    font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
     margin-bottom:10px;
@@ -257,12 +287,12 @@ body {
 .CardTitle {
     font-family: inherit;
     font-style: normal;
-    font-weight: normal;
-    font-size: 18;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
+    padding-left: 17px;
     color: #000000;
-    margin-bottom:10px;
-
+    padding-bottom:10px;
 }
 
 /* Reconfiguration of the subtitle style on table  */
@@ -270,7 +300,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: var(--global--text-subtitle--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
     margin-bottom:10px;
@@ -282,7 +312,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 12px;
+    font-size: var(--global--table-items--FontSize);
     margin-left: 0;
     color: #000000;
     margin-top:10px;
@@ -296,7 +326,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: var(--global--text--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
     margin-top: 10px;
@@ -306,7 +336,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: var(--global--text-label--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
 }
@@ -317,7 +347,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: var(--global--button-title--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
 
@@ -343,7 +373,6 @@ body {
 
     background-color: #FFFFFF;
     /* border:0.5px solid #00b300; */
-    border-color: #00b300;
     border-radius: 4px;
     cursor: 'pointer';
     min-width: 300;
@@ -363,13 +392,6 @@ body {
     margin-top:15px;
 
 }
-.miniCardContainer {
-    display: inline-block;
-    margin-right: 30;
-    margin-Left:0;
-    background-color: #FFFFFF;
-
-}
 .Separator {
     border: 5px;
     /* margin-left: 40;
@@ -384,11 +406,22 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    color: #ededed;
+    font-size: var(--global--icon-title--FontSize);
+    color: var(--global--header--color);
     padding-right: 100;
     margin-bottom: 3px;
     letter-spacing: 0.5px;
+}
+
+/* Reconfiguration of  the title style on the side bar */
+.SideBarTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--icon-title--FontSize);
+    letter-spacing: 0.2px;
+    color: var(--global--header--color);
+    margin-left: 5px;
 }
 
 /* Reconfiguration of the logo style on sidebar  */
@@ -436,16 +469,6 @@ body {
     color: #00b300;
 }
 
-/* Reconfiguration of  the title style on the side bar */
-.SideBarTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    letter-spacing: 0.2px;
-    color: #ededed;
-    margin-left: 5px;
-}
 .SideBarTitle:hover {
     color: #00b300;
 }
