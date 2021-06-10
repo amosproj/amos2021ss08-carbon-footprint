@@ -3,41 +3,7 @@
 @import url('components/header/header.css');
 @import url('components/details/charts_tables.css');
 @import url('components/sidebar/sidebar.css');
-
-/* Project wide definition of stlye */
-:root {
-    /* --global--concept--size */
-    --global--header--icon--color: #F0F0F0;
-    --global--icon--color: #00b300;
-    --global--sidebar--color:#1B1534;
-    --global--headerbar--color:     radial-gradient(
-        circle at top right,
-        #4D217A,#1B1534);
-    /* --global--panel--color: #38206A; */
-    --global--main--container--color: 2rem;
-    --global--text--color: #000000;
-    --global--body--color: #F0F0F0;
-    --global--header--title--color:#F0F0F0;
-    --global--sidebar--title--color:#F0F0F0;
-    --global--panel--title--color: #38206A;
-
-
-  
-    /* --global--text and title--fontsizes */
-    --global--header-title--FontSize: 24px;
-    --global--header-icon-title--FontSize: 35px;
-    --global--header-back-icon-title--FontSize: 20px;
-    --global--panel-title--FontSize: 22px;
-    --global--icon-title--FontSize: 18px;
-    --global--text--FontSize: 18px;
-    --global--text-label--FontSize: 16px;
-    --global--text-title--FontSize: 20px;
-    --global--text-subtitle--FontSize: 19px;
-    --global--chart-items--FontSize: 10px;
-    --global--table-items--FontSize: 10px;
-    --global--button-title--FontSize: 14px;
-
-}
+@import url('theme.css');
 
 /* css resets */
 /* Box sizing rules */
@@ -51,7 +17,6 @@
 html,
 body,
 #root,
-
 .App {
     height: 100%;
     overflow-x: inherit;

@@ -1,3 +1,5 @@
+@import url('theme.css');
+
 /* Reconfiguration of  the icon style on the side bar */
 .SideBarIconStyle {
     font-family: inherit;
