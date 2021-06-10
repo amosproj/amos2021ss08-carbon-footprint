@@ -54,7 +54,7 @@ function SidebarComponent({ pageWrapId, outerContainerId }) {
     return (
         <Menu pageWrapId={pageWrapId} outerContainerId={outerContainerId} isMobile={isMobile}>
             <div className='TeamLogo'>
-                <img alt='' src={logo} style={{ marginTop: 20, marginBottom: 20 }} />
+                <img alt='' src={logo} />
             </div>
             <MenuItem
                 id={SLUGS.dashboard}

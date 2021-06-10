@@ -13,16 +13,12 @@ const NavbarComponent = (props) => {
         return (
             <>
                 <div className='navbar' vertical='center' horizontal='space-between'>
-                    <b className='PanelHeaderTitle'>{props.scenarioName}</b>
+                    <b>{props.scenarioName}</b>
                     <button href={slugs.details} onClick={props.onExportClicked}>
                         <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
                         Export Pdf
                     </button>
-                    <button
-                        href={slugs.details}
-                        onClick={props.onCompareClick}
-                        className='PanelHeaderTitle'
-                    >
+                    <button href={slugs.details} onClick={props.onCompareClick}>
                         <i className='fa fa-fw fa-plus-circle' /> Add
                     </button>
                 </div>
@@ -32,7 +28,7 @@ const NavbarComponent = (props) => {
         return (
             <>
                 <div className='navbar' vertical='center' horizontal='space-between'>
-                    <b className='PanelHeaderTitle'>{props.scenarioName}</b>
+                    <b>{props.scenarioName}</b>
                     <button href={slugs.details} onClick={props.onExportClicked}>
                         <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
                         Export Pdf
