@@ -1,11 +1,5 @@
 import axios from 'axios';
 
-const headers = {
-    Authorization: 'Bearer',
-    'Access-Control-Allow-Origin': 'POST',
-    'My-Custom-Header': 'foobar'
-};
-
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -29,9 +23,10 @@ export async function getSimaProProjects() {
 }
 
 /**
- *   Post request to initiate the calculation for a project based on the project id.
- *   This request returns the calculationId(calcd). which is then used to retrieve the impact
- *   results of a project.
+ *   Post request to initiate the calculation for a project based on the project id and preset values.
+ *   This request is caught by the backend.
+ *   Which then checks if the calculation is stored based on the calculationId generated.
+ *   If the calculation is stored returns the results of calculation here.
  */
 export async function postCalculationRequest(projectId) {
     // POST request using axios with set headers
@@ -50,7 +45,54 @@ export async function postCalculationRequest(projectId) {
     console.log('RESULT!!!!!!1');
     console.log(result);
     return result;
-    //return await postCalculationResultRequest(calcId);
+}
+
+/**
+ *   Post request to initiate the calculation for a project based on the project id and custom values.
+ *   This request is caught by the backend.
+ *   Which then checks if the calculation is stored based on the calculationId generated.
+ *   If the calculation is stored returns the results of calculation here.
+ */
+export async function postCalculationRequestCustomSetup(projectId, processId, processName) {
+    // POST request using axios with set headers
+    const headers = {
+        Authorization: 'Bearer',
+        'Access-Control-Allow-Origin': 'POST',
+        'My-Custom-Header': 'foobar'
+    };
+    const body = {
+        Id: '00000000-0000-0000-0000-000000000000',
+        MethodId: '210215cc-99e5-4621-a7e0-f5a09ab530fa',
+        MethodName: 'ReCiPe 2016 Midpoint (H)',
+        NormalisationSetId: '86b7bb89-8904-4faf-8e56-2d8bccf13b2b',
+        NormalisationSetName: 'Default',
+        WeightingSetId: 'c5399d7e-67e1-4c18-a0f2-a745f2fdde32',
+        WeightingSetName: 'Default',
+        CalculationItems: [
+            {
+                ProcessId: processId,
+                ProcessName: processName,
+                ProductId: projectId,
+                Amount: 1.0,
+                UnitId: 'aab0228e-f2c0-4954-88c8-c9805b594a37',
+                UnitName: 'kg'
+            }
+        ]
+    };
+    let result = await axios.post(
+        `https://localhost:44323/SimaPro/api/calculation/${projectId}`,
+        {
+            headers
+        },
+        { body }
+    );
+    // .then(function (data) {
+    //     const items = data;
+    //     calcId = items.data.Result.CalculationId;
+    // });
+    console.log('RESULT!!!!!!2');
+    console.log(result);
+    return result;
 }
 
 /**
@@ -58,8 +100,11 @@ export async function postCalculationRequest(projectId) {
  *
  */
 export async function getProjectProcesses(projectId) {
-    //console.log("------");
-    //console.log(productID);
+    const headers = {
+        Authorization: 'Bearer',
+        'Access-Control-Allow-Origin': 'GET',
+        'My-Custom-Header': 'foobar'
+    };
     let resultProcess;
     await axios
         .get(`https://localhost:44323/SimaPro/api/processes/referencedata/${projectId}`, {
@@ -77,14 +122,14 @@ export async function getProjectProcesses(projectId) {
  * Get request to get all the methods required for drop down.
  * @returns the list of methods
  */
-export async function getMethods() {
-    let methods;
-    await axios
-        .get('https://localhost:44323/SimaPro/api/methods', { headers })
-        //Please verify this step
-        .then(function (data) {
-            const items = data;
-            methods = items.data.Result.Data;
-        });
-    return methods;
-}
+// export async function getMethods() {
+//     let methods;
+//     await axios
+//         .get('https://localhost:44323/SimaPro/api/methods', { headers })
+//         //Please verify this step
+//         .then(function (data) {
+//             const items = data;
+//             methods = items.data.Result.Data;
+//         });
+//     return methods;
+// }
