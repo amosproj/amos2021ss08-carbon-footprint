@@ -5,7 +5,6 @@ import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
 import Table from './TableComponent';
 import { Col, Container, Row } from 'react-grid-system';
-import './navbar.css';
 
 /**
  * Displays one Scenario, containing a ColumnChart, a PieChart and a Table,

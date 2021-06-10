@@ -3,7 +3,6 @@ import ScenarioComponent from './ScenarioComponent';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
-import './navbar.css';
 // import { postCalculationRequest } from 'interface/BackendConnect';
 
 /**

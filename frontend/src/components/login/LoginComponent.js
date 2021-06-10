@@ -1,4 +1,4 @@
-import './Loginstyle.css';
+import './loginstyle.css';
 import { useContext } from 'react';
 import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
 import { uniformStyle, color } from 'resources/theme';
