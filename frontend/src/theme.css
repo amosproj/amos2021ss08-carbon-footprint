@@ -3,8 +3,10 @@
     /* --global--concept--size */
     --global--header--icon--color: #f0f0f0;
     --global--icon--color: #00b300;
-    --global--sidebar--color: #1b1534;
-    --global--headerbar--color: radial-gradient(circle at top right, #4d217a, #1b1534);
+    --global--sidebar--color: radial-gradient(circle at top,
+        #000000 35%,#1b1534 ,#4d217a
+      );
+    --global--headerbar--color: radial-gradient(circle at top left,#000000 60%,#1b1534);
     /* --global--panel--color: #38206A; */
     --global--main--container--color: 2rem;
     --global--text--color: #000000;
@@ -12,6 +14,7 @@
     --global--header--title--color: #f0f0f0;
     --global--sidebar--title--color: #f0f0f0;
     --global--panel--title--color: #38206a;
+    --global--Sidebar--hover--color:#A54BF7;
 
     /* --global--text and title--fontsizes */
     --global--header-title--FontSize: 24px;

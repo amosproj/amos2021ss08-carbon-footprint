@@ -53,8 +53,8 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
     const classNameColumn = isActive ? classes.leftBar : '';
     const classNameContainer = [classes.container, isActive && classes.activeContainer].join(' ');
     const iconColor = isActive
-        ? '#5D59AE'
-        : '#b5b4b9';
+        ? '#A54BF7'
+        : '#F0F0F0';
 
     function onItemClicked(e) {
         if (onClick) {
@@ -66,12 +66,10 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
     return (
         <Column key={id} className={classNameColumn}>
             <Row vertical='center' onClick={onItemClicked} className={classNameContainer}>
-                {/* <Icon fill={iconColor} opacity={!isActive && '0.4'} /> */}
                 <div className='SideBarIconStyle' style={{color:iconColor}}>
                     <i className={Icon} aria-hidden="true"/>
                 </div>  
                 <span className="SideBarTitle" style={{color:iconColor}}>{title}</span>
-                    {/* <Icon fill={iconColor} opacity={!isActive && '0.4'} /> */}
 
             </Row>
             {isCollapsible && (

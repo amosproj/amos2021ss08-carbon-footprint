@@ -12,7 +12,7 @@
 
 .SideBarContainer{
     color:'white';
-    background-color: var(--global--sidebar--color);
+    background: var(--global--sidebar--color);
     /* position: 'fixed'; */
     height: '100%';
 
@@ -37,15 +37,14 @@
     height: min-content;
     text-align: center;
     width: fit-content;
-    margin-left:10px;
+    margin-left:5px;
     margin-right:10px;
-    padding-top:15px;
-    padding-bottom:30px;
-
+    padding-top:30px;
+    padding-bottom:35px;
+    
 }
 
 .ActiveContainer{
-
     background-color: 'rgba(221, 226, 255, 0.08)' ;
 }
 
@@ -58,39 +57,5 @@
 
 .MenuContainer:hover{
     background-color:'rgba(221, 226, 255, 0.08)' ;
-
-
 }
 
-
-.SideBarIconStyle:hover {
-    color: #00b300;
-}
-
-.SideBarIconStyle:focus {
-    background-color: #00b300;
-}
-
-.SideBarIconStyle:active {
-    color: #00b300;
-}
-
-.SideBarIconStyle:visited {
-    color: #00b300;
-}
-
-.SideBarTitle:hover {
-    color: #00b300;
-}
-
-.SideBarTitle:focus {
-    color: #00b300;
-}
-
-.SideBarTitle:active {
-    color: #00b300;
-}
-
-.SideBarTitle::selection {
-    color: #00b300;
-}
