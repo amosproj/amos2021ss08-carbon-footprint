@@ -1,0 +1,25 @@
+/* Project wide definition of stlye */
+:root {
+    /* --global--concept--size */
+    --global--header--color: #ededed;
+    --global--icon--color: #00b300;
+    --global--panel--color: 2rem;
+    --global--text--color: 0.5rem;
+
+    /* --global--concept--PropertyCamelCase */
+    --global--header-title--FontSize: 24px;
+    --global--header-icon-title--FontSize: 35px;
+    --global--header-back-icon-title--FontSize: 20px;
+    --global--panel-title--FontSize: 22px;
+    --global--icon-title--FontSize: 18px;
+    --global--text--FontSize: 18px;
+    --global--text-label--FontSize: 16px;
+    --global--text-title--FontSize: 20px;
+    --global--text-subtitle--FontSize: 19px;
+    --global--chart-items--FontSize: 10px;
+    --global--table-items--FontSize: 10px;
+    --global--button-title--FontSize: 14px;
+
+    /* --global--state--PropertyCamelCase */
+    --global--hover--BackgroundColor: #ccc;
+}
