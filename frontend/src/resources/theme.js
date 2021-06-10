@@ -8,7 +8,7 @@ export const color = {
     brightBlue: '#3498db',
     darkGrayishBlue: '#8b8d94',
     whitish: '#b5b4b9',
-    white: '#ffffff',
+    white: '#F0F0F0',
     darkGray: '#262625',
     darkRed: '#a90000',
     grayishBlue: '#A4A6B3',

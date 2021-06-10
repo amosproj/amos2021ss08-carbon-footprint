@@ -11,9 +11,9 @@ import { GlobalContext } from 'hooks/GlobalContext';
 
 const useStyles = createUseStyles({
     separator: {
-        borderTop: ({ theme }) => `1px solid ${theme.color.lightGrayishBlue}`,
-        marginTop: 16,
-        marginBottom: 16,
+        borderTop: ({ theme }) => `2px solid ${theme.color.lightGrayishBlue}`,
+        marginTop: 10,
+        marginBottom: 10,
         opacity: 0.06
     }
 });
@@ -52,10 +52,10 @@ function SidebarComponent({ pageWrapId, outerContainerId }) {
     }
 
     return (
-        <Menu pageWrapId={pageWrapId} outerContainerId={outerContainerId} isMobile={isMobile}>
-            <div className='TeamLogo'>
-                <img alt='' src={logo} style={{ marginTop: 20, marginBottom: 20 }} />
-            </div>
+        <Menu   pageWrapId={pageWrapId} outerContainerId={outerContainerId} isMobile={isMobile}>
+            {/* <div className='TeamLogo'>
+                <img alt='' src={logo}/>
+            </div> */}
             <MenuItem
                 id={SLUGS.dashboard}
                 title='My Dashboard'

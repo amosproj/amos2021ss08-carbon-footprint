@@ -53,7 +53,7 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
     const classNameColumn = isActive ? classes.leftBar : '';
     const classNameContainer = [classes.container, isActive && classes.activeContainer].join(' ');
     const iconColor = isActive
-        ? '#00b300'
+        ? '#5D59AE'
         : '#b5b4b9';
 
     function onItemClicked(e) {

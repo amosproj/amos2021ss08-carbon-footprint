@@ -14,6 +14,47 @@
 html,
 body,
 #root,
+/* -webkit-radial-gradient( 80%  right  , #4D217A,#1B1534 ); */
+:root {
+    /* --global--Colors */
+    --global--header--icon--color: #F0F0F0;
+    --global--icon--color: #00b300;
+    --global--sidebar--color:#1B1534;
+    --global--headerbar--color:     radial-gradient(
+        circle at top right,
+        #4D217A,#1B1534);
+    /* --global--panel--color: #38206A; */
+    --global--main--container--color: 2rem;
+    --global--text--color: #000000;
+    --global--body--color: #F0F0F0;
+    --global--header--title--color:#F0F0F0;
+    --global--sidebar--title--color:#F0F0F0;
+    --global--panel--title--color: #38206A;
+
+
+  
+    /* --global--text and title--fontsizes */
+    --global--header-title--FontSize: 24px;
+    --global--header-icon-title--FontSize: 35px;
+    --global--header-back-icon-title--FontSize: 20px;
+    --global--panel-title--FontSize: 22px;
+    --global--icon-title--FontSize: 18px;
+    --global--text--FontSize: 18px;
+    --global--text-label--FontSize: 16px;
+    --global--text-title--FontSize: 20px;
+    --global--text-subtitle--FontSize: 19px;
+    --global--chart-items--FontSize: 10px;
+    --global--table-items--FontSize: 10px;
+    --global--button-title--FontSize: 14px;
+
+
+
+    
+  
+    /* --global--state--PropertyCamelCase */
+    --global--hover--BackgroundColor: #ccc;
+  }
+
 .App {
     height: 100%;
     overflow-x: inherit;
@@ -76,35 +117,6 @@ article > * + * {
     margin-top: 1em;
 }
 
-:root {
-    /* --global--concept--size */
-    --global--header--color: #ededed;
-    --global--icon--color: #00b300;
-    --global--panel--color: 2rem;
-    --global--text--color: .5rem;
-
-  
-    /* --global--concept--PropertyCamelCase */
-    --global--header-title--FontSize: 24px;
-    --global--header-icon-title--FontSize: 35px;
-    --global--header-back-icon-title--FontSize: 20px;
-    --global--panel-title--FontSize: 22px;
-    --global--icon-title--FontSize: 18px;
-    --global--text--FontSize: 18px;
-    --global--text-label--FontSize: 16px;
-    --global--text-title--FontSize: 20px;
-    --global--text-subtitle--FontSize: 19px;
-    --global--chart-items--FontSize: 10px;
-    --global--table-items--FontSize: 10px;
-    --global--button-title--FontSize: 14px;
-
-
-
-    
-  
-    /* --global--state--PropertyCamelCase */
-    --global--hover--BackgroundColor: #ccc;
-  }
 
 /* Inherit fonts for inputs and buttons */
 input,
@@ -125,7 +137,7 @@ select {
 }
 
 body {
-    background-color: var(--global--header--color);
+    background-color: var(--global--body--color);
     font-family: Muli;
     font-style: normal;
     font-weight: normal;
@@ -155,9 +167,11 @@ body {
 
 /* Reconfiguration of the header bar */
 .HeaderContainer {
-    height: 70;
+    height: 85;
     width: 100%;
-    color: #000000;
+    /* background-color: #4D217A; */
+    background: var(--global--headerbar--color);
+    
 }
 /* Reconfiguration of  the title style on the header bar */
 .HeaderTitle {
@@ -168,12 +182,12 @@ body {
     line-height: 16px;
     letter-spacing: 0.5px;
     margin-left: 30px;
-    color: #00b300;
+    color: var( --global--header--title--color);
 }
 /* Reconfiguration of  the icon style on the header bar */
 .HeaderIconSyle {
     font-size: var(--global--header-icon-title--FontSize);
-    color: var(--global--header--color);
+    color: var(--global--header--icon--color);
     padding-right: 100;
     margin-right: 10px;
     margin-top: 10px;
@@ -202,7 +216,7 @@ body {
     margin-left: 40;
     letter-spacing: 0.5px;
     line-height: 16px;
-    color: #00b300;
+    color: var(--global--header--icon--color);
     margin-bottom: 15px;
     margin-top: 5px;
 }
@@ -215,7 +229,7 @@ body {
     font-size: var(--global--panel-title--FontSize);
     letter-spacing: 0.5px;
     margin-left: 0px;
-    color: #dbdbdb;
+    color: var(--global--panel--title--color);
 }
 
 .SubTitle {
@@ -225,7 +239,7 @@ body {
     font-size: 22px;
     letter-spacing: 0.5px;
     margin-left:15px;
-    color: #000000;
+    color:var(--global--text--color);
     margin-bottom:10px;
 }
 
@@ -248,7 +262,7 @@ body {
     font-weight: bold;
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
-    color: #000000;
+    color: #9c9a9a;
 }
 
 /* Reconfiguration of the title style on Column chart  */
@@ -392,15 +406,21 @@ body {
     margin-top:15px;
 
 }
-.Separator {
-    border: 5px;
-    /* margin-left: 40;
-    margin-right: 10; */
-    margin-top: 5px;
-    height: 100px;
-    width: 10px;
-    color: #8b8d94;
+
+/* TODO :add seperator in here */
+
+
+
+/* p {
+    overflow: hidden;
 }
+
+p span {
+
+    border-top:  2px solid var(--global--header--icon--color);;
+    width: 100px;
+    padding-left: 0px;
+} */
 /* Reconfiguration of  the icon style on the side bar */
 .SideBarIconStyle {
     font-family: inherit;
@@ -413,6 +433,17 @@ body {
     letter-spacing: 0.5px;
 }
 
+.SideBarContainer{
+    color:'white';
+    background-color: var(--global--sidebar--color);
+    /* position: 'fixed'; */
+    height: '100%';
+
+}
+
+.SideBarBurgerMenu{
+    background-color:#b5b4b9;
+}
 /* Reconfiguration of  the title style on the side bar */
 .SideBarTitle {
     font-family: inherit;
@@ -420,17 +451,19 @@ body {
     font-weight: normal;
     font-size: var(--global--icon-title--FontSize);
     letter-spacing: 0.2px;
-    color: var(--global--header--color);
-    margin-left: 5px;
+    color: var(--global--sidebar--title--color);
+    margin-left: 2px;
 }
 
 /* Reconfiguration of the logo style on sidebar  */
 .TeamLogo{
-    height: fit-content;
+    height: min-content;
     text-align: center;
     width: fit-content;
     margin-left:10px;
     margin-right:10px;
+    padding-top:15px;
+    padding-bottom:30px;
 
 }
 
