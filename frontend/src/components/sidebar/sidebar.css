@@ -30,6 +30,11 @@
     margin-right: 10px;
 }
 
+.TeamLogo img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .ActiveContainer {
     background-color: 'rgba(221, 226, 255, 0.08)';
 }
