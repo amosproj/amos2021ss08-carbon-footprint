@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import { string } from 'prop-types';
 import { Row } from 'simple-flexbox';
-import { useTheme } from 'react-jss';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import slugs from 'resources/slugs';
 import { Link } from 'react-router-dom';
-import { createUseStyles } from 'react-jss';
+import { createUseStyles,  useTheme } from 'react-jss';
 
 /**
  * The Header Component is a shared component between all pages. It displays
@@ -29,6 +28,7 @@ function HeaderComponent() {
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
     const [selectedProducts] = useContext(PrivateSectionContext);
     const theme = useTheme();
+    //eslint-disable-next-line 
     const classes = useStyles({ theme });
 
     let title;

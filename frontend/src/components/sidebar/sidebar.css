@@ -1,6 +1,4 @@
 @import url('theme.css');
-
-/* Reconfiguration of  the icon style on the side bar */
 .SideBarIconStyle {
     font-family: inherit;
     font-style: normal;
@@ -12,6 +10,17 @@
     letter-spacing: 0.5px;
 }
 
+.SideBarContainer{
+    color:'white';
+    background-color: var(--global--sidebar--color);
+    /* position: 'fixed'; */
+    height: '100%';
+
+}
+
+.SideBarBurgerMenu{
+    background-color:#b5b4b9;
+}
 /* Reconfiguration of  the title style on the side bar */
 .SideBarTitle {
     font-family: inherit;
@@ -19,38 +28,40 @@
     font-weight: normal;
     font-size: var(--global--icon-title--FontSize);
     letter-spacing: 0.2px;
-    color: var(--global--header--color);
-    margin-left: 5px;
+    color: var(--global--sidebar--title--color);
+    margin-left: 2px;
 }
 
 /* Reconfiguration of the logo style on sidebar  */
-.TeamLogo {
-    height: fit-content;
+.TeamLogo{
+    height: min-content;
     text-align: center;
     width: fit-content;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left:10px;
+    margin-right:10px;
+    padding-top:15px;
+    padding-bottom:30px;
+
 }
 
-.TeamLogo img {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+.ActiveContainer{
 
-.ActiveContainer {
-    background-color: 'rgba(221, 226, 255, 0.08)';
+    background-color: 'rgba(221, 226, 255, 0.08)' ;
 }
 
 .MenuContainer {
     display: 'flex';
     height: 40;
     cursor: 'pointer';
-    padding-left: 16px;
+    padding-left: 16px,
 }
 
-.MenuContainer:hover {
-    background-color: 'rgba(221, 226, 255, 0.08)';
+.MenuContainer:hover{
+    background-color:'rgba(221, 226, 255, 0.08)' ;
+
+
 }
+
 
 .SideBarIconStyle:hover {
     color: #00b300;

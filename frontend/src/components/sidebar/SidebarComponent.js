@@ -53,9 +53,9 @@ function SidebarComponent({ pageWrapId, outerContainerId }) {
 
     return (
         <Menu   pageWrapId={pageWrapId} outerContainerId={outerContainerId} isMobile={isMobile}>
-            {/* <div className='TeamLogo'>
+            <div className='TeamLogo'>
                 <img alt='' src={logo}/>
-            </div> */}
+            </div>
             <MenuItem
                 id={SLUGS.dashboard}
                 title='My Dashboard'
