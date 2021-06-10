@@ -3,7 +3,6 @@
 @import url('components/header/header.css');
 @import url('components/details/charts_tables.css');
 @import url('components/sidebar/sidebar.css');
-@import url('components/login/loginstyle.css');
 
 /* Project wide definition of stlye */
 :root {

@@ -4,6 +4,7 @@ import { uniformStyle, color } from 'resources/theme';
 import slugs from 'resources/slugs';
 import { GlobalContext } from 'hooks/GlobalContext';
 import React from 'react';
+import './loginstyle.css';
 
 /**
  * The LoginComponent realizes the Login Page.
