@@ -3,8 +3,9 @@ import SelectVariableComponent from './SelectVariableComponent';
 import NavbarComponent from './NavbarComponent';
 import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
-import Table from './TableComponent';
+import TableComponent from './TableComponent';
 import { Col, Container, Row } from 'react-grid-system';
+import { Hidden } from '@material-ui/core';
 
 /**
  * Displays one Scenario, containing a ColumnChart, a PieChart and a Table,
@@ -12,8 +13,6 @@ import { Col, Container, Row } from 'react-grid-system';
  */
 class ScenarioComponent extends Component {
     render() {
-        console.log(this.props);
-
         return (
             <Container fluid={true} style={{ padding: 0, margin: 10, backgroundColor: 'white' }}>
                 <NavbarComponent
@@ -50,7 +49,13 @@ class ScenarioComponent extends Component {
                     </Row>
                     <Row>
                         <Col xs={12} sm={12} md={12} lg={11} className='TableContainer'>
-                            <Table />
+                            <Hidden smDown>
+                                <TableComponent
+                                    productName={this.props.selectedProduct.productName}
+                                    modelName={this.props.selectedProduct.modelName}
+                                />
+                            </Hidden>
+                            <Hidden smUp></Hidden>
                         </Col>
                     </Row>
                 </Container>

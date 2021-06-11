@@ -31,15 +31,15 @@ export function getModels() {
 /**
  * should get the material compositon of a specific model
  * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
- * @param modelName name of the model, which we want to get the Data
+ * @param modelId id of the model, which we want to get the Data
  */
-export function getMaterialCompositionData(modelName) {
+export function getMaterialCompositionData(modelId) {
     return [17, 13, 3, 2, 1, 42, 21];
 }
 /**
- * @param modelName name of the model, which we want to get the Data
+ * @param modelId id of the model, which we want to get the Data
  */
-export function getMaterialCompositionLabels(modelName) {
+export function getMaterialCompositionLabels(modelId) {
     return [
         'Transformer oil',
         'Steel',
@@ -54,26 +54,26 @@ export function getMaterialCompositionLabels(modelName) {
 /**
  * QUESTON: Do these categories stay the same?
  * Impact Assessment is done for each of the life cycle stage
- * @param modelName name of the model, which we want to get the Data
+ * @param modelId id of the model, which we want to get the Data
  */
-export function getLifeCycleStages(modelName) {
+export function getLifeCycleStages(modelId) {
     return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
 }
 
 /**
  * Impact Assessment is done for each life cycle stage
  * QUESTION: amount of stages fixed?
- * @param modelName name of the model, which we want to get the Data
+ * @param modelId id of the model, which we want to get the Data
  */
-export function getImpactAssessmentData(modelName) {
+export function getImpactAssessmentData(modelId) {
     return [37, 3, 90, -50];
 }
 
 /**
  * * QUESTION: life cycle stages fixed?
- * @param modelName name of the model, which we want to get the Data
+ * @param modelId id of the model, for which we want to get the Data
  */
-export function getImpactCategoriesTableHeaders(modelName) {
+export function getImpactCategoriesTableHeaders(modelId) {
     return [
         { key: 'header-1', value: 'Impact Category' },
         { key: 'header-2', value: 'Unit' },
@@ -87,9 +87,69 @@ export function getImpactCategoriesTableHeaders(modelName) {
 /**
  * QUESTION: how is the data structured?
  * Do we need to extract the data from a data structure?
- * @param modelName name of the model, which we want to get the Data
+ * @param modelId id of the model, for which we want to get the Data
  */
-export function getImpactCategoriesTableData(modelName) {
-    //TODO:
-    return null;
+export function getImpactCategoriesTableData(modelId) {
+    return [
+        {
+            key: 'row-1',
+            impactCategory: 'Global Warming',
+            unit: 'kg CO2 eq',
+            total: '2,350,811',
+            materialsLPT: '874,356',
+            manufacturing: '71,532',
+            operations: '2,114,344',
+            endOfLife: '-790,420'
+        },
+        {
+            key: 'row-2',
+            impactCategory: 'Ozon layer depletion',
+            unit: 'kg CFC-11 eq',
+            total: '12',
+            materialsLPT: '0',
+            manufacturing: '0',
+            operations: '12',
+            endOfLife: '0'
+        },
+        {
+            key: 'row-3',
+            impactCategory: 'Photochemical oxidant formation (POCP)',
+            unit: 'kg C2H4 eq',
+            total: '2,350,811',
+            materialsLPT: '874,356',
+            manufacturing: '71,532',
+            operations: '2,114,344',
+            endOfLife: '-332'
+        },
+        {
+            key: 'row-4',
+            impactCategory: 'Acidification',
+            unit: 'kg SO2 eq',
+            total: '12',
+            materialsLPT: '0',
+            manufacturing: '0',
+            operations: '12',
+            endOfLife: '12,159'
+        },
+        {
+            key: 'row-5',
+            impactCategory: 'Eutrophication',
+            unit: 'kg PO4 eq',
+            total: '12',
+            materialsLPT: '0',
+            manufacturing: '0',
+            operations: '12',
+            endOfLife: '–5,016'
+        },
+        {
+            key: 'row-6',
+            impactCategory: 'Nonrenewable energy',
+            unit: 'MJ eq',
+            total: '2,781,500,619',
+            materialsLPT: '14,672,424',
+            manufacturing: '1,454,845',
+            operations: '2,774,610,300',
+            endOfLife: '–9,236,950'
+        }
+    ];
 }
