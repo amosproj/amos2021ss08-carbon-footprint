@@ -58,7 +58,7 @@ class DetailsComponent extends Component {
 
         const scenarioNames = {
             baseline: 'Baseline Scenario',
-            modified: 'modified Scenario'
+            modified: 'Modified Scenario'
         };
         const { selectedProduct } = this.props;
 
@@ -73,7 +73,7 @@ class DetailsComponent extends Component {
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
                                 onExportClicked={handleExportPdfButton}
-                                scenarioName={scenarioNames}
+                                scenarioName={scenarioNames.baseline}
                                 selectedProduct={selectedProduct}
                             />
                         </Col>
@@ -88,7 +88,7 @@ class DetailsComponent extends Component {
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames}
+                                scenarioName={scenarioNames.baseline}
                                 selectedProduct={selectedProduct}
                                 onExportClicked={handleExportPdfButton}
                             />
@@ -98,7 +98,7 @@ class DetailsComponent extends Component {
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames}
+                                scenarioName={scenarioNames.modified}
                                 selectedProduct={selectedProduct}
                                 onExportClicked={handleExportPdfButton}
                             />

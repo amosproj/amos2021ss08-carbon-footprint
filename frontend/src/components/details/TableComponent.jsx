@@ -4,13 +4,9 @@ import {
     getImpactCategoriesTableHeaders,
     getImpactCategoriesTableData
 } from 'interface/projectInterface';
+
 /**
- *
- * @returns the impact catagories table of the selected model of the related product.
- *
- * @author Parham Gandomkar, Irem Toroslu
- *
- *
+ * displays the impact catagories table of the selected model of the related product.
  */
 class TableComponent extends Component {
     state = {
@@ -18,7 +14,7 @@ class TableComponent extends Component {
         rows: getImpactCategoriesTableData(this.props.modelId)
     };
     render() {
-        const idKey = this.props.id;
+        const idKey = this.props.key;
         return (
             <Container fluid={true}>
                 {/* dynamic display of product and model */}

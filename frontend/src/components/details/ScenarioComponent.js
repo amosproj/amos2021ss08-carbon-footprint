@@ -6,6 +6,7 @@ import ColumnChart from './ColumnChartComponent';
 import TableComponent from './TableComponent';
 import { Col, Container, Row } from 'react-grid-system';
 import { Hidden } from '@material-ui/core';
+import MobileTableComponent from './MobileTableComponent';
 
 /**
  * Displays one Scenario, containing a ColumnChart, a PieChart and a Table,
@@ -18,7 +19,7 @@ class ScenarioComponent extends Component {
                 <NavbarComponent
                     loadComparePage={this.props.compareCanvas}
                     onCompareClick={this.props.onCompareClick}
-                    scenarioName={this.props.scenarioName.baseline}
+                    scenarioName={this.props.scenarioName}
                     onExportClicked={this.props.onExportClicked}
                 />
                 <Container fluid={true} style={{ padding: 'auto' }}>
@@ -49,13 +50,21 @@ class ScenarioComponent extends Component {
                     </Row>
                     <Row>
                         <Col xs={12} sm={12} md={12} lg={11} className='TableContainer'>
+                            {/* Swaps out the table with a mobile version for screens <= sm */}
                             <Hidden smDown>
                                 <TableComponent
                                     productName={this.props.selectedProduct.productName}
                                     modelName={this.props.selectedProduct.modelName}
+                                    key={this.props.scenarioName}
                                 />
                             </Hidden>
-                            <Hidden smUp></Hidden>
+                            <Hidden mdUp>
+                                <MobileTableComponent
+                                    productName={this.props.selectedProduct.productName}
+                                    modelName={this.props.selectedProduct.modelName}
+                                    key={this.props.scenarioName}
+                                />
+                            </Hidden>
                         </Col>
                     </Row>
                 </Container>
