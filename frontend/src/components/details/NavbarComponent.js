@@ -18,6 +18,7 @@ const NavbarComponent = (props) => {
                         <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
                         Export Pdf
                     </button>
+
                     <button href={slugs.details} onClick={props.onCompareClick}>
                         <i className='fa fa-fw fa-plus-circle' /> Add
                     </button>

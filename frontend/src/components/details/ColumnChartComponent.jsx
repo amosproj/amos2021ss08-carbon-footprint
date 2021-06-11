@@ -33,7 +33,7 @@ const ColumnChartComponent = () => {
             }
         },
         fill: {
-            colors: ['#2bb36f'] //['#2cb5de']
+            colors: ['#14DA79'] //['#2cb5de']
         },
 
         dataLabels: {
