@@ -10,6 +10,17 @@
     letter-spacing: 0.5px;
 }
 
+
+.SideBarIconStyle :active{
+    background-color: #AE56FF ;
+}
+
+.SideBarIconStyle :focus{
+    background-color: #AE56FF ;
+}
+.SideBarIconStyle :visited{
+    background-color: #AE56FF ;
+}
 .SideBarContainer {
     color: 'white';
     background: var(--global--sidebar--color);
@@ -29,6 +40,20 @@
     letter-spacing: 0.2px;
     color: var(--global--sidebar--title--color);
     margin-left: 2px;
+}
+.SideBarTitle :active{
+
+    background-color: #AE56FF;
+
+}
+
+.SideBarTitle :focus{
+
+    background-color: #AE56FF;
+}
+
+.SideBarTitle :visited{
+    background-color: #AE56FF;
 }
 
 /* Reconfiguration of the logo style on sidebar  */

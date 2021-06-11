@@ -13,7 +13,7 @@ const useStyles = createUseStyles((theme) => ({
         // marginTop:50,
         // padding: '8px 16px 8px 16px',
         '&:hover': {
-            borderColor: theme.uniformStyle.color.tableHeaderColor,
+            borderColor: '#AE56FF',
             '&:nth-child(n) > span': {
                 color: theme.color.lightBlue
             }

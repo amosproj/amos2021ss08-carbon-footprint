@@ -4,15 +4,15 @@
     border-radius: 25px;
     height: 80px;
     padding-top:5px;
-    color:  #4d217a;
+    color:  #F0F0F0;
     /* border: 3px solid var(--global--button--color); */
     /* background-color: var(--global--panel--color); */
 }
 
 /* -webkit-radial-gradient(  bottom right, #4D217A,#1B1534 ); */
 :root{
-    --global--button--color:#EDEDED;
-    --global--button--text--color:#4d217a;
+    --global--button--color:#4d217a;
+    --global--button--text--color:#F0F0F0;
     --global--panel-title--FontSize: 22px;
     --global--text-subtitle--FontSize: 19px;
 }

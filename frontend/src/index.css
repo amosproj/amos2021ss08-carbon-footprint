@@ -4,6 +4,7 @@
 @import url('components/details/charts_tables.css');
 @import url('components/sidebar/sidebar.css');
 @import url('theme.css');
+@import url('components/productGrid/ProductGridIndex.css');
 
 /* css resets */
 /* Box sizing rules */
@@ -84,7 +85,15 @@ article > * + * {
 
 /* Inherit fonts for inputs and buttons */
 input,
-button,
+button{
+
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--button-title--FontSize);
+    letter-spacing: 0.5px;
+
+}
 textarea,
 select {
     font: inherit;
@@ -135,7 +144,7 @@ body,
     font-size: 22px;
     letter-spacing: 0.5px;
     margin-left: 15px;
-    color: #000000;
+    color: #4d217a;
     margin-bottom: 10px;
 }
 
@@ -171,13 +180,4 @@ body,
     color: #000000;
 }
 
-/* Reconfiguration of the title style on buttons  */
 
-.ButtonTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: var(--global--button-title--FontSize);
-    letter-spacing: 0.5px;
-    color: #000000;
-}

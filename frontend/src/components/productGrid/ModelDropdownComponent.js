@@ -38,12 +38,7 @@ const ModelDropdownComponent = (props) => {
                     <button
                         title={variableName}
                         className='w3-button dropDown'
-                        style={{
-                            fontSize: theme.typography.buttontitle.fontSize,
-                            fontWeight: theme.typography.buttontitle.fontWeight,
-                            lineHeight: theme.typography.buttontitle.lineHeight,
-                            letterSpacing: theme.typography.buttontitle.letterSpacing
-                        }}
+
                     >
                         {variableName.length > 25
                             ? variableName.substring(0, 25 - 3) + '...'
@@ -60,12 +55,6 @@ const ModelDropdownComponent = (props) => {
                 <button
                     className='w3-button dropDown'
                     disabled
-                    style={{
-                        fontSize: theme.typography.buttontitle.fontSize,
-                        fontWeight: theme.typography.buttontitle.fontWeight,
-                        lineHeight: theme.typography.buttontitle.lineHeight,
-                        letterSpacing: theme.typography.buttontitle.letterSpacing
-                    }}
                 >
                     There is no model available
                 </button>
@@ -78,23 +67,13 @@ const ModelDropdownComponent = (props) => {
             <button
                 className='w3-button dropDown'
                 title={selected}
-                style={{
-                    fontSize: theme.typography.buttontitle.fontSize,
-                    fontWeight: theme.typography.buttontitle.fontWeight,
-                    lineHeight: theme.typography.buttontitle.lineHeight,
-                    letterSpacing: theme.typography.buttontitle.letterSpacing
-                }}
+
             >
                 {selected.length > 25 ? selected.substring(0, 25 - 3) + '...' : selected}
             </button>
             <div
                 className='w3-dropdown-content w3-bar-block w3-border dropDown'
-                style={{
-                    fontSize: theme.typography.buttontitle.fontSize,
-                    fontWeight: theme.typography.buttontitle.fontWeight,
-                    lineHeight: theme.typography.buttontitle.lineHeight,
-                    letterSpacing: theme.typography.buttonSendtitle.letterSpacing
-                }}
+
             >
                 {variables.map((item) => (
                     <button

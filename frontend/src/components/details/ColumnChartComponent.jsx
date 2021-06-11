@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { getImpactAssessmentData, getLifeCycleStages } from 'interface/projectInterface';
+import theme from 'resources/theme';
 
 /**
  * Column Chart
@@ -32,7 +33,7 @@ const ColumnChartComponent = () => {
             }
         },
         fill: {
-            colors: ['#21C0FF']//['#2cb5de']
+            colors: ['#75bab4']//['#2cb5de']
         },
 
         dataLabels: {
@@ -43,7 +44,7 @@ const ColumnChartComponent = () => {
             offsetY: -20,
             style: {
                 fontSize: '12px',
-                colors:  ['#21C0FF']
+                colors:  ['#a9d1cd']
             }
         },
         yaxis: {

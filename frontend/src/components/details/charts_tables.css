@@ -9,7 +9,7 @@
     font-weight: bold;
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
-    color: #000000;
+    color: #1B1534;
 }
 
 /* Reconfiguration of the title style on Column chart  */
@@ -67,7 +67,7 @@
     font-weight: bold;
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
-    color: #000000;
+    color: #1B1534;
     margin-bottom: 10px;
 }
 /* Reconfiguration of the title style on cards  */
@@ -78,7 +78,7 @@
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
     padding-left: 17px;
-    color: #000000;
+    color: #1B1534;
     padding-bottom: 10px;
 }
 
@@ -89,7 +89,7 @@
     font-weight: normal;
     font-size: var(--global--text-subtitle--FontSize);
     letter-spacing: 0.5px;
-    color: #000000;
+    color: #1B1534;
     margin-bottom: 10px;
 }
 
@@ -100,7 +100,7 @@
     font-weight: normal;
     font-size: var(--global--table-items--FontSize);
     margin-left: 0;
-    color: #000000;
+    color: #1B1534;
     margin-top: 10px;
     margin-bottom: 10px;
 }
