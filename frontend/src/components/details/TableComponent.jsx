@@ -86,7 +86,7 @@ class TableComponent extends Component {
 
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
                     <thead>
-                        <tr key={'FirstRow'} style={{ backgroundColor: '#11c26b' }}>
+                        <tr key={'FirstRow'} style={{ backgroundColor: '#009B55' }}>
                             {this.state.headers.map((item) => (
                                 <th key={idKey + 'thead' + item.key}>{item.value}</th>
                             ))}
