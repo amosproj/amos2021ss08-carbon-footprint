@@ -31,13 +31,13 @@ const PieChartComponent = () => {
         labels: labels,
         // TODO: do the materials stay the same? otherwise doesn't make sense to use fixed color / hardcode them
         colors: [
-            '#e2d000',
+            '#F6E600',
             theme.color.Steel,
             theme.color.Pressboard,
             theme.color.StainlessSteel,
             theme.color.Alminium,
             '#0084E1',
-            theme.color.Copper
+            '#f28e30'
         ],
         responsive: [
             {
