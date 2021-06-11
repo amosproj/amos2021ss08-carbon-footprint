@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { getImpactAssessmentData, getLifeCycleStages } from 'interface/projectInterface';
-import theme from 'resources/theme';
 
 /**
  * Column Chart
