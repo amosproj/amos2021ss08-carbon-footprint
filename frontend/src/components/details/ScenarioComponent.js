@@ -17,7 +17,7 @@ class ScenarioComponent extends Component {
         return (
             <Container fluid={true} style={{ padding: 0, margin: 10, backgroundColor: 'white' }}>
                 <NavbarComponent
-                    loadComparePage={this.props.compareCanvas}
+                    loadComparePage={this.props.loadComparePage}
                     onCompareClick={this.props.onCompareClick}
                     scenarioName={this.props.scenarioName}
                     onExportClicked={this.props.onExportClicked}
@@ -50,15 +50,22 @@ class ScenarioComponent extends Component {
                     </Row>
                     <Row>
                         <div className='TableContainer'>
-                            {/* Swaps out the table with a mobile version for screens <= sm */}
-                            <Hidden smDown>
+                            {/* Swaps out the table with a mobile version for screens <= sm 
+                            And when on the compare version already swap out for screens <= lg */}
+                            <Hidden
+                                smDown={this.props.loadComparePage ? false : true}
+                                lgDown={this.props.loadComparePage ? true : false}
+                            >
                                 <TableComponent
                                     productName={this.props.selectedProduct.productName}
                                     modelName={this.props.selectedProduct.modelName}
                                     key={this.props.scenarioName}
                                 />
                             </Hidden>
-                            <Hidden mdUp>
+                            <Hidden
+                                mdUp={this.props.loadComparePage ? false : true}
+                                xlUp={this.props.loadComparePage ? true : false}
+                            >
                                 <MobileTableComponent
                                     productName={this.props.selectedProduct.productName}
                                     modelName={this.props.selectedProduct.modelName}
