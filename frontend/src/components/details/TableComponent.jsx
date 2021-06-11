@@ -36,7 +36,7 @@ class TableComponent extends Component {
                     </thead>
                     <tbody>
                         {this.state.rows.map((item, index) => (
-                            <tr key={idKey + index} className='TableItems'>
+                            <tr key={'tr' + idKey + index} className='TableItems'>
                                 <td key={idKey + 'td-a' + item.key}>{item.impactCategory}</td>
                                 <td key={idKey + 'td-b' + item.key}>{item.unit}</td>
                                 <td key={idKey + 'td-c' + item.key}>{item.total}</td>
