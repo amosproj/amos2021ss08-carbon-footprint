@@ -33,7 +33,7 @@ const ColumnChartComponent = () => {
             }
         },
         fill: {
-            colors: [theme.uniformStyle.color.barChartColor]
+            colors: ['#2bb36f'] //['#2cb5de']
         },
 
         dataLabels: {
@@ -44,7 +44,7 @@ const ColumnChartComponent = () => {
             offsetY: -20,
             style: {
                 fontSize: '12px',
-                colors: ['#21C0FF']
+                colors: ['#2bb36f'] //['#21C0FF']
             }
         },
         yaxis: {

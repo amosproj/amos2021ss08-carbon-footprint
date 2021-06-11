@@ -56,7 +56,7 @@ body {
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    background-color: var(--global--header--color);
+    background-color: #F0F0F0;
     font-family: Muli;
     font-style: normal;
     font-weight: normal;

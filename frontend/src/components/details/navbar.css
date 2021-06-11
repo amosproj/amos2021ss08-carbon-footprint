@@ -4,14 +4,15 @@
     border-radius: 25px;
     height: 80px;
     padding-top:5px;
-    color:  #1B1534;
+    color:  #F0F0F0;
     /* border: 3px solid var(--global--button--color); */
     /* background-color: var(--global--panel--color); */
 }
 
 /* -webkit-radial-gradient(  bottom right, #4D217A,#1B1534 ); */
 :root{
-    --global--button--color:#E6E6E6;
+    --global--button--color:#4d2071;
+    --global--button--text--color:#F0F0F0;
     --global--panel-title--FontSize: 22px;
     --global--text-subtitle--FontSize: 19px;
 }
@@ -22,6 +23,7 @@
     padding: 12px;
     /* color: var(--global--panel--color); */
     background-color:var(--global--button--color) ;
+    color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 20px;
     width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
@@ -50,4 +52,3 @@
         text-align: left; /* If you want the text to be left-aligned on small screens */
     }
 }
-
