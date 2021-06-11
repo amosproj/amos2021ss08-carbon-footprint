@@ -5,13 +5,13 @@
     height: 80px;
     padding-top:5px;
     color:  #1B1534;
-    border: 3px solid var(--global--button--color);
+    /* border: 3px solid var(--global--button--color); */
     /* background-color: var(--global--panel--color); */
 }
 
 /* -webkit-radial-gradient(  bottom right, #4D217A,#1B1534 ); */
 :root{
-    --global--button--color:#1B1534;
+    --global--button--color:#E6E6E6;
     --global--panel-title--FontSize: 22px;
     --global--text-subtitle--FontSize: 19px;
 }
@@ -21,7 +21,7 @@
     float: left;
     padding: 12px;
     /* color: var(--global--panel--color); */
-    background-color:#14DA79 ;
+    background-color:var(--global--button--color) ;
     text-decoration: none;
     font-size: 20px;
     width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
@@ -33,7 +33,7 @@
 .navbar b {
     float: left;
     padding: 12px;
-    background-color:#FFFFFF;
+    background-color:var(--global--button--color);
     /* color: var(--global--panel--color); */
     text-decoration: none;
     font-size: 22px;
@@ -50,3 +50,4 @@
         text-align: left; /* If you want the text to be left-aligned on small screens */
     }
 }
+

@@ -44,7 +44,7 @@ const ColumnChartComponent = () => {
             offsetY: -20,
             style: {
                 fontSize: '12px',
-                colors: ['#304758']
+                colors: ['#21C0FF']
             }
         },
         yaxis: {
