@@ -10,16 +10,15 @@
     letter-spacing: 0.5px;
 }
 
-.SideBarContainer{
-    color:'white';
+.SideBarContainer {
+    color: 'white';
     background: var(--global--sidebar--color);
     /* position: 'fixed'; */
     height: '100%';
-
 }
 
-.SideBarBurgerMenu{
-    background-color:#b5b4b9;
+.SideBarBurgerMenu {
+    background-color: #b5b4b9;
 }
 /* Reconfiguration of  the title style on the side bar */
 .SideBarTitle {
@@ -33,29 +32,27 @@
 }
 
 /* Reconfiguration of the logo style on sidebar  */
-.TeamLogo{
+.TeamLogo {
     height: min-content;
     text-align: center;
     width: fit-content;
-    margin-left:5px;
-    margin-right:10px;
-    padding-top:30px;
-    padding-bottom:35px;
-    
+    margin-left: 5px;
+    margin-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 35px;
 }
 
-.ActiveContainer{
-    background-color: 'rgba(221, 226, 255, 0.08)' ;
+.ActiveContainer {
+    background-color: 'rgba(221, 226, 255, 0.08)';
 }
 
 .MenuContainer {
     display: 'flex';
     height: 40;
     cursor: 'pointer';
-    padding-left: 16px,
+    padding-left: 16px;
 }
 
-.MenuContainer:hover{
-    background-color:'rgba(221, 226, 255, 0.08)' ;
+.MenuContainer:hover {
+    background-color: 'rgba(221, 226, 255, 0.08)';
 }
-

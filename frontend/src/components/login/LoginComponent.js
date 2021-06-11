@@ -15,19 +15,12 @@ function LoginComponent() {
     const [, setState] = useContext(GlobalContext);
 
     return (
-        <div
-            className='flex-container'
-            style={{ backgroundColor: uniformStyle.color.secondaryBackgroundColor }}
-        >
+        <div className='flex-container'>
             <div className='w3-padding-24 w3-auto'>
                 <form
                     className='login'
                     action={slugs.categories}
                     onSubmit={() => setState({ userIsLoggedIn: true })}
-                    style={{
-                        backgroundColor: uniformStyle.color.primaryBackgroundColor,
-                        borderColor: uniformStyle.color.accentColor
-                    }}
                 >
                     <div className='imgcontainer'>
                         <img src={CarbonFootprintLogo} alt='Carbon Footprint' className='avatar' />
@@ -53,11 +46,7 @@ function LoginComponent() {
                             name='psw'
                             required
                         />
-                        <button
-                            className='login'
-                            style={{ backgroundColor: uniformStyle.color.accentColor }}
-                            type='submit'
-                        >
+                        <button className='login' type='submit'>
                             Login
                         </button>
                         <label>
@@ -69,8 +58,7 @@ function LoginComponent() {
                             style={{
                                 marginTop: '10px',
                                 marginBottom: '10px',
-                                textAlign: 'right',
-                                backgroundColor: color.lightGray
+                                textAlign: 'right'
                             }}
                         >
                             <a href={slugs.forgotPassword}>Forgot password?</a>
