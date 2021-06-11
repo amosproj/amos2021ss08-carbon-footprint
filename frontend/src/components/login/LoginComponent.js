@@ -1,7 +1,6 @@
 import './loginstyle.css';
 import { useContext } from 'react';
 import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
-import { uniformStyle, color } from 'resources/theme';
 import slugs from 'resources/slugs';
 import { GlobalContext } from 'hooks/GlobalContext';
 import React from 'react';
