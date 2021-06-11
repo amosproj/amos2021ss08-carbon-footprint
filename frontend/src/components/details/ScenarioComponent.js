@@ -49,7 +49,7 @@ class ScenarioComponent extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={12} sm={12} md={12} lg={11} className='TableContainer'>
+                        <div className='TableContainer'>
                             {/* Swaps out the table with a mobile version for screens <= sm */}
                             <Hidden smDown>
                                 <TableComponent
@@ -65,7 +65,7 @@ class ScenarioComponent extends Component {
                                     key={this.props.scenarioName}
                                 />
                             </Hidden>
-                        </Col>
+                        </div>
                     </Row>
                 </Container>
             </Container>

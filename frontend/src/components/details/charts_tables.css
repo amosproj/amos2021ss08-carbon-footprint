@@ -112,7 +112,11 @@
     cursor: 'pointer';
     /* min-width: 500px;
     max-width: 500px; */
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 10px; /* To make it display the shadow properly */
+    /* To center it: */
+    /* margin-left: auto;
+    margin-right: auto; */
     margin-top: 15px;
+    margin-bottom: 15px;
+    overflow: auto; /* To make it scrollable whenever it does not fit for some reason. */
 }
