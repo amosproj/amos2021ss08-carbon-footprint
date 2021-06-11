@@ -37,10 +37,8 @@ const ModelDropdownComponent = (props) => {
                 <div className='w3-margin-top w3-margin-bottom:2em'>
                     <button
                         title={variableName}
-                        className='w3-button'
+                        className='w3-button dropDown'
                         style={{
-                            color: theme.uniformStyle.color.secondaryFontColor,
-                            backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
                             fontSize: theme.typography.buttontitle.fontSize,
                             fontWeight: theme.typography.buttontitle.fontWeight,
                             lineHeight: theme.typography.buttontitle.lineHeight,
@@ -60,11 +58,9 @@ const ModelDropdownComponent = (props) => {
         return (
             <div className='w3-margin-top w3-margin-bottom:2em'>
                 <button
-                    className='w3-button'
+                    className='w3-button dropDown'
                     disabled
                     style={{
-                        color: theme.uniformStyle.color.secondaryFontColor,
-                        backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
                         fontSize: theme.typography.buttontitle.fontSize,
                         fontWeight: theme.typography.buttontitle.fontWeight,
                         lineHeight: theme.typography.buttontitle.lineHeight,
@@ -80,11 +76,9 @@ const ModelDropdownComponent = (props) => {
     return (
         <div className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em'>
             <button
-                className='w3-button'
+                className='w3-button dropDown'
                 title={selected}
                 style={{
-                    color: theme.uniformStyle.color.secondaryFontColor,
-                    backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
                     fontSize: theme.typography.buttontitle.fontSize,
                     fontWeight: theme.typography.buttontitle.fontWeight,
                     lineHeight: theme.typography.buttontitle.lineHeight,
@@ -94,10 +88,8 @@ const ModelDropdownComponent = (props) => {
                 {selected.length > 25 ? selected.substring(0, 25 - 3) + '...' : selected}
             </button>
             <div
-                className='w3-dropdown-content w3-bar-block w3-border'
+                className='w3-dropdown-content w3-bar-block w3-border dropDown'
                 style={{
-                    color: theme.uniformStyle.color.secondaryFontColor,
-                    backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
                     fontSize: theme.typography.buttontitle.fontSize,
                     fontWeight: theme.typography.buttontitle.fontWeight,
                     lineHeight: theme.typography.buttontitle.lineHeight,
@@ -119,7 +111,7 @@ const ModelDropdownComponent = (props) => {
                             setSelected(item.modelName);
                             setSelectedProducts(newSelectedProducts);
                         }}
-                        className='w3-bar-item w3-button'
+                        className='w3-bar-item w3-button dropDown'
                         key={item.modelID}
                     >
                         {item.modelName.length > 35

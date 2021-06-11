@@ -1,5 +1,13 @@
 .App {
     font-family: sans-serif;
     text-align: center;
-  }
-  
+}
+.dropDown {
+    background-color: #8a00e5;
+    color: white;
+}
+.dropDown:hover {
+    opacity: 0.8;
+    background-color: #8a00e5 !important;
+    color: white !important;
+}
