@@ -84,7 +84,7 @@ function HeaderComponent() {
 
     function UseBack(selected) {
         if (title === 'Details ' && !(selected === undefined)) {
-            return <i class='fa fa-chevron-circle-left' />;
+            // return <i class='fa fa-chevron-left ' />;
         }
         return null;
     }
