@@ -4,11 +4,10 @@
     --global--header--icon--color: #f0f0f0;
     --global--icon--color: #00b300;
     --global--sidebar--color: radial-gradient(circle at top,
-        #000000 30%,#1b1534,#4d217a,#8A00DE
+        #000000 15%,#1b1534,#963fcc
       );
     --global--headerbar--color: radial-gradient(circle at left,#000000 1%,#1b1534,#1b1534,#1b1534);
     /* --global--panel--color: #38206A; */
-    --global--main--container--color: 2rem;
     --global--text--color: #000000;
     --global--body--color: #f0f0f0;
     --global--header--title--color: #f0f0f0;

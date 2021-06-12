@@ -21,10 +21,12 @@ const NavbarComponent = (props) => {
                         </btn>
                     </Link>
                     <b>{props.scenarioName}</b>
-                    <pdfbtn href={slugs.details} onClick={props.onExportClicked}>
-                        <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
-                        Export Pdf
-                    </pdfbtn>
+                    <Link to={{ pathname: slugs.details }} onClick={props.onExportClicked}>
+                        <pdfbtn >
+                            <i className='fa fa-file-pdf-o' aria-hidden='true'></i>
+                            Export Pdf
+                        </pdfbtn>
+                    </Link>
                     <Link to={{ pathname: slugs.details }} onClick={props.onCompareClick}>
                         <addbtn>
                             <i className='fa fa-fw fa-plus-circle' /> Add
