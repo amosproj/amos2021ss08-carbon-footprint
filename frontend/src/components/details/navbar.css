@@ -11,7 +11,7 @@
 
 /* -webkit-radial-gradient(  bottom right, #4D217A,#1B1534 ); */
 :root{
-    --global--button--color:#836387;
+    --global--button--color: #1b1534;
     --global--button--text--color:#F0F0F0;
     --global--panel-title--FontSize: 22px;
     --global--text-subtitle--FontSize: 19px;
