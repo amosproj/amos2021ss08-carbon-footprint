@@ -3,8 +3,10 @@ import SelectVariableComponent from './SelectVariableComponent';
 import NavbarComponent from './NavbarComponent';
 import PieChart from './PieChartComponent';
 import ColumnChart from './ColumnChartComponent';
-import Table from './TableComponent';
+import TableComponent from './TableComponent';
 import { Col, Container, Row } from 'react-grid-system';
+import { Hidden } from '@material-ui/core';
+import MobileTableComponent from './MobileTableComponent';
 
 /**
  * Displays one Scenario, containing a ColumnChart, a PieChart and a Table,
@@ -12,14 +14,12 @@ import { Col, Container, Row } from 'react-grid-system';
  */
 class ScenarioComponent extends Component {
     render() {
-        console.log(this.props);
-
         return (
             <Container fluid={true} style={{ padding: 0, margin: 10, backgroundColor: 'white' }}>
                 <NavbarComponent
-                    loadComparePage={this.props.compareCanvas}
+                    loadComparePage={this.props.loadComparePage}
                     onCompareClick={this.props.onCompareClick}
-                    scenarioName={this.props.scenarioName.baseline}
+                    scenarioName={this.props.scenarioName}
                     onExportClicked={this.props.onExportClicked}
                 />
                 <Container fluid={true} style={{ padding: 'auto' }}>
@@ -49,9 +49,30 @@ class ScenarioComponent extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={12} sm={12} md={12} lg={11} className='TableContainer'>
-                            <Table />
-                        </Col>
+                        <div className='TableContainer'>
+                            {/* Swaps out the table with a mobile version for screens <= sm 
+                            And when on the compare version already swap out for screens <= lg */}
+                            <Hidden
+                                smDown={this.props.loadComparePage ? false : true}
+                                lgDown={this.props.loadComparePage ? true : false}
+                            >
+                                <TableComponent
+                                    productName={this.props.selectedProduct.productName}
+                                    modelName={this.props.selectedProduct.modelName}
+                                    key={this.props.scenarioName}
+                                />
+                            </Hidden>
+                            <Hidden
+                                mdUp={this.props.loadComparePage ? false : true}
+                                xlUp={this.props.loadComparePage ? true : false}
+                            >
+                                <MobileTableComponent
+                                    productName={this.props.selectedProduct.productName}
+                                    modelName={this.props.selectedProduct.modelName}
+                                    key={this.props.scenarioName}
+                                />
+                            </Hidden>
+                        </div>
                     </Row>
                 </Container>
             </Container>
