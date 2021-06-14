@@ -1,7 +1,7 @@
 import './loginstyle.css';
 import { useContext } from 'react';
 import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
-import { uniformStyle, color } from 'resources/theme';
+import { uniformStyle } from 'resources/theme';
 import slugs from 'resources/slugs';
 import { GlobalContext } from 'hooks/GlobalContext';
 import React from 'react';
@@ -64,15 +64,7 @@ function LoginComponent() {
                             <input type='checkbox' defaultChecked='checked' name='remember' />{' '}
                             Remember me
                         </label>
-                        <div
-                            className='login-container'
-                            style={{
-                                marginTop: '10px',
-                                marginBottom: '10px',
-                                textAlign: 'right',
-                                backgroundColor: color.lightGray
-                            }}
-                        >
+                        <div className='login-container'>
                             <a href={slugs.forgotPassword}>Forgot password?</a>
                         </div>
                     </div>
