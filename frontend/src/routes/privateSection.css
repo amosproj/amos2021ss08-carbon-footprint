@@ -1,0 +1,8 @@
+.contentBlock {
+    margin: 5px;
+}
+
+/* Resizes the content to match the sidebar */
+.resizingContent {
+    width: calc(100% - 200px);
+}

@@ -4,29 +4,10 @@
  */
 
 import React from 'react';
-import { createUseStyles, useTheme } from 'react-jss';
 import { SidebarComponent, SidebarContext } from 'components/sidebar';
 import HeaderComponent from 'components/header/HeaderComponent';
 import PrivateRoutes from './PrivateRoutes';
 import { PrivateStateProvider } from 'hooks/PrivateSectionContext';
-
-const useStyles = createUseStyles({
-    container: {
-        marginLeft: 0,
-        marginRight: 0,
-        height: '100%'
-    },
-    mainBlock: {
-        marginLeft: 200,
-        // paddingLeft: 30,
-        '@media (max-width: 1080px)': {
-            marginLeft: 0
-        }
-    },
-    contentBlock: {
-        marginLeft: 0
-    }
-});
 
 /**
  * The Top-Level Component of our application, once the User is logged in.
@@ -35,9 +16,6 @@ const useStyles = createUseStyles({
  */
 
 function PrivateSection() {
-    const theme = useTheme();
-    const classes = useStyles({ theme });
-
     return (
         <PrivateStateProvider>
             <SidebarContext>
@@ -46,9 +24,9 @@ function PrivateSection() {
                         pageWrapId={'page-wrap'}
                         outerContainerId={'outer-private-container'}
                     />
-                    <div id='page-wrap' style={{ width: 'calc(100% - 200px)' }}>
+                    <div className='resizingContent' id='page-wrap'>
                         <HeaderComponent />
-                        <div className={classes.contentBlock}>
+                        <div className='contentBlock'>
                             <PrivateRoutes />
                         </div>
                     </div>
