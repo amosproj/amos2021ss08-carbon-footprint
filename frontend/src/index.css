@@ -55,7 +55,8 @@ body {
     font-size: 20px;
     line-height: 26px;
     color: #424147;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 /* A elements that don't have a class get default styles */
