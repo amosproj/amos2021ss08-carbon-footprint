@@ -9,9 +9,9 @@
     height: 100%;
     overflow: auto;
     color: 'white';
-    background: radial-gradient(circle at right,
-    #1b1534,#4d217a,#643082
-  );;
+    background: radial-gradient(circle at top,
+        #000000,#1b1534,#4d217a,#643082
+      );;
 }
 
 /* Bordered form */
