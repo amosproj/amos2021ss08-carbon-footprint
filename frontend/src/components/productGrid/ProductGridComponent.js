@@ -54,11 +54,7 @@ function ProductGridComponent({ selectedCategory }) {
         <Container fluid className='ProductGridTopContainer'>
             <Row justify='start'>
                 {productList.map((product, index) => (
-                    <Col
-                        className='ProductGridContainer'
-                        key={'Column' + index}
-                        style={{ border: '3px solid red' }}
-                    >
+                    <Col className='ProductGridContainer' key={'Column' + index}>
                         <Row justify='center'>
                             <Link
                                 className='ProductGridLink'

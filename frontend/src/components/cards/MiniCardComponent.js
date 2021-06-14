@@ -14,7 +14,7 @@ function MiniCardComponent({ title, path }) {
                 {/*  Resize the image on the cards (product images)            */}
                 <Row align='center' justify='center'>
                     {/* define the image path */}
-                    <Container flex>
+                    <Container fluid>
                         <img src={path} alt='' />
                     </Container>
                 </Row>
