@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
-import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import { getCategorizedProducts } from 'interface/simaProInterface';
 import ProductDropdown from './ModelDropdownComponent';
@@ -47,8 +46,6 @@ function ProductGridComponent({ selectedCategory }) {
         }
     ];
 
-    const classes = useStyles();
-
     if (productList === [] || productList === undefined || productList === null) {
         return <LoadingComponent />;
     }
@@ -76,7 +73,6 @@ function ProductGridComponent({ selectedCategory }) {
                             >
                                 <MiniCardComponent
                                     title={product.productName}
-                                    className='MiniCardImageContainer'
                                     // define the path of the image to show on the cards
                                     path={product.productImage}
                                 />
@@ -113,19 +109,5 @@ function ProductGridComponent({ selectedCategory }) {
         </Container>
     );
 }
-
-// Card component style properties
-const useStyles = createUseStyles({
-    miniCardContainer: {
-        marginRight: 30,
-        marginLeft: 30,
-        marginTop: 30,
-        '@media (max-width: 768px)': {
-            marginTop: 30,
-            maxWidth: 'none',
-            maxHeight: 160
-        }
-    }
-});
 
 export default ProductGridComponent;
