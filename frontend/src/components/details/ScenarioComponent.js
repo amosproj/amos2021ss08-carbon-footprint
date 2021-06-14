@@ -14,8 +14,9 @@ import MobileTableComponent from './MobileTableComponent';
  */
 class ScenarioComponent extends Component {
     render() {
+        // The styling of the Container, Row and Col can not be moved to css, as the css has a lower priority than the react-grid-system default.
         return (
-            <Container fluid={true} style={{ padding: 0, margin: 10, backgroundColor: 'white' }}>
+            <Container fluid={true} style={{ padding: 0, margin: 0, backgroundColor: 'white' }}>
                 <NavbarComponent
                     loadComparePage={this.props.loadComparePage}
                     onCompareClick={this.props.onCompareClick}
