@@ -3,8 +3,10 @@
 @import url('components/header/header.css');
 @import url('components/details/charts_tables.css');
 @import url('components/sidebar/sidebar.css');
+@import url('components/cards/miniCard.css');
+@import url('components/productGrid/ProductGridIndex.css');
+@import url('routes/privateSection.css');
 @import url('theme.css');
-
 
 /* css resets */
 /* Box sizing rules */
