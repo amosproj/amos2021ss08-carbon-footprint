@@ -9,7 +9,7 @@
     height: 100%;
     overflow: auto;
     color: 'white';
-    background: var(--global--sidebar--color);
+    background: #FFFFFF;
 }
 
 /* Bordered form */
