@@ -66,7 +66,7 @@ class DetailsComponent extends Component {
 
         if (!this.state.loadComparePage) {
             return (
-                <Container id='capture' fluid={true} style={{ padding: 'auto' }}>
+                <Container id='capture' fluid>
                     <Row style={{ padding: 0 }}>
                         <Col>
                             <ScenarioComponent
