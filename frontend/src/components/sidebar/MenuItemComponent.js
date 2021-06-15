@@ -64,6 +64,7 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
     return (
         <Column key={id} className={classNameColumn}>
             <Row vertical='center' onClick={onItemClicked} className={classNameContainer}>
+                {/* Styling needs to be done in js here to determin isActive properly */}
                 <div className='SideBarIconStyle' style={{ color: iconColor }}>
                     <i className={Icon} aria-hidden='true' />
                 </div>
