@@ -1,7 +1,6 @@
 import './loginstyle.css';
 import { useContext } from 'react';
 import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
-import { uniformStyle } from 'resources/theme';
 import slugs from 'resources/slugs';
 import { GlobalContext } from 'hooks/GlobalContext';
 import React from 'react';
@@ -15,19 +14,12 @@ function LoginComponent() {
     const [, setState] = useContext(GlobalContext);
 
     return (
-        <div
-            className='flex-container'
-            style={{ backgroundColor: uniformStyle.color.secondaryBackgroundColor }}
-        >
+        <div className='flex-container'>
             <div className='w3-padding-24 w3-auto'>
                 <form
                     className='login'
                     action={slugs.categories}
                     onSubmit={() => setState({ userIsLoggedIn: true })}
-                    style={{
-                        backgroundColor: uniformStyle.color.primaryBackgroundColor,
-                        borderColor: uniformStyle.color.accentColor
-                    }}
                 >
                     <div className='imgcontainer'>
                         <img src={CarbonFootprintLogo} alt='Carbon Footprint' className='avatar' />
@@ -53,11 +45,7 @@ function LoginComponent() {
                             name='psw'
                             required
                         />
-                        <button
-                            className='login'
-                            style={{ backgroundColor: uniformStyle.color.accentColor }}
-                            type='submit'
-                        >
+                        <button className='login' type='submit'>
                             Login
                         </button>
                         <label>

@@ -16,6 +16,17 @@
     box-sizing: border-box;
 }
 
+/* Page Boder and scroll behaviour*/
+html,
+body,
+#root,
+.App {
+    height: 100%;
+    overflow-x: inherit;
+    overflow-y: auto;
+}
+
+/* Remove default padding */
 /* Remove default padding and Remove list styles on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
@@ -48,7 +59,7 @@ body {
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    background-color: var(--global--header--color);
+    background-color: #f0f0f0;
     font-family: Muli;
     font-style: normal;
     font-weight: normal;
@@ -77,7 +88,13 @@ article > * + * {
 
 /* Inherit fonts for inputs and buttons */
 input,
-button,
+button {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--button-title--FontSize);
+    letter-spacing: 0.5px;
+}
 textarea,
 select {
     font: inherit;
@@ -128,7 +145,7 @@ body,
     font-size: 22px;
     letter-spacing: 0.5px;
     margin-left: 15px;
-    color: #000000;
+    color: #4d217a;
     margin-bottom: 10px;
 }
 
@@ -160,17 +177,6 @@ body,
     font-style: normal;
     font-weight: normal;
     font-size: var(--global--text-label--FontSize);
-    letter-spacing: 0.5px;
-    color: #000000;
-}
-
-/* Reconfiguration of the title style on buttons  */
-
-.ButtonTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: var(--global--button-title--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
 }

@@ -10,6 +10,26 @@
     letter-spacing: 0.5px;
 }
 
+.SideBarIconStyle :active {
+    background-color: #ae56ff;
+}
+
+.SideBarIconStyle :focus {
+    background-color: #ae56ff;
+}
+.SideBarIconStyle :visited {
+    background-color: #ae56ff;
+}
+.SideBarContainer {
+    color: 'white';
+    background: var(--global--sidebar--color);
+    /* position: 'fixed'; */
+    height: '100%';
+}
+
+.SideBarBurgerMenu {
+    background-color: #b5b4b9;
+}
 /* Reconfiguration of  the title style on the side bar */
 .SideBarTitle {
     font-family: inherit;
@@ -17,22 +37,30 @@
     font-weight: normal;
     font-size: var(--global--icon-title--FontSize);
     letter-spacing: 0.2px;
-    color: var(--global--header--color);
-    margin-left: 5px;
+    color: var(--global--sidebar--title--color);
+    margin-left: 2px;
+}
+.SideBarTitle :active {
+    background-color: #ae56ff;
+}
+
+.SideBarTitle :focus {
+    background-color: #ae56ff;
+}
+
+.SideBarTitle :visited {
+    background-color: #ae56ff;
 }
 
 /* Reconfiguration of the logo style on sidebar  */
 .TeamLogo {
-    height: fit-content;
+    height: min-content;
     text-align: center;
     width: fit-content;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-right: 10px;
-}
-
-.TeamLogo img {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 35px;
 }
 
 .ActiveContainer {
@@ -48,36 +76,4 @@
 
 .MenuContainer:hover {
     background-color: 'rgba(221, 226, 255, 0.08)';
-}
-
-.SideBarIconStyle:hover {
-    color: #00b300;
-}
-
-.SideBarIconStyle:focus {
-    background-color: #00b300;
-}
-
-.SideBarIconStyle:active {
-    color: #00b300;
-}
-
-.SideBarIconStyle:visited {
-    color: #00b300;
-}
-
-.SideBarTitle:hover {
-    color: #00b300;
-}
-
-.SideBarTitle:focus {
-    color: #00b300;
-}
-
-.SideBarTitle:active {
-    color: #00b300;
-}
-
-.SideBarTitle::selection {
-    color: #00b300;
 }

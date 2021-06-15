@@ -1,8 +1,9 @@
 /* Reconfiguration of the header bar */
 .HeaderContainer {
-    height: 70;
+    height: 65px;
     width: 100%;
-    color: #000000;
+    /* background-color: #4D217A; */
+    background: var(--global--headerbar--color);
 }
 /* Reconfiguration of  the title style on the header bar */
 .HeaderTitle {
@@ -12,13 +13,14 @@
     font-size: var(--global--header-title--FontSize);
     line-height: 16px;
     letter-spacing: 0.5px;
-    margin-left: 30px;
-    color: #00b300;
+    padding-left: 25px;
+    margin-top: 5px;
+    color: var(--global--header--title--color);
 }
 /* Reconfiguration of  the icon style on the header bar */
 .HeaderIconSyle {
     font-size: var(--global--header-icon-title--FontSize);
-    color: var(--global--header--color);
+    color: var(--global--header--icon--color);
     padding-right: 100;
     margin-right: 10px;
     margin-top: 10px;
@@ -46,7 +48,7 @@
     margin-left: 40;
     letter-spacing: 0.5px;
     line-height: 16px;
-    color: #00b300;
+    color: var(--global--header--icon--color);
     margin-bottom: 15px;
     margin-top: 5px;
 }
