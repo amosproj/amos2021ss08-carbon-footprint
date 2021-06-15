@@ -120,3 +120,10 @@
     margin-bottom: 15px;
     overflow: auto; /* To make it scrollable whenever it does not fit for some reason. */
 }
+
+.TableHeader{
+
+    background-color: #82baa9;
+
+
+}
