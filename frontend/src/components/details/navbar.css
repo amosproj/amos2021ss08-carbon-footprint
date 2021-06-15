@@ -1,10 +1,10 @@
 /* Style the navigation menu */
 .navbar {
     width: 100%;
-    border-radius: 25px;
-    height: 80px;
-    padding-top: 5px;
+    height: auto;
     color: #1b1534;
+    padding: 10px;
+    background-color: var(--global--button--color) !important;
     /* border: 3px solid var(--global--button--color); */
     /* background-color: var(--global--panel--color); */
 }
