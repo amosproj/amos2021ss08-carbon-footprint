@@ -1,7 +1,4 @@
-/**
-* Stylefile for the LoginComponent.
-*
-*/
+/* Stylefile for the LoginComponent. */
 
 /* Vertically Centering Container */
 .flex-container {
@@ -11,16 +8,24 @@
     align-items: center;
     height: 100%;
     overflow: auto;
+    color: 'white';
+    background: radial-gradient(circle at top,
+        #000000,#1b1534,#4d217a,#643082
+      );;
 }
 
 /* Bordered form */
 form.login {
     display: flex;
     flex-direction: column;
-    border: 3px solid;
+    background-color: #ffffff;
+    border: 3px solid #cf9bff;
     margin: auto;
     border-radius: 25px;
     max-width: 800px;
+}
+button {
+    background-color: #8a00e5;
 }
 
 /* Full-width inputs */
@@ -30,7 +35,7 @@ input[type='password'].login {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #cf9bff;
     box-sizing: border-box;
     border-radius: 10px;
 }

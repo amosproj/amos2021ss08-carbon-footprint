@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { getModels } from 'interface/simaProInterface';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
-import theme from 'resources/theme';
 import LoadingComponent from 'components/loading';
 
 /**
@@ -34,76 +33,29 @@ const ModelDropdownComponent = (props) => {
 
         return (
             <div>
-                <div className='w3-margin-top w3-margin-bottom:2em'>
-                    <button
-                        title={variableName}
-                        className='w3-button'
-                        style={{
-                            color: theme.uniformStyle.color.secondaryFontColor,
-                            backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
-                            fontSize: theme.typography.buttontitle.fontSize,
-                            fontWeight: theme.typography.buttontitle.fontWeight,
-                            lineHeight: theme.typography.buttontitle.lineHeight,
-                            letterSpacing: theme.typography.buttontitle.letterSpacing
-                        }}
-                    >
-                        {variableName.length > 25
-                            ? variableName.substring(0, 25 - 3) + '...'
-                            : variableName}
-                    </button>
-                </div>
+                <button title={variableName} className='w3-button dropDown'>
+                    {variableName.length > 25
+                        ? variableName.substring(0, 25 - 3) + '...'
+                        : variableName}
+                </button>
             </div>
         );
     }
 
     if (variables.length === 0) {
         return (
-            <div className='w3-margin-top w3-margin-bottom:2em'>
-                <button
-                    className='w3-button'
-                    disabled
-                    style={{
-                        color: theme.uniformStyle.color.secondaryFontColor,
-                        backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
-                        fontSize: theme.typography.buttontitle.fontSize,
-                        fontWeight: theme.typography.buttontitle.fontWeight,
-                        lineHeight: theme.typography.buttontitle.lineHeight,
-                        letterSpacing: theme.typography.buttontitle.letterSpacing
-                    }}
-                >
-                    There is no model available
-                </button>
-            </div>
+            <button className='w3-button dropDown' disabled>
+                Baseline scenario
+            </button>
         );
     }
 
     return (
-        <div className='w3-dropdown-hover w3-margin-top w3-margin-bottom:2em'>
-            <button
-                className='w3-button'
-                title={selected}
-                style={{
-                    color: theme.uniformStyle.color.secondaryFontColor,
-                    backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
-                    fontSize: theme.typography.buttontitle.fontSize,
-                    fontWeight: theme.typography.buttontitle.fontWeight,
-                    lineHeight: theme.typography.buttontitle.lineHeight,
-                    letterSpacing: theme.typography.buttontitle.letterSpacing
-                }}
-            >
+        <div className='w3-dropdown-hover '>
+            <button className='w3-button dropDown' title={selected}>
                 {selected.length > 25 ? selected.substring(0, 25 - 3) + '...' : selected}
             </button>
-            <div
-                className='w3-dropdown-content w3-bar-block w3-border'
-                style={{
-                    color: theme.uniformStyle.color.secondaryFontColor,
-                    backgroundColor: theme.uniformStyle.color.secondaryBackgroundColor,
-                    fontSize: theme.typography.buttontitle.fontSize,
-                    fontWeight: theme.typography.buttontitle.fontWeight,
-                    lineHeight: theme.typography.buttontitle.lineHeight,
-                    letterSpacing: theme.typography.buttonSendtitle.letterSpacing
-                }}
-            >
+            <div className='w3-dropdown-content w3-bar-block w3-border dropDown'>
                 {variables.map((item) => (
                     <button
                         onClick={(props) => {
@@ -119,7 +71,7 @@ const ModelDropdownComponent = (props) => {
                             setSelected(item.modelName);
                             setSelectedProducts(newSelectedProducts);
                         }}
-                        className='w3-bar-item w3-button'
+                        className='w3-bar-item w3-button dropDown'
                         key={item.modelID}
                     >
                         {item.modelName.length > 35

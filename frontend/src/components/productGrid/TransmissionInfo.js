@@ -28,7 +28,7 @@ function TransmissionInfo() {
                 </p>
             </div>
             <div class='w3-col m6 l6 w3-padding-small'>
-                <div class='w3-card-4'>
+                <div class='w3-card-4 imageTitle'>
                     <img src={TransmissionImage} alt='Transmission' />
                     <div class='w3-container w3-center'>
                         <p>Transmission</p>

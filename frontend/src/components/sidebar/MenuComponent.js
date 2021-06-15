@@ -35,9 +35,9 @@ const getMenuStyles = ({ theme }) => ({
         height: '100%'
     },
     /* General sidebar styles */
-    bmMenu: {
-        background: theme.uniformStyle.color.secondaryBackgroundColor // left side bar backgroundcolor
-    },
+    // bmMenu: {
+    //     background: theme.uniformStyle.color.secondaryBackgroundColor // left side bar backgroundcolor
+    // },
     bmItem: {
         outline: 'none',
         '&:focus': {
@@ -67,6 +67,7 @@ function MenuComponent({ pageWrapId, outerContainerId, children, isMobile }) {
             noOverlay={!isMobile}
             disableCloseOnEsc
             styles={menuStyles}
+            className='SideBarContainer'
             onStateChange={(state) => {
                 setIsOpen(state.isOpen);
                 if (state.isOpen) {
