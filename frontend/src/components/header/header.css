@@ -1,11 +1,9 @@
-@import url('theme.css');
 /* Reconfiguration of the header bar */
 .HeaderContainer {
     height: 65px;
     width: 100%;
     /* background-color: #4D217A; */
     background: var(--global--headerbar--color);
-    
 }
 /* Reconfiguration of  the title style on the header bar */
 .HeaderTitle {
@@ -16,8 +14,8 @@
     line-height: 16px;
     letter-spacing: 0.5px;
     padding-left: 25px;
-    margin-top:5px;
-    color: var( --global--header--title--color);
+    margin-top: 5px;
+    color: var(--global--header--title--color);
 }
 /* Reconfiguration of  the icon style on the header bar */
 .HeaderIconSyle {
@@ -29,14 +27,13 @@
     margin-bottom: 10px;
 }
 
-
 /* Reconfiguration of  the back icon style on the header bar */
 .HeaderBackIconSyle {
     float: left;
     padding: 12px;
-    background-color: #468c46 ;/* #466e78;*/
+    background-color: #468c46; /* #466e78;*/
     text-decoration: none;
-    font-size: var( --global--header-back-icon-title--FontSize);
+    font-size: var(--global--header-back-icon-title--FontSize);
     width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: right; /* If you want the text to be centered */
     border-style: none;

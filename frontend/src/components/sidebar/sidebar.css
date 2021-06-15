@@ -1,4 +1,4 @@
-@import url('theme.css');
+/* Reconfiguration of  the icon style on the side bar */
 .SideBarIconStyle {
     font-family: inherit;
     font-style: normal;
@@ -10,16 +10,15 @@
     letter-spacing: 0.5px;
 }
 
-
-.SideBarIconStyle :active{
-    background-color: #AE56FF ;
+.SideBarIconStyle :active {
+    background-color: #ae56ff;
 }
 
-.SideBarIconStyle :focus{
-    background-color: #AE56FF ;
+.SideBarIconStyle :focus {
+    background-color: #ae56ff;
 }
-.SideBarIconStyle :visited{
-    background-color: #AE56FF ;
+.SideBarIconStyle :visited {
+    background-color: #ae56ff;
 }
 .SideBarContainer {
     color: 'white';
@@ -41,19 +40,16 @@
     color: var(--global--sidebar--title--color);
     margin-left: 2px;
 }
-.SideBarTitle :active{
-
-    background-color: #AE56FF;
-
+.SideBarTitle :active {
+    background-color: #ae56ff;
 }
 
-.SideBarTitle :focus{
-
-    background-color: #AE56FF;
+.SideBarTitle :focus {
+    background-color: #ae56ff;
 }
 
-.SideBarTitle :visited{
-    background-color: #AE56FF;
+.SideBarTitle :visited {
+    background-color: #ae56ff;
 }
 
 /* Reconfiguration of the logo style on sidebar  */

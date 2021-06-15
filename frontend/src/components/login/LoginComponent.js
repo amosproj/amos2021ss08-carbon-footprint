@@ -52,14 +52,7 @@ function LoginComponent() {
                             <input type='checkbox' defaultChecked='checked' name='remember' />{' '}
                             Remember me
                         </label>
-                        <div
-                            className='login-container'
-                            style={{
-                                marginTop: '10px',
-                                marginBottom: '10px',
-                                textAlign: 'right'
-                            }}
-                        >
+                        <div className='login-container'>
                             <a href={slugs.forgotPassword}>Forgot password?</a>
                         </div>
                     </div>

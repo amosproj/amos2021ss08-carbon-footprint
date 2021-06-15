@@ -2,18 +2,17 @@
 :root {
     /* --global--concept--size */
     --global--header--icon--color: #f0f0f0;
-    --global--headerbar--color: radial-gradient(circle at left,
-        #1b1534,#4d217a,#643082
-      );
-    --global--sidebar--color: radial-gradient(circle at top,#1b1534,#1b1534,#1b1534);
+    --global--headerbar--color: radial-gradient(circle at left, #1b1534, #4d217a, #643082);
+    --global--sidebar--color: radial-gradient(circle at top, #1b1534, #1b1534, #1b1534);
     /* --global--panel--color: #38206A; */
     --global--text--color: #000000;
     --global--body--color: #f0f0f0;
     --global--header--title--color: #f0f0f0;
     --global--sidebar--title--color: #f0f0f0;
     --global--panel--title--color: #38206a;
-    --global--Sidebar--hover--color:#A54BF7;
-    --global--columnchart--color:#A54BF7;
+    --global--Sidebar--hover--color: #a54bf7;
+    --global--columnchart--color: #a54bf7;
+    --global--active--highlighting-color: #00b300;
 
     /* --global--text and title--fontsizes */
     --global--header-title--FontSize: 24px;
