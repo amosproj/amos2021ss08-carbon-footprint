@@ -6,6 +6,6 @@
 /* Resizes the content to match the sidebar */
 .resizingContent {
     width: calc(100% - 200px);
-    overflow-y: visible;
+    overflow-y: auto;
     height: 100vh;
 }
