@@ -54,7 +54,7 @@ const PieChartComponent = () => {
         ]
     };
     return (
-        <div className='ChartItems' style={{ width: '%100', height: '300px' }} id='chart'>
+        <div className='ChartItems' id='chart'>
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );
