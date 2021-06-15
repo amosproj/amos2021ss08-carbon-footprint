@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ScenarioComponent from './ScenarioComponent';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import axios from 'axios';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 // import { postCalculationRequest } from 'interface/BackendConnect';
@@ -41,6 +42,7 @@ class DetailsComponent extends Component {
             // converting html to an image and then exporting it by pdf
             html2canvas(div).then((canvas) => {
                 var imgData = canvas.toDataURL('image/jpeg', 1);
+                submit(imgData);
                 // pdf configuration
                 var pdf = new jsPDF('p', 'mm', 'a4');
                 var pageWidth = pdf.internal.pageSize.getWidth();
@@ -55,6 +57,22 @@ class DetailsComponent extends Component {
                 pdf.addImage(imgData, 'JPEG', 0, 0, imageWidth * ratio, imageHeight * ratio);
                 pdf.save('invoice.pdf');
             });
+        };
+
+        let submit = (imgdata) => {
+            const data = new FormData();
+            data.append('file', imgdata);
+            console.warn(imgdata);
+            let url = 'https://localhost:44323/Document/test';
+
+            axios
+                .post(url, data, {
+                    // receive two parameter endpoint url ,form data
+                })
+                .then((res) => {
+                    // then print response status
+                    console.warn(res);
+                });
         };
 
         const scenarioNames = {
