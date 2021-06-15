@@ -52,9 +52,7 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
     const classes = useStyles({ theme, level, isActive });
     const classNameColumn = isActive ? classes.leftBar : '';
     const classNameContainer = [classes.container, isActive && classes.activeContainer].join(' ');
-    const iconColor = isActive
-        ? '#00b300'
-        : '#b5b4b9';
+    const iconColor = isActive ? '#00b300' : '#b5b4b9';
 
     function onItemClicked(e) {
         if (onClick) {
@@ -66,13 +64,13 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
     return (
         <Column key={id} className={classNameColumn}>
             <Row vertical='center' onClick={onItemClicked} className={classNameContainer}>
-                {/* <Icon fill={iconColor} opacity={!isActive && '0.4'} /> */}
-                <div className='SideBarIconStyle' style={{color:iconColor}}>
-                    <i className={Icon} aria-hidden="true"/>
-                </div>  
-                <span className="SideBarTitle" style={{color:iconColor}}>{title}</span>
-                    {/* <Icon fill={iconColor} opacity={!isActive && '0.4'} /> */}
-
+                {/* Styling needs to be done in js here to determin isActive properly */}
+                <div className='SideBarIconStyle' style={{ color: iconColor }}>
+                    <i className={Icon} aria-hidden='true' />
+                </div>
+                <span className='SideBarTitle' style={{ color: iconColor }}>
+                    {title}
+                </span>
             </Row>
             {isCollapsible && (
                 <CollapsibleContent expanded={isExpanded}>

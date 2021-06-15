@@ -1,0 +1,19 @@
+.MiniCardImageContainer {
+    background-color: #ffffff;
+    border: 3px solid lightslategray;
+    border-radius: 8px;
+    cursor: pointer;
+    max-width: 350px;
+    min-width: 210px;
+    max-height: 150px;
+}
+
+.MiniCardImageContainer:hover {
+    border-color: var(--global--active--highlighting-color);
+}
+
+.MiniCardImageContainer img {
+    margin: auto;
+    padding: 4px;
+    max-height: 130px;
+}

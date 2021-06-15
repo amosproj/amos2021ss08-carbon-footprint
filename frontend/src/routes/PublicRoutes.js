@@ -12,14 +12,10 @@ function PublicRoutes() {
     return (
         <Router history={useHistory()}>
             <Switch>
-                {/* <img src={logo} style={{padding:20}} /> */}
                 <Route exact path={SLUGS.login} component={LoginComponent} />
-                {/* <button onClick={activateLasers}>
-            Activate Lasers
-            </button> */}
                 <Route path={SLUGS.signup} component={Registration} />
                 <Route path={SLUGS.forgotPassword} render={() => <div>forgotPassword</div>} />
-                <Route path={SLUGS.logout} component={LoginComponent}/>
+                <Route path={SLUGS.logout} component={LoginComponent} />
                 <Redirect to={SLUGS.login} />
             </Switch>
         </Router>

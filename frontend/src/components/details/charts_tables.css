@@ -1,0 +1,126 @@
+/* Chart related Styling */
+
+/* Reconfiguration of the title style on chart  */
+.ChartItemsTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize);
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+/* Reconfiguration of the title style on Column chart  */
+.ColumnChartItems {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 0;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* Reconfiguration of the subtitle style on chart  */
+.ChartItems {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--chart-items--FontSize);
+    margin-left: 0;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 300px;
+}
+
+/* Column Chart */
+.CardsContainer {
+    background-color: #ffffff;
+    /* border:0.5px solid #00b300; */
+    border-color: #00b300;
+    border-radius: 4px;
+    cursor: 'pointer';
+    min-width: 360;
+    max-width: 450;
+    min-height: 500px;
+    max-height: 600px;
+    margin-top: 10px;
+}
+
+.PieChartCardsContainer {
+    background-color: #ffffff;
+    /* border:0.5px solid #00b300; */
+    border-radius: 4px;
+    cursor: 'pointer';
+    min-width: 300;
+    max-width: 360;
+    margin-top: 10px;
+}
+
+/* Table related styling */
+
+/* Reconfiguration of the title style on table  */
+.TableTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize);
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+/* Reconfiguration of the title style on cards  */
+.CardTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize);
+    letter-spacing: 0.5px;
+    padding-left: 17px;
+    color: #000000;
+    padding-bottom: 10px;
+}
+
+/* Reconfiguration of the subtitle style on table  */
+.TableSubTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* Reconfiguration of the text style on table  */
+.TableItems {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--table-items--FontSize);
+    margin-left: 0;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.TableContainer {
+    background-color: #ffffff;
+    /* border:0.5px solid #00b300; */
+    border-radius: 4px;
+    cursor: 'pointer';
+    /* min-width: 500px;
+    max-width: 500px; */
+    padding: 10px; /* To make it display the shadow properly */
+    /* To center it: */
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow: auto; /* To make it scrollable whenever it does not fit for some reason. */
+}
+
+.TableHeader {
+    background-color: #82baa9 !important;
+}

@@ -1,5 +1,17 @@
 .App {
     font-family: sans-serif;
     text-align: center;
-  }
-  
+}
+
+.ProductGridLink {
+    text-decoration: none;
+}
+
+.ProductGridTopContainer {
+    overflow-y: visible;
+}
+
+.ProductGridContainer {
+    padding: 10px;
+    margin: 10px;
+}
