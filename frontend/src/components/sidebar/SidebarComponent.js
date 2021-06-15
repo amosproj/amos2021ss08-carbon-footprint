@@ -33,6 +33,8 @@ function SidebarComponent({ pageWrapId, outerContainerId }) {
     async function logout() {
         setState({ userIsLoggedIn: false });
         push(SLUGS.login);
+        require('log-timestamp')('#INFO');
+        console.log(SLUGS.logout);
     }
 
     function onClick(slug, parameters = {}) {

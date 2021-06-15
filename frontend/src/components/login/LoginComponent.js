@@ -12,6 +12,8 @@ import React from 'react';
  */
 function LoginComponent() {
     const [, setState] = useContext(GlobalContext);
+    require('log-timestamp')('#INFO');
+    console.log('Login attempt');
 
     return (
         <div className='flex-container'>
@@ -48,6 +50,7 @@ function LoginComponent() {
                         <button className='login' type='submit'>
                             Login
                         </button>
+
                         <label>
                             <input type='checkbox' defaultChecked='checked' name='remember' />{' '}
                             Remember me

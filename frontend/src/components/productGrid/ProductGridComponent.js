@@ -51,6 +51,10 @@ function ProductGridComponent({ selectedCategory }) {
     const classes = useStyles();
 
     if (productList === [] || productList === undefined || productList === null) {
+        require('log-timestamp')('#Error');
+        console.error(
+            'Products data not recieved.Please verify the API calls and Backend Connection.'
+        );
         return <LoadingComponent />;
     }
     // else:

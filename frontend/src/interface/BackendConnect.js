@@ -19,6 +19,9 @@ export async function getSimaProProjects() {
             const items = data;
             result = items.data.Result.Data;
         });
+    require('log-timestamp')('#INFO');
+    console.log('API call to get the list of Products');
+    console.log(result.Id);
     return result;
 }
 
@@ -117,19 +120,3 @@ export async function getProjectProcesses(projectId) {
         });
     return resultProcess;
 }
-
-/**
- * Get request to get all the methods required for drop down.
- * @returns the list of methods
- */
-// export async function getMethods() {
-//     let methods;
-//     await axios
-//         .get('https://localhost:44323/SimaPro/api/methods', { headers })
-//         //Please verify this step
-//         .then(function (data) {
-//             const items = data;
-//             methods = items.data.Result.Data;
-//         });
-//     return methods;
-// }
