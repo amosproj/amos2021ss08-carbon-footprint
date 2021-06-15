@@ -35,7 +35,7 @@ class MobileTableComponent extends Component {
                             <tr
                                 style={
                                     index === 0
-                                        ? { backgroundColor: '#82baa9', fontWeight: 'bold' }
+                                        ? { backgroundColor: '#d1a675', fontWeight: 'bold' }
                                         : {}
                                 }
                                 key={'table1' + idKey + 'tr' + index}
@@ -66,7 +66,7 @@ class MobileTableComponent extends Component {
                             <tr
                                 style={
                                     index === 0
-                                        ? { backgroundColor: '#82baa9', fontWeight: 'bold' }
+                                        ? { backgroundColor: '#d1a675', fontWeight: 'bold' }
                                         : {}
                                 }
                                 key={'table2' + idKey + 'tr' + index}
