@@ -17,7 +17,7 @@ class ScenarioComponent extends Component {
         return (
             <Container fluid={true} style={{ padding: 0, margin: 10, backgroundColor: 'white' }}>
                 <NavbarComponent
-                    loadComparePage={this.props.compareCanvas}
+                    loadComparePage={this.props.loadComparePage}
                     onCompareClick={this.props.onCompareClick}
                     scenarioName={this.props.scenarioName.baseline}
                     onExportClicked={this.props.onExportClicked}
