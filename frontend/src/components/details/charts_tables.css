@@ -31,7 +31,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
-    height: 300px; 
+    height: 300px;
 }
 
 /* Column Chart */
@@ -121,9 +121,6 @@
     overflow: auto; /* To make it scrollable whenever it does not fit for some reason. */
 }
 
-.TableHeader{
-
-    background-color: #82baa9;
-
-
+.TableHeader {
+    background-color: #82baa9 !important;
 }
