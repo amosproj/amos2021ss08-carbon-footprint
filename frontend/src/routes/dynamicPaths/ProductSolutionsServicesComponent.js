@@ -1,38 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Column, Row } from 'simple-flexbox';
 import ProductGridComponent from 'components/productGrid';
-import { useTheme, createUseStyles } from 'react-jss';
-const useStyles = createUseStyles((theme) => ({
-    container: {
-        display: 'flex'
-    },
-    textcontent: {
-        ...theme.typography.textcontent,
-        textAlign: 'left',
-        '@media (max-width: 768px)': {
-            display: 'none'
-        }
-    },
-    subtitle: {
-        ...theme.typography.title,
-        '@media (max-width: 1080px)': {
-            marginLeft: -50
-        },
-        '@media (max-width: 468px)': {
-            fontSize: 50
-        }
-    },
-    title: {
-        ...theme.typography.title,
-        '@media (max-width: 1080px)': {
-            marginLeft: 80
-        },
-        '@media (max-width: 468px)': {
-            fontSize: 50
-        }
-    }
-}));
 
 /**
  * This component differenciates between the three different possible subcategories.
@@ -43,16 +11,6 @@ const useStyles = createUseStyles((theme) => ({
  */
 export default function ProductSolutionsServicesComponent() {
     const { type } = useParams();
-    const theme = useTheme();
-    const classes = useStyles({ theme });
 
-    return (
-        <Column className={classes.container}>
-            <Row className={classes.subtitle}>
-                <div style={{ marginLeft: 15 }}>
-                    <ProductGridComponent selectedCategory={type} />
-                </div>
-            </Row>
-        </Column>
-    );
+    return <ProductGridComponent selectedCategory={type} />;
 }

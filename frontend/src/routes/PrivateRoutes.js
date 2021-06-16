@@ -14,6 +14,7 @@ import DetailsComponent from 'components/details/DetailsComponent';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import GenerationInfo from 'components/productGrid/GenerationInfo';
 import TransmissionInfo from 'components/productGrid/TransmissionInfo';
+import IndustrialApplicationInfo from 'components/productGrid/IndustrialApplicationInfo';
 const ProductSolutionsServices = lazy(() =>
     import('./dynamicPaths/ProductSolutionsServicesComponent')
 );
@@ -42,7 +43,11 @@ function PrivateRoutes() {
 
                     <Route exact path={SLUGS.generation} component={GenerationInfo} />
                     <Route exact path={SLUGS.transmission} component={TransmissionInfo} />
-                    <Route exact path={SLUGS.industrialApplications} />
+                    <Route
+                        exact
+                        path={SLUGS.industrialApplications}
+                        component={IndustrialApplicationInfo}
+                    />
 
                     <Route
                         path={SLUGS.generation + '/:type'}

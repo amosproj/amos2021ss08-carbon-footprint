@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { string } from 'prop-types';
 import { Row } from 'simple-flexbox';
-import { useTheme } from 'react-jss';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import slugs from 'resources/slugs';
 import { Link } from 'react-router-dom';
+import { createUseStyles,  useTheme } from 'react-jss';
 
 /**
  * The Header Component is a shared component between all pages. It displays
@@ -15,11 +15,21 @@ import { Link } from 'react-router-dom';
  * @author Irem Toroslu
  * @returns the header title, subtitles related to the selected section in the SidebarComponent. It also displays the user name in the header bar as well.
  */
+
+ const useStyles = createUseStyles({
+    separator: {
+        borderTop: ({ theme }) => `2px solid ${theme.color.lightGrayishBlue}`,
+        marginTop: 10,
+        marginBottom: 10,
+        opacity: 0.06
+    }
+});
 function HeaderComponent() {
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
     const [selectedProducts] = useContext(PrivateSectionContext);
     const theme = useTheme();
-    // const classes = useStyles({ theme });
+    //eslint-disable-next-line 
+    const classes = useStyles({ theme });
 
     let title;
     let subtitle;
@@ -74,42 +84,40 @@ function HeaderComponent() {
 
     function UseBack(selected) {
         if (title === 'Details ' && !(selected === undefined)) {
-            return <i class='fa fa-chevron-circle-left' />;
+            // return <i class='fa fa-chevron-left ' />;
         }
         return null;
     }
 
     return (
-        <Row
-            className='HeaderContainer'
-            vertical='center'
-            horizontal='space-between'
-            style={{
-                background: theme.uniformStyle.color.secondaryBackgroundColor,
-                height: 70
-            }}
-        >
-            <div className='HeaderTitle' vertical='center' horizontal='space-between'>
-                <span className=' w3-padding-16 w3-margin-left'>
-                    <Link to={{ pathname: slugs.categories }}>
-                        <UseBack />
-                    </Link>
-                    {title}
-                    <UseArrow />
-                    {subtitle}
-                    <UseArrow />
-                    {subsubtitle}
-                </span>
-            </div>
+        <div className='HeaderContainer'>
+            <Row
+                vertical='center'
+                horizontal='space-between'
 
-            <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
-                <div className='HeaderIconSyle'>
-                    <i className='fa fa-user-circle-o' color='white' />
+            >
+                <div className='HeaderTitle' vertical='center' horizontal='space-between'>
+                    <span className=' w3-padding-16 w3-margin-left'>
+                        <Link to={{ pathname: slugs.categories }}>
+                            <UseBack />
+                        </Link>
+                        {title}
+                        <UseArrow />
+                        {subtitle}
+                        <UseArrow />
+                        {subsubtitle}
+                    </span>
                 </div>
 
-                <div className='HeaderUserName'> user name</div>
+                <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
+                    <div className='HeaderIconSyle'>
+                        <i className='fa fa-user-circle-o' color='white' />
+                    </div>
+
+                    <div className='HeaderUserName'> user name</div>
+                </Row>
             </Row>
-        </Row>
+        </div>
     );
 }
 

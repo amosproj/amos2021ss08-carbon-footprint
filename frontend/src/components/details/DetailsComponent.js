@@ -77,22 +77,28 @@ class DetailsComponent extends Component {
 
         const scenarioNames = {
             baseline: 'Baseline Scenario',
-            modified: 'modified Scenario'
+            modified: 'Modified Scenario'
         };
         const { selectedProduct } = this.props;
+
+        // The styling of the Container, Row and Col can not be moved to css, as the css has a lower priority than the react-grid-system default.
+        const noPaddingStyle = {
+            padding: 0,
+            margin: 0
+        };
 
         // postCalculationRequest(selectedProduct.productID);
 
         if (!this.state.loadComparePage) {
             return (
-                <Container id='capture' fluid={true} style={{ padding: 'auto' }}>
-                    <Row style={{ padding: 0 }}>
-                        <Col>
+                <Container id='capture' fluid style={noPaddingStyle}>
+                    <Row style={noPaddingStyle}>
+                        <Col style={noPaddingStyle}>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
                                 onExportClicked={handleExportPdfButton}
-                                scenarioName={scenarioNames}
+                                scenarioName={scenarioNames.baseline}
                                 selectedProduct={selectedProduct}
                             />
                         </Col>
@@ -101,23 +107,24 @@ class DetailsComponent extends Component {
             );
         } else {
             return (
-                <Container id='capture' fluid={true} style={{ padding: 0, margin: 0 }}>
-                    <Row gutterWidth={0}>
-                        <Col xs={6} sm={6} md={6} lg={6} style={{ padding: 0 }}>
+                <Container id='capture' fluid={true} style={noPaddingStyle}>
+                    <Row gutterWidth={0} style={noPaddingStyle}>
+                        <Col xs={6} sm={6} md={6} lg={6} style={{ paddingRight: 3 }}>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames}
+                                scenarioName={scenarioNames.baseline}
                                 selectedProduct={selectedProduct}
                                 onExportClicked={handleExportPdfButton}
                             />
                         </Col>
 
-                        <Col xs={6} sm={6} md={6} lg={6} style={{ padding: 0 }}>
+                        {/* Spacing between the two columns is specified by paddingLeft */}
+                        <Col xs={6} sm={6} md={6} lg={6} style={{ paddingLeft: 3 }}>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                scenarioName={scenarioNames}
+                                scenarioName={scenarioNames.modified}
                                 selectedProduct={selectedProduct}
                                 onExportClicked={handleExportPdfButton}
                             />
