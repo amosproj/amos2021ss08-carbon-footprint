@@ -1,5 +1,6 @@
 using AspNetCore.Proxy;
 using Backend.Security;
+using Backend.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,6 +15,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net;
 
 namespace Backend
 {
@@ -39,13 +42,24 @@ namespace Backend
             services.AddProxies();
             //Used to  get the authenticate/process the Http requests.
             services.AddTransient<SimaProLoginDelegatingHandler>();
+
+            //Used to intercept and process frontend requests.
+            services.AddTransient<RequestInterceptorDelegatingHandler>();
+            //Decompress the gZip results recieved from the api
+            HttpClientHandler handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
+
             services.AddHttpClient("SimaProClient",
                  client => {
                      var baseUrl = Environment.GetEnvironmentVariable("BaseUrl") ?? Configuration["BaseUrl"];
                      client.BaseAddress = new Uri(baseUrl);
                      //client.Timeout = TimeSpan.FromSeconds(30);
                  })
+                .ConfigurePrimaryHttpMessageHandler(() => {
+                    return handler;
+                })
+                .AddHttpMessageHandler<RequestInterceptorDelegatingHandler>()
                 .AddHttpMessageHandler<SimaProLoginDelegatingHandler>();
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

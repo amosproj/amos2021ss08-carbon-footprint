@@ -1,88 +1,12 @@
 import React, { useContext } from 'react';
 import { string } from 'prop-types';
 import { Row } from 'simple-flexbox';
-import { createUseStyles, useTheme } from 'react-jss';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
-import { IconArrow, IconLogin } from 'assets/icons';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
-
-const useStyles = createUseStyles((theme) => ({
-    avatar: {
-        height: 35,
-        width: 35,
-        minWidth: 35,
-        borderRadius: 50,
-        marginLeft: 14,
-        border: `1px solid ${theme.color.lightGrayishBlue2}`,
-        '@media (max-width: 768px)': {
-            marginLeft: 14
-        }
-    },
-    container: {
-        height: 50,
-        widht: 200,
-        color: theme.uniformStyle.color.highlightingColor // header title color
-    },
-    name: {
-        ...theme.typography.itemTitle,
-        textAlign: 'right',
-        '@media (max-width: 768px)': {
-            display: 'none'
-        }
-    },
-    separator: {
-        borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
-        marginLeft: 40,
-        marginRight: 10,
-        marginTop: 5,
-        height: 30,
-        width: 3,
-        '@media (max-width: 768px)': {
-            marginLeft: 14,
-            marginRight: 0
-        }
-    },
-    icontitle: {
-        ...theme.typography.icontitle,
-        marginLeft: 40,
-        marginTop: 0,
-        '@media (max-width: 1080px)': {
-            // marginLeft:50
-        },
-        '@media (max-width: 468px)': {
-            fontSize: 15
-        }
-    },
-    subtitle: {
-        ...theme.typography.title,
-        '@media (max-width: 1080px)': {
-            marginLeft: 0
-        },
-        '@media (max-width: 468px)': {
-            fontSize: 15
-        }
-    },
-    title: {
-        ...theme.typography.title,
-        '@media (max-width: 1080px)': {
-            marginLeft: 80
-        },
-        '@media (max-width: 468px)': {
-            fontSize: 15
-        }
-    },
-    iconStyles: {
-        cursor: 'pointer',
-        marginLeft: 0,
-        width: 200,
-        height: 200,
-
-        '@media (max-width: 768px)': {
-            marginLeft: 12
-        }
-    }
-}));
+import slugs from 'resources/slugs';
+import { Link } from 'react-router-dom';
+import { createUseStyles,  useTheme } from 'react-jss';
 
 /**
  * The Header Component is a shared component between all pages. It displays
@@ -91,10 +15,20 @@ const useStyles = createUseStyles((theme) => ({
  * @author Irem Toroslu
  * @returns the header title, subtitles related to the selected section in the SidebarComponent. It also displays the user name in the header bar as well.
  */
+
+ const useStyles = createUseStyles({
+    separator: {
+        borderTop: ({ theme }) => `2px solid ${theme.color.lightGrayishBlue}`,
+        marginTop: 10,
+        marginBottom: 10,
+        opacity: 0.06
+    }
+});
 function HeaderComponent() {
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
     const [selectedProducts] = useContext(PrivateSectionContext);
     const theme = useTheme();
+    //eslint-disable-next-line 
     const classes = useStyles({ theme });
 
     let title;
@@ -143,40 +77,47 @@ function HeaderComponent() {
 
     function UseArrow(selected) {
         if (title === 'Details ' && !(selected === undefined)) {
-            return <IconArrow height='10' />;
+            return <i className='fa fa-arrow-right' />;
+        }
+        return null;
+    }
+
+    function UseBack(selected) {
+        if (title === 'Details ' && !(selected === undefined)) {
+            // return <i class='fa fa-chevron-left ' />;
         }
         return null;
     }
 
     return (
-        <Row
-            className={classes.container}
-            vertical='center'
-            horizontal='space-between'
-            style={{
-                background: theme.uniformStyle.color.secondaryBackgroundColor,
-                marginTop: 0,
-                marginLeft: 0,
-                height: 70
-            }}
-        >
-            <span className={classes.title + ' w3-padding-16 w3-margin-left'}>
-                {title}
-                <UseArrow />
-                {subtitle}
-                <UseArrow />
-                {subsubtitle}
-            </span>
+        <div className='HeaderContainer'>
+            <Row
+                vertical='center'
+                horizontal='space-between'
 
-            <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
-                <div className={classes.separator}>
-                    <div className={classes.iconStyles}>
-                        <IconLogin fill={'white'} />
-                    </div>
+            >
+                <div className='HeaderTitle' vertical='center' horizontal='space-between'>
+                    <span className=' w3-padding-16 w3-margin-left'>
+                        <Link to={{ pathname: slugs.categories }}>
+                            <UseBack />
+                        </Link>
+                        {title}
+                        <UseArrow />
+                        {subtitle}
+                        <UseArrow />
+                        {subsubtitle}
+                    </span>
                 </div>
-                <div className={classes.icontitle}>user name</div>
+
+                <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
+                    <div className='HeaderIconSyle'>
+                        <i className='fa fa-user-circle-o' color='white' />
+                    </div>
+
+                    <div className='HeaderUserName'> user name</div>
+                </Row>
             </Row>
-        </Row>
+        </div>
     );
 }
 

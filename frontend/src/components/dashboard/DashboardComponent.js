@@ -4,7 +4,6 @@ import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import TodayTrendsComponent from './TodayTrendsComponent';
 import UnresolvedTicketsComponent from './UnresolvedTicketsComponent';
-import TasksComponent from './TasksComponent';
 
 const useStyles = createUseStyles({
     cardsContainer: {
@@ -102,7 +101,7 @@ function DashboardComponent() {
                 breakpoints={{ 1024: 'column' }}
             >
                 <UnresolvedTicketsComponent containerStyles={classes.unresolvedTickets} />
-                <TasksComponent containerStyles={classes.tasks} />
+                {/* <TasksComponent containerStyles={classes.tasks} /> */}
             </Row>
         </Column>
     );

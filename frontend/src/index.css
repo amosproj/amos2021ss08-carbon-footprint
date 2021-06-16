@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('theme.css');
+@import url('components/details/navbar.css');
+@import url('components/header/header.css');
+@import url('components/details/charts_tables.css');
+@import url('components/sidebar/sidebar.css');
+@import url('components/cards/miniCard.css');
+@import url('components/productGrid/ProductGridIndex.css');
+@import url('routes/privateSection.css');
 
+/* css resets */
 /* Box sizing rules */
 *,
 *::before,
@@ -7,10 +16,22 @@
     box-sizing: border-box;
 }
 
+/* Page Boder and scroll behaviour*/
+html,
+body,
+#root,
+.App {
+    height: 100%;
+    overflow-x: inherit;
+    overflow-y: auto;
+}
+
 /* Remove default padding */
+/* Remove default padding and Remove list styles on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
     padding: 0;
+    list-style: none;
 }
 
 /* Remove default margin */
@@ -19,6 +40,8 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 ul[class],
 ol[class],
@@ -33,16 +56,18 @@ dd {
 
 /* Set core body defaults */
 body {
-    min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-}
-
-/* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-    list-style: none;
+    background-color: #f0f0f0;
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 26px;
+    color: #424147;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 /* A elements that don't have a class get default styles */
@@ -63,7 +88,13 @@ article > * + * {
 
 /* Inherit fonts for inputs and buttons */
 input,
-button,
+button {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--button-title--FontSize);
+    letter-spacing: 0.5px;
+}
 textarea,
 select {
     font: inherit;
@@ -79,20 +110,19 @@ select {
     }
 }
 
-body {
-    background-color: #e7e7e7;
-    font-family: Muli;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 26px;
-    color: #424147;
-    overflow: hidden;
-}
-
 /* Custom Scrollbar */
 
-/* width */
+/* Page Boder and scroll behaviour*/
+html,
+body,
+#root,
+.App {
+    height: 100%;
+    overflow-x: inherit;
+    overflow-y: auto;
+}
+
+/* Scrollbar width */
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -106,4 +136,47 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #b5b4b9;
     border-radius: 10px;
+}
+
+.SubTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    margin-left: 15px;
+    color: #4d217a;
+    margin-bottom: 10px;
+}
+
+/* Reconfiguration of the text style on pages */
+.TextContent {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text--FontSize);
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+/* Reconfiguration of the text style on details pages */
+.DetailsPageTextContent {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text--FontSize);
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-top: 10px;
+}
+/* Reconfiguration of the name of the product style on pages */
+.LabelTextContent {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-label--FontSize);
+    letter-spacing: 0.5px;
+    color: #000000;
 }

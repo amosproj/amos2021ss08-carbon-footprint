@@ -9,7 +9,7 @@ import logo from 'assets/logo/LogoCarbonteam.png';
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_2 from 'assets/dummyImages/Logo2.png';
 import { categories } from './categories';
-import { BackendConnect } from 'interface/BackendConnect';
+import { getSimaProProjects } from 'interface/BackendConnect';
 
 /**
  * should get all the Products from the backend (soon)
@@ -34,17 +34,12 @@ export async function getCategorizedProducts(scope = 'All') {
  * @returns
  */
 //export async function getModels(productID) {
-export function getModels(productID) {
+export function getModels(productName, productID) {
     switch (productID) {
         case '09f64eeb-13b0-4e09-9fb4-50398483ecfd':
             return [{ modelID: 1, productID: productID, modelName: 'Electric Motor Type 25b' }];
         case 'aufwlc93-kldp-4fer-15s7-51245631fega':
-            return [
-                { modelID: 2, productID: productID, modelName: 'Motor Type 42a' },
-                { modelID: 3, productID: productID, modelName: 'Motor Type 42b' },
-                { modelID: 4, productID: productID, modelName: 'Motor Type 42b' },
-                { modelID: 5, productID: productID, modelName: 'Motor Type 42b' }
-            ];
+            return [];
         case '7ghnaoeb-kfue-qp04-slfg-12059492begp':
             return [
                 { modelID: 6, productID: productID, modelName: 'Transformer DIN42a' },
@@ -67,7 +62,7 @@ export function getModels(productID) {
                 { modelID: 17, productID: productID, modelName: 'Allround Product 4' }
             ];
         default:
-            return null;
+            return [{ modelID: 42, productID: productID, modelName: productName }];
     }
 }
 
@@ -113,8 +108,7 @@ function getDummyProducts() {
  *
  */
 export async function getSimaProducts() {
-    const httpreq = new BackendConnect();
-    const products = await httpreq.getSimaProProjects();
+    const products = await getSimaProProjects();
     let formattedProducts = [];
     console.log(products);
     await products.forEach((product) => {

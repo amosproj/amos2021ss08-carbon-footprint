@@ -1,0 +1,32 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.dropDown {
+    background-color: #8a00e5;
+    color: white;
+}
+.dropDown:hover {
+    opacity: 0.8;
+    background-color: #ae56ff !important;
+    color: white !important;
+}
+
+.imageTitle {
+    background-color: #974cc2;
+    color: white !important;
+}
+
+.ProductGridLink {
+    text-decoration: none;
+}
+
+.ProductGridTopContainer {
+    overflow-y: visible;
+}
+
+.ProductGridContainer {
+    padding: 10px;
+    margin: 10px;
+}
