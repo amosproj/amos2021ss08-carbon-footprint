@@ -1,6 +1,7 @@
 import React from 'react';
 import slugs from 'resources/slugs';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 /**
  * a divider Pannel for seperating search compoents and result components
@@ -8,16 +9,15 @@ import { Link } from 'react-router-dom';
  *
  * @author Parham Gandomkar, Irem Toroslu, Julian Oelhaf
  */
-
 const NavbarComponent = (props) => {
+    const history = useHistory();
     if (!props.loadComparePage) {
         return (
             <div className='navbar w3-row' vertical='center' horizontal='space-between'>
-                <Link to={{ pathname: slugs.categories }}>
-                    <btn className='w3-col l1 m1 s1 w3-center'>
-                        <i class='fa fa-chevron-left' aria-hidden='true' />
-                    </btn>
-                </Link>
+                <btn className='w3-col l1 m1 s1 w3-center' onClick={() => history.goBack()}>
+                    <i class='fa fa-chevron-left' aria-hidden='true' />
+                </btn>
+
                 <b className='w3-col l6 m6 s4'>{props.scenarioName}</b>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClicked}>
