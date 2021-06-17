@@ -14,10 +14,13 @@ const NavbarComponent = (props) => {
     if (!props.loadComparePage) {
         return (
             <div className='navbar w3-row' vertical='center' horizontal='space-between'>
-                <btn className='w3-col l1 m1 s1 w3-center' onClick={() => history.goBack()}>
-                    <i class='fa fa-chevron-left' aria-hidden='true' />
-                </btn>
-
+               {/* used the history.goback() function to go one step backward where it stores the previous steps including the prevs stage of clicking items on the sidebar */}
+               
+                <Link  onClick={() => history.goBack()}>
+                    <btn className='w3-col l1 m1 s1 w3-center' >
+                        <i class='fa fa-chevron-left' aria-hidden='true' />
+                    </btn>
+                </Link>
                 <b className='w3-col l6 m6 s4'>{props.scenarioName}</b>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClicked}>
