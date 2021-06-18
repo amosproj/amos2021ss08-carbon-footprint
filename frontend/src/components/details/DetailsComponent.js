@@ -88,20 +88,14 @@ class DetailsComponent extends Component {
         };
         const { selectedProduct } = this.props;
 
-        // The styling of the Container, Row and Col can not be moved to css, as the css has a lower priority than the react-grid-system default.
-        const noPaddingStyle = {
-            padding: 0,
-            margin: 0
-        };
-
         // postCalculationRequest(selectedProduct.productID);
 
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
             return (
-                <Container id='capture' fluid style={noPaddingStyle}>
-                    <Row style={noPaddingStyle}>
-                        <Col style={noPaddingStyle}>
+                <Container className='ScenarioContainer' id='capture' fluid>
+                    <Row>
+                        <Col>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
@@ -116,9 +110,9 @@ class DetailsComponent extends Component {
         } else if (this.state.modifiedScenario) {
             // if state equals modified scenario only
             return (
-                <Container id='capture' fluid style={noPaddingStyle}>
-                    <Row style={noPaddingStyle}>
-                        <Col style={noPaddingStyle}>
+                <Container className='ScenarioContainer' id='capture' fluid>
+                    <Row>
+                        <Col>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
@@ -133,9 +127,9 @@ class DetailsComponent extends Component {
         } else if (this.state.loadComparePage) {
             // if state equals compare scenario
             return (
-                <Container id='capture' fluid={true} style={noPaddingStyle}>
-                    <Row gutterWidth={0} style={noPaddingStyle}>
-                        <Col xs={6} sm={6} md={6} lg={6} style={{ paddingRight: 3 }}>
+                <Container className='ScenarioContainer' id='capture' fluid>
+                    <Row gutterWidth={0}>
+                        <Col className='CompareColLeft' xs={6} sm={6} md={6} lg={6}>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
@@ -147,7 +141,7 @@ class DetailsComponent extends Component {
                         </Col>
 
                         {/* Spacing between the two columns is specified by paddingLeft */}
-                        <Col xs={6} sm={6} md={6} lg={6} style={{ paddingLeft: 3 }}>
+                        <Col className='CompareColRight' xs={6} sm={6} md={6} lg={6}>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
