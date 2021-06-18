@@ -21,7 +21,8 @@ class ScenarioComponent extends Component {
                     loadComparePage={this.props.loadComparePage}
                     onCompareClick={this.props.onCompareClick}
                     scenarioName={this.props.scenarioName}
-                    onExportClicked={this.props.onExportClicked}
+                    onExportClick={this.props.onExportClick}
+                    onCloseClick={this.props.onCloseClick}
                 />
                 <Container fluid={true} style={{ padding: 'auto' }}>
                     <h2 className='TextContent'>

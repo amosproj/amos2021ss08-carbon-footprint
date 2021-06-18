@@ -20,7 +20,7 @@ const NavbarComponent = (props) => {
                 </Link>
                 <b className='w3-col l6 m6 s4'>{props.scenarioName}</b>
 
-                <Link to={{ pathname: slugs.details }} onClick={props.onExportClicked}>
+                <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
                     <pdfbtn className='w3-col l3 m3 s4'>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
                         Export Pdf
@@ -34,33 +34,25 @@ const NavbarComponent = (props) => {
             </div>
         );
     } else {
-
         return (
             <div className='navbar w3-row' vertical='center' horizontal='space-between'>
                 <b className='w3-col l7 m7 s6'>{props.scenarioName}</b>
-                <Link to={{ pathname: slugs.details }} onClick={props.onExportClicked}>
+                <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
                     <pdfbtn className='w3-col l5 m5 s6 w3-right'>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
                         Export Pdf
                     </pdfbtn>
                 </Link>
-                
 
-                <Link to={{ pathname: slugs.details }}>
+                <Link to={{ pathname: slugs.details }} onClick={props.onCloseClick}>
                     <closebtn className='w3-col l5 m5 s6 w3-right'>
                         <i className='fa fa-times-circle-o' aria-hidden='true'></i>
                         Close
                     </closebtn>
                 </Link>
-                
             </div>
-
         );
-
-        }
-
-
-        
+    }
 };
 
 export default NavbarComponent;

@@ -15,6 +15,8 @@ import './navbar.css';
  */
 class DetailsComponent extends Component {
     state = {
+        baselineScenerio: true,
+        modifiedScenerio: false,
         loadComparePage: false
     };
 
@@ -25,13 +27,29 @@ class DetailsComponent extends Component {
          the compare button should be disabled 
          */
         let handleCompareButton = () => {
+            const baselineScenerio = false;
+            const modifiedScenerio = false;
             const loadComparePage = true;
             /*
             now all components such as 
             canvas component should be notified 
             by setting the compareCanvas state to true
             */
-            this.setState({ loadComparePage });
+            this.setState({ baselineScenerio, modifiedScenerio, loadComparePage });
+        };
+
+        let handleCloseModifiedButton = () => {
+            const baselineScenerio = true;
+            const modifiedScenerio = false;
+            const loadComparePage = false;
+            this.setState({ baselineScenerio, modifiedScenerio, loadComparePage });
+        };
+
+        let handleCloseBaselineButton = () => {
+            const baselineScenerio = false;
+            const modifiedScenerio = true;
+            const loadComparePage = false;
+            this.setState({ baselineScenerio, modifiedScenerio, loadComparePage });
         };
 
         let handleExportPdfButton = () => {
@@ -71,7 +89,7 @@ class DetailsComponent extends Component {
 
         // postCalculationRequest(selectedProduct.productID);
 
-        if (!this.state.loadComparePage) {
+        if (this.state.baselineScenerio) {
             return (
                 <Container id='capture' fluid style={noPaddingStyle}>
                     <Row style={noPaddingStyle}>
@@ -87,7 +105,23 @@ class DetailsComponent extends Component {
                     </Row>
                 </Container>
             );
-        } else {
+        } else if (this.state.modifiedScenerio) {
+            return (
+                <Container id='capture' fluid style={noPaddingStyle}>
+                    <Row style={noPaddingStyle}>
+                        <Col style={noPaddingStyle}>
+                            <ScenarioComponent
+                                loadComparePage={this.state.loadComparePage}
+                                onCompareClick={handleCompareButton}
+                                onExportClicked={handleExportPdfButton}
+                                scenarioName={scenarioNames.modified}
+                                selectedProduct={selectedProduct}
+                            />
+                        </Col>
+                    </Row>
+                </Container>
+            );
+        } else if (this.state.loadComparePage) {
             return (
                 <Container id='capture' fluid={true} style={noPaddingStyle}>
                     <Row gutterWidth={0} style={noPaddingStyle}>
@@ -95,9 +129,10 @@ class DetailsComponent extends Component {
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
+                                onExportClick={handleExportPdfButton}
+                                onCloseClick={handleCloseBaselineButton}
                                 scenarioName={scenarioNames.baseline}
                                 selectedProduct={selectedProduct}
-                                onExportClicked={handleExportPdfButton}
                             />
                         </Col>
 
@@ -106,9 +141,10 @@ class DetailsComponent extends Component {
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
+                                onExportClick={handleExportPdfButton}
+                                onCloseClick={handleCloseModifiedButton}
                                 scenarioName={scenarioNames.modified}
                                 selectedProduct={selectedProduct}
-                                onExportClicked={handleExportPdfButton}
                             />
                         </Col>
                     </Row>
