@@ -1,6 +1,7 @@
 import React from 'react';
 import slugs from 'resources/slugs';
 import { Link } from 'react-router-dom';
+import { Divider } from '@material-ui/core';
 
 /**
  * a divider Pannel for seperating search compoents and result components
@@ -21,15 +22,15 @@ const NavbarComponent = (props) => {
                 <b>{props.scenarioName}</b>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <pdfbtn>
+                    <div className='Pdfbtn'>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
                         Export
-                    </pdfbtn>
+                    </div>
                 </Link>
                 <Link to={{ pathname: slugs.details }} onClick={props.onCompareClick}>
-                    <addbtn>
+                    <div className='Addbtn'>
                         <i className='fa fa-fw fa-plus-circle' /> Add
-                    </addbtn>
+                    </div>
                 </Link>
             </div>
         );
@@ -38,17 +39,17 @@ const NavbarComponent = (props) => {
             <div className='navbar' vertical='center' horizontal='space-between'>
                 <b>{props.scenarioName}</b>
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <pdfbtn>
+                    <div className='Pdfbtn'>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
                         Export
-                    </pdfbtn>
+                    </div>
                 </Link>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onCloseClick}>
-                    <closebtn>
+                    <div className='Closebtn'>
                         <i className='fa fa-times-circle-o' aria-hidden='true'></i>
                         Close
-                    </closebtn>
+                    </div>
                 </Link>
             </div>
         );

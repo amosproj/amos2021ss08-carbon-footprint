@@ -32,12 +32,12 @@
     text-decoration: none;
     font-size: 20px;
     width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-    text-align: right; /* If you want the text to be centered */
+    text-align: bottom; /* If you want the text to be centered */
     border-style: none;
 }
 
 /* Navigation links */
-.navbar addbtn {
+.Addbtn {
     float: left;
     padding: 12px;
     font-weight: bold;
@@ -51,7 +51,7 @@
     border-style: none;
 }
 
-.navbar pdfbtn {
+.Pdfbtn {
     float: left;
     font-weight: bold;
     padding: 12px;
@@ -65,7 +65,7 @@
     border-style: none;
 }
 
-.navbar closebtn {
+.Closebtn {
     float: left;
     padding: 12px;
     font-weight: bold;
