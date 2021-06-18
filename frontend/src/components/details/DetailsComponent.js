@@ -26,7 +26,7 @@ class DetailsComponent extends Component {
 
     render() {
         /*
-         * compare buttons exist only when a single scenario is display
+         * compare buttons exist only when a single scenario is displayed
          * clicking the button should switch state to the show compare page state
          */
         let handleCompareButton = () => {
