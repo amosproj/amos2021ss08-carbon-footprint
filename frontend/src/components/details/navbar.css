@@ -4,7 +4,7 @@
     height: auto;
     color: #1b1534;
     padding: 10px;
-    background-color: var(--global--button--color) !important;
+    background-color: #ffffff !important;
     /* border: 3px solid var(--global--button--color); */
     /* background-color: var(--global--panel--color); */
 }
@@ -34,7 +34,7 @@
 /* Navigation links */
 .navbar btn {
     float: left;
-    padding: 10px;
+    padding: 13px;
     /* color: var(--global--panel--color); */
     background-color: var(--global--button--color);
     color: var(--global--button--text--color);
@@ -48,38 +48,50 @@
 /* Navigation links */
 .navbar addbtn {
     float: left;
-    padding: 12px;
+    padding: 15px;
     /* color: var(--global--panel--color); */
     background-color: var(--global--button--color);
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 22px;
-    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-    text-align: right; /* If you want the text to be centered */
+    width: 10%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: left; /* If you want the text to be centered */
     border-style: none;
 }
 
 .navbar pdfbtn {
     float: left;
-    padding: 12px;
+    padding: 15px;
     /* color: var(--global--panel--color); */
     background-color: var(--global--button--color);
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 22px;
-    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 35%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
+    border-style: none;
+}
+.navbar closebtn {
+    float: left;
+    padding: 13px;
+    /* color: var(--global--panel--color); */
+    background-color: var(--global--button--color);
+    color: var(--global--button--text--color);
+    text-decoration: none;
+    font-size: 30px;
+    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: right; /* If you want the text to be centered */
     border-style: none;
 }
 
 .navbar b {
     float: left;
-    padding: 12px;
+    padding: 15px;
     background-color: var(--global--button--color);
     /* color: var(--global--panel--color); */
     text-decoration: none;
     font-size: 22px;
-    width: 50%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 45%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
 }
 
