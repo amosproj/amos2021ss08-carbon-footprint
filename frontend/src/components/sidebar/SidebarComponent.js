@@ -188,8 +188,8 @@ function SidebarComponent({ pageWrapId, outerContainerId }) {
 }
 
 SidebarComponent.propTypes = {
-    outerContainerId: PropTypes.string,
-    pageWrapId: PropTypes.string
+    outerContainerId: PropTypes.string.isRequired,
+    pageWrapId: PropTypes.string.isRequired
 };
 
 export default SidebarComponent;

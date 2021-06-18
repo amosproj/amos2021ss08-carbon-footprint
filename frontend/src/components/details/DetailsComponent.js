@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ScenarioComponent from './ScenarioComponent';
 import { jsPDF } from 'jspdf';
@@ -99,7 +100,7 @@ class DetailsComponent extends Component {
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                onExportClicked={handleExportPdfButton}
+                                onExportClick={handleExportPdfButton}
                                 scenarioName={scenarioNames.baseline}
                                 selectedProduct={selectedProduct}
                             />
@@ -116,7 +117,7 @@ class DetailsComponent extends Component {
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                onExportClicked={handleExportPdfButton}
+                                onExportClick={handleExportPdfButton}
                                 scenarioName={scenarioNames.modified}
                                 selectedProduct={selectedProduct}
                             />
@@ -157,5 +158,16 @@ class DetailsComponent extends Component {
         }
     }
 }
+
+DetailsComponent.propTypes = {
+    selectedProduct: PropTypes.shape({
+        categories: PropTypes.array, // [(categories.generation, categories.transmission)],
+        modelID: PropTypes.string, // 'none',
+        modelName: PropTypes.string, // 'please select a Product',
+        productID: PropTypes.string, // 'dummydum-13b0-4e09-9fb4-50398483ecfd'
+        productImage: PropTypes.string, //ImagePath?
+        productName: PropTypes.string //'please select a Product'
+    })
+};
 
 export default DetailsComponent;

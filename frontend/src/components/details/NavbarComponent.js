@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import slugs from 'resources/slugs';
 import { Link } from 'react-router-dom';
@@ -53,6 +54,14 @@ const NavbarComponent = (props) => {
             </div>
         );
     }
+};
+
+NavbarComponent.propTypes = {
+    loadComparePage: PropTypes.bool.isRequired,
+    onCloseClick: PropTypes.func,
+    onCompareClick: PropTypes.func,
+    onExportClick: PropTypes.func.isRequired,
+    scenarioName: PropTypes.string.isRequired
 };
 
 export default NavbarComponent;

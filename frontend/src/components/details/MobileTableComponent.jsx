@@ -4,7 +4,7 @@ import {
     getImpactCategoriesTableHeaders,
     getImpactCategoriesTableData
 } from 'interface/projectInterface';
-import { string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 /**
  * Mobile version of the TableComponent. Restructures the Table to be displayable on a mobile screen.
@@ -93,11 +93,11 @@ class MobileTableComponent extends Component {
     }
 }
 
-export default MobileTableComponent;
-
 MobileTableComponent.propTypes = {
-    modelId: string.isRequired,
-    productName: string.isRequired,
-    modelName: string.isRequired,
-    tableKey: string.isRequired
+    modelId: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
+    modelName: PropTypes.string.isRequired,
+    tableKey: PropTypes.string.isRequired
 };
+
+export default MobileTableComponent;

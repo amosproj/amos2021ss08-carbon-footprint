@@ -1,10 +1,10 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container } from 'react-grid-system';
 import {
     getImpactCategoriesTableHeaders,
     getImpactCategoriesTableData
 } from 'interface/projectInterface';
-import { string } from 'prop-types';
 
 /**
  * displays the impact catagories table of the selected model of the related product.
@@ -57,8 +57,8 @@ class TableComponent extends Component {
 export default TableComponent;
 
 TableComponent.propTypes = {
-    modelId: string.isRequired,
-    productName: string.isRequired,
-    modelName: string.isRequired,
-    tableKey: string.isRequired
+    modelId: PropTypes.string.isRequired,
+    modelName: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
+    tableKey: PropTypes.string.isRequired
 };

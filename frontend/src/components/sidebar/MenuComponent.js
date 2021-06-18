@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTheme } from 'react-jss';
 import { push as Menu } from 'react-burger-menu';
@@ -81,5 +82,12 @@ function MenuComponent({ pageWrapId, outerContainerId, children, isMobile }) {
         </Menu>
     );
 }
+
+MenuComponent.propTypes = {
+    children: PropTypes.any,
+    isMobile: PropTypes.bool.isRequired,
+    outerContainerId: PropTypes.string.isRequired,
+    pageWrapId: PropTypes.string.isRequired
+};
 
 export default MenuComponent;

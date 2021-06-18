@@ -63,6 +63,7 @@ class ScenarioComponent extends Component {
                             >
                                 <TableComponent
                                     productName={this.props.selectedProduct.productName}
+                                    modelId={this.props.selectedProduct.modelId}
                                     modelName={this.props.selectedProduct.modelName}
                                     tableKey={this.props.scenarioName}
                                 />
@@ -74,6 +75,7 @@ class ScenarioComponent extends Component {
                                 <MobileTableComponent
                                     productName={this.props.selectedProduct.productName}
                                     modelName={this.props.selectedProduct.modelName}
+                                    modelId={this.props.selectedProduct.modelId}
                                     tableKey={this.props.scenarioName}
                                 />
                             </Hidden>
@@ -87,11 +89,12 @@ class ScenarioComponent extends Component {
 
 ScenarioComponent.propTypes = {
     loadComparePage: PropTypes.bool,
-    onCloseClick: PropTypes.func.isRequired,
+    onCloseClick: PropTypes.func,
     onCompareClick: PropTypes.func.isRequired,
     onExportClick: PropTypes.func.isRequired,
     scenarioName: PropTypes.string,
     selectedProduct: PropTypes.shape({
+        modelId: PropTypes.string,
         modelName: PropTypes.string,
         productName: PropTypes.string
     })
