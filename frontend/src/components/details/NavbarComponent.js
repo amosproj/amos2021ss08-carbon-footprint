@@ -21,9 +21,9 @@ const NavbarComponent = (props) => {
                 <b>{props.scenarioName}</b>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <pdfbtn >
+                    <pdfbtn>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
-                        Pdf Export
+                        Export
                     </pdfbtn>
                 </Link>
                 <Link to={{ pathname: slugs.details }} onClick={props.onCompareClick}>
@@ -40,7 +40,7 @@ const NavbarComponent = (props) => {
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
                     <pdfbtn>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
-                        Pdf Export
+                        Export
                     </pdfbtn>
                 </Link>
 
