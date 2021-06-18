@@ -16,7 +16,11 @@
     --global--panel-title--FontSize: 22px;
     --global--text-subtitle--FontSize: 19px;
 }
+.navbar i{
+    margin-right:5px;
+    margin-left:5px;
 
+}
 /* Navigation links */
 .navbar button {
     float: left;
@@ -40,7 +44,7 @@
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 30px;
-    width: 10%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width:5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
     border-style: none;
 }
@@ -80,7 +84,7 @@
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 22px;
-    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 15%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
     border-style: none;
 }
