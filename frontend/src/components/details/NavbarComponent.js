@@ -1,7 +1,6 @@
 import React from 'react';
 import slugs from 'resources/slugs';
 import { Link } from 'react-router-dom';
-import { Divider } from '@material-ui/core';
 
 /**
  * a divider Pannel for seperating search compoents and result components
