@@ -46,11 +46,7 @@ const NavbarComponent = (props) => {
                         Export Pdf
                     </pdfbtn>
                 </Link>
-                <Link to={{ pathname: slugs.details }} onClick={props.onExportClicked}>
-                    <closebtn className='w3-col l5 m5 s6 w3-right'>
-                        <i className='fa fa-times-circle-o w3-margin-right' aria-hidden='true'></i>
-                    </closebtn>
-                </Link>
+
             </div>
         );
     }
