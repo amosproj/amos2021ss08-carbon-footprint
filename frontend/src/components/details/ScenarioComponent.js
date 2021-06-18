@@ -17,13 +17,15 @@ class ScenarioComponent extends Component {
         // The styling of the Container, Row and Col can not be moved to css, as the css has a lower priority than the react-grid-system default.
         return (
             <Container fluid={true} style={{ padding: 0, margin: 0, backgroundColor: 'white' }}>
-                <NavbarComponent
-                    loadComparePage={this.props.loadComparePage}
-                    onCompareClick={this.props.onCompareClick}
-                    scenarioName={this.props.scenarioName}
-                    onExportClick={this.props.onExportClick}
-                    onCloseClick={this.props.onCloseClick}
-                />
+                <Row style={{ padding: 0, margin: 0 }}>
+                    <NavbarComponent
+                        loadComparePage={this.props.loadComparePage}
+                        onCompareClick={this.props.onCompareClick}
+                        scenarioName={this.props.scenarioName}
+                        onExportClick={this.props.onExportClick}
+                        onCloseClick={this.props.onCloseClick}
+                    />
+                </Row>
                 <Container fluid={true} style={{ padding: 'auto' }}>
                     <h2 className='TextContent'>
                         The chosen Model is <b>{this.props.selectedProduct.modelName}</b>
