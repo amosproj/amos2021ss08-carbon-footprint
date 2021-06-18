@@ -12,22 +12,22 @@ import { Link } from 'react-router-dom';
 const NavbarComponent = (props) => {
     if (!props.loadComparePage) {
         return (
-            <div className='navbar w3-row' vertical='center' horizontal='space-between'>
+            <div className='navbar' vertical='center' horizontal='space-between'>
                 <Link to={{ pathname: slugs.categories }}>
-                    <btn className='w3-col l1 m1 s1 w3-center'>
+                    <button className='w3-center'>
                         <i class='fa fa-chevron-left' aria-hidden='true' />
-                    </btn>
+                    </button>
                 </Link>
-                <b className='w3-col l6 m6 s4'>{props.scenarioName}</b>
+                <b>{props.scenarioName}</b>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <pdfbtn className='w3-col l3 m3 s4'>
+                    <pdfbtn >
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
-                        Export Pdf
+                        Pdf Export
                     </pdfbtn>
                 </Link>
                 <Link to={{ pathname: slugs.details }} onClick={props.onCompareClick}>
-                    <addbtn className='w3-col l2 m2 s2'>
+                    <addbtn>
                         <i className='fa fa-fw fa-plus-circle' /> Add
                     </addbtn>
                 </Link>
@@ -35,17 +35,17 @@ const NavbarComponent = (props) => {
         );
     } else {
         return (
-            <div className='navbar w3-row' vertical='center' horizontal='space-between'>
-                <b className='w3-col l7 m7 s6'>{props.scenarioName}</b>
+            <div className='navbar' vertical='center' horizontal='space-between'>
+                <b>{props.scenarioName}</b>
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <pdfbtn className='w3-col l5 m5 s6 w3-right'>
+                    <pdfbtn>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
-                        Export Pdf
+                        Pdf Export
                     </pdfbtn>
                 </Link>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onCloseClick}>
-                    <closebtn className='w3-col l5 m5 s6 w3-right'>
+                    <closebtn>
                         <i className='fa fa-times-circle-o' aria-hidden='true'></i>
                         Close
                     </closebtn>
