@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import SelectVariableComponent from './SelectVariableComponent';
 import NavbarComponent from './NavbarComponent';
@@ -83,5 +84,17 @@ class ScenarioComponent extends Component {
         );
     }
 }
+
+ScenarioComponent.propTypes = {
+    loadComparePage: PropTypes.bool,
+    onCloseClick: PropTypes.func.isRequired,
+    onCompareClick: PropTypes.func.isRequired,
+    onExportClick: PropTypes.func.isRequired,
+    scenarioName: PropTypes.string,
+    selectedProduct: PropTypes.shape({
+        modelName: PropTypes.string,
+        productName: PropTypes.string
+    })
+};
 
 export default ScenarioComponent;

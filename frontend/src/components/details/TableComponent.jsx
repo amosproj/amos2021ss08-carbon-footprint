@@ -4,6 +4,7 @@ import {
     getImpactCategoriesTableHeaders,
     getImpactCategoriesTableData
 } from 'interface/projectInterface';
+import { string } from 'prop-types';
 
 /**
  * displays the impact catagories table of the selected model of the related product.
@@ -54,3 +55,10 @@ class TableComponent extends Component {
 }
 
 export default TableComponent;
+
+TableComponent.propTypes = {
+    modelId: string.isRequired,
+    productName: string.isRequired,
+    modelName: string.isRequired,
+    tableKey: string.isRequired
+};
