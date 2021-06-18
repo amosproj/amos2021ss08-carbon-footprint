@@ -16,7 +16,7 @@ const NavbarComponent = (props) => {
             <div className='navbar' vertical='center' horizontal='space-between'>
                 <Link to={{ pathname: slugs.categories }}>
                     <button className='w3-center'>
-                        <i class='fa fa-chevron-left' aria-hidden='true' />
+                        <i className='fa fa-chevron-left' aria-hidden='true' />
                     </button>
                 </Link>
                 <b>{props.scenarioName}</b>
