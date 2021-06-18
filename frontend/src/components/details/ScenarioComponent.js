@@ -63,7 +63,7 @@ class ScenarioComponent extends Component {
                                 <TableComponent
                                     productName={this.props.selectedProduct.productName}
                                     modelName={this.props.selectedProduct.modelName}
-                                    key={this.props.scenarioName}
+                                    tableKey={this.props.scenarioName}
                                 />
                             </Hidden>
                             <Hidden
@@ -73,7 +73,7 @@ class ScenarioComponent extends Component {
                                 <MobileTableComponent
                                     productName={this.props.selectedProduct.productName}
                                     modelName={this.props.selectedProduct.modelName}
-                                    key={this.props.scenarioName}
+                                    tableKey={this.props.scenarioName}
                                 />
                             </Hidden>
                         </div>

@@ -14,7 +14,7 @@ class TableComponent extends Component {
         rows: getImpactCategoriesTableData(this.props.modelId)
     };
     render() {
-        const idKey = this.props.key;
+        const idKey = this.props.tableKey;
         return (
             <Container fluid={true}>
                 {/* dynamic display of product and model */}
