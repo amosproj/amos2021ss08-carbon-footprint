@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.ComponentModel;
 using Backend.Helper;
+using Microsoft.AspNetCore.Http;
 
 namespace Backend.Services
 {
@@ -29,6 +30,44 @@ namespace Backend.Services
 
             unzipPath.ZipDOCX(@"Templates\template-modified.docx");
             return @"Templates\template-modified.docx";
+        }
+
+        public static List<Image> GetFileModelsFromRequest(HttpRequest request)
+        {
+            List<Image> list = new List<Image>();
+
+            foreach (var formField in request.Form)
+            {
+                // Form data 
+                var fileModelText = formField.Value.ToString().Replace("data:image/jpeg;base64,","");
+
+                //... process and add to the FileModel list
+                byte[] bytes = Convert.FromBase64String(fileModelText);
+
+                Image image;
+                using (MemoryStream ms = new MemoryStream(bytes))
+                {
+                    image = Image.FromStream(ms);
+                    image.Save(@"Templates\" + "image" + "7.png", System.Drawing.Imaging.ImageFormat.Png);
+                }
+                list.Add(image);
+            }
+
+            //if (request.Form.Files != null && request.Form.Files.Count > 0)
+            //{
+            //    foreach (var file in request.Form.Files)
+            //    {
+            //        using (MemoryStream ms = new MemoryStream())
+            //        {
+            //            // File data
+            //            //formFile.CopyTo(ms);
+            //        }
+
+            //        // ... process and add to the FileModel list
+            //    }
+            //}
+
+            return list;
         }
 
         //XDocument template = XDocument.Load(@"Templates\template-xml.xml");

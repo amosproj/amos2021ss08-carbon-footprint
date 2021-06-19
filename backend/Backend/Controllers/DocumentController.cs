@@ -1,4 +1,5 @@
 ﻿using Backend.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using System;
@@ -22,6 +23,8 @@ namespace Backend.Controllers
         [HttpPost("test")]
         public IActionResult test()
         {
+            var files = DocumentService.GetFileModelsFromRequest(this.Request);
+
             return new OkResult();
         }
 
@@ -43,5 +46,6 @@ namespace Backend.Controllers
 
             return File(filedata, contentType);
         }
+        
     }
 }
