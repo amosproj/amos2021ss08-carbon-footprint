@@ -19,7 +19,7 @@ export async function getSimaProProjects() {
             const items = data;
             result = items.data.Result.Data;
         });
-    require('log-timestamp')('#INFO');
+    //require('log-timestamp')('#INFO');
     console.log('API call to get the list of Products');
     console.log(result.Id);
     return result;
@@ -38,16 +38,38 @@ export async function postCalculationRequest(projectId) {
         'Access-Control-Allow-Origin': 'POST',
         'My-Custom-Header': 'foobar'
     };
-    let result = await axios.post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
-        headers
-    });
-    // .then(function (data) {
-    //     const items = data;
-    //     calcId = items.data.Result.CalculationId;
-    // });
-    console.log('RESULT!!!!!!1');
-    console.log(result);
-    return result;
+    // const body = {
+    //     Id: '00000000-0000-0000-0000-000000000000',
+    //     MethodId: '210215cc-99e5-4621-a7e0-f5a09ab530fa',
+    //     MethodName: 'ReCiPe 2016 Midpoint (H)',
+    //     NormalisationSetId: '86b7bb89-8904-4faf-8e56-2d8bccf13b2b',
+    //     NormalisationSetName: 'Default',
+    //     WeightingSetId: 'c5399d7e-67e1-4c18-a0f2-a745f2fdde32',
+    //     WeightingSetName: 'Default',
+    //     calculateParameterSets: true,
+    //     useAnalysisGroups: true,
+    //     combineOverrideInstanceValues: true
+    // };
+    let materialData;
+    let carbonData;
+    let result1;
+    await axios
+        .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
+            headers
+        })
+        .then(function (data) {
+            const items = data;
+            result1 = items.data.Result;
+            materialData = items.data.Result.Results[0].Tables[0].Rows;
+            carbonData = items.data.Result.Results[0].Tables[1];
+        });
+    console.log('Materials');
+    console.log(materialData);
+    console.log('Carbon Emission');
+    console.log(carbonData);
+    console.log('Result');
+    console.log(result1);
+    return true;
 }
 
 /**
@@ -71,6 +93,9 @@ export async function postCalculationRequestCustomSetup(projectId, processId, pr
         NormalisationSetName: 'Default',
         WeightingSetId: 'c5399d7e-67e1-4c18-a0f2-a745f2fdde32',
         WeightingSetName: 'Default',
+        calculateParameterSets: true,
+        useAnalysisGroups: true,
+        combineOverrideInstanceValues: true,
         CalculationItems: [
             {
                 ProcessId: processId,

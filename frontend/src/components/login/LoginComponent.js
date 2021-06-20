@@ -12,8 +12,6 @@ import React from 'react';
  */
 function LoginComponent() {
     const [, setState] = useContext(GlobalContext);
-    require('log-timestamp')('#INFO');
-    console.log('Login attempt');
 
     return (
         <div className='flex-container'>
