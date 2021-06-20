@@ -37,42 +37,67 @@ class DetailsComponent extends Component {
 
         let handleExportPdfButton = () => {
             // geting the element that should be exported
-            var div = document.getElementById('capture');
+            var div1 = document.getElementById('capturePieChart');
+            var div2 = document.getElementById('captureColumnDiagram');
+            var div3 = document.getElementById('captureTable');
 
             // converting html to an image and then exporting it by pdf
-            html2canvas(div).then((canvas) => {
-                var imgData = canvas.toDataURL('image/jpeg', 1);
-                submit(imgData);
-                // pdf configuration
-                var pdf = new jsPDF('p', 'mm', 'a4');
-                var pageWidth = pdf.internal.pageSize.getWidth();
-                var pageHeight = pdf.internal.pageSize.getHeight();
-                var imageWidth = canvas.width;
-                var imageHeight = canvas.height;
+            html2canvas(div1).then((canvas1) => {
+                var imgData1 = canvas1.toDataURL('image/jpeg', 1);
 
-                var ratio =
-                    imageWidth / imageHeight >= pageWidth / pageHeight
-                        ? pageWidth / imageWidth
-                        : pageHeight / imageHeight;
-                pdf.addImage(imgData, 'JPEG', 0, 0, imageWidth * ratio, imageHeight * ratio);
-                pdf.save('invoice.pdf');
+                html2canvas(div2).then((canvas2) => {
+                    var imgData2 = canvas2.toDataURL('image/jpeg', 1);
+
+                    html2canvas(div3).then((canvas3) => {
+                        var imgData3 = canvas3.toDataURL('image/jpeg', 1);
+
+                        submit(imgData1, imgData2, imgData3);
+                        // pdf configuration
+                        var pdf = new jsPDF('p', 'mm', 'a4');
+                        var pageWidth = pdf.internal.pageSize.getWidth();
+                        var pageHeight = pdf.internal.pageSize.getHeight();
+                        var imageWidth = canvas3.width;
+                        var imageHeight = canvas3.height;
+
+                        var ratio =
+                            imageWidth / imageHeight >= pageWidth / pageHeight
+                                ? pageWidth / imageWidth
+                                : pageHeight / imageHeight;
+                        pdf.addImage(
+                            imgData3,
+                            'JPEG',
+                            0,
+                            0,
+                            imageWidth * ratio,
+                            imageHeight * ratio
+                        );
+                        pdf.save('invoice.pdf');
+                    });
+                });
             });
         };
 
-        let submit = (imgdata) => {
-            const data = new FormData();
-            data.append('file', imgdata);
-            console.warn(imgdata);
+        let submit = (imgdata1, imgdata2, imgData3) => {
+            let arrayOfYourFiles = [imgdata1, imgdata2, imgData3];
+            // create formData object
+            const formData = new FormData();
+            arrayOfYourFiles.forEach((file) => {
+                formData.append('arrayOfFilesName', file);
+            });
+
             let url = 'https://localhost:44323/Document/test';
 
-            axios
-                .post(url, data, {
-                    // receive two parameter endpoint url ,form data
-                })
-                .then((res) => {
-                    // then print response status
-                    console.warn(res);
-                });
+            axios({
+                method: 'POST',
+                url: url,
+                data: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then((res) => {
+                // then print response status
+                console.warn(res);
+            });
         };
 
         const scenarioNames = {

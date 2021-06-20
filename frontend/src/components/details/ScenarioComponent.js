@@ -29,13 +29,21 @@ class ScenarioComponent extends Component {
                     </h2>
                     <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
                     <Row>
-                        <Col xs={12} sm={12} md={12} lg={6} className='CardsContainer'>
+                        <Col
+                            id='captureColumnDiagram'
+                            xs={12}
+                            sm={12}
+                            md={12}
+                            lg={6}
+                            className='CardsContainer'
+                        >
                             <div className='CardTitle'>
                                 <span>Results of the impact assessment</span>
                             </div>
                             <ColumnChart />
                         </Col>
                         <Col
+                            id='capturePieChart'
                             xs={12}
                             sm={12}
                             md={12}
@@ -50,7 +58,7 @@ class ScenarioComponent extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <div className='TableContainer'>
+                        <div id='captureTable' className='TableContainer'>
                             {/* Swaps out the table with a mobile version for screens <= sm 
                             And when on the compare version already swap out for screens <= lg */}
                             <Hidden
