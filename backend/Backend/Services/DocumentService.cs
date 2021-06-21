@@ -13,61 +13,75 @@ namespace Backend.Services
 {
     public class DocumentService
     {
-        public string createReport()
+        public string createReport(HttpRequest request)
         {
+            var imageNumbers = new List<int>() { 7, 14, 11 };
+
+            GetFileModelsFromRequest(request, imageNumbers);
+
             var unzipPath = @"Templates\template-docx.docx".UnzipDOCX();
-            var imagePath = unzipPath + @"\word\media\";
+            var docxImagePath = unzipPath + @"\word\media\";
 
-            Image image = Image.FromFile(@"Templates\jpegsample.jpg");
 
-            File.Delete(imagePath + "image7.png");
-            File.Delete(imagePath + "image11.png");
-            File.Delete(imagePath + "image14.png");
-
-            image.Save(imagePath + "image" + "7.png", System.Drawing.Imaging.ImageFormat.Png);
-            image.Save(imagePath + "image" + "11.png", System.Drawing.Imaging.ImageFormat.Png);
-            image.Save(imagePath + "image" + "14.png", System.Drawing.Imaging.ImageFormat.Png);
+            foreach (var number in imageNumbers)
+            {
+                File.Delete(docxImagePath + "image" + number.ToString() + ".png");
+                var image = Image.FromFile(@"Templates\image" + number.ToString() + ".png");
+                image.Save(docxImagePath + "image" + number.ToString() + ".png", System.Drawing.Imaging.ImageFormat.Png);
+                image.Dispose();
+                File.Delete(@"Templates\image" + number.ToString() + ".png");
+            }
 
             unzipPath.ZipDOCX(@"Templates\template-modified.docx");
             return @"Templates\template-modified.docx";
+
+            //List<Image> images = new List<Image>() {
+            //    Image.FromFile(@"Templates\image7.png"),
+            //    Image.FromFile(@"Templates\image11.png"),
+            //    Image.FromFile(@"Templates\image14.png")
+            //};
+            
+            //File.Delete(imagePath + "image7.png");
+            //File.Delete(imagePath + "image11.png");
+            //File.Delete(imagePath + "image14.png");
+
+            //images[0].Save(imagePath + "image" + "7.png", System.Drawing.Imaging.ImageFormat.Png);
+            //images[1].Save(imagePath + "image" + "11.png", System.Drawing.Imaging.ImageFormat.Png);
+            //images[2].Save(imagePath + "image" + "14.png", System.Drawing.Imaging.ImageFormat.Png);
+
+
+            //File.Delete(@"Templates\image7.png");
+            //File.Delete(@"Templates\image11.png");
+            //File.Delete(@"Templates\image14.png");
+
+
+
+
         }
 
-        public static List<Image> GetFileModelsFromRequest(HttpRequest request)
+        public static void GetFileModelsFromRequest(HttpRequest request, List<int> imageNumbers)
         {
-            List<Image> list = new List<Image>();
-
             foreach (var formField in request.Form)
             {
                 // Form data 
-                var fileModelText = formField.Value.ToString().Replace("data:image/jpeg;base64,","");
+                var stringValues = formField.Value.Select(x => x.ToString()).Select(y => y.Replace("data:image/jpeg;base64,",""));
+                var stringValueTuples = stringValues.Zip(imageNumbers);
 
-                //... process and add to the FileModel list
-                byte[] bytes = Convert.FromBase64String(fileModelText);
-
-                Image image;
-                using (MemoryStream ms = new MemoryStream(bytes))
+                foreach (var tuple in stringValueTuples)
                 {
-                    image = Image.FromStream(ms);
-                    image.Save(@"Templates\" + "image" + "7.png", System.Drawing.Imaging.ImageFormat.Png);
+                    //... process and add to the FileModel list
+                    byte[] bytes = Convert.FromBase64String(tuple.First);
+
+                    Image image;
+                    using (MemoryStream ms = new MemoryStream(bytes))
+                    {
+                        image = Image.FromStream(ms);
+                        image.Save(@"Templates\" + "image" + tuple.Second.ToString() +".png", System.Drawing.Imaging.ImageFormat.Png);
+                        image.Dispose();
+                        ms.Dispose();
+                    }
                 }
-                list.Add(image);
             }
-
-            //if (request.Form.Files != null && request.Form.Files.Count > 0)
-            //{
-            //    foreach (var file in request.Form.Files)
-            //    {
-            //        using (MemoryStream ms = new MemoryStream())
-            //        {
-            //            // File data
-            //            //formFile.CopyTo(ms);
-            //        }
-
-            //        // ... process and add to the FileModel list
-            //    }
-            //}
-
-            return list;
         }
 
         //XDocument template = XDocument.Load(@"Templates\template-xml.xml");

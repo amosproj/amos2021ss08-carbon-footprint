@@ -20,32 +20,33 @@ namespace Backend.Controllers
             _documentService = documentService;
         }
 
-        [HttpPost("test")]
-        public IActionResult test()
-        {
-            var files = DocumentService.GetFileModelsFromRequest(this.Request);
+        //[HttpPost("test")]
+        //public IActionResult test()
+        //{
+        //    var files = DocumentService.GetFileModelsFromRequest(this.Request);
 
-            return new OkResult();
-        }
+        //    return new OkResult();
+        //}
 
         [HttpPost("CreateReport")]
         public FileContentResult CreateReport()
         {
-            string filepath = _documentService.createReport();
-            string filename = "template-modified.docx";
+            string filepath = _documentService.createReport(this.Request);
+
+            string filename = "Report.docx";
             byte[] filedata = System.IO.File.ReadAllBytes(filepath);
             string contentType;
             new FileExtensionContentTypeProvider().TryGetContentType(filepath, out contentType);
 
             var cd = new System.Net.Mime.ContentDisposition {
                 FileName = filename,
-                Inline = true,
+                Inline = false
             };
 
             Response.Headers.Add("Content-Disposition", cd.ToString());
 
             return File(filedata, contentType);
         }
-        
+
     }
 }
