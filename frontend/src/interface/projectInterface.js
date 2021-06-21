@@ -34,6 +34,12 @@ export function getModels() {
     ];
 }
 
+/**
+ * Gets the filtered Material Composititon Data from API
+ * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
+ * Calculates the percentage values and returns them.
+ * @param compositionData filtered data from backendconnnect
+ */
 export function setMaterialCompositionData(compositionData) {
     console.log('compositionData');
     materialCompositionData = Array.from(compositionData);
@@ -50,14 +56,17 @@ export function setMaterialCompositionData(compositionData) {
 }
 
 /**
- * should get the material compositon of a specific model
- * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
- * @param modelName name of the model, which we want to get the Data
+ * Getter method to recieve the filtered Material Composititon Data from API
  */
 export async function getMaterialCompositionData() {
     return materialDataInPercent;
 }
 
+/**
+ * Gets the filtered Material Composititon Labels from API
+ * Calculates the percentage values and returns them.
+ * @param compositionData filtered data from backendconnnect
+ */
 export function setMaterialCompositionLabels(compositionLabels) {
     console.log('compositionLabels');
 
@@ -67,7 +76,7 @@ export function setMaterialCompositionLabels(compositionLabels) {
 }
 
 /**
- * @param modelName name of the model, which we want to get the Data
+ * Getter method to recieve the filtered Material Composititon Labels from API
  */
 export async function getMaterialCompositionLabels() {
     return materialCompositionLabels;
@@ -85,20 +94,28 @@ export async function getMaterialCompositionLabels() {
     // ];
 }
 
+/**
+ * Gets the Life Cycle Stages filtered from API
+ * Impact Assessment is done for each of the life cycle stage
+ * @param assessmentModels recieved from Backendconnect
+ */
 export function setLifeCycleStages(assessmentModels) {
     lifeCycleStages = Array.from(assessmentModels);
     console.log('Life Cycle Stages');
     console.log(lifeCycleStages);
 }
 /**
- * QUESTON: Do these categories stay the same?
- * Impact Assessment is done for each of the life cycle stage
- * @param modelName name of the model, which we want to get the Data
+ * Getter method to recieve the filtered Life Cycle Stages from API
  */
 export function getLifeCycleStages() {
     return lifeCycleStages;
 }
 
+/**
+ * Gets the Impact Assessment Data filtered from API
+ * Impact Assessment is done for each of the life cycle stage
+ * @param assessmentData recieved from Backendconnect
+ */
 export function setImpactAssessmentData(assessmentData) {
     assessmentValues = Array.from(assessmentData);
     console.log('Impact Assessment Data');
@@ -106,9 +123,7 @@ export function setImpactAssessmentData(assessmentData) {
 }
 
 /**
- * Impact Assessment is done for each life cycle stage
- * QUESTION: amount of stages fixed?
- * @param modelName name of the model, which we want to get the Data
+ * Getter method to recieve the filtered Impact Assessment Data from API
  */
 export function getImpactAssessmentData() {
     return assessmentValues;
@@ -130,12 +145,11 @@ export function getImpactCategoriesTableHeaders(modelName) {
     ];
 }
 /**
- * QUESTION: how is the data structured?
- * Do we need to extract the data from a data structure?
- * @param modelName name of the model, which we want to get the Data
+ * Gets the Impact Categories Table Data filtered from API
+ * Impact Assessment is done for each of the life cycle stage
+ * @param assessmentData recieved from Backendconnect and filtered here
  */
 export function getImpactCategoriesTableData() {
-    //TODO:
     console.log('Impact Categories Table Data');
     console.log(assessmentValues);
     return assessmentValues;

@@ -24,12 +24,17 @@ export async function getSimaProProjects() {
             const items = data;
             result = items.data.Result.Data;
         });
-    //require('log-timestamp')('#INFO');
     console.log('API call to get the list of Products');
     console.log(result.Id);
     return result;
 }
 
+/**
+ * Filters the materials data recieved from API.
+ * Filter the materials with Unit Value "Kg" and Values > 0.
+ * Maps the Material and its corresponding value.
+ * @param data data recieved from PostCalculationRequest
+ */
 async function materials(data) {
     const items = data;
     let materialData = items.data.Result.Results[0].Tables[0].Rows;
@@ -49,7 +54,12 @@ async function materials(data) {
     setMaterialCompositionLabels(materialMap.keys());
     setMaterialCompositionData(materialMap.values());
 }
-
+/**
+ * Filters the carbon impact data recieved from API.
+ * Filter the Carbon Values of GlobalWarming
+ * Maps the Carbon Values and its corresponding life cycle stage.
+ * @param data data recieved from PostCalculationRequest
+ */
 export async function carbonImpactData(data) {
     console.log('Inside carbon impact data');
     const items = data;
