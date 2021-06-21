@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getMaterialCompositionLabels } from 'interface/projectInterface';
+import { setMaterial } from 'interface/projectInterface';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -77,7 +77,7 @@ export async function postCalculationRequest(projectId) {
         });
     console.log('Result');
     console.log(result1);
-    getMaterialCompositionLabels(materialDetails);
+    setMaterial(materialDetails);
     return impactData;
 }
 

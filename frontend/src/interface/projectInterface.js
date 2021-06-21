@@ -7,6 +7,8 @@
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_3 from 'assets/dummyImages/Logo2.png';
 
+let materialMap = new Map();
+
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
  * @returns
@@ -29,19 +31,33 @@ export function getModels() {
 }
 
 /**
+ * @param materials the materials recieved from the backend
+ */
+export function setMaterial(materials) {
+    console.log('setMaterial');
+    console.log(materials);
+    materialMap.clear();
+    for (let i = 0; i < materials.length; i++) {
+        materialMap.set(materials[i][0], materials[i][6]);
+    }
+}
+
+/**
  * should get the material compositon of a specific model
  * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
  * @param modelName name of the model, which we want to get the Data
  */
-export function getMaterialCompositionData(modelName) {
-    return [17, 13, 3, 2, 1, 42, 21];
+export function getMaterialCompositionData() {
+    return materialMap.values();
+    //return [17, 13, 3, 2, 1, 42, 21];
 }
+
 /**
  * @param modelName name of the model, which we want to get the Data
  */
-export function getMaterialCompositionLabels(materials) {
-    console.log('getMaterialCompositionLabels');
-    console.log(materials);
+export function getMaterialCompositionLabels() {
+    return materialMap.keys();
+    /*
     return [
         'Plywood',
         'TotalSteel',
@@ -53,6 +69,7 @@ export function getMaterialCompositionLabels(materials) {
         'Electronics',
         'Aluminium'
     ];
+    */
 }
 
 /**
