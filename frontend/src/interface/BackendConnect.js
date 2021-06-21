@@ -25,6 +25,22 @@ export async function getSimaProProjects() {
     return result;
 }
 
+export async function materials(data) {
+    const items = data;
+    let materialData = items.data.Result.Results[0].Tables[0].Rows;
+    console.log('Inside material');
+    console.log(materialData);
+    return materialData;
+}
+
+export async function carbonImpactData(data) {
+    const items = data;
+    let carbonData = items.data.Result.Results[0].Tables[1];
+    console.log('Inside carbon impact data');
+    console.log(carbonData);
+    return carbonData;
+}
+
 /**
  *   Post request to initiate the calculation for a project based on the project id and preset values.
  *   This request is caught by the backend.
@@ -38,20 +54,8 @@ export async function postCalculationRequest(projectId) {
         'Access-Control-Allow-Origin': 'POST',
         'My-Custom-Header': 'foobar'
     };
-    // const body = {
-    //     Id: '00000000-0000-0000-0000-000000000000',
-    //     MethodId: '210215cc-99e5-4621-a7e0-f5a09ab530fa',
-    //     MethodName: 'ReCiPe 2016 Midpoint (H)',
-    //     NormalisationSetId: '86b7bb89-8904-4faf-8e56-2d8bccf13b2b',
-    //     NormalisationSetName: 'Default',
-    //     WeightingSetId: 'c5399d7e-67e1-4c18-a0f2-a745f2fdde32',
-    //     WeightingSetName: 'Default',
-    //     calculateParameterSets: true,
-    //     useAnalysisGroups: true,
-    //     combineOverrideInstanceValues: true
-    // };
-    let materialData;
-    let carbonData;
+    let materialDetails;
+    let impactData;
     let result1;
     await axios
         .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
@@ -60,16 +64,12 @@ export async function postCalculationRequest(projectId) {
         .then(function (data) {
             const items = data;
             result1 = items.data.Result;
-            materialData = items.data.Result.Results[0].Tables[0].Rows;
-            carbonData = items.data.Result.Results[0].Tables[1];
+            materialDetails = materials(data);
+            impactData = carbonImpactData(data);
         });
-    console.log('Materials');
-    console.log(materialData);
-    console.log('Carbon Emission');
-    console.log(carbonData);
     console.log('Result');
     console.log(result1);
-    return true;
+    return { materialDetails, impactData };
 }
 
 /**
