@@ -85,7 +85,7 @@ class DetailsComponent extends Component {
                 formData.append('arrayOfFilesName', file);
             });
 
-            let url = 'https://localhost:44323/Document/test';
+            let url = 'https://localhost:44323/Document/CreateReport';
 
             axios({
                 method: 'POST',
