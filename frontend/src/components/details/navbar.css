@@ -78,15 +78,15 @@
     float: left;
     /* color: var(--global--panel--color); */
     background-color: var(--global--background--color);
-    color: var(--global--button--text--color);
+    color: rgb(211, 41, 64);
     text-decoration: none;
-    font-size: 22px;
+    font-size: 24px;
     width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
     border-style: none;
     cursor: pointer;
     position: absolute;
-    top: 3%;
+    top: 2.5%;
     right: 0%;
     padding: 20px;
     padding-top:0px;
