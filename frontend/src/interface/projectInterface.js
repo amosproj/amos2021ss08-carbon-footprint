@@ -6,7 +6,6 @@
 
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_3 from 'assets/dummyImages/Logo2.png';
-import { postCalculationRequest } from 'interface/BackendConnect';
 
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
@@ -40,10 +39,9 @@ export function getMaterialCompositionData(modelName) {
 /**
  * @param modelName name of the model, which we want to get the Data
  */
-export function getMaterialCompositionLabels(modelName) {
-    // let variable = postCalculationRequest();
-    // console.log('getMaterialCompositionLabels');
-    // console.log(variable[0]);
+export function getMaterialCompositionLabels(materials) {
+    console.log('getMaterialCompositionLabels');
+    console.log(materials);
     return [
         'Plywood',
         'TotalSteel',

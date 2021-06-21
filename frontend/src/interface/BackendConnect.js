@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { getMaterialCompositionLabels } from 'interface/projectInterface';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -28,9 +28,17 @@ export async function getSimaProProjects() {
 export async function materials(data) {
     const items = data;
     let materialData = items.data.Result.Results[0].Tables[0].Rows;
-    console.log('Inside material');
-    console.log(materialData);
-    return materialData;
+    console.log(materialData.length);
+    let finalMaterials = [];
+    for (let z = 0; z < materialData.length; z++) {
+        if (materialData[z][5] === 'kg') {
+            if (materialData[z][6] > 0) {
+                finalMaterials.push(materialData[z]);
+                console.log(materialData[z]);
+            }
+        }
+    }
+    return finalMaterials;
 }
 
 export async function carbonImpactData(data) {
@@ -69,7 +77,8 @@ export async function postCalculationRequest(projectId) {
         });
     console.log('Result');
     console.log(result1);
-    return { materialDetails, impactData };
+    getMaterialCompositionLabels(materialDetails);
+    return impactData;
 }
 
 /**

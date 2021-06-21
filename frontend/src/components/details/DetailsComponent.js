@@ -5,7 +5,6 @@ import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 import { postCalculationRequest } from 'interface/BackendConnect';
-
 /**
  * the main component for detail page which includes
  * canvas page and variable drop down list
