@@ -4,7 +4,7 @@
     height: auto;
     color: #1b1534;
     padding: 0px;
-    background-color: var(--global--button--color) !important;
+    background-color: var(--global--background--color) !important;
     margin: auto;
     /* border: 3px solid var(--global--button--color); */
     /* background-color: var(--global--panel--color); */
@@ -12,7 +12,7 @@
 
 /* -webkit-radial-gradient(  bottom right, #4D217A,#1B1534 ); */
 :root {
-    --global--button--color: #dedede;
+    --global--background--color: #dedede;
     --global--button--text--color: #1b1534;
     --global--panel-title--FontSize: 22px;
     --global--text-subtitle--FontSize: 19px;
@@ -25,12 +25,13 @@
 .navbar button {
     float: left;
     font-weight: bold;
-    padding: 12px;
+    padding: 15px;
+    padding-left:0px;
     /* color: var(--global--panel--color); */
-    background-color: var(--global--button--color);
+    background-color: var(--global--background--color);
     color: var(--global--button--text--color);
     text-decoration: none;
-    font-size: 20px;
+    font-size: 28px;
     width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: bottom; /* If you want the text to be centered */
     border-style: none;
@@ -39,56 +40,72 @@
 /* Navigation links */
 .Addbtn {
     float: left;
-    padding: 12px;
+    padding: 15px;
     font-weight: bold;
     /* color: var(--global--panel--color); */
-    background-color: var(--global--button--color);
+    background-color: var(--global--background--color);
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 22px;
-    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: right; /* If you want the text to be centered */
     border-style: none;
+    right:0%;
+    margin-left:10;
+    margin-right:10;
 }
 
 .Pdfbtn {
     float: left;
     font-weight: bold;
-    padding: 12px;
+    padding: 15px;
     /* color: var(--global--panel--color); */
-    background-color: var(--global--button--color);
+    background-color: var(--global--background--color);
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 22px;
-    width: 35%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
     border-style: none;
+    padding-left: 0px;
+    margin-right:130px;
+    right:0%;
+
+
 }
 
 .Closebtn {
     float: left;
-    padding: 12px;
-    font-weight: bold;
     /* color: var(--global--panel--color); */
-    background-color: var(--global--button--color);
+    background-color: var(--global--background--color);
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 22px;
-    width: 25%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
     border-style: none;
+    cursor: pointer;
+    position: absolute;
+    top: 3%;
+    right: 0%;
+    padding: 20px;
+    padding-top:0px;
+    transform: translate(0%, -50%);
+
+    
 }
 
 .navbar b {
     float: left;
-    padding: 12px;
-    background-color: var(--global--button--color);
+    padding: 15px;
+    background-color: var(--global--background--color);
     /* color: var(--global--panel--color); */
     text-decoration: none;
     font-size: 22px;
-    width: 40%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 60%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
 }
+
 
 /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
 @media screen and (max-width: 500px) {

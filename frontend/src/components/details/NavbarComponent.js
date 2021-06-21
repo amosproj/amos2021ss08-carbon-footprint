@@ -22,7 +22,7 @@ const NavbarComponent = (props) => {
                 <b>{props.scenarioName}</b>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <div className='Pdfbtn'>
+                    <div className='Pdfbtn' >
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
                         Export
                     </div>
@@ -39,16 +39,16 @@ const NavbarComponent = (props) => {
             <div className='navbar' vertical='center' horizontal='space-between'>
                 <b>{props.scenarioName}</b>
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <div className='Pdfbtn'>
+                    <div className='Pdfbtn'  >
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
                         Export
                     </div>
                 </Link>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onCloseClick}>
-                    <div className='Closebtn'>
+                    <div className='Closebtn '>
                         <i className='fa fa-times-circle-o' aria-hidden='true'></i>
-                        Close
+
                     </div>
                 </Link>
             </div>
