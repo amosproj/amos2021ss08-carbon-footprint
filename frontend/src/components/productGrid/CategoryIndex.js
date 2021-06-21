@@ -19,19 +19,19 @@ function CategoryIndex() {
                 </p>
             </div>
             <div className='w3-row m6 32 w3-padding-small'>
-                <div className='w3-third imageTitle w3-animate-bottom'>
+                <div className='w3-third imageTitle w3-animate-zoom'>
                     <img src={GenerationImage} alt='Generation' />
                     <div className='w3-container w3-center'>
                         <p>Generation</p>
                     </div>
                 </div>
                 <div className='w3-third imageTitle w3-animate-zoom'>
-                    <img src={IndustrialImage} alt='Industry' />
+                    <img src={IndustrialImage} style={{height:"396.55px"}} alt='Industry' />
                     <div className='w3-container w3-center'>
                         <p>Industrial Application</p>
                     </div>
                 </div>
-                <div className='w3-third imageTitle w3-animate-bottom'>
+                <div className='w3-third imageTitle w3-animate-zoom'>
                     <img src={TransmissionImage} alt='Transmission' />
                     <div className='w3-container w3-center'>
                         <p>Transmission</p>
