@@ -1,7 +1,9 @@
 import axios from 'axios';
 import {
     setMaterialCompositionLabels,
-    setMaterialCompositionData
+    setMaterialCompositionData,
+    setImpactAssessmentData,
+    setLifeCycleStages
 } from 'interface/projectInterface';
 /**
  * Get request to det the details of all the projects from the API via backend.
@@ -39,21 +41,26 @@ async function materials(data) {
                 finalMaterials.push(materialData[z]);
             }
         }
-
-        for (let i = 0; i < finalMaterials.length; i++) {
-            materialMap.set(finalMaterials[i][0], finalMaterials[i][6]);
-        }
     }
+    for (let i = 0; i < finalMaterials.length; i++) {
+        materialMap.set(finalMaterials[i][0], finalMaterials[i][6]);
+    }
+
     setMaterialCompositionLabels(materialMap.keys());
     setMaterialCompositionData(materialMap.values());
 }
 
 export async function carbonImpactData(data) {
-    const items = data;
-    let carbonData = items.data.Result.Results[0].Tables[1];
     console.log('Inside carbon impact data');
-    console.log(carbonData);
-    return carbonData;
+    const items = data;
+    let carbonData = items.data.Result.Results[0].Tables[1].Rows;
+    let impactMap = new Map();
+    for (let i = 0; i < carbonData.length; i++) {
+        impactMap.set(carbonData[i][0], carbonData[i][2]);
+    }
+    console.log(impactMap);
+    setLifeCycleStages(impactMap.keys());
+    setImpactAssessmentData(impactMap.values());
 }
 
 /**
@@ -69,7 +76,6 @@ export async function postCalculationRequest(projectId) {
         'Access-Control-Allow-Origin': 'POST',
         'My-Custom-Header': 'foobar'
     };
-    let impactData;
     let result1;
     await axios
         .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
@@ -79,12 +85,10 @@ export async function postCalculationRequest(projectId) {
             const items = data;
             result1 = items.data.Result;
             materials(data);
-            impactData = carbonImpactData(data);
+            carbonImpactData(data);
         });
     console.log('Result');
     console.log(result1);
-
-    return impactData;
 }
 
 /**

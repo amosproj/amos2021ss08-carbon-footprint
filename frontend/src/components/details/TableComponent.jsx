@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from 'react-grid-system';
-import { getImpactCategoriesTableHeaders } from 'interface/projectInterface';
+import {
+    getImpactCategoriesTableHeaders,
+    getImpactAssessmentData
+} from 'interface/projectInterface';
 /**
  *
  * @returns the impact catagories table of the selected model of the related product.
@@ -16,66 +19,18 @@ class TableComponent extends Component {
             {
                 key: 'row-1',
                 impactCategory: 'Global Warming',
-                unit: 'kg CO2 eq',
-                total: '2,350,811',
-                materialsLPT: '874,356',
-                manufacturing: '71,532',
-                operations: '2,114,344',
-                endOfLife: '-790,420'
-            },
-            {
-                key: 'row-2',
-                impactCategory: 'Ozon layer depletion',
-                unit: 'kg CFC-11 eq',
-                total: '12',
-                materialsLPT: '0',
-                manufacturing: '0',
-                operations: '12',
-                endOfLife: '0'
-            },
-            {
-                key: 'row-3',
-                impactCategory: 'Photochemical oxidant formation (POCP)',
-                unit: 'kg C2H4 eq',
-                total: '2,350,811',
-                materialsLPT: '874,356',
-                manufacturing: '71,532',
-                operations: '2,114,344',
-                endOfLife: '-332'
-            },
-            {
-                key: 'row-4',
-                impactCategory: 'Acidification',
-                unit: 'kg SO2 eq',
-                total: '12',
-                materialsLPT: '0',
-                manufacturing: '0',
-                operations: '12',
-                endOfLife: '12,159'
-            },
-            {
-                key: 'row-5',
-                impactCategory: 'Eutrophication',
-                unit: 'kg PO4 eq',
-                total: '12',
-                materialsLPT: '0',
-                manufacturing: '0',
-                operations: '12',
-                endOfLife: '–5,016'
-            },
-            {
-                key: 'row-6',
-                impactCategory: 'Nonrenewable energy',
-                unit: 'MJ eq',
-                total: '2,781,500,619',
-                materialsLPT: '14,672,424',
-                manufacturing: '1,454,845',
-                operations: '2,774,610,300',
-                endOfLife: '–9,236,950'
+                unit: getImpactAssessmentData[6],
+                total: getImpactAssessmentData[5],
+                materialsLPT: getImpactAssessmentData[4],
+                manufacturing: getImpactAssessmentData[0],
+                operations: getImpactAssessmentData[3],
+                endOfLife: getImpactAssessmentData[2]
             }
         ]
     };
     render() {
+        console.log('getImpactAssessmentData[6]');
+        console.log(getImpactAssessmentData[6]);
         const idKey = this.props.id;
         return (
             // TODO:left margin value needed to be fixed

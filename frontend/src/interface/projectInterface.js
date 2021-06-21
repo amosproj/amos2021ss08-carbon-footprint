@@ -10,6 +10,9 @@ import logo_3 from 'assets/dummyImages/Logo2.png';
 var materialCompositionLabels;
 var materialCompositionData;
 let materialDataInPercent = [];
+var assessmentValues;
+var lifeCycleStages;
+
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
  * @returns
@@ -53,7 +56,6 @@ export function setMaterialCompositionData(compositionData) {
  */
 export async function getMaterialCompositionData() {
     return materialDataInPercent;
-    // return [17, 13, 3, 2, 1, 42, 21];
 }
 
 export function setMaterialCompositionLabels(compositionLabels) {
@@ -68,8 +70,6 @@ export function setMaterialCompositionLabels(compositionLabels) {
  * @param modelName name of the model, which we want to get the Data
  */
 export async function getMaterialCompositionLabels() {
-    // console.log('materialMap.keys()');
-    // console.log(materialMap.keys());
     return materialCompositionLabels;
 
     // return [
@@ -85,13 +85,24 @@ export async function getMaterialCompositionLabels() {
     // ];
 }
 
+export function setLifeCycleStages(assessmentModels) {
+    lifeCycleStages = Array.from(assessmentModels);
+    console.log('Life Cycle Stages');
+    console.log(lifeCycleStages);
+}
 /**
  * QUESTON: Do these categories stay the same?
  * Impact Assessment is done for each of the life cycle stage
  * @param modelName name of the model, which we want to get the Data
  */
-export function getLifeCycleStages(modelName) {
-    return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
+export function getLifeCycleStages() {
+    return lifeCycleStages;
+}
+
+export function setImpactAssessmentData(assessmentData) {
+    assessmentValues = Array.from(assessmentData);
+    console.log('Impact Assessment Data');
+    console.log(assessmentValues);
 }
 
 /**
@@ -99,8 +110,8 @@ export function getLifeCycleStages(modelName) {
  * QUESTION: amount of stages fixed?
  * @param modelName name of the model, which we want to get the Data
  */
-export function getImpactAssessmentData(modelName) {
-    return [37, 3, 90, -50];
+export function getImpactAssessmentData() {
+    return assessmentValues;
 }
 
 /**
@@ -123,7 +134,9 @@ export function getImpactCategoriesTableHeaders(modelName) {
  * Do we need to extract the data from a data structure?
  * @param modelName name of the model, which we want to get the Data
  */
-export function getImpactCategoriesTableData(modelName) {
+export function getImpactCategoriesTableData() {
     //TODO:
-    return null;
+    console.log('Impact Categories Table Data');
+    console.log(assessmentValues);
+    return assessmentValues;
 }
