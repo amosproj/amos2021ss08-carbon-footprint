@@ -13,8 +13,6 @@ export default function Registration() {
     } = useForm();
     const onSubmit = (data) => console.log(data);
     console.log(errors);
-    require('log-timestamp')('#INFO');
-    console.log('Registration call');
     return (
         <div>
             <div
