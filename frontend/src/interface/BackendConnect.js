@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { setMaterial } from 'interface/projectInterface';
+import {
+    setMaterialCompositionLabels,
+    setMaterialCompositionData
+} from 'interface/projectInterface';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -25,20 +28,24 @@ export async function getSimaProProjects() {
     return result;
 }
 
-export async function materials(data) {
+async function materials(data) {
     const items = data;
     let materialData = items.data.Result.Results[0].Tables[0].Rows;
-    console.log(materialData.length);
     let finalMaterials = [];
+    let materialMap = new Map();
     for (let z = 0; z < materialData.length; z++) {
         if (materialData[z][5] === 'kg') {
             if (materialData[z][6] > 0) {
                 finalMaterials.push(materialData[z]);
-                console.log(materialData[z]);
             }
         }
+
+        for (let i = 0; i < finalMaterials.length; i++) {
+            materialMap.set(finalMaterials[i][0], finalMaterials[i][6]);
+        }
     }
-    return finalMaterials;
+    setMaterialCompositionLabels(materialMap.keys());
+    setMaterialCompositionData(materialMap.values());
 }
 
 export async function carbonImpactData(data) {
@@ -62,7 +69,6 @@ export async function postCalculationRequest(projectId) {
         'Access-Control-Allow-Origin': 'POST',
         'My-Custom-Header': 'foobar'
     };
-    let materialDetails;
     let impactData;
     let result1;
     await axios
@@ -72,12 +78,12 @@ export async function postCalculationRequest(projectId) {
         .then(function (data) {
             const items = data;
             result1 = items.data.Result;
-            materialDetails = materials(data);
+            materials(data);
             impactData = carbonImpactData(data);
         });
     console.log('Result');
     console.log(result1);
-    setMaterial(materialDetails);
+
     return impactData;
 }
 

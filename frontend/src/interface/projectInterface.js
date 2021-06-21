@@ -7,8 +7,9 @@
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_3 from 'assets/dummyImages/Logo2.png';
 
-let materialMap = new Map();
-
+var materialCompositionLabels;
+var materialCompositionData;
+let materialDataInPercent = [];
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
  * @returns
@@ -30,16 +31,19 @@ export function getModels() {
     ];
 }
 
-/**
- * @param materials the materials recieved from the backend
- */
-export function setMaterial(materials) {
-    console.log('setMaterial');
-    console.log(materials);
-    materialMap.clear();
-    for (let i = 0; i < materials.length; i++) {
-        materialMap.set(materials[i][0], materials[i][6]);
+export function setMaterialCompositionData(compositionData) {
+    console.log('compositionData');
+    materialCompositionData = Array.from(compositionData);
+    console.log(materialCompositionData);
+    let sum = 0;
+    for (let i = 0; i < materialCompositionData.length; i++) {
+        sum += Number(materialCompositionData[i]);
     }
+    console.log(sum);
+    for (let i = 0; i < materialCompositionData.length; i++) {
+        materialDataInPercent[i] = (Number(materialCompositionData[i]) / sum) * 100;
+    }
+    console.log(materialDataInPercent);
 }
 
 /**
@@ -47,29 +51,38 @@ export function setMaterial(materials) {
  * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
  * @param modelName name of the model, which we want to get the Data
  */
-export function getMaterialCompositionData() {
-    return materialMap.values();
-    //return [17, 13, 3, 2, 1, 42, 21];
+export async function getMaterialCompositionData() {
+    return materialDataInPercent;
+    // return [17, 13, 3, 2, 1, 42, 21];
+}
+
+export function setMaterialCompositionLabels(compositionLabels) {
+    console.log('compositionLabels');
+
+    materialCompositionLabels = Array.from(compositionLabels);
+
+    console.log(materialCompositionLabels);
 }
 
 /**
  * @param modelName name of the model, which we want to get the Data
  */
-export function getMaterialCompositionLabels() {
-    return materialMap.keys();
-    /*
-    return [
-        'Plywood',
-        'TotalSteel',
-        'GlueBeam',
-        'GlassFiber',
-        'Copper',
-        'Paper',
-        'Porcelain',
-        'Electronics',
-        'Aluminium'
-    ];
-    */
+export async function getMaterialCompositionLabels() {
+    // console.log('materialMap.keys()');
+    // console.log(materialMap.keys());
+    return materialCompositionLabels;
+
+    // return [
+    //     'Plywood',
+    //     'TotalSteel',
+    //     'GlueBeam',
+    //     'GlassFiber',
+    //     'Copper',
+    //     'Paper',
+    //     'Porcelain',
+    //     'Electronics',
+    //     'Aluminium'
+    // ];
 }
 
 /**
