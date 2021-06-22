@@ -6,6 +6,7 @@
     "dependencies": {
         "@material-ui/core": "^4.11.4",
         "@react-pdf/renderer": "^2.0.12",
+        "@reduxjs/toolkit": "^1.6.0",
         "apexcharts": "^3.26.1",
         "axios": "^0.21.1",
         "cors": "^2.8.5",
@@ -21,6 +22,7 @@
         "react-grid-system": "^7.1.2",
         "react-hook-form": "^7.4.2",
         "react-jss": "^10.6.0",
+        "react-redux": "^7.2.4",
         "react-router-dom": "^5.2.0",
         "react-scripts": "^4.0.3",
         "react-select": "^4.3.0",

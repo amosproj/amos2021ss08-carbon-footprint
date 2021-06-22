@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import React, { useContext, useState, useEffect } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import { getCategorizedProducts } from 'interface/simaProInterface';
 import ProductDropdown from './ModelDropdownComponent';
 import SLUGS from 'resources/slugs';
 import { Link } from 'react-router-dom';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import LabelComponent from './LabelComponent';
 import LoadingComponent from 'components/loading';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadProjects } from 'store/actions/productAction';
 
 /**
  * The Component creates new cards for the product items using the minicard components form 'components/cards/MiniCardComponent'
@@ -22,20 +23,17 @@ import LoadingComponent from 'components/loading';
 
 function ProductGridComponent({ selectedCategory }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
-    const [productList, setProductList] = useState([]);
+    const [productList] = useState([]);
+    const products = useSelector(state => state.products.data)
+    const dispatch = useDispatch();
 
     /*
      * useEffect declars the async function getProducts to be executed after the initial render and
      * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
      */
     useEffect(() => {
-        async function getProducts(theSelectedCategory) {
-            const products = await getCategorizedProducts(theSelectedCategory);
-            setProductList(products);
-            console.log(products);
-        }
-        getProducts(selectedCategory);
-    }, [selectedCategory]);
+        dispatch(loadProjects(selectedCategory))
+    }, [selectedCategory, dispatch]);
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
     const newSelectedProducts = [
@@ -57,7 +55,7 @@ function ProductGridComponent({ selectedCategory }) {
     return (
         <Container fluid className='ProductGridTopContainer'>
             <Row justify='start'>
-                {productList.map((product, index) => (
+                {products?.map((product, index) => (
                     <Col className='ProductGridContainer' key={'Column' + index}>
                         <Row justify='center'>
                             <Link
