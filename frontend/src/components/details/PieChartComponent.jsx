@@ -1,20 +1,52 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import {
     getMaterialCompositionData,
     getMaterialCompositionLabels
 } from 'interface/projectInterface';
 import theme from 'resources/theme';
-
+import LoadingComponent from 'components/loading';
 /**
  * Pie Chart Diagram
  *
  * @author Parham Gandomkar, Julian Oelhaf, Irem Toroslu
+ *
  */
-const PieChartComponent = () => {
-    const series = getMaterialCompositionData();
-    const labels = getMaterialCompositionLabels();
 
+const PieChartComponent = () => {
+    const [series, setSeries] = useState([]);
+    const [labels, setLabels] = useState([]);
+
+    useEffect(() => {
+        async function getValues() {
+            const values = await Array.from(getMaterialCompositionData());
+            setSeries(values);
+
+            console.log(values);
+        }
+        getValues();
+        console.log('inside use effect');
+    }, []);
+    useEffect(() => {
+        async function getLabels() {
+            const label = await Array.from(getMaterialCompositionLabels());
+            setLabels(label);
+            console.log(label);
+        }
+        getLabels();
+        console.log('inside use effect');
+    }, []);
+
+    console.log('after');
+    console.log(series);
+    console.log(labels);
+    if (
+        (series && labels === []) ||
+        (series && labels === undefined) ||
+        (series && labels === null)
+    ) {
+        return <LoadingComponent />;
+    }
     const options = {
         //TODO
         maintainAspectRatio: true,
