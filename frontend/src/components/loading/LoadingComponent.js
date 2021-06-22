@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { Column } from 'simple-flexbox';
@@ -67,6 +68,18 @@ function LoadingComponent({
         </div>
     );
 }
+
+LoadingComponent.propTypes = {
+    backgroundColor: PropTypes.string,
+    children: PropTypes.any,
+    fullScreen: PropTypes.bool,
+    height: PropTypes.number,
+    hideText: PropTypes.any,
+    loading: PropTypes.any,
+    noTransparency: PropTypes.bool,
+    width: PropTypes.number,
+    zIndex: PropTypes.number
+};
 
 LoadingComponent.defaultProps = {
     fullScreen: true,

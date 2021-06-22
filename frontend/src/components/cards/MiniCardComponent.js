@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Container, Row } from 'react-grid-system';
 
@@ -7,7 +8,7 @@ import { Col, Container, Row } from 'react-grid-system';
  * @param {*} props: The classname and the path that should be used.
  * @returns
  */
-function MiniCardComponent({ title, path }) {
+function MiniCardComponent({ path }) {
     return (
         <Container fluid className='MiniCardImageContainer'>
             <Col justify='center'>
@@ -22,5 +23,9 @@ function MiniCardComponent({ title, path }) {
         </Container>
     );
 }
+
+MiniCardComponent.propTypes = {
+    path: PropTypes.string
+};
 
 export default MiniCardComponent;

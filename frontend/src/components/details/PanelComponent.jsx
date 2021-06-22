@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import slugs from 'resources/slugs';
 
@@ -24,6 +25,12 @@ const PanelComponent = (props) => {
             </div>
         </>
     );
+};
+
+PanelComponent.propTypes = {
+    onCompareClick: PropTypes.func,
+    onExportClicked: PropTypes.func,
+    scenarioName: PropTypes.string
 };
 
 export default PanelComponent;
