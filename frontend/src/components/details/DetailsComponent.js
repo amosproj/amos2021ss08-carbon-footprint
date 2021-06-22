@@ -6,6 +6,7 @@ import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 import { postCalculationRequest } from 'interface/BackendConnect';
+import LoadingComponent from 'components/loading';
 /**
  * the main component for detail page which includes
  * canvas page and variable drop down list
@@ -21,7 +22,8 @@ class DetailsComponent extends Component {
     state = {
         baselineScenario: true,
         modifiedScenario: false,
-        loadComparePage: false
+        loadComparePage: false,
+        stillLoading: true
     };
 
     render() {
@@ -89,6 +91,10 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
 
         postCalculationRequest(selectedProduct.productID);
+
+        if (this.state.stillLoading) {
+            return <LoadingComponent loading />;
+        }
 
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
