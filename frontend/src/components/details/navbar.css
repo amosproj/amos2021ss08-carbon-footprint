@@ -6,6 +6,9 @@
     padding: 0px;
     background-color: var(--global--background--color) !important;
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     /* border: 3px solid var(--global--button--color); */
     /* background-color: var(--global--panel--color); */
 }
@@ -18,101 +21,97 @@
     --global--text-subtitle--FontSize: 19px;
 }
 .navbar i {
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: auto;
+    margin-left: auto;
 }
+
+.navbar Link {
+    text-decoration: none;
+}
+
+.BackButton {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    padding-left: 3px;
+    padding-right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 /* Navigation links */
 .navbar button {
-    float: left;
     font-weight: bold;
-    padding: 15px;
-    padding-left:0px;
-    /* color: var(--global--panel--color); */
-    background-color: var(--global--background--color);
     color: var(--global--button--text--color);
+    background-color: var(--global--background--color);
     text-decoration: none;
     font-size: 28px;
-    width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-    text-align: bottom; /* If you want the text to be centered */
     border-style: none;
+    cursor: pointer;
 }
 
 /* Navigation links */
 .Addbtn {
     float: left;
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
     font-weight: bold;
     /* color: var(--global--panel--color); */
     background-color: var(--global--background--color);
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 22px;
-    width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: right; /* If you want the text to be centered */
     border-style: none;
-    right:0%;
-    margin-left:10;
-    margin-right:10;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .Pdfbtn {
     float: left;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
     font-weight: bold;
-    padding: 15px;
     /* color: var(--global--panel--color); */
     background-color: var(--global--background--color);
     color: var(--global--button--text--color);
-    text-decoration: none;
     font-size: 22px;
-    width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-    text-align: left; /* If you want the text to be centered */
     border-style: none;
-    padding-left: 0px;
-    margin-right:130px;
-    right:0%;
-
-
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .Closebtn {
     float: left;
     /* color: var(--global--panel--color); */
     background-color: var(--global--background--color);
-    color: rgb(211, 41, 64);
+    color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 24px;
-    width: 5%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-    text-align: left; /* If you want the text to be centered */
     border-style: none;
     cursor: pointer;
-    position: absolute;
-    top: 2.5%;
-    right: 0%;
-    padding: 20px;
-    padding-top:0px;
-    transform: translate(0%, -50%);
+    margin-right: 3px;
+}
 
-    
+.NavbarTitle {
+    align-content: left;
+    margin-left: 0px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .navbar b {
-    float: left;
-    padding: 15px;
     background-color: var(--global--background--color);
     /* color: var(--global--panel--color); */
     text-decoration: none;
     font-size: 22px;
     width: 60%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: left; /* If you want the text to be centered */
-}
-
-
-/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
-@media screen and (max-width: 500px) {
-    .navbar a {
-        float: none;
-        display: block;
-        width: 100%;
-        text-align: left; /* If you want the text to be left-aligned on small screens */
-    }
 }

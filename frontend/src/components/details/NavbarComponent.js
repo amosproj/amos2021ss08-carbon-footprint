@@ -13,17 +13,22 @@ import { Link } from 'react-router-dom';
 const NavbarComponent = (props) => {
     if (!props.loadComparePage) {
         return (
-            <div className='navbar' vertical='center' horizontal='space-between'>
-                <Link to={{ pathname: slugs.categories }}>
-                    <button className='w3-center'>
-                        <i className='fa fa-chevron-left' aria-hidden='true' />
-                    </button>
-                </Link>
-                <b>{props.scenarioName}</b>
+            <div className='navbar'>
+                <div className='BackButton'>
+                    <Link to={{ pathname: slugs.categories }}>
+                        <button className='w3-center'>
+                            <i className='fa fa-chevron-left' aria-hidden='true' />
+                        </button>
+                    </Link>
+                </div>
+
+                <div className='NavbarTitle'>
+                    <b>{props.scenarioName}</b>
+                </div>
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <div className='Pdfbtn' >
-                        <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
+                    <div className='Pdfbtn'>
+                        <i className='fa fa-file-pdf-o ' aria-hidden='true' />
                         Export
                     </div>
                 </Link>
@@ -36,10 +41,12 @@ const NavbarComponent = (props) => {
         );
     } else {
         return (
-            <div className='navbar' vertical='center' horizontal='space-between'>
-                <b>{props.scenarioName}</b>
+            <div className='navbar'>
+                <div className='NavbarTitle'>
+                    <b>{props.scenarioName}</b>
+                </div>
                 <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <div className='Pdfbtn'  >
+                    <div className='Pdfbtn'>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
                         Export
                     </div>
@@ -48,7 +55,6 @@ const NavbarComponent = (props) => {
                 <Link to={{ pathname: slugs.details }} onClick={props.onCloseClick}>
                     <div className='Closebtn '>
                         <i className='fa fa-times-circle-o' aria-hidden='true'></i>
-
                     </div>
                 </Link>
             </div>
