@@ -15,6 +15,7 @@ import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import GenerationInfo from 'components/productGrid/GenerationInfo';
 import TransmissionInfo from 'components/productGrid/TransmissionInfo';
 import IndustrialApplicationInfo from 'components/productGrid/IndustrialApplicationInfo';
+import CategoryIndex from 'components/productGrid/CategoryIndex';
 const ProductSolutionsServices = lazy(() =>
     import('./dynamicPaths/ProductSolutionsServicesComponent')
 );
@@ -35,12 +36,7 @@ function PrivateRoutes() {
                 <Switch>
                     <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
 
-                    <Route
-                        exact
-                        path={SLUGS.categories}
-                        render={() => <div className='TextContent'>categories</div>}
-                    />
-
+                    <Route exact path={SLUGS.categories} component={CategoryIndex} />
                     <Route exact path={SLUGS.generation} component={GenerationInfo} />
                     <Route exact path={SLUGS.transmission} component={TransmissionInfo} />
                     <Route

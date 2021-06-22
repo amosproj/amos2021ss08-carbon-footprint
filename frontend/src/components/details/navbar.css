@@ -120,9 +120,6 @@
 
 .navbar b {
     background-color: var(--global--background--color);
-    /* color: var(--global--panel--color); */
     text-decoration: none;
     font-size: 22px;
-    width: 60%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-    text-align: left; /* If you want the text to be centered */
 }
