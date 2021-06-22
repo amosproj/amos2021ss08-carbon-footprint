@@ -4,7 +4,7 @@ import slugs from 'resources/slugs';
 import { GlobalContext } from 'hooks/GlobalContext';
 import React from 'react';
 
-function RecoverPassword() {
+function RecoverPasswordComponent() {
     const [, setState] = useContext(GlobalContext);
 
     return (
@@ -53,4 +53,4 @@ function RecoverPassword() {
     );
 }
 
-export default RecoverPassword;
+export default RecoverPasswordComponent;
