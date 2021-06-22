@@ -40,7 +40,7 @@ class DetailsComponent extends Component {
             var div1 = document.getElementById('capturePieChart');
             var div2 = document.getElementById('captureColumnDiagram');
             var div3 = document.getElementById('captureTable');
-
+            
             // converting html to an image and then exporting it by pdf
             html2canvas(div1).then((canvas1) => {
                 var imgData1 = canvas1.toDataURL('image/jpeg', 1);
@@ -92,10 +92,15 @@ class DetailsComponent extends Component {
                 url: url,
                 data: formData,
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: 'Bearer',
+                    'Access-Control-Allow-Origin': 'POST',
+                    'My-Custom-Header': 'foobar'
                 }
             }).then((response) => {
-                const filename = response.headers.get('Content-Disposition').split('filename=')[1];
+                console.log(response.headers);
+                console.log(response.headers["content-disposition"]);
+                const filename = response.headers["content-disposition"].split('filename=')[1];
                 response.blob().then((blob) => {
                     let url = window.URL.createObjectURL(blob);
                     let a = document.createElement('a');
@@ -118,7 +123,7 @@ class DetailsComponent extends Component {
             margin: 0
         };
 
-        postCalculationRequest(selectedProduct.productID);
+        //postCalculationRequest(selectedProduct.productID);
 
         if (!this.state.loadComparePage) {
             return (
