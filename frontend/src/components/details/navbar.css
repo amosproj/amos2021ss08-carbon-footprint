@@ -20,6 +20,7 @@
     --global--panel-title--FontSize: 22px;
     --global--text-subtitle--FontSize: 19px;
 }
+
 .navbar i {
     margin-right: auto;
     margin-left: auto;
@@ -29,20 +30,31 @@
     text-decoration: none;
 }
 
+/* Stylechanges when hovering a linking button in the navbar */
+.Addbtn:hover,
+.BackButton:hover,
+.Pdfbtn:hover {
+    box-shadow: 0px 0px 9px 5px var(--global--button--color) inset;
+    -webkit-box-shadow: 0px 0px 9px 5px var(--global--button--color) inset;
+    -moz-box-shadow: 0px 0px 9px 5px var(--global--button--color) inset;
+    /* border-radius: 5px;  for rounded corners */
+}
+
+.Addbtn,
+.BackButton,
+.Pdfbtn,
+.Closebtn {
+    transition: 0.2s ease-out;
+}
+
 .BackButton {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    justify-content: center;
     padding-left: 3px;
-    padding-right: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+    padding-right: 5px;
     margin-left: 0;
     margin-right: 0;
-}
-
-/* Navigation links */
-.navbar button {
     font-weight: bold;
     color: var(--global--button--text--color);
     background-color: var(--global--background--color);
@@ -52,7 +64,6 @@
     cursor: pointer;
 }
 
-/* Navigation links */
 .Addbtn {
     float: left;
     display: flex;

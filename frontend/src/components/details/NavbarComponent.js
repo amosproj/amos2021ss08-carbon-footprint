@@ -16,9 +16,7 @@ const NavbarComponent = (props) => {
             <div className='navbar'>
                 <div className='BackButton'>
                     <Link to={{ pathname: slugs.categories }}>
-                        <button className='w3-center'>
-                            <i className='fa fa-chevron-left' aria-hidden='true' />
-                        </button>
+                        <i className='fa fa-chevron-left' aria-hidden='true' />
                     </Link>
                 </div>
 
