@@ -44,8 +44,14 @@ namespace Backend.Controllers
             };
 
             Response.Headers.Add("Content-Disposition", cd.ToString());
-
+            Response.Headers.Add("Access-Control-Expose-Headers", "*");
             return File(filedata, contentType);
+        }
+
+        [HttpOptions("CreateReport")]
+        public IActionResult PreflightRoute()
+        {
+            return NoContent();
         }
 
     }
