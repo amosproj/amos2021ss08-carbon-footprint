@@ -105,10 +105,11 @@ export function setLifeCycleStages(assessmentModels) {
     console.log(lifeCycleStages);
 }
 /**
- * Getter method to recieve the filtered Life Cycle Stages from API
+ * Getter method to recieve the fixed Life Cycle Stages
+ * These stages wil always stay constant
  */
 export function getLifeCycleStages() {
-    return lifeCycleStages;
+    return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
 }
 
 /**

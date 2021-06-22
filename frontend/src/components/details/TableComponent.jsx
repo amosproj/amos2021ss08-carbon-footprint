@@ -12,6 +12,7 @@ import {
  *
  *
  */
+
 class TableComponent extends Component {
     state = {
         headers: getImpactCategoriesTableHeaders(),
@@ -30,8 +31,23 @@ class TableComponent extends Component {
     };
     render() {
         console.log('getImpactAssessmentData[6]');
-        console.log(getImpactAssessmentData[6]);
+        var ImpactData = getImpactAssessmentData();
+        console.log(ImpactData[6]);
         const idKey = this.props.id;
+
+        this.setState(this.state.header, getImpactCategoriesTableHeaders());
+        this.setState(this.state.rows, [
+            {
+                key: 'row-1',
+                impactCategory: 'Global Warming',
+                unit: ImpactData[6],
+                total: ImpactData[5],
+                materialsLPT: ImpactData[4],
+                manufacturing: ImpactData[0],
+                operations: ImpactData[3],
+                endOfLife: ImpactData[2]
+            }
+        ]);
         return (
             // TODO:left margin value needed to be fixed
             <Container fluid={true}>
