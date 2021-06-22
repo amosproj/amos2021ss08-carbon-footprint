@@ -8,7 +8,7 @@ import { Redirect, Route, Router, Switch, useHistory } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import Registration from 'components/login/Registration.js';
 import LoginComponent from 'components/login/LoginComponent';
-import RecoverPasswordComponent from 'components/login/RecoverPassword';
+import RecoverPasswordComponent from 'components/login/RecoverPasswordComponent';
 function PublicRoutes() {
     return (
         <Router history={useHistory()}>
