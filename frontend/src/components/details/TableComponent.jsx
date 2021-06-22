@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container } from 'react-grid-system';
 import {
@@ -28,7 +29,7 @@ class TableComponent extends Component {
         console.log('getImpactAssessmentData[6]');
         var ImpactData = getImpactAssessmentData();
         console.log(ImpactData[6]);
-        const idKey = this.props.id;
+        const idKey = this.props.tableKey;
 
         this.setState(this.state.header, getImpactCategoriesTableHeaders());
         this.setState(this.state.rows, [
@@ -82,3 +83,10 @@ class TableComponent extends Component {
 }
 
 export default TableComponent;
+
+TableComponent.propTypes = {
+    modelId: PropTypes.string.isRequired,
+    modelName: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
+    tableKey: PropTypes.string.isRequired
+};

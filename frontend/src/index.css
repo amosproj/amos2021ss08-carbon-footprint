@@ -7,6 +7,7 @@
 @import url('components/cards/miniCard.css');
 @import url('components/productGrid/ProductGridIndex.css');
 @import url('routes/privateSection.css');
+@import url('components/details/details.css');
 
 /* css resets */
 /* Box sizing rules */

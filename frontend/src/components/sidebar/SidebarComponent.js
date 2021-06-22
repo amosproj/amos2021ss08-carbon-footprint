@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { useHistory } from 'react-router-dom';
@@ -52,9 +53,9 @@ function SidebarComponent({ pageWrapId, outerContainerId }) {
     }
 
     return (
-        <Menu   pageWrapId={pageWrapId} outerContainerId={outerContainerId} isMobile={isMobile}>
+        <Menu pageWrapId={pageWrapId} outerContainerId={outerContainerId} isMobile={isMobile}>
             <div className='TeamLogo'>
-                <img alt='' src={logo}/>
+                <img alt='' src={logo} />
             </div>
             <MenuItem
                 id={SLUGS.dashboard}
@@ -185,5 +186,10 @@ function SidebarComponent({ pageWrapId, outerContainerId }) {
         </Menu>
     );
 }
+
+SidebarComponent.propTypes = {
+    outerContainerId: PropTypes.string.isRequired,
+    pageWrapId: PropTypes.string.isRequired
+};
 
 export default SidebarComponent;
