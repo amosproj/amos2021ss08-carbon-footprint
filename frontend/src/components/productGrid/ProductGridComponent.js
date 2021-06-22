@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Column, Row } from 'simple-flexbox';
-import { createUseStyles } from 'react-jss';
+import { Col, Row, Container } from 'react-grid-system';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import { getCategorizedProducts } from 'interface/simaProInterface';
 import ProductDropdown from './ModelDropdownComponent';
@@ -24,7 +23,6 @@ function ProductGridComponent({ selectedCategory }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList, setProductList] = useState([]);
 
-    console.log(selectedCategory);
     /*
      * useEffect declars the async function getProducts to be executed after the initial render and
      * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
@@ -48,8 +46,6 @@ function ProductGridComponent({ selectedCategory }) {
         }
     ];
 
-    const classes = useStyles();
-
     if (productList === [] || productList === undefined || productList === null) {
         console.error(
             'Products data not recieved.Please verify the API calls and Backend Connection.'
@@ -58,65 +54,63 @@ function ProductGridComponent({ selectedCategory }) {
     }
     // else:
     return (
-        <Row
-            className={classes.cardRow}
-            wrap
-            flexGrow={1}
-            vertical='center'
-            breakpoints={{ 320: { flexDirection: 'column' } }}
-        >
-            {productList.map((product, index) => (
-                <Column key={'Column' + index} horizontal='center'>
-                    <Link
-                        onClick={(props) => {
-                            // Save selection to ContextProvider
-                            newSelectedProducts[0].productID = product.productID;
-                            newSelectedProducts[0].productName = product.productName;
-                            newSelectedProducts[0].modelID = product.productID; // for now 1 Product has 1 Model (itself)
-                            newSelectedProducts[0].modelName = product.productName;
-                            setSelectedProducts(newSelectedProducts);
-                        }}
-                        to={{
-                            // Link to the next page
-                            pathname: SLUGS.details
-                        }}
-                    >
-                        <MiniCardComponent
-                            title={product.productName}
-                            className={classes.miniCardContainer}
-                            // define the path of the image to show on the cards
-                            path={product.productImage}
-                        />
-                    </Link>
-                    <LabelComponent productName={product.productName} />
-                    <ProductDropdown
-                        productID={product.productID}
-                        productName={product.productName}
-                    />
-                </Column>
-            ))}
-        </Row>
+        <Container fluid className='ProductGridTopContainer'>
+            <Row justify='start'>
+                {productList.map((product, index) => (
+                    <Col className='ProductGridContainer' key={'Column' + index}>
+                        <Row justify='center'>
+                            <Link
+                                className='ProductGridLink'
+                                onClick={(props) => {
+                                    // Save selection to ContextProvider
+                                    newSelectedProducts[0].productID = product.productID;
+                                    newSelectedProducts[0].productName = product.productName;
+                                    newSelectedProducts[0].modelID = product.productID; // for now 1 Product has 1 Model (itself)
+                                    newSelectedProducts[0].modelName = product.productName;
+                                    setSelectedProducts(newSelectedProducts);
+                                }}
+                                to={{
+                                    // Link to the next page
+                                    pathname: SLUGS.details
+                                }}
+                            >
+                                <MiniCardComponent
+                                    title={product.productName}
+                                    // define the path of the image to show on the cards
+                                    path={product.productImage}
+                                />
+                            </Link>
+                        </Row>
+                        <Row justify='center'>
+                            <Link
+                                className='ProductGridLink'
+                                onClick={(props) => {
+                                    // Save selection to ContextProvider
+                                    newSelectedProducts[0].productID = product.productID;
+                                    newSelectedProducts[0].productName = product.productName;
+                                    newSelectedProducts[0].modelID = product.productID; // for now 1 Product has 1 Model (itself)
+                                    newSelectedProducts[0].modelName = product.productName;
+                                    setSelectedProducts(newSelectedProducts);
+                                }}
+                                to={{
+                                    // Link to the next page
+                                    pathname: SLUGS.details
+                                }}
+                            >
+                                <LabelComponent productName={product.productName} />
+                            </Link>
+                        </Row>
+                        <Row justify='center'>
+                            <ProductDropdown
+                                productID={product.productID}
+                                productName={product.productName}
+                            />
+                        </Row>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 }
-
-// Card component style properties
-const useStyles = createUseStyles({
-    cardRow: {
-        marginTop: -50,
-        '@media (max-width: 768px)': {
-            // marginTop: 30
-        }
-    },
-    miniCardContainer: {
-        marginRight: 30,
-        marginLeft: 30,
-        marginTop: 30,
-        '@media (max-width: 768px)': {
-            marginTop: 30,
-            maxWidth: 'none',
-            maxHeight: 160
-        }
-    }
-});
 
 export default ProductGridComponent;

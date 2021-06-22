@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('theme.css');
+@import url('components/details/navbar.css');
+@import url('components/header/header.css');
+@import url('components/details/charts_tables.css');
+@import url('components/sidebar/sidebar.css');
+@import url('components/cards/miniCard.css');
+@import url('components/productGrid/ProductGridIndex.css');
+@import url('routes/privateSection.css');
 
-
-
-
+/* css resets */
 /* Box sizing rules */
 *,
 *::before,
@@ -21,9 +27,11 @@ body,
 }
 
 /* Remove default padding */
+/* Remove default padding and Remove list styles on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
     padding: 0;
+    list-style: none;
 }
 
 /* Remove default margin */
@@ -48,16 +56,18 @@ dd {
 
 /* Set core body defaults */
 body {
-    min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-}
-
-/* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-    list-style: none;
+    background-color: #f0f0f0;
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 26px;
+    color: #424147;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 /* A elements that don't have a class get default styles */
@@ -78,7 +88,13 @@ article > * + * {
 
 /* Inherit fonts for inputs and buttons */
 input,
-button,
+button {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--button-title--FontSize);
+    letter-spacing: 0.5px;
+}
 textarea,
 select {
     font: inherit;
@@ -94,20 +110,19 @@ select {
     }
 }
 
-body {
-    background-color: #ededed;
-    font-family: Muli;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 26px;
-    color: #424147;
-    overflow: hidden;
-}
-
 /* Custom Scrollbar */
 
-/* width */
+/* Page Boder and scroll behaviour*/
+html,
+body,
+#root,
+.App {
+    height: 100%;
+    overflow-x: inherit;
+    overflow-y: auto;
+}
+
+/* Scrollbar width */
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -123,80 +138,15 @@ body {
     border-radius: 10px;
 }
 
-/* Reconfiguration of the header bar */
-.HeaderContainer {
-    height: 70;
-    width: 100%;
-    color: #000000;
-}
-/* Reconfiguration of  the title style on the header bar */
-.HeaderTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    margin-left: 30px;
-    color: #00b300;
-}
-/* Reconfiguration of  the icon style on the header bar */
-.HeaderIconSyle {
-    font-size: 35px;
-    color: #ededed;
-    padding-right: 100;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-
-/* Reconfiguration of  the back icon style on the header bar */
-.HeaderBackIconSyle {
-    float: left;
-    padding: 12px;
-    background-color: #468c46 ;/* #466e78;*/
-    text-decoration: none;
-    font-size: 20px;
-    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-    text-align: right; /* If you want the text to be centered */
-    border-style: none;
-}
-
-/* Reconfiguration of  the username style on the header bar */
-.HeaderUserName {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    margin-left: 40;
-    letter-spacing: 0.5px;
-    line-height: 16px;
-    color: #00b300;
-    margin-bottom: 15px;
-    margin-top: 5px;
-}
-
-/* Reconfiguration of  the title style on the header bar */
-.PanelHeaderTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    letter-spacing: 0.5px;
-    margin-left: 0px;
-    color: #dbdbdb;
-}
-
 .SubTitle {
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
     font-size: 22px;
     letter-spacing: 0.5px;
-    margin-left:15px;
-    color: #000000;
-    margin-bottom:10px;
+    margin-left: 15px;
+    color: #4d217a;
+    margin-bottom: 10px;
 }
 
 /* Reconfiguration of the text style on pages */
@@ -204,99 +154,19 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: var(--global--text--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
-    margin-top:25px;
-    margin-left:15px;
-    
+    margin-top: 25px;
+    margin-left: 15px;
 }
-/* Reconfiguration of the title style on chart  */
-.ChartItemsTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 22px;
-    letter-spacing: 0.5px;
-    color: #000000;
-}
-
-/* Reconfiguration of the title style on Column chart  */
-.ColumnChartItems {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    margin-left: 0;
-    color: #000000;
-    margin-top:10px;
-    margin-bottom: 10px;
-}
-/* Reconfiguration of the subtitle style on chart  */
-.ChartItems {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 8px;
-    margin-left: 0;
-    color: #000000;
-    margin-top:10px;
-    margin-bottom: 10px;
-}
-
-/* Reconfiguration of the title style on table  */
-.TableTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    letter-spacing: 0.5px;
-    color: #000000;
-    margin-bottom:10px;
-}
-/* Reconfiguration of the title style on cards  */
-.CardTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18;
-    letter-spacing: 0.5px;
-    color: #000000;
-    margin-bottom:10px;
-
-}
-
-/* Reconfiguration of the subtitle style on table  */
-.TableSubTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    letter-spacing: 0.5px;
-    color: #000000;
-    margin-bottom:10px;
-
-}
-
-/* Reconfiguration of the text style on table  */
-.TableItems {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    margin-left: 0;
-    color: #000000;
-    margin-top:10px;
-    margin-bottom: 10px;
-
-}
-
 
 /* Reconfiguration of the text style on details pages */
 .DetailsPageTextContent {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: var(--global--text--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
     margin-top: 10px;
@@ -306,158 +176,7 @@ body {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: var(--global--text-label--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
-}
-
-/* Reconfiguration of the title style on buttons  */
-
-.ButtonTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    color: #000000;
-
-}
-
-.CardsContainer {
-
-    background-color: #FFFFFF;
-    /* border:0.5px solid #00b300; */
-    border-color: #00b300;
-    border-radius: 4px;
-    cursor: 'pointer';
-    min-width: 360;
-    max-width: 450;
-    min-height: 500px;
-    max-height: 600px;
-    margin-top:10px;
-
-}
-
-
-.PieChartCardsContainer {
-
-    background-color: #FFFFFF;
-    /* border:0.5px solid #00b300; */
-    border-color: #00b300;
-    border-radius: 4px;
-    cursor: 'pointer';
-    min-width: 300;
-    max-width: 360;
-    margin-top:10px;
-
-}
-.TableContainer{
-    background-color: #FFFFFF;
-    /* border:0.5px solid #00b300; */
-    border-radius: 4px;
-    cursor: 'pointer';
-    /* min-width: 500px;
-    max-width: 500px; */
-    margin-left: 10px;
-    margin-right:10px;
-    margin-top:15px;
-
-}
-.miniCardContainer {
-    display: inline-block;
-    margin-right: 30;
-    margin-Left:0;
-    background-color: #FFFFFF;
-
-}
-.Separator {
-    border: 5px;
-    /* margin-left: 40;
-    margin-right: 10; */
-    margin-top: 5px;
-    height: 100px;
-    width: 10px;
-    color: #8b8d94;
-}
-/* Reconfiguration of  the icon style on the side bar */
-.SideBarIconStyle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    color: #ededed;
-    padding-right: 100;
-    margin-bottom: 3px;
-    letter-spacing: 0.5px;
-}
-
-/* Reconfiguration of the logo style on sidebar  */
-.TeamLogo{
-    height: fit-content;
-    text-align: center;
-    width: fit-content;
-    margin-left:10px;
-    margin-right:10px;
-
-}
-
-.ActiveContainer{
-
-    background-color: 'rgba(221, 226, 255, 0.08)' ;
-}
-
-.MenuContainer {
-    display: 'flex';
-    height: 40;
-    cursor: 'pointer';
-    padding-left: 16px,
-}
-
-.MenuContainer:hover{
-    background-color:'rgba(221, 226, 255, 0.08)' ;
-
-
-}
-
-
-.SideBarIconStyle:hover {
-    color: #00b300;
-}
-
-.SideBarIconStyle:focus {
-    background-color: #00b300;
-}
-
-.SideBarIconStyle:active {
-    color: #00b300;
-}
-
-.SideBarIconStyle:visited {
-    color: #00b300;
-}
-
-/* Reconfiguration of  the title style on the side bar */
-.SideBarTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    letter-spacing: 0.2px;
-    color: #ededed;
-    margin-left: 5px;
-}
-.SideBarTitle:hover {
-    color: #00b300;
-}
-
-.SideBarTitle:focus {
-    color: #00b300;
-}
-
-.SideBarTitle:active {
-    color: #00b300;
-}
-
-.SideBarTitle::selection {
-    color: #00b300;
 }

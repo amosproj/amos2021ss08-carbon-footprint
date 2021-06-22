@@ -63,17 +63,17 @@ const PieChartComponent = () => {
         labels: labels,
         // TODO: do the materials stay the same? otherwise doesn't make sense to use fixed color / hardcode them
         colors: [
-            theme.color.TransformerOil,
-            theme.color.Steel,
-            theme.color.Pressboard,
-            theme.color.StainlessSteel,
+            '#fae920',
+            '#cfd6e3',
+            '#eb8fa1',
+            '#89b5c4',
             theme.color.Alminium,
-            theme.color.SiliconSteel,
-            theme.color.Copper
+            '#36a6c7',
+            '#eb8323'
         ],
         responsive: [
             {
-                breakpoint: 5000,
+                breakpoint: 5600,
                 options: {
                     chart: {
                         height: '300px'
@@ -86,7 +86,7 @@ const PieChartComponent = () => {
         ]
     };
     return (
-        <div className='ChartItems' style={{ width: '%100', height: '300px' }} id='chart'>
+        <div className='ChartItems' id='chart'>
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );

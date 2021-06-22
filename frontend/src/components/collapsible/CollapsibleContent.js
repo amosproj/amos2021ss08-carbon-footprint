@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useScrollHeight } from 'react-collapsible-content';
 
+
 const STATUS = {
     COLLAPSED: 'COLLAPSED',
     PRE_EXPANDED: 'PRE_EXPANDED',
@@ -9,6 +10,9 @@ const STATUS = {
     PRE_COLLAPSED: 'PRE_COLLAPSED'
 };
 
+/**
+ * This component returns the collapsible items on the sidebar component. 
+ */
 function CollapsibleContent({
     children,
     expanded,
@@ -25,6 +29,9 @@ function CollapsibleContent({
         onTransitionStart,
         onTransitionEnd
     });
+    
+    /* This styling needs to be done in JS code.*/
+
     let transitionStyles;
     switch (status) {
         case STATUS.EXPANDED:
@@ -42,7 +49,6 @@ function CollapsibleContent({
         default:
             transitionStyles = { maxHeight: scrollHeight, transitionDuration: '.001s' };
     }
-
     useEffect(() => {
         if (expanded) {
             if (status === STATUS.COLLAPSED) {

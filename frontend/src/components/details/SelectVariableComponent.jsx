@@ -49,22 +49,22 @@ class SelectVariableComponent extends Component {
                 </div>
                 <div className='w3-col l6 m6 s8 w3-left'>
                     <div className='w3-dropdown-hover  w3-margin-right w3-margin-top w3-margin-bottom'>
-                        <button className='w3-button' style={{ backgroundColor: '#468c46' }}>
-                            <div className='ButtonTitle'>{this.state.selectedVariable}</div>
+                        <button className='w3-button dropDown' >
+                            {this.state.selectedVariable}
                         </button>
                         <div className='w3-dropdown-content w3-bar-block w3-border'>
                             {this.state.variables.map((item) => (
-                                <div className='ButtonTitle'>
-                                    <button
-                                        onClick={() =>
-                                            this.onDropDownItemSelectedHandler(item.name)
-                                        }
-                                        className='w3-bar-item w3-button'
-                                        key={item.id}
-                                    >
-                                        {item.name}
-                                    </button>
-                                </div>
+
+                                <button
+                                    onClick={() =>
+                                        this.onDropDownItemSelectedHandler(item.name)
+                                    }
+                                    className='w3-bar-item w3-button'
+                                    key={item.id}
+                                >
+                                    {item.name}
+                                </button>
+
                             ))}
                         </div>
                     </div>

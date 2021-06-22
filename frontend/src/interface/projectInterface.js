@@ -11,7 +11,6 @@ var materialCompositionLabels;
 var materialCompositionData;
 let materialDataInPercent = [];
 var assessmentValues;
-var lifeCycleStages;
 
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
@@ -97,18 +96,9 @@ export async function getMaterialCompositionLabels() {
 /**
  * Gets the Life Cycle Stages filtered from API
  * Impact Assessment is done for each of the life cycle stage
- * @param assessmentModels recieved from Backendconnect
+ * @param modelId id of the model, which we want to get the Data
  */
-export function setLifeCycleStages(assessmentModels) {
-    lifeCycleStages = Array.from(assessmentModels);
-    console.log('Life Cycle Stages');
-    console.log(lifeCycleStages);
-}
-/**
- * Getter method to recieve the fixed Life Cycle Stages
- * These stages wil always stay constant
- */
-export function getLifeCycleStages() {
+export function getLifeCycleStages(modelId) {
     return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
 }
 
@@ -132,9 +122,9 @@ export function getImpactAssessmentData() {
 
 /**
  * * QUESTION: life cycle stages fixed?
- * @param modelName name of the model, which we want to get the Data
+ * @param modelId id of the model, for which we want to get the Data
  */
-export function getImpactCategoriesTableHeaders(modelName) {
+export function getImpactCategoriesTableHeaders(modelId) {
     return [
         { key: 'header-1', value: 'Impact Category' },
         { key: 'header-2', value: 'Unit' },

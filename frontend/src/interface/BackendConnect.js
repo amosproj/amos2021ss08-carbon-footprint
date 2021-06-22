@@ -2,8 +2,7 @@ import axios from 'axios';
 import {
     setMaterialCompositionLabels,
     setMaterialCompositionData,
-    setImpactAssessmentData,
-    setLifeCycleStages
+    setImpactAssessmentData
 } from 'interface/projectInterface';
 /**
  * Get request to det the details of all the projects from the API via backend.
@@ -69,7 +68,6 @@ export async function carbonImpactData(data) {
         impactMap.set(carbonData[i][0], carbonData[i][2]);
     }
     console.log(impactMap);
-    setLifeCycleStages(impactMap.keys());
     setImpactAssessmentData(impactMap.values());
 }
 

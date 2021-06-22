@@ -5,12 +5,7 @@ import {
     getImpactAssessmentData
 } from 'interface/projectInterface';
 /**
- *
- * @returns the impact catagories table of the selected model of the related product.
- *
- * @author Parham Gandomkar, Irem Toroslu
- *
- *
+ * displays the impact catagories table of the selected model of the related product.
  */
 
 class TableComponent extends Component {
@@ -49,15 +44,19 @@ class TableComponent extends Component {
             }
         ]);
         return (
-            // TODO:left margin value needed to be fixed
             <Container fluid={true}>
-                {/* TODO: dynamic display of product and model */}
-                <h5 className='TableTitle'>Large Power Transformer</h5>
-                <h6 className='TableSubTitle'>3 Phase GSU transformer</h6>
+                {/* dynamic display of product and model */}
+                <h5 className='TableTitle'>{this.props.productName}</h5>
+                <h6 className='TableSubTitle'>
+                    {this.props.modelName === this.props.productName ||
+                    this.props.modelName === undefined
+                        ? ''
+                        : this.props.modelName}
+                </h6>
 
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
-                    <thead>
-                        <tr key={'FirstRow'} style={{ backgroundColor: '#82baa9' }}>
+                    <thead className='TableHeader'>
+                        <tr className='TableHeader' key={'FirstRow'}>
                             {this.state.headers.map((item) => (
                                 <th key={idKey + 'thead' + item.key}>{item.value}</th>
                             ))}
@@ -65,7 +64,7 @@ class TableComponent extends Component {
                     </thead>
                     <tbody>
                         {this.state.rows.map((item, index) => (
-                            <tr key={idKey + index} className='TableItems'>
+                            <tr key={'tr' + idKey + index} className='TableItems'>
                                 <td key={idKey + 'td-a' + item.key}>{item.impactCategory}</td>
                                 <td key={idKey + 'td-b' + item.key}>{item.unit}</td>
                                 <td key={idKey + 'td-c' + item.key}>{item.total}</td>
