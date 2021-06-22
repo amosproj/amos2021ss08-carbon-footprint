@@ -94,7 +94,7 @@ class DetailsComponent extends Component {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
-            }).then((res) => {
+            }).then((response) => {
                 const filename = response.headers.get('Content-Disposition').split('filename=')[1];
                 response.blob().then((blob) => {
                     let url = window.URL.createObjectURL(blob);
