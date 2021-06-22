@@ -71,7 +71,7 @@ class DetailsComponent extends Component {
                             imageWidth * ratio,
                             imageHeight * ratio
                         );
-                        pdf.save('invoice.pdf');
+                        //pdf.save('invoice.pdf');
                     });
                 });
             });
@@ -95,19 +95,27 @@ class DetailsComponent extends Component {
                     'Content-Type': 'multipart/form-data',
                     Authorization: 'Bearer',
                     'Access-Control-Allow-Origin': 'POST',
-                    'My-Custom-Header': 'foobar'
+                    'My-Custom-Header': 'foobar',
+                    responseType: 'blob'
                 }
             }).then((response) => {
+                const filename = response.headers["content-disposition"].split('filename=')[1];
                 console.log(response.headers);
                 console.log(response.headers["content-disposition"]);
-                const filename = response.headers["content-disposition"].split('filename=')[1];
-                response.blob().then((blob) => {
-                    let url = window.URL.createObjectURL(blob);
-                    let a = document.createElement('a');
-                    a.href = url;
-                    a.download = filename;
-                    a.click();
-                });
+                const url = window.URL.createObjectURL(new Blob([response.data], {type: response.headers["content-type"]}));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', filename); //or any other extension
+                document.body.appendChild(link);
+                link.click();
+             
+                // response.blob().then((blob) => {
+                //     let url = window.URL.createObjectURL(blob);
+                //     let a = document.createElement('a');
+                //     a.href = url;
+                //     a.download = filename;
+                //     a.click();
+                //});
             });
         };
 
