@@ -95,8 +95,14 @@ class DetailsComponent extends Component {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((res) => {
-                // then print response status
-                console.warn(res);
+                const filename = response.headers.get('Content-Disposition').split('filename=')[1];
+                response.blob().then((blob) => {
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement('a');
+                    a.href = url;
+                    a.download = filename;
+                    a.click();
+                });
             });
         };
 
