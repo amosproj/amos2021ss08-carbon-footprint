@@ -11,6 +11,7 @@ var materialCompositionLabels;
 var materialCompositionData;
 let materialDataInPercent = [];
 var assessmentValues;
+let chartDataInPercent = [];
 
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
@@ -120,6 +121,35 @@ export function getImpactAssessmentData() {
     return assessmentValues;
 }
 
+/**
+ * Gets the Impact Assessment Data filtered from API
+ * Impact Assessment is done for each of the life cycle stage
+ * Percentage is calulated
+ * @param assessmentData recieved from Backendconnect
+ */
+export function setColumnChartData() {
+    console.log('Chart Assessment Data');
+    console.log(assessmentValues);
+    let sum = 0;
+    for (let i = 0; i < assessmentValues.length; i++) {
+        if (!isNaN(assessmentValues[i])) {
+            sum += Number(assessmentValues[i]);
+        }
+    }
+    console.log(sum);
+    for (let i = 0; i < assessmentValues.length; i++) {
+        if (!isNaN(assessmentValues[i])) {
+            chartDataInPercent[i] = Number(assessmentValues[i] / sum) * 100;
+        }
+    }
+    console.log(chartDataInPercent);
+}
+/**
+ * Getter method to recieve the filtered Impact Assessment Data from API
+ */
+export function getColumnChartData() {
+    return chartDataInPercent;
+}
 /**
  * * QUESTION: life cycle stages fixed?
  * @param modelId id of the model, for which we want to get the Data

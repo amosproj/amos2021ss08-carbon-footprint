@@ -5,45 +5,56 @@ import {
     getImpactCategoriesTableHeaders,
     getImpactAssessmentData
 } from 'interface/projectInterface';
+import LoadingComponent from 'components/loading';
 /**
  * displays the impact catagories table of the selected model of the related product.
  */
-
 class TableComponent extends Component {
     state = {
-        headers: getImpactCategoriesTableHeaders(),
-        rows: [
-            {
-                key: 'row-1',
-                impactCategory: 'Global Warming',
-                unit: getImpactAssessmentData[6],
-                total: getImpactAssessmentData[5],
-                materialsLPT: getImpactAssessmentData[4],
-                manufacturing: getImpactAssessmentData[0],
-                operations: getImpactAssessmentData[3],
-                endOfLife: getImpactAssessmentData[2]
-            }
-        ]
+        headers: [],
+        rows: [],
+        stillLoading: true
     };
-    render() {
-        console.log('getImpactAssessmentData[6]');
-        var ImpactData = getImpactAssessmentData();
-        console.log(ImpactData[6]);
-        const idKey = this.props.tableKey;
+    getData() {
+        let headerData = getImpactCategoriesTableHeaders();
+        let rowsData = getImpactAssessmentData();
 
-        this.setState(this.state.header, getImpactCategoriesTableHeaders());
-        this.setState(this.state.rows, [
-            {
-                key: 'row-1',
-                impactCategory: 'Global Warming',
-                unit: ImpactData[6],
-                total: ImpactData[5],
-                materialsLPT: ImpactData[4],
-                manufacturing: ImpactData[0],
-                operations: ImpactData[3],
-                endOfLife: ImpactData[2]
-            }
-        ]);
+        this.setState({ headers: headerData });
+
+        while (
+            (rowsData && headerData === []) ||
+            (rowsData && headerData === undefined) ||
+            (rowsData && headerData === null)
+        ) {
+            rowsData = getImpactAssessmentData();
+            headerData = getImpactCategoriesTableHeaders();
+            return <LoadingComponent />;
+        }
+        console.log('getImpactAssessmentData#6');
+        this.setState({
+            rows: [
+                {
+                    key: 'row-1',
+                    impactCategory: 'Global Warming',
+                    unit: rowsData[5],
+                    total: rowsData[4],
+                    materialsLPT: rowsData[3],
+                    manufacturing: rowsData[0],
+                    operations: rowsData[2],
+                    endOfLife: rowsData[1]
+                }
+            ]
+        });
+        this.setState({ stillLoading: false });
+    }
+    componentDidMount() {
+        this.getData();
+    }
+    componentWillUnmount() {
+        console.log('unmount');
+    }
+    render() {
+        const idKey = this.props.tableKey;
         return (
             <Container fluid={true}>
                 {/* dynamic display of product and model */}
@@ -63,6 +74,7 @@ class TableComponent extends Component {
                             ))}
                         </tr>
                     </thead>
+
                     <tbody>
                         {this.state.rows.map((item, index) => (
                             <tr key={'tr' + idKey + index} className='TableItems'>

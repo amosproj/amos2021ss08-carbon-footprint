@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { getImpactAssessmentData, getLifeCycleStages } from 'interface/projectInterface';
+import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterface';
 
 /**
  * Column Chart
@@ -12,7 +12,7 @@ const ColumnChartComponent = () => {
         {
             name: 'Global warming in kg CO2 equivalents',
             // TODO: this data needs to be recieved from backend
-            data: getImpactAssessmentData()
+            data: getColumnChartData()
         }
     ];
 

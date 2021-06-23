@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     setMaterialCompositionLabels,
     setMaterialCompositionData,
-    setImpactAssessmentData
+    setImpactAssessmentData,
+    setColumnChartData
 } from 'interface/projectInterface';
 /**
  * Get request to det the details of all the projects from the API via backend.
@@ -24,7 +25,7 @@ export async function getSimaProProjects() {
             result = items.data.Result.Data;
         });
     console.log('API call to get the list of Products');
-    console.log(result.Id);
+    console.log(result);
     return result;
 }
 
@@ -69,6 +70,7 @@ export async function carbonImpactData(data) {
     }
     console.log(impactMap);
     setImpactAssessmentData(impactMap.values());
+    setColumnChartData();
 }
 
 /**
