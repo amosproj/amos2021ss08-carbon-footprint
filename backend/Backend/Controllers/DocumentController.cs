@@ -33,7 +33,7 @@ namespace Backend.Controllers
         {
             string filepath = _documentService.createReport(this.Request);
 
-            string filename = "Report.docx";
+            string filename = "template-modified.docx";
             byte[] filedata = System.IO.File.ReadAllBytes(filepath);
             string contentType;
             new FileExtensionContentTypeProvider().TryGetContentType(filepath, out contentType);
@@ -45,6 +45,8 @@ namespace Backend.Controllers
 
             Response.Headers.Add("Content-Disposition", cd.ToString());
             Response.Headers.Add("Access-Control-Expose-Headers", "*");
+            //Response.Headers.Add("Content-Transfer-Encoding", "Binary");
+            //Response.Headers.Add("Content-Encoding", "gzip");
             return File(filedata, contentType);
         }
 
