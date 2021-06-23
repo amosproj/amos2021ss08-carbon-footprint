@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useContext, useState, useEffect } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
@@ -109,5 +110,9 @@ function ProductGridComponent({ selectedCategory }) {
         </Container>
     );
 }
+
+ProductGridComponent.propTypes = {
+    selectedCategory: PropTypes.string.isRequired
+};
 
 export default ProductGridComponent;
