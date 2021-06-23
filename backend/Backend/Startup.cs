@@ -1,6 +1,7 @@
 using AspNetCore.Proxy;
 using Backend.Security;
 using Backend.Middleware;
+using Backend.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -49,6 +50,9 @@ namespace Backend
             });
 
             services.AddProxies();
+
+            services.AddTransient<DocumentService>();
+
             //Used to  get the authenticate/process the Http requests.
             services.AddTransient<SimaProLoginDelegatingHandler>();
 
