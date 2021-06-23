@@ -22,8 +22,8 @@
 }
 
 .navbar i {
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .navbar Link {
@@ -67,7 +67,7 @@
 .Addbtn {
     float: left;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-weight: bold;
     /* color: var(--global--panel--color); */
     background-color: var(--global--background--color);
@@ -84,7 +84,7 @@
 .Pdfbtn {
     float: left;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-decoration: none;
     font-weight: bold;
     /* color: var(--global--panel--color); */
