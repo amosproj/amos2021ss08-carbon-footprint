@@ -41,7 +41,7 @@ const useStyles = createUseStyles({
  * @param {*} param0
  * @returns
  */
-function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, onClick, title }) {
+function MenuItemComponent({ children, icon = '', id, items = [], level = 1, onClick, title }) {
     const theme = useTheme();
     const isCollapsible = children && children.length > 0;
     const { isExpanded, isActive, onItemClick } = useSidebar({
@@ -66,7 +66,7 @@ function MenuItemComponent({ children, icon: Icon, id, items = [], level = 1, on
             <Row vertical='center' onClick={onItemClicked} className={classNameContainer}>
                 {/* Styling needs to be done in js here to determin isActive properly */}
                 <div className='SideBarIconStyle' style={{ color: iconColor }}>
-                    <i className={Icon} aria-hidden='true' />
+                    <i className={icon} aria-hidden='true' />
                 </div>
                 <span className='SideBarTitle' style={{ color: iconColor }}>
                     {title}
@@ -85,7 +85,7 @@ MenuItemComponent.defaultProps = {};
 
 MenuItemComponent.propTypes = {
     children: any,
-    icon: func,
+    icon: string,
     id: string,
     onClick: func,
     items: arrayOf(string),

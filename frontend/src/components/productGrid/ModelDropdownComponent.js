@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { getModels } from 'interface/simaProInterface';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
@@ -82,6 +83,11 @@ const ModelDropdownComponent = (props) => {
             </div>
         </div>
     );
+};
+
+ModelDropdownComponent.propTypes = {
+    productID: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired
 };
 
 export default ModelDropdownComponent;

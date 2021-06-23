@@ -4,8 +4,8 @@ import IndustrialImage from 'assets/dummyImages/Industrialapplications.jpg';
 
 function IndustrialApplicationInfo() {
     return (
-        <div class='w3-row w3-padding'>
-            <div class='w3-col m6 l6 w3-padding-small'>
+        <div className='w3-row w3-padding'>
+            <div className='w3-col m6 l6 w3-padding-small'>
                 <strong className='SubTitle'>
                     Creating sustainable value throughout the decarbonization journey
                 </strong>
@@ -24,10 +24,10 @@ function IndustrialApplicationInfo() {
                     Automation, and Digitalization solutions, systems, and services.
                 </p>
             </div>
-            <div class='w3-col m6 l6 w3-padding-small'>
-                <div class='w3-card-4 imageTitle'>
+            <div className='w3-col m6 l6 w3-padding-small'>
+                <div className='w3-card-4 imageTitle'>
                     <img src={IndustrialImage} alt='Industry' />
-                    <div class='w3-container w3-center'>
+                    <div className='w3-container w3-center'>
                         <p>Industrial Application</p>
                     </div>
                 </div>
