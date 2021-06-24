@@ -17,24 +17,18 @@ const PieChartComponent = () => {
     const [series, setSeries] = useState([]);
     const [labels, setLabels] = useState([]);
 
-    useEffect(() => {
-        async function getValues() {
-            const values = await Array.from(getMaterialCompositionData());
-            setSeries(values);
+    const [isLoading, setLoading] = useState(true);
 
-            console.log(values);
-        }
-        getValues();
-        console.log('inside use effect');
-    }, []);
     useEffect(() => {
-        async function getLabels() {
-            const label = await Array.from(getMaterialCompositionLabels());
+        const fetchData = async () => {
+            const values = Array.from(getMaterialCompositionData());
+            setSeries(values);
+            const label = Array.from(getMaterialCompositionLabels());
             setLabels(label);
-            console.log(label);
-        }
-        getLabels();
-        console.log('inside use effect');
+
+            setLoading(false);
+        };
+        fetchData();
     }, []);
 
     console.log('after');
@@ -85,6 +79,9 @@ const PieChartComponent = () => {
             }
         ]
     };
+    if (isLoading) {
+        return <div> Loading ... </div>;
+    }
     return (
         <div className='ChartItems' id='chart'>
             <ReactApexChart options={options} series={series} type='donut' />
