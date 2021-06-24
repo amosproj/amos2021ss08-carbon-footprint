@@ -59,6 +59,7 @@ class TableComponent extends Component {
         console.log('unmount');
         this.setState({ headers: [] });
         this.setState({ rows: [] });
+        this.setState({ stillLoading: true });
     }
     render() {
         const idKey = this.props.tableKey;

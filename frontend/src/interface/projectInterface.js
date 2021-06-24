@@ -50,7 +50,7 @@ export function setMaterialCompositionData(compositionData) {
     }
     console.log(sum);
     for (let i = 0; i < materialCompositionData.length; i++) {
-        materialDataInPercent[i] = (Number(materialCompositionData[i]) / sum) * 100;
+        materialDataInPercent[i] = (Number(materialCompositionData[i] / sum) * 100).toFixed(2);
     }
     console.log(materialDataInPercent);
 }
@@ -139,7 +139,7 @@ export function setColumnChartData() {
     console.log(sum);
     for (let i = 0; i < assessmentValues.length - 2; i++) {
         if (!isNaN(assessmentValues[i])) {
-            chartDataInPercent[i] = Number(assessmentValues[i] / sum) * 100;
+            chartDataInPercent[i] = (Number(assessmentValues[i] / sum) * 100).toFixed(2);
         }
     }
     console.log(chartDataInPercent);
