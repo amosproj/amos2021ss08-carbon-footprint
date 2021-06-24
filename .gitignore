@@ -5,3 +5,5 @@ node_modules
 obj/Debug/netcoreapp5.0/amos-ss2021-carbon-footprint.csproj.AssemblyReference.cache
 
 frontend/yarn.lock
+.vs/slnx.sqlite
+.vs/amos-ss2021-carbon-footprint/v16/.suo
