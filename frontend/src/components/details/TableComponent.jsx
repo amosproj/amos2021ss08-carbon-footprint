@@ -10,26 +10,27 @@ import LoadingComponent from 'components/loading';
  * displays the impact catagories table of the selected model of the related product.
  */
 class TableComponent extends Component {
-    state = {
-        headers: [],
-        rows: [],
-        stillLoading: true
-    };
+    constructor() {
+        super();
+        this.state = {
+            headers: [],
+            rows: [],
+            stillLoading: true
+        };
+    }
     getData() {
         let headerData = getImpactCategoriesTableHeaders();
         let rowsData = getImpactAssessmentData();
-
-        this.setState({ headers: headerData });
-
         while (
             (rowsData && headerData === []) ||
             (rowsData && headerData === undefined) ||
             (rowsData && headerData === null)
         ) {
-            rowsData = getImpactAssessmentData();
-            headerData = getImpactCategoriesTableHeaders();
-            return <LoadingComponent />;
+            headerData = Array.from(getImpactCategoriesTableHeaders());
+            rowsData = Array.from(getImpactAssessmentData());
+            return <LoadingComponent loading />;
         }
+        this.setState({ headers: headerData });
         console.log('getImpactAssessmentData#6');
         this.setState({
             rows: [
@@ -45,16 +46,25 @@ class TableComponent extends Component {
                 }
             ]
         });
-        this.setState({ stillLoading: false });
+        return true;
     }
     componentDidMount() {
-        this.getData();
+        if (this.getData()) {
+            this.setState({ stillLoading: false });
+        } else {
+            console.log('loading');
+        }
     }
     componentWillUnmount() {
         console.log('unmount');
+        this.setState({ headers: [] });
+        this.setState({ rows: [] });
     }
     render() {
         const idKey = this.props.tableKey;
+        if (this.state.stillLoading) {
+            return <LoadingComponent loading />;
+        }
         return (
             <Container fluid={true}>
                 {/* dynamic display of product and model */}

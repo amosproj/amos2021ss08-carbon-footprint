@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterface';
 
@@ -8,11 +8,23 @@ import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterfa
  * @author Julian Oelhaf
  */
 const ColumnChartComponent = () => {
+    const [values, setValues] = useState([]);
+    const [isLoading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const values = Array.from(getColumnChartData());
+            setValues(values);
+            setLoading(false);
+        };
+        fetchData();
+    }, []);
+
     const series = [
         {
             name: 'Global warming in kg CO2 equivalents',
             // TODO: this data needs to be recieved from backend
-            data: getColumnChartData()
+            data: values
         }
     ];
 
@@ -81,12 +93,15 @@ const ColumnChartComponent = () => {
             ]
         }
     };
-
-    return (
-        <div className='ChartItems' id='chart'>
-            <ReactApexChart options={options} series={series} type='bar' height={350} />
-        </div>
-    );
+    if (isLoading) {
+        return <div> Loading ... </div>;
+    } else {
+        return (
+            <div className='ChartItems' id='chart'>
+                <ReactApexChart options={options} series={series} type='bar' height={350} />
+            </div>
+        );
+    }
 };
 
 export default ColumnChartComponent;

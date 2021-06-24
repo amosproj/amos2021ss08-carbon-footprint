@@ -131,13 +131,13 @@ export function setColumnChartData() {
     console.log('Chart Assessment Data');
     console.log(assessmentValues);
     let sum = 0;
-    for (let i = 0; i < assessmentValues.length; i++) {
+    for (let i = 0; i < assessmentValues.length - 2; i++) {
         if (!isNaN(assessmentValues[i])) {
             sum += Number(assessmentValues[i]);
         }
     }
     console.log(sum);
-    for (let i = 0; i < assessmentValues.length; i++) {
+    for (let i = 0; i < assessmentValues.length - 2; i++) {
         if (!isNaN(assessmentValues[i])) {
             chartDataInPercent[i] = Number(assessmentValues[i] / sum) * 100;
         }

@@ -9,7 +9,7 @@ import LoadingComponent from 'components/loading';
 /**
  * Pie Chart Diagram
  *
- * @author Parham Gandomkar, Julian Oelhaf, Irem Toroslu
+ * @author Parham Gandomkar, Julian Oelhaf, Irem Toroslu, Sai Varun Varanasi
  *
  */
 
@@ -81,12 +81,13 @@ const PieChartComponent = () => {
     };
     if (isLoading) {
         return <div> Loading ... </div>;
+    } else {
+        return (
+            <div className='ChartItems' id='chart'>
+                <ReactApexChart options={options} series={series} type='donut' />
+            </div>
+        );
     }
-    return (
-        <div className='ChartItems' id='chart'>
-            <ReactApexChart options={options} series={series} type='donut' />
-        </div>
-    );
 };
 
 export default PieChartComponent;
