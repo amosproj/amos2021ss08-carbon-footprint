@@ -5,7 +5,10 @@ import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
-import { postCalculationRequest } from 'interface/BackendConnect';
+import { materials, carbonImpactData } from 'interface/BackendConnect';
+import axios from 'axios';
+import LoadingComponent from 'components/loading';
+
 //import LoadingComponent from 'components/loading';
 /**
  * the main component for detail page which includes
@@ -13,6 +16,7 @@ import { postCalculationRequest } from 'interface/BackendConnect';
  *
  * @param props the recently selected model of a product.
  */
+
 class DetailsComponent extends Component {
     /* State consists of three variable one for each of the possible state
      * baselineScenario: only display the baseline scenario
@@ -90,11 +94,34 @@ class DetailsComponent extends Component {
         };
         const { selectedProduct } = this.props;
 
+        // postCalculationRequest(selectedProduct.productID);
+        async function postCalculationRequest(projectId) {
+            // POST request using axios with set headers
+            const headers = {
+                Authorization: 'Bearer',
+                'Access-Control-Allow-Origin': 'POST',
+                'My-Custom-Header': 'foobar'
+            };
+            let result1;
+            await axios
+                .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
+                    headers
+                })
+                .then(function (data) {
+                    const items = data;
+                    result1 = items.data.Result;
+                    materials(data);
+                    carbonImpactData(data);
+                    stillLoading = false;
+                });
+            console.log('Result');
+            console.log(result1);
+        }
         postCalculationRequest(selectedProduct.productID);
 
-        // if (this.state.stillLoading) {
-        //     return <LoadingComponent loading />;
-        // }
+        if (this.state.stillLoading) {
+            return <LoadingComponent loading />;
+        }
 
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only

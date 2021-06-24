@@ -35,7 +35,7 @@ export async function getSimaProProjects() {
  * Maps the Material and its corresponding value.
  * @param data data recieved from PostCalculationRequest
  */
-async function materials(data) {
+export async function materials(data) {
     const items = data;
     let materialData = items.data.Result.Results[0].Tables[0].Rows;
     let finalMaterials = [];
@@ -79,27 +79,27 @@ export async function carbonImpactData(data) {
  *   Which then checks if the calculation is stored based on the calculationId generated.
  *   If the calculation is stored returns the results of calculation here.
  */
-export async function postCalculationRequest(projectId) {
-    // POST request using axios with set headers
-    const headers = {
-        Authorization: 'Bearer',
-        'Access-Control-Allow-Origin': 'POST',
-        'My-Custom-Header': 'foobar'
-    };
-    let result1;
-    await axios
-        .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
-            headers
-        })
-        .then(function (data) {
-            const items = data;
-            result1 = items.data.Result;
-            materials(data);
-            carbonImpactData(data);
-        });
-    console.log('Result');
-    console.log(result1);
-}
+// export async function postCalculationRequest(projectId) {
+//     // POST request using axios with set headers
+//     const headers = {
+//         Authorization: 'Bearer',
+//         'Access-Control-Allow-Origin': 'POST',
+//         'My-Custom-Header': 'foobar'
+//     };
+//     let result1;
+//     await axios
+//         .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
+//             headers
+//         })
+//         .then(function (data) {
+//             const items = data;
+//             result1 = items.data.Result;
+//             materials(data);
+//             carbonImpactData(data);
+//         });
+//     console.log('Result');
+//     console.log(result1);
+// }
 
 /**
  *   Post request to initiate the calculation for a project based on the project id and custom values.
