@@ -1,7 +1,6 @@
 /**
  * The projectInterface is the interface between frontend and backend.
  *
- * @author Martin Wagner, Julian Oelhaf
  */
 
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
@@ -12,6 +11,11 @@ var materialCompositionData;
 let materialDataInPercent = [];
 var assessmentValues;
 let chartDataInPercent = [];
+
+export function handOverBackendData(data) {
+    console.log('data');
+    console.log(data);
+}
 
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
@@ -58,7 +62,7 @@ export function setMaterialCompositionData(compositionData) {
 /**
  * Getter method to recieve the filtered Material Composititon Data from API
  */
-export async function getMaterialCompositionData() {
+export function getMaterialCompositionData() {
     return materialDataInPercent;
 }
 
@@ -68,38 +72,26 @@ export async function getMaterialCompositionData() {
  * @param compositionData filtered data from backendconnnect
  */
 export function setMaterialCompositionLabels(compositionLabels) {
-    console.log('compositionLabels');
-
     materialCompositionLabels = Array.from(compositionLabels);
-
+    console.log('set material composition labels');
     console.log(materialCompositionLabels);
 }
 
 /**
  * Getter method to recieve the filtered Material Composititon Labels from API
  */
-export async function getMaterialCompositionLabels() {
+export function getMaterialCompositionLabels() {
+    console.log('get material composition labels');
+    console.log(materialCompositionLabels);
     return materialCompositionLabels;
-
-    // return [
-    //     'Plywood',
-    //     'TotalSteel',
-    //     'GlueBeam',
-    //     'GlassFiber',
-    //     'Copper',
-    //     'Paper',
-    //     'Porcelain',
-    //     'Electronics',
-    //     'Aluminium'
-    // ];
 }
 
 /**
  * Gets the Life Cycle Stages filtered from API
  * Impact Assessment is done for each of the life cycle stage
- * @param modelId id of the model, which we want to get the Data
+ * @param modelID id of the model, which we want to get the Data
  */
-export function getLifeCycleStages(modelId) {
+export function getLifeCycleStages(modelID) {
     return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
 }
 
@@ -130,16 +122,12 @@ export function getImpactAssessmentData() {
 export function setColumnChartData() {
     console.log('Chart Assessment Data');
     console.log(assessmentValues);
-    let sum = 0;
+    let total = assessmentValues[4];
+    console.log(total);
+
     for (let i = 0; i < assessmentValues.length - 2; i++) {
         if (!isNaN(assessmentValues[i])) {
-            sum += Number(assessmentValues[i]);
-        }
-    }
-    console.log(sum);
-    for (let i = 0; i < assessmentValues.length - 2; i++) {
-        if (!isNaN(assessmentValues[i])) {
-            chartDataInPercent[i] = (Number(assessmentValues[i] / sum) * 100).toFixed(2);
+            chartDataInPercent[i] = (Number(assessmentValues[i] / total) * 100).toFixed(1);
         }
     }
     console.log(chartDataInPercent);
@@ -152,9 +140,9 @@ export function getColumnChartData() {
 }
 /**
  * * QUESTION: life cycle stages fixed?
- * @param modelId id of the model, for which we want to get the Data
+ * @param modelID id of the model, for which we want to get the Data
  */
-export function getImpactCategoriesTableHeaders(modelId) {
+export function getImpactCategoriesTableHeaders(modelID) {
     return [
         { key: 'header-1', value: 'Impact Category' },
         { key: 'header-2', value: 'Unit' },

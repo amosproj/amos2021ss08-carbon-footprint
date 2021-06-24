@@ -10,58 +10,21 @@ import LoadingComponent from 'components/loading';
  * displays the impact catagories table of the selected model of the related product.
  */
 class TableComponent extends Component {
-    constructor() {
-        super();
-        this.state = {
-            headers: [],
-            rows: [],
-            stillLoading: true
-        };
-    }
-    getData() {
+    state = {
+        headers: [],
+        rows: []
+    };
+
+    render() {
         let headerData = getImpactCategoriesTableHeaders();
         let rowsData = getImpactAssessmentData();
-        while (
+        if (
             (rowsData && headerData === []) ||
             (rowsData && headerData === undefined) ||
             (rowsData && headerData === null)
         ) {
-            headerData = Array.from(getImpactCategoriesTableHeaders());
-            rowsData = Array.from(getImpactAssessmentData());
             return <LoadingComponent loading />;
         }
-        this.setState({ headers: headerData });
-        console.log('getImpactAssessmentData#6');
-        this.setState({
-            rows: [
-                {
-                    key: 'row-1',
-                    impactCategory: 'Global Warming',
-                    unit: rowsData[5],
-                    total: rowsData[4],
-                    materialsLPT: rowsData[3],
-                    manufacturing: rowsData[0],
-                    operations: rowsData[2],
-                    endOfLife: rowsData[1]
-                }
-            ]
-        });
-        return true;
-    }
-    componentDidMount() {
-        if (this.getData()) {
-            this.setState({ stillLoading: false });
-        } else {
-            console.log('loading');
-        }
-    }
-    componentWillUnmount() {
-        console.log('unmount');
-        this.setState({ headers: [] });
-        this.setState({ rows: [] });
-        this.setState({ stillLoading: true });
-    }
-    render() {
         const idKey = this.props.tableKey;
         if (this.state.stillLoading) {
             return <LoadingComponent loading />;
@@ -108,7 +71,7 @@ class TableComponent extends Component {
 export default TableComponent;
 
 TableComponent.propTypes = {
-    modelId: PropTypes.string.isRequired,
+    modelID: PropTypes.string.isRequired,
     modelName: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
     tableKey: PropTypes.string.isRequired

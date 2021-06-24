@@ -63,7 +63,7 @@ class ScenarioComponent extends Component {
                             >
                                 <TableComponent
                                     productName={this.props.selectedProduct.productName}
-                                    modelId={this.props.selectedProduct.modelId}
+                                    modelID={this.props.selectedProduct.modelID}
                                     modelName={this.props.selectedProduct.modelName}
                                     tableKey={this.props.scenarioName}
                                 />
@@ -75,7 +75,7 @@ class ScenarioComponent extends Component {
                                 <MobileTableComponent
                                     productName={this.props.selectedProduct.productName}
                                     modelName={this.props.selectedProduct.modelName}
-                                    modelId={this.props.selectedProduct.modelId}
+                                    modelID={this.props.selectedProduct.modelID}
                                     tableKey={this.props.scenarioName}
                                 />
                             </Hidden>
@@ -94,7 +94,7 @@ ScenarioComponent.propTypes = {
     onExportClick: PropTypes.func.isRequired,
     scenarioName: PropTypes.string,
     selectedProduct: PropTypes.shape({
-        modelId: PropTypes.string,
+        modelID: PropTypes.string,
         modelName: PropTypes.string,
         productName: PropTypes.string
     })

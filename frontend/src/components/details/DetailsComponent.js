@@ -5,11 +5,8 @@ import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
-import { materials, carbonImpactData } from 'interface/BackendConnect';
-import axios from 'axios';
+import { postCalculationRequest } from 'interface/BackendConnect';
 import LoadingComponent from 'components/loading';
-
-//import LoadingComponent from 'components/loading';
 /**
  * the main component for detail page which includes
  * canvas page and variable drop down list
@@ -87,44 +84,23 @@ class DetailsComponent extends Component {
                 pdf.save('invoice.pdf');
             });
         };
-
+        let handleFinishedDataRequest = () => {
+            this.setState({ stillLoading: false });
+        };
         const scenarioNames = {
             baseline: 'Baseline Scenario',
             modified: 'Modified Scenario'
         };
         const { selectedProduct } = this.props;
 
-        // postCalculationRequest(selectedProduct.productID);
-        async function postCalculationRequest(projectId) {
-            // POST request using axios with set headers
-            const headers = {
-                Authorization: 'Bearer',
-                'Access-Control-Allow-Origin': 'POST',
-                'My-Custom-Header': 'foobar'
-            };
-            let result1;
-            await axios
-                .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
-                    headers
-                })
-                .then(function (data) {
-                    const items = data;
-                    result1 = items.data.Result;
-                    materials(data);
-                    carbonImpactData(data);
-                    stillLoading = false;
-                });
-            console.log('Result');
-            console.log(result1);
-        }
-        postCalculationRequest(selectedProduct.productID);
-
         if (this.state.stillLoading) {
+            postCalculationRequest(selectedProduct.productID, handleFinishedDataRequest);
             return <LoadingComponent loading />;
         }
 
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
+            console.log(selectedProduct);
             return (
                 <Container className='ScenarioContainer' id='capture' fluid>
                     <Row>

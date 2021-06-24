@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
  * a divider Pannel for seperating search compoents and result components
  * and also providing the comparison feature by compare button
  *
- * @author Parham Gandomkar, Irem Toroslu, Julian Oelhaf, Mani Anand
  */
 const NavbarComponent = (props) => {
     const history = useHistory();

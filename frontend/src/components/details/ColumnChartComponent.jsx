@@ -5,7 +5,6 @@ import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterfa
 /**
  * Column Chart
  *
- * @author Julian Oelhaf
  */
 const ColumnChartComponent = () => {
     const [values, setValues] = useState([]);

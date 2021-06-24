@@ -12,8 +12,8 @@ import PropTypes from 'prop-types';
  */
 class MobileTableComponent extends Component {
     state = {
-        headers: getImpactCategoriesTableHeaders(this.props.modelId),
-        rows: getImpactCategoriesTableData(this.props.modelId)
+        headers: getImpactCategoriesTableHeaders(this.props.modelID),
+        rows: getImpactCategoriesTableData(this.props.modelID)
     };
     render() {
         const idKey = this.props.tableKey;
@@ -94,7 +94,7 @@ class MobileTableComponent extends Component {
 }
 
 MobileTableComponent.propTypes = {
-    modelId: PropTypes.string.isRequired,
+    modelID: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
     modelName: PropTypes.string.isRequired,
     tableKey: PropTypes.string.isRequired

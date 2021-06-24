@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { React } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import {
     getMaterialCompositionData,
@@ -9,29 +9,12 @@ import LoadingComponent from 'components/loading';
 /**
  * Pie Chart Diagram
  *
- * @author Parham Gandomkar, Julian Oelhaf, Irem Toroslu, Sai Varun Varanasi
- *
  */
 
 const PieChartComponent = () => {
-    const [series, setSeries] = useState([]);
-    const [labels, setLabels] = useState([]);
+    const series = getMaterialCompositionData();
+    const labels = getMaterialCompositionLabels();
 
-    const [isLoading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const values = Array.from(getMaterialCompositionData());
-            setSeries(values);
-            const label = Array.from(getMaterialCompositionLabels());
-            setLabels(label);
-
-            setLoading(false);
-        };
-        fetchData();
-    }, []);
-
-    console.log('after');
     console.log(series);
     console.log(labels);
     if (
@@ -55,7 +38,7 @@ const PieChartComponent = () => {
             expandOnClick: true
         },
         labels: labels,
-        // TODO: do the materials stay the same? otherwise doesn't make sense to use fixed color / hardcode them
+        // TODO: color map
         colors: [
             '#fae920',
             '#cfd6e3',
@@ -79,15 +62,12 @@ const PieChartComponent = () => {
             }
         ]
     };
-    if (isLoading) {
-        return <div> Loading ... </div>;
-    } else {
-        return (
-            <div className='ChartItems' id='chart'>
-                <ReactApexChart options={options} series={series} type='donut' />
-            </div>
-        );
-    }
+
+    return (
+        <div className='ChartItems' id='chart'>
+            <ReactApexChart options={options} series={series} type='donut' />
+        </div>
+    );
 };
 
 export default PieChartComponent;

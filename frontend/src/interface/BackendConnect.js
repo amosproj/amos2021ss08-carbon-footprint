@@ -1,10 +1,5 @@
 import axios from 'axios';
-import {
-    setMaterialCompositionLabels,
-    setMaterialCompositionData,
-    setImpactAssessmentData,
-    setColumnChartData
-} from 'interface/projectInterface';
+import { processBackendData } from 'interface/processBackendData';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -24,53 +19,9 @@ export async function getSimaProProjects() {
             const items = data;
             result = items.data.Result.Data;
         });
-    console.log('API call to get the list of Products');
-    console.log(result);
+    //console.log('API call to get the list of Products');
+    //console.log(result);
     return result;
-}
-
-/**
- * Filters the materials data recieved from API.
- * Filter the materials with Unit Value "Kg" and Values > 0.
- * Maps the Material and its corresponding value.
- * @param data data recieved from PostCalculationRequest
- */
-export async function materials(data) {
-    const items = data;
-    let materialData = items.data.Result.Results[0].Tables[0].Rows;
-    let finalMaterials = [];
-    let materialMap = new Map();
-    for (let z = 0; z < materialData.length; z++) {
-        if (materialData[z][5] === 'kg') {
-            if (materialData[z][6] > 0) {
-                finalMaterials.push(materialData[z]);
-            }
-        }
-    }
-    for (let i = 0; i < finalMaterials.length; i++) {
-        materialMap.set(finalMaterials[i][0], finalMaterials[i][6]);
-    }
-
-    setMaterialCompositionLabels(materialMap.keys());
-    setMaterialCompositionData(materialMap.values());
-}
-/**
- * Filters the carbon impact data recieved from API.
- * Filter the Carbon Values of GlobalWarming
- * Maps the Carbon Values and its corresponding life cycle stage.
- * @param data data recieved from PostCalculationRequest
- */
-export async function carbonImpactData(data) {
-    console.log('Inside carbon impact data');
-    const items = data;
-    let carbonData = items.data.Result.Results[0].Tables[1].Rows;
-    let impactMap = new Map();
-    for (let i = 0; i < carbonData.length; i++) {
-        impactMap.set(carbonData[i][0], carbonData[i][2]);
-    }
-    console.log(impactMap);
-    setImpactAssessmentData(impactMap.values());
-    setColumnChartData();
 }
 
 /**
@@ -79,27 +30,22 @@ export async function carbonImpactData(data) {
  *   Which then checks if the calculation is stored based on the calculationId generated.
  *   If the calculation is stored returns the results of calculation here.
  */
-// export async function postCalculationRequest(projectId) {
-//     // POST request using axios with set headers
-//     const headers = {
-//         Authorization: 'Bearer',
-//         'Access-Control-Allow-Origin': 'POST',
-//         'My-Custom-Header': 'foobar'
-//     };
-//     let result1;
-//     await axios
-//         .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
-//             headers
-//         })
-//         .then(function (data) {
-//             const items = data;
-//             result1 = items.data.Result;
-//             materials(data);
-//             carbonImpactData(data);
-//         });
-//     console.log('Result');
-//     console.log(result1);
-// }
+export async function postCalculationRequest(projectId, callback) {
+    // POST request using axios with set headers
+    const headers = {
+        Authorization: 'Bearer',
+        'Access-Control-Allow-Origin': 'POST',
+        'My-Custom-Header': 'foobar'
+    };
+    await axios
+        .post(`https://localhost:44323/SimaPro/api/calculation/${projectId}`, {
+            headers
+        })
+
+        .then(function (data) {
+            processBackendData(data, callback);
+        });
+}
 
 /**
  *   Post request to initiate the calculation for a project based on the project id and custom values.

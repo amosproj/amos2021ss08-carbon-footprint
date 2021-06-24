@@ -2,5 +2,6 @@ node_modules
 .idea
 /.vs/slnx.sqlite-journal
 .vs/slnx.sqlite
+obj/Debug/netcoreapp5.0/amos-ss2021-carbon-footprint.csproj.AssemblyReference.cache
 
 frontend/yarn.lock
