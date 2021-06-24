@@ -54,7 +54,7 @@ export function setMaterialCompositionData(compositionData) {
     }
     console.log(sum);
     for (let i = 0; i < materialCompositionData.length; i++) {
-        materialDataInPercent[i] = (Number(materialCompositionData[i] / sum) * 100).toFixed(2);
+        materialDataInPercent[i] = (Number(materialCompositionData[i] / sum) * 100).toFixed(0);
     }
     console.log(materialDataInPercent);
 }
@@ -73,7 +73,6 @@ export function getMaterialCompositionData() {
  */
 export function setMaterialCompositionLabels(compositionLabels) {
     materialCompositionLabels = Array.from(compositionLabels);
-    console.log('set material composition labels');
     console.log(materialCompositionLabels);
 }
 
@@ -81,8 +80,6 @@ export function setMaterialCompositionLabels(compositionLabels) {
  * Getter method to recieve the filtered Material Composititon Labels from API
  */
 export function getMaterialCompositionLabels() {
-    console.log('get material composition labels');
-    console.log(materialCompositionLabels);
     return materialCompositionLabels;
 }
 
@@ -101,9 +98,7 @@ export function getLifeCycleStages(modelID) {
  * @param assessmentData recieved from Backendconnect
  */
 export function setImpactAssessmentData(assessmentData) {
-    assessmentValues = Array.from(assessmentData);
-    console.log('Impact Assessment Data');
-    console.log(assessmentValues);
+    assessmentValues = assessmentData;
 }
 
 /**
@@ -119,18 +114,8 @@ export function getImpactAssessmentData() {
  * Percentage is calulated
  * @param assessmentData recieved from Backendconnect
  */
-export function setColumnChartData() {
-    console.log('Chart Assessment Data');
-    console.log(assessmentValues);
-    let total = assessmentValues[4];
-    console.log(total);
-
-    for (let i = 0; i < assessmentValues.length - 2; i++) {
-        if (!isNaN(assessmentValues[i])) {
-            chartDataInPercent[i] = (Number(assessmentValues[i] / total) * 100).toFixed(1);
-        }
-    }
-    console.log(chartDataInPercent);
+export function setColumnChartData(assessmentDataInPercent) {
+    chartDataInPercent = assessmentDataInPercent;
 }
 /**
  * Getter method to recieve the filtered Impact Assessment Data from API
@@ -159,7 +144,5 @@ export function getImpactCategoriesTableHeaders(modelID) {
  * @param assessmentData recieved from Backendconnect and filtered here
  */
 export function getImpactCategoriesTableData() {
-    console.log('Impact Categories Table Data');
-    console.log(assessmentValues);
     return assessmentValues;
 }

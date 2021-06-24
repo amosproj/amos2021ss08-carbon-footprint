@@ -18,7 +18,7 @@ const NavbarComponent = (props) => {
 
                 <div className='BackButton'>
                     <Link onClick={() => history.goBack()}>
-                        <i class='fa fa-chevron-left' aria-hidden='true' />
+                        <i className='fa fa-chevron-left' aria-hidden='true' />
                     </Link>
                 </div>
                 <div className='NavbarTitle'>

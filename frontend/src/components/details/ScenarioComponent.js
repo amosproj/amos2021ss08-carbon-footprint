@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import SelectVariableComponent from './SelectVariableComponent';
 import NavbarComponent from './NavbarComponent';
-import PieChart from './PieChartComponent';
-import ColumnChart from './ColumnChartComponent';
+import PieChartComponent from './PieChartComponent';
+import ColumnChartComponent from './ColumnChartComponent';
 import TableComponent from './TableComponent';
 import { Col, Container, Row } from 'react-grid-system';
 import { Hidden } from '@material-ui/core';
@@ -37,7 +37,7 @@ class ScenarioComponent extends Component {
                             <div className='CardTitle'>
                                 <span>Results of the impact assessment</span>
                             </div>
-                            <ColumnChart />
+                            <ColumnChartComponent />
                         </Col>
                         <Col
                             xs={12}
@@ -50,7 +50,7 @@ class ScenarioComponent extends Component {
                             <div className='CardTitle'>
                                 <span>Material Composition</span>
                             </div>
-                            <PieChart />
+                            <PieChartComponent />
                         </Col>
                     </Row>
                     <Row>

@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterface';
 
@@ -7,18 +7,7 @@ import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterfa
  *
  */
 const ColumnChartComponent = () => {
-    const [values, setValues] = useState([]);
-    const [isLoading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const values = Array.from(getColumnChartData());
-            setValues(values);
-            setLoading(false);
-        };
-        fetchData();
-    }, []);
-
+    const values = getColumnChartData();
     const series = [
         {
             name: 'Global warming in kg CO2 equivalents',
@@ -92,15 +81,12 @@ const ColumnChartComponent = () => {
             ]
         }
     };
-    if (isLoading) {
-        return <div> Loading ... </div>;
-    } else {
-        return (
-            <div className='ChartItems' id='chart'>
-                <ReactApexChart options={options} series={series} type='bar' height={350} />
-            </div>
-        );
-    }
+
+    return (
+        <div className='ChartItems' id='chart'>
+            <ReactApexChart options={options} series={series} type='bar' height={350} />
+        </div>
+    );
 };
 
 export default ColumnChartComponent;

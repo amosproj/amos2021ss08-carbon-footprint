@@ -5,10 +5,8 @@ import {
     getMaterialCompositionLabels
 } from 'interface/projectInterface';
 import theme from 'resources/theme';
-import LoadingComponent from 'components/loading';
 /**
  * Pie Chart Diagram
- *
  */
 
 const PieChartComponent = () => {
@@ -17,13 +15,7 @@ const PieChartComponent = () => {
 
     console.log(series);
     console.log(labels);
-    if (
-        (series && labels === []) ||
-        (series && labels === undefined) ||
-        (series && labels === null)
-    ) {
-        return <LoadingComponent />;
-    }
+
     const options = {
         //TODO
         maintainAspectRatio: true,
@@ -34,9 +26,7 @@ const PieChartComponent = () => {
         chart: {
             type: 'donut'
         },
-        pie: {
-            expandOnClick: true
-        },
+
         labels: labels,
         // TODO: color map
         colors: [
@@ -52,9 +42,7 @@ const PieChartComponent = () => {
             {
                 breakpoint: 5600,
                 options: {
-                    chart: {
-                        height: '300px'
-                    },
+                    chart: {},
                     legend: {
                         position: 'bottom'
                     }

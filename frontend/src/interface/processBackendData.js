@@ -31,22 +31,23 @@ export function processBackendData(data, callback) {
     let carbonData = items.data.Result.Results[0].Tables[1].Rows;
     let impactMap = new Map();
     for (let i = 0; i < carbonData.length; i++) {
-        impactMap.set(carbonData[i][0], carbonData[i][2]);
+        impactMap.set(carbonData[i][0], Number(carbonData[i][2]).toFixed(0));
     }
 
-    /*
-    console.log('Material Labels');
-    console.log(materialMap.keys());
-    console.log('Material Values');
-    console.log(materialMap.values());
-    console.log('ImpactAssessmentData');
-    console.log(impactMap);
-    */
+    let assessmentDataInPercent = [];
+    let assessmentValues = Array.from(impactMap.values());
+    let total = assessmentValues[4];
+
+    for (let i = 0; i < assessmentValues.length - 2; i++) {
+        if (!isNaN(assessmentValues[i])) {
+            assessmentDataInPercent[i] = (Number(assessmentValues[i] / total) * 100).toFixed(1);
+        }
+    }
 
     setMaterialCompositionLabels(materialMap.keys());
     setMaterialCompositionData(materialMap.values());
-    setImpactAssessmentData(impactMap.values());
-    setColumnChartData();
+    setImpactAssessmentData(impactMap);
+    setColumnChartData(assessmentDataInPercent);
 
     callback();
 }
