@@ -13,7 +13,6 @@
 }
 
 .star{
-    float: right;
     /* color: var(--global--panel--color); */
     background-color: var(--global--background--color);
     color: var(--global--button--text--color);
@@ -22,7 +21,8 @@
     border-style: none;
     cursor: pointer;
     margin-left:10px;
-    margin-right: 3px;
+    margin-right:10px;
+
 
 
 }
@@ -34,14 +34,30 @@
 }
 
 .dashboardTitle {
-    align-content: center;
-    margin-left: 5px;
-    padding-left: 10px;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize);
+    letter-spacing: 0.5px;
+    color: #1b1534;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    margin-left: 25px;
+
+    
 }
 
+.dashboardSubTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: #1b1534;
+    padding-left: 25px;
+    margin-left: 25px;
+}
 .mydashboardNavbar i {
     margin-right: 0px;
     margin-left: 15px;

@@ -103,8 +103,8 @@ function MydashboardItemComponent() {
             >
                 <div className='star'>
                     <i class="fa fa-star-o" aria-hidden="true"/>
-                    <span className={classes.statTitle}>{title}</span>
-                    <span className={classes.statValue}>{value}</span>
+                    <span className='dashboardTitle'>{title}</span>
+                    <span className='dashboardSubTitle'>{value}</span>
                 </div>
 
             </Column>
