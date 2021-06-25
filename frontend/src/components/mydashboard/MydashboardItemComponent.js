@@ -95,69 +95,103 @@ function MydashboardItemComponent() {
         return (
             <Column
                 flexGrow={1}
-                className={classes.statContainer}
                 vertical='space-between'
                 horizontal='space-between'
+                className={classes.statContainer}
             >
                 <div className='star'>
-                    <i class="fa fa-star-o" aria-hidden="true"/>
-                    <span className='dashboardTitle'>{title}</span>
-                    <span className='dashboardSubTitle'>{value}</span>
+                    <i className="fa fa-star-o" aria-hidden="true"/>
+                    <span className='dashboardSubTitle'>{title}</span>
+                    <span className='dashboardText'>{value}</span>
                 </div>
             </Column>
         );
     }
 
     return (
-        <Container>
+        <Container >
             <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={6} className='CardsContainer'>
+                <Col xs={8} sm={8} md={8} lg={6} className='MydashboardContainer'>
                     <div className='dashboardTitle'>
-                        <b>My chart</b>
+                        <span>My chart</span>
                     </div>
                     <PieChartComponent />
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} />
 
-                <Col xs={8} sm={8} md={8} lg={4} className='CardsContainer'>
+                <Col xs={8} sm={8} md={8} lg={4} className='FavCardsContainer'>
                     <div className='mydashboardNavbar'>
                         <div className='dashboardTitle'>
                             <i className='fa fa-heart' aria-hidden='true'></i>
-                            <b>Favorites</b>
+                            <span>Favorites</span>
                         </div>
                     </div>
-                    {renderStat('Resolved', '449')}
-                    {renderStat('Received', '426')}
-                    {renderStat('Average first response time', '33m')}
-                    {renderStat('Average response time', '3h 8m')}
-                    {renderStat('Resolution within SLA', '94%')}
+                    {renderStat('Fav Project 1', 'Transmission')}
+                    {renderStat('Fav Project 2', 'Generation')}
+                    {renderStat('Fav Project 3', 'Industrial App')}
+                    {renderStat('Fav Project 1', 'Transmission')}
+                    {renderStat('Fav Project 2', 'Generation')}
+                    {renderStat('Fav Project 3', 'Industrial App')}
+                    {renderStat('Fav Project 1', 'Transmission')}
+                    {renderStat('Fav Project 2', 'Generation')}
+                    {renderStat('Fav Project 3', 'Industrial App')}
+
                 </Col>
             </Row>
+            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
+                <Col xs={8} sm={8} md={8} lg={7}/>
+                <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
 
-            <Col xs={10} sm={8} md={8} lg={6} className='CardsContainer'>
-                <div className='dashboardTitle w3-padding-24'>
-                    <b>My Recent Projects</b>
-                </div>
-                <Row>
+                    <div className='dashboardTitle'>
+                        <i className="fa fa-bars" aria-hidden="true"/>
+                        <b>My Recent Projects</b>
+                    </div>
                     <div className='Collapsible'>
-                        <Collapsible trigger='Project 1 '>
-                            <div className='w3-card'>
-                                <p>This is the collapsible content.</p>
+                        <div className={classes.statContainer}>
+                            <Collapsible  trigger='Project 1 '>
+                                <div className='w3-card'>
+                                    <p>This is the collapsible content.</p>
+                                </div>
+                            </Collapsible>
+                            <Collapsible trigger='Project 2 '>
+                                <div className='w3-card'>
+                                    <p>This is the collapsible content.</p>
+                                </div>
+                            </Collapsible>
+                        </div>
+                    </div>
+
+                </Col>
+            </Row>
+            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
+                <Col xs={8} sm={8} md={8} lg={7}/>
+                <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
+                    <div className=' w3-padding-24'>
+                        <div className='dashboardTitle'>
+                            <i class="fa fa-question-circle" aria-hidden="true" style={{color: '#643082'}}/>
+                            <b>FAQ</b>
+                        </div>
+                    </div>
+
+                    <div className='Collapsible '>
+                        <Collapsible  trigger='Question 1: how many catagories do we have?'>
+                            <div className=' dashboardTitle w3-card'>
+                                <p>Question1 answer</p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Project 2 '>
-                            <div className='w3-card'>
-                                <p>This is the collapsible content.</p>
+                        <Collapsible trigger='Question 2: how many catagories do we have?'>
+                            <div className='dashboardTitle w3-card'>
+                                <p>Question 2 answer</p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Project 3'>
-                            <div className='w3-card'>
-                                <p>This is the collapsible content.</p>
+                        <Collapsible trigger='Question 3: how many catagories do we have?'>
+                            <div className='dashboardTitle w3-card'>
+                                <p>Question 3 answer</p>
                             </div>
                         </Collapsible>
                     </div>
-                </Row>
-            </Col>
+                </Col>
+            </Row>
         </Container>
 
         // <Row
