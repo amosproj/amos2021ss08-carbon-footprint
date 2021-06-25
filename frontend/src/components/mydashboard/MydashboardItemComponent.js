@@ -1,11 +1,10 @@
 import React from 'react';
-import { Column} from 'simple-flexbox';
+import { Column } from 'simple-flexbox';
 import { createUseStyles, useTheme } from 'react-jss';
 import LineChart from 'react-svg-line-chart';
 import PieChartComponent from 'components/details/PieChartComponent';
 import { Col, Container, Row } from 'react-grid-system';
-
-
+import Collapsible from 'react-collapsible';
 
 const data = [];
 
@@ -18,8 +17,7 @@ const useStyles = createUseStyles((theme) => ({
         backgroundColor: '#FFFFFF',
         border: `1px solid ${theme.color.lightGrayishBlue2}`,
         borderRadius: 4,
-        cursor: 'pointer',
-        
+        cursor: 'pointer'
     },
     graphContainer: {
         marginTop: 24,
@@ -102,34 +100,28 @@ function MydashboardItemComponent() {
                 horizontal='space-between'
             >
                 <div className='star'>
-                    <i class="fa fa-star-o" aria-hidden="true"/>
+                    <i class='fa fa-star-o' aria-hidden='true' />
                     <span className={classes.statTitle}>{title}</span>
                     <span className={classes.statValue}>{value}</span>
                 </div>
-
             </Column>
         );
     }
 
-
     return (
         <Container>
-            <Row
-                horizontal='center'
-                breakpoints={{ 1024: 'column' }}
-            
-            >
+            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
                 <Col xs={8} sm={8} md={8} lg={6} className='CardsContainer'>
                     <div className='dashboardTitle'>
                         <b>My chart</b>
                     </div>
                     <PieChartComponent />
                 </Col>
-                <Col xs={2} sm={2} md={2} lg={1}/>
+                <Col xs={2} sm={2} md={2} lg={1} />
 
                 <Col xs={8} sm={8} md={8} lg={4} className='CardsContainer'>
                     <div className='mydashboardNavbar'>
-                        <div className='dashboardTitle' >
+                        <div className='dashboardTitle'>
                             <i className='fa fa-heart' aria-hidden='true'></i>
                             <b>Favorites</b>
                         </div>
@@ -140,11 +132,33 @@ function MydashboardItemComponent() {
                     {renderStat('Average response time', '3h 8m')}
                     {renderStat('Resolution within SLA', '94%')}
                 </Col>
-
             </Row>
 
+            <Col xs={10} sm={8} md={8} lg={6} className='CardsContainer'>
+                <div className='dashboardTitle w3-padding-24'>
+                    <b>My Recent Projects</b>
+                </div>
+                <Row>
+                    <div className='Collapsible'>
+                        <Collapsible trigger='Project 1 '>
+                            <div className='w3-card'>
+                                <p>This is the collapsible content.</p>
+                            </div>
+                        </Collapsible>
+                        <Collapsible trigger='Project 2 '>
+                            <div className='w3-card'>
+                                <p>This is the collapsible content.</p>
+                            </div>
+                        </Collapsible>
+                        <Collapsible trigger='Project 3'>
+                            <div className='w3-card'>
+                                <p>This is the collapsible content.</p>
+                            </div>
+                        </Collapsible>
+                    </div>
+                </Row>
+            </Col>
         </Container>
-
 
         // <Row
         //     flexGrow={1}
