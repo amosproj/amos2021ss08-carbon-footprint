@@ -1,24 +1,4 @@
-.MydashboardContainer {
-    background-color: #FFFFFF;
-    border : 1px solid black;
-    border-radius: 4;
-    cursor: 'pointer';
-    
-}
-.graphContainer {
-    background-color: #FFFFFF;
-    margin-top: 24;
-    margin-left: 0;
-    margin-right: 0;
-    width: '100%';
-}
-
-.graphSection{
-    padding: 24;
-        background-color: #FFFFFF;
-}
-
-.MydashboardNavbar {
+.mydashboardNavbar {
     width: 100%;
     height: auto;
     color: #1b1534;
@@ -30,4 +10,58 @@
     justify-content: space-between;
     /* border: 3px solid var(--global--button--color); */
     /* background-color: var(--global--panel--color); */
+}
+
+.star{
+    float: right;
+    /* color: var(--global--panel--color); */
+    background-color: var(--global--background--color);
+    color: var(--global--button--text--color);
+    text-decoration: none;
+    font-size: 24px;
+    border-style: none;
+    cursor: pointer;
+    margin-left:10px;
+    margin-right: 3px;
+
+
+}
+
+.mydashboardNavbar b {
+    background-color: var(--global--background--color);
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.dashboardTitle {
+    align-content: center;
+    margin-left: 5px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.mydashboardNavbar i {
+    margin-right: 0px;
+    margin-left: 15px;
+
+}
+
+
+.favIcon {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    /* color: var(--global--panel--color); */
+    background-color: var(--global--background--color);
+    color: var(--global--button--text--color);
+    text-decoration: none;
+    font-size: 22px;
+    text-align: right; /* If you want the text to be centered */
+    border-style: none;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }

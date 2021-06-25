@@ -98,11 +98,15 @@ function MydashboardItemComponent() {
             <Column
                 flexGrow={1}
                 className={classes.statContainer}
-                vertical='center'
-                horizontal='center'
+                vertical='space-between'
+                horizontal='space-between'
             >
-                <span className={classes.statTitle}>{title}</span>
-                <span className={classes.statValue}>{value}</span>
+                <div className='star'>
+                    <i class="fa fa-star-o" aria-hidden="true"/>
+                    <span className={classes.statTitle}>{title}</span>
+                    <span className={classes.statValue}>{value}</span>
+                </div>
+
             </Column>
         );
     }
@@ -116,13 +120,20 @@ function MydashboardItemComponent() {
             
             >
                 <Col xs={8} sm={8} md={8} lg={6} className='CardsContainer'>
-                    <div className='CardTitle'>
-                        <span>My chart</span>
+                    <div className='dashboardTitle'>
+                        <b>My chart</b>
                     </div>
                     <PieChartComponent />
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1}/>
+
                 <Col xs={8} sm={8} md={8} lg={4} className='CardsContainer'>
+                    <div className='mydashboardNavbar'>
+                        <div className='dashboardTitle' >
+                            <i className='fa fa-heart' aria-hidden='true'></i>
+                            <b>Favorites</b>
+                        </div>
+                    </div>
                     {renderStat('Resolved', '449')}
                     {renderStat('Received', '426')}
                     {renderStat('Average first response time', '33m')}
