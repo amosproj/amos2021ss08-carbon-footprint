@@ -4,6 +4,8 @@ import { createUseStyles } from 'react-jss';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import MydashboardItemComponent from './MydashboardItemComponent';
 import UnresolvedTicketsComponent from 'components/dashboard/UnresolvedTicketsComponent';
+import { Container } from 'react-grid-system';
+import CardComponent from 'components/cards/CardComponent';
 
 const useStyles = createUseStyles({
     cardsContainer: {
@@ -47,11 +49,13 @@ const useStyles = createUseStyles({
 function DashboardComponent() {
     const classes = useStyles();
     return (
-        <Column>
-            <div className={classes.todayTrends}>
-                <MydashboardItemComponent />
-            </div>
-        </Column>
+        <Container>
+            <Column>
+                <div className={classes.todayTrends}>
+                    <MydashboardItemComponent />
+                </div>
+            </Column>
+        </Container>
     );
 }
 
