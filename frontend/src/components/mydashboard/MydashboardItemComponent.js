@@ -146,7 +146,7 @@ function MydashboardItemComponent() {
                         <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
                         <b>My Recent Projects</b>
                     </div>
-                    <div className='Collapsible'>
+                    <div className='Collapsible dashboardCardSubTitle'>
                         <Collapsible trigger='Project 1 '>
                             <div className='w3-card'>
                                 <p>This is the collapsible content.</p>
@@ -175,19 +175,19 @@ function MydashboardItemComponent() {
                         </div>
                     </div>
 
-                    <div className='Collapsible '>
+                    <div className='Collapsible dashboardCardSubTitle '>
                         <Collapsible trigger='Question 1: how many catagories do we have?'>
-                            <div className=' dashboardTitle w3-card'>
+                            <div className='  w3-card'>
                                 <p>Question1 answer</p>
                             </div>
                         </Collapsible>
                         <Collapsible trigger='Question 2: how many catagories do we have?'>
-                            <div className='dashboardTitle w3-card'>
+                            <div className=' w3-card'>
                                 <p>Question 2 answer</p>
                             </div>
                         </Collapsible>
                         <Collapsible trigger='Question 3: how many catagories do we have?'>
-                            <div className='dashboardTitle w3-card'>
+                            <div className=' w3-card'>
                                 <p>Question 3 answer</p>
                             </div>
                         </Collapsible>
