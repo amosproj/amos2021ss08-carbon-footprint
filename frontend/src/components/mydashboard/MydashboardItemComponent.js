@@ -5,6 +5,7 @@ import LineChart from 'react-svg-line-chart';
 import PieChartComponent from 'components/details/PieChartComponent';
 import { Col, Container, Row } from 'react-grid-system';
 import Collapsible from 'react-collapsible';
+import Slideshow from './Slideshow';
 
 const data = [];
 
@@ -100,7 +101,7 @@ function MydashboardItemComponent() {
                 className={classes.statContainer}
             >
                 <div className='star'>
-                    <i className="fa fa-star-o" aria-hidden="true"/>
+                    <i className='fa fa-star-o' aria-hidden='true' />
                     <span className='dashboardSubTitle'>{title}</span>
                     <span className='dashboardText'>{value}</span>
                 </div>
@@ -109,13 +110,13 @@ function MydashboardItemComponent() {
     }
 
     return (
-        <Container >
+        <Container>
             <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
                 <Col xs={8} sm={8} md={8} lg={6} className='MydashboardContainer'>
                     <div className='dashboardTitle'>
-                        <span>My chart</span>
+                        <span>Slideshow</span>
                     </div>
-                    <PieChartComponent />
+                    <Slideshow />
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} />
 
@@ -135,20 +136,18 @@ function MydashboardItemComponent() {
                     {renderStat('Fav Project 1', 'Transmission')}
                     {renderStat('Fav Project 2', 'Generation')}
                     {renderStat('Fav Project 3', 'Industrial App')}
-
                 </Col>
             </Row>
             <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={7}/>
+                <Col xs={8} sm={8} md={8} lg={7} />
                 <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
-
                     <div className='dashboardTitle'>
-                        <i className="fa fa-bars" aria-hidden="true"/>
+                        <i className='fa fa-bars' aria-hidden='true' />
                         <b>My Recent Projects</b>
                     </div>
                     <div className='Collapsible'>
                         <div className={classes.statContainer}>
-                            <Collapsible  trigger='Project 1 '>
+                            <Collapsible trigger='Project 1 '>
                                 <div className='w3-card'>
                                     <p>This is the collapsible content.</p>
                                 </div>
@@ -160,21 +159,24 @@ function MydashboardItemComponent() {
                             </Collapsible>
                         </div>
                     </div>
-
                 </Col>
             </Row>
             <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={7}/>
+                <Col xs={8} sm={8} md={8} lg={7} />
                 <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
                     <div className=' w3-padding-24'>
                         <div className='dashboardTitle'>
-                            <i class="fa fa-question-circle" aria-hidden="true" style={{color: '#643082'}}/>
+                            <i
+                                class='fa fa-question-circle'
+                                aria-hidden='true'
+                                style={{ color: '#643082' }}
+                            />
                             <b>FAQ</b>
                         </div>
                     </div>
 
                     <div className='Collapsible '>
-                        <Collapsible  trigger='Question 1: how many catagories do we have?'>
+                        <Collapsible trigger='Question 1: how many catagories do we have?'>
                             <div className=' dashboardTitle w3-card'>
                                 <p>Question1 answer</p>
                             </div>

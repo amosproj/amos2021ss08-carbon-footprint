@@ -27,7 +27,7 @@
     position: fixed;
     overflow-y: visible;
     overflow-y: scroll;
-}/* Make images easier to work with */
+} /* Make images easier to work with */
 .img {
     max-width: 100%;
     display: block;
@@ -47,23 +47,20 @@
     overflow-y: scroll;
 }
 
-
-.dashboardText {
-    font-weight: normal;
-    font-size: var( --global--text--FontSize);
-}
-.star{
+.star {
+    float: right;
     /* color: var(--global--panel--color); */
+    background-color: var(--global--background--color);
+    color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 24px;
     border-style: none;
     cursor: pointer;
-    margin-left:10px;
-    margin-right:10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .dashboardTitle {
-
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
@@ -72,23 +69,14 @@
     color: #1b1534;
     margin-bottom: 10px;
     padding-left: 0px;
-    margin-top:5px;
-    margin-bottom:5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 0px;
 }
 
-.dashboardSubTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: normal;
-    font-size: var(--global--text-subtitle--FontSize);
-    letter-spacing: 0.5px;
-    color: #1b1534;
-    padding-left: 25px;
-    margin-left: 25px;
-}
-.dashboardTitle i {
-    font-size: 30px;
+.mydashboardNavbar i {
+    margin-right: 0px;
+    margin-left: 15px;
 }
 
 .favIcon {
@@ -116,12 +104,23 @@
     height: 100%;
     overflow: auto;
     color: #ad48a5;
-    cursor: pointer;
+    background: #ad48a5;
 }
 
+.collapsible1 {
+    background-color: rgb(255, 255, 255);
+    color: rgb(248, 24, 24);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
 .active,
 .collapsible:hover {
-    color: #ccc;
+    background-color: #ccc;
 }
 
 /* Style the collapsible content*/
@@ -129,5 +128,10 @@
     padding: 0 18px;
     display: none;
     overflow: hidden;
-    color: #f1f1f1;
+    background-color: #f1f1f1;
+}
+.alice-carousel ul li img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
 }
