@@ -6,8 +6,8 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 500px;
-    max-height: 400px;
+    min-height: 450px;
+    max-height: 450px;
     margin-top: 10px;
     position: fixed;
     overflow-y: visible;
@@ -21,14 +21,17 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 300px;
-    max-height: 300px;
+    min-height: 350px;
+    max-height: 350px;
     margin-top: 10px;
     position: fixed;
     overflow-y: visible;
     overflow-y: scroll;
+}/* Make images easier to work with */
+.img {
+    max-width: 100%;
+    display: block;
 }
-
 .ProjectsCardsContainer {
     background-color: #ffffff;
     /* border:0.5px solid #00b300; */
@@ -36,8 +39,8 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 450px;
+    max-height: 450px;
     margin-top: 10px;
     position: fixed;
     overflow-y: visible;
@@ -57,11 +60,7 @@
     cursor: pointer;
     margin-left:10px;
     margin-right:10px;
-
-
-
 }
-
 
 .dashboardTitle {
 
@@ -76,8 +75,6 @@
     margin-top:5px;
     margin-bottom:5px;
     margin-left: 0px;
-
-    
 }
 
 .dashboardSubTitle {
