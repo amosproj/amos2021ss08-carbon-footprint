@@ -1,5 +1,6 @@
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import axios from 'axios';
 import FirstPDFPage from 'assets/pdfImages/firstPage.jpg';
 import SecondPDFPage from 'assets/pdfImages/secondPage.jpg';
 import ThirdPDFPage from 'assets/pdfImages/thirdPage.jpg';
@@ -109,5 +110,47 @@ export function exportPdf(div1, div2, div3) {
                 pdf.save('baselineScenario.pdf');
             });
         });
+    });
+}
+
+// sending a request to backend to generate the pdf or docx file
+function sendPdfGeneratorRequest(imgdata1, imgdata2, imgData3) {
+    let arrayOfYourFiles = [imgdata1, imgdata2, imgData3];
+    // create formData object
+    const formData = new FormData();
+    arrayOfYourFiles.forEach((file) => {
+        formData.append('arrayOfFilesName', file);
+    });
+
+    let url = 'https://localhost:44323/Document/CreateReport';
+
+    axios({
+        method: 'POST',
+        url: url,
+        data: formData,
+        headers: {
+            'Content-Type': 'multipart/form-data',
+            responseType: 'blob'
+        }
+    }).then((response) => {
+        const filename = response.headers['content-disposition'].split('filename=')[1];
+        console.log(response.headers);
+        console.log(response.headers['content-disposition']);
+        const url = window.URL.createObjectURL(
+            new Blob([response.data], { type: response.headers['blob'] })
+        );
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', filename); //or any other extension
+        document.body.appendChild(link);
+        link.click();
+
+        // response.blob().then((blob) => {
+        //     let url = window.URL.createObjectURL(blob);
+        //     let a = document.createElement('a');
+        //     a.href = url;
+        //     a.download = filename;
+        //     a.click();
+        //});
     });
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ScenarioComponent from './ScenarioComponent';
-import axios from 'axios';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 import { exportPdf } from '../../interface/PdfExporter.js';
@@ -42,47 +41,6 @@ class DetailsComponent extends Component {
             var div3 = document.getElementById('captureTable');
 
             exportPdf(div1, div2, div3);
-        };
-
-        let submit = (imgdata1, imgdata2, imgData3) => {
-            let arrayOfYourFiles = [imgdata1, imgdata2, imgData3];
-            // create formData object
-            const formData = new FormData();
-            arrayOfYourFiles.forEach((file) => {
-                formData.append('arrayOfFilesName', file);
-            });
-
-            let url = 'https://localhost:44323/Document/CreateReport';
-
-            axios({
-                method: 'POST',
-                url: url,
-                data: formData,
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    responseType: 'blob'
-                }
-            }).then((response) => {
-                const filename = response.headers['content-disposition'].split('filename=')[1];
-                console.log(response.headers);
-                console.log(response.headers['content-disposition']);
-                const url = window.URL.createObjectURL(
-                    new Blob([response.data], { type: response.headers['blob'] })
-                );
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', filename); //or any other extension
-                document.body.appendChild(link);
-                link.click();
-
-                // response.blob().then((blob) => {
-                //     let url = window.URL.createObjectURL(blob);
-                //     let a = document.createElement('a');
-                //     a.href = url;
-                //     a.download = filename;
-                //     a.click();
-                //});
-            });
         };
 
         const scenarioNames = {
