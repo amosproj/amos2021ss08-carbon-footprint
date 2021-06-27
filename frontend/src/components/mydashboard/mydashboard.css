@@ -6,12 +6,11 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 450px;
-    max-height: 450px;
+    min-height: 500px;
+    max-height: 500px;
     margin-top: 10px;
     position: fixed;
-    overflow-y: visible;
-    overflow-y: scroll;
+
 }
 
 .FavCardsContainer {
@@ -21,8 +20,8 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 350px;
-    max-height: 350px;
+    min-height: 500px;
+    max-height: 500px;
     margin-top: 10px;
     position: fixed;
     overflow-y: visible;
@@ -39,9 +38,10 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 450px;
+    min-height: 500px;
     max-height: 450px;
     margin-top: 10px;
+    margin-bottom:10px; 
     position: fixed;
     overflow-y: visible;
     overflow-y: scroll;
@@ -49,8 +49,6 @@
 
 .star {
     float: right;
-    /* color: var(--global--panel--color); */
-    background-color: var(--global--background--color);
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 24px;
@@ -66,17 +64,17 @@
     font-weight: bold;
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
-    color: #1b1534;
+    color: #643082;
     margin-bottom: 10px;
     padding-left: 0px;
-    margin-top: 5px;
+    margin-top: 0px;
     margin-bottom: 5px;
     margin-left: 0px;
 }
 
-.mydashboardNavbar i {
-    margin-right: 0px;
-    margin-left: 15px;
+.dashboardTitle i {
+    margin-right: 5px;
+    margin-left: 0px;
 }
 
 .favIcon {

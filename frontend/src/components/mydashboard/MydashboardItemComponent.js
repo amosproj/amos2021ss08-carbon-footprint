@@ -114,7 +114,7 @@ function MydashboardItemComponent() {
             <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
                 <Col xs={8} sm={8} md={8} lg={6} className='MydashboardContainer'>
                     <div className='dashboardTitle'>
-                        <span>Slideshow</span>
+                        <span>Catagories</span>
                     </div>
                     <Slideshow />
                 </Col>
@@ -122,8 +122,8 @@ function MydashboardItemComponent() {
 
                 <Col xs={8} sm={8} md={8} lg={4} className='FavCardsContainer'>
 
-                    <div className='dashboardTitle'>
-                        <i className='fa fa-heart' aria-hidden='true'></i>
+                    <div className='dashboardTitle w3-padding-24'>
+                        <i className='fa fa-heart' style={{ color: '#643082' }} aria-hidden='true'></i>
                         <span>Favorites</span>
                     </div>
                     
@@ -136,28 +136,28 @@ function MydashboardItemComponent() {
                     {renderStat('Fav Project 1', 'Transmission')}
                     {renderStat('Fav Project 2', 'Generation')}
                     {renderStat('Fav Project 3', 'Industrial App')}
+
                 </Col>
             </Row>
             <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
                 <Col xs={8} sm={8} md={8} lg={7} />
                 <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
-                    <div className='dashboardTitle'>
-                        <i className='fa fa-bars' aria-hidden='true' />
+                    <div className='dashboardTitle w3-padding-24'>
+                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
                         <b>My Recent Projects</b>
                     </div>
                     <div className='Collapsible'>
-                        <div className={classes.statContainer}>
-                            <Collapsible trigger='Project 1 '>
-                                <div className='w3-card'>
-                                    <p>This is the collapsible content.</p>
-                                </div>
-                            </Collapsible>
-                            <Collapsible trigger='Project 2 '>
-                                <div className='w3-card'>
-                                    <p>This is the collapsible content.</p>
-                                </div>
-                            </Collapsible>
-                        </div>
+                        <Collapsible trigger='Project 1 '>
+                            <div className='w3-card'>
+                                <p>This is the collapsible content.</p>
+                            </div>
+                        </Collapsible>
+                        <Collapsible trigger='Project 2 '>
+                            <div className='w3-card'>
+                                <p>This is the collapsible content.</p>
+                            </div>
+                        </Collapsible>
+
                     </div>
                 </Col>
             </Row>
