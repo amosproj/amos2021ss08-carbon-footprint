@@ -118,6 +118,7 @@ function MydashboardItemComponent() {
                     </div>
                     <Slideshow />
                 </Col>
+                
                 <Col xs={2} sm={2} md={2} lg={1} />
 
                 <Col xs={8} sm={8} md={8} lg={4} className='FavCardsContainer'>
@@ -140,7 +141,14 @@ function MydashboardItemComponent() {
                 </Col>
             </Row>
             <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={7} />
+
+                <Col xs={8} sm={8} md={8} lg={6} className='ProjectsCardsContainer'>
+                    <div className='dashboardTitle'>
+                        <span>My chart</span>
+                    </div>
+                    <PieChartComponent />
+                </Col>
+                <Col xs={2} sm={2} md={2} lg={1} />
                 <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
                     <div className='dashboardTitle w3-padding-24'>
                         <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
