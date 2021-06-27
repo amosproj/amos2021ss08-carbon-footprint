@@ -20,7 +20,7 @@ const ProductSolutionsServices = lazy(() =>
     import('./dynamicPaths/ProductSolutionsServicesComponent')
 );
 // importing required components
-const DashboardComponent = lazy(() => import('../components/dashboard'));
+//const DashboardComponent = lazy(() => import('../components/dashboard'));
 const mydashboardComponent = lazy(() => import('../components/mydashboard/MydashboardComponent'));
 
 /**
