@@ -1,7 +1,6 @@
 import React from 'react';
 import { Column } from 'simple-flexbox';
 import { createUseStyles, useTheme } from 'react-jss';
-import LineChart from 'react-svg-line-chart';
 import PieChartComponent from 'components/details/PieChartComponent';
 import { Col, Container, Row } from 'react-grid-system';
 import Collapsible from 'react-collapsible';
@@ -118,30 +117,31 @@ function MydashboardItemComponent() {
                     </div>
                     <Slideshow />
                 </Col>
-                
+
                 <Col xs={2} sm={2} md={2} lg={1} />
 
                 <Col xs={8} sm={8} md={8} lg={4} className='FavCardsContainer'>
-
                     <div className='dashboardTitle w3-padding-24'>
-                        <i className='fa fa-heart' style={{ color: '#643082' }} aria-hidden='true'></i>
+                        <i
+                            className='fa fa-heart'
+                            style={{ color: '#643082' }}
+                            aria-hidden='true'
+                        ></i>
                         <span>Favorites</span>
                     </div>
-                    
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
 
+                    {renderStat('Fav Project 1', 'Transmission')}
+                    {renderStat('Fav Project 2', 'Generation')}
+                    {renderStat('Fav Project 3', 'Industrial App')}
+                    {renderStat('Fav Project 1', 'Transmission')}
+                    {renderStat('Fav Project 2', 'Generation')}
+                    {renderStat('Fav Project 3', 'Industrial App')}
+                    {renderStat('Fav Project 1', 'Transmission')}
+                    {renderStat('Fav Project 2', 'Generation')}
+                    {renderStat('Fav Project 3', 'Industrial App')}
                 </Col>
             </Row>
             <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-
                 <Col xs={8} sm={8} md={8} lg={6} className='ProjectsCardsContainer'>
                     <div className='dashboardTitle'>
                         <span>My chart</span>
@@ -165,7 +165,6 @@ function MydashboardItemComponent() {
                                 <p>This is the collapsible content.</p>
                             </div>
                         </Collapsible>
-
                     </div>
                 </Col>
             </Row>
@@ -203,7 +202,6 @@ function MydashboardItemComponent() {
                 </Col>
             </Row>
         </Container>
-
     );
 }
 
