@@ -49,13 +49,8 @@ export function setMaterialCompositionData(compositionData) {
     materialDataInPercent = [];
     materialCompositionData = Array.from(compositionData);
     console.log(materialCompositionData);
-    let sum = 0;
     for (let i = 0; i < materialCompositionData.length; i++) {
-        sum += Number(materialCompositionData[i]);
-    }
-    console.log(sum);
-    for (let i = 0; i < materialCompositionData.length; i++) {
-        materialDataInPercent[i] = (Number(materialCompositionData[i] / sum) * 100).toFixed(2);
+        materialDataInPercent[i] = Number(materialCompositionData[i]);
     }
     console.log(materialDataInPercent);
 }

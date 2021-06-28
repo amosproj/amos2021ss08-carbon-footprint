@@ -4,7 +4,7 @@ import {
     getMaterialCompositionData,
     getMaterialCompositionLabels
 } from 'interface/projectInterface';
-import theme from 'resources/theme';
+//import theme from 'resources/theme';
 /**
  * Pie Chart Diagram
  */
@@ -29,15 +29,17 @@ const PieChartComponent = () => {
 
         labels: labels,
         // TODO: color map
-        colors: [
-            '#fae920',
-            '#cfd6e3',
-            '#eb8fa1',
-            '#89b5c4',
-            theme.color.Alminium,
-            '#36a6c7',
-            '#eb8323'
-        ],
+        // fill: {
+        //     colors: [
+        //         '#fae920',
+        //         '#cfd6e3',
+        //         '#eb8fa1',
+        //         '#89b5c4',
+        //         theme.color.Alminium,
+        //         '#36a6c7',
+        //         '#eb8323'
+        //     ]
+        // },
         responsive: [
             {
                 breakpoint: 5600,
