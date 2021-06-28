@@ -4,14 +4,14 @@ import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterfa
 
 /**
  * Column Chart
- *
+ * Recieves the data from projectInterface.js using "getColumnChartData()"
+ * populates the data ito the column chart in Details Page.
  */
 const ColumnChartComponent = () => {
     const values = getColumnChartData();
     const series = [
         {
             name: 'Global warming in kg CO2 equivalents',
-            // TODO: this data needs to be recieved from backend
             data: values
         }
     ];
