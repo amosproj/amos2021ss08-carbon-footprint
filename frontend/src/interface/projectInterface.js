@@ -8,7 +8,7 @@ import logo_3 from 'assets/dummyImages/Logo2.png';
 
 var materialCompositionLabels;
 var materialCompositionData;
-let materialDataInPercent = [];
+let materialDataInPercent;
 var assessmentValues;
 let chartDataInPercent = [];
 
@@ -46,6 +46,7 @@ export function getModels() {
  */
 export function setMaterialCompositionData(compositionData) {
     console.log('compositionData');
+    materialDataInPercent = [];
     materialCompositionData = Array.from(compositionData);
     console.log(materialCompositionData);
     let sum = 0;
