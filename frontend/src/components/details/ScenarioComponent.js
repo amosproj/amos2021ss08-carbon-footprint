@@ -29,21 +29,15 @@ class ScenarioComponent extends Component {
                     </h2>
                     <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
                     <Row>
-                        <Col
-                            id='captureColumnDiagram'
-                            xs={12}
-                            sm={12}
-                            md={12}
-                            lg={6}
-                            className='CardsContainer'
-                        >
+                        <Col xs={12} sm={12} md={12} lg={6} className='CardsContainer'>
                             <div className='CardTitle'>
                                 <span>Results of the impact assessment</span>
                             </div>
-                            <ColumnChart />
+                            <div id='captureColumnDiagram'>
+                                <ColumnChart />
+                            </div>
                         </Col>
                         <Col
-                            id='capturePieChart'
                             xs={12}
                             sm={12}
                             md={12}
@@ -54,10 +48,21 @@ class ScenarioComponent extends Component {
                             <div className='CardTitle'>
                                 <span>Material Composition</span>
                             </div>
-                            <PieChart />
+                            <div id='capturePieChart'>
+                                <PieChart />
+                            </div>
                         </Col>
                     </Row>
                     <Row>
+                        {/* dynamic display of product and model */}
+                        <h5 className='TableTitle'>{this.props.selectedProduct.productName}</h5>
+                        <h6 className='TableSubTitle'>
+                            {this.props.selectedProduct.modelName ===
+                                this.props.selectedProduct.productName ||
+                            this.props.selectedProduct.modelName === undefined
+                                ? ''
+                                : this.props.selectedProduct.modelName}
+                        </h6>
                         <div id='captureTable' className='TableContainer'>
                             {/* Swaps out the table with a mobile version for screens <= sm 
                             And when on the compare version already swap out for screens <= lg */}
@@ -65,21 +70,13 @@ class ScenarioComponent extends Component {
                                 smDown={this.props.loadComparePage ? false : true}
                                 lgDown={this.props.loadComparePage ? true : false}
                             >
-                                <TableComponent
-                                    productName={this.props.selectedProduct.productName}
-                                    modelName={this.props.selectedProduct.modelName}
-                                    key={this.props.scenarioName}
-                                />
+                                <TableComponent key={this.props.scenarioName} />
                             </Hidden>
                             <Hidden
                                 mdUp={this.props.loadComparePage ? false : true}
                                 xlUp={this.props.loadComparePage ? true : false}
                             >
-                                <MobileTableComponent
-                                    productName={this.props.selectedProduct.productName}
-                                    modelName={this.props.selectedProduct.modelName}
-                                    key={this.props.scenarioName}
-                                />
+                                <MobileTableComponent key={this.props.scenarioName} />
                             </Hidden>
                         </div>
                     </Row>
