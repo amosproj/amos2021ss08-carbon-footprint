@@ -6,13 +6,14 @@ import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 import { postCalculationRequest } from 'interface/BackendConnect';
-//import LoadingComponent from 'components/loading';
+import LoadingComponent from 'components/loading';
 /**
  * the main component for detail page which includes
  * canvas page and variable drop down list
  *
  * @param props the recently selected model of a product.
  */
+
 class DetailsComponent extends Component {
     /* State consists of three variable one for each of the possible state
      * baselineScenario: only display the baseline scenario
@@ -83,21 +84,29 @@ class DetailsComponent extends Component {
                 pdf.save('invoice.pdf');
             });
         };
-
+        /*
+         * Important function that is given as the callback parameter to the postCalculationRequest in order to be called
+         * when the data processing is finished. Then the state stillLoading will be set to false.
+         * This change of state trigger the DetailsComponent to rerender and now display the charts and tables
+         * instead of the LoadingComponent.
+         */
+        let handleFinishedDataRequest = () => {
+            this.setState({ stillLoading: false });
+        };
         const scenarioNames = {
             baseline: 'Baseline Scenario',
             modified: 'Modified Scenario'
         };
         const { selectedProduct } = this.props;
 
-        postCalculationRequest(selectedProduct.productID);
-
-        // if (this.state.stillLoading) {
-        //     return <LoadingComponent loading />;
-        // }
+        if (this.state.stillLoading) {
+            postCalculationRequest(selectedProduct.productID, handleFinishedDataRequest);
+            return <LoadingComponent loading />;
+        }
 
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
+            console.log(selectedProduct);
             return (
                 <Container className='ScenarioContainer' id='capture' fluid>
                     <Row>

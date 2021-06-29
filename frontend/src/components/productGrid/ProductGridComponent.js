@@ -18,13 +18,12 @@ import { loadProjects } from 'store/actions/productAction';
  * /**
  *
  * @returns the product and model properties
- * @author Irem Toroslu, Martin Wagner, Mani Anand
  */
 
 function ProductGridComponent({ selectedCategory }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList] = useState([]);
-    const products = useSelector(state => state.products.data)
+    const products = useSelector((state) => state.products.data);
     const dispatch = useDispatch();
 
     /*
@@ -32,7 +31,7 @@ function ProductGridComponent({ selectedCategory }) {
      * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
      */
     useEffect(() => {
-        dispatch(loadProjects(selectedCategory))
+        dispatch(loadProjects(selectedCategory));
     }, [selectedCategory, dispatch]);
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
@@ -60,7 +59,7 @@ function ProductGridComponent({ selectedCategory }) {
                         <Row justify='center'>
                             <Link
                                 className='ProductGridLink'
-                                onClick={(props) => {
+                                onClick={() => {
                                     // Save selection to ContextProvider
                                     newSelectedProducts[0].productID = product.productID;
                                     newSelectedProducts[0].productName = product.productName;

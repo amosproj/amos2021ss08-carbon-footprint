@@ -1,7 +1,6 @@
 /**
  * The projectInterface is the interface between frontend and backend.
  *
- * @author Martin Wagner, Julian Oelhaf
  */
 
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
@@ -9,9 +8,14 @@ import logo_3 from 'assets/dummyImages/Logo2.png';
 
 var materialCompositionLabels;
 var materialCompositionData;
-let materialDataInPercent = [];
+let materialDataInPercent;
 var assessmentValues;
 let chartDataInPercent = [];
+
+export function handOverBackendData(data) {
+    console.log('data');
+    console.log(data);
+}
 
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
@@ -36,21 +40,17 @@ export function getModels() {
 
 /**
  * Gets the filtered Material Composititon Data from API
- * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
+ * inputs contribibuting less than 1% each, should have been filtered out processBackendData
  * Calculates the percentage values and returns them.
  * @param compositionData filtered data from backendconnnect
  */
 export function setMaterialCompositionData(compositionData) {
     console.log('compositionData');
+    materialDataInPercent = [];
     materialCompositionData = Array.from(compositionData);
     console.log(materialCompositionData);
-    let sum = 0;
     for (let i = 0; i < materialCompositionData.length; i++) {
-        sum += Number(materialCompositionData[i]);
-    }
-    console.log(sum);
-    for (let i = 0; i < materialCompositionData.length; i++) {
-        materialDataInPercent[i] = (Number(materialCompositionData[i]) / sum) * 100;
+        materialDataInPercent[i] = Number(materialCompositionData[i]);
     }
     console.log(materialDataInPercent);
 }
@@ -58,7 +58,7 @@ export function setMaterialCompositionData(compositionData) {
 /**
  * Getter method to recieve the filtered Material Composititon Data from API
  */
-export async function getMaterialCompositionData() {
+export function getMaterialCompositionData() {
     return materialDataInPercent;
 }
 
@@ -68,38 +68,23 @@ export async function getMaterialCompositionData() {
  * @param compositionData filtered data from backendconnnect
  */
 export function setMaterialCompositionLabels(compositionLabels) {
-    console.log('compositionLabels');
-
     materialCompositionLabels = Array.from(compositionLabels);
-
     console.log(materialCompositionLabels);
 }
 
 /**
  * Getter method to recieve the filtered Material Composititon Labels from API
  */
-export async function getMaterialCompositionLabels() {
+export function getMaterialCompositionLabels() {
     return materialCompositionLabels;
-
-    // return [
-    //     'Plywood',
-    //     'TotalSteel',
-    //     'GlueBeam',
-    //     'GlassFiber',
-    //     'Copper',
-    //     'Paper',
-    //     'Porcelain',
-    //     'Electronics',
-    //     'Aluminium'
-    // ];
 }
 
 /**
  * Gets the Life Cycle Stages filtered from API
  * Impact Assessment is done for each of the life cycle stage
- * @param modelId id of the model, which we want to get the Data
+ * @param modelID id of the model, which we want to get the Data
  */
-export function getLifeCycleStages(modelId) {
+export function getLifeCycleStages(modelID) {
     return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
 }
 
@@ -109,9 +94,7 @@ export function getLifeCycleStages(modelId) {
  * @param assessmentData recieved from Backendconnect
  */
 export function setImpactAssessmentData(assessmentData) {
-    assessmentValues = Array.from(assessmentData);
-    console.log('Impact Assessment Data');
-    console.log(assessmentValues);
+    assessmentValues = assessmentData;
 }
 
 /**
@@ -127,22 +110,8 @@ export function getImpactAssessmentData() {
  * Percentage is calulated
  * @param assessmentData recieved from Backendconnect
  */
-export function setColumnChartData() {
-    console.log('Chart Assessment Data');
-    console.log(assessmentValues);
-    let sum = 0;
-    for (let i = 0; i < assessmentValues.length; i++) {
-        if (!isNaN(assessmentValues[i])) {
-            sum += Number(assessmentValues[i]);
-        }
-    }
-    console.log(sum);
-    for (let i = 0; i < assessmentValues.length; i++) {
-        if (!isNaN(assessmentValues[i])) {
-            chartDataInPercent[i] = Number(assessmentValues[i] / sum) * 100;
-        }
-    }
-    console.log(chartDataInPercent);
+export function setColumnChartData(assessmentDataInPercent) {
+    chartDataInPercent = assessmentDataInPercent;
 }
 /**
  * Getter method to recieve the filtered Impact Assessment Data from API
@@ -152,9 +121,9 @@ export function getColumnChartData() {
 }
 /**
  * * QUESTION: life cycle stages fixed?
- * @param modelId id of the model, for which we want to get the Data
+ * @param modelID id of the model, for which we want to get the Data
  */
-export function getImpactCategoriesTableHeaders(modelId) {
+export function getImpactCategoriesTableHeaders(modelID) {
     return [
         { key: 'header-1', value: 'Impact Category' },
         { key: 'header-2', value: 'Unit' },
@@ -171,7 +140,5 @@ export function getImpactCategoriesTableHeaders(modelId) {
  * @param assessmentData recieved from Backendconnect and filtered here
  */
 export function getImpactCategoriesTableData() {
-    console.log('Impact Categories Table Data');
-    console.log(assessmentValues);
     return assessmentValues;
 }
