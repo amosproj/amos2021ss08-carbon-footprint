@@ -53,6 +53,7 @@ class ScenarioComponent extends Component {
                             <PieChartComponent />
                         </Col>
                     </Row>
+                    <Row />
                     <Row>
                         <div className='TableContainer'>
                             {/* Swaps out the table with a mobile version for screens <= sm 
@@ -72,10 +73,16 @@ class ScenarioComponent extends Component {
                                 mdUp={this.props.loadComparePage ? false : true}
                                 xlUp={this.props.loadComparePage ? true : false}
                             >
-                                <MobileTableComponent
+                                {/* <MobileTableComponent
                                     productName={this.props.selectedProduct.productName}
                                     modelName={this.props.selectedProduct.modelName}
                                     modelID={this.props.selectedProduct.modelID}
+                                    tableKey={this.props.scenarioName}
+                                /> */}
+                                <TableComponent
+                                    productName={this.props.selectedProduct.productName}
+                                    modelID={this.props.selectedProduct.modelID}
+                                    modelName={this.props.selectedProduct.modelName}
                                     tableKey={this.props.scenarioName}
                                 />
                             </Hidden>

@@ -12,8 +12,8 @@ import PropTypes from 'prop-types';
  */
 class MobileTableComponent extends Component {
     state = {
-        headers: getImpactCategoriesTableHeaders(this.props.modelID),
-        rows: getImpactCategoriesTableData(this.props.modelID)
+        headers: getImpactCategoriesTableHeaders(),
+        rows: getImpactCategoriesTableData()
     };
     render() {
         const idKey = this.props.tableKey;
