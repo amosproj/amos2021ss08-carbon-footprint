@@ -84,6 +84,12 @@ class DetailsComponent extends Component {
                 pdf.save('invoice.pdf');
             });
         };
+        /*
+         * Important function that is given as the callback parameter to the postCalculationRequest in order to be called
+         * when the data processing is finished. Then the state stillLoading will be set to false.
+         * This change of state trigger the DetailsComponent to rerender and now display the charts and tables
+         * instead of the LoadingComponent.
+         */
         let handleFinishedDataRequest = () => {
             this.setState({ stillLoading: false });
         };

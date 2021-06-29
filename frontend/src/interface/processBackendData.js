@@ -6,11 +6,18 @@ import {
 } from 'interface/projectInterface';
 
 /*
- * function to process the data recieved from the backend
- * - filters out the material composition labels
- * - filters out the material composition data
- * - filters out all materials less than 1%
- * - calculate the impact assesment in percent for the column charts
+ * Function to process the data recieved from the backend
+ * Filters the carbon impact data recieved from API.
+ * Filter the Carbon Values of GlobalWarming
+ * Maps the Carbon Values and its corresponding life cycle stage.
+ * Filters out the material composition labels and data
+ * Filters out all materials less than 1%
+ * Calculate the impact assesment in percent for the column charts
+ *
+ * @param data:     data recieved from PostCalculationRequest
+ * @param callback: the handleFinishedDataRequest function from the DetailsComponent.js, this function is called at the end of the data process
+ * the function changes the state of the DetailsComponent thus triggering a rerender and causing the DetailsComponent to display the charts
+ * instead of the loading circle
  */
 export function processBackendData(data, callback) {
     const items = data;
