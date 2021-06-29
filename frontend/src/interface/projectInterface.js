@@ -40,7 +40,7 @@ export function getModels() {
 
 /**
  * Gets the filtered Material Composititon Data from API
- * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
+ * inputs contribibuting less than 1% each, should have been filtered out processBackendData
  * Calculates the percentage values and returns them.
  * @param compositionData filtered data from backendconnnect
  */
