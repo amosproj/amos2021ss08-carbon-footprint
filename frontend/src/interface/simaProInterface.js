@@ -10,6 +10,7 @@ import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_2 from 'assets/dummyImages/Logo2.png';
 import { categories } from './categories';
 import { getSimaProProjects } from 'interface/BackendConnect';
+import { categoryProcessing } from './processBackendData';
 
 /**
  * should get all the Products from the backend (soon)
@@ -23,7 +24,7 @@ export async function getCategorizedProducts(scope = 'All') {
     if (scope === 'All') {
         return await getSimaProducts();
     } else if (scope === 'solutions') {
-        console.log("solutions");
+        console.log('solutions');
         return getDummyProducts();
     } else {
         return await getSimaProducts();
@@ -116,10 +117,12 @@ export async function getSimaProducts() {
         const productObject = {
             productID: product.Id,
             productName: product.Name,
-            categories: [categories.generation, categories.transmission],
+            //categories: [categories.generation, categories.transmission],
+            categories: categoryProcessing(product.Description),
             productImage: logo
         };
         formattedProducts.push(productObject);
     });
+    console.log(formattedProducts);
     return formattedProducts;
 }

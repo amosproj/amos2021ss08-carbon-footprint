@@ -19,8 +19,8 @@ export async function getSimaProProjects() {
             const items = data;
             result = items.data.Result.Data;
         });
-    //console.log('API call to get the list of Products');
-    //console.log(result);
+    console.log('API call to get the list of Products');
+    console.log(result);
     return result;
 }
 

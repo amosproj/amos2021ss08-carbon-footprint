@@ -4,6 +4,7 @@ import {
     setImpactAssessmentData,
     setColumnChartData
 } from 'interface/projectInterface';
+import { categories } from './categories';
 
 /*
  * Function to process the data recieved from the backend
@@ -71,4 +72,20 @@ export function processBackendData(data, callback) {
     setColumnChartData(assessmentDataInPercent);
 
     callback();
+}
+
+export function categoryProcessing(ProjectDescription) {
+    if (
+        ProjectDescription === [] ||
+        ProjectDescription === undefined ||
+        ProjectDescription === null
+    ) {
+        return [categories.generation, categories.transmission];
+    } else if (ProjectDescription.split(/[#,:,/]/).includes('Generation')) {
+        return [categories.generation];
+    } else if (ProjectDescription.split(/[#,:,/]/).includes('Transmission')) {
+        return [categories.transmission];
+    } else {
+        return [categories.generation, categories.transmission];
+    }
 }
