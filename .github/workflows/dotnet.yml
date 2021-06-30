@@ -2,7 +2,7 @@ name: Backend CI
 
 on:
   push:
-    branches: [ main, release, dev-#82 ]
+    branches: [ main, release ]
   pull_request:
     branches: [ main, backend-dev, release, dev ]
     
