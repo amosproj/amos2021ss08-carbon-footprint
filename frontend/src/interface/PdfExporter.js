@@ -26,26 +26,8 @@ export function exportPdf(div1, div2, div3) {
         var pageWidth = pdf.internal.pageSize.getWidth();
         var pageHeight = pdf.internal.pageSize.getHeight();
 
-        // storing width and heigth of the pie chart diagram
-        var imageWidth1 = canvas1.width;
-        var imageHeight1 = canvas1.height;
-
-        // storing the ratio of the pie chart diagram
-        var ratio1 =
-            imageWidth1 / imageHeight1 >= pageWidth / pageHeight
-                ? pageWidth / imageWidth1
-                : pageHeight / imageHeight1;
-
         html2canvas(div2).then((canvas2) => {
             // storing width and heigth of the column diagram
-            var imageWidth2 = canvas2.width;
-            var imageHeight2 = canvas2.height;
-
-            // storing the ratio of the column diagram
-            var ratio2 =
-                imageWidth2 / imageHeight2 >= pageWidth / pageHeight
-                    ? pageWidth / imageWidth2
-                    : pageHeight / imageHeight2;
 
             html2canvas(div3).then((canvas3) => {
                 // converting html2canvas object to image for sending it to server
@@ -55,14 +37,6 @@ export function exportPdf(div1, div2, div3) {
                 sendPdfGeneratorRequest(imgData1, imgData2, imgData3);
 
                 // storing width and heigth of the table
-                var imageWidth3 = canvas3.width;
-                var imageHeight3 = canvas3.height;
-
-                // storing the ratio of the table
-                var ratio3 =
-                    imageWidth3 / imageHeight3 >= pageWidth / pageHeight
-                        ? pageWidth / imageWidth3
-                        : pageHeight / imageHeight3;
 
                 // adding images to pdf
                 pdf.addImage(FirstPDFPage, 'JPEG', 0, 0, pageWidth, pageHeight);

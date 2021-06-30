@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import SelectVariableComponent from './SelectVariableComponent';
 import NavbarComponent from './NavbarComponent';
@@ -17,12 +18,15 @@ class ScenarioComponent extends Component {
         // The styling of the Container, Row and Col can not be moved to css, as the css has a lower priority than the react-grid-system default.
         return (
             <Container fluid={true} style={{ padding: 0, margin: 0, backgroundColor: 'white' }}>
-                <NavbarComponent
-                    loadComparePage={this.props.loadComparePage}
-                    onCompareClick={this.props.onCompareClick}
-                    scenarioName={this.props.scenarioName}
-                    onExportClicked={this.props.onExportClicked}
-                />
+                <Row style={{ padding: 0, margin: 0 }}>
+                    <NavbarComponent
+                        loadComparePage={this.props.loadComparePage}
+                        onCompareClick={this.props.onCompareClick}
+                        scenarioName={this.props.scenarioName}
+                        onExportClick={this.props.onExportClick}
+                        onCloseClick={this.props.onCloseClick}
+                    />
+                </Row>
                 <Container fluid={true} style={{ padding: 'auto' }}>
                     <h2 className='TextContent'>
                         The chosen Model is <b>{this.props.selectedProduct.modelName}</b>
@@ -70,13 +74,23 @@ class ScenarioComponent extends Component {
                                 smDown={this.props.loadComparePage ? false : true}
                                 lgDown={this.props.loadComparePage ? true : false}
                             >
-                                <TableComponent key={this.props.scenarioName} />
+                                <TableComponent
+                                    productName={this.props.selectedProduct.productName}
+                                    modelId={this.props.selectedProduct.modelId}
+                                    modelName={this.props.selectedProduct.modelName}
+                                    tableKey={this.props.scenarioName}
+                                />
                             </Hidden>
                             <Hidden
                                 mdUp={this.props.loadComparePage ? false : true}
                                 xlUp={this.props.loadComparePage ? true : false}
                             >
-                                <MobileTableComponent key={this.props.scenarioName} />
+                                <MobileTableComponent
+                                    productName={this.props.selectedProduct.productName}
+                                    modelName={this.props.selectedProduct.modelName}
+                                    modelId={this.props.selectedProduct.modelId}
+                                    tableKey={this.props.scenarioName}
+                                />
                             </Hidden>
                         </div>
                     </Row>
@@ -85,5 +99,18 @@ class ScenarioComponent extends Component {
         );
     }
 }
+
+ScenarioComponent.propTypes = {
+    loadComparePage: PropTypes.bool,
+    onCloseClick: PropTypes.func,
+    onCompareClick: PropTypes.func.isRequired,
+    onExportClick: PropTypes.func.isRequired,
+    scenarioName: PropTypes.string,
+    selectedProduct: PropTypes.shape({
+        modelId: PropTypes.string,
+        modelName: PropTypes.string,
+        productName: PropTypes.string
+    })
+};
 
 export default ScenarioComponent;

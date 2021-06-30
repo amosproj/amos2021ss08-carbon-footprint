@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container } from 'react-grid-system';
 import {
@@ -14,7 +15,7 @@ class TableComponent extends Component {
         rows: getImpactCategoriesTableData(this.props.modelId)
     };
     render() {
-        const idKey = this.props.key;
+        const idKey = this.props.tableKey;
         return (
             <Container fluid={true}>
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
@@ -45,3 +46,10 @@ class TableComponent extends Component {
 }
 
 export default TableComponent;
+
+TableComponent.propTypes = {
+    modelId: PropTypes.string.isRequired,
+    modelName: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
+    tableKey: PropTypes.string.isRequired
+};

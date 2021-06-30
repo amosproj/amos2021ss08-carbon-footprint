@@ -4,6 +4,7 @@ import {
     getImpactCategoriesTableHeaders,
     getImpactCategoriesTableData
 } from 'interface/projectInterface';
+import PropTypes from 'prop-types';
 
 /**
  * Mobile version of the TableComponent. Restructures the Table to be displayable on a mobile screen.
@@ -15,7 +16,7 @@ class MobileTableComponent extends Component {
         rows: getImpactCategoriesTableData(this.props.modelId)
     };
     render() {
-        const idKey = this.props.key;
+        const idKey = this.props.tableKey;
         return (
             <Container fluid={true}>
                 {/* dynamic display of product and model */}
@@ -91,5 +92,12 @@ class MobileTableComponent extends Component {
         );
     }
 }
+
+MobileTableComponent.propTypes = {
+    modelId: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
+    modelName: PropTypes.string.isRequired,
+    tableKey: PropTypes.string.isRequired
+};
 
 export default MobileTableComponent;

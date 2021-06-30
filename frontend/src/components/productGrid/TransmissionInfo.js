@@ -4,8 +4,8 @@ import TransmissionImage from 'assets/dummyImages/powerTransmission.jpg';
 
 function TransmissionInfo() {
     return (
-        <div class='w3-row w3-padding'>
-            <div class='w3-col m6 l6 w3-padding-small'>
+        <div className='w3-row w3-padding'>
+            <div className='w3-col m6 l6 w3-padding-small'>
                 <strong className='SubTitle'>
                     Acting at the forefront of renewables and electrification
                 </strong>
@@ -27,10 +27,10 @@ function TransmissionInfo() {
                     cybersecurity.
                 </p>
             </div>
-            <div class='w3-col m6 l6 w3-padding-small'>
-                <div class='w3-card-4 imageTitle'>
+            <div className='w3-col m6 l6 w3-padding-small'>
+                <div className='w3-card-4 imageTitle'>
                     <img src={TransmissionImage} alt='Transmission' />
-                    <div class='w3-container w3-center'>
+                    <div className='w3-container w3-center'>
                         <p>Transmission</p>
                     </div>
                 </div>
