@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import IndustrialImage from 'assets/dummyImages/Industrialapplications.jpg';
@@ -27,9 +26,9 @@ export default class Slideshow extends Component {
 
     render() {
         const items = [
-            <img src={IndustrialImage} />,
-            <img src={PowerTransmission} />,
-            <img src={PowerGeneration} />
+            <img alt='' src={IndustrialImage} />,
+            <img alt='' src={PowerTransmission} />,
+            <img alt='' src={PowerGeneration} />
         ];
         return (
             <div>

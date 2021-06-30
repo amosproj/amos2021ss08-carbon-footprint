@@ -82,15 +82,6 @@ function MydashboardItemComponent() {
     const theme = useTheme();
     const classes = useStyles({ theme });
 
-    function renderLegend(color, title) {
-        return (
-            <Row vertical='center'>
-                <div style={{ width: 16, border: '2px solid', borderColor: color }}></div>
-                <span className={classes.legendTitle}>{title}</span>
-            </Row>
-        );
-    }
-
     function renderStat(title, value) {
         return (
             <Column
