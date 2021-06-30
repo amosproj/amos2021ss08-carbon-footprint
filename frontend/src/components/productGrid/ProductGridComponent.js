@@ -48,7 +48,7 @@ function ProductGridComponent({ selectedCategory }) {
         console.error(
             'Products data not recieved.Please verify the API calls and Backend Connection.'
         );
-        return <LoadingComponent />;
+        return <LoadingComponent loading />;
     }
     // else:
     return (
