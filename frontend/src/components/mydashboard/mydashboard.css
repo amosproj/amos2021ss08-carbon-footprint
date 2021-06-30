@@ -6,8 +6,8 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 460px;
+    max-height: 460px;
     margin-top: 10px;
     position: fixed;
 
@@ -20,8 +20,8 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 550px;
-    max-height: 550px;
+    min-height: 450px;
+    max-height: 450px;
     margin-top: 10px;
     margin-bottom:10px; 
     position: fixed;
@@ -39,8 +39,8 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 350px;
+    max-height: 350px;
     margin-top: 10px;
     position: fixed;
     overflow-y: visible;
@@ -57,8 +57,8 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 500px;
-    max-height: 450px;
+    min-height: 350px;
+    max-height: 350px;
     margin-top: 10px;
     margin-bottom:10px; 
     position: fixed;
