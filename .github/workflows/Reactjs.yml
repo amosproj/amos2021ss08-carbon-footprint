@@ -5,7 +5,7 @@ name: Frontend CI
 
 on:
   push:
-    branches: [ main, release, dev-#82 ]
+    branches: [ main, release ]
   pull_request:
     branches: [ main, frontend-dev, release, dev ]
 
