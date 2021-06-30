@@ -26,7 +26,7 @@ const ModelDropdownComponent = (props) => {
 
     //checking if the variable list is empty
     if (variables === [] || variables === undefined || variables === null) {
-        return <LoadingComponent />;
+        return <LoadingComponent loading />;
     }
 
     if (variables.length === 1) {

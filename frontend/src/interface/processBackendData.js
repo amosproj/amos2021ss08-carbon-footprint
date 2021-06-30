@@ -6,6 +6,7 @@ import {
 } from 'interface/projectInterface';
 import { categories } from './categories';
 
+let scenarios = [];
 /*
  * Function to process the data recieved from the backend
  * Filters the carbon impact data recieved from API.
@@ -73,19 +74,43 @@ export function processBackendData(data, callback) {
 
     callback();
 }
-
-export function categoryProcessing(ProjectDescription) {
+/**
+ *
+ * @param {*} projectDescription The comments mentioned in SimaPro Appliction.
+ * It if of the form "Categorie:[Generation/Transmission/IndustrialApplication]/[Solutions/Product/Services]#Model:ModelId#Location:loaction""
+ * This function segrigates the projects based on Generation, Transmission and Industrial APplications as mentioned in peojectDescription.
+ * @returns projects based on Generation, Transmission and Industrial APplications
+ */
+export function projectCategoryProcessing(projectDescription) {
     if (
-        ProjectDescription === [] ||
-        ProjectDescription === undefined ||
-        ProjectDescription === null
+        projectDescription === [] ||
+        projectDescription === undefined ||
+        projectDescription === null
     ) {
-        return [categories.generation, categories.transmission];
-    } else if (ProjectDescription.split(/[#,:,/]/).includes('Generation')) {
+        return [categories.industrialApplications];
+    } else if (projectDescription.split(/[#,:,/]/).includes('Generation')) {
         return [categories.generation];
-    } else if (ProjectDescription.split(/[#,:,/]/).includes('Transmission')) {
+    } else if (projectDescription.split(/[#,:,/]/).includes('Transmission')) {
         return [categories.transmission];
     } else {
-        return [categories.generation, categories.transmission];
+        return [categories.industrialApplications];
     }
+}
+/**
+ *
+ * @param {*} projectName ProjectName as recieved from the Sima Pro application.
+ * It is of the form "ProjectName#ID:ProjectID#Scenario:scenario"
+ * This function seperated the Project name and Scenario name for further processing and stores them in scenarios
+ * @returns ProjectName for displaying in the ProductGrid Page
+ */
+export function projetNameProcessing(projectName) {
+    let prjs = projectName.split(/[#,:,/]/);
+    console.log('Project Name');
+    console.log(prjs);
+    scenarios = {
+        projectName: prjs[0],
+        scenarioName: prjs[4]
+    };
+    console.log(scenarios);
+    return prjs[0];
 }
