@@ -5,6 +5,8 @@ import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 import { exportPdf } from '../../interface/PdfExporter.js';
 
+import { postCalculationRequest } from 'interface/BackendConnect';
+
 /**
  * the main component for detail page which includes
  * canvas page and variable drop down list
@@ -72,8 +74,6 @@ class DetailsComponent extends Component {
             modified: 'Modified Scenario'
         };
         const { selectedProduct } = this.props;
-
-        //postCalculationRequest(selectedProduct.productID);
 
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only

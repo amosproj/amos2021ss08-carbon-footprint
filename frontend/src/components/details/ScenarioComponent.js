@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import SelectVariableComponent from './SelectVariableComponent';
 import NavbarComponent from './NavbarComponent';
-import PieChart from './PieChartComponent';
-import ColumnChart from './ColumnChartComponent';
+import PieChartComponent from './PieChartComponent';
+import ColumnChartComponent from './ColumnChartComponent';
 import TableComponent from './TableComponent';
 import { Col, Container, Row } from 'react-grid-system';
 import { Hidden } from '@material-ui/core';
@@ -38,7 +38,7 @@ class ScenarioComponent extends Component {
                                 <span>Results of the impact assessment</span>
                             </div>
                             <div id='captureColumnDiagram'>
-                                <ColumnChart />
+                                <ColumnChartComponent />
                             </div>
                         </Col>
                         <Col
@@ -53,7 +53,7 @@ class ScenarioComponent extends Component {
                                 <span>Material Composition</span>
                             </div>
                             <div id='capturePieChart'>
-                                <PieChart />
+                                <PieChartComponent />
                             </div>
                         </Col>
                     </Row>
@@ -76,7 +76,7 @@ class ScenarioComponent extends Component {
                             >
                                 <TableComponent
                                     productName={this.props.selectedProduct.productName}
-                                    modelId={this.props.selectedProduct.modelId}
+                                    modelID={this.props.selectedProduct.modelID}
                                     modelName={this.props.selectedProduct.modelName}
                                     tableKey={this.props.scenarioName}
                                 />
@@ -88,7 +88,7 @@ class ScenarioComponent extends Component {
                                 <MobileTableComponent
                                     productName={this.props.selectedProduct.productName}
                                     modelName={this.props.selectedProduct.modelName}
-                                    modelId={this.props.selectedProduct.modelId}
+                                    modelID={this.props.selectedProduct.modelID}
                                     tableKey={this.props.scenarioName}
                                 />
                             </Hidden>
@@ -107,7 +107,7 @@ ScenarioComponent.propTypes = {
     onExportClick: PropTypes.func.isRequired,
     scenarioName: PropTypes.string,
     selectedProduct: PropTypes.shape({
-        modelId: PropTypes.string,
+        modelID: PropTypes.string,
         modelName: PropTypes.string,
         productName: PropTypes.string
     })

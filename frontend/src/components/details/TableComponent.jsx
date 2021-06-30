@@ -3,16 +3,15 @@ import React, { Component } from 'react';
 import { Container } from 'react-grid-system';
 import {
     getImpactCategoriesTableHeaders,
-    getImpactCategoriesTableData
+    getImpactAssessmentData
 } from 'interface/projectInterface';
-
 /**
  * displays the impact catagories table of the selected model of the related product.
  */
 class TableComponent extends Component {
     state = {
-        headers: getImpactCategoriesTableHeaders(this.props.modelId),
-        rows: getImpactCategoriesTableData(this.props.modelId)
+        headers: getImpactCategoriesTableHeaders(),
+        rows: getImpactAssessmentData()
     };
     render() {
         const idKey = this.props.tableKey;
@@ -26,18 +25,23 @@ class TableComponent extends Component {
                             ))}
                         </tr>
                     </thead>
+
                     <tbody>
-                        {this.state.rows.map((item, index) => (
-                            <tr key={'tr' + idKey + index} className='TableItems'>
-                                <td key={idKey + 'td-a' + item.key}>{item.impactCategory}</td>
-                                <td key={idKey + 'td-b' + item.key}>{item.unit}</td>
-                                <td key={idKey + 'td-c' + item.key}>{item.total}</td>
-                                <td key={idKey + 'td-e' + item.key}>{item.materialsLPT}</td>
-                                <td key={idKey + 'td-f' + item.key}>{item.manufacturing}</td>
-                                <td key={idKey + 'td-g' + item.key}>{item.operations}</td>
-                                <td key={idKey + 'td-h' + item.key}>{item.endOfLife}</td>
-                            </tr>
-                        ))}
+                        <tr className='TableItems' key={'Data'}>
+                            <td key={idKey + 'Global Warming'}>{'Global Warming'}</td>
+                            <td key={idKey + 'kg CO2 eq'}>
+                                {'kg CO'}
+                                <sub>2</sub>
+                                {' eq'}{' '}
+                            </td>
+                            <td key={idKey + 'td-c'}>{this.state.rows.get('Total')}</td>
+                            <td key={idKey + 'td-e'}>{this.state.rows.get('Materials')}</td>
+                            <td key={idKey + 'td-b'}>
+                                {this.state.rows.get('Manufacturing and Transportation')}
+                            </td>
+                            <td key={idKey + 'td-g'}>{this.state.rows.get('Operation')}</td>
+                            <td key={idKey + 'td-h'}>{this.state.rows.get('End of life')}</td>
+                        </tr>
                     </tbody>
                 </table>
             </Container>
@@ -48,7 +52,7 @@ class TableComponent extends Component {
 export default TableComponent;
 
 TableComponent.propTypes = {
-    modelId: PropTypes.string.isRequired,
+    modelID: PropTypes.string.isRequired,
     modelName: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
     tableKey: PropTypes.string.isRequired
