@@ -1,18 +1,18 @@
-import React from 'react';
+import { React } from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { getImpactAssessmentData, getLifeCycleStages } from 'interface/projectInterface';
+import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterface';
 
 /**
  * Column Chart
- *
- * @author Julian Oelhaf
+ * Recieves the data from projectInterface.js using "getColumnChartData()"
+ * populates the data ito the column chart in Details Page.
  */
 const ColumnChartComponent = () => {
+    const values = getColumnChartData();
     const series = [
         {
             name: 'Global warming in kg CO2 equivalents',
-            // TODO: this data needs to be recieved from backend
-            data: getImpactAssessmentData()
+            data: values
         }
     ];
 
@@ -68,7 +68,7 @@ const ColumnChartComponent = () => {
             },
             responsive: [
                 {
-                    breakpoint: 300,
+                    breakpoint: 6400,
                     options: {
                         chart: {
                             width: 500

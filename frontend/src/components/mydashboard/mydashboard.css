@@ -1,0 +1,149 @@
+.MydashboardContainer {
+    background-color: #ffffff;
+    /* border:0.5px solid #00b300; */
+    border-color: #00b300;
+    border-radius: 4px;
+    cursor: 'pointer';
+    min-width: 360;
+    max-width: 450;
+    min-height: 500px;
+    max-height: 500px;
+    margin-top: 10px;
+    position: fixed;
+
+}
+
+.FavCardsContainer {
+    background-color: #ffffff;
+    /* border:0.5px solid #00b300; */
+    border-radius: 4px;
+    cursor: 'pointer';
+    min-width: 360;
+    max-width: 450;
+    min-height: 500px;
+    max-height: 500px;
+    margin-top: 10px;
+    position: fixed;
+    overflow-y: visible;
+    overflow-y: scroll;
+} /* Make images easier to work with */
+.img {
+    max-width: 100%;
+    display: block;
+}
+.ProjectsCardsContainer {
+    background-color: #ffffff;
+    /* border:0.5px solid #00b300; */
+    border-radius: 4px;
+    cursor: 'pointer';
+    min-width: 360;
+    max-width: 450;
+    min-height: 500px;
+    max-height: 450px;
+    margin-top: 10px;
+    margin-bottom:10px; 
+    position: fixed;
+    overflow-y: visible;
+    overflow-y: scroll;
+}
+
+.star {
+    float: right;
+    color: var(--global--button--text--color);
+    text-decoration: none;
+    font-size: 24px;
+    border-style: none;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.dashboardCardSubTitle i{
+    font-size: 10px;
+}
+
+.dashboardCardSubTitle{
+
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize)-2;
+    letter-spacing: 0.5px;
+    color: #643082;
+    margin-bottom: 10px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+
+
+
+}
+.dashboardTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize);
+    letter-spacing: 0.5px;
+    color: #643082;
+    margin-bottom: 10px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+}
+.dashboardCardSubTitle p{
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: var(--global--text--color);
+
+}
+
+.dashboardTitle i {
+    margin-right: 5px;
+    margin-left: 0px;
+}
+
+.favIcon {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    /* color: var(--global--panel--color); */
+    background-color: var(--global--background--color);
+    color: var(--global--button--text--color);
+    text-decoration: none;
+    font-size: 22px;
+    text-align: right; /* If you want the text to be centered */
+    border-style: none;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.Collapsible :hover{
+
+    cursor: pointer;
+    color:#643082;
+
+}
+.active,
+.collapsible:hover {
+    background-color: #ccc;
+}
+
+/* Style the collapsible content*/
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+.alice-carousel ul li img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}

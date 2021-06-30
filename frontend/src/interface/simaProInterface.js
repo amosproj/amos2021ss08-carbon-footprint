@@ -19,9 +19,11 @@ export async function getCategorizedProducts(scope = 'All') {
     // We need to be able to get either all products from the backend, or only the Products of a selected Category
     // e.g. '/generation/products'; '/transmission/services'; 'industrialApplications/solutions'
     // The expected Product has a unique productID, a productName and an imagePath (if any)
+    // TODO: IMPROVE!
     if (scope === 'All') {
         return await getSimaProducts();
     } else if (scope === 'solutions') {
+        console.log("solutions");
         return getDummyProducts();
     } else {
         return await getSimaProducts();
@@ -110,7 +112,6 @@ function getDummyProducts() {
 export async function getSimaProducts() {
     const products = await getSimaProProjects();
     let formattedProducts = [];
-    console.log(products);
     await products.forEach((product) => {
         const productObject = {
             productID: product.Id,
