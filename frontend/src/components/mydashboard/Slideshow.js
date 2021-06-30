@@ -4,13 +4,14 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import IndustrialImage from 'assets/dummyImages/Industrialapplications.jpg';
 import PowerGeneration from 'assets/dummyImages/powerGeneration.jpg';
 import PowerTransmission from 'assets/dummyImages/powerTransmission.jpg';
-//import './mydashboard.css';
+import Dashboard1 from 'assets/logo/DashboardImage1.PNG';
+import Dashboard2 from 'assets/logo/DashboardImage2.jpg';
 
 export default class Slideshow extends Component {
     constructor(props, context) {
         super();
         this.state = {
-            images: [IndustrialImage, PowerGeneration, PowerTransmission]
+            images: [Dashboard1, IndustrialImage, PowerGeneration, PowerTransmission]
         };
     }
     getData() {
@@ -26,7 +27,9 @@ export default class Slideshow extends Component {
 
     render() {
         const items = [
-            <img alt='' src= {PowerTransmission}/>,
+            <img alt='' src={Dashboard1} />,
+            <img alt='' src={Dashboard2} />,
+            <img alt='' src={PowerTransmission} />,
             <img alt='' src={IndustrialImage} />,
             <img alt='' src={PowerGeneration} />
         ];
