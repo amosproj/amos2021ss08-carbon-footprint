@@ -6,10 +6,29 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 460px;
+    max-height: 460px;
     margin-top: 10px;
     position: fixed;
+
+}
+
+.ChartsCardsContainer{
+    background-color: #ffffff;
+    /* border:0.5px solid #00b300; */
+    border-radius: 4px;
+    cursor: 'pointer';
+    min-width: 360;
+    max-width: 450;
+    min-height: 450px;
+    max-height: 450px;
+    margin-top: 10px;
+    margin-bottom:10px; 
+    position: fixed;
+    overflow-y: visible;
+    overflow-y: scroll;
+
+
 
 }
 
@@ -20,8 +39,8 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 350px;
+    max-height: 350px;
     margin-top: 10px;
     position: fixed;
     overflow-y: visible;
@@ -38,8 +57,8 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 500px;
-    max-height: 450px;
+    min-height: 350px;
+    max-height: 350px;
     margin-top: 10px;
     margin-bottom:10px; 
     position: fixed;
@@ -48,14 +67,23 @@
 }
 
 .star {
-    float: right;
+    float: left;
     color: var(--global--button--text--color);
     text-decoration: none;
     font-size: 24px;
     border-style: none;
     cursor: pointer;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0px;
+
+}
+.star p{
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: var(--global--text--color);
+
 }
 .dashboardCardSubTitle i{
     font-size: 10px;

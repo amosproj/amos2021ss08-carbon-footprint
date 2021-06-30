@@ -5,6 +5,7 @@ import PieChartComponent from 'components/details/PieChartComponent';
 import { Col, Container, Row } from 'react-grid-system';
 import Collapsible from 'react-collapsible';
 import Slideshow from './Slideshow';
+import ColumnChartComponent from 'components/details/ColumnChartComponent';
 
 const data = [];
 
@@ -51,8 +52,8 @@ const useStyles = createUseStyles((theme) => ({
     },
     statContainer: {
         borderBottom: `1px solid ${theme.color.lightGrayishBlue2}`,
-        padding: '24px 32px 24px 32px',
-        height: 'calc(114px - 48px)',
+        padding: '0px 32px 24px 32px',
+        height: 'calc(130px - 50px)',
         '&:last-child': {
             border: 'none'
         }
@@ -82,6 +83,15 @@ function MydashboardItemComponent() {
     const theme = useTheme();
     const classes = useStyles({ theme });
 
+    // function renderLegend(color, title) {
+    //     return (
+    //         <Row vertical='center'>
+    //             <div style={{ width: 16, border: '2px solid', borderColor: color }}></div>
+    //             <span className={classes.legendTitle}>{title}</span>
+    //         </Row>
+    //     );
+    // }
+
     function renderStat(title, value) {
         return (
             <Column
@@ -92,9 +102,9 @@ function MydashboardItemComponent() {
             >
                 <div className='star'>
                     <i className='fa fa-star-o' aria-hidden='true' />
-                    <span className='dashboardSubTitle'>{title}</span>
-                    <span className='dashboardText'>{value}</span>
+                    <p>{title}{value}</p>
                 </div>
+
             </Column>
         );
     }
@@ -102,44 +112,30 @@ function MydashboardItemComponent() {
     return (
         <Container>
             <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={6} className='MydashboardContainer'>
+            <Col xs={8} sm={8} md={8} lg={4} className='MydashboardContainer'>
                     <div className='dashboardTitle'>
                         <span>Catagories</span>
                     </div>
                     <Slideshow />
                 </Col>
-
                 <Col xs={2} sm={2} md={2} lg={1} />
+                <Col xs={8} sm={8} md={8} lg={3} className='ChartsCardsContainer'>
 
-                <Col xs={8} sm={8} md={8} lg={4} className='FavCardsContainer'>
-                    <div className='dashboardTitle w3-padding-24'>
-                        <i
-                            className='fa fa-heart'
-                            style={{ color: '#643082' }}
-                            aria-hidden='true'
-                        ></i>
-                        <span>Favorites</span>
-                    </div>
-
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                </Col>
-            </Row>
-            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={6} className='ProjectsCardsContainer'>
                     <div className='dashboardTitle'>
-                        <span>My chart</span>
+                        <span>My charts</span>
                     </div>
                     <PieChartComponent />
-                </Col>
+                </Col>   
                 <Col xs={2} sm={2} md={2} lg={1} />
+                <Col xs={8} sm={8} md={8} lg={3} className='ChartsCardsContainer'>
+                        <div className='dashboardTitle'>
+                            <span>My charts</span>
+                        </div>
+                        <ColumnChartComponent />
+                </Col>
+                
+            </Row>
+            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
                 <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
                     <div className='dashboardTitle w3-padding-24'>
                         <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
@@ -158,10 +154,27 @@ function MydashboardItemComponent() {
                         </Collapsible>
                     </div>
                 </Col>
-            </Row>
-            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={7} />
-                <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
+                <Col xs={2} sm={2} md={2} lg={1} />
+                <Col xs={8} sm={8} md={8} lg={3} className='FavCardsContainer'>
+                    <div className='dashboardTitle w3-padding-24'>
+                        <i className='fa fa-heart' style={{ color: '#643082' }} aria-hidden='true'></i>
+                        <span>Favorites</span>
+                    </div>
+
+                    {renderStat('Fav Project 1', 'Transmission')}
+                    {renderStat('Fav Project 2', 'Generation')}
+                    {renderStat('Fav Project 3', 'Industrial App')}
+                    {renderStat('Fav Project 1', 'Transmission')}
+                    {renderStat('Fav Project 2', 'Generation')}
+                    {renderStat('Fav Project 3', 'Industrial App')}
+                    {renderStat('Fav Project 1', 'Transmission')}
+                    {renderStat('Fav Project 2', 'Generation')}
+                    {renderStat('Fav Project 3', 'Industrial App')}
+
+                </Col>
+                <Col xs={2} sm={2} md={2} lg={1} />
+
+                <Col xs={8} sm={8} md={8} lg={3} className='ProjectsCardsContainer'>
                     <div className=' w3-padding-24'>
                         <div className='dashboardTitle'>
                             <i
@@ -191,7 +204,9 @@ function MydashboardItemComponent() {
                         </Collapsible>
                     </div>
                 </Col>
+               
             </Row>
+
         </Container>
     );
 }
