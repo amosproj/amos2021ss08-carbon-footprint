@@ -7,7 +7,7 @@ import PowerTransmission from 'assets/dummyImages/powerTransmission.jpg';
 import Dashboard1 from 'assets/logo/DashboardImage1.PNG';
 import Dashboard2 from 'assets/logo/DashboardImage2.jpg';
 
-export default class Slideshow extends Component {
+export default class SlideshowComponent extends Component {
     constructor(props, context) {
         super();
         this.state = {

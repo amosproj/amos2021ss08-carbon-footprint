@@ -4,7 +4,7 @@ import { createUseStyles, useTheme } from 'react-jss';
 import PieChartComponent from 'components/details/PieChartComponent';
 import { Col, Container, Row } from 'react-grid-system';
 import Collapsible from 'react-collapsible';
-import Slideshow from './Slideshow';
+import SlideshowComponent from './SlideshowComponent';
 import ColumnChartComponent from 'components/details/ColumnChartComponent';
 
 const data = [];
@@ -118,7 +118,7 @@ function MydashboardItemComponent() {
                     <div className='dashboardTitle'>
                         <span>Latest Trends</span>
                     </div>
-                    <Slideshow />
+                    <SlideshowComponent />
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} />
             </Row>
