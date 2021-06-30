@@ -68,7 +68,7 @@ const ColumnChartComponent = () => {
             },
             responsive: [
                 {
-                    breakpoint: 300,
+                    breakpoint: 6400,
                     options: {
                         chart: {
                             width: 500
