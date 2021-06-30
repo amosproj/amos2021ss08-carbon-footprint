@@ -26,8 +26,8 @@ export default class Slideshow extends Component {
 
     render() {
         const items = [
+            <img alt='' src= {PowerTransmission}/>,
             <img alt='' src={IndustrialImage} />,
-            <img alt='' src={PowerTransmission} />,
             <img alt='' src={PowerGeneration} />
         ];
         return (
