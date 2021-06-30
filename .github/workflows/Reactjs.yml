@@ -11,8 +11,11 @@ on:
 
 jobs:
   buildAndTest:
-    name: Build and Test Frontend
-    runs-on: ubuntu-latest
+    name: Build and Test Frontend on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
     defaults:
       run:
         working-directory: ./frontend

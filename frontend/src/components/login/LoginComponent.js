@@ -48,6 +48,7 @@ function LoginComponent() {
                         <button className='login' type='submit'>
                             Login
                         </button>
+
                         <label>
                             <input type='checkbox' defaultChecked='checked' name='remember' />{' '}
                             Remember me

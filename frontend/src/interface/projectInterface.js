@@ -1,11 +1,21 @@
 /**
  * The projectInterface is the interface between frontend and backend.
  *
- * @author Martin Wagner, Julian Oelhaf
  */
 
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_3 from 'assets/dummyImages/Logo2.png';
+
+var materialCompositionLabels;
+var materialCompositionData;
+let materialDataInPercent;
+var assessmentValues;
+let chartDataInPercent = [];
+
+export function handOverBackendData(data) {
+    console.log('data');
+    console.log(data);
+}
 
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
@@ -29,51 +39,91 @@ export function getModels() {
 }
 
 /**
- * should get the material compositon of a specific model
- * inputs contribibuting less than 1% each, should have been filtered out by Siemens Energy
- * @param modelId id of the model, which we want to get the Data
+ * Gets the filtered Material Composititon Data from API
+ * inputs contribibuting less than 1% each, should have been filtered out processBackendData
+ * Calculates the percentage values and returns them.
+ * @param compositionData filtered data from backendconnnect
  */
-export function getMaterialCompositionData(modelId) {
-    return [17, 13, 3, 2, 1, 42, 21];
-}
-/**
- * @param modelId id of the model, which we want to get the Data
- */
-export function getMaterialCompositionLabels(modelId) {
-    return [
-        'Transformer oil',
-        'Steel',
-        'Pressboard',
-        'Stainless steel',
-        'Aluminium',
-        'Silicon steel',
-        'Copper'
-    ];
+export function setMaterialCompositionData(compositionData) {
+    console.log('compositionData');
+    materialDataInPercent = [];
+    materialCompositionData = Array.from(compositionData);
+    console.log(materialCompositionData);
+    for (let i = 0; i < materialCompositionData.length; i++) {
+        materialDataInPercent[i] = Number(materialCompositionData[i]);
+    }
+    console.log(materialDataInPercent);
 }
 
 /**
- * QUESTON: Do these categories stay the same?
- * Impact Assessment is done for each of the life cycle stage
- * @param modelId id of the model, which we want to get the Data
+ * Getter method to recieve the filtered Material Composititon Data from API
  */
-export function getLifeCycleStages(modelId) {
+export function getMaterialCompositionData() {
+    return materialDataInPercent;
+}
+
+/**
+ * Gets the filtered Material Composititon Labels from API
+ * Calculates the percentage values and returns them.
+ * @param compositionData filtered data from backendconnnect
+ */
+export function setMaterialCompositionLabels(compositionLabels) {
+    materialCompositionLabels = Array.from(compositionLabels);
+    console.log(materialCompositionLabels);
+}
+
+/**
+ * Getter method to recieve the filtered Material Composititon Labels from API
+ */
+export function getMaterialCompositionLabels() {
+    return materialCompositionLabels;
+}
+
+/**
+ * Gets the Life Cycle Stages filtered from API
+ * Impact Assessment is done for each of the life cycle stage
+ * @param modelID id of the model, which we want to get the Data
+ */
+export function getLifeCycleStages(modelID) {
     return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
 }
 
 /**
- * Impact Assessment is done for each life cycle stage
- * QUESTION: amount of stages fixed?
- * @param modelId id of the model, which we want to get the Data
+ * Gets the Impact Assessment Data filtered from API
+ * Impact Assessment is done for each of the life cycle stage
+ * @param assessmentData recieved from Backendconnect
  */
-export function getImpactAssessmentData(modelId) {
-    return [37, 3, 90, -50];
+export function setImpactAssessmentData(assessmentData) {
+    assessmentValues = assessmentData;
 }
 
 /**
- * * QUESTION: life cycle stages fixed?
- * @param modelId id of the model, for which we want to get the Data
+ * Getter method to recieve the filtered Impact Assessment Data from API
  */
-export function getImpactCategoriesTableHeaders(modelId) {
+export function getImpactAssessmentData() {
+    return assessmentValues;
+}
+
+/**
+ * Gets the Impact Assessment Data filtered from API
+ * Impact Assessment is done for each of the life cycle stage
+ * Percentage is calulated
+ * @param assessmentData recieved from Backendconnect
+ */
+export function setColumnChartData(assessmentDataInPercent) {
+    chartDataInPercent = assessmentDataInPercent;
+}
+/**
+ * Getter method to recieve the filtered Impact Assessment Data from API
+ */
+export function getColumnChartData() {
+    return chartDataInPercent;
+}
+/**
+ * * QUESTION: life cycle stages fixed?
+ * @param modelID id of the model, for which we want to get the Data
+ */
+export function getImpactCategoriesTableHeaders(modelID) {
     return [
         { key: 'header-1', value: 'Impact Category' },
         { key: 'header-2', value: 'Unit' },
@@ -85,71 +135,10 @@ export function getImpactCategoriesTableHeaders(modelId) {
     ];
 }
 /**
- * QUESTION: how is the data structured?
- * Do we need to extract the data from a data structure?
- * @param modelId id of the model, for which we want to get the Data
+ * Gets the Impact Categories Table Data filtered from API
+ * Impact Assessment is done for each of the life cycle stage
+ * @param assessmentData recieved from Backendconnect and filtered here
  */
-export function getImpactCategoriesTableData(modelId) {
-    return [
-        {
-            key: 'row-1',
-            impactCategory: 'Global Warming',
-            unit: 'kg CO2 eq',
-            total: '2,350,811',
-            materialsLPT: '874,356',
-            manufacturing: '71,532',
-            operations: '2,114,344',
-            endOfLife: '-790,420'
-        },
-        {
-            key: 'row-2',
-            impactCategory: 'Ozon layer depletion',
-            unit: 'kg CFC-11 eq',
-            total: '12',
-            materialsLPT: '0',
-            manufacturing: '0',
-            operations: '12',
-            endOfLife: '0'
-        },
-        {
-            key: 'row-3',
-            impactCategory: 'Photochemical oxidant formation (POCP)',
-            unit: 'kg C2H4 eq',
-            total: '2,350,811',
-            materialsLPT: '874,356',
-            manufacturing: '71,532',
-            operations: '2,114,344',
-            endOfLife: '-332'
-        },
-        {
-            key: 'row-4',
-            impactCategory: 'Acidification',
-            unit: 'kg SO2 eq',
-            total: '12',
-            materialsLPT: '0',
-            manufacturing: '0',
-            operations: '12',
-            endOfLife: '12,159'
-        },
-        {
-            key: 'row-5',
-            impactCategory: 'Eutrophication',
-            unit: 'kg PO4 eq',
-            total: '12',
-            materialsLPT: '0',
-            manufacturing: '0',
-            operations: '12',
-            endOfLife: '–5,016'
-        },
-        {
-            key: 'row-6',
-            impactCategory: 'Nonrenewable energy',
-            unit: 'MJ eq',
-            total: '2,781,500,619',
-            materialsLPT: '14,672,424',
-            manufacturing: '1,454,845',
-            operations: '2,774,610,300',
-            endOfLife: '–9,236,950'
-        }
-    ];
+export function getImpactCategoriesTableData() {
+    return assessmentValues;
 }

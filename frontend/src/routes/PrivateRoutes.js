@@ -20,7 +20,8 @@ const ProductSolutionsServices = lazy(() =>
     import('./dynamicPaths/ProductSolutionsServicesComponent')
 );
 // importing required components
-const DashboardComponent = lazy(() => import('../components/dashboard'));
+//const DashboardComponent = lazy(() => import('../components/dashboard'));
+const mydashboardComponent = lazy(() => import('../components/mydashboard/MydashboardComponent'));
 
 /**
  * Defining new Routes using private routes function
@@ -34,7 +35,7 @@ function PrivateRoutes() {
         <Router history={useHistory()}>
             <Suspense fallback={<LoadingComponent loading />}>
                 <Switch>
-                    <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
+                    <Route exact path={SLUGS.dashboard} component={mydashboardComponent} />
 
                     <Route exact path={SLUGS.categories} component={CategoryIndex} />
                     <Route exact path={SLUGS.generation} component={GenerationInfo} />
