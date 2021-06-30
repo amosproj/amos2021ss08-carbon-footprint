@@ -93,7 +93,7 @@ export async function postCalculationRequestCustomSetup(projectId, processId, pr
     //     const items = data;
     //     calcId = items.data.Result.CalculationId;
     // });
-    console.log('RESULT!!!!!!2');
+    console.log('RESULT of the SimaPro/api/calculation/${projectId} call ');
     console.log(result);
     return result;
 }
