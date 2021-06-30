@@ -1,7 +1,6 @@
 import React from 'react';
 import { Column } from 'simple-flexbox';
 import { createUseStyles, useTheme } from 'react-jss';
-import LineChart from 'react-svg-line-chart';
 import PieChartComponent from 'components/details/PieChartComponent';
 import { Col, Container, Row } from 'react-grid-system';
 import Collapsible from 'react-collapsible';
@@ -143,7 +142,6 @@ function MydashboardItemComponent() {
                                 <p>This is the collapsible content.</p>
                             </div>
                         </Collapsible>
-
                     </div>
                 </Col>
             </Row>
@@ -208,7 +206,6 @@ function MydashboardItemComponent() {
                 </Col>
             </Row>
         </Container>
-
     );
 }
 

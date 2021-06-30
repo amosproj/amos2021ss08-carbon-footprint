@@ -1,11 +1,8 @@
 import React from 'react';
-import { Column, Row } from 'simple-flexbox';
+import { Column } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
-import MiniCardComponent from 'components/cards/MiniCardComponent';
 import MydashboardItemComponent from './MydashboardItemComponent';
-import UnresolvedTicketsComponent from 'components/dashboard/UnresolvedTicketsComponent';
 import { Container } from 'react-grid-system';
-import CardComponent from 'components/cards/CardComponent';
 
 const useStyles = createUseStyles({
     cardsContainer: {

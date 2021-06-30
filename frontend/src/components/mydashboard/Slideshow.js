@@ -1,43 +1,39 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import IndustrialImage from 'assets/dummyImages/Industrialapplications.jpg';
+import PowerGeneration from 'assets/dummyImages/powerGeneration.jpg';
+import PowerTransmission from 'assets/dummyImages/powerTransmission.jpg';
 //import './mydashboard.css';
 
 export default class Slideshow extends Component {
     constructor(props, context) {
-        super(props, context);
+        super();
         this.state = {
-            galleryItems: []
+            images: [IndustrialImage, PowerGeneration, PowerTransmission]
         };
     }
     getData() {
-        axios
-            .get(`https://picsum.photos/v2/list?limit=6`, {})
-            .then((res) => {
-                const data = res.data;
-                const img = data.map((m) => <img src={m.download_url} alt='' />);
-                this.setState({
-                    galleryItems: img
-                });
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        const img = this.state.images.map((m) => <img src={m} alt='' />);
     }
     responsive = {
         0: { items: 1 },
-        1024: { items: 2 }
+        1024: { items: 1 }
     };
     componentDidMount() {
         this.getData();
     }
 
     render() {
+        const items = [
+            <img alt='' src={IndustrialImage} />,
+            <img alt='' src={PowerTransmission} />,
+            <img alt='' src={PowerGeneration} />
+        ];
         return (
             <div>
                 <AliceCarousel
-                    items={this.state.galleryItems}
+                    items={items}
                     responsive={this.responsive}
                     autoPlayInterval={2000}
                     autoPlayDirection='rtl'
