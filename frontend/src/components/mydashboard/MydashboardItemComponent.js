@@ -209,10 +209,23 @@ function MydashboardItemComponent() {
                 <ColumnChartComponent />
             </Col>
             <footer className='w3-center w3-purple w3-padding-16'>
+                <p>For latest Updates</p>
+                <form className='form-inline w3-padding-16'>
+                    Subscribe :
+                    <input
+                        type='email'
+                        className='form-control'
+                        size={50}
+                        placeholder='Email Address'
+                    />
+                    <button type='button'>Sign Up</button>
+                </form>
+
                 <p>
                     Powered by{' '}
                     <a
                         href='https://www.siemens-energy.com/global/en/offerings.html'
+                        rel='noreferrer'
                         title='W3.CSS'
                         target='_blank'
                         className='w3-hover-text-green'
