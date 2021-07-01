@@ -3,7 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 export const industrialApplicationsSlice = createSlice({
     name: 'industralApplications',
     initialState: {
-        data: []
+        data: [],
+        products: [],
+        solutions: [],
+        services: []
     },
     reducers: {
         processingIndustrialApplications: (state, action) => {

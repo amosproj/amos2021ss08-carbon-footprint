@@ -3,7 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 export const generationSlice = createSlice({
     name: 'generation',
     initialState: {
-        data: []
+        data: [],
+        products: [],
+        solutions: [],
+        services: []
     },
     reducers: {
         processingGeneration: (state, action) => {
