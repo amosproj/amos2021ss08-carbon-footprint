@@ -20,7 +20,7 @@ import { loadProjects } from 'store/actions/productAction';
  * @returns the product and model properties
  */
 
-function ProductGridComponent({ selectedCategory }) {
+function ProductGridComponent({ selectedCategory, selectedType }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList] = useState([]);
     const products = useSelector((state) => state.products.data);
@@ -31,7 +31,7 @@ function ProductGridComponent({ selectedCategory }) {
      * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
      */
     useEffect(() => {
-        dispatch(loadProjects(selectedCategory));
+        dispatch(loadProjects(selectedCategory, selectedType));
     }, [selectedCategory, dispatch]);
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
@@ -112,7 +112,8 @@ function ProductGridComponent({ selectedCategory }) {
 }
 
 ProductGridComponent.propTypes = {
-    selectedCategory: PropTypes.string.isRequired
+    selectedCategory: PropTypes.string.isRequired,
+    selectedType: PropTypes.string.isRequired
 };
 
 export default ProductGridComponent;

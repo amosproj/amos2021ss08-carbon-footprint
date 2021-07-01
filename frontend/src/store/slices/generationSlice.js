@@ -6,7 +6,7 @@ export const generationSlice = createSlice({
         data: []
     },
     reducers: {
-        processingProducts: (state, action) => {
+        processingGeneration: (state, action) => {
             state.data = [...action.payload];
         }
     }

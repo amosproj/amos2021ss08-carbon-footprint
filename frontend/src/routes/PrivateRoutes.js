@@ -48,15 +48,15 @@ function PrivateRoutes() {
 
                     <Route
                         path={SLUGS.generation + '/:type'}
-                        component={ProductSolutionsServices}
+                        component={ProductSolutionsServices({ category: 'generation' })}
                     />
                     <Route
                         path={SLUGS.transmission + '/:type'}
-                        component={ProductSolutionsServices}
+                        component={ProductSolutionsServices({ category: 'transmission' })}
                     />
                     <Route
                         path={SLUGS.industrialApplications + '/:type'}
-                        component={ProductSolutionsServices}
+                        component={ProductSolutionsServices({ category: 'industrialApplications' })}
                     />
 
                     <Route

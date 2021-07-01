@@ -9,8 +9,8 @@ import ProductGridComponent from 'components/productGrid';
  * @returns Three different lines of text, depending on the `:type` parameter used in routes/PrivateRoutes.js
  * @author Martin Wagner
  */
-export default function ProductSolutionsServicesComponent() {
+export default function ProductSolutionsServicesComponent({ category }) {
     const { type } = useParams();
 
-    return <ProductGridComponent selectedCategory={type} />;
+    return <ProductGridComponent selectedCategory={category} selectedType={type} />;
 }
