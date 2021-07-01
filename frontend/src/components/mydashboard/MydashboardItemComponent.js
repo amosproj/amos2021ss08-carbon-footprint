@@ -208,6 +208,19 @@ function MydashboardItemComponent() {
                 </div>
                 <ColumnChartComponent />
             </Col>
+            <footer className='w3-center w3-purple w3-padding-16'>
+                <p>
+                    Powered by{' '}
+                    <a
+                        href='https://www.siemens-energy.com/global/en/offerings.html'
+                        title='W3.CSS'
+                        target='_blank'
+                        className='w3-hover-text-green'
+                    >
+                        Siemens
+                    </a>
+                </p>
+            </footer>
         </Container>
     );
 }
