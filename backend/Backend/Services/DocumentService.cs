@@ -33,6 +33,7 @@ namespace Backend.Services
             }
 
             unzipPath.ZipDOCX(@"Templates\template-modified.docx");
+            Directory.Delete(@"Templates\template-docx",true);
             return @"Templates\template-modified.docx";
 
             //List<Image> images = new List<Image>() {

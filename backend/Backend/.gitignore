@@ -6,6 +6,7 @@
 secrets.json
 Templates/template-docx
 Templates/template-modified.docx
+Templates/jpegsample.jpg
 
 # User-specific files
 *.rsuser

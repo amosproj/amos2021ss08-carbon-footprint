@@ -43,6 +43,7 @@ namespace Backend.Controllers
                 Inline = false
             };
 
+            System.IO.File.Delete(filepath);
             Response.Headers.Add("Content-Disposition", cd.ToString());
             Response.Headers.Add("Access-Control-Expose-Headers", "*");
             //Response.Headers.Add("Content-Transfer-Encoding", "Binary");
