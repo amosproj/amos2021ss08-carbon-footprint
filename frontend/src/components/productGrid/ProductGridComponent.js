@@ -32,7 +32,7 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
      */
     useEffect(() => {
         dispatch(loadProjects(selectedCategory, selectedType));
-    }, [selectedCategory, dispatch]);
+    }, [selectedCategory, selectedType, dispatch]);
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
     const newSelectedProducts = [
