@@ -8,7 +8,6 @@
 import logo from 'assets/logo/LogoCarbonteam.png';
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_2 from 'assets/dummyImages/Logo2.png';
-import { categories } from './categories';
 import { getSimaProProjects } from 'interface/BackendConnect';
 import { projectCategoryProcessing, projetNameProcessing } from './processBackendData';
 
@@ -72,33 +71,38 @@ function getDummyProducts() {
     // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes?
     const products = [
         {
-            productID: '09f64eeb-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Electric Motors', //final_process_name? -> probably rather the project name later. But unclear!
-            categories: [categories.generation, categories.transmission],
+            Id: '09f64eeb-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Electric Motors#ID:09f64eeb-13b0-4e09-9fb4-50398483ecfd#Scenario:scenario_baseline',
+            description:
+                'Categorie:Generation/Product#Model:09f64eeb-13b0-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo
         },
         {
-            productID: 'aufwlc93-kldp-4fer-15s7-51245631fega', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Motors Type XYZb', //final_process_name?
-            categories: [categories.transmission],
+            Id: 'aufwlc93-kldp-4fer-15s7-51245631fega', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Electric Motors#ID:aufwlc93-kldp-4fer-15s7-51245631fega#Scenario:scenario_scemarop 1', //final_process_name?
+            description:
+                'Categorie:Generation/Product#Model:09f64eeb-13b0-4e09-9fb4-503984f3ecfd#Location:Germany',
             productImage: logo_1
         },
         {
-            productID: '7ghnaoeb-kfue-qp04-slfg-12059492begp', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Transformers', //final_process_name?
-            categories: [categories.transmission],
+            Id: '7ghnaoeb-kfue-qp04-slfg-12059492begp', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Wireless Power Transmittor#ID:7ghnaoeb-kfue-qp04-slfg-12059492begp#Scenario:scenario_baseline',
+            description:
+                'Categorie:Transmission/Product#Model:09f64eeb-12f0-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo_2
         },
         {
-            productID: 'whatis00-this-id00-just-d01n9352rnow', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Gas Turbines', //final_process_name?
-            categories: [categories.generation],
+            Id: 'whatis00-this-id00-just-d01n9352rnow', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Gas Turbine#ID:whatis00-this-id00-just-d01n9352rnow#Scenario:scenario_baseline',
+            description:
+                'Categorie:Generation/Product#Model:09f64eeb-12f0-4e09-9fb4-50395583ecfd#Location:Germany',
             productImage: logo
         },
         {
-            productID: 'aufglc25-kldd-4ger-16s2-51002631fell', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Allround Product', //final_process_name?
-            categories: [categories.transmission, categories.generation],
+            Id: 'aufglc25-kldd-4ger-16s2-51002631fell', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Alround Product#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_baseline',
+            description:
+                'Categorie:Generation/Product#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo_1
         }
     ];
