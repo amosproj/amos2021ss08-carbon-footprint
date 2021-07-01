@@ -14,6 +14,7 @@ import {
     projectNameProcessing as projectNameProcessing
 } from './processBackendData';
 
+let useDummyData = true;
 /**
  * should get all the Products from the backend (soon)
  * @returns
@@ -115,7 +116,12 @@ function getDummyProductData() {
  *This function filters out all the products obtained from API
  */
 export async function getSimaProducts() {
-    let products = await getSimaProProjects();
+    let products;
+    if (!useDummyData) {
+        products = await getSimaProProjects();
+    } else {
+        products = getDummyProductData();
+    }
     let formattedProducts = [];
     await products.forEach((product) => {
         let description = product.Description;
@@ -132,24 +138,7 @@ export async function getSimaProducts() {
     console.log(formattedProducts);
     return formattedProducts;
 }
-export function getDummyProducts() {
-    let products = getDummyProductData();
-    let formattedProducts = [];
-    products.forEach((product) => {
-        let description = product.Description;
-        if (description != null && description.split(/[#,:,/]/).includes('Product')) {
-            const productObject = {
-                productID: product.Id,
-                productName: projectNameProcessing(product.Name),
-                categories: projectCategoryProcessing(product.Description),
-                productImage: logo
-            };
-            formattedProducts.push(productObject);
-        }
-    });
-    console.log(formattedProducts);
-    return formattedProducts;
-}
+
 /**
  * Reducing the SimaPro projects to Solutions.
  * The segrigation is based on the comment mentioned in the SimaPro application
