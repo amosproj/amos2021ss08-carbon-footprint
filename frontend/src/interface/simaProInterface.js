@@ -107,9 +107,44 @@ function getDummyProductData() {
         },
         {
             Id: 'aufglc25-kldd-4ger-16s2-5100Julian00', //(project_id?) final_process_id? (final_product_id?)
-            Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-5100Julian00#Scenario:scenario_baseline',
+            Name: 'Super Product#ID:aufglc25-kldd-4ger-16s2-5100Julian00#Scenario:scenario_baseline',
             Description:
-                'Categorie:Generation/Service#Model:09f64eeb-1234-4321-9fb4-50398483ecfd#Location:Germany',
+                'Categorie:Generation/Product#Model:09f64eeb-1234-4321-9fb4-50398483ecfd#Location:Germany',
+            productImage: logo_1
+        },
+        {
+            Id: 'aufglc25-kldd-4ger-16s2-5100sai00', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Product#ID:aufglc25-kldd-4ger-16s2-5100Julian00#Scenario:scenario_1',
+            Description:
+                'Categorie:Generation/Product#Model:09f64eeb-1234-4321-9fb4-50398483ecfd#Location:Germany',
+            productImage: logo_1
+        },
+        {
+            Id: 'aufglc25-kldd-4ger-16s2-51002631jell', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_baseline',
+            Description:
+                'Categorie:Generation/Service#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
+            productImage: logo_1
+        },
+        {
+            Id: 'aufglc25-kldd-4ger-16s2-51002631gell', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_1',
+            Description:
+                'Categorie:Generation/Service#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
+            productImage: logo_1
+        },
+        {
+            Id: 'aufglc25-kldd-4ger-16s2-51002631bell', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Solution#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_baseline',
+            Description:
+                'Categorie:Generation/Solution#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
+            productImage: logo_1
+        },
+        {
+            Id: 'aufglc25-kldd-4ger-16s2-51002631kell', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Solution#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_1',
+            Description:
+                'Categorie:Generation/Solution#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo_1
         }
     ];
