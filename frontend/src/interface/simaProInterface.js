@@ -132,6 +132,14 @@ export async function getSimaProducts() {
                 categories: projectCategoryProcessing(product.Description),
                 productImage: logo
             };
+            if (useDummyData) {
+                productObject = {
+                    productID: product.Id,
+                    productName: projectNameProcessing(product.Name),
+                    categories: projectCategoryProcessing(product.Description),
+                    productImage: productImage
+                };
+            }
             formattedProducts.push(productObject);
         }
     });
