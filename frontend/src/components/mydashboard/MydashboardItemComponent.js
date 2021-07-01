@@ -209,7 +209,7 @@ function MydashboardItemComponent() {
             </Row>
             <Row horizontal='space-between' style={{ padding: 0, margin: 0 }}  breakpoints={{ 1024: 'column' }}>
                 <div className='ContactContainer'>
-                    <footer className='w3-center w3-purple w3-padding-16'>
+                    <footer className='w3-center w3-padding-16' >
                         <p>For latest Updates</p>
                         <form className='form-inline w3-padding-16'>
                             Subscribe :
@@ -219,7 +219,7 @@ function MydashboardItemComponent() {
                                 size={50}
                                 placeholder='Email Address'
                             />
-                            <button type='button'>Sign Up</button>
+                            <button type='button' className='SignUp'>Sign Up</button>
                         </form>
 
                         <p>

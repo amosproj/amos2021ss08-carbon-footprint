@@ -45,14 +45,28 @@
     height: 15%;
     width: 80%;
     position: fixed;
+    background-color: #643082;
     justify-content: first baseline;
+    color: #ffffff;
 }
 
 .ContactContainer p{
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
+    color: #ffffff;
     font-size: var(--global--text-title--FontSize)-8;
+}
+
+.SignUp {
+    background-color: #ad65dd;
+    color: white;
+    border-color:#ad65dd;
+}
+.SignUp:hover {
+    opacity: 0.8;
+    background-color: #bc79fa !important;
+    color: white !important;
 }
 
 .star {
