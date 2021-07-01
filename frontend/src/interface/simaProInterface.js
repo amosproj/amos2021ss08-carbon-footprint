@@ -5,8 +5,6 @@
  */
 
 import logo from 'assets/logo/LogoCarbonteam.png';
-import logo_1 from 'assets/dummyImages/Image_1.PNG';
-import logo_2 from 'assets/dummyImages/Logo2.png';
 import { getSimaProProjects } from 'interface/BackendConnect';
 import { projectCategoryProcessing, projectNameProcessing } from './processBackendData';
 import { getDummyProductData } from 'assets/dummyData/dummyData';

@@ -1,3 +1,7 @@
+import logo from 'assets/logo/LogoCarbonteam.png';
+import logo_1 from 'assets/dummyImages/Image_1.PNG';
+import logo_2 from 'assets/dummyImages/Logo2.png';
+
 export function getDummyProductData() {
     // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes?
     const products = [
