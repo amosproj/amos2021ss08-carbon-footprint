@@ -104,6 +104,13 @@ function getDummyProductData() {
             Description:
                 'Categorie:Generation/Product#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo_1
+        },
+        {
+            Id: 'aufglc25-kldd-4ger-16s2-5100Julian00', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-5100Julian00#Scenario:scenario_baseline',
+            Description:
+                'Categorie:Generation/Service#Model:09f64eeb-1234-4321-9fb4-50398483ecfd#Location:Germany',
+            productImage: logo_1
         }
     ];
     return products;
@@ -124,81 +131,47 @@ export async function getSimaProducts() {
         products = getDummyProductData();
     }
     let formattedProducts = [];
+
+    // Format all the SimaPro Products in a way where we can work with them
     products.forEach((product) => {
         let description = product.Description;
-        if (description != null && description.split(/[#,:,/]/).includes('Product')) {
+        let splittedString = description.split(/[#,:,/]/);
+
+        if (description === null) {
+        } else {
+            let productSolutionService;
+
+            switch (splittedString) {
+                case splittedString.includes('Product'):
+                    productSolutionService = 'Product';
+                    break;
+                case splittedString.includes('Solution'):
+                    productSolutionService = 'Solution';
+                    break;
+                case splittedString.includes('Service'):
+                    productSolutionService = 'Service';
+                    break;
+                default:
+                    productSolutionService = '';
+                    break;
+            }
+
             let productObject = {
                 productID: product.Id,
                 productName: projectNameProcessing(product.Name),
                 categories: projectCategoryProcessing(product.Description),
-                productImage: logo
+                productImage: useDummyData ? product.productImage : logo,
+                type: productSolutionService
             };
-            if (useDummyData) {
-                productObject = {
-                    productID: product.Id,
-                    productName: projectNameProcessing(product.Name),
-                    categories: projectCategoryProcessing(product.Description),
-                    productImage: product.productImage
-                };
-            }
+
             formattedProducts.push(productObject);
         }
     });
     console.log(formattedProducts);
-    return formattedProducts;
-}
 
-/**
- * Reducing the SimaPro projects to Solutions.
- * The segrigation is based on the comment mentioned in the SimaPro application
- * Further split the products based on the category
- * sample comment: "Categorie:[Generation/Transmission/IndustrialApplication]/[Solutions/Product/Services]#Model:ModelId#Location:loaction"
- *This function filters out all the solutions obtained from API
- */
-//ToDo need make the Solutions page call this. As of now I am getting some errors when calling this function instead of dummy products.
-export async function getSimaProSolutions() {
-    let solutions = await getSimaProProjects();
-    let formattedSolutions = [];
-    solutions.forEach((solution) => {
-        let description = solution.Description;
-        if (description != null && description.split(/[#,:,/]/).includes('Solutions')) {
-            const solutionObject = {
-                productID: solution.Id,
-                productName: solution.Name,
-                //categories: [categories.generation, categories.transmission],
-                categories: projectCategoryProcessing(solution.Description),
-                productImage: logo
-            };
-            formattedSolutions.push(solutionObject);
-        }
-    });
-    console.log(formattedSolutions);
-    return formattedSolutions;
-}
-/**
- * Reducing the SimaPro projects to Services.
- * The segrigation is based on the comment mentioned in the SimaPro application
- * Further split the products based on the category
- * sample comment: "Categorie:[Generation/Transmission/IndustrialApplication]/[Solutions/Product/Services]#Model:ModelId#Location:loaction"
- *This function filters out all the services obtained from API
- */
-//ToDo need make the Services page call this. As of now I am getting some errors when calling this function instead of dummy products.
-export async function getSimaProServices() {
-    let services = await getSimaProProjects();
-    let formattedServices = [];
-    services.forEach((service) => {
-        let description = service.Description;
-        if (description != null && description.split(/[#,:,/]/).includes('Services')) {
-            const serviceObject = {
-                productID: services.Id,
-                productName: services.Name,
-                //categories: [categories.generation, categories.transmission],
-                categories: projectCategoryProcessing(services.Description),
-                productImage: logo
-            };
-            formattedServices.push(serviceObject);
-        }
-    });
-    console.log(formattedServices);
-    return formattedServices;
+    // Now put the formattedProducts where they belong (Store)
+
+    // storeFormattedProducts(formattedProducts);
+
+    return formattedProducts;
 }
