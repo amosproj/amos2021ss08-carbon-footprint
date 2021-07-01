@@ -119,6 +119,39 @@ function MydashboardItemComponent() {
                 </Col>
             </Row>                
             <Row/>
+
+            <Row horizontal='space-between' style={{ padding: 0, marginLeft: 0,marginRight:0 }}  breakpoints={{ 1024: 'column' }}>
+                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
+                    <div className='dashboardTitle w3-padding-24 w3-margin-left'>
+                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
+                        <b>Air Quality 1</b>
+                    </div>
+                </Col>
+                <Col xs={2} sm={2} md={2} lg={1.32} style={{padding:0}}  />
+
+                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
+                    <div className='dashboardTitle w3-padding-24 w3-margin-left'>
+                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
+                        <b>Air Quality 1</b>
+                    </div>
+                </Col>
+                <Col xs={2} sm={2} md={2} lg={1.32} style={{padding:0}}  />
+
+                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
+                    <div className='dashboardTitle w3-padding-24 w3-margin-left'>
+                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
+                        <b>Air Quality 1</b>
+                    </div>
+                </Col>
+                <Col xs={2} sm={2} md={2} lg={1.32} style={{padding:0}}  />
+                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
+                    <div className='dashboardTitle w3-padding-24 w3-margin-left'>
+                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
+                        <b>Air Quality 1</b>
+                    </div>
+                </Col>
+            </Row>
+
             <Row horizontal='space-between' style={{ padding: 0, margin: 0 }}  breakpoints={{ 1024: 'column' }}>
                 <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
                     <div className='dashboardTitle w3-padding-24'>

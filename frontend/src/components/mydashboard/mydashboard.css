@@ -22,10 +22,10 @@
 .MyCardsContainer {
 
     display: flex;
-    margin-top: 20px;
     flex-direction: column;
     background-color: #ffffff;
     cursor: 'pointer';
+    margin-top: 15px;
     min-width: 360;
     max-width: 450;
     min-height: 350px;
@@ -34,6 +34,22 @@
     overflow-y: visible;
     overflow-y: scroll;
     justify-content: first baseline;
+}
+.MyMiniCardsContainer {
+
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 100%);
+    cursor: 'pointer';
+    max-width: 10px;
+    min-height: 450px;
+    max-height: 600px;
+    position: fixed;
+    overflow-y: visible;
+    overflow-y: scroll;
+    justify-content: first baseline;
+    float: right;
 }
 
 .ContactContainer {
