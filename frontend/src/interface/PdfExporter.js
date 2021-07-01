@@ -101,15 +101,13 @@ function sendPdfGeneratorRequest(imgData1, imgData2, imgData3) {
         data: formData,
         headers: {
             'Content-Type': 'multipart/form-data',
-            responseType: 'blob'
-        }
+            Authorization: 'Bearer',
+            'Access-Control-Allow-Origin': 'POST'
+        },
+        responseType: 'arraybuffer'
     }).then((response) => {
         const filename = response.headers['content-disposition'].split('filename=')[1];
-        console.log(response.headers);
-        console.log(response.headers['content-disposition']);
-        const url = window.URL.createObjectURL(
-            new Blob([response.data], { type: response.headers['blob'] })
-        );
+        const url = window.URL.createObjectURL(new File([response.data], filename));
         const link = document.createElement('a');
         link.href = url;
         link.setAttribute('download', filename); //or any other extension
