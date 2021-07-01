@@ -103,7 +103,7 @@ export function projectCategoryProcessing(projectDescription) {
  * This function seperated the Project name and Scenario name for further processing and stores them in scenarios
  * @returns ProjectName for displaying in the ProductGrid Page
  */
-export function projetNameProcessing(projectName) {
+export function projectNameProcessing(projectName) {
     let prjs = projectName.split(/[#,:,/]/);
     console.log('Project Name');
     console.log(prjs);

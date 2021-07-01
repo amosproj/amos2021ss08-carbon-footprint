@@ -2,7 +2,6 @@
  * The simaProInterface is the interface between frontend, backend (and Sima Pro API).
  * It provides the needed utility functions.
  *
- * @author Martin Wagner
  */
 
 import logo from 'assets/logo/LogoCarbonteam.png';
@@ -10,7 +9,10 @@ import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_2 from 'assets/dummyImages/Logo2.png';
 import { categories } from './categories';
 import { getSimaProProjects } from 'interface/BackendConnect';
-import { projectCategoryProcessing, projetNameProcessing } from './processBackendData';
+import {
+    projectCategoryProcessing,
+    projectNameProcessing as projectNameProcessing
+} from './processBackendData';
 
 /**
  * should get all the Products from the backend (soon)
@@ -68,7 +70,7 @@ export function getModels(productName, productID) {
     }
 }
 
-function getDummyProducts() {
+function getDummyProductData() {
     // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes?
     const products = [
         {
@@ -120,7 +122,25 @@ export async function getSimaProducts() {
         if (description != null && description.split(/[#,:,/]/).includes('Product')) {
             const productObject = {
                 productID: product.Id,
-                productName: projetNameProcessing(product.Name),
+                productName: projectNameProcessing(product.Name),
+                categories: projectCategoryProcessing(product.Description),
+                productImage: logo
+            };
+            formattedProducts.push(productObject);
+        }
+    });
+    console.log(formattedProducts);
+    return formattedProducts;
+}
+export function getDummyProducts() {
+    let products = getDummyProductData();
+    let formattedProducts = [];
+    products.forEach((product) => {
+        let description = product.Description;
+        if (description != null && description.split(/[#,:,/]/).includes('Product')) {
+            const productObject = {
+                productID: product.Id,
+                productName: projectNameProcessing(product.Name),
                 categories: projectCategoryProcessing(product.Description),
                 productImage: logo
             };
