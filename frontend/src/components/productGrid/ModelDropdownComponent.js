@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
-import { getModels } from 'interface/simaProInterface';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import LoadingComponent from 'components/loading';
+import { getModels } from 'assets/dummyData/dummyData';
 
 /**
  * This component creates the dropdownboxes for the related products
