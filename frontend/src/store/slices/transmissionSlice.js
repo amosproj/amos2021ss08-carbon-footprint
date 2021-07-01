@@ -3,14 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 export const transmissionSlice = createSlice({
     name: 'transmission',
     initialState: {
-        data: [],
         products: [],
         solutions: [],
         services: []
     },
     reducers: {
         processingTransmission: (state, action) => {
-            state.data = [...action.payload];
+            state.products = [...action.payload.products];
+            state.solutions = [...action.payload.solutions];
+            state.services = [...action.payload.services];
         }
     }
 });

@@ -6,7 +6,6 @@ import {
 } from 'interface/projectInterface';
 import { categories } from './categories';
 
-let scenarios = [];
 /*
  * Function to process the data recieved from the backend
  * Filters the carbon impact data recieved from API.
@@ -105,9 +104,9 @@ export function projectCategoryProcessing(projectDescription) {
  */
 export function projectNameProcessing(projectName) {
     let prjs = projectName.split(/[#,:,/]/);
-    scenarios = {
+    let scenarios = {
         projectName: prjs[0],
         scenarioName: prjs[4]
     };
-    return prjs[0];
+    return scenarios.projectName;
 }

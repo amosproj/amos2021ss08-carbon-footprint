@@ -13,10 +13,12 @@ import { getDummyProductData } from 'assets/dummyData/dummyData';
 let useDummyData = true;
 
 /**
- * should get all the Products from the backend (soon)
- * @returns
+ *
+ * Sorts all projects in as per category and type.
+ *
+ * @returns the sorted projects object
  */
-export async function getCategorizedProducts(scope = 'All') {
+export async function getCategorizedProducts() {
     // We need to be able to get either all products from the backend, or only the Products of a selected Category
     // e.g. '/generation/products'; '/transmission/services'; 'industrialApplications/solutions'
     // The expected Product has a unique productID, a productName and an imagePath (if any)
@@ -40,6 +42,8 @@ export async function getCategorizedProducts(scope = 'All') {
                     case 'Service':
                         productCategoriesAndTypes.transmission.services.push(formattedProduct);
                         break;
+                    default:
+                        break;
                 }
                 break;
             case 'Generation':
@@ -52,6 +56,8 @@ export async function getCategorizedProducts(scope = 'All') {
                         break;
                     case 'Service':
                         productCategoriesAndTypes.generation.services.push(formattedProduct);
+                        break;
+                    default:
                         break;
                 }
                 break;
@@ -71,6 +77,8 @@ export async function getCategorizedProducts(scope = 'All') {
                         productCategoriesAndTypes.industrialApplication.services.push(
                             formattedProduct
                         );
+                        break;
+                    default:
                         break;
                 }
                 break;

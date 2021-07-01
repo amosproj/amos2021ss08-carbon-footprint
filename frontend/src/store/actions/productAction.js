@@ -5,8 +5,14 @@ import { processingTransmission } from 'store/slices/transmissionSlice';
 
 export const loadProjects = (selectedCategory, selectedType) => async (dispatch) => {
     try {
-        await getCategorizedProducts(selectedCategory).then((products) => {
-            dispatch(processingIndustrialApplications(JSON.parse(JSON.stringify(products))));
+        await getCategorizedProducts().then((products) => {
+            dispatch(processingGeneration(JSON.parse(JSON.stringify(products.generation))));
+            dispatch(processingTransmission(JSON.parse(JSON.stringify(products.transmission))));
+            dispatch(
+                processingIndustrialApplications(
+                    JSON.parse(JSON.stringify(products.industrialApplication))
+                )
+            );
         });
     } catch (error) {
         console.warn('loading projects didnt work', error);
