@@ -2,15 +2,18 @@
  * The simaProInterface is the interface between frontend, backend (and Sima Pro API).
  * It provides the needed utility functions.
  *
- * @author Martin Wagner
  */
 
 import logo from 'assets/logo/LogoCarbonteam.png';
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_2 from 'assets/dummyImages/Logo2.png';
 import { getSimaProProjects } from 'interface/BackendConnect';
-import { projectCategoryProcessing, projetNameProcessing } from './processBackendData';
+import {
+    projectCategoryProcessing,
+    projectNameProcessing as projectNameProcessing
+} from './processBackendData';
 
+let useDummyData = true;
 /**
  * should get all the Products from the backend (soon)
  * @returns
@@ -67,7 +70,7 @@ export function getModels(productName, productID) {
     }
 }
 
-function getDummyProducts() {
+function getDummyProductData() {
     // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes?
     const products = [
         {
@@ -117,23 +120,37 @@ function getDummyProducts() {
  *This function filters out all the products obtained from API
  */
 export async function getSimaProducts() {
-    let products = await getSimaProProjects();
+    let products;
+    if (!useDummyData) {
+        products = await getSimaProProjects();
+    } else {
+        products = getDummyProductData();
+    }
     let formattedProducts = [];
     await products.forEach((product) => {
         let description = product.Description;
         if (description != null && description.split(/[#,:,/]/).includes('Product')) {
             const productObject = {
                 productID: product.Id,
-                productName: projetNameProcessing(product.Name),
+                productName: projectNameProcessing(product.Name),
                 categories: projectCategoryProcessing(product.Description),
                 productImage: logo
             };
+            if (useDummyData) {
+                productObject = {
+                    productID: product.Id,
+                    productName: projectNameProcessing(product.Name),
+                    categories: projectCategoryProcessing(product.Description),
+                    productImage: productImage
+                };
+            }
             formattedProducts.push(productObject);
         }
     });
     console.log(formattedProducts);
     return formattedProducts;
 }
+
 /**
  * Reducing the SimaPro projects to Solutions.
  * The segrigation is based on the comment mentioned in the SimaPro application
