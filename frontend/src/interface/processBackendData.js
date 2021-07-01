@@ -105,12 +105,9 @@ export function projectCategoryProcessing(projectDescription) {
  */
 export function projectNameProcessing(projectName) {
     let prjs = projectName.split(/[#,:,/]/);
-    console.log('Project Name');
-    console.log(prjs);
     scenarios = {
         projectName: prjs[0],
         scenarioName: prjs[4]
     };
-    console.log(scenarios);
     return prjs[0];
 }

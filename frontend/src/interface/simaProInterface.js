@@ -21,11 +21,65 @@ export async function getCategorizedProducts(scope = 'All') {
     // e.g. '/generation/products'; '/transmission/services'; 'industrialApplications/solutions'
     // The expected Product has a unique productID, a productName and an imagePath (if any)
     // TODO: IMPROVE!
-    if (scope === 'All') {
-        return await getSimaProducts();
-    } else {
-        return await getSimaProducts();
-    }
+    let formattedProducts = await getSimaProducts();
+    let productCategoriesAndTypes = {
+        industrialApplication: { products: [], solutions: [], services: [] },
+        transmission: { products: [], solutions: [], services: [] },
+        generation: { products: [], solutions: [], services: [] }
+    };
+    formattedProducts.forEach((formattedProduct) => {
+        switch (formattedProduct.categories[0]) {
+            case 'Transmission':
+                switch (formattedProduct.type) {
+                    case 'Product':
+                        productCategoriesAndTypes.transmission.products.push(formattedProduct);
+                        break;
+                    case 'Solution':
+                        productCategoriesAndTypes.transmission.solutions.push(formattedProduct);
+                        break;
+                    case 'Service':
+                        productCategoriesAndTypes.transmission.services.push(formattedProduct);
+                        break;
+                }
+                break;
+            case 'Generation':
+                switch (formattedProduct.type) {
+                    case 'Product':
+                        productCategoriesAndTypes.generation.products.push(formattedProduct);
+                        break;
+                    case 'Solution':
+                        productCategoriesAndTypes.generation.solutions.push(formattedProduct);
+                        break;
+                    case 'Service':
+                        productCategoriesAndTypes.generation.services.push(formattedProduct);
+                        break;
+                }
+                break;
+            case 'IndustrialApplication':
+                switch (formattedProduct.type) {
+                    case 'Product':
+                        productCategoriesAndTypes.industrialApplication.products.push(
+                            formattedProduct
+                        );
+                        break;
+                    case 'Solution':
+                        productCategoriesAndTypes.industrialApplication.solutions.push(
+                            formattedProduct
+                        );
+                        break;
+                    case 'Service':
+                        productCategoriesAndTypes.industrialApplication.services.push(
+                            formattedProduct
+                        );
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+    });
+    console.log(productCategoriesAndTypes);
+    return productCategoriesAndTypes;
 }
 
 /**
@@ -49,23 +103,18 @@ export async function getSimaProducts() {
         let description = product.Description;
         let splittedString = description.split(/[#,:,/]/);
 
+        console.log(splittedString);
+
         if (description === null) {
         } else {
             let productSolutionService;
 
-            switch (splittedString) {
-                case splittedString.includes('Product'):
-                    productSolutionService = 'Product';
-                    break;
-                case splittedString.includes('Solution'):
-                    productSolutionService = 'Solution';
-                    break;
-                case splittedString.includes('Service'):
-                    productSolutionService = 'Service';
-                    break;
-                default:
-                    productSolutionService = '';
-                    break;
+            if (splittedString.includes('Product')) {
+                productSolutionService = 'Product';
+            } else if (splittedString.includes('Solution')) {
+                productSolutionService = 'Solution';
+            } else if (splittedString.includes('Service')) {
+                productSolutionService = 'Service';
             }
 
             let productObject = {
