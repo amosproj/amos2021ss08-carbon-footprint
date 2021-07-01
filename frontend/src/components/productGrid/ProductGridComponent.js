@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import ProductDropdown from './ModelDropdownComponent';
@@ -8,9 +8,8 @@ import { Link } from 'react-router-dom';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import LabelComponent from './LabelComponent';
 import LoadingComponent from 'components/loading';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadProjects } from 'store/actions/productAction';
 
+import { useSelector } from 'react-redux';
 /**
  * The Component creates new cards for the product items using the minicard components form 'components/cards/MiniCardComponent'
  * it displays all the related products images attached to each card in a certain category.
@@ -24,15 +23,6 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList] = useState([]);
     const products = useSelector((state) => state.products.data);
-    const dispatch = useDispatch();
-
-    /*
-     * useEffect declars the async function getProducts to be executed after the initial render and
-     * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
-     */
-    useEffect(() => {
-        dispatch(loadProjects(selectedCategory, selectedType));
-    }, [selectedCategory, selectedType, dispatch]);
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
     const newSelectedProducts = [

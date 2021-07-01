@@ -3,7 +3,7 @@ import { processingIndustrialApplications } from 'store/slices/industrialApplica
 import { processingGeneration } from 'store/slices/generationSlice';
 import { processingTransmission } from 'store/slices/transmissionSlice';
 
-export const loadProjects = (selectedCategory, selectedType) => async (dispatch) => {
+export const loadProjects = () => async (dispatch) => {
     try {
         await getCategorizedProducts().then((products) => {
             dispatch(processingGeneration(JSON.parse(JSON.stringify(products.generation))));

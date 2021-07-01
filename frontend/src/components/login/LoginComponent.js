@@ -4,6 +4,8 @@ import CarbonFootprintLogo from 'assets/logo/LogoCarbonteam.png';
 import slugs from 'resources/slugs';
 import { GlobalContext } from 'hooks/GlobalContext';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { loadProjects } from 'store/actions/productAction';
 
 /**
  * The LoginComponent realizes the Login Page.
@@ -13,13 +15,22 @@ import React from 'react';
 function LoginComponent() {
     const [, setState] = useContext(GlobalContext);
 
+    const dispatch = useDispatch();
+
     return (
         <div className='flex-container'>
             <div className='w3-padding-24 w3-auto'>
                 <form
                     className='login'
                     action={slugs.categories}
-                    onSubmit={() => setState({ userIsLoggedIn: true })}
+                    onSubmit={() => {
+                        setState({ userIsLoggedIn: true });
+                        /*
+                         * useEffect declars the async function getProducts to be executed after the initial render and
+                         * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
+                         */
+                        dispatch(loadProjects());
+                    }}
                 >
                     <div className='imgcontainer'>
                         <img src={CarbonFootprintLogo} alt='Carbon Footprint' className='avatar' />

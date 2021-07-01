@@ -5,7 +5,7 @@ import transmissionReducer from './slices/transmissionSlice';
 
 export default configureStore({
     reducer: {
-        products: industrialApplicationsReducer,
+        industrialApplications: industrialApplicationsReducer,
         generation: generationReducer,
         transmission: transmissionReducer
     }
