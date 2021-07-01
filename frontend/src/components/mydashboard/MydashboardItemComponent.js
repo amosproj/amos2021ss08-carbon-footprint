@@ -112,18 +112,15 @@ function MydashboardItemComponent() {
     }
 
     return (
-        <Container>
-            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
+        <Container fluid={true} style={{ padding: 'auto' }}>
+            <Row style={{ padding: 0, margin: 0 }}>
                 <Col xs={8} sm={8} md={8} lg={16} className='MydashboardContainer'>
-                    <div className='dashboardTitle'>
-                        <span>Latest Trends</span>
-                    </div>
                     <SlideshowComponent />
                 </Col>
-                <Col xs={2} sm={2} md={2} lg={1} />
-            </Row>
-            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
+            </Row>                
+            <Row/>
+            <Row horizontal='space-between' style={{ padding: 0, margin: 0 }}  breakpoints={{ 1024: 'column' }}>
+                <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
                     <div className='dashboardTitle w3-padding-24'>
                         <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
                         <b>My Recent Projects</b>
@@ -141,8 +138,8 @@ function MydashboardItemComponent() {
                         </Collapsible>
                     </div>
                 </Col>
-                <Col xs={2} sm={2} md={2} lg={1} />
-                <Col xs={8} sm={8} md={8} lg={3} className='FavCardsContainer'>
+                <Col xs={2} sm={2} md={2} lg={1} style={{padding:0,maxWidth:'1.5%'}}  />
+                <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
                     <div className='dashboardTitle w3-padding-24'>
                         <i
                             className='fa fa-heart'
@@ -162,9 +159,8 @@ function MydashboardItemComponent() {
                     {renderStat('Fav Project 2', 'Generation')}
                     {renderStat('Fav Project 3', 'Industrial App')}
                 </Col>
-                <Col xs={2} sm={2} md={2} lg={1} />
-
-                <Col xs={8} sm={8} md={8} lg={3} className='ProjectsCardsContainer'>
+                <Col xs={2} sm={2} md={2} lg={1} style={{padding:0,maxWidth:'1.5%'}}  />
+                <Col xs={8} sm={8} md={8} lg={3.5} className='MyCardsContainer'>
                     <div className=' w3-padding-24'>
                         <div className='dashboardTitle'>
                             <i
@@ -195,45 +191,52 @@ function MydashboardItemComponent() {
                     </div>
                 </Col>
             </Row>
-            <Col xs={8} sm={8} md={8} lg={3} className='ChartsCardsContainer'>
-                <div className='dashboardTitle'>
-                    <span>My charts</span>
-                </div>
-                <PieChartComponent />
-            </Col>
-            <Col xs={2} sm={2} md={2} lg={1} />
-            <Col xs={8} sm={8} md={8} lg={3} className='ChartsCardsContainer'>
-                <div className='dashboardTitle'>
-                    <span>My charts</span>
-                </div>
-                <ColumnChartComponent />
-            </Col>
-            <footer className='w3-center w3-purple w3-padding-16'>
-                <p>For latest Updates</p>
-                <form className='form-inline w3-padding-16'>
-                    Subscribe :
-                    <input
-                        type='email'
-                        className='form-control'
-                        size={50}
-                        placeholder='Email Address'
-                    />
-                    <button type='button'>Sign Up</button>
-                </form>
+            <Row horizontal='space-between' style={{ padding: 0, margin: 0 }}  breakpoints={{ 1024: 'column' }}>
 
-                <p>
-                    Powered by{' '}
-                    <a
-                        href='https://www.siemens-energy.com/global/en/offerings.html'
-                        rel='noreferrer'
-                        title='W3.CSS'
-                        target='_blank'
-                        className='w3-hover-text-green'
-                    >
-                        Siemens
-                    </a>
-                </p>
-            </footer>
+                <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
+                    <div className='dashboardTitle'>
+                        <span>My charts</span>
+                    </div>
+                    <PieChartComponent />
+                </Col>
+                <Col xs={2} sm={2} md={2} lg={1} style={{padding:0,maxWidth:'1.5%'}}/>
+                <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
+                    <div className='dashboardTitle'>
+                        <span>My charts</span>
+                    </div>
+                    <ColumnChartComponent />
+                </Col>
+            </Row>
+            <Row horizontal='space-between' style={{ padding: 0, margin: 0 }}  breakpoints={{ 1024: 'column' }}>
+                <div className='ContactContainer'>
+                    <footer className='w3-center w3-purple w3-padding-16'>
+                        <p>For latest Updates</p>
+                        <form className='form-inline w3-padding-16'>
+                            Subscribe :
+                            <input
+                                type='email'
+                                className='form-control'
+                                size={50}
+                                placeholder='Email Address'
+                            />
+                            <button type='button'>Sign Up</button>
+                        </form>
+
+                        <p>
+                            Powered by{' '}
+                            <a
+                                href='https://www.siemens-energy.com/global/en/offerings.html'
+                                rel='noreferrer'
+                                title='W3.CSS'
+                                target='_blank'
+                                className='w3-hover-text-green'
+                            >
+                                Siemens
+                            </a>
+                        </p>
+                    </footer>
+                </div>
+            </Row>
         </Container>
     );
 }

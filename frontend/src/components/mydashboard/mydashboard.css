@@ -6,64 +6,53 @@
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
-    min-height: 460px;
-    max-height: 460px;
+    min-height: 480px;
+    max-height: 480px;
     margin-top: 10px;
     position: fixed;
+    
 
 }
 
-.ChartsCardsContainer{
-    background-color: #ffffff;
-    /* border:0.5px solid #00b300; */
-    border-radius: 4px;
-    cursor: 'pointer';
-    min-width: 360;
-    max-width: 450;
-    min-height: 450px;
-    max-height: 450px;
-    margin-top: 10px;
-    margin-bottom:10px; 
-    position: fixed;
-    overflow-y: visible;
-    overflow-y: scroll;
 
-
-
-}
-
-.FavCardsContainer {
-    background-color: #ffffff;
-    /* border:0.5px solid #00b300; */
-    border-radius: 4px;
-    cursor: 'pointer';
-    min-width: 360;
-    max-width: 450;
-    min-height: 350px;
-    max-height: 350px;
-    margin-top: 10px;
-    position: fixed;
-    overflow-y: visible;
-    overflow-y: scroll;
-} /* Make images easier to work with */
 .img {
     max-width: 100%;
     display: block;
 }
-.ProjectsCardsContainer {
+.MyCardsContainer {
+
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
     background-color: #ffffff;
-    /* border:0.5px solid #00b300; */
-    border-radius: 4px;
     cursor: 'pointer';
     min-width: 360;
     max-width: 450;
     min-height: 350px;
     max-height: 350px;
-    margin-top: 10px;
-    margin-bottom:10px; 
     position: fixed;
     overflow-y: visible;
     overflow-y: scroll;
+    justify-content: first baseline;
+}
+
+.ContactContainer {
+
+    display: flex;
+    margin-top: 100px;
+    flex-direction: column;
+    cursor: 'pointer';
+    height: 15%;
+    width: 80%;
+    position: fixed;
+    justify-content: first baseline;
+}
+
+.ContactContainer p{
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-title--FontSize)-8;
 }
 
 .star {

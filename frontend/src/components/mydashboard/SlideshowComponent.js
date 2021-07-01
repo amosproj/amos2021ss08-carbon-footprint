@@ -27,11 +27,11 @@ export default class SlideshowComponent extends Component {
 
     render() {
         const items = [
-            <img alt='' src={Dashboard1} />,
-            <img alt='' src={Dashboard2} />,
-            <img alt='' src={PowerTransmission} />,
-            <img alt='' src={IndustrialImage} />,
-            <img alt='' src={PowerGeneration} />
+            <img alt='' style={{marginTop:5}}  src={Dashboard1} />,
+            <img alt='' style={{marginTop:5}}   src={Dashboard2} />,
+            <img alt='' style={{marginTop:5}}  src={PowerTransmission} />,
+            <img alt='' style={{marginTop:5}}   src={IndustrialImage} />,
+            <img alt='' style={{marginTop:5}}  src={PowerGeneration} />
         ];
         return (
             <div>
