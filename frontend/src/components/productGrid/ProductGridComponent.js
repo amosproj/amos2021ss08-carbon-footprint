@@ -22,7 +22,60 @@ import { useSelector } from 'react-redux';
 function ProductGridComponent({ selectedCategory, selectedType }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList] = useState([]);
-    const products = useSelector((state) => state.products.data);
+
+    let preProducts = useSelector((state) => state);
+    let products;
+
+    switch (selectedCategory) {
+        case 'generation':
+            switch (selectedType) {
+                case 'products':
+                    products = preProducts.generation.products;
+                    break;
+                case 'solutions':
+                    products = preProducts.generation.solutions;
+                    break;
+                case 'services':
+                    products = preProducts.generation.services;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 'transmission':
+            switch (selectedType) {
+                case 'products':
+                    products = preProducts.transmission.products;
+                    break;
+                case 'solutions':
+                    products = preProducts.transmission.solutions;
+                    break;
+                case 'services':
+                    products = preProducts.transmission.services;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 'industrialApplications':
+            switch (selectedType) {
+                case 'products':
+                    products = preProducts.industrialApplication.products;
+                    break;
+                case 'solutions':
+                    products = preProducts.industrialApplication.solutions;
+                    break;
+                case 'services':
+                    products = preProducts.industrialApplication.services;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            products = [];
+            break;
+    }
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
     const newSelectedProducts = [
