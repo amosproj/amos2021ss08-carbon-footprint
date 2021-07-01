@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ProductGridComponent from 'components/productGrid';
@@ -14,3 +15,7 @@ export default function ProductSolutionsServicesComponent({ category }) {
 
     return <ProductGridComponent selectedCategory={category} selectedType={type} />;
 }
+
+ProductSolutionsServicesComponent.propTypes = {
+    category: PropTypes.string.isRequired
+};
