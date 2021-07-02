@@ -37,7 +37,7 @@ export function getDummyProductData() {
             Id: 'aufglc25-kldd-4ger-16s2-51002631fell', //(project_id?) final_process_id? (final_product_id?)
             Name: 'Alround Product#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_baseline',
             Description:
-                'Categorie:Generation/Product#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
+                'Categorie:Generation/Product#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:France',
             productImage: logo_1
         },
         {
@@ -48,38 +48,45 @@ export function getDummyProductData() {
             productImage: logo_1
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-5100sai00', //(project_id?) final_process_id? (final_product_id?)
-            Name: 'Super Product#ID:aufglc25-kldd-4ger-16s2-5100Julian00#Scenario:scenario_1',
+            Id: 'aufglc25-kldd-4ger-16s2-5100100sai00', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Product#ID:aufglc25-kldd-4ger-16s2-5100100sai00#Scenario:scenario_1',
             Description:
-                'Categorie:Generation/Product#Model:09f64eeb-1234-4321-9fb4-50398483ecfd#Location:Germany',
+                'Categorie:Generation/Product#Model:09f64eeb-1234-4321-9fb4-50398483ecfd#Location:India',
             productImage: logo_1
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-51002631jell', //(project_id?) final_process_id? (final_product_id?)
-            Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_baseline',
-            Description:
-                'Categorie:Generation/Service#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
-            productImage: logo_1
-        },
-        {
-            Id: 'aufglc25-kldd-4ger-16s2-51002631gell', //(project_id?) final_process_id? (final_product_id?)
-            Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_1',
+            Id: 'aufglc25-kldd-4ger-16s2-5100MartinWl', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-5100MartinWl#Scenario:scenario_baseline',
             Description:
                 'Categorie:Generation/Service#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
-            productImage: logo_1
+            productImage: logo
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-51002631bell', //(project_id?) final_process_id? (final_product_id?)
-            Name: 'Super Solution#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_baseline',
+            Id: 'aufglc25-kldd-4ger-16s2-510MartinD1l', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-510MartinD1l#Scenario:scenario_1',
+            Description:
+                'Categorie:Generation/Service#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
+            productImage: logo
+        },
+        {
+            Id: 'aufglc25-kldd-4ger-16s2-510026Irem01', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Solution#ID:aufglc25-kldd-4ger-16s2-510026Irem01#Scenario:scenario_baseline',
             Description:
                 'Categorie:Generation/Solution#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo_1
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-51002631kell', //(project_id?) final_process_id? (final_product_id?)
-            Name: 'Super Solution#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_1',
+            Id: 'hello0th-ere0-4ger-16s2-51002631Mani', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Super Solution#ID:hello0th-ere0-4ger-16s2-51002631Mani#Scenario:scenario_1',
             Description:
-                'Categorie:Generation/Solution#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
+                'Categorie:Transmission/Solution#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:India',
+            productImage: logo_1
+        },
+        {
+            Id: 'hello0th-ere0-4ger-16s2-51002Parham1',
+            Name: 'THE Solution#ID:hello0th-ere0-4ger-16s2-51002Parham1#Scenario:scenario_baseline',
+            Description:
+                'Categorie:Transmission/Solution#Model:09f64eeb-1234-4e09-9fb4-50355483ecfd#Location:Iran',
             productImage: logo_1
         }
     ];
