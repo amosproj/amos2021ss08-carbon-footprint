@@ -14,6 +14,7 @@ export default class SlideshowComponent extends Component {
             images: [Dashboard1, IndustrialImage, PowerGeneration, PowerTransmission]
         };
     }
+    
     getData() {
         const img = this.state.images.map((m) => <img src={m} alt='' />);
     }

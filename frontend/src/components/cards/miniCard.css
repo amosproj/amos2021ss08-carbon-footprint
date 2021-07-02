@@ -9,7 +9,7 @@
 }
 
 .MiniCardImageContainer:hover {
-    border-color: var(--global--active--highlighting-color);
+    border-color: #ae56ff;
 }
 
 .MiniCardImageContainer img {
