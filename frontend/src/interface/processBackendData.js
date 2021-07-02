@@ -98,16 +98,16 @@ export function projectCategoryProcessing(projectDescription) {
 }
 /**
  *
- * @param {*} projectName ProjectName as recieved from the Sima Pro application.
+ * @param {*} simaProjectName ProjectName as recieved from the Sima Pro application.
  * It is of the form "ProjectName#ID:ProjectID#Scenario:scenario"
  * This function seperated the Project name and Scenario name for further processing and stores them in scenarios
- * @returns ProjectName for displaying in the ProductGrid Page
+ * @returns  projectName and scenarioName for displaying in the ProductGrid Page
  */
-export function projectNameProcessing(projectName) {
-    let prjs = projectName.split(/[#,:,/]/);
-    let scenarios = {
+export function projectNameProcessing(simaProjectName) {
+    let prjs = simaProjectName.split(/[#,:,/]/);
+    let ProjectNameAndScenarioName = {
         projectName: prjs[0],
         scenarioName: prjs[4]
     };
-    return scenarios.projectName;
+    return ProjectNameAndScenarioName;
 }

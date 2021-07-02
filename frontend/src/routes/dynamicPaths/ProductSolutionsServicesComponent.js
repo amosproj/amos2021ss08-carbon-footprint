@@ -7,6 +7,7 @@ import ProductGridComponent from 'components/productGrid';
  * This component differenciates between the three different possible subcategories.
  * type will be either 'products', 'solutions' or 'services'.
  *
+ * @param {*} category from globalConstants/categories
  * @returns Three different lines of text, depending on the `:type` parameter used in routes/PrivateRoutes.js
  * @author Martin Wagner
  */
