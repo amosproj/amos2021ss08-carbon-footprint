@@ -13,14 +13,28 @@ export function getDummyProductData() {
             productImage: logo
         },
         {
-            Id: 'aufwlc93-kldp-4fer-15s7-51245631fega', //(project_id?) final_process_id? (final_product_id?)
-            Name: 'Electric Motors#ID:aufwlc93-kldp-4fer-15s7-51245631fega#Scenario:scenario_scemarop 1', //final_process_name?
+            Id: 'aufwlc93-kldp-4fer-15s7-51245631fega',
+            Name: 'Electric Motors#ID:aufwlc93-kldp-4fer-15s7-51245631fega#Scenario:scenario_scenario1',
             Description:
                 'Categorie:Generation/Product#Model:09f64eeb-13b0-4e09-9fb4-503984f3ecfd#Location:Germany',
             productImage: logo_1
         },
         {
-            Id: '7ghnaoeb-kfue-qp04-slfg-12059492gggg', //(project_id?) final_process_id? (final_product_id?)
+            Id: 'aufwlc93-kldp-4fer-15s7-5124563regen',
+            Name: 'Electric Motors#ID:aufwlc93-kldp-4fer-15s7-5124563regen#Scenario:scenario_scenario3',
+            Description:
+                'Categorie:Generation/Product#Model:09f64eeb-13b0-4e09-9fb4-503984f3ecfd#Location:Germany',
+            productImage: logo_1
+        },
+        {
+            Id: 'aufwlc93-kldp-4fer-15s7-51245631mega',
+            Name: 'Electric Motors#ID:aufwlc93-kldp-4fer-15s7-51245631mega#Scenario:scenario_scenario2',
+            Description:
+                'Categorie:Generation/Product#Model:09f64eeb-13b0-4e09-9fb4-503984f3ecfd#Location:Germany',
+            productImage: logo_1
+        },
+        {
+            Id: '7ghnaoeb-kfue-qp04-slfg-12059492gggg',
             Name: 'Wireless Power Transmittor#ID:7ghnaoeb-kfue-qp04-slfg-12059492begp#Scenario:scenario_secondOption',
             Description:
                 'Categorie:Transmission/Product#Model:09f64eeb-12f0-4e09-9fb4-50398483ecfd#Location:Germany',
