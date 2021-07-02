@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import ProductDropdown from './ModelDropdownComponent';
@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import LabelComponent from './LabelComponent';
 import LoadingComponent from 'components/loading';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadProjects } from 'store/actions/productAction';
 
+import { useSelector } from 'react-redux';
+import { categories, types } from 'resources/globalConstants/categories';
 /**
  * The Component creates new cards for the product items using the minicard components form 'components/cards/MiniCardComponent'
  * it displays all the related products images attached to each card in a certain category.
@@ -20,19 +20,63 @@ import { loadProjects } from 'store/actions/productAction';
  * @returns the product and model properties
  */
 
-function ProductGridComponent({ selectedCategory }) {
+function ProductGridComponent({ selectedCategory, selectedType }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList] = useState([]);
-    const products = useSelector((state) => state.products.data);
-    const dispatch = useDispatch();
 
-    /*
-     * useEffect declars the async function getProducts to be executed after the initial render and
-     * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
-     */
-    useEffect(() => {
-        dispatch(loadProjects(selectedCategory));
-    }, [selectedCategory, dispatch]);
+    let preProducts = useSelector((state) => state);
+    let products;
+
+    switch (selectedCategory) {
+        case categories.generation:
+            switch (selectedType) {
+                case types.product:
+                    products = preProducts?.generation?.products;
+                    break;
+                case types.solution:
+                    products = preProducts?.generation?.solutions;
+                    break;
+                case types.service:
+                    products = preProducts?.generation?.services;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case categories.transmission:
+            switch (selectedType) {
+                case types.product:
+                    products = preProducts?.transmission?.products;
+                    break;
+                case types.solution:
+                    products = preProducts?.transmission?.solutions;
+                    break;
+                case types.service:
+                    products = preProducts?.transmission?.services;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case categories.industrialApplications:
+            switch (selectedType) {
+                case types.product:
+                    products = preProducts?.industrialApplication?.products;
+                    break;
+                case types.solution:
+                    products = preProducts?.industrialApplication?.solutions;
+                    break;
+                case types.service:
+                    products = preProducts?.industrialApplication?.services;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            products = [];
+            break;
+    }
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
     const newSelectedProducts = [
@@ -112,7 +156,8 @@ function ProductGridComponent({ selectedCategory }) {
 }
 
 ProductGridComponent.propTypes = {
-    selectedCategory: PropTypes.string.isRequired
+    selectedCategory: PropTypes.string.isRequired,
+    selectedType: PropTypes.string.isRequired
 };
 
 export default ProductGridComponent;
