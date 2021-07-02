@@ -1,13 +1,5 @@
-import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import axios from 'axios';
-import FirstPDFPage from 'assets/pdfImages/firstPage.jpg';
-import SecondPDFPage from 'assets/pdfImages/secondPage.jpg';
-import ThirdPDFPage from 'assets/pdfImages/thirdPage.jpg';
-import FourthPDFPage from 'assets/pdfImages/fourthPage.jpg';
-import FifthPDFPage1 from 'assets/pdfImages/fifthPage1.jpg';
-import FifthPDFPage2 from 'assets/pdfImages/fifthPage2.jpg';
-import SixthPDFPage from 'assets/pdfImages/sixthPage.jpg';
 
 /**
  * generating pdf for the baseline scenario
