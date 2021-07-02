@@ -31,13 +31,12 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
         case categories.generation:
             switch (selectedType) {
                 case types.product:
-                    products = preProducts.generation.products;
-                    break;
+                    products = preProducts?.generation?.products;
                 case types.solution:
-                    products = preProducts.generation.solutions;
+                    products = preProducts?.generation?.solutions;
                     break;
                 case types.service:
-                    products = preProducts.generation.services;
+                    products = preProducts?.generation?.services;
                     break;
                 default:
                     break;
@@ -46,13 +45,13 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
         case categories.transmission:
             switch (selectedType) {
                 case types.product:
-                    products = preProducts.transmission.products;
+                    products = preProducts?.transmission?.products;
                     break;
                 case types.solution:
-                    products = preProducts.transmission.solutions;
+                    products = preProducts?.transmission?.solutions;
                     break;
                 case types.service:
-                    products = preProducts.transmission.services;
+                    products = preProducts?.transmission?.services;
                     break;
                 default:
                     break;
@@ -61,13 +60,13 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
         case categories.industrialApplications:
             switch (selectedType) {
                 case types.product:
-                    products = preProducts.industrialApplications.products;
+                    products = preProducts?.industrialApplication?.products;
                     break;
                 case types.solution:
-                    products = preProducts.industrialApplications.solutions;
+                    products = preProducts?.industrialApplication?.solutions;
                     break;
                 case types.service:
-                    products = preProducts.industrialApplications.services;
+                    products = preProducts?.industrialApplication?.services;
                     break;
                 default:
                     break;
