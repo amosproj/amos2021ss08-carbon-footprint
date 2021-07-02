@@ -17,6 +17,7 @@ import TransmissionInfo from 'components/productGrid/TransmissionInfo';
 import IndustrialApplicationInfo from 'components/productGrid/IndustrialApplicationInfo';
 import CategoryIndex from 'components/productGrid/CategoryIndex';
 import ProductSolutionsServicesComponent from 'routes/dynamicPaths/ProductSolutionsServicesComponent';
+import { categories } from 'resources/globalConstants/categories';
 
 // importing required components
 //const DashboardComponent = lazy(() => import('../components/dashboard'));
@@ -47,15 +48,23 @@ function PrivateRoutes() {
 
                     <Route
                         path={SLUGS.generation + '/:type'}
-                        render={() => <ProductSolutionsServicesComponent category={'generation'} />}
+                        render={() => (
+                            <ProductSolutionsServicesComponent category={categories.generation} />
+                        )}
                     />
                     <Route
                         path={SLUGS.transmission + '/:type'}
-                        render={() => <ProductSolutionsServicesComponent category={'transmission'} />}
+                        render={() => (
+                            <ProductSolutionsServicesComponent category={categories.transmission} />
+                        )}
                     />
                     <Route
                         path={SLUGS.industrialApplications + '/:type'}
-                        render={() => <ProductSolutionsServicesComponent category={'industrialApplications'} />}
+                        render={() => (
+                            <ProductSolutionsServicesComponent
+                                category={categories.industrialApplications}
+                            />
+                        )}
                     />
 
                     <Route

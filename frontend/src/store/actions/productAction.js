@@ -10,7 +10,7 @@ export const loadProjects = () => async (dispatch) => {
             dispatch(processingTransmission(JSON.parse(JSON.stringify(products.transmission))));
             dispatch(
                 processingIndustrialApplications(
-                    JSON.parse(JSON.stringify(products.industrialApplication))
+                    JSON.parse(JSON.stringify(products.industrialApplications))
                 )
             );
         });

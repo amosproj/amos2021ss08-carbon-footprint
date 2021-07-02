@@ -4,7 +4,8 @@ import {
     setImpactAssessmentData,
     setColumnChartData
 } from 'interface/projectInterface';
-import { categories } from './categories';
+import { categories } from 'resources/globalConstants/categories';
+import { simaProCategories } from 'resources/globalConstants/SimaProProductCategories';
 
 /*
  * Function to process the data recieved from the backend
@@ -87,9 +88,9 @@ export function projectCategoryProcessing(projectDescription) {
         projectDescription === null
     ) {
         return [categories.industrialApplications];
-    } else if (projectDescription.split(/[#,:,/]/).includes('Generation')) {
+    } else if (projectDescription.split(/[#,:,/]/).includes(simaProCategories.generation)) {
         return [categories.generation];
-    } else if (projectDescription.split(/[#,:,/]/).includes('Transmission')) {
+    } else if (projectDescription.split(/[#,:,/]/).includes(simaProCategories.transmission)) {
         return [categories.transmission];
     } else {
         return [categories.industrialApplications];

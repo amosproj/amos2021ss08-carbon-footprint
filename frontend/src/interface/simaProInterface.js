@@ -8,6 +8,8 @@ import logo from 'assets/logo/LogoCarbonteam.png';
 import { getSimaProProjects } from 'interface/BackendConnect';
 import { projectCategoryProcessing, projectNameProcessing } from './processBackendData';
 import { getDummyProductData } from 'assets/dummyData/dummyData';
+import { types, categories } from 'resources/globalConstants/categories';
+import { simaProTypes } from 'resources/globalConstants/SimaProProductCategories';
 
 // Toggle to NOT use SimaPro Data
 let useDummyData = true;
@@ -25,56 +27,58 @@ export async function getCategorizedProducts() {
     // TODO: IMPROVE!
     let formattedProducts = await getSimaProducts();
     let productCategoriesAndTypes = {
-        industrialApplication: { products: [], solutions: [], services: [] },
+        industrialApplications: { products: [], solutions: [], services: [] },
         transmission: { products: [], solutions: [], services: [] },
         generation: { products: [], solutions: [], services: [] }
     };
     formattedProducts.forEach((formattedProduct) => {
+        console.log('formattedProduct');
+        console.log(formattedProduct);
         switch (formattedProduct.categories[0]) {
-            case 'Transmission':
+            case categories.transmission:
                 switch (formattedProduct.type) {
-                    case 'Product':
+                    case types.product:
                         productCategoriesAndTypes.transmission.products.push(formattedProduct);
                         break;
-                    case 'Solution':
+                    case types.solution:
                         productCategoriesAndTypes.transmission.solutions.push(formattedProduct);
                         break;
-                    case 'Service':
+                    case types.service:
                         productCategoriesAndTypes.transmission.services.push(formattedProduct);
                         break;
                     default:
                         break;
                 }
                 break;
-            case 'Generation':
+            case categories.generation:
                 switch (formattedProduct.type) {
-                    case 'Product':
+                    case types.product:
                         productCategoriesAndTypes.generation.products.push(formattedProduct);
                         break;
-                    case 'Solution':
+                    case types.solution:
                         productCategoriesAndTypes.generation.solutions.push(formattedProduct);
                         break;
-                    case 'Service':
+                    case types.service:
                         productCategoriesAndTypes.generation.services.push(formattedProduct);
                         break;
                     default:
                         break;
                 }
                 break;
-            case 'IndustrialApplication':
+            case categories.industrialApplications:
                 switch (formattedProduct.type) {
-                    case 'Product':
-                        productCategoriesAndTypes.industrialApplication.products.push(
+                    case types.product:
+                        productCategoriesAndTypes.industrialApplications.products.push(
                             formattedProduct
                         );
                         break;
-                    case 'Solution':
-                        productCategoriesAndTypes.industrialApplication.solutions.push(
+                    case types.solution:
+                        productCategoriesAndTypes.industrialApplications.solutions.push(
                             formattedProduct
                         );
                         break;
-                    case 'Service':
-                        productCategoriesAndTypes.industrialApplication.services.push(
+                    case types.service:
+                        productCategoriesAndTypes.industrialApplications.services.push(
                             formattedProduct
                         );
                         break;
@@ -86,6 +90,7 @@ export async function getCategorizedProducts() {
                 break;
         }
     });
+    console.log('Typified and Categorized Products');
     console.log(productCategoriesAndTypes);
     return productCategoriesAndTypes;
 }
@@ -117,12 +122,12 @@ export async function getSimaProducts() {
         } else {
             let productSolutionService;
 
-            if (splittedString.includes('Product')) {
-                productSolutionService = 'Product';
-            } else if (splittedString.includes('Solution')) {
-                productSolutionService = 'Solution';
-            } else if (splittedString.includes('Service')) {
-                productSolutionService = 'Service';
+            if (splittedString.includes(simaProTypes.product)) {
+                productSolutionService = types.product;
+            } else if (splittedString.includes(simaProTypes.solution)) {
+                productSolutionService = types.solution;
+            } else if (splittedString.includes(simaProTypes.service)) {
+                productSolutionService = types.service;
             }
 
             let productObject = {
@@ -136,6 +141,7 @@ export async function getSimaProducts() {
             formattedProducts.push(productObject);
         }
     });
+    console.log('The formatted Products (getSimaProducts)');
     console.log(formattedProducts);
 
     // Now put the formattedProducts where they belong (Store)

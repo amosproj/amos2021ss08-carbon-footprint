@@ -10,6 +10,7 @@ import LabelComponent from './LabelComponent';
 import LoadingComponent from 'components/loading';
 
 import { useSelector } from 'react-redux';
+import { categories, types } from 'resources/globalConstants/categories';
 /**
  * The Component creates new cards for the product items using the minicard components form 'components/cards/MiniCardComponent'
  * it displays all the related products images attached to each card in a certain category.
@@ -27,46 +28,46 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
     let products;
 
     switch (selectedCategory) {
-        case 'generation':
+        case categories.generation:
             switch (selectedType) {
-                case 'products':
+                case types.product:
                     products = preProducts.generation.products;
                     break;
-                case 'solutions':
+                case types.solution:
                     products = preProducts.generation.solutions;
                     break;
-                case 'services':
+                case types.service:
                     products = preProducts.generation.services;
                     break;
                 default:
                     break;
             }
             break;
-        case 'transmission':
+        case categories.transmission:
             switch (selectedType) {
-                case 'products':
+                case types.product:
                     products = preProducts.transmission.products;
                     break;
-                case 'solutions':
+                case types.solution:
                     products = preProducts.transmission.solutions;
                     break;
-                case 'services':
+                case types.service:
                     products = preProducts.transmission.services;
                     break;
                 default:
                     break;
             }
             break;
-        case 'industrialApplications':
+        case categories.industrialApplications:
             switch (selectedType) {
-                case 'products':
-                    products = preProducts.industrialApplication.products;
+                case types.product:
+                    products = preProducts.industrialApplications.products;
                     break;
-                case 'solutions':
-                    products = preProducts.industrialApplication.solutions;
+                case types.solution:
+                    products = preProducts.industrialApplications.solutions;
                     break;
-                case 'services':
-                    products = preProducts.industrialApplication.services;
+                case types.service:
+                    products = preProducts.industrialApplications.services;
                     break;
                 default:
                     break;
