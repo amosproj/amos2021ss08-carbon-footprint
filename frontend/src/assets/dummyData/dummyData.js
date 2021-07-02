@@ -20,6 +20,13 @@ export function getDummyProductData() {
             productImage: logo_1
         },
         {
+            Id: '7ghnaoeb-kfue-qp04-slfg-12059492gggg', //(project_id?) final_process_id? (final_product_id?)
+            Name: 'Wireless Power Transmittor#ID:7ghnaoeb-kfue-qp04-slfg-12059492begp#Scenario:scenario_secondOption',
+            Description:
+                'Categorie:Transmission/Product#Model:09f64eeb-12f0-4e09-9fb4-50398483ecfd#Location:Germany',
+            productImage: logo_2
+        },
+        {
             Id: '7ghnaoeb-kfue-qp04-slfg-12059492begp', //(project_id?) final_process_id? (final_product_id?)
             Name: 'Wireless Power Transmittor#ID:7ghnaoeb-kfue-qp04-slfg-12059492begp#Scenario:scenario_baseline',
             Description:
