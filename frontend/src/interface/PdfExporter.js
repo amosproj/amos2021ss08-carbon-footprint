@@ -18,7 +18,7 @@ import SixthPDFPage from 'assets/pdfImages/sixthPage.jpg';
  * @param div2 column diagram
  * @param div3 table
  */
-export function exportPdf(div1, div2, div3) {
+export function exportPdf(div1, div2, div3, pdfExportDoneCallback) {
     // converting html to an image and then exporting it by pdf
     html2canvas(div1).then((canvas1) => {
         var pdf = new jsPDF('p', 'mm', 'a4');
@@ -31,61 +31,61 @@ export function exportPdf(div1, div2, div3) {
 
             html2canvas(div3).then((canvas3) => {
                 // converting html2canvas object to image for sending it to server
-                var imgData1 = canvas1.toDataURL('image/jpeg', 1);
-                var imgData2 = canvas2.toDataURL('image/jpeg', 1);
-                var imgData3 = canvas3.toDataURL('image/jpeg', 1);
-                sendPdfGeneratorRequest(imgData1, imgData2, imgData3);
+                var imgData1 = canvas1.toDataURL('image/png', 1);
+                var imgData2 = canvas2.toDataURL('image/png', 1);
+                var imgData3 = canvas3.toDataURL('image/png', 1);
+                sendPdfGeneratorRequest(imgData1, imgData2, imgData3, pdfExportDoneCallback);
 
                 // storing width and heigth of the table
 
                 // adding images to pdf
-                pdf.addImage(FirstPDFPage, 'JPEG', 0, 0, pageWidth, pageHeight);
-                pdf.addPage();
-                pdf.addImage(SecondPDFPage, 'JPEG', 0, 0, pageWidth, pageHeight);
-                pdf.addPage();
-                pdf.addImage(ThirdPDFPage, 'JPEG', 0, 0, pageWidth, (pageHeight * 3) / 4);
-                pdf.text(20, (pageHeight * 3) / 4 + 5, 'Material Composition');
-                pdf.addImage(
-                    imgData1,
-                    'JPEG',
-                    pageWidth / 5,
-                    (pageHeight * 3) / 4 + 5,
-                    (pageWidth * 3) / 5,
-                    pageHeight / 4 - 10
-                );
-                pdf.addPage();
-                pdf.addImage(FourthPDFPage, 'JPEG', 0, 0, pageWidth, (pageHeight * 3) / 5);
-                pdf.text(20, (pageHeight * 3) / 5 + 5, 'Results of impact assessment');
-                pdf.addImage(
-                    imgData2,
-                    'JPEG',
-                    10,
-                    (pageHeight * 3) / 5 + 7,
-                    pageWidth - 15,
-                    (pageHeight * 2) / 5 - 12
-                );
-                pdf.addPage();
-                pdf.addImage(FifthPDFPage1, 'JPEG', 0, 0, pageWidth, pageHeight / 6);
+                // pdf.addImage(FirstPDFPage, 'JPEG', 0, 0, pageWidth, pageHeight);
+                // pdf.addPage();
+                // pdf.addImage(SecondPDFPage, 'JPEG', 0, 0, pageWidth, pageHeight);
+                // pdf.addPage();
+                // pdf.addImage(ThirdPDFPage, 'JPEG', 0, 0, pageWidth, (pageHeight * 3) / 4);
+                // pdf.text(20, (pageHeight * 3) / 4 + 5, 'Material Composition');
+                // pdf.addImage(
+                //     imgData1,
+                //     'JPEG',
+                //     pageWidth / 5,
+                //     (pageHeight * 3) / 4 + 5,
+                //     (pageWidth * 3) / 5,
+                //     pageHeight / 4 - 10
+                // );
+                // pdf.addPage();
+                // pdf.addImage(FourthPDFPage, 'JPEG', 0, 0, pageWidth, (pageHeight * 3) / 5);
+                // pdf.text(20, (pageHeight * 3) / 5 + 5, 'Results of impact assessment');
+                // pdf.addImage(
+                //     imgData2,
+                //     'JPEG',
+                //     10,
+                //     (pageHeight * 3) / 5 + 7,
+                //     pageWidth - 15,
+                //     (pageHeight * 2) / 5 - 12
+                // );
+                // pdf.addPage();
+                // pdf.addImage(FifthPDFPage1, 'JPEG', 0, 0, pageWidth, pageHeight / 6);
 
-                pdf.addImage(imgData3, 'JPEG', 0, pageHeight / 6, pageWidth, (pageHeight * 3) / 6);
-                pdf.addImage(
-                    FifthPDFPage2,
-                    'JPEG',
-                    0,
-                    (pageHeight * 4) / 6,
-                    pageWidth,
-                    (pageHeight * 2) / 6
-                );
-                pdf.addPage();
-                pdf.addImage(SixthPDFPage, 'JPEG', 0, 0, pageWidth, pageHeight);
-                pdf.save('baselineScenario.pdf');
+                // pdf.addImage(imgData3, 'JPEG', 0, pageHeight / 6, pageWidth, (pageHeight * 3) / 6);
+                // pdf.addImage(
+                //     FifthPDFPage2,
+                //     'JPEG',
+                //     0,
+                //     (pageHeight * 4) / 6,
+                //     pageWidth,
+                //     (pageHeight * 2) / 6
+                // );
+                // pdf.addPage();
+                // pdf.addImage(SixthPDFPage, 'JPEG', 0, 0, pageWidth, pageHeight);
+                // pdf.save('baselineScenario.pdf');
             });
         });
     });
 }
 
 // sending a request to backend to generate the pdf or docx file
-function sendPdfGeneratorRequest(imgData1, imgData2, imgData3) {
+function sendPdfGeneratorRequest(imgData1, imgData2, imgData3, pdfExportDoneCallback) {
     let arrayOfYourFiles = [imgData1, imgData2, imgData3];
     // create formData object
     const formData = new FormData();
@@ -113,6 +113,8 @@ function sendPdfGeneratorRequest(imgData1, imgData2, imgData3) {
         link.setAttribute('download', filename); //or any other extension
         document.body.appendChild(link);
         link.click();
+
+        pdfExportDoneCallback();
 
         // response.blob().then((blob) => {
         //     let url = window.URL.createObjectURL(blob);

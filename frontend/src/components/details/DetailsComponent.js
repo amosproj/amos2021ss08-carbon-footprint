@@ -24,7 +24,8 @@ class DetailsComponent extends Component {
         baselineScenario: true,
         modifiedScenario: false,
         loadComparePage: false,
-        stillLoading: true
+        stillLoading: true,
+        onExportClicked: false
     };
 
     render() {
@@ -63,11 +64,18 @@ class DetailsComponent extends Component {
         };
 
         let handleExportPdfButton = () => {
+            this.setState({ onExportClicked: true });
+
             // geting the element that should be exported
             var div1 = document.getElementById('capturePieChart');
             var div2 = document.getElementById('captureColumnDiagram');
             var div3 = document.getElementById('captureTable');
-            exportPdf(div1, div2, div3);
+
+            exportPdf(div1, div2, div3, pdfExportDoneCallback);
+        };
+
+        let pdfExportDoneCallback = () => {
+            this.setState({ onExportClicked: false });
         };
         /*
          * Important function that is given as the callback parameter to the postCalculationRequest in order to be called
@@ -99,9 +107,10 @@ class DetailsComponent extends Component {
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                onExportClick={handleExportPdfButton}
+                                exportHandler={handleExportPdfButton}
                                 scenarioName={scenarioNames.baseline}
                                 selectedProduct={selectedProduct}
+                                onExportClicked={this.state.onExportClicked}
                             />
                         </Col>
                     </Row>
