@@ -10,6 +10,7 @@ import { projectCategoryProcessing, projectNameProcessing } from './processBacke
 import { getDummyProductData } from 'assets/dummyData/dummyData';
 import { types, categories } from 'resources/globalConstants/categories';
 import { simaProTypes } from 'resources/globalConstants/SimaProProductCategories';
+import { processScenarios } from './processProjects';
 
 // Toggle to NOT use SimaPro Data
 let useDummyData = true;
@@ -92,6 +93,7 @@ export async function getCategorizedProducts() {
     });
     console.log('Typified and Categorized Products');
     console.log(productCategoriesAndTypes);
+
     return productCategoriesAndTypes;
 }
 
@@ -130,12 +132,18 @@ export async function getSimaProducts() {
                 productSolutionService = types.service;
             }
 
+            let projectAndScenarioName = projectNameProcessing(product.Name);
+
+            // Definition of the object that is used to hold the data
+
             let productObject = {
                 productID: product.Id,
-                productName: projectNameProcessing(product.Name),
+                productName: projectAndScenarioName.projectName,
                 categories: projectCategoryProcessing(product.Description),
                 productImage: useDummyData ? product.productImage : logo,
-                type: productSolutionService
+                type: productSolutionService,
+                scenarioType: projectAndScenarioName.scenarioName,
+                scenarioList: [] // A list of products starting with itself as the baseline Scenario
             };
 
             formattedProducts.push(productObject);
@@ -144,9 +152,38 @@ export async function getSimaProducts() {
     console.log('The formatted Products (getSimaProducts)');
     console.log(formattedProducts);
 
-    // Now put the formattedProducts where they belong (Store)
+    // Now sort the Products Alphabetically and put the baseline Scenario in first place if the Names are identical
+    formattedProducts.sort(compareProducts);
 
-    // storeFormattedProducts(formattedProducts);
+    // and then process them to not show scenario duplicates
+    let processedAndSortedTastyProducts = processScenarios(formattedProducts);
 
-    return formattedProducts;
+    return processedAndSortedTastyProducts;
+}
+
+/**
+ * Function used to determine the order of the elements.
+ * It is expected to return
+ * - a negative value if first argument is less than second argument,
+ * - zero if they're equal and
+ * - a positive value otherwise.
+ * If omitted, the elements are sorted in ascending, ASCII character order.
+ * @param {{productName: String, scenarioType: String}} productA
+ * @param {{productName: String, scenarioType: String}} productB
+ */
+function compareProducts(productA, productB) {
+    let evaluation = productA.productName.localeCompare(productB.productName);
+
+    // Put the baseline first
+    if (evaluation === 0) {
+        if (productA.scenarioType.includes('baseline')) {
+            return -1;
+        } else if (productB.scenarioType.includes('baseline')) {
+            return 1;
+        } else {
+            return productA.scenarioType.localeCompare(productB.scenarioType);
+        }
+    } else {
+        return evaluation;
+    }
 }
