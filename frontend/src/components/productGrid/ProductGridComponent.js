@@ -32,6 +32,7 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
             switch (selectedType) {
                 case types.product:
                     products = preProducts?.generation?.products;
+                    break;
                 case types.solution:
                     products = preProducts?.generation?.solutions;
                     break;
