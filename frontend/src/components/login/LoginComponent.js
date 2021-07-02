@@ -25,10 +25,7 @@ function LoginComponent() {
                     action={slugs.categories}
                     onSubmit={() => {
                         setState({ userIsLoggedIn: true });
-                        /*
-                         * useEffect declars the async function getProducts to be executed after the initial render and
-                         * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
-                         */
+                        // Loads all Projects from SimaPro and stores them in the state.
                         dispatch(loadProjects());
                     }}
                 >

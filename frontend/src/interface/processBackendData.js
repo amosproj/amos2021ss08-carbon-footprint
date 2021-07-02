@@ -87,7 +87,7 @@ export function projectCategoryProcessing(projectDescription) {
         projectDescription === undefined ||
         projectDescription === null
     ) {
-        return [categories.industrialApplications];
+        return [];
     } else if (projectDescription.split(/[#,:,/]/).includes(simaProCategories.generation)) {
         return [categories.generation];
     } else if (projectDescription.split(/[#,:,/]/).includes(simaProCategories.transmission)) {
