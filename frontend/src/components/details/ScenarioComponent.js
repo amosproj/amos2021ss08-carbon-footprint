@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import SelectVariableComponent from './SelectVariableComponent';
+import SelectScenarioComponent from './SelectScenarioComponent';
 import NavbarComponent from './NavbarComponent';
 import PieChartComponent from './PieChartComponent';
 import ColumnChartComponent from './ColumnChartComponent';
@@ -31,7 +31,10 @@ class ScenarioComponent extends Component {
                     <h2 className='TextContent'>
                         The chosen Model is <b>{this.props.selectedProduct.modelName}</b>
                     </h2>
-                    <SelectVariableComponent loadComparePage={this.props.loadComparePage} />
+                    <SelectScenarioComponent
+                        selectedProduct={this.props.selectedProduct}
+                        loadComparePage={this.props.loadComparePage}
+                    />
                     <Row>
                         <Col xs={12} sm={12} md={12} lg={6} className='CardsContainer'>
                             <div className='CardTitle'>
