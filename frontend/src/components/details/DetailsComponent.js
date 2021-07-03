@@ -178,7 +178,7 @@ DetailsComponent.propTypes = {
         categories: PropTypes.array, // [(categories.generation, categories.transmission)],
         modelID: PropTypes.string, // 'none',
         modelName: PropTypes.string, // 'please select a Product',
-        productID: PropTypes.string, // 'dummydum-13b0-4e09-9fb4-50398483ecfd'
+        productID: PropTypes.string.isRequired, // 'dummydum-13b0-4e09-9fb4-50398483ecfd'
         productImage: PropTypes.string, //ImagePath?
         productName: PropTypes.string //'please select a Product'
     })

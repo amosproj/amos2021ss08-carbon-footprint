@@ -82,7 +82,75 @@ export function processBackendData(data, callback) {
  * @param {Function} callback - tell papa when your done.
  */
 export function dummyProcessBackendData(projectId, callback) {
-    // TODO: Do Magic
+    let materialMap = {
+        keys: [],
+        values: []
+    };
+
+    let impactMap = new Map();
+
+    impactMap.set('Total', Number('2350811').toFixed(0));
+    impactMap.set('Materials', Number('874356').toFixed(0));
+    impactMap.set('Manufacturing and Transportation', Number('71532').toFixed(0));
+    impactMap.set('Operation', Number('2114344').toFixed(0));
+    impactMap.set('End of life', Number('-790420').toFixed(0));
+
+    let assessmentDataInPercent = [10, 15, 20, 25];
+
+    switch (projectId) {
+        case '09f64eeb-13b0-4e09-9fb4-50398483ecfd': // Electric Motors (baseline)
+            materialMap.keys = [
+                'Stainless Steel',
+                'Copper (rolled)',
+                'Platinum (spraypaint)',
+                'Aluminium'
+            ];
+            materialMap.values = [70, 10, 2, 18];
+            break;
+        case 'aufwlc93-kldp-4fer-15s7-51245631fega':
+            materialMap.keys = [
+                'Stainless Steel',
+                'Copper (rolled)',
+                'Platinum (spraypaint)',
+                'Aluminium'
+            ];
+            materialMap.values = [70, 8, 2, 20];
+            break;
+        case 'aufwlc93-kldp-4fer-15s7-5124563regen':
+            materialMap.keys = [
+                'Stainless Steel',
+                'Copper (rolled)',
+                'Platinum (spraypaint)',
+                'Aluminium'
+            ];
+            materialMap.values = [60, 15, 2, 23];
+            break;
+        case 'aufwlc93-kldp-4fer-15s7-51245631mega':
+            materialMap.keys = [
+                'Stainless Steel',
+                'Copper (rolled)',
+                'Platinum (spraypaint)',
+                'Aluminium'
+            ];
+            materialMap.values = [69, 9, 5, 17];
+            break;
+        case '7ghnaoeb-kfue-qp04-slfg-12059492begp':
+            materialMap.keys = ['Copper', 'Aluminium'];
+            materialMap.values = [50, 50];
+            break;
+        default:
+            materialMap.keys = ['No Data'];
+            materialMap.values = [100];
+
+            break;
+    }
+
+    setMaterialCompositionLabels(materialMap.keys);
+    setMaterialCompositionData(materialMap.values);
+    setImpactAssessmentData(impactMap);
+    setColumnChartData(assessmentDataInPercent);
+
+    callback();
 }
 
 /**
