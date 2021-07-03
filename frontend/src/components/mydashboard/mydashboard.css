@@ -1,12 +1,13 @@
 .MydashboardContainer {
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
     /* border:0.5px solid #00b300; */
-    border-color: #00b300;
     border-radius: 4px;
     cursor: 'pointer';
-    min-width: 360;
-    max-width: 450;
+    width: max-content;
     min-height: 480px;
+    border: 1px solid #ad65dd;
     max-height: 480px;
     margin-top: 10px;
     position: fixed;
@@ -30,6 +31,7 @@
     max-width: 450;
     min-height: 350px;
     max-height: 350px;
+    border: 1px solid #ad65dd;
     position: fixed;
     overflow-y: visible;
     overflow-y: scroll;
@@ -48,6 +50,7 @@
     position: fixed;
     justify-content: first baseline;
     float: right;
+    border: 1px solid #ad65dd;
 }
 
 
