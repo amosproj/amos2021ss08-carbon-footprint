@@ -100,6 +100,10 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
 
         if (this.state.stillLoading) {
+            // TODO: move the state from SelectScenarioComponent to this Component (DetailsComponent) and make it change when
+            // selecting a scenario in SelectScnearioComponent.
+
+            // Or do this postCalculation call inside of ScenarioComponent (to handle 2 different Scenarios? Maybe store the data in a new slice in store?)
             postCalculationRequest(selectedProduct.productID, handleFinishedDataRequest);
             return <LoadingComponent loading />;
         }

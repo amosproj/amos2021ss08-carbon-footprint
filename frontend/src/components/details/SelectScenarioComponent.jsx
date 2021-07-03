@@ -26,13 +26,13 @@ class SelectScenarioComponent extends Component {
     };
 
     onDropDownItemSelectedHandler = (name) => {
-        const selectedVariable = name;
-        this.setState({ selectedVariable });
+        const selectedScenario = name;
+        this.setState({ selectedScenario: selectedScenario });
     };
 
     onSecondDropDownSelectedHandler = (name) => {
-        const secondVariable = name;
-        this.setState({ secondVariable });
+        const secondScenario = name;
+        this.setState({ secondScenario: secondScenario });
     };
 
     componentDidMount = () => {
