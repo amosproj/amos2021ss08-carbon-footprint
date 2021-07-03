@@ -137,6 +137,8 @@ export async function getSimaProducts() {
             // Definition of the object that is used to hold the data
 
             let productObject = {
+                modelID: product.Id, // since there is no model defined yet
+                modelName: projectAndScenarioName.projectName,
                 productID: product.Id,
                 productName: projectAndScenarioName.projectName,
                 categories: projectCategoryProcessing(product.Description),
