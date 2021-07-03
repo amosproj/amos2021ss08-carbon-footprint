@@ -40,18 +40,26 @@
     display: flex;
     margin-top: 20px;
     flex-direction: column;
-    background-color: hsl(0, 0%, 100%);
+    background-color: #ffffff;
     cursor: 'pointer';
     max-width: 10px;
-    min-height: 450px;
+    min-height: 600px;
     max-height: 600px;
     position: fixed;
-    overflow-y: visible;
-    overflow-y: scroll;
     justify-content: first baseline;
     float: right;
 }
 
+
+.MyMiniCardsContainer p{
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: var(--global--text--color);
+
+}
 .ContactContainer {
 
     display: flex;
@@ -146,6 +154,15 @@
     letter-spacing: 0.5px;
     color: var(--global--text--color);
 
+}
+.dashboardMiniTitle p{
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    letter-spacing: 0.5px;
+    padding-top:10px;
+    color: var(--global--text--color);
 }
 
 .dashboardTitle i {

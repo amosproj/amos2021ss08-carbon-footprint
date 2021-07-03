@@ -92,6 +92,28 @@ function MydashboardItemComponent() {
     //     );
     // }
 
+    function renderMiniCards(title, value) {
+        return (
+            <Column
+                flexGrow={1}
+                vertical='space-between'
+                horizontal='space-between'
+                className={classes.statContainer}
+            >
+                <div className='dashboardTitle'>
+                    <p> {title} </p>
+                    <div className='dashboardMiniTitle'>
+                        <p>
+                            <i class="fa fa-line-chart" aria-hidden="true"/>
+                            {value} 
+                        </p>
+                    </div>
+                    
+                </div>
+            </Column>
+        );
+    }
+
     function renderStat(title, value) {
         return (
             <Column
@@ -119,35 +141,29 @@ function MydashboardItemComponent() {
                 </Col>
             </Row>                
             <Row/>
-
             <Row horizontal='space-between' style={{ padding: 0, marginLeft: 0,marginRight:0 }}  breakpoints={{ 1024: 'column' }}>
                 <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
                     <div className='dashboardTitle w3-padding-24 w3-margin-left'>
-                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
-                        <b>Air Quality 1</b>
+                        {renderMiniCards('Air Quality Results', '80%')}
+                    </div>
+                </Col>
+                <Col xs={8} sm={2} md={2} lg={1.32} style={{padding:0}}  />
+                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
+                    <div className='dashboardTitle w3-padding-24 w3-margin-left'>
+                    {renderMiniCards('Air Quality Results', '50%')}
                     </div>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1.32} style={{padding:0}}  />
 
                 <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
                     <div className='dashboardTitle w3-padding-24 w3-margin-left'>
-                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
-                        <b>Air Quality 1</b>
-                    </div>
-                </Col>
-                <Col xs={2} sm={2} md={2} lg={1.32} style={{padding:0}}  />
-
-                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
-                    <div className='dashboardTitle w3-padding-24 w3-margin-left'>
-                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
-                        <b>Air Quality 1</b>
+                    {renderMiniCards('Air Quality Results', '90%')}
                     </div>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1.32} style={{padding:0}}  />
                 <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
                     <div className='dashboardTitle w3-padding-24 w3-margin-left'>
-                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
-                        <b>Air Quality 1</b>
+                        {renderMiniCards('Air Quality Results', '30%')}
                     </div>
                 </Col>
             </Row>
