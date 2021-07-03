@@ -7,19 +7,19 @@ import PropTypes from 'prop-types';
  */
 
 class SelectScenarioComponent extends Component {
-    /*
-    hard coded state for storing variabes array 
-    and selected variable 
-
-    note: later on this state should be removed 
-    and instead props should be used 
-    because of the single source of truth rule 
-  */
     state = {
-        secondScenario: '',
+        secondScenario: '', // TODO: for comparing scenarios this should be removed and use props from detail component
         scenarios: [{ id: '', name: '' }]
     };
 
+    /**
+     * in this function a callback function
+     * in DetailsComponent should be called
+     * in order to send a new calculation request
+     * based on new selected scenario
+     *
+     * @param item: selected scenario
+     */
     onDropDownItemSelectedHandler = (item) => {
         this.props.newScenarioHandler(item);
     };
@@ -29,10 +29,21 @@ class SelectScenarioComponent extends Component {
         this.setState({ secondScenario: secondScenario });
     };
 
+    /**
+     * once this component is created this function is called
+     * before render method
+     */
     componentDidMount = () => {
         this.setState(this.updateStateScenario());
     };
 
+    /**
+     * by this function the scenario list will be
+     * updated based on the available scenarios in
+     * scenario list
+     *
+     * @returns the updated state
+     */
     updateStateScenario = () => {
         let scenarioList = [];
         // Handle the first element (baseline)

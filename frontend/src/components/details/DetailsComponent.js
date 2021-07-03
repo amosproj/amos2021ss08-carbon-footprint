@@ -15,7 +15,10 @@ import LoadingComponent from 'components/loading';
  */
 
 class DetailsComponent extends Component {
-    /* State consists of three variable one for each of the possible state
+    /*
+     * selectedScenarioId: for storing the id of the selected scenario
+     * to send the calculation request to server
+     * slectedScenarioType: for sending it to SelectScenarioComponent
      * baselineScenario: only display the baseline scenario
      * modifiedScenario: only display the modified scenario
      * state at the beginng: only baseline scenario
@@ -29,6 +32,10 @@ class DetailsComponent extends Component {
         stillLoading: true
     };
 
+    /**
+     * initializing selectedScenarioType and selectedScenarioId
+     * to request the baseline scenario for the first calculation request
+     */
     constructor(props) {
         super(props);
         this.state.selectedScenarioType = props.selectedProduct.scenarioType;
@@ -70,11 +77,18 @@ class DetailsComponent extends Component {
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
         };
 
+        /**
+         * this function will be envoced from SelectScenarioComponent,
+         * once the user changes the scenario in drop down menue
+         *
+         * then selectedScenarioId and selectedScenarioType will be updated
+         *
+         * @param item: selected scenario
+         */
         let handleNewScenarioSelection = (item) => {
             this.setState({ selectedScenarioId: item.id }, () => {
                 this.setState({ stillLoading: true });
                 this.setState({ selectedScenarioType: item.name });
-                // postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
             });
         };
 
@@ -204,7 +218,8 @@ DetailsComponent.propTypes = {
         modelName: PropTypes.string, // 'please select a Product',
         productID: PropTypes.string.isRequired, // 'dummydum-13b0-4e09-9fb4-50398483ecfd'
         productImage: PropTypes.string, //ImagePath?
-        productName: PropTypes.string //'please select a Product'
+        productName: PropTypes.string, //'please select a Product'
+        scenarioType: PropTypes.string
     })
 };
 
