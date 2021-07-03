@@ -74,6 +74,17 @@ export function processBackendData(data, callback) {
 
     callback();
 }
+
+/**
+ * Works like processBackendData but without SimaPro.
+ *
+ * @param {String} projectId - id of the project that we want to schedule the calculation for
+ * @param {Function} callback - tell papa when your done.
+ */
+export function dummyProcessBackendData(projectId, callback) {
+    // TODO: Do Magic
+}
+
 /**
  *
  * @param {*} projectDescription The comments mentioned in SimaPro Appliction.
