@@ -21,11 +21,17 @@ class DetailsComponent extends Component {
      * state at the beginng: only baseline scenario
      */
     state = {
+        selectedScenarioId: '',
         baselineScenario: true,
         modifiedScenario: false,
         loadComparePage: false,
         stillLoading: true
     };
+
+    constructor(props) {
+        super(props);
+        this.state.selectedScenarioId = props.selectedProduct.productID;
+    }
 
     render() {
         /*
@@ -60,6 +66,13 @@ class DetailsComponent extends Component {
             const modifiedScenario = true;
             const loadComparePage = false;
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
+        };
+
+        let handleNewScenarioSelection = (id) => {
+            this.setState({ selectedScenarioId: id }, () => {
+                this.setState({ stillLoading: true });
+                // postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
+            });
         };
 
         let handleExportPdfButton = () => {
@@ -100,11 +113,7 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
 
         if (this.state.stillLoading) {
-            // TODO: move the state from SelectScenarioComponent to this Component (DetailsComponent) and make it change when
-            // selecting a scenario in SelectScnearioComponent.
-
-            // Or do this postCalculation call inside of ScenarioComponent (to handle 2 different Scenarios? Maybe store the data in a new slice in store?)
-            postCalculationRequest(selectedProduct.productID, handleFinishedDataRequest);
+            postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
             return <LoadingComponent loading />;
         }
 
@@ -121,6 +130,7 @@ class DetailsComponent extends Component {
                                 onExportClick={handleExportPdfButton}
                                 scenarioName={scenarioNames.baseline}
                                 selectedProduct={selectedProduct}
+                                newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>
                     </Row>
@@ -138,6 +148,7 @@ class DetailsComponent extends Component {
                                 onExportClick={handleExportPdfButton}
                                 scenarioName={scenarioNames.modified}
                                 selectedProduct={selectedProduct}
+                                newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>
                     </Row>
@@ -156,6 +167,7 @@ class DetailsComponent extends Component {
                                 onCloseClick={handleCloseBaselineButton}
                                 scenarioName={scenarioNames.baseline}
                                 selectedProduct={selectedProduct}
+                                newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>
 
@@ -168,6 +180,7 @@ class DetailsComponent extends Component {
                                 onCloseClick={handleCloseModifiedButton}
                                 scenarioName={scenarioNames.modified}
                                 selectedProduct={selectedProduct}
+                                newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>
                     </Row>

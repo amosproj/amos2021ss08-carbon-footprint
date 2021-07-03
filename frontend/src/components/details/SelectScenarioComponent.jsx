@@ -16,17 +16,18 @@ class SelectScenarioComponent extends Component {
     because of the single source of truth rule 
   */
     state = {
-        selectedScenario: 'variable 1',
-        secondScenario: 'variable 2',
-        scenarios: [{ id: '1', name: 'variable 1' }]
+        selectedScenario: '',
+        secondScenario: '',
+        scenarios: [{ id: '', name: '' }]
     };
 
     handleSubmit = () => {
         alert('The choosen variable is: ' + this.state.selectedScenario);
     };
 
-    onDropDownItemSelectedHandler = (name) => {
-        const selectedScenario = name;
+    onDropDownItemSelectedHandler = (item) => {
+        this.props.newScenarioHandler(item.id);
+        const selectedScenario = item.name;
         this.setState({ selectedScenario: selectedScenario });
     };
 
@@ -83,7 +84,7 @@ class SelectScenarioComponent extends Component {
                         <div className='w3-dropdown-content w3-bar-block w3-border'>
                             {this.state.scenarios.map((item) => (
                                 <button
-                                    onClick={() => this.onDropDownItemSelectedHandler(item.name)}
+                                    onClick={() => this.onDropDownItemSelectedHandler(item)}
                                     className='w3-bar-item w3-button'
                                     key={item.id}
                                 >
@@ -99,6 +100,7 @@ class SelectScenarioComponent extends Component {
 }
 
 SelectScenarioComponent.propTypes = {
+    newScenarioHandler: PropTypes.func,
     selectedProduct: PropTypes.shape({
         categories: PropTypes.array, // [(categories.generation, categories.transmission)],
         modelID: PropTypes.string, // 'none',

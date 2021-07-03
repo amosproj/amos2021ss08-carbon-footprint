@@ -34,6 +34,7 @@ class ScenarioComponent extends Component {
                     <SelectScenarioComponent
                         selectedProduct={this.props.selectedProduct}
                         loadComparePage={this.props.loadComparePage}
+                        newScenarioHandler={this.props.newScenarioHandler}
                     />
                     <Row>
                         <Col xs={12} sm={12} md={12} lg={6} className='CardsContainer'>
@@ -93,6 +94,7 @@ class ScenarioComponent extends Component {
 ScenarioComponent.propTypes = {
     loadComparePage: PropTypes.bool,
     onCloseClick: PropTypes.func,
+    newScenarioHandler: PropTypes.func.isRequired,
     onCompareClick: PropTypes.func.isRequired,
     onExportClick: PropTypes.func.isRequired,
     scenarioName: PropTypes.string,
