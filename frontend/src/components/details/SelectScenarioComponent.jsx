@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * a drop down component for selecting variable
@@ -34,14 +35,35 @@ class SelectScenarioComponent extends Component {
         this.setState({ secondVariable });
     };
 
+    componentDidMount = () => {
+        this.setState(this.updateStateScenario());
+    };
+
     updateStateScenario = () => {
-        let selectedScenario = this.props.selectedProduct.scenarioType;
-        return selectedScenario;
+        let scenarioList = [];
+        // Handle the first element (baseline)
+        scenarioList.push({
+            id: this.props.selectedProduct.productID,
+            name: this.props.selectedProduct.scenarioType
+        });
+        let secondaryScenarioList = this.props.selectedProduct.scenarioList;
+
+        // Handle the scenarioList of the baseline (if any)
+        for (let index = 0; index < secondaryScenarioList.length; index++) {
+            const product = secondaryScenarioList[index];
+            scenarioList.push({ id: product.productID, name: product.scenarioType });
+        }
+
+        // Set State to the calculated List
+        let newState = {
+            selectedScenario: this.props.selectedProduct.scenarioType,
+            selectedSecondScenario: '',
+            scenarios: scenarioList
+        };
+        return newState;
     };
 
     render() {
-        this.setState(updateStateScenario());
-
         /*
         if the loadComparePage state from its parrent (the detail Component) 
         is set to true, here an extra drop down for the second variable
