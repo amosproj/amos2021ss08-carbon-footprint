@@ -22,6 +22,7 @@ class DetailsComponent extends Component {
      */
     state = {
         selectedScenarioId: '',
+        selectedScenarioType: '',
         baselineScenario: true,
         modifiedScenario: false,
         loadComparePage: false,
@@ -30,6 +31,7 @@ class DetailsComponent extends Component {
 
     constructor(props) {
         super(props);
+        this.state.selectedScenarioType = props.selectedProduct.scenarioType;
         this.state.selectedScenarioId = props.selectedProduct.productID;
     }
 
@@ -68,9 +70,10 @@ class DetailsComponent extends Component {
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
         };
 
-        let handleNewScenarioSelection = (id) => {
-            this.setState({ selectedScenarioId: id }, () => {
+        let handleNewScenarioSelection = (item) => {
+            this.setState({ selectedScenarioId: item.id }, () => {
                 this.setState({ stillLoading: true });
+                this.setState({ selectedScenarioType: item.name });
                 // postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
             });
         };
@@ -129,6 +132,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 onExportClick={handleExportPdfButton}
                                 scenarioName={scenarioNames.baseline}
+                                selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
                                 newScenarioHandler={handleNewScenarioSelection}
                             />
@@ -147,6 +151,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 onExportClick={handleExportPdfButton}
                                 scenarioName={scenarioNames.modified}
+                                selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
                                 newScenarioHandler={handleNewScenarioSelection}
                             />
@@ -166,6 +171,7 @@ class DetailsComponent extends Component {
                                 onExportClick={handleExportPdfButton}
                                 onCloseClick={handleCloseBaselineButton}
                                 scenarioName={scenarioNames.baseline}
+                                selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
                                 newScenarioHandler={handleNewScenarioSelection}
                             />
@@ -179,6 +185,7 @@ class DetailsComponent extends Component {
                                 onExportClick={handleExportPdfButton}
                                 onCloseClick={handleCloseModifiedButton}
                                 scenarioName={scenarioNames.modified}
+                                selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
                                 newScenarioHandler={handleNewScenarioSelection}
                             />

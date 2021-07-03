@@ -16,19 +16,12 @@ class SelectScenarioComponent extends Component {
     because of the single source of truth rule 
   */
     state = {
-        selectedScenario: '',
         secondScenario: '',
         scenarios: [{ id: '', name: '' }]
     };
 
-    handleSubmit = () => {
-        alert('The choosen variable is: ' + this.state.selectedScenario);
-    };
-
     onDropDownItemSelectedHandler = (item) => {
-        this.props.newScenarioHandler(item.id);
-        const selectedScenario = item.name;
-        this.setState({ selectedScenario: selectedScenario });
+        this.props.newScenarioHandler(item);
     };
 
     onSecondDropDownSelectedHandler = (name) => {
@@ -57,7 +50,6 @@ class SelectScenarioComponent extends Component {
 
         // Set State to the calculated List
         let newState = {
-            selectedScenario: this.props.selectedProduct.scenarioType,
             selectedSecondScenario: '',
             scenarios: scenarioList
         };
@@ -79,7 +71,7 @@ class SelectScenarioComponent extends Component {
                 <div className='w3-col l6 m6 s8 w3-left'>
                     <div className='w3-dropdown-hover  w3-margin-right w3-margin-top w3-margin-bottom'>
                         <button className='w3-button dropDown'>
-                            {this.state.selectedScenario}
+                            {this.props.selectedScenarioType}
                         </button>
                         <div className='w3-dropdown-content w3-bar-block w3-border'>
                             {this.state.scenarios.map((item) => (
@@ -101,6 +93,7 @@ class SelectScenarioComponent extends Component {
 
 SelectScenarioComponent.propTypes = {
     newScenarioHandler: PropTypes.func,
+    selectedScenarioType: PropTypes.string,
     selectedProduct: PropTypes.shape({
         categories: PropTypes.array, // [(categories.generation, categories.transmission)],
         modelID: PropTypes.string, // 'none',
