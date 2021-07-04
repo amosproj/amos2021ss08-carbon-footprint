@@ -37,6 +37,23 @@
     overflow-y: scroll;
     justify-content: first baseline;
 }
+
+.MyChartCardsContainer {
+
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    cursor: 'pointer';
+    margin-top: 15px;
+    min-width: 360;
+    max-width: 450;
+    min-height: 550px;
+    max-height: 550px;
+    border: 1px solid #ad65dd;
+    position: fixed;
+    overflow-y: scroll;
+    justify-content: first baseline;
+}
 .MyMiniCardsContainer {
 
     display: flex;

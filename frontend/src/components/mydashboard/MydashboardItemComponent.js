@@ -83,14 +83,7 @@ function MydashboardItemComponent() {
     const theme = useTheme();
     const classes = useStyles({ theme });
 
-    // function renderLegend(color, title) {
-    //     return (
-    //         <Row vertical='center'>
-    //             <div style={{ width: 16, border: '2px solid', borderColor: color }}></div>
-    //             <span className={classes.legendTitle}>{title}</span>
-    //         </Row>
-    //     );
-    // }
+
 
     function renderMiniCards(title, value) {
         return (
@@ -114,7 +107,7 @@ function MydashboardItemComponent() {
         );
     }
 
-    function renderStat(title, value) {
+    function renderCards(title, value) {
         return (
             <Column
                 flexGrow={1}
@@ -150,20 +143,20 @@ function MydashboardItemComponent() {
                 <Col xs={8} sm={2} md={2} lg={1.32} style={{padding:0}}  />
                 <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
                     <div className='dashboardTitle w3-padding-24 w3-margin-left'>
-                    {renderMiniCards('Air Quality Results', '50%')}
+                    {renderMiniCards('Opened projects', '4')}
                     </div>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1.32} style={{padding:0}}  />
 
                 <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
                     <div className='dashboardTitle w3-padding-24 w3-margin-left'>
-                    {renderMiniCards('Air Quality Results', '90%')}
+                    {renderMiniCards('Recently opened', '2')}
                     </div>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1.32} style={{padding:0}}  />
                 <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
                     <div className='dashboardTitle w3-padding-24 w3-margin-left'>
-                        {renderMiniCards('Air Quality Results', '30%')}
+                        {renderMiniCards('Closed projects', '1')}
                     </div>
                 </Col>
             </Row>
@@ -198,15 +191,13 @@ function MydashboardItemComponent() {
                         <span>Favorites</span>
                     </div>
 
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
+                    {renderCards('Fav Project 1', 'Transmission')}
+                    {renderCards('Fav Project 2', 'Generation')}
+                    {renderCards('Fav Project 3', 'Industrial App')}
+                    {renderCards('Fav Project 1', 'Transmission')}
+                    {renderCards('Fav Project 2', 'Generation')}
+                    {renderCards('Fav Project 3', 'Industrial App')}
+
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} style={{padding:0,maxWidth:'1.5%'}}  />
                 <Col xs={8} sm={8} md={8} lg={3.5} className='MyCardsContainer'>
@@ -227,12 +218,12 @@ function MydashboardItemComponent() {
                                 <p>Question1 answer</p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Question 2: how many catagories do we have?'>
+                        <Collapsible trigger='Question 2: how to export results into pdf?'>
                             <div className=' w3-card'>
                                 <p>Question 2 answer</p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Question 3: how many catagories do we have?'>
+                        <Collapsible trigger='Question 3: where to find my fav projects ?'>
                             <div className=' w3-card'>
                                 <p>Question 3 answer</p>
                             </div>
@@ -242,14 +233,14 @@ function MydashboardItemComponent() {
             </Row>
             <Row horizontal='space-between' style={{ padding: 0, margin: 0 }}  breakpoints={{ 1024: 'column' }}>
 
-                <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
+                <Col xs={8} sm={8} md={8} lg={4} className='MyChartCardsContainer'>
                     <div className='dashboardTitle'>
                         <span>My charts</span>
                     </div>
                     <PieChartComponent />
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} style={{padding:0,maxWidth:'1.5%'}}/>
-                <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
+                <Col xs={8} sm={8} md={8} lg={4} className='MyChartCardsContainer'>
                     <div className='dashboardTitle'>
                         <span>My charts</span>
                     </div>
@@ -280,7 +271,7 @@ function MydashboardItemComponent() {
                                 target='_blank'
                                 className='w3-hover-text-green'
                             >
-                                Siemens
+                                Siemens Energy
                             </a>
                         </p>
                     </footer>
