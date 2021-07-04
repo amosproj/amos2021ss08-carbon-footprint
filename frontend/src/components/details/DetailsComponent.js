@@ -15,17 +15,32 @@ import LoadingComponent from 'components/loading';
  */
 
 class DetailsComponent extends Component {
-    /* State consists of three variable one for each of the possible state
+    /*
+     * selectedScenarioId: for storing the id of the selected scenario
+     * to send the calculation request to server
+     * slectedScenarioType: for sending it to SelectScenarioComponent
      * baselineScenario: only display the baseline scenario
      * modifiedScenario: only display the modified scenario
      * state at the beginng: only baseline scenario
      */
     state = {
+        selectedScenarioId: '',
+        selectedScenarioType: '',
         baselineScenario: true,
         modifiedScenario: false,
         loadComparePage: false,
         stillLoading: true
     };
+
+    /**
+     * initializing selectedScenarioType and selectedScenarioId
+     * to request the baseline scenario for the first calculation request
+     */
+    constructor(props) {
+        super(props);
+        this.state.selectedScenarioType = props.selectedProduct.scenarioType;
+        this.state.selectedScenarioId = props.selectedProduct.productID;
+    }
 
     render() {
         /*
@@ -60,6 +75,21 @@ class DetailsComponent extends Component {
             const modifiedScenario = true;
             const loadComparePage = false;
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
+        };
+
+        /**
+         * this function will be envoced from SelectScenarioComponent,
+         * once the user changes the scenario in drop down menue
+         *
+         * then selectedScenarioId and selectedScenarioType will be updated
+         *
+         * @param item: selected scenario
+         */
+        let handleNewScenarioSelection = (item) => {
+            this.setState({ selectedScenarioId: item.id }, () => {
+                this.setState({ stillLoading: true });
+                this.setState({ selectedScenarioType: item.name });
+            });
         };
 
         let handleExportPdfButton = () => {
@@ -100,7 +130,7 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
 
         if (this.state.stillLoading) {
-            postCalculationRequest(selectedProduct.productID, handleFinishedDataRequest);
+            postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
             return <LoadingComponent loading />;
         }
 
@@ -116,7 +146,9 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 onExportClick={handleExportPdfButton}
                                 scenarioName={scenarioNames.baseline}
+                                selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
+                                newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>
                     </Row>
@@ -133,7 +165,9 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 onExportClick={handleExportPdfButton}
                                 scenarioName={scenarioNames.modified}
+                                selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
+                                newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>
                     </Row>
@@ -151,7 +185,9 @@ class DetailsComponent extends Component {
                                 onExportClick={handleExportPdfButton}
                                 onCloseClick={handleCloseBaselineButton}
                                 scenarioName={scenarioNames.baseline}
+                                selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
+                                newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>
 
@@ -163,7 +199,9 @@ class DetailsComponent extends Component {
                                 onExportClick={handleExportPdfButton}
                                 onCloseClick={handleCloseModifiedButton}
                                 scenarioName={scenarioNames.modified}
+                                selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
+                                newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>
                     </Row>
@@ -178,9 +216,10 @@ DetailsComponent.propTypes = {
         categories: PropTypes.array, // [(categories.generation, categories.transmission)],
         modelID: PropTypes.string, // 'none',
         modelName: PropTypes.string, // 'please select a Product',
-        productID: PropTypes.string, // 'dummydum-13b0-4e09-9fb4-50398483ecfd'
+        productID: PropTypes.string.isRequired, // 'dummydum-13b0-4e09-9fb4-50398483ecfd'
         productImage: PropTypes.string, //ImagePath?
-        productName: PropTypes.string //'please select a Product'
+        productName: PropTypes.string, //'please select a Product'
+        scenarioType: PropTypes.string
     })
 };
 
