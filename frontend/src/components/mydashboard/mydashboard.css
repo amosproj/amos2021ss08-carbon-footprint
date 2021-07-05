@@ -1,16 +1,10 @@
-.MydashboardContainer {
-    display: flex;
-    flex-direction: column;
+.MySlideshowContainer {
     background-color: #ffffff;
     /* border:0.5px solid #00b300; */
-    border-radius: 4px;
     cursor: 'pointer';
-    width: max-content;
-    min-height: 480px;
     border: 1.5px solid #ad65dd;
-    max-height: 480px;
     margin-top: 10px;
-    position: fixed;
+    min-height: 1000px;
 }
 
 .img {

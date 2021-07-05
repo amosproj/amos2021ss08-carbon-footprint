@@ -14,7 +14,7 @@ export default class SlideshowComponent extends Component {
             images: [Dashboard1, IndustrialImage, PowerGeneration, PowerTransmission]
         };
     }
-    
+
     getData() {
         const img = this.state.images.map((m) => <img src={m} alt='' />);
     }
@@ -28,11 +28,11 @@ export default class SlideshowComponent extends Component {
 
     render() {
         const items = [
-            <img alt='' style={{marginTop:5}}  src={Dashboard1} />,
-            <img alt='' style={{marginTop:5}}   src={Dashboard2} />,
-            <img alt='' style={{marginTop:5}}  src={PowerTransmission} />,
-            <img alt='' style={{marginTop:5}}   src={IndustrialImage} />,
-            <img alt='' style={{marginTop:5}}  src={PowerGeneration} />
+            <img alt='' style={{ marginTop: 20 }} src={Dashboard1} />,
+            <img alt='' style={{ marginTop: 20 }} src={Dashboard2} />,
+            <img alt='' style={{ marginTop: 20 }} src={PowerTransmission} />,
+            <img alt='' style={{ marginTop: 20 }} src={IndustrialImage} />,
+            <img alt='' style={{ marginTop: 20 }} src={PowerGeneration} />
         ];
         return (
             <div>
@@ -45,6 +45,7 @@ export default class SlideshowComponent extends Component {
                     fadeOutAnimation={true}
                     mouseTrackingEnabled={true}
                     disableAutoPlayOnAction={true}
+                    autoWidth
                 />
             </div>
         );

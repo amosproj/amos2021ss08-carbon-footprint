@@ -50,8 +50,8 @@ function MydashboardItemComponent() {
 
     return (
         <Container fluid={true} style={{ padding: 'auto' }}>
-            <Row style={{ padding: 0, margin: 0 }}>
-                <Col xs={8} sm={8} md={8} lg={16} className='MydashboardContainer'>
+            <Row>
+                <Col className='MySlideshowContainer'>
                     <SlideshowComponent />
                 </Col>
             </Row>
