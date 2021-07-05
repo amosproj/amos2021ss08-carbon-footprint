@@ -2,124 +2,190 @@
  * The simaProInterface is the interface between frontend, backend (and Sima Pro API).
  * It provides the needed utility functions.
  *
- * @author Martin Wagner
  */
 
 import logo from 'assets/logo/LogoCarbonteam.png';
-import logo_1 from 'assets/dummyImages/Image_1.PNG';
-import logo_2 from 'assets/dummyImages/Logo2.png';
-import { categories } from './categories';
 import { getSimaProProjects } from 'interface/BackendConnect';
+import { projectCategoryProcessing, projectNameProcessing } from './processBackendData';
+import { getDummyProductData } from 'assets/dummyData/dummyData';
+import { types, categories } from 'resources/globalConstants/categories';
+import { simaProTypes } from 'resources/globalConstants/SimaProProductCategories';
+import { processScenarios } from './processProjects';
+
+// Toggle to NOT use SimaPro Data
+let useDummyData = true;
 
 /**
- * should get all the Products from the backend (soon)
- * @returns
+ *
+ * Sorts all projects in as per category and type.
+ *
+ * @returns the sorted projects object
  */
-export async function getCategorizedProducts(scope = 'All') {
+export async function getCategorizedProducts() {
     // We need to be able to get either all products from the backend, or only the Products of a selected Category
     // e.g. '/generation/products'; '/transmission/services'; 'industrialApplications/solutions'
     // The expected Product has a unique productID, a productName and an imagePath (if any)
     // TODO: IMPROVE!
-    if (scope === 'All') {
-        return await getSimaProducts();
-    } else if (scope === 'solutions') {
-        console.log("solutions");
-        return getDummyProducts();
-    } else {
-        return await getSimaProducts();
-    }
-}
-
-/**
- * should get all the Models for one Product
- * @param productID the id of the Project to get the models for
- * @returns
- */
-//export async function getModels(productID) {
-export function getModels(productName, productID) {
-    switch (productID) {
-        case '09f64eeb-13b0-4e09-9fb4-50398483ecfd':
-            return [{ modelID: 1, productID: productID, modelName: 'Electric Motor Type 25b' }];
-        case 'aufwlc93-kldp-4fer-15s7-51245631fega':
-            return [];
-        case '7ghnaoeb-kfue-qp04-slfg-12059492begp':
-            return [
-                { modelID: 6, productID: productID, modelName: 'Transformer DIN42a' },
-                { modelID: 7, productID: productID, modelName: 'Transformer DIN42b' },
-                { modelID: 8, productID: productID, modelName: 'Transformer DIN42b' },
-                { modelID: 9, productID: productID, modelName: 'Transformer DIN42b' }
-            ];
-        case 'whatis00-this-id00-just-d01n9352rnow':
-            return [
-                { modelID: 10, productID: productID, modelName: 'Gas Turbine Type 1' },
-                { modelID: 11, productID: productID, modelName: 'Gas Turbine Type 2' },
-                { modelID: 12, productID: productID, modelName: 'Gas Turbine Type 3' },
-                { modelID: 13, productID: productID, modelName: 'Gas Turbine Type 4' }
-            ];
-        case 'aufglc25-kldd-4ger-16s2-51002631fell':
-            return [
-                { modelID: 14, productID: productID, modelName: 'Allround Product 1' },
-                { modelID: 15, productID: productID, modelName: 'Allround Product 2' },
-                { modelID: 16, productID: productID, modelName: 'Allround Product 3' },
-                { modelID: 17, productID: productID, modelName: 'Allround Product 4' }
-            ];
-        default:
-            return [{ modelID: 42, productID: productID, modelName: productName }];
-    }
-}
-
-function getDummyProducts() {
-    // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes?
-    const products = [
-        {
-            productID: '09f64eeb-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Electric Motors', //final_process_name? -> probably rather the project name later. But unclear!
-            categories: [categories.generation, categories.transmission],
-            productImage: logo
-        },
-        {
-            productID: 'aufwlc93-kldp-4fer-15s7-51245631fega', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Motors Type XYZb', //final_process_name?
-            categories: [categories.transmission],
-            productImage: logo_1
-        },
-        {
-            productID: '7ghnaoeb-kfue-qp04-slfg-12059492begp', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Transformers', //final_process_name?
-            categories: [categories.transmission],
-            productImage: logo_2
-        },
-        {
-            productID: 'whatis00-this-id00-just-d01n9352rnow', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Gas Turbines', //final_process_name?
-            categories: [categories.generation],
-            productImage: logo
-        },
-        {
-            productID: 'aufglc25-kldd-4ger-16s2-51002631fell', //(project_id?) final_process_id? (final_product_id?)
-            productName: 'Allround Product', //final_process_name?
-            categories: [categories.transmission, categories.generation],
-            productImage: logo_1
+    let formattedProducts = await getSimaProducts();
+    let productCategoriesAndTypes = {
+        industrialApplications: { products: [], solutions: [], services: [] },
+        transmission: { products: [], solutions: [], services: [] },
+        generation: { products: [], solutions: [], services: [] }
+    };
+    formattedProducts.forEach((formattedProduct) => {
+        console.log('formattedProduct');
+        console.log(formattedProduct);
+        switch (formattedProduct.categories[0]) {
+            case categories.transmission:
+                switch (formattedProduct.type) {
+                    case types.product:
+                        productCategoriesAndTypes.transmission.products.push(formattedProduct);
+                        break;
+                    case types.solution:
+                        productCategoriesAndTypes.transmission.solutions.push(formattedProduct);
+                        break;
+                    case types.service:
+                        productCategoriesAndTypes.transmission.services.push(formattedProduct);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case categories.generation:
+                switch (formattedProduct.type) {
+                    case types.product:
+                        productCategoriesAndTypes.generation.products.push(formattedProduct);
+                        break;
+                    case types.solution:
+                        productCategoriesAndTypes.generation.solutions.push(formattedProduct);
+                        break;
+                    case types.service:
+                        productCategoriesAndTypes.generation.services.push(formattedProduct);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case categories.industrialApplications:
+                switch (formattedProduct.type) {
+                    case types.product:
+                        productCategoriesAndTypes.industrialApplications.products.push(
+                            formattedProduct
+                        );
+                        break;
+                    case types.solution:
+                        productCategoriesAndTypes.industrialApplications.solutions.push(
+                            formattedProduct
+                        );
+                        break;
+                    case types.service:
+                        productCategoriesAndTypes.industrialApplications.services.push(
+                            formattedProduct
+                        );
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
         }
-    ];
-    return products;
+    });
+    console.log('Typified and Categorized Products');
+    console.log(productCategoriesAndTypes);
+
+    return productCategoriesAndTypes;
 }
 
 /**
  * Reducing the SimaPro projects to products.
- *
+ * The segrigation is based on the comment mentioned in the SimaPro application
+ * Further split the products based on the category
+ * sample comment: "Categorie:[Generation/Transmission/IndustrialApplication]/[Solutions/Product/Services]#Model:ModelId#Location:loaction"
+ *This function filters out all the products obtained from API
  */
 export async function getSimaProducts() {
-    const products = await getSimaProProjects();
+    let products;
+    if (!useDummyData) {
+        products = await getSimaProProjects();
+    } else {
+        products = getDummyProductData();
+    }
     let formattedProducts = [];
-    await products.forEach((product) => {
-        const productObject = {
-            productID: product.Id,
-            productName: product.Name,
-            categories: [categories.generation, categories.transmission],
-            productImage: logo
-        };
-        formattedProducts.push(productObject);
+
+    // Format all the SimaPro Products in a way where we can work with them
+    products.forEach((product) => {
+        let description = product.Description;
+        let splittedString = description.split(/[#,:,/]/);
+
+        console.log(splittedString);
+
+        if (description === null) {
+        } else {
+            let productSolutionService;
+
+            if (splittedString.includes(simaProTypes.product)) {
+                productSolutionService = types.product;
+            } else if (splittedString.includes(simaProTypes.solution)) {
+                productSolutionService = types.solution;
+            } else if (splittedString.includes(simaProTypes.service)) {
+                productSolutionService = types.service;
+            }
+
+            let projectAndScenarioName = projectNameProcessing(product.Name);
+
+            // Definition of the object that is used to hold the data
+
+            let productObject = {
+                modelID: product.Id, // since there is no model defined yet
+                modelName: projectAndScenarioName.projectName,
+                productID: product.Id,
+                productName: projectAndScenarioName.projectName,
+                categories: projectCategoryProcessing(product.Description),
+                productImage: useDummyData ? product.productImage : logo,
+                type: productSolutionService,
+                scenarioType: projectAndScenarioName.scenarioName,
+                scenarioList: [] // A list of products starting with itself as the baseline Scenario
+            };
+
+            formattedProducts.push(productObject);
+        }
     });
-    return formattedProducts;
+    console.log('The formatted Products (getSimaProducts)');
+    console.log(formattedProducts);
+
+    // Now sort the Products Alphabetically and put the baseline Scenario in first place if the Names are identical
+    formattedProducts.sort(compareProducts);
+
+    // and then process them to not show scenario duplicates
+    let processedAndSortedTastyProducts = processScenarios(formattedProducts);
+
+    return processedAndSortedTastyProducts;
+}
+
+/**
+ * Function used to determine the order of the elements.
+ * It is expected to return
+ * - a negative value if first argument is less than second argument,
+ * - zero if they're equal and
+ * - a positive value otherwise.
+ * If omitted, the elements are sorted in ascending, ASCII character order.
+ * @param {{productName: String, scenarioType: String}} productA
+ * @param {{productName: String, scenarioType: String}} productB
+ */
+function compareProducts(productA, productB) {
+    let evaluation = productA.productName.localeCompare(productB.productName);
+
+    // Put the baseline first
+    if (evaluation === 0) {
+        if (productA.scenarioType.includes('baseline')) {
+            return -1;
+        } else if (productB.scenarioType.includes('baseline')) {
+            return 1;
+        } else {
+            return productA.scenarioType.localeCompare(productB.scenarioType);
+        }
+    } else {
+        return evaluation;
+    }
 }

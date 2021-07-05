@@ -17,19 +17,28 @@ const NavbarComponent = (props) => {
             <div className='navbar' vertical='center' horizontal='space-between'>
                 {/* used the history.goback() function to go one step backward where it stores the previous steps including the prevs stage of clicking items on the sidebar */}
 
+                <div className='BackButton'>
+                    <Link to={{}} onClick={() => history.goBack()}>
+                        <i className='fa fa-chevron-left' aria-hidden='true' />
+                    </Link>
+                </div>
+                <div className='NavbarTitle'>
+                    <b>{props.scenarioName}</b>
+                </div>
+
                 <Link
                     style={props.onExportClicked ? { pointerEvents: 'none' } : null}
                     to={{ pathname: slugs.details }}
                     onClick={props.exportHandler}
                 >
-                    <pdfbtn className='w3-col l3 m3 s4'>
+                    <div className='Pdfbtn'>
                         {props.onExportClicked ? (
                             <CircularProgress className='w3-margin-right' size='1.4rem' />
                         ) : (
-                            <i className='fa fa-file-pdf-o w3-margin-right' aria-hidden='true' />
+                            <i className='fa fa-file-pdf-o ' aria-hidden='true' />
                         )}
-                        Export Pdf
-                    </pdfbtn>
+                        Export
+                    </div>
                 </Link>
                 <Link to={{ pathname: slugs.details }} onClick={props.onCompareClick}>
                     <div className='Addbtn'>
@@ -44,12 +53,12 @@ const NavbarComponent = (props) => {
                 <div className='NavbarTitle'>
                     <b>{props.scenarioName}</b>
                 </div>
-                <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
+                {/* <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
                     <div className='Pdfbtn'>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
                         Export
                     </div>
-                </Link>
+                </Link> */}
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onCloseClick}>
                     <div className='Closebtn '>
@@ -65,8 +74,9 @@ NavbarComponent.propTypes = {
     loadComparePage: PropTypes.bool.isRequired,
     onCloseClick: PropTypes.func,
     onCompareClick: PropTypes.func,
-    onExportClick: PropTypes.func.isRequired,
-    scenarioName: PropTypes.string.isRequired
+    onExportClicked: PropTypes.bool.isRequired,
+    scenarioName: PropTypes.string.isRequired,
+    exportHandler: PropTypes.func.isRequired
 };
 
 export default NavbarComponent;

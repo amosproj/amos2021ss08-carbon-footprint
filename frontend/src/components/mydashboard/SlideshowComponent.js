@@ -4,15 +4,17 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import IndustrialImage from 'assets/dummyImages/Industrialapplications.jpg';
 import PowerGeneration from 'assets/dummyImages/powerGeneration.jpg';
 import PowerTransmission from 'assets/dummyImages/powerTransmission.jpg';
-//import './mydashboard.css';
+import Dashboard1 from 'assets/logo/DashboardImage1.PNG';
+import Dashboard2 from 'assets/logo/DashboardImage2.jpg';
 
-export default class Slideshow extends Component {
+export default class SlideshowComponent extends Component {
     constructor(props, context) {
         super();
         this.state = {
-            images: [IndustrialImage, PowerGeneration, PowerTransmission]
+            images: [Dashboard1, IndustrialImage, PowerGeneration, PowerTransmission]
         };
     }
+
     getData() {
         const img = this.state.images.map((m) => <img src={m} alt='' />);
     }
@@ -26,9 +28,11 @@ export default class Slideshow extends Component {
 
     render() {
         const items = [
-            <img alt='' src={IndustrialImage} />,
-            <img alt='' src={PowerTransmission} />,
-            <img alt='' src={PowerGeneration} />
+            <img alt='' style={{ marginTop: 20 }} src={Dashboard1} />,
+            <img alt='' style={{ marginTop: 20 }} src={Dashboard2} />,
+            <img alt='' style={{ marginTop: 20 }} src={PowerTransmission} />,
+            <img alt='' style={{ marginTop: 20 }} src={IndustrialImage} />,
+            <img alt='' style={{ marginTop: 20 }} src={PowerGeneration} />
         ];
         return (
             <div>
@@ -41,6 +45,7 @@ export default class Slideshow extends Component {
                     fadeOutAnimation={true}
                     mouseTrackingEnabled={true}
                     disableAutoPlayOnAction={true}
+                    autoWidth
                 />
             </div>
         );

@@ -1,58 +1,48 @@
 import React from 'react';
-import { Column } from 'simple-flexbox';
-import { createUseStyles } from 'react-jss';
 import MydashboardItemComponent from './MydashboardItemComponent';
-import { Container } from 'react-grid-system';
-
-const useStyles = createUseStyles({
-    cardsContainer: {
-        marginRight: -30,
-        marginTop: -30
-    },
-    cardRow: {
-        marginTop: 30,
-        '@media (max-width: 768px)': {
-            marginTop: 0
-        }
-    },
-    miniCardContainer: {
-        flexGrow: 1,
-        marginRight: 30,
-        '@media (max-width: 768px)': {
-            marginTop: 30,
-            maxWidth: 'none'
-        }
-    },
-    todayTrends: {
-        marginTop: 30
-    },
-    lastRow: {
-        marginTop: 30
-    },
-    unresolvedTickets: {
-        marginRight: 30,
-        '@media (max-width: 1024px)': {
-            marginRight: 0
-        }
-    },
-    tasks: {
-        marginTop: 0,
-        '@media (max-width: 1024px)': {
-            marginTop: 30
-        }
-    }
-});
+import { Row } from 'react-grid-system';
 
 function DashboardComponent() {
-    const classes = useStyles();
     return (
-        <Container>
-            <Column>
-                <div className={classes.todayTrends}>
-                    <MydashboardItemComponent />
-                </div>
-            </Column>
-        </Container>
+        <>
+            <div className='DashboardBody'>
+                <MydashboardItemComponent />
+            </div>
+            <div className='DashboardFooter'>
+                <Row style={{ padding: 0, margin: 0 }} breakpoints={{ 1024: 'column' }}>
+                    <div className='ContactContainer'>
+                        <footer className='w3-center w3-padding-16'>
+                            <p>For latest Updates</p>
+                            <form className='form-inline w3-padding-16'>
+                                {'Subscribe: '}
+                                <input
+                                    type='email'
+                                    className='form-control'
+                                    size={50}
+                                    placeholder='Email Address'
+                                />
+                                <button type='button' className='SignUp'>
+                                    Sign Up
+                                </button>
+                            </form>
+
+                            <p>
+                                Powered by{' '}
+                                <a
+                                    href='https://www.siemens-energy.com/global/en/offerings.html'
+                                    rel='noreferrer'
+                                    title='W3.CSS'
+                                    target='_blank'
+                                    className='w3-hover-text-green'
+                                >
+                                    Siemens Energy
+                                </a>
+                            </p>
+                        </footer>
+                    </div>
+                </Row>
+            </div>
+        </>
     );
 }
 
