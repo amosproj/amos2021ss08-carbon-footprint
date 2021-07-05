@@ -157,15 +157,16 @@
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
-    font-size: var(--global--text-title--FontSize);
+    font-size: var(--global--panel-title--FontSize);
     letter-spacing: 0.5px;
     color: #643082;
     margin-bottom: 5px;
     padding-left: 0px;
-    margin-top: 0px;
+    margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 0px;
 }
+
 .dashboardCardSubTitle p{
     font-family: inherit;
     font-style: normal;
