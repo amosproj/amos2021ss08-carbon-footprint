@@ -17,7 +17,7 @@ function MydashboardItemComponent() {
                     <p> {title} </p>
                     <Row justify='center'>
                         <div className='dashboardMiniTitle'>
-                            <i class='fa fa-line-chart' aria-hidden='true' />
+                            <i className='fa fa-line-chart' aria-hidden='true' />
                             {value}
                         </div>
                     </Row>
@@ -49,13 +49,12 @@ function MydashboardItemComponent() {
     }
 
     return (
-        <Container fluid={true} style={{ padding: 'auto' }}>
-            <Row>
+        <Container fluid={true} style={{ padding: 0 }}>
+            <Row style={{ padding: 0, marginLeft: 0, marginRight: 0 }}>
                 <Col className='MySlideshowContainer'>
                     <SlideshowComponent />
                 </Col>
             </Row>
-            <Row />
             <Row
                 justify='between'
                 style={{ padding: 0, marginLeft: 0, marginRight: 0 }}
@@ -83,7 +82,13 @@ function MydashboardItemComponent() {
 
             <Row
                 justify='between'
-                style={{ padding: 0, margin: 0 }}
+                style={{
+                    padding: 0,
+                    marginTop: 0,
+                    marginLeft: 0,
+                    marginRight: 0,
+                    marginBottom: 20
+                }}
                 breakpoints={{ 1024: 'column' }}
             >
                 <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
@@ -128,7 +133,7 @@ function MydashboardItemComponent() {
                     <div className=' w3-padding-24'>
                         <div className='dashboardTitle'>
                             <i
-                                class='fa fa-question-circle'
+                                className='fa fa-question-circle'
                                 aria-hidden='true'
                                 style={{ color: '#643082' }}
                             />
@@ -155,16 +160,12 @@ function MydashboardItemComponent() {
                     </div>
                 </Col>
             </Row>
-            <Row
-                horizontal='space-between'
-                style={{ padding: 0, margin: 0 }}
-                breakpoints={{ 1024: 'column' }}
-            >
+            <Row style={{ padding: 0, margin: 0 }} breakpoints={{ 1024: 'column' }}>
                 <div className='ContactContainer'>
                     <footer className='w3-center w3-padding-16'>
                         <p>For latest Updates</p>
                         <form className='form-inline w3-padding-16'>
-                            Subscribe :
+                            {'Subscribe: '}
                             <input
                                 type='email'
                                 className='form-control'

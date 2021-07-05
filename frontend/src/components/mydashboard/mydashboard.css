@@ -3,8 +3,8 @@
     /* border:0.5px solid #00b300; */
     cursor: 'pointer';
     border: 1.5px solid #ad65dd;
-    margin-top: 10px;
-    min-height: 1000px;
+    padding: 0;
+    margin: auto;
 }
 
 .img {
@@ -66,12 +66,9 @@
 }
 .ContactContainer {
     display: flex;
-    margin-top: 100px;
     flex-direction: column;
     cursor: 'pointer';
-    height: 15%;
-    width: 80%;
-    position: fixed;
+    width: 100%;
     background-color: #643082;
     justify-content: first baseline;
     color: #ffffff;
