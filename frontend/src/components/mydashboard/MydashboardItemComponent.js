@@ -149,17 +149,23 @@ function MydashboardItemComponent() {
                     <div className='Collapsible dashboardCardSubTitle w3-padding-32'>
                         <Collapsible trigger='Q1: How many catagories do we have?'>
                             <div className='  w3-card'>
-                                <p>Question1 answer</p>
+                                <p>
+                                    Ans: We Have three categories: Generation, Transmission and
+                                    Industrial Applications
+                                </p>
                             </div>
                         </Collapsible>
                         <Collapsible trigger='Q2: How to export results into pdf?'>
                             <div className=' w3-card'>
-                                <p>Question 2 answer</p>
+                                <p>
+                                    Ans: You can go to Categories-> Choose Products -> Use Export
+                                    button on the screen to download the pdf
+                                </p>
                             </div>
                         </Collapsible>
                         <Collapsible trigger='Q3: Where to find my fav projects ?'>
                             <div className=' w3-card'>
-                                <p>Question 3 answer</p>
+                                <p> Ans:You can find favorite projects in "My Dashboard"</p>
                             </div>
                         </Collapsible>
                     </div>
