@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { processBackendData } from 'interface/processBackendData';
+import { dummyProcessBackendData } from 'interface/processBackendData';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -31,6 +32,13 @@ export async function getSimaProProjects() {
  *   If the calculation is stored returns the results of calculation here.
  */
 export async function postCalculationRequest(projectId, callback) {
+    // Bypass using the SimaPro Data
+    const useDummyData = true;
+
+    if (useDummyData) {
+        return dummyPostCalculationRequest(projectId, callback);
+    }
+
     // POST request using axios with set headers
     const headers = {
         Authorization: 'Bearer',
@@ -45,6 +53,10 @@ export async function postCalculationRequest(projectId, callback) {
         .then(function (data) {
             processBackendData(data, callback);
         });
+}
+
+function dummyPostCalculationRequest(projectId, callback) {
+    dummyProcessBackendData(projectId, callback);
 }
 
 /**

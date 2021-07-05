@@ -79,14 +79,7 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
     }
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
-    const newSelectedProducts = [
-        {
-            productID: selectedProducts[0].productID,
-            productName: selectedProducts[0].productName,
-            modelID: selectedProducts[0].modelID,
-            modelName: selectedProducts[0].modelName
-        }
-    ];
+    const newSelectedProducts = [selectedProducts[0]];
 
     if (productList === [] || productList === undefined || productList === null) {
         console.error(
@@ -105,10 +98,7 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
                                 className='ProductGridLink'
                                 onClick={() => {
                                     // Save selection to ContextProvider
-                                    newSelectedProducts[0].productID = product.productID;
-                                    newSelectedProducts[0].productName = product.productName;
-                                    newSelectedProducts[0].modelID = product.productID; // for now 1 Product has 1 Model (itself)
-                                    newSelectedProducts[0].modelName = product.productName;
+                                    newSelectedProducts[0] = product;
                                     setSelectedProducts(newSelectedProducts);
                                 }}
                                 to={{
