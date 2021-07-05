@@ -97,16 +97,22 @@ function MydashboardItemComponent() {
                         <b>My Recent Projects</b>
                     </div>
                     <div className='Collapsible dashboardCardSubTitle'>
-                        <Collapsible trigger='Project 1 '>
-                            <div className='w3-card'>
-                                <p>This is the collapsible content.</p>
-                            </div>
-                        </Collapsible>
-                        <Collapsible trigger='Project 2 '>
-                            <div className='w3-card'>
-                                <p>This is the collapsible content.</p>
-                            </div>
-                        </Collapsible>
+                        <Container fluid>
+                            <Row>
+                                <Collapsible trigger='Electric Motors'>
+                                    <div className='w3-card'>
+                                        <p>scenario 2</p>
+                                    </div>
+                                </Collapsible>
+                            </Row>
+                            <Row>
+                                <Collapsible trigger='Super Solution'>
+                                    <div className='w3-card'>
+                                        <p>Baseline Scenario</p>
+                                    </div>
+                                </Collapsible>
+                            </Row>
+                        </Container>
                     </div>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} style={{ padding: 0, maxWidth: '1.5%' }} />
@@ -159,38 +165,6 @@ function MydashboardItemComponent() {
                         </Collapsible>
                     </div>
                 </Col>
-            </Row>
-            <Row style={{ padding: 0, margin: 0 }} breakpoints={{ 1024: 'column' }}>
-                <div className='ContactContainer'>
-                    <footer className='w3-center w3-padding-16'>
-                        <p>For latest Updates</p>
-                        <form className='form-inline w3-padding-16'>
-                            {'Subscribe: '}
-                            <input
-                                type='email'
-                                className='form-control'
-                                size={50}
-                                placeholder='Email Address'
-                            />
-                            <button type='button' className='SignUp'>
-                                Sign Up
-                            </button>
-                        </form>
-
-                        <p>
-                            Powered by{' '}
-                            <a
-                                href='https://www.siemens-energy.com/global/en/offerings.html'
-                                rel='noreferrer'
-                                title='W3.CSS'
-                                target='_blank'
-                                className='w3-hover-text-green'
-                            >
-                                Siemens Energy
-                            </a>
-                        </p>
-                    </footer>
-                </div>
             </Row>
         </Container>
     );
