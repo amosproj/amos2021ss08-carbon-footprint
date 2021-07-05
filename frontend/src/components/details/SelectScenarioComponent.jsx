@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * a drop down component for selecting variable
- *
+ * a drop down component for selecting a scenario
  */
-
 class SelectScenarioComponent extends Component {
     state = {
         secondScenario: '', // TODO: for comparing scenarios this should be removed and use props from detail component
