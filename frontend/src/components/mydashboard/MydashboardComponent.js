@@ -1,8 +1,7 @@
 import React from 'react';
-import { Column } from 'simple-flexbox';
 import { createUseStyles } from 'react-jss';
 import MydashboardItemComponent from './MydashboardItemComponent';
-import { Container } from 'react-grid-system';
+import { Container, Col } from 'react-grid-system';
 
 const useStyles = createUseStyles({
     cardsContainer: {
@@ -47,11 +46,11 @@ function DashboardComponent() {
     const classes = useStyles();
     return (
         <Container>
-            <Column>
+            <Col>
                 <div className={classes.todayTrends}>
                     <MydashboardItemComponent />
                 </div>
-            </Column>
+            </Col>
         </Container>
     );
 }
