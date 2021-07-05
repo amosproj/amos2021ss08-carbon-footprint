@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ScenarioComponent from './ScenarioComponent';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
 import { Col, Container, Row } from 'react-grid-system';
 import './navbar.css';
 import { postCalculationRequest } from 'interface/BackendConnect';
 import LoadingComponent from 'components/loading';
+import { exportPdf } from '../../interface/PdfExporter.js';
+
 /**
  * the main component for detail page which includes
  * canvas page and variable drop down list
@@ -29,7 +29,8 @@ class DetailsComponent extends Component {
         baselineScenario: true,
         modifiedScenario: false,
         loadComparePage: false,
-        stillLoading: true
+        stillLoading: true,
+        onExportClicked: false
     };
 
     /**
@@ -93,26 +94,18 @@ class DetailsComponent extends Component {
         };
 
         let handleExportPdfButton = () => {
-            // getting the element that should be exported
-            var div = document.getElementById('capture');
+            this.setState({ onExportClicked: true });
 
-            // converting html to an image and then exporting it by pdf
-            html2canvas(div).then((canvas) => {
-                var imgData = canvas.toDataURL('image/jpeg', 1);
-                // pdf configuration
-                var pdf = new jsPDF('p', 'mm', 'a4');
-                var pageWidth = pdf.internal.pageSize.getWidth();
-                var pageHeight = pdf.internal.pageSize.getHeight();
-                var imageWidth = canvas.width;
-                var imageHeight = canvas.height;
+            // geting the element that should be exported
+            var div1 = document.getElementById('capturePieChart');
+            var div2 = document.getElementById('captureColumnDiagram');
+            var div3 = document.getElementById('captureTable');
 
-                var ratio =
-                    imageWidth / imageHeight >= pageWidth / pageHeight
-                        ? pageWidth / imageWidth
-                        : pageHeight / imageHeight;
-                pdf.addImage(imgData, 'JPEG', 0, 0, imageWidth * ratio, imageHeight * ratio);
-                pdf.save('invoice.pdf');
-            });
+            exportPdf(div1, div2, div3, pdfExportDoneCallback);
+        };
+
+        let pdfExportDoneCallback = () => {
+            this.setState({ onExportClicked: false });
         };
         /*
          * Important function that is given as the callback parameter to the postCalculationRequest in order to be called
@@ -144,10 +137,11 @@ class DetailsComponent extends Component {
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                onExportClick={handleExportPdfButton}
+                                exportHandler={handleExportPdfButton}
                                 scenarioName={scenarioNames.baseline}
                                 selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
+                                onExportClicked={this.state.onExportClicked}
                                 newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>
@@ -163,10 +157,11 @@ class DetailsComponent extends Component {
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
                                 onCompareClick={handleCompareButton}
-                                onExportClick={handleExportPdfButton}
+                                exportHandler={handleExportPdfButton}
                                 scenarioName={scenarioNames.modified}
                                 selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
+                                onExportClicked={this.state.onExportClicked}
                                 newScenarioHandler={handleNewScenarioSelection}
                             />
                         </Col>

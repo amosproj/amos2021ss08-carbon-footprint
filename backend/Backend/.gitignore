@@ -4,6 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 secrets.json
+Templates/template-docx
+Templates/template-modified.docx
+Templates/jpegsample.jpg
 
 # User-specific files
 *.rsuser

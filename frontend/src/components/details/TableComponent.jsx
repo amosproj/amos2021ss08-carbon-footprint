@@ -17,15 +17,6 @@ class TableComponent extends Component {
         const idKey = this.props.tableKey;
         return (
             <Container fluid={true}>
-                {/* dynamic display of product and model */}
-                <h5 className='TableTitle'>{this.props.productName}</h5>
-                <h6 className='TableSubTitle'>
-                    {this.props.modelName === this.props.productName ||
-                    this.props.modelName === undefined
-                        ? ''
-                        : this.props.modelName}
-                </h6>
-
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
                     <thead className='TableHeader'>
                         <tr className='TableHeader' key={'FirstRow'}>

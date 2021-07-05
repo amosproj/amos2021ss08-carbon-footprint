@@ -24,7 +24,8 @@ const PieChartComponent = () => {
             fontSize: 10
         },
         chart: {
-            type: 'donut'
+            type: 'donut',
+            height: 'auto'
         },
 
         labels: labels,
@@ -56,7 +57,7 @@ const PieChartComponent = () => {
     };
 
     return (
-        <div  id='chart'>
+        <div id='chart'>
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );
