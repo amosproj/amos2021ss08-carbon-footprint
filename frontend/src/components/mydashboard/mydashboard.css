@@ -11,22 +11,18 @@
     max-height: 480px;
     margin-top: 10px;
     position: fixed;
-    
-
 }
-
 
 .img {
     max-width: 100%;
     display: block;
 }
 .MyCardsContainer {
-
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     cursor: 'pointer';
-    margin-top: 15px;
+    margin-top: 20px;
     min-width: 360;
     max-width: 450;
     min-height: 350px;
@@ -39,12 +35,11 @@
 }
 
 .MyChartCardsContainer {
-
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     cursor: 'pointer';
-    margin-top: 15px;
+    margin-top: 20px;
     min-width: 360;
     max-width: 450;
     min-height: 550px;
@@ -55,33 +50,27 @@
     justify-content: first baseline;
 }
 .MyMiniCardsContainer {
-
-    display: flex;
+    display: inline-flex;
     margin-top: 20px;
+    padding: 20px;
     flex-direction: column;
     background-color: #ffffff;
     cursor: 'pointer';
-    max-width: 10px;
-    min-height: 600px;
-    max-height: 600px;
     position: fixed;
     justify-content: first baseline;
     float: right;
     border: 1px solid #ad65dd;
 }
 
-
-.MyMiniCardsContainer p{
+.MyMiniCardsContainer p {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
     font-size: var(--global--text-subtitle--FontSize);
     letter-spacing: 0.5px;
     color: var(--global--text--color);
-
 }
 .ContactContainer {
-
     display: flex;
     margin-top: 100px;
     flex-direction: column;
@@ -94,7 +83,7 @@
     color: #ffffff;
 }
 
-.ContactContainer p{
+.ContactContainer p {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
@@ -105,7 +94,7 @@
 .SignUp {
     background-color: #ad65dd;
     color: white;
-    border-color:#ad65dd;
+    border-color: #ad65dd;
 }
 .SignUp:hover {
     opacity: 0.8;
@@ -121,37 +110,30 @@
     border-style: none;
     cursor: pointer;
     margin-left: 0px;
-
 }
-.star p{
+.star p {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
     font-size: var(--global--text-subtitle--FontSize);
     letter-spacing: 0.5px;
     color: var(--global--text--color);
-
 }
-.dashboardCardSubTitle i{
+.dashboardCardSubTitle i {
     font-size: 10px;
 }
 
-.dashboardCardSubTitle{
-
+.dashboardCardSubTitle {
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
     font-size: var(--global--text-title--FontSize)-2;
     letter-spacing: 0.5px;
     color: #643082;
-    margin-bottom: 10px;
     padding-left: 0px;
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-left: 0px;
-
-
-
 }
 .dashboardTitle {
     font-family: inherit;
@@ -160,28 +142,49 @@
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
     color: #643082;
-    margin-bottom: 10px;
     padding-left: 0px;
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: auto;
     margin-left: 0px;
 }
-.dashboardCardSubTitle p{
+
+.statContainer {
+    border-bottom: 1px solid lightGray;
+    padding: 0px 32px 24px 32px;
+    height: calc(130px - 50px);
+}
+
+.dashboardTitle p {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize);
+    letter-spacing: 0.5px;
+    margin: auto;
+    padding: auto;
+}
+
+.dashboardCardSubTitle p {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
     font-size: var(--global--text-subtitle--FontSize);
     letter-spacing: 0.5px;
     color: var(--global--text--color);
-
 }
-.dashboardMiniTitle p{
+
+.dashboardMiniTitle {
+    padding: auto;
+    margin: auto;
+}
+
+.dashboardMiniTitle p {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
     font-size: 40px;
     letter-spacing: 0.5px;
-    padding-top:10px;
+    padding-top: 10px;
     color: var(--global--text--color);
 }
 
@@ -207,12 +210,9 @@
     padding-right: 10px;
 }
 
-
-.Collapsible :hover{
-
+.Collapsible :hover {
     cursor: pointer;
-    color:#643082;
-
+    color: #643082;
 }
 .active,
 .collapsible:hover {
