@@ -17,6 +17,14 @@ const NavbarComponent = (props) => {
             <div className='navbar' vertical='center' horizontal='space-between'>
                 {/* used the history.goback() function to go one step backward where it stores the previous steps including the prevs stage of clicking items on the sidebar */}
 
+                <div className='BackButton'>
+                    <Link onClick={() => history.goBack()}>
+                        <i className='fa fa-chevron-left' aria-hidden='true' />
+                    </Link>
+                </div>
+                <div className='NavbarTitle'>
+                    <b>{props.scenarioName}</b>
+                </div>
                 <Link
                     style={props.onExportClicked ? { pointerEvents: 'none' } : null}
                     to={{ pathname: slugs.details }}
@@ -28,7 +36,7 @@ const NavbarComponent = (props) => {
                         ) : (
                             <i className='fa fa-file-pdf-o w3-margin-right' aria-hidden='true' />
                         )}
-                        Export Pdf
+                        Export
                     </pdfbtn>
                 </Link>
                 <Link to={{ pathname: slugs.details }} onClick={props.onCompareClick}>
