@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { string } from 'prop-types';
-import { Row } from 'react-grid-system';
+import { Container, Row } from 'react-grid-system';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
@@ -91,28 +91,30 @@ function HeaderComponent() {
 
     return (
         <div className='HeaderContainer'>
-            <Row align='center' justify='between'>
-                <div className='HeaderTitle'>
-                    <span className=' w3-padding-16 w3-margin-left'>
-                        <Link to={{ pathname: slugs.categories }}>
-                            <UseBack />
-                        </Link>
-                        {title}
-                        <UseArrow />
-                        {subtitle}
-                        <UseArrow />
-                        {subsubtitle}
-                    </span>
-                </div>
-
-                <Row align='center' justify='start' style={{ marginRight: 20 }}>
-                    <div className='HeaderIconSyle'>
-                        <i className='fa fa-user-circle-o' color='white' />
+            <Container fluid>
+                <Row align='center' justify='between'>
+                    <div className='HeaderTitle'>
+                        <span className=' w3-padding-16 w3-margin-left'>
+                            <Link to={{ pathname: slugs.categories }}>
+                                <UseBack />
+                            </Link>
+                            {title}
+                            <UseArrow />
+                            {subtitle}
+                            <UseArrow />
+                            {subsubtitle}
+                        </span>
                     </div>
 
-                    <div className='HeaderUserName'> Stunning User</div>
+                    <Row align='center' justify='start' style={{ marginRight: 20 }}>
+                        <div className='HeaderIconSyle'>
+                            <i className='fa fa-user-circle-o' color='white' />
+                        </div>
+
+                        <div className='HeaderUserName'> Stunning User</div>
+                    </Row>
                 </Row>
-            </Row>
+            </Container>
         </div>
     );
 }

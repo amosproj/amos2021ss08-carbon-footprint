@@ -12,7 +12,7 @@
     font-size: var(--global--header-title--FontSize);
     line-height: 16px;
     letter-spacing: 0.5px;
-    padding-left: 45px;
+    padding-left: 35px;
     margin-top: 5px;
     color: var(--global--header--title--color);
 }
