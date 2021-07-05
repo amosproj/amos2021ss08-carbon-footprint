@@ -116,8 +116,8 @@ function MydashboardItemComponent() {
                 className={classes.statContainer}
             >
                 <div className='star'>
-                    <i className='fa fa-star-o' aria-hidden='true' />
                     <p>
+                        <i className='fa fa-star-o' aria-hidden='true' />
                         {title}
                         {value}
                     </p>
