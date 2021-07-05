@@ -28,15 +28,23 @@ function MydashboardItemComponent() {
 
     function renderCards(title, content) {
         return (
-            <Col align='center' justify='start' className='statContainer'>
-                <div className='star'>
-                    <i className='fa fa-star-o' aria-hidden='true' />
-                    <p>
-                        {title}
-                        {content}
-                    </p>
-                </div>
-            </Col>
+            <Row align='center' justify='start' className='statContainer'>
+                <Col>
+                    <div className='star'>
+                        <i className='fa fa-star-o' aria-hidden='true' />
+                    </div>
+                </Col>
+                <Col>
+                    <div className='favouritesContent'>
+                        <Container fluid>
+                            <Row direction='row'>
+                                <Col>{title}</Col>
+                                <Col>{content}</Col>
+                            </Row>
+                        </Container>
+                    </div>
+                </Col>
+            </Row>
         );
     }
 
@@ -106,13 +114,14 @@ function MydashboardItemComponent() {
                         ></i>
                         <span>Favorites</span>
                     </div>
-
-                    {renderCards('Fav Project 1', 'Transmission')}
-                    {renderCards('Fav Project 2', 'Generation')}
-                    {renderCards('Fav Project 3', 'Industrial App')}
-                    {renderCards('Fav Project 1', 'Transmission')}
-                    {renderCards('Fav Project 2', 'Generation')}
-                    {renderCards('Fav Project 3', 'Industrial App')}
+                    <Container fluid>
+                        {renderCards('Fav Project 1', 'Transmission')}
+                        {renderCards('Fav Project 2', 'Generation')}
+                        {renderCards('Fav Project 3', 'Industrial App')}
+                        {renderCards('Fav Project 1', 'Transmission')}
+                        {renderCards('Fav Project 2', 'Generation')}
+                        {renderCards('Fav Project 3', 'Industrial App')}
+                    </Container>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} style={{ padding: 0, maxWidth: '1.5%' }} />
                 <Col xs={8} sm={8} md={8} lg={3.5} className='MyCardsContainer'>

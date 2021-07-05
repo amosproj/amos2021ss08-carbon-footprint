@@ -109,15 +109,24 @@
     font-size: 24px;
     border-style: none;
     cursor: pointer;
-    margin-left: 0px;
+    margin-right: 5px;
 }
-.star p {
+.favouritesContent {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
     font-size: var(--global--text-subtitle--FontSize);
     letter-spacing: 0.5px;
     color: var(--global--text--color);
+    white-space: nowrap;
+}
+
+.MyCardsContainer .statContainer {
+    border-bottom: 2px solid #643082;
+}
+
+.statContainer {
+    padding: auto;
 }
 .dashboardCardSubTitle i {
     font-size: 10px;
@@ -146,10 +155,6 @@
     margin-top: 0px;
     margin-bottom: auto;
     margin-left: 0px;
-}
-
-.statContainer {
-    padding: auto;
 }
 
 .dashboardTitle p {
