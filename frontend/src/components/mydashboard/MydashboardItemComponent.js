@@ -96,7 +96,7 @@ function MydashboardItemComponent() {
                         <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
                         <b>My Recent Projects</b>
                     </div>
-                    <div className='Collapsible dashboardCardSubTitle'>
+                    <div className='Collapsible dashboardCardSubTitle w3-padding-32'>
                         <Container fluid>
                             <Row>
                                 <Collapsible trigger='Electric Motors'>
@@ -125,14 +125,13 @@ function MydashboardItemComponent() {
                         ></i>
                         <span>Favorites</span>
                     </div>
-                    <Container fluid>
-                        {renderCards('Fav Project 1', 'Transmission')}
-                        {renderCards('Fav Project 2', 'Generation')}
-                        {renderCards('Fav Project 3', 'Industrial App')}
-                        {renderCards('Fav Project 1', 'Transmission')}
-                        {renderCards('Fav Project 2', 'Generation')}
-                        {renderCards('Fav Project 3', 'Industrial App')}
-                    </Container>
+                    <div className='Container-fluid w3-padding-32'>
+                        {renderCards('Generator 1824')}
+                        {renderCards('Gas Turbine Type2')}
+                        {renderCards('Trasmitter DIN42a')}
+                        {renderCards('Gas Turbine Type3')}
+                        {renderCards('Trasmitter DIN42b')}
+                    </div>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} style={{ padding: 0, maxWidth: '1.5%' }} />
                 <Col xs={8} sm={8} md={8} lg={3.5} className='MyCardsContainer'>
@@ -147,18 +146,18 @@ function MydashboardItemComponent() {
                         </div>
                     </div>
 
-                    <div className='Collapsible dashboardCardSubTitle '>
-                        <Collapsible trigger='Question 1: how many catagories do we have?'>
+                    <div className='Collapsible dashboardCardSubTitle w3-padding-32'>
+                        <Collapsible trigger='Q1: How many catagories do we have?'>
                             <div className='  w3-card'>
                                 <p>Question1 answer</p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Question 2: how to export results into pdf?'>
+                        <Collapsible trigger='Q2: How to export results into pdf?'>
                             <div className=' w3-card'>
                                 <p>Question 2 answer</p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Question 3: where to find my fav projects ?'>
+                        <Collapsible trigger='Q3: Where to find my fav projects ?'>
                             <div className=' w3-card'>
                                 <p>Question 3 answer</p>
                             </div>
