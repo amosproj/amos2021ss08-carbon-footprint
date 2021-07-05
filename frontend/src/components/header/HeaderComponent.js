@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { string } from 'prop-types';
-import { Row } from 'simple-flexbox';
+import { Container, Row } from 'react-grid-system';
 import { SidebarContext } from 'hooks/useSidebar';
 import SLUGS from 'resources/slugs';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import slugs from 'resources/slugs';
 import { Link } from 'react-router-dom';
-import { createUseStyles,  useTheme } from 'react-jss';
+import { createUseStyles, useTheme } from 'react-jss';
 
 /**
  * The Header Component is a shared component between all pages. It displays
@@ -16,7 +16,7 @@ import { createUseStyles,  useTheme } from 'react-jss';
  * @returns the header title, subtitles related to the selected section in the SidebarComponent. It also displays the user name in the header bar as well.
  */
 
- const useStyles = createUseStyles({
+const useStyles = createUseStyles({
     separator: {
         borderTop: ({ theme }) => `2px solid ${theme.color.lightGrayishBlue}`,
         marginTop: 10,
@@ -28,7 +28,7 @@ function HeaderComponent() {
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
     const [selectedProducts] = useContext(PrivateSectionContext);
     const theme = useTheme();
-    //eslint-disable-next-line 
+    //eslint-disable-next-line
     const classes = useStyles({ theme });
 
     let title;
@@ -91,32 +91,30 @@ function HeaderComponent() {
 
     return (
         <div className='HeaderContainer'>
-            <Row
-                vertical='center'
-                horizontal='space-between'
-
-            >
-                <div className='HeaderTitle' vertical='center' horizontal='space-between'>
-                    <span className=' w3-padding-16 w3-margin-left'>
-                        <Link to={{ pathname: slugs.categories }}>
-                            <UseBack />
-                        </Link>
-                        {title}
-                        <UseArrow />
-                        {subtitle}
-                        <UseArrow />
-                        {subsubtitle}
-                    </span>
-                </div>
-
-                <Row vertical='baseline' horizontal='flex-start' style={{ marginRight: 20 }}>
-                    <div className='HeaderIconSyle'>
-                        <i className='fa fa-user-circle-o' color='white' />
+            <Container fluid>
+                <Row align='center' justify='between'>
+                    <div className='HeaderTitle'>
+                        <span className=' w3-padding-16 w3-margin-left'>
+                            <Link to={{ pathname: slugs.categories }}>
+                                <UseBack />
+                            </Link>
+                            {title}
+                            <UseArrow />
+                            {subtitle}
+                            <UseArrow />
+                            {subsubtitle}
+                        </span>
                     </div>
 
-                    <div className='HeaderUserName'> user name</div>
+                    <Row align='center' justify='start' style={{ marginRight: 20 }}>
+                        <div className='HeaderIconSyle'>
+                            <i className='fa fa-user-circle-o' color='white' />
+                        </div>
+
+                        <div className='HeaderUserName'> Stunning User</div>
+                    </Row>
                 </Row>
-            </Row>
+            </Container>
         </div>
     );
 }

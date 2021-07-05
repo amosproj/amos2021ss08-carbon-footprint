@@ -44,12 +44,12 @@ const NavbarComponent = (props) => {
                 <div className='NavbarTitle'>
                     <b>{props.scenarioName}</b>
                 </div>
-                <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
+                {/* <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
                     <div className='Pdfbtn'>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
                         Export
                     </div>
-                </Link>
+                </Link> */}
 
                 <Link to={{ pathname: slugs.details }} onClick={props.onCloseClick}>
                     <div className='Closebtn '>

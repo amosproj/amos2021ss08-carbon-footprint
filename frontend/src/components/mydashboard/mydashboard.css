@@ -1,104 +1,172 @@
-.MydashboardContainer {
+.MySlideshowContainer {
     background-color: #ffffff;
     /* border:0.5px solid #00b300; */
-    border-color: #00b300;
-    border-radius: 4px;
     cursor: 'pointer';
-    min-width: 360;
-    max-width: 450;
-    min-height: 500px;
-    max-height: 500px;
-    margin-top: 10px;
-    position: fixed;
-
+    border: 1.5px solid #ad65dd;
+    padding: 0;
 }
 
-.FavCardsContainer {
-    background-color: #ffffff;
-    /* border:0.5px solid #00b300; */
-    border-radius: 4px;
-    cursor: 'pointer';
-    min-width: 360;
-    max-width: 450;
-    min-height: 500px;
-    max-height: 500px;
-    margin-top: 10px;
-    position: fixed;
-    overflow-y: visible;
-    overflow-y: scroll;
-} /* Make images easier to work with */
 .img {
     max-width: 100%;
     display: block;
 }
-.ProjectsCardsContainer {
+.MyCardsContainer {
     background-color: #ffffff;
-    /* border:0.5px solid #00b300; */
-    border-radius: 4px;
     cursor: 'pointer';
+    margin-top: 20px;
+    border: 1.5px solid #ad65dd;
+}
+
+.MyChartCardsContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    cursor: 'pointer';
+    margin-top: 20px;
     min-width: 360;
     max-width: 450;
-    min-height: 500px;
-    max-height: 450px;
-    margin-top: 10px;
-    margin-bottom:10px; 
+    min-height: 550px;
+    max-height: 550px;
+    border: 1.5px solid #ad65dd;
     position: fixed;
-    overflow-y: visible;
     overflow-y: scroll;
+    justify-content: first baseline;
 }
-
-.star {
+.MyMiniCardsContainer {
+    display: flex;
+    margin-top: 20px;
+    padding: 20px;
+    flex-direction: column;
+    background-color: #ffffff;
+    cursor: 'pointer';
+    position: fixed;
+    justify-content: first baseline;
     float: right;
-    color: var(--global--button--text--color);
-    text-decoration: none;
-    font-size: 24px;
-    border-style: none;
-    cursor: pointer;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.dashboardCardSubTitle i{
-    font-size: 10px;
+    border: 1.5px solid #ad65dd;
 }
 
-.dashboardCardSubTitle{
-
-    font-family: inherit;
-    font-style: normal;
-    font-weight: bold;
-    font-size: var(--global--text-title--FontSize)-2;
-    letter-spacing: 0.5px;
-    color: #643082;
-    margin-bottom: 10px;
-    padding-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    margin-left: 0px;
-
-
-
-}
-.dashboardTitle {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: bold;
-    font-size: var(--global--text-title--FontSize);
-    letter-spacing: 0.5px;
-    color: #643082;
-    margin-bottom: 10px;
-    padding-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    margin-left: 0px;
-}
-.dashboardCardSubTitle p{
+.MyMiniCardsContainer p {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
     font-size: var(--global--text-subtitle--FontSize);
     letter-spacing: 0.5px;
     color: var(--global--text--color);
+}
+.ContactContainer {
+    width: 100%;
+    height: 150px; /* Height of the footer */
+    background: #6cf;
+    cursor: 'pointer';
+    background-color: #643082;
+    color: #ffffff;
+    
+}
 
+.ContactContainer p {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    color: #ffffff;
+    font-size: var(--global--text-title--FontSize)-8;
+}
+
+.SignUp {
+    background-color: #ad65dd;
+    color: white;
+    border-color: #ad65dd;
+}
+.SignUp:hover {
+    opacity: 0.8;
+    background-color: #bc79fa !important;
+    color: white !important;
+}
+
+.star {
+    float: left;
+    color: var(--global--button--text--color);
+    text-decoration: none;
+    font-size: 24px;
+    border-style: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.favouritesContent {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: var(--global--text--color);
+    white-space: nowrap;
+}
+
+.MyCardsContainer .statContainer {
+    border-bottom: 2px solid #643082;
+}
+
+.statContainer {
+    padding: auto;
+}
+.dashboardCardSubTitle i {
+    font-size: 10px;
+}
+
+.dashboardCardSubTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize)-2;
+    letter-spacing: 0.5px;
+    color: #643082;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+.dashboardTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--panel-title--FontSize);
+    letter-spacing: 0.5px;
+    color: #643082;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: auto;
+    margin-left: 0px;
+}
+
+.dashboardTitle p {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize);
+    letter-spacing: 0.5px;
+    margin: auto;
+    padding: auto;
+}
+
+.dashboardCardSubTitle p {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: var(--global--text--color);
+}
+
+.dashboardMiniTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    letter-spacing: 0.5px;
+    padding: 10px;
+    color: var(--global--text--color);
+    white-space: nowrap;
+    margin: auto;
+    width: auto;
 }
 
 .dashboardTitle i {
@@ -123,12 +191,9 @@
     padding-right: 10px;
 }
 
-
-.Collapsible :hover{
-
+.Collapsible :hover {
     cursor: pointer;
-    color:#643082;
-
+    color: #643082;
 }
 .active,
 .collapsible:hover {

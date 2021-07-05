@@ -45,7 +45,7 @@ const PieChartComponent = () => {
                 breakpoint: 6400,
                 options: {
                     chart: {
-                        heigt: 'auto'
+                        height: 'auto'
                     },
                     legend: {
                         position: 'bottom'
@@ -54,10 +54,9 @@ const PieChartComponent = () => {
             }
         ]
     };
-    //lassName='ChartItems' cause PieChart to overlap: needs to be fixed in charts_tables.css
-    // works fine if className is taken out
+
     return (
-        <div className='ChartItems' id='chart'>
+        <div  id='chart'>
             <ReactApexChart options={options} series={series} type='donut' />
         </div>
     );

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { Column } from 'simple-flexbox';
+import { Col } from 'react-grid-system';
 
 const useStyles = createUseStyles({
     '@keyframes loadingSpin': {
@@ -59,10 +59,10 @@ function LoadingComponent({
     return (
         <div style={{ position: 'relative', height, width }}>
             {loading && (
-                <Column className={classes.container} horizontal='center' vertical='center'>
+                <Col className={classes.container} align='center' justify='center'>
                     <div className={classes.loading}></div>
                     {!hideText && <span className={classes.loadingSpan}>Loading...</span>}
-                </Column>
+                </Col>
             )}
             {children || <div />}
         </div>

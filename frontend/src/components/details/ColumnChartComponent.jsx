@@ -24,7 +24,7 @@ const ColumnChartComponent = () => {
 
         plotOptions: {
             bar: {
-                columnWidth: '70%',
+                columnWidth: '75%',
                 BorderRadius: 10,
                 dataLabels: {
                     position: 'top' // top, center, bottom
@@ -42,7 +42,7 @@ const ColumnChartComponent = () => {
             },
             offsetY: -20,
             style: {
-                fontSize: '12px',
+                fontSize: '10px',
                 colors: ['#21cc82']
             }
         },
@@ -63,7 +63,7 @@ const ColumnChartComponent = () => {
             labels: {
                 rotate: -90,
                 style: {
-                    fontSize: 10
+                    fontSize: 6.8,
                 }
             },
             responsive: [
@@ -71,7 +71,7 @@ const ColumnChartComponent = () => {
                     breakpoint: 6400,
                     options: {
                         chart: {
-                            width: 500
+                            width: 600
                         },
                         legend: {
                             position: 'bottom'
