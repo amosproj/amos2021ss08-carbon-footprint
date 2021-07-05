@@ -7,7 +7,7 @@
     cursor: 'pointer';
     width: max-content;
     min-height: 480px;
-    border: 1px solid #ad65dd;
+    border: 1.5px solid #ad65dd;
     max-height: 480px;
     margin-top: 10px;
     position: fixed;
@@ -27,7 +27,7 @@
     max-width: 450;
     min-height: 350px;
     max-height: 350px;
-    border: 1px solid #ad65dd;
+    border: 1.5px solid #ad65dd;
     position: fixed;
     overflow-y: visible;
     overflow-y: scroll;
@@ -44,13 +44,13 @@
     max-width: 450;
     min-height: 550px;
     max-height: 550px;
-    border: 1px solid #ad65dd;
+    border: 1.5px solid #ad65dd;
     position: fixed;
     overflow-y: scroll;
     justify-content: first baseline;
 }
 .MyMiniCardsContainer {
-    display: inline-flex;
+    display: flex;
     margin-top: 20px;
     padding: 20px;
     flex-direction: column;
@@ -59,7 +59,7 @@
     position: fixed;
     justify-content: first baseline;
     float: right;
-    border: 1px solid #ad65dd;
+    border: 1.5px solid #ad65dd;
 }
 
 .MyMiniCardsContainer p {
@@ -148,7 +148,7 @@
     font-family: inherit;
     font-style: normal;
     font-weight: bold;
-    font-size: var(--global--text-title--FontSize);
+    font-size: var(--global--panel-title--FontSize);
     letter-spacing: 0.5px;
     color: #643082;
     padding-left: 0px;
@@ -180,7 +180,7 @@
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: 40px;
+    font-size: 35px;
     letter-spacing: 0.5px;
     padding: 10px;
     color: var(--global--text--color);
