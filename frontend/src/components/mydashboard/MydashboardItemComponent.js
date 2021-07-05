@@ -150,7 +150,7 @@ function MydashboardItemComponent() {
                         <Collapsible trigger='Q1: How many catagories do we have?'>
                             <div className='  w3-card'>
                                 <p>
-                                    Ans: We Have three categories: Generation, Transmission and
+                                    Answer: We Have three categories: Generation, Transmission and
                                     Industrial Applications
                                 </p>
                             </div>
@@ -158,14 +158,14 @@ function MydashboardItemComponent() {
                         <Collapsible trigger='Q2: How to export results into pdf?'>
                             <div className=' w3-card'>
                                 <p>
-                                    Ans: You can go to Categories- Choose Products - Use Export
+                                    Answer: You can go to Categories- Choose Products - Use Export
                                     button on the screen to download the pdf
                                 </p>
                             </div>
                         </Collapsible>
                         <Collapsible trigger='Q3: Where to find my fav projects ?'>
                             <div className=' w3-card'>
-                                <p> Ans:You can find favorite projects in "My Dashboard"</p>
+                                <p> Answer:You can find favorite projects in "My Dashboard"</p>
                             </div>
                         </Collapsible>
                     </div>
