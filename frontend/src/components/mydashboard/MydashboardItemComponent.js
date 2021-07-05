@@ -158,7 +158,7 @@ function MydashboardItemComponent() {
                         <Collapsible trigger='Q2: How to export results into pdf?'>
                             <div className=' w3-card'>
                                 <p>
-                                    Ans: You can go to Categories-> Choose Products -> Use Export
+                                    Ans: You can go to Categories- Choose Products - Use Export
                                     button on the screen to download the pdf
                                 </p>
                             </div>
