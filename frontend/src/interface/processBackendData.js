@@ -4,6 +4,8 @@ import {
     setImpactAssessmentData,
     setColumnChartData
 } from 'interface/projectInterface';
+import { categories } from 'resources/globalConstants/categories';
+import { simaProCategories } from 'resources/globalConstants/SimaProProductCategories';
 
 /*
  * Function to process the data recieved from the backend
@@ -71,4 +73,41 @@ export function processBackendData(data, callback) {
     setColumnChartData(assessmentDataInPercent);
 
     callback();
+}
+/**
+ *
+ * @param {*} projectDescription The comments mentioned in SimaPro Appliction.
+ * It if of the form "Categorie:[Generation/Transmission/IndustrialApplication]/[Solutions/Product/Services]#Model:ModelId#Location:loaction""
+ * This function segrigates the projects based on Generation, Transmission and Industrial APplications as mentioned in peojectDescription.
+ * @returns projects based on Generation, Transmission and Industrial APplications
+ */
+export function projectCategoryProcessing(projectDescription) {
+    if (
+        projectDescription === [] ||
+        projectDescription === undefined ||
+        projectDescription === null
+    ) {
+        return [];
+    } else if (projectDescription.split(/[#,:,/]/).includes(simaProCategories.generation)) {
+        return [categories.generation];
+    } else if (projectDescription.split(/[#,:,/]/).includes(simaProCategories.transmission)) {
+        return [categories.transmission];
+    } else {
+        return [categories.industrialApplications];
+    }
+}
+/**
+ *
+ * @param {*} simaProjectName ProjectName as recieved from the Sima Pro application.
+ * It is of the form "ProjectName#ID:ProjectID#Scenario:scenario"
+ * This function seperated the Project name and Scenario name for further processing and stores them in scenarios
+ * @returns  projectName and scenarioName for displaying in the ProductGrid Page
+ */
+export function projectNameProcessing(simaProjectName) {
+    let prjs = simaProjectName.split(/[#,:,/]/);
+    let ProjectNameAndScenarioName = {
+        projectName: prjs[0],
+        scenarioName: prjs[4]
+    };
+    return ProjectNameAndScenarioName;
 }

@@ -5,7 +5,7 @@
  */
 
 import React, { useState, createContext } from 'react';
-import { categories } from 'interface/categories';
+import { categories } from 'resources/globalConstants/categories';
 
 export const PrivateSectionContext = createContext();
 
