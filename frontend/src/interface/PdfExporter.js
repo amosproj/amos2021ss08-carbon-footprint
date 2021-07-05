@@ -18,9 +18,9 @@ export function exportPdf(div1, div2, div3, pdfExportDoneCallback) {
 
             html2canvas(div3).then((canvas3) => {
                 // converting html2canvas object to image for sending it to server
-                var imgData1 = canvas1.toDataURL('image/png', 1);
-                var imgData2 = canvas2.toDataURL('image/png', 1);
-                var imgData3 = canvas3.toDataURL('image/png', 1);
+                var imgData1 = canvas1.toDataURL('image/jpeg', 1);
+                var imgData2 = canvas2.toDataURL('image/jpeg', 1);
+                var imgData3 = canvas3.toDataURL('image/jpeg', 1);
                 sendPdfGeneratorRequest(imgData1, imgData2, imgData3, pdfExportDoneCallback);
             });
         });

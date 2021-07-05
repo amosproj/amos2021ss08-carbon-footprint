@@ -25,7 +25,6 @@ const NavbarComponent = (props) => {
                 <div className='NavbarTitle'>
                     <b>{props.scenarioName}</b>
                 </div>
-
                 <Link
                     style={props.onExportClicked ? { pointerEvents: 'none' } : null}
                     to={{ pathname: slugs.details }}
