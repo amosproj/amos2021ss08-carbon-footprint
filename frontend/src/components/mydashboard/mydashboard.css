@@ -149,9 +149,7 @@
 }
 
 .statContainer {
-    border-bottom: 1px solid lightGray;
-    padding: 0px 32px 24px 32px;
-    height: calc(130px - 50px);
+    padding: auto;
 }
 
 .dashboardTitle p {
@@ -174,18 +172,16 @@
 }
 
 .dashboardMiniTitle {
-    padding: auto;
-    margin: auto;
-}
-
-.dashboardMiniTitle p {
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
     font-size: 40px;
     letter-spacing: 0.5px;
-    padding-top: 10px;
+    padding: 10px;
     color: var(--global--text--color);
+    white-space: nowrap;
+    margin: auto;
+    width: auto;
 }
 
 .dashboardTitle i {

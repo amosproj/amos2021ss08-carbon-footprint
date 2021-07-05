@@ -15,12 +15,12 @@ function MydashboardItemComponent() {
             <Col align='center' justify='between' className='statContainer'>
                 <div className='dashboardTitle'>
                     <p> {title} </p>
-                    <div className='dashboardMiniTitle'>
-                        <p>
+                    <Row justify='center'>
+                        <div className='dashboardMiniTitle'>
                             <i class='fa fa-line-chart' aria-hidden='true' />
                             {value}
-                        </p>
-                    </div>
+                        </div>
+                    </Row>
                 </div>
             </Col>
         );
