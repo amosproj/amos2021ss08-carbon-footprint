@@ -4,7 +4,6 @@
     cursor: 'pointer';
     border: 1.5px solid #ad65dd;
     padding: 0;
-    margin: auto;
 }
 
 .img {
@@ -12,20 +11,10 @@
     display: block;
 }
 .MyCardsContainer {
-    display: flex;
-    flex-direction: column;
     background-color: #ffffff;
     cursor: 'pointer';
     margin-top: 20px;
-    min-width: 360;
-    max-width: 450;
-    min-height: 350px;
-    max-height: 350px;
     border: 1.5px solid #ad65dd;
-    position: fixed;
-    overflow-y: visible;
-    overflow-y: scroll;
-    justify-content: first baseline;
 }
 
 .MyChartCardsContainer {
@@ -65,12 +54,11 @@
     color: var(--global--text--color);
 }
 .ContactContainer {
-    display: flex;
-    flex-direction: column;
-    cursor: 'pointer';
     width: 100%;
+    height: 200px; /* Height of the footer */
+    background: #6cf;
+    cursor: 'pointer';
     background-color: #643082;
-    justify-content: first baseline;
     color: #ffffff;
 }
 
