@@ -61,13 +61,13 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
         case categories.industrialApplications:
             switch (selectedType) {
                 case types.product:
-                    products = preProducts?.industrialApplication?.products;
+                    products = preProducts?.industrialApplications?.products;
                     break;
                 case types.solution:
-                    products = preProducts?.industrialApplication?.solutions;
+                    products = preProducts?.industrialApplications?.solutions;
                     break;
                 case types.service:
-                    products = preProducts?.industrialApplication?.services;
+                    products = preProducts?.industrialApplications?.services;
                     break;
                 default:
                     break;

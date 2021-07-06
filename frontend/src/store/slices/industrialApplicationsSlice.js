@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const industrialApplicationsSlice = createSlice({
-    name: 'industralApplications',
+    name: 'industrialApplications',
     initialState: {
         products: [],
         solutions: [],
