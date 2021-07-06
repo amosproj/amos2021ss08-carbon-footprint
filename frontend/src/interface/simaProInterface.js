@@ -13,7 +13,7 @@ import { simaProTypes } from 'resources/globalConstants/SimaProProductCategories
 import { processScenarios } from './processProjects';
 
 // Toggle to NOT use SimaPro Data
-let useDummyData = true;
+let useDummyData = false;
 
 /**
  *
@@ -116,12 +116,11 @@ export async function getSimaProducts() {
     // Format all the SimaPro Products in a way where we can work with them
     products.forEach((product) => {
         let description = product.Description;
-        let splittedString = description.split(/[#,:,/]/);
-
-        console.log(splittedString);
-
         if (description === null) {
         } else {
+            let splittedString = description.split(/[#,:,/]/);
+
+            console.log(splittedString);
             let productSolutionService;
 
             if (splittedString.includes(simaProTypes.product)) {
