@@ -146,7 +146,6 @@ body,
     font-weight: bold;
     font-size: 22px;
     letter-spacing: 0.5px;
-    margin-left: 15px;
     color: #4d217a;
     margin-bottom: 10px;
 }
@@ -160,7 +159,6 @@ body,
     letter-spacing: 0.5px;
     color: #000000;
     margin-top: 25px;
-    margin-left: 15px;
 }
 
 /* Reconfiguration of the text style on details pages */
