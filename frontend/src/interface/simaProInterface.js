@@ -33,8 +33,6 @@ export async function getCategorizedProducts() {
         generation: { products: [], solutions: [], services: [] }
     };
     formattedProducts.forEach((formattedProduct) => {
-        console.log('formattedProduct');
-        console.log(formattedProduct);
         switch (formattedProduct.categories[0]) {
             case categories.transmission:
                 switch (formattedProduct.type) {
