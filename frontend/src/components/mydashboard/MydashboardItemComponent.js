@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-grid-system';
+import { Col, Container, Row, Visible } from 'react-grid-system';
 import Collapsible from 'react-collapsible';
 import SlideshowComponent from './SlideshowComponent';
 
@@ -60,22 +60,27 @@ function MydashboardItemComponent() {
                 style={{ padding: 0, marginLeft: 0, marginRight: 0 }}
                 breakpoints={{ 1024: 'column' }}
             >
-                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
+                <Col className='MyMiniCardsContainer'>
                     <Row className='dashboardTitle'>
                         {renderMiniCards('Air Quality Results', '80%')}
                     </Row>
                 </Col>
-                <Col xs={8} sm={2} md={2} lg={1.32} style={{ padding: 0 }} />
-                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
+                <Visible lg md xl xxl>
+                    <Col style={{ padding: 0 }} />
+                </Visible>
+                <Col className='MyMiniCardsContainer'>
                     <div className='dashboardTitle'>{renderMiniCards('Opened projects', '4')}</div>
                 </Col>
-                <Col xs={2} sm={2} md={2} lg={1.32} style={{ padding: 0 }} />
-
-                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
+                <Visible lg md xl xxl>
+                    <Col style={{ padding: 0 }} />
+                </Visible>
+                <Col className='MyMiniCardsContainer'>
                     <div className='dashboardTitle'>{renderMiniCards('Recently opened', '2')}</div>
                 </Col>
-                <Col xs={2} sm={2} md={2} lg={1.32} style={{ padding: 0 }} />
-                <Col xs={8} sm={8} md={8} lg={2} className='MyMiniCardsContainer'>
+                <Visible lg md xl xxl>
+                    <Col style={{ padding: 0 }} />
+                </Visible>
+                <Col className='MyMiniCardsContainer'>
                     <div className='dashboardTitle'>{renderMiniCards('Closed projects', '1')}</div>
                 </Col>
             </Row>
@@ -91,7 +96,7 @@ function MydashboardItemComponent() {
                 }}
                 breakpoints={{ 1024: 'column' }}
             >
-                <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
+                <Col className='MyCardsContainer'>
                     <div className='dashboardTitle w3-padding-24'>
                         <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
                         <b>My Recent Projects</b>
@@ -116,7 +121,7 @@ function MydashboardItemComponent() {
                     </div>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} style={{ padding: 0, maxWidth: '1.5%' }} />
-                <Col xs={8} sm={8} md={8} lg={4} className='MyCardsContainer'>
+                <Col className='MyCardsContainer'>
                     <div className='dashboardTitle w3-padding-24'>
                         <i
                             className='fa fa-heart'
@@ -134,7 +139,7 @@ function MydashboardItemComponent() {
                     </div>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={1} style={{ padding: 0, maxWidth: '1.5%' }} />
-                <Col xs={8} sm={8} md={8} lg={3.5} className='MyCardsContainer'>
+                <Col className='MyCardsContainer'>
                     <div className=' w3-padding-24'>
                         <div className='dashboardTitle'>
                             <i
