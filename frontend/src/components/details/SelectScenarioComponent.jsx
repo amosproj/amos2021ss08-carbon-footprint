@@ -17,6 +17,7 @@ class SelectScenarioComponent extends Component {
      * based on new selected scenario
      *
      * @param item: selected scenario
+     * This will update the data based on where the selection is modified i.e in Baseline scenario/Modified Scenario
      */
     onDropDownItemSelectedHandler = (item) => {
         if (this.props.scenarioName === scenarioNames.modified)

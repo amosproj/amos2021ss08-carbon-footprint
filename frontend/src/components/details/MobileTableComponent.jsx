@@ -57,7 +57,8 @@ MobileTableComponent.propTypes = {
     modelID: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
     modelName: PropTypes.string.isRequired,
-    tableKey: PropTypes.string.isRequired
+    tableKey: PropTypes.string.isRequired,
+    scenarioName: PropTypes.string
 };
 
 export default MobileTableComponent;

@@ -14,9 +14,6 @@ const PieChartComponent = (props) => {
     const series = getMaterialCompositionData(props.scenarioName);
     const labels = getMaterialCompositionLabels(props.scenarioName);
 
-    console.log(series);
-    console.log(labels);
-
     const options = {
         //TODO
         maintainAspectRatio: true,

@@ -56,5 +56,6 @@ TableComponent.propTypes = {
     modelID: PropTypes.string.isRequired,
     modelName: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
+    scenarioName: PropTypes.string,
     tableKey: PropTypes.string.isRequired
 };
