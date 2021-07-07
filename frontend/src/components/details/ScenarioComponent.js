@@ -87,18 +87,18 @@ class ScenarioComponent extends Component {
                                 <div id='captureTable' className='TableContainer'>
                                     {/* Swaps out the table with a mobile version for screens <= sm 
                             And when on the compare version already swap out for screens <= lg */}
-                                    {/* <Hidden
+                                    <Hidden
                                         smDown={this.props.loadComparePage ? false : true}
                                         lgDown={this.props.loadComparePage ? true : false}
-                                    > */}
-                                    <TableComponent
-                                        productName={this.props.selectedProduct.productName}
-                                        modelID={this.props.selectedProduct.modelID}
-                                        modelName={this.props.selectedProduct.modelName}
-                                        scenarioName={this.props.scenarioName}
-                                        tableKey={this.props.scenarioName}
-                                    />
-                                    {/* </Hidden>
+                                    >
+                                        <TableComponent
+                                            productName={this.props.selectedProduct.productName}
+                                            modelID={this.props.selectedProduct.modelID}
+                                            modelName={this.props.selectedProduct.modelName}
+                                            scenarioName={this.props.scenarioName}
+                                            tableKey={this.props.scenarioName}
+                                        />
+                                    </Hidden>
                                     <Hidden
                                         mdUp={this.props.loadComparePage ? false : true}
                                         xlUp={this.props.loadComparePage ? true : false}
@@ -110,7 +110,7 @@ class ScenarioComponent extends Component {
                                             scenarioName={this.props.scenarioName}
                                             tableKey={this.props.scenarioName}
                                         />
-                                    </Hidden> */}
+                                    </Hidden>
                                 </div>
                             </Row>
                         </Col>
