@@ -11,7 +11,7 @@ import {
 class TableComponent extends Component {
     state = {
         headers: getImpactCategoriesTableHeaders(),
-        rows: getImpactAssessmentData()
+        rows: getImpactAssessmentData(this.props.scenarioName)
     };
     render() {
         const idKey = this.props.tableKey;

@@ -9,9 +9,9 @@ import {
  * Pie Chart Diagram
  */
 
-const PieChartComponent = () => {
-    const series = getMaterialCompositionData();
-    const labels = getMaterialCompositionLabels();
+const PieChartComponent = (props) => {
+    const series = getMaterialCompositionData(props.scenarioName);
+    const labels = getMaterialCompositionLabels(props.scenarioName);
 
     console.log(series);
     console.log(labels);

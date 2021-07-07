@@ -6,6 +6,7 @@ import './navbar.css';
 import { postCalculationRequest } from 'interface/BackendConnect';
 import LoadingComponent from 'components/loading';
 import { exportPdf } from '../../interface/PdfExporter.js';
+import { handleAddingSecondScenario } from 'interface/projectInterface';
 
 export const scenarioNames = {
     baseline: 'Baseline Scenario',
@@ -60,6 +61,7 @@ class DetailsComponent extends Component {
             const baselineScenario = false;
             const modifiedScenario = false;
             const loadComparePage = true;
+            handleAddingSecondScenario();
             this.setState({ secondSelectedScenarioId: this.state.selectedScenarioId });
             this.setState({ secondSelectedScenarioType: this.state.selectedScenarioType });
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
@@ -150,13 +152,25 @@ class DetailsComponent extends Component {
         const { selectedProduct } = this.props;
 
         if (this.state.stillLoading) {
-            postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
+            postCalculationRequest(
+                this.state.selectedScenarioId,
+                scenarioNames.baseline,
+                handleFinishedDataRequest
+            );
             return <LoadingComponent loading />;
         } else if (this.state.loadingBaseline) {
-            postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
+            postCalculationRequest(
+                this.state.selectedScenarioId,
+                scenarioNames.baseline,
+                handleFinishedDataRequest
+            );
             return <LoadingComponent loading />;
         } else if (this.state.loadingModified) {
-            postCalculationRequest(this.state.secondSelectedScenarioId, handleFinishedDataRequest);
+            postCalculationRequest(
+                this.state.secondSelectedScenarioId,
+                scenarioNames.modified,
+                handleFinishedDataRequest
+            );
             return <LoadingComponent loading />;
         }
 

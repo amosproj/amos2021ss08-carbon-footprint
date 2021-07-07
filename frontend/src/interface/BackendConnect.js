@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { processBackendData } from 'interface/processBackendData';
 import { dummyProcessBackendData } from 'interface/processBackendData';
+import { scenarioNames } from 'components/details/DetailsComponent';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -31,12 +32,12 @@ export async function getSimaProProjects() {
  *   Which then checks if the calculation is stored based on the calculationId generated.
  *   If the calculation is stored returns the results of calculation here.
  */
-export async function postCalculationRequest(projectId, callback) {
+export async function postCalculationRequest(projectId, scenarioName, callback) {
     // Bypass using the SimaPro Data
     const useDummyData = true;
 
     if (useDummyData) {
-        return dummyPostCalculationRequest(projectId, callback);
+        return dummyPostCalculationRequest(projectId, scenarioName, callback);
     }
 
     // POST request using axios with set headers
@@ -51,12 +52,12 @@ export async function postCalculationRequest(projectId, callback) {
         })
 
         .then(function (data) {
-            processBackendData(data, callback);
+            processBackendData(data, scenarioName, callback);
         });
 }
 
-function dummyPostCalculationRequest(projectId, callback) {
-    dummyProcessBackendData(projectId, callback);
+function dummyPostCalculationRequest(projectId, scenarioName, callback) {
+    dummyProcessBackendData(projectId, scenarioName, callback);
 }
 
 /**
