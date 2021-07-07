@@ -32,6 +32,7 @@ class ScenarioComponent extends Component {
                     <SelectScenarioComponent
                         selectedProduct={this.props.selectedProduct}
                         loadComparePage={this.props.loadComparePage}
+                        scenarioName={this.props.scenarioName}
                         selectedScenarioType={this.props.selectedScenarioType}
                         newScenarioHandler={this.props.newScenarioHandler}
                     />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { scenarioNames } from './DetailsComponent';
 
 /**
  * a drop down component for selecting a scenario
@@ -19,7 +20,9 @@ class SelectScenarioComponent extends Component {
      * @param item: selected scenario
      */
     onDropDownItemSelectedHandler = (item) => {
-        this.props.newScenarioHandler(item);
+        if (this.props.scenarioName === scenarioNames.modified)
+            this.props.newScenarioHandler(item, scenarioNames.modified);
+        else this.props.newScenarioHandler(item, scenarioNames.baseline);
     };
 
     onSecondDropDownSelectedHandler = (name) => {
@@ -100,6 +103,7 @@ class SelectScenarioComponent extends Component {
 SelectScenarioComponent.propTypes = {
     newScenarioHandler: PropTypes.func,
     selectedScenarioType: PropTypes.string,
+    scenarioName: PropTypes.string,
     selectedProduct: PropTypes.shape({
         categories: PropTypes.array, // [(categories.generation, categories.transmission)],
         modelID: PropTypes.string, // 'none',

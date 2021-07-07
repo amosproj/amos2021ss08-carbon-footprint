@@ -7,6 +7,10 @@ import { postCalculationRequest } from 'interface/BackendConnect';
 import LoadingComponent from 'components/loading';
 import { exportPdf } from '../../interface/PdfExporter.js';
 
+export const scenarioNames = {
+    baseline: 'Baseline Scenario',
+    modified: 'Modified Scenario'
+};
 /**
  * the main component for detail page which includes
  * canvas page and variable drop down list
@@ -26,6 +30,8 @@ class DetailsComponent extends Component {
     state = {
         selectedScenarioId: '',
         selectedScenarioType: '',
+        secondSelectedScenarioId: '',
+        secondSelectedScenarioType: '',
         baselineScenario: true,
         modifiedScenario: false,
         loadComparePage: false,
@@ -86,11 +92,22 @@ class DetailsComponent extends Component {
          *
          * @param item: selected scenario
          */
-        let handleNewScenarioSelection = (item) => {
-            this.setState({ selectedScenarioId: item.id }, () => {
-                this.setState({ stillLoading: true });
-                this.setState({ selectedScenarioType: item.name });
-            });
+        let handleNewScenarioSelection = (item, scenarioName) => {
+            // if the first scenario in drop down menue is changed
+            if (scenarioName === scenarioNames.baseline) {
+                console.log('first scenario is changed: ' + scenarioName);
+                this.setState({ selectedScenarioId: item.id }, () => {
+                    this.setState({ stillLoading: true });
+                    this.setState({ selectedScenarioType: item.name });
+                });
+                // if the second scenario in drop down menue is changed
+            } else {
+                console.log('second scenario is changed: ' + scenarioName);
+                this.setState({ secondSelectedScenarioId: item.id }, () => {
+                    this.setState({ stillLoading: true });
+                    this.setState({ secondSelectedScenarioType: item.name });
+                });
+            }
         };
 
         let handleExportPdfButton = () => {
@@ -116,10 +133,7 @@ class DetailsComponent extends Component {
         let handleFinishedDataRequest = () => {
             this.setState({ stillLoading: false });
         };
-        const scenarioNames = {
-            baseline: 'Baseline Scenario',
-            modified: 'Modified Scenario'
-        };
+
         const { selectedProduct } = this.props;
 
         if (this.state.stillLoading) {
@@ -159,7 +173,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 exportHandler={handleExportPdfButton}
                                 scenarioName={scenarioNames.modified}
-                                selectedScenarioType={this.state.selectedScenarioType}
+                                selectedScenarioType={this.state.secondSelectedScenarioType}
                                 selectedProduct={selectedProduct}
                                 onExportClicked={this.state.onExportClicked}
                                 newScenarioHandler={handleNewScenarioSelection}
