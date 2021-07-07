@@ -50,6 +50,8 @@ class DetailsComponent extends Component {
         super(props);
         this.state.selectedScenarioType = props.selectedProduct.scenarioType;
         this.state.selectedScenarioId = props.selectedProduct.productID;
+        this.state.secondSelectedScenarioType = props.selectedProduct.scenarioType;
+        this.state.secondSelectedScenarioId = props.selectedProduct.productID;
     }
 
     render() {
@@ -62,8 +64,6 @@ class DetailsComponent extends Component {
             const modifiedScenario = false;
             const loadComparePage = true;
             handleAddingSecondScenario();
-            this.setState({ secondSelectedScenarioId: this.state.selectedScenarioId });
-            this.setState({ secondSelectedScenarioType: this.state.selectedScenarioType });
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
         };
         /*
