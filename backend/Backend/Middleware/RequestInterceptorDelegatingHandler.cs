@@ -28,6 +28,10 @@ namespace Backend.Middleware
             if (request.RequestUri.ToString().Contains("api/calculation"))
             {
                 var requestResponse = await base.SendAsync(request, cancellationToken);
+                if (!requestResponse.IsSuccessStatusCode)
+                {
+                    return requestResponse;
+                }
                 var contentString = await requestResponse.Content.ReadAsStringAsync();
                 //Retrieve the CalculationId from the post request
                 var responseContent = JObject.Parse(contentString);
@@ -43,7 +47,10 @@ namespace Backend.Middleware
                 while (true)
                 {
                     calculationStateResponse = await base.SendAsync(calculationStateRequest, cancellationToken);
-
+                    if (!calculationStateResponse.IsSuccessStatusCode)
+                    {
+                        return calculationStateResponse;
+                    }
                     var calculationResponseContent = JObject.Parse(await calculationStateResponse.Content.ReadAsStringAsync());
                     var calculationResultStatus = calculationResponseContent["Result"].ToString();
 

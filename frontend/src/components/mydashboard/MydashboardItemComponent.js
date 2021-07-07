@@ -1,10 +1,7 @@
 import React from 'react';
-import { Column } from 'simple-flexbox';
-import { createUseStyles, useTheme } from 'react-jss';
-import PieChartComponent from 'components/details/PieChartComponent';
-import { Col, Container, Row } from 'react-grid-system';
+import { Col, Container, Row, Visible } from 'react-grid-system';
 import Collapsible from 'react-collapsible';
-import Slideshow from './Slideshow';
+import SlideshowComponent from './SlideshowComponent';
 
 const data = [];
 
@@ -12,106 +9,119 @@ for (let x = 1; x <= 24; x++) {
     data.push({ x: x, y: Math.floor(Math.random() * 100) });
 }
 
-const useStyles = createUseStyles((theme) => ({
-    container: {
-        backgroundColor: '#FFFFFF',
-        border: `1px solid ${theme.color.lightGrayishBlue2}`,
-        borderRadius: 4,
-        cursor: 'pointer'
-    },
-    graphContainer: {
-        marginTop: 24,
-        marginLeft: 0,
-        marginRight: 0,
-        width: '100%'
-    },
-    graphSection: {
-        padding: 24
-    },
-    graphSubtitle: {
-        ...theme.typography.smallSubtitle,
-        color: theme.color.grayishBlue2,
-        marginTop: 4,
-        marginRight: 8
-    },
-    graphTitle: {
-        ...theme.typography.cardTitle,
-        color: theme.color.veryDarkGrayishBlue
-    },
-    legendTitle: {
-        ...theme.typography.smallSubtitle,
-        fontWeight: '600',
-        color: theme.color.grayishBlue2,
-        marginLeft: 8
-    },
-    separator: {
-        backgroundColor: theme.color.lightGrayishBlue2,
-        width: 1,
-        minWidth: 1
-    },
-    statContainer: {
-        borderBottom: `1px solid ${theme.color.lightGrayishBlue2}`,
-        padding: '24px 32px 24px 32px',
-        height: 'calc(114px - 48px)',
-        '&:last-child': {
-            border: 'none'
-        }
-    },
-    stats: {
-        borderTop: `1px solid ${theme.color.lightGrayishBlue2}`,
-        width: '100%'
-    },
-    statTitle: {
-        fontWeight: '600',
-        fontSize: 16,
-        lineHeight: '22px',
-        letterSpacing: '0.3px',
-        textAlign: 'center',
-        color: theme.color.grayishBlue2,
-        whiteSpace: 'nowrap',
-        marginBottom: 6
-    },
-    statValue: {
-        ...theme.typography.title,
-        textAlign: 'center',
-        color: theme.color.veryDarkGrayishBlue
-    }
-}));
-
 function MydashboardItemComponent() {
-    const theme = useTheme();
-    const classes = useStyles({ theme });
-
-    function renderStat(title, value) {
+    function renderMiniCards(title, value) {
         return (
-            <Column
-                flexGrow={1}
-                vertical='space-between'
-                horizontal='space-between'
-                className={classes.statContainer}
-            >
-                <div className='star'>
-                    <i className='fa fa-star-o' aria-hidden='true' />
-                    <span className='dashboardSubTitle'>{title}</span>
-                    <span className='dashboardText'>{value}</span>
+            <Col align='center' justify='between' className='statContainer'>
+                <div className='dashboardTitle'>
+                    <p> {title} </p>
+                    <Row justify='center'>
+                        <div className='dashboardMiniTitle'>
+                            <i className='fa fa-line-chart' aria-hidden='true' />
+                            {value}
+                        </div>
+                    </Row>
                 </div>
-            </Column>
+            </Col>
+        );
+    }
+
+    function renderCards(title, content) {
+        return (
+            <Row align='center' justify='start' className='statContainer'>
+                <Col>
+                    <div className='star'>
+                        <i className='fa fa-star-o' aria-hidden='true' />
+                    </div>
+                </Col>
+                <Col>
+                    <div className='favouritesContent'>
+                        <Container fluid>
+                            <Row direction='row'>
+                                <Col>{title}</Col>
+                                <Col>{content}</Col>
+                            </Row>
+                        </Container>
+                    </div>
+                </Col>
+            </Row>
         );
     }
 
     return (
-        <Container>
-            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={6} className='MydashboardContainer'>
-                    <div className='dashboardTitle'>
-                        <span>Catagories</span>
-                    </div>
-                    <Slideshow />
+        <Container fluid={true} style={{ padding: 0 }}>
+            <Row style={{ padding: 0, marginLeft: 0, marginRight: 0 }}>
+                <Col className='MySlideshowContainer'>
+                    <SlideshowComponent />
                 </Col>
+            </Row>
+            <Row
+                justify='between'
+                style={{ padding: 0, marginLeft: 0, marginRight: 0 }}
+                breakpoints={{ 1024: 'column' }}
+            >
+                <Col className='MyMiniCardsContainer'>
+                    <Row className='dashboardTitle'>
+                        {renderMiniCards('Air Quality Results', '80%')}
+                    </Row>
+                </Col>
+                <Visible lg md xl xxl>
+                    <Col style={{ padding: 0 }} />
+                </Visible>
+                <Col className='MyMiniCardsContainer'>
+                    <div className='dashboardTitle'>{renderMiniCards('Opened projects', '4')}</div>
+                </Col>
+                <Visible lg md xl xxl>
+                    <Col style={{ padding: 0 }} />
+                </Visible>
+                <Col className='MyMiniCardsContainer'>
+                    <div className='dashboardTitle'>{renderMiniCards('Recently opened', '2')}</div>
+                </Col>
+                <Visible lg md xl xxl>
+                    <Col style={{ padding: 0 }} />
+                </Visible>
+                <Col className='MyMiniCardsContainer'>
+                    <div className='dashboardTitle'>{renderMiniCards('Closed projects', '1')}</div>
+                </Col>
+            </Row>
 
-                <Col xs={2} sm={2} md={2} lg={1} />
-
-                <Col xs={8} sm={8} md={8} lg={4} className='FavCardsContainer'>
+            <Row
+                justify='between'
+                style={{
+                    padding: 0,
+                    marginTop: 0,
+                    marginLeft: 0,
+                    marginRight: 0,
+                    marginBottom: 20
+                }}
+                breakpoints={{ 1024: 'column' }}
+            >
+                <Col className='MyCardsContainer'>
+                    <div className='dashboardTitle w3-padding-24'>
+                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
+                        <b>My Recent Projects</b>
+                    </div>
+                    <div className='Collapsible dashboardCardSubTitle w3-padding-32'>
+                        <Container fluid>
+                            <Row>
+                                <Collapsible trigger='Electric Motors'>
+                                    <div className='w3-card'>
+                                        <p>scenario 2</p>
+                                    </div>
+                                </Collapsible>
+                            </Row>
+                            <Row>
+                                <Collapsible trigger='Super Solution'>
+                                    <div className='w3-card'>
+                                        <p>Baseline Scenario</p>
+                                    </div>
+                                </Collapsible>
+                            </Row>
+                        </Container>
+                    </div>
+                </Col>
+                <Col xs={2} sm={2} md={2} lg={1} style={{ padding: 0, maxWidth: '1.5%' }} />
+                <Col className='MyCardsContainer'>
                     <div className='dashboardTitle w3-padding-24'>
                         <i
                             className='fa fa-heart'
@@ -120,52 +130,20 @@ function MydashboardItemComponent() {
                         ></i>
                         <span>Favorites</span>
                     </div>
-
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                    {renderStat('Fav Project 1', 'Transmission')}
-                    {renderStat('Fav Project 2', 'Generation')}
-                    {renderStat('Fav Project 3', 'Industrial App')}
-                </Col>
-            </Row>
-            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={6} className='ProjectsCardsContainer'>
-                    <div className='dashboardTitle'>
-                        <span>My chart</span>
-                    </div>
-                    <PieChartComponent />
-                </Col>
-                <Col xs={2} sm={2} md={2} lg={1} />
-                <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
-                    <div className='dashboardTitle w3-padding-24'>
-                        <i className='fa fa-bars' style={{ color: '#643082' }} aria-hidden='true' />
-                        <b>My Recent Projects</b>
-                    </div>
-                    <div className='Collapsible dashboardCardSubTitle'>
-                        <Collapsible trigger='Project 1 '>
-                            <div className='w3-card'>
-                                <p>This is the collapsible content.</p>
-                            </div>
-                        </Collapsible>
-                        <Collapsible trigger='Project 2 '>
-                            <div className='w3-card'>
-                                <p>This is the collapsible content.</p>
-                            </div>
-                        </Collapsible>
+                    <div className='Container-fluid w3-padding-32'>
+                        {renderCards('Generator 1824')}
+                        {renderCards('Gas Turbine Type2')}
+                        {renderCards('Trasmitter DIN42a')}
+                        {renderCards('Gas Turbine Type3')}
+                        {renderCards('Trasmitter DIN42b')}
                     </div>
                 </Col>
-            </Row>
-            <Row horizontal='center' breakpoints={{ 1024: 'column' }}>
-                <Col xs={8} sm={8} md={8} lg={7} />
-                <Col xs={8} sm={8} md={8} lg={4} className='ProjectsCardsContainer'>
+                <Col xs={2} sm={2} md={2} lg={1} style={{ padding: 0, maxWidth: '1.5%' }} />
+                <Col className='MyCardsContainer'>
                     <div className=' w3-padding-24'>
                         <div className='dashboardTitle'>
                             <i
-                                class='fa fa-question-circle'
+                                className='fa fa-question-circle'
                                 aria-hidden='true'
                                 style={{ color: '#643082' }}
                             />
@@ -173,20 +151,26 @@ function MydashboardItemComponent() {
                         </div>
                     </div>
 
-                    <div className='Collapsible dashboardCardSubTitle '>
-                        <Collapsible trigger='Question 1: how many catagories do we have?'>
+                    <div className='Collapsible dashboardCardSubTitle w3-padding-32'>
+                        <Collapsible trigger='Q1: How many catagories do we have?'>
                             <div className='  w3-card'>
-                                <p>Question1 answer</p>
+                                <p>
+                                    Answer: We Have three categories: Generation, Transmission and
+                                    Industrial Applications
+                                </p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Question 2: how many catagories do we have?'>
+                        <Collapsible trigger='Q2: How to export results into pdf?'>
                             <div className=' w3-card'>
-                                <p>Question 2 answer</p>
+                                <p>
+                                    Answer: You can go to Categories- Choose Products - Use Export
+                                    button on the screen to download the pdf
+                                </p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Question 3: how many catagories do we have?'>
+                        <Collapsible trigger='Q3: Where to find my fav projects ?'>
                             <div className=' w3-card'>
-                                <p>Question 3 answer</p>
+                                <p> Answer:You can find favorite projects in "My Dashboard"</p>
                             </div>
                         </Collapsible>
                     </div>

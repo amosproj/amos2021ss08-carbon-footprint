@@ -4,6 +4,8 @@ import {
     setImpactAssessmentData,
     setColumnChartData
 } from 'interface/projectInterface';
+import { categories } from 'resources/globalConstants/categories';
+import { simaProCategories } from 'resources/globalConstants/SimaProProductCategories';
 
 /*
  * Function to process the data recieved from the backend
@@ -71,4 +73,120 @@ export function processBackendData(data, callback) {
     setColumnChartData(assessmentDataInPercent);
 
     callback();
+}
+
+/**
+ * Works like processBackendData but without SimaPro.
+ *
+ * @param {String} projectId - id of the project that we want to schedule the calculation for
+ * @param {Function} callback - tell papa when your done.
+ */
+export function dummyProcessBackendData(projectId, callback) {
+    let materialMap = {
+        keys: [],
+        values: []
+    };
+
+    let impactMap = new Map();
+
+    impactMap.set('Total', Number('2350811').toFixed(0));
+    impactMap.set('Materials', Number('874356').toFixed(0));
+    impactMap.set('Manufacturing and Transportation', Number('71532').toFixed(0));
+    impactMap.set('Operation', Number('2114344').toFixed(0));
+    impactMap.set('End of life', Number('-790420').toFixed(0));
+
+    let assessmentDataInPercent = [10, 15, 20, 25];
+
+    switch (projectId) {
+        case '09f64eeb-13b0-4e09-9fb4-50398483ecfd': // Electric Motors (baseline)
+            materialMap.keys = [
+                'Stainless Steel',
+                'Copper (rolled)',
+                'Platinum (spraypaint)',
+                'Aluminium'
+            ];
+            materialMap.values = [70, 10, 2, 18];
+            break;
+        case 'aufwlc93-kldp-4fer-15s7-51245631fega':
+            materialMap.keys = [
+                'Stainless Steel',
+                'Copper (rolled)',
+                'Platinum (spraypaint)',
+                'Aluminium'
+            ];
+            materialMap.values = [70, 8, 2, 20];
+            break;
+        case 'aufwlc93-kldp-4fer-15s7-5124563regen':
+            materialMap.keys = [
+                'Stainless Steel',
+                'Copper (rolled)',
+                'Platinum (spraypaint)',
+                'Aluminium'
+            ];
+            materialMap.values = [60, 15, 2, 23];
+            break;
+        case 'aufwlc93-kldp-4fer-15s7-51245631mega':
+            materialMap.keys = [
+                'Stainless Steel',
+                'Copper (rolled)',
+                'Platinum (spraypaint)',
+                'Aluminium'
+            ];
+            materialMap.values = [69, 9, 5, 17];
+            break;
+        case '7ghnaoeb-kfue-qp04-slfg-12059492begp':
+            materialMap.keys = ['Copper', 'Aluminium'];
+            materialMap.values = [50, 50];
+            break;
+        default:
+            materialMap.keys = ['No Data'];
+            materialMap.values = [100];
+
+            break;
+    }
+
+    setMaterialCompositionLabels(materialMap.keys);
+    setMaterialCompositionData(materialMap.values);
+    setImpactAssessmentData(impactMap);
+    setColumnChartData(assessmentDataInPercent);
+
+    callback();
+}
+
+/**
+ *
+ * @param {*} projectDescription The comments mentioned in SimaPro Appliction.
+ * It if of the form "Categorie:[Generation/Transmission/IndustrialApplication]/[Solutions/Product/Services]#Model:ModelId#Location:loaction""
+ * This function segrigates the projects based on Generation, Transmission and Industrial APplications as mentioned in peojectDescription.
+ * @returns projects based on Generation, Transmission and Industrial APplications
+ */
+export function projectCategoryProcessing(projectDescription) {
+    if (
+        projectDescription === [] ||
+        projectDescription === undefined ||
+        projectDescription === null
+    ) {
+        return [];
+    } else if (projectDescription.split(/[#,:,/]/).includes(simaProCategories.generation)) {
+        return [categories.generation];
+    } else if (projectDescription.split(/[#,:,/]/).includes(simaProCategories.transmission)) {
+        return [categories.transmission];
+    } else {
+        return [categories.industrialApplications];
+    }
+}
+/**
+ *
+ * @param {*} simaProjectName ProjectName as recieved from the Sima Pro application.
+ * It is of the form "ProjectName#ID:ProjectID#Scenario:scenario"
+ * This function seperated the Project name and Scenario name for further processing and stores them in scenarios
+ * @returns  projectName and scenarioName for displaying in the ProductGrid Page
+ */
+export function projectNameProcessing(simaProjectName) {
+    let prjs = simaProjectName.split(/[#,:,/]/);
+    let ProjectNameAndScenarioName = {
+        projectName: prjs[0],
+        scenarioName: prjs[4]
+    };
+    return ProjectNameAndScenarioName;
 }

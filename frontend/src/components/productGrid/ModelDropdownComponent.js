@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
-import { getModels } from 'interface/simaProInterface';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import LoadingComponent from 'components/loading';
+import { getModels } from 'assets/dummyData/dummyData';
 
 /**
  * This component creates the dropdownboxes for the related products
@@ -26,7 +26,7 @@ const ModelDropdownComponent = (props) => {
 
     //checking if the variable list is empty
     if (variables === [] || variables === undefined || variables === null) {
-        return <LoadingComponent />;
+        return <LoadingComponent loading />;
     }
 
     if (variables.length === 1) {
@@ -61,14 +61,7 @@ const ModelDropdownComponent = (props) => {
                     <button
                         onClick={(props) => {
                             // Set the Selected Product to the one that has been clicked.
-                            const newSelectedProducts = [
-                                {
-                                    productID: productID,
-                                    productName: productName,
-                                    modelID: item.modelID,
-                                    modelName: item.modelName
-                                }
-                            ];
+                            const newSelectedProducts = [item];
                             setSelected(item.modelName);
                             setSelectedProducts(newSelectedProducts);
                         }}

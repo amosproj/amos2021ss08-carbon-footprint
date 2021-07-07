@@ -19,16 +19,6 @@ class MobileTableComponent extends Component {
         const idKey = this.props.tableKey;
         return (
             <Container fluid={true}>
-                {/* dynamic display of product and model */}
-                <h5 className='TableTitle'>{this.props.productName}</h5>
-                <h6 className='TableSubTitle'>
-                    {/* Don't display model name if model name == product name or undefined */}
-                    {this.props.modelName === this.props.productName ||
-                    this.props.modelName === undefined
-                        ? ''
-                        : this.props.modelName}
-                </h6>
-
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
                     {/* style needs to be defined in js */}
                     <tbody>
