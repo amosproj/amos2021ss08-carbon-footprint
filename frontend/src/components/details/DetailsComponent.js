@@ -47,6 +47,8 @@ class DetailsComponent extends Component {
         super(props);
         this.state.selectedScenarioType = props.selectedProduct.scenarioType;
         this.state.selectedScenarioId = props.selectedProduct.productID;
+        this.state.secondSelectedScenarioId = this.state.selectedScenarioId;
+        this.state.secondSelectedScenarioType = this.state.selectedScenarioType;
     }
 
     render() {
@@ -208,7 +210,7 @@ class DetailsComponent extends Component {
                                 onExportClick={handleExportPdfButton}
                                 onCloseClick={handleCloseModifiedButton}
                                 scenarioName={scenarioNames.modified}
-                                selectedScenarioType={this.state.selectedScenarioType}
+                                selectedScenarioType={this.state.secondSelectedScenarioType}
                                 selectedProduct={selectedProduct}
                                 newScenarioHandler={handleNewScenarioSelection}
                             />
