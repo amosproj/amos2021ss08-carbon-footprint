@@ -177,6 +177,7 @@ class DetailsComponent extends Component {
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
             console.log(selectedProduct);
+            console.log('parham   :   ' + this.state.selectedScenarioType);
             return (
                 <Container className='ScenarioContainer' id='capture' fluid>
                     <Row>

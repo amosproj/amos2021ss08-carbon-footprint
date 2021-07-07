@@ -7,7 +7,6 @@ import { scenarioNames } from './DetailsComponent';
  */
 class SelectScenarioComponent extends Component {
     state = {
-        secondScenario: '', // TODO: for comparing scenarios this should be removed and use props from detail component
         scenarios: [{ id: '', name: '' }]
     };
 
@@ -23,11 +22,6 @@ class SelectScenarioComponent extends Component {
         if (this.props.scenarioName === scenarioNames.modified)
             this.props.newScenarioHandler(item, scenarioNames.modified);
         else this.props.newScenarioHandler(item, scenarioNames.baseline);
-    };
-
-    onSecondDropDownSelectedHandler = (name) => {
-        const secondScenario = name;
-        this.setState({ secondScenario: secondScenario });
     };
 
     /**
@@ -62,7 +56,6 @@ class SelectScenarioComponent extends Component {
 
         // Set State to the calculated List
         let newState = {
-            selectedSecondScenario: '',
             scenarios: scenarioList
         };
         return newState;
@@ -74,6 +67,7 @@ class SelectScenarioComponent extends Component {
         is set to true, here an extra drop down for the second variable
          should be rendered 
         */
+        console.log('parham   dfd f df : ' + this.props.selectedScenarioType);
 
         return (
             <div className='w3-row w3-margin-top'>
