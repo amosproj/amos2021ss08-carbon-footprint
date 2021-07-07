@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { processBackendData } from 'interface/processBackendData';
 import { dummyProcessBackendData } from 'interface/processBackendData';
-import { scenarioNames } from 'components/details/DetailsComponent';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
