@@ -7,6 +7,7 @@ import {
 //import theme from 'resources/theme';
 /**
  * Pie Chart Diagram
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
 
 const PieChartComponent = (props) => {

@@ -70,6 +70,7 @@ export default MobileTableComponent;
  * @param {number} rowIndex - the index of the current row
  * @param rows - the rowdata that will be accesed
  * @returns the <td/> element of the corresponding row
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
 function getRowDataHelper(idKey, rowIndex, rows) {
     switch (rowIndex) {

@@ -24,9 +24,14 @@ class DetailsComponent extends Component {
      * selectedScenarioId: for storing the id of the selected scenario
      * to send the calculation request to server
      * slectedScenarioType: for sending it to SelectScenarioComponent
+     * secondSelectedScenarioId: for storing the id of the selected modified scenario
+     * to send the calculation request to server
+     * secondSelectedScenarioType: for sending it(modified) to SelectScenarioComponent
      * baselineScenario: only display the baseline scenario
      * modifiedScenario: only display the modified scenario
      * state at the beginng: only baseline scenario
+     * loadingBaseline: reload the data for baseline scenario and send out a post calculation request if required
+     * /loadingModified reload the data for modified scenario and send out a post calculation request if required
      */
     state = {
         selectedScenarioId: '',
@@ -150,7 +155,9 @@ class DetailsComponent extends Component {
         };
 
         const { selectedProduct } = this.props;
-
+        /**
+         * Reloading the webage based on which scenario is selected/modified.
+         */
         if (this.state.stillLoading) {
             postCalculationRequest(
                 this.state.selectedScenarioId,
@@ -177,7 +184,6 @@ class DetailsComponent extends Component {
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
             console.log(selectedProduct);
-            console.log('parham   :   ' + this.state.selectedScenarioType);
             return (
                 <Container className='ScenarioContainer' id='capture' fluid>
                     <Row>

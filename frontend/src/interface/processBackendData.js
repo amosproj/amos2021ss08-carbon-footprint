@@ -17,6 +17,7 @@ import { simaProCategories } from 'resources/globalConstants/SimaProProductCateg
  * Calculate the impact assesment in percent for the column charts
  *
  * @param data:     data recieved from PostCalculationRequest
+ * @param scenarioName: used to identifiy if the request is from Modified scenario/Baseline scenario
  * @param callback: the handleFinishedDataRequest function from the DetailsComponent.js, this function is called at the end of the data process
  * the function changes the state of the DetailsComponent thus triggering a rerender and causing the DetailsComponent to display the charts
  * instead of the loading circle

@@ -180,10 +180,8 @@ export function setColumnChartData(scenarioName, assessmentDataInPercent) {
  */
 export function getColumnChartData(scenarioName) {
     if (scenarioName === scenarioNames.baseline) {
-        console.log('varun   1 :  ' + chartDataInPercent);
         return chartDataInPercent;
     } else if (scenarioName === scenarioNames.modified) {
-        console.log('varun   2 :  ' + modifiedChartDataInPercent);
         return modifiedChartDataInPercent;
     }
 }

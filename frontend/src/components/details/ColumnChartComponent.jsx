@@ -6,6 +6,7 @@ import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterfa
  * Column Chart
  * Recieves the data from projectInterface.js using "getColumnChartData()"
  * populates the data ito the column chart in Details Page.
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
 const ColumnChartComponent = (props) => {
     const values = getColumnChartData(props.scenarioName);

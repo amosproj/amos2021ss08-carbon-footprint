@@ -67,7 +67,6 @@ class SelectScenarioComponent extends Component {
         is set to true, here an extra drop down for the second variable
          should be rendered 
         */
-        console.log('parham   dfd f df : ' + this.props.selectedScenarioType);
 
         return (
             <div className='w3-row w3-margin-top'>

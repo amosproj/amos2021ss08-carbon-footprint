@@ -31,6 +31,7 @@ export async function getSimaProProjects() {
  *   This request is caught by the backend.
  *   Which then checks if the calculation is stored based on the calculationId generated.
  *   If the calculation is stored returns the results of calculation here.
+ * @param scenarioName: used to identifiy if the request is from Modified scenario/Baseline scenario
  */
 export async function postCalculationRequest(projectId, scenarioName, callback) {
     // Bypass using the SimaPro Data

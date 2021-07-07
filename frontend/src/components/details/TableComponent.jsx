@@ -7,6 +7,7 @@ import {
 } from 'interface/projectInterface';
 /**
  * displays the impact catagories table of the selected model of the related product.
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
 class TableComponent extends Component {
     state = {
