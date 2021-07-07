@@ -1,14 +1,20 @@
-import { getCategorizedProducts } from "interface/simaProInterface";
-import { processingProducts } from "store/slices/productSlice";
+import { getCategorizedProducts } from 'interface/simaProInterface';
+import { processingIndustrialApplications } from 'store/slices/industrialApplicationsSlice';
+import { processingGeneration } from 'store/slices/generationSlice';
+import { processingTransmission } from 'store/slices/transmissionSlice';
 
-export const loadProjects = (selectedCategory) => async (dispatch) => {
+export const loadProjects = () => async (dispatch) => {
     try {
-        await getCategorizedProducts(selectedCategory).then((products) => {
-        dispatch(
-            processingProducts(JSON.parse(JSON.stringify(products)))
-        );
-      })
+        await getCategorizedProducts().then((products) => {
+            dispatch(processingGeneration(JSON.parse(JSON.stringify(products.generation))));
+            dispatch(processingTransmission(JSON.parse(JSON.stringify(products.transmission))));
+            dispatch(
+                processingIndustrialApplications(
+                    JSON.parse(JSON.stringify(products.industrialApplications))
+                )
+            );
+        });
     } catch (error) {
-        console.warn("loading projects didnt work", error)
+        console.warn('loading projects didnt work', error);
     }
 };

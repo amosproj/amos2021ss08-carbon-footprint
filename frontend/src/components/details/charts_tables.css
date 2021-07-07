@@ -32,20 +32,17 @@
     margin-bottom: 10px;
     width: 100%;
     height: 300px;
+    padding-bottom: 10px;
 }
 
 /* Column Chart */
-.CardsContainer {
+.BarChartContainer {
     background-color: #ffffff;
     /* border:0.5px solid #00b300; */
-    border-color: #00b300;
-    border-radius: 4px;
     cursor: 'pointer';
-    min-width: 360;
-    max-width: 450;
-    min-height: 500px;
-    max-height: 600px;
-    margin-top: 10px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    max-width: 900px !important;
 }
 
 .PieChartCardsContainer {
@@ -53,9 +50,10 @@
     /* border:0.5px solid #00b300; */
     border-radius: 4px;
     cursor: 'pointer';
-    min-width: 300;
-    max-width: 360;
+    padding: auto;
+    justify-content: center;
     margin-top: 10px;
+    max-width: 500px !important;
 }
 
 /* Table related styling */
@@ -90,7 +88,6 @@
     font-size: var(--global--text-subtitle--FontSize);
     letter-spacing: 0.5px;
     color: #1b1534;
-    margin-bottom: 10px;
 }
 
 /* Reconfiguration of the text style on table  */
@@ -107,17 +104,9 @@
 
 .TableContainer {
     background-color: #ffffff;
-    /* border:0.5px solid #00b300; */
     border-radius: 4px;
     cursor: 'pointer';
-    /* min-width: 500px;
-    max-width: 500px; */
     padding: 10px; /* To make it display the shadow properly */
-    /* To center it: */
-    /* margin-left: auto;
-    margin-right: auto; */
-    margin-top: 15px;
-    margin-bottom: 15px;
     overflow: auto; /* To make it scrollable whenever it does not fit for some reason. */
 }
 
