@@ -15,7 +15,7 @@ namespace Backend.Services
     {
         public string createReport(HttpRequest request)
         {
-            var imageNumbers = new List<int>() { 7, 14, 11 };
+            var imageNumbers = new List<int>() { 7, 13, 11 };
 
             GetFileModelsFromRequest(request, imageNumbers);
 
