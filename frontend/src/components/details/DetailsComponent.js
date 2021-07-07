@@ -36,6 +36,8 @@ class DetailsComponent extends Component {
         modifiedScenario: false,
         loadComparePage: false,
         stillLoading: true,
+        loadingBaseline: false,
+        loadingModified: false,
         onExportClicked: false
     };
 
@@ -47,8 +49,6 @@ class DetailsComponent extends Component {
         super(props);
         this.state.selectedScenarioType = props.selectedProduct.scenarioType;
         this.state.selectedScenarioId = props.selectedProduct.productID;
-        this.state.secondSelectedScenarioId = this.state.selectedScenarioId;
-        this.state.secondSelectedScenarioType = this.state.selectedScenarioType;
     }
 
     render() {
@@ -60,6 +60,8 @@ class DetailsComponent extends Component {
             const baselineScenario = false;
             const modifiedScenario = false;
             const loadComparePage = true;
+            this.setState({ secondSelectedScenarioId: this.state.selectedScenarioId });
+            this.setState({ secondSelectedScenarioType: this.state.selectedScenarioType });
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
         };
         /*
@@ -95,18 +97,25 @@ class DetailsComponent extends Component {
          * @param item: selected scenario
          */
         let handleNewScenarioSelection = (item, scenarioName) => {
-            // if the first scenario in drop down menue is changed
-            if (scenarioName === scenarioNames.baseline) {
-                console.log('first scenario is changed: ' + scenarioName);
+            if (!this.state.loadComparePage) {
+                console.log('No Compare' + scenarioName);
                 this.setState({ selectedScenarioId: item.id }, () => {
                     this.setState({ stillLoading: true });
+                    this.setState({ selectedScenarioType: item.name });
+                });
+            }
+            // if the first scenario in drop down menue is changed
+            else if (scenarioName === scenarioNames.baseline) {
+                console.log('first scenario is changed: ' + scenarioName);
+                this.setState({ selectedScenarioId: item.id }, () => {
+                    this.setState({ loadingBaseline: true });
                     this.setState({ selectedScenarioType: item.name });
                 });
                 // if the second scenario in drop down menue is changed
             } else {
                 console.log('second scenario is changed: ' + scenarioName);
                 this.setState({ secondSelectedScenarioId: item.id }, () => {
-                    this.setState({ stillLoading: true });
+                    this.setState({ loadingModified: true });
                     this.setState({ secondSelectedScenarioType: item.name });
                 });
             }
@@ -134,12 +143,20 @@ class DetailsComponent extends Component {
          */
         let handleFinishedDataRequest = () => {
             this.setState({ stillLoading: false });
+            this.setState({ loadingBaseline: false });
+            this.setState({ loadingModified: false });
         };
 
         const { selectedProduct } = this.props;
 
         if (this.state.stillLoading) {
             postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
+            return <LoadingComponent loading />;
+        } else if (this.state.loadingBaseline) {
+            postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
+            return <LoadingComponent loading />;
+        } else if (this.state.loadingModified) {
+            postCalculationRequest(this.state.secondSelectedScenarioId, handleFinishedDataRequest);
             return <LoadingComponent loading />;
         }
 
