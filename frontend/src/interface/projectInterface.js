@@ -7,18 +7,29 @@ import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_3 from 'assets/dummyImages/Logo2.png';
 import { scenarioNames } from 'components/details/DetailsComponent';
 
+/**
+ * the variables for the baseline scenario
+ */
 var materialCompositionLabels;
 var materialCompositionData;
 let materialDataInPercent;
 var assessmentValues;
 let chartDataInPercent = [];
 
+/**
+ * the variables for the modified scenario
+ */
 var modifiedMaterialCompositionLabels;
 var modifiedMaterialCompositionData;
 let modifiedMaterialDataInPercent;
 var modifiedAssessmentValues;
 let modifiedChartDataInPercent = [];
 
+/**
+ * initializing the modified scenario with the baseline
+ * inorder to display the same values for the modified scenario
+ * when the user click on add scenario
+ */
 export function handleAddingSecondScenario() {
     modifiedMaterialCompositionLabels = materialCompositionLabels;
     modifiedMaterialCompositionData = materialCompositionData;
@@ -169,8 +180,10 @@ export function setColumnChartData(scenarioName, assessmentDataInPercent) {
  */
 export function getColumnChartData(scenarioName) {
     if (scenarioName === scenarioNames.baseline) {
+        console.log('varun   1 :  ' + chartDataInPercent);
         return chartDataInPercent;
     } else if (scenarioName === scenarioNames.modified) {
+        console.log('varun   2 :  ' + modifiedChartDataInPercent);
         return modifiedChartDataInPercent;
     }
 }
