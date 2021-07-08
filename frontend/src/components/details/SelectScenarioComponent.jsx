@@ -75,7 +75,7 @@ class SelectScenarioComponent extends Component {
         return (
             <div className='w3-row w3-margin-top'>
                 <div className='w3-right'>
-                    <div className='w3-dropdown-hover'>
+                    <div className='w3-dropdown-hover w3-white'>
                         <button className='w3-button dropDown'>
                             {this.props.selectedScenarioType}
                         </button>

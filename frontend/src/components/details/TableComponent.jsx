@@ -16,7 +16,7 @@ class TableComponent extends Component {
     render() {
         const idKey = this.props.tableKey;
         return (
-            <Container fluid={true}>
+            <Container fluid={true} className='TableCorner'>
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
                     <thead className='TableHeader'>
                         <tr className='TableHeader' key={'FirstRow'}>

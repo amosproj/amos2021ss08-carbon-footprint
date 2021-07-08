@@ -6,6 +6,8 @@
 .dropDown {
     background-color: #8a00e5;
     color: white;
+    border-radius: 8px;
+
 }
 .dropDown:hover {
     opacity: 0.8;

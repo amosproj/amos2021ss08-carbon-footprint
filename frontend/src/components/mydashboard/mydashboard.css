@@ -4,6 +4,7 @@
     cursor: 'pointer';
     border: 1.5px solid #ad65dd;
     padding: 0;
+    border-radius: 8px;
 }
 
 .img {
@@ -14,6 +15,7 @@
     background-color: #ffffff;
     cursor: 'pointer';
     margin-top: 20px;
+    border-radius: 8px;
     border: 1.5px solid #ad65dd;
 }
 
@@ -31,6 +33,7 @@
     position: fixed;
     overflow-y: scroll;
     justify-content: first baseline;
+    border-radius: 8px;
 }
 .MyMiniCardsContainer {
     display: flex;
@@ -45,6 +48,7 @@
     justify-content: first baseline;
     float: right;
     border: 1.5px solid #ad65dd;
+    border-radius: 8px;
 }
 
 .MyMiniCardsContainer p {
@@ -62,6 +66,7 @@
     cursor: 'pointer';
     background-color: #643082;
     color: #ffffff;
+    border-radius: 8px;
 }
 
 .ContactContainer p {
@@ -72,10 +77,16 @@
     font-size: var(--global--text-title--FontSize)-8;
 }
 
+.form-control{
+    border-radius: 8px;
+
+}
+
 .SignUp {
     background-color: #ad65dd;
     color: white;
     border-color: #ad65dd;
+    border-radius: 8px;
 }
 .SignUp:hover {
     opacity: 0.8;
@@ -212,4 +223,5 @@
     height: 400px;
     width: 100%;
     object-fit: cover;
+    border-radius: 8px;
 }
