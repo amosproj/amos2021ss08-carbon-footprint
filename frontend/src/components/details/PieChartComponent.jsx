@@ -46,7 +46,7 @@ const PieChartComponent = () => {
                 breakpoint: 6400,
                 options: {
                     chart: {
-                        height: 'auto'
+                        height: '350px'
                     },
                     legend: {
                         position: 'bottom'
@@ -58,7 +58,7 @@ const PieChartComponent = () => {
 
     return (
         <div id='chart'>
-            <ReactApexChart options={options} series={series} type='donut' />
+            <ReactApexChart options={options} series={series} type='donut' height={350}/>
         </div>
     );
 };
