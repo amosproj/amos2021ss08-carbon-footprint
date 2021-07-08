@@ -113,6 +113,7 @@
     cursor: 'pointer';
     padding: 10px; /* To make it display the shadow properly */
     overflow: auto; /* To make it scrollable whenever it does not fit for some reason. */
+    margin-bottom: 50px;
 }
 
 .TableHeader {
