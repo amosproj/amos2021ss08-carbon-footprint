@@ -7,6 +7,9 @@
     border-radius: 8px;
 }
 
+.DashboardBody{
+    margin:25px;
+}
 .img {
     max-width: 100%;
     display: block;
@@ -14,7 +17,7 @@
 .MyCardsContainer {
     background-color: #ffffff;
     cursor: 'pointer';
-    margin-top: 20px;
+    margin-top: 30px;
     border-radius: 8px;
     border: 1.5px solid #ad65dd;
 }
@@ -24,7 +27,7 @@
     flex-direction: column;
     background-color: #ffffff;
     cursor: 'pointer';
-    margin-top: 20px;
+    margin-top: 30px;
     min-width: 360;
     max-width: 450;
     min-height: 550px;
@@ -39,7 +42,7 @@
     display: flex;
     margin-left: 5px !important;
     margin-right: 5px !important;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 20px;
     flex-direction: column;
     background-color: #ffffff;
@@ -67,6 +70,7 @@
     background-color: #643082;
     color: #ffffff;
     border-radius: 8px;
+    margin-top: 30px;
 }
 
 .ContactContainer p {

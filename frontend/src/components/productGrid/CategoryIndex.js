@@ -26,7 +26,7 @@ function CategoryIndex() {
                     </div>
                 </div>
                 <div className='w3-third imageTitle w3-animate-zoom'>
-                    <img src={IndustrialImage} style={{height:"396.55px"}} alt='Industry' />
+                    <img src={IndustrialImage}  alt='Industry' />
                     <div className='w3-container w3-center'>
                         <p>Industrial Application</p>
                     </div>
