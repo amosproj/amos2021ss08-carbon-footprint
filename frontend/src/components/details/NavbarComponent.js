@@ -23,7 +23,11 @@ const NavbarComponent = (props) => {
                     </Link>
                 </div>
                 <div className='NavbarTitle'>
-                    <b>{props.scenarioName}</b>
+                    <b>
+                        {props.scenarioDisplayName.includes('baseline')
+                            ? 'Baseline Scenario'
+                            : 'Modified Scenario'}
+                    </b>
                 </div>
                 <Link
                     style={props.onExportClicked ? { pointerEvents: 'none' } : null}
