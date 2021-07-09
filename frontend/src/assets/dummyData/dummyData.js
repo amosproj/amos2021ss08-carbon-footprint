@@ -3,10 +3,9 @@ import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_2 from 'assets/dummyImages/Logo2.png';
 
 export function getDummyProductData() {
-    // WTH are we looking for here? do we need to iterate over projects (api_demo_project, ...) or over final processes?
     const products = [
         {
-            Id: '09f64eeb-13b0-4e09-9fb4-50398483ecfd', //(project_id?) final_process_id? (final_product_id?)
+            Id: '09f64eeb-13b0-4e09-9fb4-50398483ecfd', //(project_id)
             Name: 'Electric Motors#ID:09f64eeb-13b0-4e09-9fb4-50398483ecfd#Scenario:scenario_baseline',
             Description:
                 'Categorie:Generation/Product#Model:09f64eeb-13b0-4e09-9fb4-50398483ecfd#Location:Germany',
@@ -41,63 +40,63 @@ export function getDummyProductData() {
             productImage: logo_2
         },
         {
-            Id: '7ghnaoeb-kfue-qp04-slfg-12059492begp', //(project_id?) final_process_id? (final_product_id?)
+            Id: '7ghnaoeb-kfue-qp04-slfg-12059492begp',
             Name: 'Wireless Power Transmittor#ID:7ghnaoeb-kfue-qp04-slfg-12059492begp#Scenario:scenario_baseline',
             Description:
                 'Categorie:Transmission/Product#Model:09f64eeb-12f0-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo_2
         },
         {
-            Id: 'whatis00-this-id00-just-d01n9352rnow', //(project_id?) final_process_id? (final_product_id?)
+            Id: 'whatis00-this-id00-just-d01n9352rnow',
             Name: 'Gas Turbine#ID:whatis00-this-id00-just-d01n9352rnow#Scenario:scenario_baseline',
             Description:
                 'Categorie:Generation/Product#Model:09f64eeb-12f0-4e09-9fb4-50395583ecfd#Location:Germany',
             productImage: logo
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-51002631fell', //(project_id?) final_process_id? (final_product_id?)
+            Id: 'aufglc25-kldd-4ger-16s2-51002631fell',
             Name: 'Alround Product#ID:aufglc25-kldd-4ger-16s2-51002631fell#Scenario:scenario_baseline',
             Description:
                 'Categorie:Generation/Product#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:France',
             productImage: logo_1
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-5100Julian00', //(project_id?) final_process_id? (final_product_id?)
+            Id: 'aufglc25-kldd-4ger-16s2-5100Julian00',
             Name: 'Super Product#ID:aufglc25-kldd-4ger-16s2-5100Julian00#Scenario:scenario_baseline',
             Description:
                 'Categorie:Generation/Product#Model:09f64eeb-1234-4321-9fb4-50398483ecfd#Location:Germany',
             productImage: logo_1
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-5100100sai00', //(project_id?) final_process_id? (final_product_id?)
+            Id: 'aufglc25-kldd-4ger-16s2-5100100sai00',
             Name: 'Super Product#ID:aufglc25-kldd-4ger-16s2-5100100sai00#Scenario:scenario_1',
             Description:
                 'Categorie:Generation/Product#Model:09f64eeb-1234-4321-9fb4-50398483ecfd#Location:India',
             productImage: logo_1
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-5100MartinWl', //(project_id?) final_process_id? (final_product_id?)
+            Id: 'aufglc25-kldd-4ger-16s2-5100MartinWl',
             Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-5100MartinWl#Scenario:scenario_baseline',
             Description:
                 'Categorie:Generation/Service#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-510MartinD1l', //(project_id?) final_process_id? (final_product_id?)
+            Id: 'aufglc25-kldd-4ger-16s2-510MartinD1l',
             Name: 'Super Service#ID:aufglc25-kldd-4ger-16s2-510MartinD1l#Scenario:scenario_1',
             Description:
                 'Categorie:Generation/Service#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo
         },
         {
-            Id: 'aufglc25-kldd-4ger-16s2-510026Irem01', //(project_id?) final_process_id? (final_product_id?)
+            Id: 'aufglc25-kldd-4ger-16s2-510026Irem01',
             Name: 'Super Solution#ID:aufglc25-kldd-4ger-16s2-510026Irem01#Scenario:scenario_baseline',
             Description:
                 'Categorie:Generation/Solution#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:Germany',
             productImage: logo_1
         },
         {
-            Id: 'hello0th-ere0-4ger-16s2-51002631Mani', //(project_id?) final_process_id? (final_product_id?)
+            Id: 'hello0th-ere0-4ger-16s2-51002631Mani',
             Name: 'Super Solution#ID:hello0th-ere0-4ger-16s2-51002631Mani#Scenario:scenario_1',
             Description:
                 'Categorie:Transmission/Solution#Model:09f64eeb-1234-4e09-9fb4-50398483ecfd#Location:India',
