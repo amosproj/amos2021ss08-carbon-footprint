@@ -142,16 +142,21 @@ class DetailsComponent extends Component {
         let pdfExportDoneCallback = () => {
             this.setState({ onExportClicked: false });
         };
+
+        const dispatch = useDispatch();
+
         /*
          * Important function that is given as the callback parameter to the postCalculationRequest in order to be called
          * when the data processing is finished. Then the state stillLoading will be set to false.
          * This change of state trigger the DetailsComponent to rerender and now display the charts and tables
          * instead of the LoadingComponent.
          */
-        let handleFinishedDataRequest = () => {
+        let handleFinishedDataRequest = (dataset) => {
             this.setState({ stillLoading: false });
             this.setState({ loadingBaseline: false });
             this.setState({ loadingModified: false });
+
+            dispatch(updateCachedCalculationData(cachedDataset));
         };
 
         const { selectedProduct } = this.props;

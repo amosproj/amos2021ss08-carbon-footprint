@@ -6,8 +6,9 @@ import {
 } from 'interface/projectInterface';
 import { categories } from 'resources/globalConstants/categories';
 import { simaProCategories } from 'resources/globalConstants/SimaProProductCategories';
+import { formatCalculationData } from './cachedCalculationData';
 
-/*
+/**
  * Function to process the data recieved from the backend
  * Filters the carbon impact data recieved from API.
  * Filter the Carbon Values of GlobalWarming
@@ -17,12 +18,13 @@ import { simaProCategories } from 'resources/globalConstants/SimaProProductCateg
  * Calculate the impact assesment in percent for the column charts
  *
  * @param data:     data recieved from PostCalculationRequest
+ * @param projectID: Id of the corresponding SimaPro Project (Identifies one specific scenario)
  * @param scenarioName: used to identifiy if the request is from Modified scenario/Baseline scenario
  * @param callback: the handleFinishedDataRequest function from the DetailsComponent.js, this function is called at the end of the data process
  * the function changes the state of the DetailsComponent thus triggering a rerender and causing the DetailsComponent to display the charts
  * instead of the loading circle
  */
-export function processBackendData(data, scenarioName, callback) {
+export function processBackendData(data, projectID, scenarioName, callback) {
     const items = data;
     /*
      * Filter out the "correct" materials
@@ -73,16 +75,24 @@ export function processBackendData(data, scenarioName, callback) {
     setImpactAssessmentData(scenarioName, impactMap);
     setColumnChartData(scenarioName, assessmentDataInPercent);
 
-    callback();
+    const dataset = formatCalculationData(
+        projectID,
+        materialMap.keys(),
+        materialMap.values(),
+        impactMap,
+        assessmentDataInPercent
+    );
+
+    callback(dataset);
 }
 
 /**
  * Works like processBackendData but without SimaPro.
  *
- * @param {String} projectId - id of the project that we want to schedule the calculation for
+ * @param {String} projectID - id of the project that we want to schedule the calculation for
  * @param {Function} callback - tell papa when your done.
  */
-export function dummyProcessBackendData(projectId, scenarioName, callback) {
+export function dummyProcessBackendData(projectID, scenarioName, callback) {
     let materialMap = {
         keys: [],
         values: []
@@ -98,7 +108,7 @@ export function dummyProcessBackendData(projectId, scenarioName, callback) {
 
     let assessmentDataInPercent = [10, 15, 20, 25];
 
-    switch (projectId) {
+    switch (projectID) {
         case '09f64eeb-13b0-4e09-9fb4-50398483ecfd': // Electric Motors (baseline)
             materialMap.keys = [
                 'Stainless Steel',
@@ -151,7 +161,15 @@ export function dummyProcessBackendData(projectId, scenarioName, callback) {
     setImpactAssessmentData(scenarioName, impactMap);
     setColumnChartData(scenarioName, assessmentDataInPercent);
 
-    callback();
+    const dataset = formatCalculationData(
+        projectID,
+        materialMap.keys(),
+        materialMap.values(),
+        impactMap,
+        assessmentDataInPercent
+    );
+
+    callback(dataset);
 }
 
 /**

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { processBackendData } from 'interface/processBackendData';
 import { dummyProcessBackendData } from 'interface/processBackendData';
+import { checkForCachedCalculationData } from './cachedCalculationData';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -36,6 +37,8 @@ export async function postCalculationRequest(projectId, scenarioName, callback) 
     // Bypass using the SimaPro Data
     const useDummyData = true;
 
+    checkForCachedCalculationData(projectId);
+
     if (useDummyData) {
         return dummyPostCalculationRequest(projectId, scenarioName, callback);
     }
@@ -52,7 +55,7 @@ export async function postCalculationRequest(projectId, scenarioName, callback) 
         })
 
         .then(function (data) {
-            processBackendData(data, scenarioName, callback);
+            processBackendData(data, projectId, scenarioName, callback);
         });
 }
 
