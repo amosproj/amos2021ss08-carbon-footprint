@@ -171,14 +171,12 @@ class DetailsComponent extends Component {
                 scenarioNames.baseline,
                 handleFinishedDataRequest
             );
-            return <LoadingComponent loading />;
         } else if (this.state.loadingModified) {
             postCalculationRequest(
                 this.state.secondSelectedScenarioId,
                 scenarioNames.modified,
                 handleFinishedDataRequest
             );
-            return <LoadingComponent loading />;
         }
 
         if (this.state.baselineScenario) {
@@ -230,32 +228,39 @@ class DetailsComponent extends Component {
                 <Container className='ScenarioContainer' id='capture' fluid>
                     <Row gutterWidth={0}>
                         <Col className='CompareColLeft' xs={6} sm={6} md={6} lg={6}>
-                            <ScenarioComponent
-                                loadComparePage={this.state.loadComparePage}
-                                onCompareClick={handleCompareButton}
-                                onExportClick={handleExportPdfButton}
-                                onCloseClick={handleCloseBaselineButton}
-                                scenarioName={scenarioNames.baseline}
-                                scenarioDisplayName={this.props.scenarioType}
-                                selectedScenarioType={this.state.selectedScenarioType}
-                                selectedProduct={selectedProduct}
-                                newScenarioHandler={handleNewScenarioSelection}
-                            />
+                            {this.state.loadingBaseline && <LoadingComponent loading />}
+
+                            {!this.state.loadingBaseline && (
+                                <ScenarioComponent
+                                    loadComparePage={this.state.loadComparePage}
+                                    onCompareClick={handleCompareButton}
+                                    onExportClick={handleExportPdfButton}
+                                    onCloseClick={handleCloseBaselineButton}
+                                    scenarioName={scenarioNames.baseline}
+                                    scenarioDisplayName={this.props.scenarioType}
+                                    selectedScenarioType={this.state.selectedScenarioType}
+                                    selectedProduct={selectedProduct}
+                                    newScenarioHandler={handleNewScenarioSelection}
+                                />
+                            )}
                         </Col>
 
                         {/* Spacing between the two columns is specified by paddingLeft */}
                         <Col className='CompareColRight' xs={6} sm={6} md={6} lg={6}>
-                            <ScenarioComponent
-                                loadComparePage={this.state.loadComparePage}
-                                onCompareClick={handleCompareButton}
-                                onExportClick={handleExportPdfButton}
-                                onCloseClick={handleCloseModifiedButton}
-                                scenarioName={scenarioNames.modified}
-                                scenarioDisplayName={this.props.scenarioType}
-                                selectedScenarioType={this.state.secondSelectedScenarioType}
-                                selectedProduct={selectedProduct}
-                                newScenarioHandler={handleNewScenarioSelection}
-                            />
+                            {this.state.loadingModified && <LoadingComponent loading />}
+                            {!this.state.loadingModified && (
+                                <ScenarioComponent
+                                    loadComparePage={this.state.loadComparePage}
+                                    onCompareClick={handleCompareButton}
+                                    onExportClick={handleExportPdfButton}
+                                    onCloseClick={handleCloseModifiedButton}
+                                    scenarioName={scenarioNames.modified}
+                                    scenarioDisplayName={this.props.scenarioType}
+                                    selectedScenarioType={this.state.secondSelectedScenarioType}
+                                    selectedProduct={selectedProduct}
+                                    newScenarioHandler={handleNewScenarioSelection}
+                                />
+                            )}
                         </Col>
                     </Row>
                 </Container>
