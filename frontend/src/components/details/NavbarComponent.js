@@ -23,6 +23,7 @@ const NavbarComponent = (props) => {
                     </Link>
                 </div>
                 <div className='NavbarTitle'>
+                    {/* Depending on the scenario name, we display baseline or modified scenario in the navbar */}
                     <b>
                         {props.scenarioDisplayName.includes('baseline')
                             ? 'Baseline Scenario'
@@ -54,15 +55,13 @@ const NavbarComponent = (props) => {
         return (
             <div className='navbar'>
                 <div className='NavbarTitle'>
-                    <b>{props.scenarioName}</b>
+                    {/* Depending on the scenario name, we display baseline or modified scenario in the navbar */}
+                    <b>
+                        {props.scenarioDisplayName.includes('baseline')
+                            ? 'Baseline Scenario'
+                            : 'Modified Scenario'}
+                    </b>
                 </div>
-                {/* <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
-                    <div className='Pdfbtn'>
-                        <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>
-                        Export
-                    </div>
-                </Link> */}
-
                 <Link to={{ pathname: slugs.details }} onClick={props.onCloseClick}>
                     <div className='Closebtn '>
                         <i className='fa fa-times-circle-o' aria-hidden='true'></i>
@@ -79,6 +78,7 @@ NavbarComponent.propTypes = {
     onCompareClick: PropTypes.func,
     onExportClicked: PropTypes.bool.isRequired,
     scenarioName: PropTypes.string.isRequired,
+    scenarioDisplayName: PropTypes.string.isRequired,
     exportHandler: PropTypes.func.isRequired
 };
 

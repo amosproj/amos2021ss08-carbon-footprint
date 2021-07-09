@@ -23,7 +23,7 @@ class ScenarioComponent extends Component {
                         loadComparePage={this.props.loadComparePage}
                         onCompareClick={this.props.onCompareClick}
                         scenarioName={this.props.scenarioName}
-                        scenarioDisplayName={this.props.scenarioType}
+                        scenarioDisplayName={this.props.selectedScenarioType}
                         onExportClicked={this.props.onExportClicked}
                         exportHandler={this.props.exportHandler}
                         onCloseClick={this.props.onCloseClick}
