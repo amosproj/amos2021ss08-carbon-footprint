@@ -19,8 +19,8 @@ const ColumnChartComponent = () => {
     const options = {
         chart: {
             type: 'bar',
-            height: '400px',
-            width: '100%',
+            height: 'auto',
+
         },
 
         plotOptions: {
@@ -43,7 +43,7 @@ const ColumnChartComponent = () => {
             },
             offsetY: -20,
             style: {
-                fontSize: '10px',
+                fontSize: '14px',
                 colors: ['#21cc82']
             }
         },
@@ -56,15 +56,20 @@ const ColumnChartComponent = () => {
             labels: {
                 formatter: function (y) {
                     return y.toFixed(0) + '%';
+                },
+                style: {
+                    fontSize: 14,
+
                 }
+
             }
         },
         xaxis: {
             categories: getLifeCycleStages(),
             labels: {
-                rotate: -90,
+                rotate:-90,
                 style: {
-                    fontSize: 6.8,
+                    fontSize: 14,
                 }
             },
             responsive: [
@@ -73,7 +78,7 @@ const ColumnChartComponent = () => {
                     options: {
                         chart: {
                             height: '500px',
-                            width: '100%'
+
                         },
                         legend: {
                             position: 'bottom'
@@ -85,8 +90,8 @@ const ColumnChartComponent = () => {
     };
 
     return (
-        <div id='chart'>
-            <ReactApexChart options={options} series={series} type='bar' height={450} />
+        <div  id='chart'>
+            <ReactApexChart options={options} series={series} type='bar' height={350}  width={325}/>
         </div>
     );
 };

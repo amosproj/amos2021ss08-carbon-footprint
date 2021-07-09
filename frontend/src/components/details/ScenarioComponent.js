@@ -37,14 +37,14 @@ class ScenarioComponent extends Component {
                     />
                     <Container fluid>
                         <Row justify='center' align='center'>
-                            <Col className='BarChartContainer' style={{ margin: 'auto' }}  >
+                            <Col className='BarChartContainer'  >
                                 <Row justify='center' align='center' >
                                     <div className='CardTitle'>
                                         <span>Results of the impact assessment</span>
                                     </div>
                                 </Row>
                                 <Row justify='center' align='center'>
-                                    <div id='captureColumnDiagram'>
+                                    <div id='captureColumnDiagram' >
                                         <ColumnChartComponent />
                                     </div>
                                 </Row>
@@ -67,12 +67,12 @@ class ScenarioComponent extends Component {
                         <Col>
                             {/* dynamic display of product and model */}
                             <Row justify='center' align='center'>
-                                <h5 className='TableTitle'>
+                                <h5 className='CardTitle'>
                                     {this.props.selectedProduct.productName}
                                 </h5>
                             </Row>
                             <Row justify='center' align='center'>
-                                <h6 className='TableSubTitle'>
+                                <h6 className='CardTitle'>
                                     {this.props.selectedProduct.modelName ===
                                         this.props.selectedProduct.productName ||
                                     this.props.selectedProduct.modelName === undefined
