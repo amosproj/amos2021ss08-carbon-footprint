@@ -1,6 +1,6 @@
 import React from 'react';
 import { any, arrayOf, func, string } from 'prop-types';
-import { Column, Row } from 'simple-flexbox';
+import { Col, Row } from 'react-grid-system';
 import { createUseStyles, useTheme } from 'react-jss';
 import CollapsibleContent from 'components/collapsible/CollapsibleContent';
 import { useSidebar } from 'hooks/useSidebar';
@@ -62,8 +62,8 @@ function MenuItemComponent({ children, icon = '', id, items = [], level = 1, onC
     }
 
     return (
-        <Column key={id} className={classNameColumn}>
-            <Row vertical='center' onClick={onItemClicked} className={classNameContainer}>
+        <Col key={id} className={classNameColumn}>
+            <Row align='center' onClick={onItemClicked} className={classNameContainer}>
                 {/* Styling needs to be done in js here to determin isActive properly */}
                 <div className='SideBarIconStyle' style={{ color: iconColor }}>
                     <i className={icon} aria-hidden='true' />
@@ -77,7 +77,7 @@ function MenuItemComponent({ children, icon = '', id, items = [], level = 1, onC
                     {children.map((child) => child.type({ ...child.props }))}
                 </CollapsibleContent>
             )}
-        </Column>
+        </Col>
     );
 }
 
