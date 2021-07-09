@@ -40,8 +40,10 @@
     cursor: 'pointer';
     margin-top: 25px;
     margin-bottom: 50px;
-    max-width: 800px !important;
-    min-width: none !important;
+    max-width: 900px !important;
+    display: flex;
+    flex-direction: column;
+
 
 }
 
@@ -54,6 +56,8 @@
     justify-content: center;
     margin-top: 10px;
     max-width: 500px !important;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Table related styling */
@@ -108,6 +112,8 @@
     cursor: 'pointer';
     padding: 10px; /* To make it display the shadow properly */
     overflow: auto; /* To make it scrollable whenever it does not fit for some reason. */
+    display: flex;
+    flex-direction: column;
 }
 
 .TableHeader {

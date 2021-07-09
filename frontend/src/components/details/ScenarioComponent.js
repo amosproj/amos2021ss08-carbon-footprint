@@ -37,8 +37,8 @@ class ScenarioComponent extends Component {
                     />
                     <Container fluid>
                         <Row justify='center' align='center'>
-                            <Col className='BarChartContainer'>
-                                <Row justify='center' align='center'>
+                            <Col className='BarChartContainer' style={{ margin: 'auto' }}  >
+                                <Row justify='center' align='center' >
                                     <div className='CardTitle'>
                                         <span>Results of the impact assessment</span>
                                     </div>

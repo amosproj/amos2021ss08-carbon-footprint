@@ -19,13 +19,13 @@ const ColumnChartComponent = () => {
     const options = {
         chart: {
             type: 'bar',
-            height: '150px',
-
+            height: '400px',
+            width: '100%',
         },
 
         plotOptions: {
             bar: {
-                columnWidth: '75%',
+                columnWidth: '70%',
                 BorderRadius: 10,
                 dataLabels: {
                     position: 'top' // top, center, bottom
@@ -69,11 +69,11 @@ const ColumnChartComponent = () => {
             },
             responsive: [
                 {
-                    breakpoint: 300,
+                    breakpoint: 6400,
                     options: {
                         chart: {
-                            height: 360,
-                            width:200,
+                            height: '500px',
+                            width: '100%'
                         },
                         legend: {
                             position: 'bottom'
@@ -86,7 +86,7 @@ const ColumnChartComponent = () => {
 
     return (
         <div id='chart'>
-            <ReactApexChart options={options} series={series} type='bar' height={360}  width={350} />
+            <ReactApexChart options={options} series={series} type='bar' height={450} />
         </div>
     );
 };
