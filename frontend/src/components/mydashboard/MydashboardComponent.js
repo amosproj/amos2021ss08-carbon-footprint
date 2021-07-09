@@ -1,6 +1,6 @@
 import React from 'react';
 import MydashboardItemComponent from './MydashboardItemComponent';
-import { Col, Container, Row } from 'react-grid-system';
+import {  Container, Row } from 'react-grid-system';
 
 function DashboardComponent() {
     return (
