@@ -69,7 +69,7 @@ const ColumnChartComponent = () => {
             labels: {
                 rotate:-90,
                 style: {
-                    fontSize: 14,
+                    fontSize: 8.6,
                 }
             },
             responsive: [
@@ -91,7 +91,7 @@ const ColumnChartComponent = () => {
 
     return (
         <div  id='chart'>
-            <ReactApexChart options={options} series={series} type='bar' height={350}  width={325}/>
+            <ReactApexChart options={options} series={series} type='bar' height={400}  width={326}/>
         </div>
     );
 };
