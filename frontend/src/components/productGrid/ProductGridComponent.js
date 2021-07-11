@@ -27,6 +27,8 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
     let preProducts = useSelector((state) => state);
     let products;
 
+    let [filteredProducts, setFilteredProducts] = useState([]);
+
     switch (selectedCategory) {
         case categories.generation:
             switch (selectedType) {
@@ -78,6 +80,28 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
             break;
     }
 
+    // initializing the filtered products with the actual products
+    filteredProducts = [...products];
+
+    /**
+     * updating the filtered list
+     * and notigying react to render the list again
+     * and show the updated list
+     *
+     * @param e : the input of the search bar
+     */
+    let updateInput = async (e) => {
+        let allProducts = [...products];
+        const filtered = allProducts.filter((product) => {
+            return product.productName.toLowerCase().includes(e.target.value.toLowerCase());
+        });
+
+        //TODO: the functional state will not properly updated
+        // these following two lines should be corrected
+        filteredProducts = filtered;
+        setFilteredProducts({ ...filtered });
+    };
+
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
     const newSelectedProducts = [selectedProducts[0]];
 
@@ -94,13 +118,13 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
                 <input
                     type='text'
                     id='myInput'
-                    // onChange={updateInput}
+                    onChange={updateInput}
                     placeholder='Search for Products..'
                     title='Type in a name'
                 />
             </Row>
             <Row justify='start'>
-                {products?.map((product, index) => (
+                {filteredProducts?.map((product, index) => (
                     <Col className='ProductGridContainer' key={'Column' + index}>
                         <Row justify='center'>
                             <Link
