@@ -52,7 +52,7 @@ const ModelDropdownComponent = (props) => {
     }
 
     return (
-        <div className='w3-dropdown-hover '>
+        <div className='w3-dropdown-hover w3-white'>
             <button className='w3-button dropDown' title={selected}>
                 {selected.length > 25 ? selected.substring(0, 25 - 3) + '...' : selected}
             </button>

@@ -79,11 +79,11 @@ class SelectScenarioComponent extends Component {
                         <button className='w3-button dropDown'>
                             {this.props.selectedScenarioType}
                         </button>
-                        <div className='w3-dropdown-content w3-bar-block w3-border'>
+                        <div className='w3-dropdown-content w3-bar-block w3-border dropDown'>
                             {this.state.scenarios.map((item) => (
                                 <button
                                     onClick={() => this.onDropDownItemSelectedHandler(item)}
-                                    className='w3-bar-item w3-button'
+                                    className='w3-bar-item w3-button dropDown'
                                     key={item.id}
                                 >
                                     {item.name}
