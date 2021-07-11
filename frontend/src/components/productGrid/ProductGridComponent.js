@@ -90,6 +90,15 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
     // else:
     return (
         <Container fluid className='ProductGridTopContainer'>
+            <Row>
+                <input
+                    type='text'
+                    id='myInput'
+                    // onChange={updateInput}
+                    placeholder='Search for Products..'
+                    title='Type in a name'
+                />
+            </Row>
             <Row justify='start'>
                 {products?.map((product, index) => (
                     <Col className='ProductGridContainer' key={'Column' + index}>
