@@ -6,9 +6,10 @@ import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterfa
  * Column Chart
  * Recieves the data from projectInterface.js using "getColumnChartData()"
  * populates the data ito the column chart in Details Page.
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
-const ColumnChartComponent = () => {
-    const values = getColumnChartData();
+const ColumnChartComponent = (props) => {
+    const values = getColumnChartData(props.scenarioName);
     const series = [
         {
             name: 'Global warming in kg CO2 equivalents',
@@ -63,7 +64,7 @@ const ColumnChartComponent = () => {
             labels: {
                 rotate: -90,
                 style: {
-                    fontSize: 6.8,
+                    fontSize: 6.8
                 }
             },
             responsive: [

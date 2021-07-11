@@ -23,6 +23,7 @@ class ScenarioComponent extends Component {
                         loadComparePage={this.props.loadComparePage}
                         onCompareClick={this.props.onCompareClick}
                         scenarioName={this.props.scenarioName}
+                        scenarioDisplayName={this.props.selectedScenarioType}
                         onExportClicked={this.props.onExportClicked}
                         exportHandler={this.props.exportHandler}
                         onCloseClick={this.props.onCloseClick}
@@ -32,6 +33,7 @@ class ScenarioComponent extends Component {
                     <SelectScenarioComponent
                         selectedProduct={this.props.selectedProduct}
                         loadComparePage={this.props.loadComparePage}
+                        scenarioName={this.props.scenarioName}
                         selectedScenarioType={this.props.selectedScenarioType}
                         newScenarioHandler={this.props.newScenarioHandler}
                     />
@@ -45,7 +47,9 @@ class ScenarioComponent extends Component {
                                 </Row>
                                 <Row justify='center' align='center'>
                                     <div id='captureColumnDiagram'>
-                                        <ColumnChartComponent />
+                                        <ColumnChartComponent
+                                            scenarioName={this.props.scenarioName}
+                                        />
                                     </div>
                                 </Row>
                             </Col>
@@ -57,7 +61,7 @@ class ScenarioComponent extends Component {
                                 </Row>
                                 <Row justify='center' align='center'>
                                     <div id='capturePieChart'>
-                                        <PieChartComponent />
+                                        <PieChartComponent scenarioName={this.props.scenarioName} />
                                     </div>
                                 </Row>
                             </Col>
@@ -92,6 +96,7 @@ class ScenarioComponent extends Component {
                                             productName={this.props.selectedProduct.productName}
                                             modelID={this.props.selectedProduct.modelID}
                                             modelName={this.props.selectedProduct.modelName}
+                                            scenarioName={this.props.scenarioName}
                                             tableKey={this.props.scenarioName}
                                         />
                                     </Hidden>
@@ -103,6 +108,7 @@ class ScenarioComponent extends Component {
                                             productName={this.props.selectedProduct.productName}
                                             modelName={this.props.selectedProduct.modelName}
                                             modelID={this.props.selectedProduct.modelID}
+                                            scenarioName={this.props.scenarioName}
                                             tableKey={this.props.scenarioName}
                                         />
                                     </Hidden>
@@ -122,7 +128,8 @@ ScenarioComponent.propTypes = {
     newScenarioHandler: PropTypes.func.isRequired,
     onCompareClick: PropTypes.func.isRequired,
     onExportClicked: PropTypes.bool,
-    scenarioName: PropTypes.string,
+    scenarioName: PropTypes.string, // Baseline or Modified (Where modified basically means second page)
+    scenarioDisplayName: PropTypes.string.isRequired, //scenario_baseline; scenario_copper
     selectedProduct: PropTypes.shape({
         modelID: PropTypes.string,
         modelName: PropTypes.string,

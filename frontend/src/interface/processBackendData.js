@@ -17,11 +17,12 @@ import { simaProCategories } from 'resources/globalConstants/SimaProProductCateg
  * Calculate the impact assesment in percent for the column charts
  *
  * @param data:     data recieved from PostCalculationRequest
+ * @param scenarioName: used to identifiy if the request is from Modified scenario/Baseline scenario
  * @param callback: the handleFinishedDataRequest function from the DetailsComponent.js, this function is called at the end of the data process
  * the function changes the state of the DetailsComponent thus triggering a rerender and causing the DetailsComponent to display the charts
  * instead of the loading circle
  */
-export function processBackendData(data, callback) {
+export function processBackendData(data, scenarioName, callback) {
     const items = data;
     /*
      * Filter out the "correct" materials
@@ -67,10 +68,10 @@ export function processBackendData(data, callback) {
         }
     }
 
-    setMaterialCompositionLabels(materialMap.keys());
-    setMaterialCompositionData(materialMap.values());
-    setImpactAssessmentData(impactMap);
-    setColumnChartData(assessmentDataInPercent);
+    setMaterialCompositionLabels(scenarioName, materialMap.keys());
+    setMaterialCompositionData(scenarioName, materialMap.values());
+    setImpactAssessmentData(scenarioName, impactMap);
+    setColumnChartData(scenarioName, assessmentDataInPercent);
 
     callback();
 }
@@ -81,7 +82,7 @@ export function processBackendData(data, callback) {
  * @param {String} projectId - id of the project that we want to schedule the calculation for
  * @param {Function} callback - tell papa when your done.
  */
-export function dummyProcessBackendData(projectId, callback) {
+export function dummyProcessBackendData(projectId, scenarioName, callback) {
     let materialMap = {
         keys: [],
         values: []
@@ -145,10 +146,10 @@ export function dummyProcessBackendData(projectId, callback) {
             break;
     }
 
-    setMaterialCompositionLabels(materialMap.keys);
-    setMaterialCompositionData(materialMap.values);
-    setImpactAssessmentData(impactMap);
-    setColumnChartData(assessmentDataInPercent);
+    setMaterialCompositionLabels(scenarioName, materialMap.keys);
+    setMaterialCompositionData(scenarioName, materialMap.values);
+    setImpactAssessmentData(scenarioName, impactMap);
+    setColumnChartData(scenarioName, assessmentDataInPercent);
 
     callback();
 }

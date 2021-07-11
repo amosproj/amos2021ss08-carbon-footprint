@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from 'simple-flexbox';
+import { Row } from 'react-grid-system';
 import { createUseStyles, useTheme } from 'react-jss';
 import { IconLogo } from 'assets/icons';
 
@@ -20,7 +20,7 @@ function LogoComponent() {
     const theme = useTheme();
     const classes = useStyles({ theme });
     return (
-        <Row className={classes.container} horizontal='center' vertical='center'>
+        <Row className={classes.container} justify='center' align='center'>
             <IconLogo />
             <span className={classes.title}>Dashboard Kit</span>
         </Row>

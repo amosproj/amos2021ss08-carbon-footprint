@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { scenarioNames } from './DetailsComponent';
 
 /**
  * a drop down component for selecting a scenario
  */
 class SelectScenarioComponent extends Component {
     state = {
-        secondScenario: '', // TODO: for comparing scenarios this should be removed and use props from detail component
         scenarios: [{ id: '', name: '' }]
     };
 
@@ -17,14 +17,12 @@ class SelectScenarioComponent extends Component {
      * based on new selected scenario
      *
      * @param item: selected scenario
+     * This will update the data based on where the selection is modified i.e in Baseline scenario/Modified Scenario
      */
     onDropDownItemSelectedHandler = (item) => {
-        this.props.newScenarioHandler(item);
-    };
-
-    onSecondDropDownSelectedHandler = (name) => {
-        const secondScenario = name;
-        this.setState({ secondScenario: secondScenario });
+        if (this.props.scenarioName === scenarioNames.modified)
+            this.props.newScenarioHandler(item, scenarioNames.modified);
+        else this.props.newScenarioHandler(item, scenarioNames.baseline);
     };
 
     /**
@@ -59,7 +57,6 @@ class SelectScenarioComponent extends Component {
 
         // Set State to the calculated List
         let newState = {
-            selectedSecondScenario: '',
             scenarios: scenarioList
         };
         return newState;
@@ -100,6 +97,7 @@ class SelectScenarioComponent extends Component {
 SelectScenarioComponent.propTypes = {
     newScenarioHandler: PropTypes.func,
     selectedScenarioType: PropTypes.string,
+    scenarioName: PropTypes.string,
     selectedProduct: PropTypes.shape({
         categories: PropTypes.array, // [(categories.generation, categories.transmission)],
         modelID: PropTypes.string, // 'none',

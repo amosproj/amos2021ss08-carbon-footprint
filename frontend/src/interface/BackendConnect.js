@@ -30,13 +30,14 @@ export async function getSimaProProjects() {
  *   This request is caught by the backend.
  *   Which then checks if the calculation is stored based on the calculationId generated.
  *   If the calculation is stored returns the results of calculation here.
+ * @param scenarioName: used to identifiy if the request is from Modified scenario/Baseline scenario
  */
-export async function postCalculationRequest(projectId, callback) {
+export async function postCalculationRequest(projectId, scenarioName, callback) {
     // Bypass using the SimaPro Data
-    const useDummyData = false;
+    const useDummyData = true;
 
     if (useDummyData) {
-        return dummyPostCalculationRequest(projectId, callback);
+        return dummyPostCalculationRequest(projectId, scenarioName, callback);
     }
 
     // POST request using axios with set headers
@@ -51,12 +52,12 @@ export async function postCalculationRequest(projectId, callback) {
         })
 
         .then(function (data) {
-            processBackendData(data, callback);
+            processBackendData(data, scenarioName, callback);
         });
 }
 
-function dummyPostCalculationRequest(projectId, callback) {
-    dummyProcessBackendData(projectId, callback);
+function dummyPostCalculationRequest(projectId, scenarioName, callback) {
+    dummyProcessBackendData(projectId, scenarioName, callback);
 }
 
 /**

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Column, Row } from 'simple-flexbox';
+import { Col, Row } from 'react-grid-system';
 import { createUseStyles, useTheme } from 'react-jss';
 
 const useStyles = createUseStyles((theme) => ({
@@ -54,24 +54,24 @@ function CardComponent(props) {
     const { title, link, subtitle, subtitleTwo, items, containerStyles } = props;
     function renderItem(item, index) {
         return (
-            <Column
+            <Col
                 className={classes.itemContainer}
                 key={`item-${index}`}
                 breakpoints={{ 426: classes.itemContainerMobile }}
             >
                 {item}
-            </Column>
+            </Col>
         );
     }
 
     return (
-        <Column
+        <Col
             flexGrow={1}
             className={[classes.container, containerStyles].join(' ')}
             breakpoints={{ 426: classes.containerMobile }}
         >
-            <Row horizontal='space-between'>
-                <Column>
+            <Row justify='space-between'>
+                <Col>
                     <span className={classes.title}>{title}</span>
                     <Row style={{ marginTop: 8, marginBottom: 16 }}>
                         <span className={classes.subtitle}>{subtitle}</span>
@@ -81,11 +81,11 @@ function CardComponent(props) {
                             </span>
                         )}
                     </Row>
-                </Column>
+                </Col>
                 <span className={classes.link}>{link}</span>
             </Row>
             {items.map(renderItem)}
-        </Column>
+        </Col>
     );
 }
 
