@@ -1,7 +1,11 @@
 import React from 'react';
 import MydashboardItemComponent from './MydashboardItemComponent';
 import {  Container, Row } from 'react-grid-system';
-
+/**
+ *  
+ * @returns  the mydashboard component. 
+ * @author  Martin Wagner, Irem Toroslu, Mani Anand
+ */
 function DashboardComponent() {
     return (
         <Container fluid={true}>
