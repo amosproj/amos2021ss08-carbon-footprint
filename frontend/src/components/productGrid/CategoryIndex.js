@@ -18,22 +18,26 @@ function CategoryIndex() {
                     decarbonization of global energy systems.
                 </p>
             </div>
-            <div className='w3-row m6 32 w3-padding-small'>
-                <div className='w3-third imageTitle w3-animate-zoom'>
+            <div className='w3-third'>
+                <div className='imageTitle w3-animate-zoom'>
                     <img src={GenerationImage} alt='Generation' />
-                    <div className='w3-container w3-center'>
+                    <div className='w3-center'>
                         <p>Generation</p>
                     </div>
                 </div>
-                <div className='w3-third imageTitle w3-animate-zoom'>
-                    <img src={IndustrialImage}  alt='Industry' />
-                    <div className='w3-container w3-center'>
+            </div>
+            <div className='w3-third'>
+                <div className='imageTitle w3-animate-zoom'>
+                    <img src={IndustrialImage} alt='Industry' />
+                    <div className='w3-center'>
                         <p>Industrial Application</p>
                     </div>
                 </div>
-                <div className='w3-third imageTitle w3-animate-zoom'>
+            </div>
+            <div className='w3-third'>
+                <div className='imageTitle w3-animate-zoom'>
                     <img src={TransmissionImage} alt='Transmission' />
-                    <div className='w3-container w3-center'>
+                    <div className='w3-center'>
                         <p>Transmission</p>
                     </div>
                 </div>
