@@ -22,9 +22,7 @@ const NavbarComponent = (props) => {
                         <i className='fa fa-chevron-left' aria-hidden='true' />
                     </Link>
                 </div>
-                <div className='NavbarTitle'>
-                    <b>{props.scenarioName}</b>
-                </div>
+                <div className='NavbarTitle'>{props.scenarioName}</div>
                 <Link
                     style={props.onExportClicked ? { pointerEvents: 'none' } : null}
                     to={{ pathname: slugs.details }}
@@ -49,9 +47,7 @@ const NavbarComponent = (props) => {
     } else {
         return (
             <div className='navbar'>
-                <div className='NavbarTitle'>
-                    <b>{props.scenarioName}</b>
-                </div>
+                <div className='NavbarTitle'>{props.scenarioName}</div>
                 {/* <Link to={{ pathname: slugs.details }} onClick={props.onExportClick}>
                     <div className='Pdfbtn'>
                         <i className='fa fa-file-pdf-o ' aria-hidden='true'></i>

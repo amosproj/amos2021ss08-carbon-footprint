@@ -1,7 +1,7 @@
 /* Style the navigation menu */
 .navbar {
     width: 100%;
-    height: auto;
+    height: fit-content;
     color: #1b1534;
     padding: 0px;
     background-color: var(--global--background--color) !important;
@@ -81,7 +81,6 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 8px;
-
 }
 
 .Pdfbtn {
@@ -99,7 +98,6 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 8px;
-
 }
 
 .Closebtn {
@@ -121,10 +119,8 @@
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
-}
-
-.navbar b {
     background-color: var(--global--background--color);
     text-decoration: none;
+    font-weight: bold;
     font-size: 22px;
 }
