@@ -85,7 +85,12 @@ export function getMaterialCompositionLabels() {
  * @param modelID id of the model, which we want to get the Data
  */
 export function getLifeCycleStages(modelID) {
-    return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
+    return [
+        'Materials',
+        ['Manufacturing', 'and Transport'],
+        ['Operation 30a', '(75% load)'],
+        'End of Life'
+    ];
 }
 
 /**
