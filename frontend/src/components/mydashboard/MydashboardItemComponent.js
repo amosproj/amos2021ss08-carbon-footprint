@@ -2,20 +2,14 @@ import React from 'react';
 import { Col, Container, Row, Visible } from 'react-grid-system';
 import Collapsible from 'react-collapsible';
 import SlideshowComponent from './SlideshowComponent';
+
 /**
- * This component creates the first page after logged in 
+ * This component creates the first page after logged in
  *
- * It involves the necessary information regarding the web site. 
+ * It involves the necessary information regarding the web site.
  *
- * @returns the required components for the mydashboard page. 
- * @author  Martin Wagner, Irem Toroslu, Mani Anand
+ * @returns the required components for the mydashboard page.
  */
-// const data = [];
-
-// for (let x = 1; x <= 24; x++) {
-//     data.push({ x: x, y: Math.floor(Math.random() * 100) });
-// }
-
 function MydashboardItemComponent() {
     function renderMiniCards(title, value) {
         return (
