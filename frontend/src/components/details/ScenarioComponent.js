@@ -91,13 +91,15 @@ class ScenarioComponent extends Component {
                                 </h5>
                             </Row>
                             <Row justify='center' align='center'>
-                                <h6 className='CardTitle'>
-                                    {this.props.selectedProduct.modelName ===
-                                        this.props.selectedProduct.productName ||
-                                    this.props.selectedProduct.modelName === undefined
-                                        ? ''
-                                        : this.props.selectedProduct.modelName}
-                                </h6>
+                                {this.props.selectedProduct.modelName ===
+                                    this.props.selectedProduct.productName ||
+                                this.props.selectedProduct.modelName === undefined ? (
+                                    <div />
+                                ) : (
+                                    <h6 className='CardTitle'>
+                                        this.props.selectedProduct.modelName}
+                                    </h6>
+                                )}
                             </Row>
                             <Row justify='center' align='center' style={{ margin: 0 }}>
                                 <div id='captureTable' className='TableContainer'>
