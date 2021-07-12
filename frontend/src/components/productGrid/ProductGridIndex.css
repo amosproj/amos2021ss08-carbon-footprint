@@ -1,5 +1,4 @@
-
-@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+@import '//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css';
 .App {
     font-family: sans-serif;
     text-align: center;
@@ -33,24 +32,8 @@
     margin: 10px;
 }
 
-.mainLoginInput::-webkit-input-placeholder { 
-    font-family: FontAwesome;
-    font-weight: normal;
-    overflow: visible;
-    vertical-align: left;
-    display: inline-block !important;
-    padding-left: 0px;
-    padding-right:5px;
-    font-style: normal;
-    font-size: var(--global--text--FontSize);
-    padding-top: 2px;
-    color: #ae56ff ;
-    margin-right:5px;
-    }
-
-
 #myInput {
-    /* background-image: url('/css/searchicon.png'); */
+    font-family: FontAwesome;
     background-position: 10px 12px;
     background-repeat: no-repeat;
     width: 100%;

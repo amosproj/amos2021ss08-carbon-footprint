@@ -111,11 +111,10 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
         <Container fluid className='ProductGridTopContainer'>
             <Row>
                 <input
-                    className='mainLoginInput'
                     type='text'
                     id='myInput'
                     onChange={updateInput}
-                    placeholder='&#61442;Search for a product!'
+                    placeholder='&#61442;  Search for a product..'
                     title='Type in a name'
                 />
             </Row>
