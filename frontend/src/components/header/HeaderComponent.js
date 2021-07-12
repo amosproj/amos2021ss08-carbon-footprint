@@ -6,7 +6,6 @@ import SLUGS from 'resources/slugs';
 import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import slugs from 'resources/slugs';
 import { Link } from 'react-router-dom';
-import { createUseStyles, useTheme } from 'react-jss';
 
 /**
  * The Header Component is a shared component between all pages. It displays
@@ -16,20 +15,9 @@ import { createUseStyles, useTheme } from 'react-jss';
  * @returns the header title, subtitles related to the selected section in the SidebarComponent. It also displays the user name in the header bar as well.
  */
 
-const useStyles = createUseStyles({
-    separator: {
-        borderTop: ({ theme }) => `2px solid ${theme.color.lightGrayishBlue}`,
-        marginTop: 10,
-        marginBottom: 10,
-        opacity: 0.06
-    }
-});
 function HeaderComponent() {
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
     const [selectedProducts] = useContext(PrivateSectionContext);
-    const theme = useTheme();
-    //eslint-disable-next-line
-    const classes = useStyles({ theme });
 
     let title;
     let subtitle;
