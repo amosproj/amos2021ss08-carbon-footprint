@@ -44,6 +44,12 @@ class SelectScenarioComponent extends Component {
      */
     updateStateScenario = () => {
         let scenarioList = [];
+
+        // Handle no scenario selected
+        if (this.props.selectedProduct === undefined) {
+            return;
+        }
+
         // Handle the first element (baseline)
         scenarioList.push({
             id: this.props.selectedProduct.productID,
