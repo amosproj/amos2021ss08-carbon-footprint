@@ -40,8 +40,8 @@ const ColumnChartComponent = () => {
 
         dataLabels: {
             enabled: true,
-            formatter: function (val) {
-                return val + '%';
+            formatter: function (value) {
+                return value + '%';
             },
             offsetY: -20,
             style: {
@@ -67,7 +67,6 @@ const ColumnChartComponent = () => {
         xaxis: {
             categories: getLifeCycleStages(),
             labels: {
-                rotate: -90,
                 style: {
                     fontSize: 14
                 }
@@ -84,7 +83,13 @@ const ColumnChartComponent = () => {
 
     return (
         <div id='chart'>
-            <ReactApexChart options={options} series={series} type='bar' height={300} width={550} />
+            <ReactApexChart
+                options={options}
+                series={series}
+                type='bar'
+                height={350}
+                width={'100%'}
+            />
         </div>
     );
 };
