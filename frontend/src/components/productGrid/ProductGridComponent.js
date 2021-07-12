@@ -94,10 +94,7 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
             return product.productName.toLowerCase().includes(e.target.value.toLowerCase());
         });
 
-        //TODO: the functional state will not properly updated
-        // these following two lines should be corrected
         setFilteredProducts([...filtered]);
-        console.log(filteredProducts);
     };
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
