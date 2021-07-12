@@ -42,8 +42,10 @@
     /* border:0.5px solid #00b300; */
     cursor: 'pointer';
     max-width: 600px !important;
-    min-width: 350px !important;
+    min-width: 300px !important;
     max-height: 600px !important;
+    display: flex;
+    flex-direction: column;
 }
 
 .PieChartCardsContainer {
@@ -51,11 +53,9 @@
     /* border:0.5px solid #00b300; */
     border-radius: 4px;
     cursor: 'pointer';
-    padding: auto;
-    justify-content: center;
     margin-top: 10px;
     max-width: 800px !important;
-    min-width: 300px !important;
+    min-width: 100px !important;
     max-height: 600px !important;
     display: flex;
     flex-direction: column;
