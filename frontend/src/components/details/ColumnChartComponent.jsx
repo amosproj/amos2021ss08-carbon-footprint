@@ -69,21 +69,10 @@ const ColumnChartComponent = () => {
             labels: {
                 rotate: -90,
                 style: {
-                    fontSize: 8.6
+                    fontSize: 14
                 }
-            },
-            responsive: [
-                {
-                    breakpoint: 6400,
-                    options: {
-                        chart: {
-                            height: '500px'
-                        },
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }
+            }
+        }
             ]
         }
     };
