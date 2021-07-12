@@ -80,9 +80,6 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
             break;
     }
 
-    // initializing the filtered products with the actual products
-    filteredProducts = [...products];
-
     /**
      * updating the filtered list
      * and notigying react to render the list again
@@ -91,6 +88,7 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
      * @param e : the input of the search bar
      */
     let updateInput = async (e) => {
+        // initializing the filtered products with the actual products
         let allProducts = [...products];
         const filtered = allProducts.filter((product) => {
             return product.productName.toLowerCase().includes(e.target.value.toLowerCase());
@@ -98,8 +96,8 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
 
         //TODO: the functional state will not properly updated
         // these following two lines should be corrected
-        filteredProducts = filtered;
-        setFilteredProducts({ ...filtered });
+        setFilteredProducts([...filtered]);
+        console.log(filteredProducts);
     };
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
