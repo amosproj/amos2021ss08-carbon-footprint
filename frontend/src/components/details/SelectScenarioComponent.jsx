@@ -46,7 +46,10 @@ class SelectScenarioComponent extends Component {
         let scenarioList = [];
 
         // Handle no scenario selected
-        if (this.props.selectedProduct === undefined) {
+        if (
+            this.props.selectedProduct.productID === '' ||
+            this.props.selectedProduct === undefined
+        ) {
             return;
         }
 

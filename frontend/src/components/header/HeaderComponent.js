@@ -11,13 +11,11 @@ import { Link } from 'react-router-dom';
  * The Header Component is a shared component between all pages. It displays
  * the related header title of the selected section in the SidebarComponent changes.
  *
- * @author Irem Toroslu
  * @returns the header title, subtitles related to the selected section in the SidebarComponent. It also displays the user name in the header bar as well.
  */
-
 function HeaderComponent() {
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
-    const [selectedProducts] = useContext(PrivateSectionContext);
+    const [selectedProduct] = useContext(PrivateSectionContext);
 
     let title;
     let subtitle;
@@ -40,20 +38,25 @@ function HeaderComponent() {
             title = 'Industrial Applications';
             break;
         case currentItem === SLUGS.details:
-            title = 'Details ';
-            subtitle = ' Selected product   ';
-            subsubtitle =
-                selectedProducts[0].productName === undefined
-                    ? ' Please select a model first'
-                    : ' ' + selectedProducts[0].productName;
+            if (
+                selectedProduct[0].productName === undefined ||
+                selectedProduct[0].productName === ''
+            ) {
+                title = ' Please select a product';
+            } else {
+                title = 'Details ';
+                subtitle = ' Selected product   ';
+                subsubtitle = ' ' + selectedProduct[0].productName;
+            }
+
             break;
-        case currentItem === SLUGS.generation + '/products':
+        case currentItem === SLUGS.generation + SLUGS.products:
             title = 'Product Catagory';
             break;
-        case currentItem === SLUGS.generation + '/solutions':
+        case currentItem === SLUGS.generation + SLUGS.solutions:
             title = 'Solutions';
             break;
-        case currentItem === SLUGS.generation + '/services':
+        case currentItem === SLUGS.generation + SLUGS.services:
             title = 'Services';
             break;
         case currentItem === SLUGS.settings:

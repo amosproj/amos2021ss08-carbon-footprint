@@ -127,6 +127,21 @@ class DetailsComponent extends Component {
             return <LoadingComponent loading />;
         }
 
+        if (
+            this.props.selectedProduct.productID === undefined ||
+            this.props.selectedProduct.productID === ''
+        ) {
+            return (
+                <Container className='ScenarioContainer' id='capture' fluid>
+                    <LoadingComponent
+                        loading
+                        text={'Please go to Categories and select something :)'}
+                    />
+                    ;
+                </Container>
+            );
+        }
+
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
             console.log(selectedProduct);
