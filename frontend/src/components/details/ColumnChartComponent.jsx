@@ -19,8 +19,7 @@ const ColumnChartComponent = () => {
     const options = {
         chart: {
             type: 'bar',
-            height: 'auto',
-
+            height: 'auto'
         },
 
         plotOptions: {
@@ -58,18 +57,16 @@ const ColumnChartComponent = () => {
                     return y.toFixed(0) + '%';
                 },
                 style: {
-                    fontSize: 14,
-
+                    fontSize: 14
                 }
-
             }
         },
         xaxis: {
             categories: getLifeCycleStages(),
             labels: {
-                rotate:-90,
+                rotate: -90,
                 style: {
-                    fontSize: 8.6,
+                    fontSize: 8.6
                 }
             },
             responsive: [
@@ -77,8 +74,7 @@ const ColumnChartComponent = () => {
                     breakpoint: 6400,
                     options: {
                         chart: {
-                            height: '500px',
-
+                            height: '500px'
                         },
                         legend: {
                             position: 'bottom'
@@ -90,8 +86,8 @@ const ColumnChartComponent = () => {
     };
 
     return (
-        <div  id='chart'>
-            <ReactApexChart options={options} series={series} type='bar' height={400}  width={326}/>
+        <div id='chart'>
+            <ReactApexChart options={options} series={series} type='bar' height={300} width={550} />
         </div>
     );
 };

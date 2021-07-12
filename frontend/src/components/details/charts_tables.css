@@ -8,7 +8,7 @@
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
     color: #1b1534;
-    margin-top:15px;
+    margin-top: 15px;
 }
 
 /* Reconfiguration of the title style on Column chart  */
@@ -57,7 +57,7 @@
     padding: auto;
     justify-content: center;
     margin-top: 10px;
-    max-width: 500px !important;
+    max-width: 800px !important;
     max-height: 600px !important;
     display: flex;
     flex-direction: column;
@@ -73,8 +73,7 @@
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
     color: #1b1534;
-    margin-top:30px;
-
+    margin-top: 30px;
 }
 /* Reconfiguration of the title style on cards  */
 .CardTitle {
@@ -86,7 +85,7 @@
     padding-left: 17px;
     color: #1b1534;
     padding-bottom: 15px;
-    margin-top:15px;
+    margin-top: 15px;
 }
 
 /* Reconfiguration of the subtitle style on table  */
@@ -99,7 +98,6 @@
     color: #1b1534;
 }
 
-
 /* Reconfiguration of the text style on table  */
 .TableItems {
     font-family: inherit;
@@ -111,9 +109,8 @@
     margin-top: 5px;
     margin-bottom: 10px;
 }
-.tableCorner{
+.tableCorner {
     border-radius: 8px;
-
 }
 
 .TableContainer {
