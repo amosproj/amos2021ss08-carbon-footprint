@@ -13,11 +13,12 @@ import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
  */
 function HeaderComponent() {
     const { currentItem } = useContext(SidebarContext); // get the current Path selected in the Sidebar
-    const [selectedProduct] = useContext(PrivateSectionContext);
+    const [selectedProducts] = useContext(PrivateSectionContext);
 
     let title;
     let subtitle;
     let subsubtitle;
+    let selectedProduct = selectedProducts[0];
 
     switch (true) {
         case currentItem === SLUGS.dashboard:
@@ -36,26 +37,66 @@ function HeaderComponent() {
             title = 'Industrial Applications';
             break;
         case currentItem === SLUGS.details:
-            if (
-                selectedProduct[0].productName === undefined ||
-                selectedProduct[0].productName === ''
-            ) {
+            if (selectedProduct.productName === undefined || selectedProduct.productName === '') {
                 title = ' Please select a product';
             } else {
-                title = 'Details ';
-                subtitle = ' Selected product   ';
-                subsubtitle = ' ' + selectedProduct[0].productName;
+                return (
+                    <div className='HeaderContainer'>
+                        <Container fluid>
+                            <Row align='center' justify='between'>
+                                <Col>
+                                    <div className='HeaderTitle'>
+                                        <div className=' w3-padding-8 w3-margin-left'>
+                                            {selectedProduct.categories +
+                                                ' - ' +
+                                                capitalize(selectedProduct.type) +
+                                                ' - ' +
+                                                selectedProduct.productName}
+                                        </div>
+                                    </div>
+                                </Col>
+                                <Col xs='content'>
+                                    <Row align='center' justify='end' style={{ marginRight: 20 }}>
+                                        <div className='HeaderIconSyle'>
+                                            <i className='fa fa-user-circle-o' color='white' />
+                                        </div>
+
+                                        <div className='HeaderUserName'> Gorgeous User</div>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </div>
+                );
             }
 
             break;
         case currentItem === SLUGS.generation + SLUGS.products:
-            title = 'Product Catagory';
+            title = 'Generation Products ';
             break;
         case currentItem === SLUGS.generation + SLUGS.solutions:
-            title = 'Solutions';
+            title = 'Generation Solutions';
             break;
         case currentItem === SLUGS.generation + SLUGS.services:
-            title = 'Services';
+            title = 'Generation Services';
+            break;
+        case currentItem === SLUGS.transmission + SLUGS.products:
+            title = 'Transmission Products ';
+            break;
+        case currentItem === SLUGS.transmission + SLUGS.solutions:
+            title = 'Transmission Solutions';
+            break;
+        case currentItem === SLUGS.transmission + SLUGS.services:
+            title = 'Transmission Services';
+            break;
+        case currentItem === SLUGS.industrialApplications + SLUGS.products:
+            title = 'Industrial Applications - Products ';
+            break;
+        case currentItem === SLUGS.industrialApplications + SLUGS.solutions:
+            title = 'Industrial Applications - Solutions';
+            break;
+        case currentItem === SLUGS.industrialApplications + SLUGS.services:
+            title = 'Industrial Applications - Services';
             break;
         case currentItem === SLUGS.settings:
             title = 'Settings';
@@ -74,16 +115,16 @@ function HeaderComponent() {
     return (
         <div className='HeaderContainer'>
             <Container fluid>
-                <Row align='center' justify='between'>
+                <Row align='center' justify='center'>
                     <Col>
                         <div className='HeaderTitle'>
-                            <span className=' w3-padding-16 w3-margin-left'>
+                            <div className=' w3-padding-8 w3-margin-left'>
                                 {title}
                                 <UseArrow />
                                 {subtitle}
                                 <UseArrow />
                                 {subsubtitle}
-                            </span>
+                            </div>
                         </div>
                     </Col>
                     <Col>
@@ -100,6 +141,11 @@ function HeaderComponent() {
         </div>
     );
 }
+
+const capitalize = (s) => {
+    if (typeof s !== 'string') return '';
+    return s.charAt(0).toUpperCase() + s.slice(1);
+};
 
 HeaderComponent.propTypes = {
     title: string
