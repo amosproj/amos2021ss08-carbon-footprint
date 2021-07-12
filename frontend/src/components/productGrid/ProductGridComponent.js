@@ -101,7 +101,7 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
         filteredProducts = filtered;
         setFilteredProducts({ ...filtered });
     };
-
+    
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
     const newSelectedProducts = [selectedProducts[0]];
 
@@ -116,10 +116,11 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
         <Container fluid className='ProductGridTopContainer'>
             <Row>
                 <input
+                    class="mainLoginInput"
                     type='text'
                     id='myInput'
                     onChange={updateInput}
-                    placeholder='Search for Products..'
+                    placeholder="&#61442;Search for a product!"
                     title='Type in a name'
                 />
             </Row>
