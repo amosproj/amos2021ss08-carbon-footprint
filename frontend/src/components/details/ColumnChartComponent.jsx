@@ -19,7 +19,10 @@ const ColumnChartComponent = () => {
     const options = {
         chart: {
             type: 'bar',
-            height: 'auto'
+            height: 'auto',
+            toolbar: {
+                show: false
+            }
         },
 
         plotOptions: {
