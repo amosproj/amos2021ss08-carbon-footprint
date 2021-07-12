@@ -72,8 +72,13 @@ const ColumnChartComponent = () => {
                     fontSize: 14
                 }
             }
-        }
-            ]
+        },
+        dropShadow: {
+            enabled: true,
+            top: 0,
+            left: 0,
+            blur: 3,
+            opacity: 0.5
         }
     };
 
