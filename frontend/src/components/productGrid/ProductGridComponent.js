@@ -27,8 +27,6 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
     let preProducts = useSelector((state) => state);
     let products;
 
-    let [filteredProducts, setFilteredProducts] = useState([]);
-
     switch (selectedCategory) {
         case categories.generation:
             switch (selectedType) {
@@ -79,6 +77,8 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
             products = [];
             break;
     }
+
+    const [filteredProducts, setFilteredProducts] = useState([...products]);
 
     /**
      * updating the filtered list
