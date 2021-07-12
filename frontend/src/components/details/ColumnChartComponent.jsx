@@ -25,7 +25,7 @@ const ColumnChartComponent = () => {
         plotOptions: {
             bar: {
                 columnWidth: '70%',
-                BorderRadius: 10,
+                borderRadius: 5,
                 dataLabels: {
                     position: 'top' // top, center, bottom
                 }
