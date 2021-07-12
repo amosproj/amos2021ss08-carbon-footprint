@@ -86,7 +86,7 @@ class ScenarioComponent extends Component {
                         <Col>
                             {/* dynamic display of product and model */}
                             <Row justify='center' align='center'>
-                                <h5 className='CardTitle'>
+                                <h5 className='TableTitle'>
                                     {this.props.selectedProduct.productName}
                                 </h5>
                             </Row>
@@ -96,7 +96,7 @@ class ScenarioComponent extends Component {
                                 this.props.selectedProduct.modelName === undefined ? (
                                     <div />
                                 ) : (
-                                    <h6 className='CardTitle'>
+                                    <h6 className='TableTitle'>
                                         {this.props.selectedProduct.modelName}
                                     </h6>
                                 )}
