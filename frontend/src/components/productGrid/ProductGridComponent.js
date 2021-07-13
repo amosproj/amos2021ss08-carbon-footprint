@@ -82,7 +82,7 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
     useEffect(() => {
         setFilteredProducts([...products]);
         document.getElementById('myInput').value = '';
-    }, [selectedType]);
+    }, [selectedType, products]);
 
     /**
      * updating the filtered list
