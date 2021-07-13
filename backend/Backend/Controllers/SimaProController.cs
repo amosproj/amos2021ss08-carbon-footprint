@@ -16,7 +16,8 @@ namespace Backend.Controllers
     [ApiController]
     public class SimaProController : ControllerBase
     {
-        //Use the SimaPro client that has been registered at startup.
+        //Use the SimaPro c
+        //lient that has been registered at startup.
         //using the login from the SimaProLoginDelegatingHandler in Starup.cs
         private HttpProxyOptions httpProxyOptions = HttpProxyOptionsBuilder.Instance
             .WithHttpClientName("SimaProClient")

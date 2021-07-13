@@ -38,11 +38,6 @@ export function handleAddingSecondScenario() {
     modifiedChartDataInPercent = chartDataInPercent;
 }
 
-export function handOverBackendData(data) {
-    console.log('data');
-    console.log(data);
-}
-
 /**
  * should get all the Products from the backend (soon) //TODO: declare and write.
  * @returns
@@ -72,23 +67,17 @@ export function getModels() {
  */
 export function setMaterialCompositionData(scenarioName, compositionData) {
     if (scenarioName === scenarioNames.baseline) {
-        console.log('compositionData');
         materialDataInPercent = [];
         materialCompositionData = Array.from(compositionData);
-        console.log(materialCompositionData);
         for (let i = 0; i < materialCompositionData.length; i++) {
             materialDataInPercent[i] = Number(materialCompositionData[i]);
         }
-        console.log(materialDataInPercent);
     } else if (scenarioName === scenarioNames.modified) {
-        console.log('compositionData');
         modifiedMaterialDataInPercent = [];
         modifiedMaterialCompositionData = Array.from(compositionData);
-        console.log(modifiedMaterialCompositionData);
         for (let i = 0; i < modifiedMaterialCompositionData.length; i++) {
             modifiedMaterialDataInPercent[i] = Number(modifiedMaterialCompositionData[i]);
         }
-        console.log(modifiedMaterialDataInPercent);
     }
 }
 
@@ -111,10 +100,8 @@ export function getMaterialCompositionData(scenarioName) {
 export function setMaterialCompositionLabels(scenarioName, compositionLabels) {
     if (scenarioName === scenarioNames.baseline) {
         materialCompositionLabels = Array.from(compositionLabels);
-        console.log(materialCompositionLabels);
     } else if (scenarioName === scenarioNames.modified) {
         modifiedMaterialCompositionLabels = Array.from(compositionLabels);
-        console.log(modifiedMaterialCompositionLabels);
     }
 }
 

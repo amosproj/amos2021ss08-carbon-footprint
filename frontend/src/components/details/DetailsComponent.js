@@ -107,7 +107,6 @@ class DetailsComponent extends Component {
          */
         let handleNewScenarioSelection = (item, scenarioName) => {
             if (!this.state.loadComparePage) {
-                console.log('No Compare' + scenarioName);
                 this.setState({ selectedScenarioId: item.id }, () => {
                     this.setState({ stillLoading: true });
                     this.setState({ selectedScenarioType: item.name });
@@ -115,14 +114,12 @@ class DetailsComponent extends Component {
             }
             // if the first scenario in drop down menue is changed
             else if (scenarioName === scenarioNames.baseline) {
-                console.log('first scenario is changed: ' + scenarioName);
                 this.setState({ selectedScenarioId: item.id }, () => {
                     this.setState({ loadingBaseline: true });
                     this.setState({ selectedScenarioType: item.name });
                 });
                 // if the second scenario in drop down menue is changed
             } else {
-                console.log('second scenario is changed: ' + scenarioName);
                 this.setState({ secondSelectedScenarioId: item.id }, () => {
                     this.setState({ loadingModified: true });
                     this.setState({ secondSelectedScenarioType: item.name });
@@ -205,7 +202,6 @@ class DetailsComponent extends Component {
 
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
-            console.log(selectedProduct);
             return (
                 <Container className='ScenarioContainer' id='capture' fluid>
                     <Row style={{ padding: 0, margin: 0 }}>

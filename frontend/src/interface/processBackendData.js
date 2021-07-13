@@ -44,8 +44,6 @@ export function processBackendData(data, scenarioName, callback) {
             }
         }
     }
-    console.log('Sum of Material:');
-    console.log(sumOfMaterials);
     for (let i = 0; i < finalMaterials.length; i++) {
         if (Number(finalMaterials[i][6]) / sumOfMaterials > 0.01) {
             materialMap.set(finalMaterials[i][0], finalMaterials[i][6]);

@@ -21,8 +21,6 @@ export async function getSimaProProjects() {
             const items = data;
             result = items.data.Result.Data;
         });
-    console.log('API call to get the list of Products');
-    console.log(result);
     return result;
 }
 
@@ -118,12 +116,6 @@ export async function postCalculationRequestCustomSetup(projectId, processId, pr
         },
         { body }
     );
-    // .then(function (data) {
-    //     const items = data;
-    //     calcId = items.data.Result.CalculationId;
-    // });
-    console.log('RESULT of the SimaPro/api/calculation/projectId call ');
-    console.log(result);
     return result;
 }
 
@@ -145,7 +137,6 @@ export async function getProjectProcesses(projectId) {
         .then(function (data) {
             const items = data;
             resultProcess = items.data.Result.Data;
-            console.log(resultProcess);
         });
     return resultProcess;
 }

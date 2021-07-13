@@ -89,8 +89,6 @@ export async function getCategorizedProducts() {
                 break;
         }
     });
-    console.log('Typified and Categorized Products');
-    console.log(productCategoriesAndTypes);
 
     return productCategoriesAndTypes;
 }
@@ -118,7 +116,6 @@ export async function getSimaProducts() {
         } else {
             let splittedString = description.split(/[#,:,/]/);
 
-            console.log(splittedString);
             let productSolutionService;
 
             if (splittedString.includes(simaProTypes.product)) {
@@ -148,8 +145,6 @@ export async function getSimaProducts() {
             formattedProducts.push(productObject);
         }
     });
-    console.log('The formatted Products (getSimaProducts)');
-    console.log(formattedProducts);
 
     // Now sort the Products Alphabetically and put the baseline Scenario in first place if the Names are identical
     formattedProducts.sort(compareProducts);
