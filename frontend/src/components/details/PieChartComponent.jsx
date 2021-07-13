@@ -1,13 +1,12 @@
 import { React } from 'react';
-import ReactApexChart from 'react-apexcharts';
+import ReactApexChart from 'react-apexcharts'; //https://apexcharts.com/docs/react-charts/
 import {
     getMaterialCompositionData,
     getMaterialCompositionLabels
 } from 'interface/projectInterface';
-//import theme from 'resources/theme';
 /**
  * Pie Chart Diagram
- * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
+ * @scenarioName - props to specify whether we need values for Modified/Baseline Scenario
  */
 
 const PieChartComponent = (props) => {
@@ -15,7 +14,6 @@ const PieChartComponent = (props) => {
     const labels = getMaterialCompositionLabels(props.scenarioName);
 
     const options = {
-        //TODO
         maintainAspectRatio: true,
         legend: {
             position: 'top',

@@ -28,6 +28,10 @@ const useStyles = createUseStyles({
     }
 });
 
+/**
+ * loading component is always being used, when no data is available yet
+ * @returns a fany spinning circle
+ */
 function LoadingComponent({
     backgroundColor,
     children,

@@ -20,7 +20,7 @@ class MobileTableComponent extends Component {
         return (
             <Container fluid={true}>
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
-                    {/* style needs to be defined in js */}
+                    {/* future TODO: style needs to be defined in js */}
                     <tbody>
                         {this.state.headers.map((header, index) => (
                             <tr
@@ -35,15 +35,6 @@ class MobileTableComponent extends Component {
                                     {header.value}
                                 </th>
                                 {getRowDataHelper(idKey, index, this.state.rows)}
-                                {/* <td key={'table1' + idKey + 'thead' + header.key + index + '3'}>
-                                    {Object.values(this.state.rows[3])[index + 1]}
-                                </td>
-                                <td key={'table1' + idKey + 'thead' + header.key + index + '4'}>
-                                    {Object.values(this.state.rows[4])[index + 1]}
-                                </td>
-                                <td key={'table1' + idKey + 'thead' + header.key + index + '5'}>
-                                    {Object.values(this.state.rows[5])[index + 1]}
-                                </td> */}
                             </tr>
                         ))}
                     </tbody>

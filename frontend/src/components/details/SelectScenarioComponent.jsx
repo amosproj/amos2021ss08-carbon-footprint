@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { scenarioNames } from './DetailsComponent';
 
 /**
- * a drop down component for selecting a scenario
+ * a drop down menu component for selecting a scenario
  */
 class SelectScenarioComponent extends Component {
     state = {
@@ -73,10 +73,9 @@ class SelectScenarioComponent extends Component {
 
     render() {
         /*
-        if the loadComparePage state from its parrent (the detail Component) 
-        is set to true, here an extra drop down for the second variable
-         should be rendered 
-        */
+         * if the loadComparePage state from its parent (the detail Component)
+         * is set to true, here an extra drop down for the second variable should be rendered
+         */
 
         return (
             <div className='w3-row w3-margin-top'>
