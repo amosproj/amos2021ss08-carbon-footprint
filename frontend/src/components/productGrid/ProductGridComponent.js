@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import ProductDropdown from './ModelDropdownComponent';
@@ -23,7 +23,6 @@ import { categories, types } from 'resources/globalConstants/categories';
 function ProductGridComponent({ selectedCategory, selectedType }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList] = useState([]);
-
     let preProducts = useSelector((state) => state);
     let products;
 
@@ -79,6 +78,11 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
     }
 
     const [filteredProducts, setFilteredProducts] = useState([...products]);
+
+    useEffect(() => {
+        setFilteredProducts([...products]);
+        document.getElementById('myInput').value = '';
+    }, [selectedType]);
 
     /**
      * updating the filtered list
