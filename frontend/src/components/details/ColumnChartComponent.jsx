@@ -6,6 +6,9 @@ import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterfa
  * Column Chart
  * Recieves the data from projectInterface.js using "getColumnChartData()"
  * populates the data ito the column chart in Details Page.
+ * The categories are fixed. Recieves the categories from projectInterface.js using "getLifeCycleStages()"
+ * Those categories represent the life cycle stages. They don't change - there are the same for all products and projects.
+ * Look up: https://apexcharts.com/docs/react-charts/ for the chart options specified
  */
 const ColumnChartComponent = () => {
     const values = getColumnChartData();
@@ -63,7 +66,7 @@ const ColumnChartComponent = () => {
             labels: {
                 rotate: -90,
                 style: {
-                    fontSize: 6.8,
+                    fontSize: 6.8
                 }
             },
             responsive: [

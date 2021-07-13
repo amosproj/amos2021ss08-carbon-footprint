@@ -1,27 +1,29 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ScenarioComponent from './ScenarioComponent';
-import { Col, Container, Row } from 'react-grid-system';
+import { Col, Container, Row } from 'react-grid-system'; //https://www.npmjs.com/package/react-grid-system
 import './navbar.css';
 import { postCalculationRequest } from 'interface/BackendConnect';
 import LoadingComponent from 'components/loading';
 import { exportPdf } from '../../interface/PdfExporter.js';
 
 /**
- * the main component for detail page which includes
- * canvas page and variable drop down list
+ * The DetailsComponent is the page, which is the top component for the Details Page.
+ * Depending on the state it contains a single or two scenriaos (for comparison).
+ * The component also contains the variable selector, which is used to switch between scenarios.
  *
  * @param props the recently selected model of a product.
  */
 
 class DetailsComponent extends Component {
     /*
-     * selectedScenarioId: for storing the id of the selected scenario
-     * to send the calculation request to server
-     * slectedScenarioType: for sending it to SelectScenarioComponent
-     * baselineScenario: only display the baseline scenario
-     * modifiedScenario: only display the modified scenario
-     * state at the beginng: only baseline scenario
+     * selectedScenarioId: for storing the id of the selected scenario to send the calculation request to server
+     * selectedScenarioType: for sending it to SelectScenarioComponent
+     * baselineScenario: only display the baseline scenario, default: true
+     * modifiedScenario: only display the modified scenario, default: false
+     * loadComparePage: display both the baseline and modified scenario, default: false
+     * stillLoading: variable to check, if still waiting for response of the API call to backend/database, default: true
+     * onExportClicked: ... , default: false
      */
     state = {
         selectedScenarioId: '',
@@ -45,8 +47,9 @@ class DetailsComponent extends Component {
 
     render() {
         /*
-         * compare buttons exist only when a single scenario is displayed
-         * clicking the button should switch state to the show compare page state
+         * When only a single scenario is displayed, there exists a "Compare" button, to display two scenarios and compare them.
+         * The compare button, displays the second scenario next to the existing scenario.
+         * In order to do that, we simply need to modify and update the state.
          */
         let handleCompareButton = () => {
             const baselineScenario = false;
@@ -54,22 +57,11 @@ class DetailsComponent extends Component {
             const loadComparePage = true;
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
         };
-        /*
-         * in the compare page each scenario has a close button
-         * that button should close that scenario and only display the other one
-         * so the close button of the modified scenario will hide the modified scenario and only display the baseline scenario
-         */
-        let handleCloseModifiedButton = () => {
-            const baselineScenario = true;
-            const modifiedScenario = false;
-            const loadComparePage = false;
-            this.setState({ baselineScenario, modifiedScenario, loadComparePage });
-        };
 
         /*
-         * in the compare page each scenario has a close button
-         * that button should close that scenario and only display the other one
-         * so the close button of the baselin scenario will hide the baselin scenario and only display the modified scenario
+         * Both scenarios have a close button. If a button is pressed, close the scenario and only display the other one.
+         * The close basline button, closes the baseline scenario and will only display the modified scenario.
+         * In order to do that, we simply need to modify and update the state.
          */
         let handleCloseBaselineButton = () => {
             const baselineScenario = false;
@@ -78,11 +70,21 @@ class DetailsComponent extends Component {
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
         };
 
+        /*
+         * Both scenarios have a close button. If a button is pressed, close the scenario and only display the other one.
+         * The close modified button, closes the modified scenario and will only display the baseline scenario.
+         * In order to do that, we simply need to modify and update the state.
+         */
+        let handleCloseModifiedButton = () => {
+            const baselineScenario = true;
+            const modifiedScenario = false;
+            const loadComparePage = false;
+            this.setState({ baselineScenario, modifiedScenario, loadComparePage });
+        };
+
         /**
-         * this function will be envoced from SelectScenarioComponent,
-         * once the user changes the scenario in drop down menue
-         *
-         * then selectedScenarioId and selectedScenarioType will be updated
+         * The drop down menu in SelectScenarioComponent, will call this function with a new selectedScenario (Id).
+         * To display the new scenario the state must be updated, by modifying the variables selectedScenarioId and selectedScenarioType in the state.
          *
          * @param item: selected scenario
          */
@@ -93,10 +95,13 @@ class DetailsComponent extends Component {
             });
         };
 
+        /*
+         * The PDF button will call this funtion, in order to trigger the pdf generation.
+         */
         let handleExportPdfButton = () => {
             this.setState({ onExportClicked: true });
 
-            // geting the element that should be exported
+            // getting the element that should be exported
             var div1 = document.getElementById('capturePieChart');
             var div2 = document.getElementById('captureColumnDiagram');
             var div3 = document.getElementById('captureTable');
@@ -122,11 +127,14 @@ class DetailsComponent extends Component {
         };
         const { selectedProduct } = this.props;
 
+        // Whil stillLoading display the LoadingComponent (turning circle)
         if (this.state.stillLoading) {
             postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
             return <LoadingComponent loading />;
         }
 
+        /* Depending on the state, display the corresponding scenario(s)
+         */
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
             console.log(selectedProduct);
