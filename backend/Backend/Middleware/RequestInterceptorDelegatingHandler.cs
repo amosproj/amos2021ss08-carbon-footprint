@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.IO.Compression;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
+using System.Collections.Concurrent;
 
 namespace Backend.Middleware
 {
@@ -16,10 +18,12 @@ namespace Backend.Middleware
     public class RequestInterceptorDelegatingHandler : DelegatingHandler
     {
         private readonly string baseUrl;
+        private readonly ConcurrentDictionary<string, (HttpResponseMessage, string)> calculationResultDictionary;
 
         public RequestInterceptorDelegatingHandler(IConfiguration configuration)
         {
             baseUrl = Environment.GetEnvironmentVariable("BaseUrl") ?? configuration["BaseUrl"];
+            calculationResultDictionary = new ConcurrentDictionary<string, (HttpResponseMessage httpResponse, string content)>();
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
@@ -27,6 +31,20 @@ namespace Backend.Middleware
         {
             if (request.RequestUri.ToString().Contains("api/calculation"))
             {
+                var projectId = request.RequestUri.ToString().Split("/")[5];
+
+                //checking whether the calculcation has been done before
+                (HttpResponseMessage httpResp, string content) outvalue;
+                if (calculationResultDictionary.TryGetValue(projectId, out outvalue))
+                {
+                    //manually setting the responseContent Json
+                    var jobject = JObject.Parse(outvalue.content);
+                    outvalue.httpResp.Content = new StringContent(JsonConvert.SerializeObject(jobject), Encoding.UTF8, "application/json");
+
+                    //return the stored result
+                    return outvalue.httpResp;
+                }
+
                 var requestResponse = await base.SendAsync(request, cancellationToken);
                 if (!requestResponse.IsSuccessStatusCode)
                 {
@@ -65,6 +83,9 @@ namespace Backend.Middleware
                     Content = new StringContent(JsonConvert.SerializeObject(""), Encoding.UTF8, "application/json")
                 };
                 HttpResponseMessage calculationResultResponse = await base.SendAsync(calculationResultRequest, cancellationToken);
+
+                //storing the calculation result, content has to be read and stored manually or it will be lost since it is a stream
+                calculationResultDictionary.TryAdd(projectId, (calculationResultResponse, await calculationResultResponse.Content.ReadAsStringAsync()));
                 return calculationResultResponse;
             }
 
