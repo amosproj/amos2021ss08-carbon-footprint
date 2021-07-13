@@ -5,13 +5,13 @@
 export function ErrorAlert(error) {
     if (error === 400) {
         alert(
-            'There are no preset calculation settings for this product. Please check with the admin'
+            'There are no preset calculation settings for this product. Please contaact your system administrator.'
         );
     } else if (error === 502) {
         alert(
-            'Multiple requests are sent for the same product. Handling this error is work in progress. For now, please restart both frontend and backend. To resolve this error.'
+            'You tried to request data for multiple projects at once. Handling this error is work in progress. For now, please restart both frontend and backend to resolve this error.'
         );
     } else if (error === 401) {
-        alert('Please verify the SimaPro cerdentials provided at the backend');
+        alert('Please verify the SimaPro cerdentials provided at the backend.');
     }
 }
