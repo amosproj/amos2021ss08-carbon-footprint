@@ -5,7 +5,7 @@
 export function ErrorAlert(error) {
     if (error === 400) {
         alert(
-            'There are no preset calculation settings for this product. Please contaact your system administrator.'
+            'There are no preset calculation settings for this product. Please contact your system administrator.'
         );
     } else if (error === 502) {
         alert(
