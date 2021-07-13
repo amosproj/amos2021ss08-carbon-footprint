@@ -1,3 +1,7 @@
+/**
+ * @param {*} error error message status code(400/502/401) recieved from SimaPro API
+ */
+
 export function ErrorAlert(error) {
     if (error === 400) {
         alert(
@@ -7,5 +11,7 @@ export function ErrorAlert(error) {
         alert(
             'Multiple requests are sent for the same product. Handling this error is work in progress. For now, please restart both frontend and backend. To resolve this error.'
         );
+    } else if (error === 401) {
+        alert('Please verify the SimaPro cerdentials provided at the backend');
     }
 }

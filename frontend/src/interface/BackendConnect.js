@@ -55,6 +55,8 @@ export async function postCalculationRequest(projectId, scenarioName, callback) 
         .then(function (data) {
             processBackendData(data, scenarioName, callback);
         })
+
+        // Read the errors from SimaPro and throw alerts.
         .catch((error) => {
             console.log(error);
             let errorMessage = JSON.stringify(error);
@@ -62,6 +64,8 @@ export async function postCalculationRequest(projectId, scenarioName, callback) 
                 ErrorAlert(400);
             } else if (errorMessage.split(/[ ,:,\\]/).includes('502')) {
                 ErrorAlert(502);
+            } else if (errorMessage.split(/[ ,:,\\]/).includes('401')) {
+                ErrorAlert(401);
             }
         });
 }
@@ -75,6 +79,8 @@ function dummyPostCalculationRequest(projectId, scenarioName, callback) {
  *   This request is caught by the backend.
  *   Which then checks if the calculation is stored based on the calculationId generated.
  *   If the calculation is stored returns the results of calculation here.
+ *
+ *   This function is not used at present. Can be used in future.
  */
 export async function postCalculationRequestCustomSetup(projectId, processId, processName) {
     // POST request using axios with set headers
@@ -123,7 +129,7 @@ export async function postCalculationRequestCustomSetup(projectId, processId, pr
 
 /**
  *  Getrequest to get the processes for a model based on the project Id
- *
+ *  This function is not used at present. Can be used in future.
  */
 export async function getProjectProcesses(projectId) {
     const headers = {
