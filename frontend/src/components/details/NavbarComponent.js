@@ -24,11 +24,9 @@ const NavbarComponent = (props) => {
                 </div>
                 <div className='NavbarTitle'>
                     {/* Depending on the scenario name, we display baseline or modified scenario in the navbar */}
-                    <b>
-                        {props.scenarioDisplayName.includes('baseline')
-                            ? 'Baseline Scenario'
-                            : 'Modified Scenario'}
-                    </b>
+                    {props.scenarioDisplayName.includes('baseline')
+                        ? 'Baseline Scenario'
+                        : 'Modified Scenario'}
                 </div>
                 <Link
                     style={props.onExportClicked ? { pointerEvents: 'none' } : null}
@@ -56,11 +54,9 @@ const NavbarComponent = (props) => {
             <div className='navbar'>
                 <div className='NavbarTitle'>
                     {/* Depending on the scenario name, we display baseline or modified scenario in the navbar */}
-                    <b>
-                        {props.scenarioDisplayName.includes('baseline')
-                            ? 'Baseline Scenario'
-                            : 'Modified Scenario'}
-                    </b>
+                    {props.scenarioDisplayName.includes('aseline')
+                        ? 'Baseline Scenario'
+                        : 'Modified Scenario'}
                 </div>
                 <Link to={{ pathname: slugs.details }} onClick={props.onCloseClick}>
                     <div className='Closebtn '>

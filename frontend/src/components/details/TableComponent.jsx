@@ -17,18 +17,18 @@ class TableComponent extends Component {
     render() {
         const idKey = this.props.tableKey;
         return (
-            <Container fluid={true}>
-                <table className='w3-table-all w3-card-4 w3-center '>
-                    <thead>
-                        <tr className='TableHeader TableSubTitle' key={'FirstRow'}>
+            <Container fluid={true} className='TableCorner'>
+                <table className='w3-table-all w3-card-4 w3-small w3-center'>
+                    <thead className='TableHeader'>
+                        <tr className='TableHeader' key={'FirstRow'}>
                             {this.state.headers.map((item) => (
                                 <th key={idKey + 'thead' + item.key}>{item.value}</th>
                             ))}
                         </tr>
                     </thead>
 
-                    <tbody >
-                        <tr  className='TableItems' key={'Data'}>
+                    <tbody>
+                        <tr className='TableItems' key={'Data'}>
                             <td key={idKey + 'Global Warming'}>{'Global Warming'}</td>
                             <td key={idKey + 'kg CO2 eq'}>
                                 {'kg CO'}
@@ -44,7 +44,6 @@ class TableComponent extends Component {
                             <td key={idKey + 'td-h'}>{this.state.rows.get('End of life')}</td>
                         </tr>
                     </tbody>
-
                 </table>
             </Container>
         );

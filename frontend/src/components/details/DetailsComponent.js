@@ -187,12 +187,27 @@ class DetailsComponent extends Component {
 
         /* Depending on the state, display the corresponding scenario(s)
          */
+        if (
+            this.props.selectedProduct.productID === undefined ||
+            this.props.selectedProduct.productID === ''
+        ) {
+            return (
+                <Container className='ScenarioContainer' id='capture' fluid>
+                    <LoadingComponent
+                        loading
+                        text={'Please go to Categories and select something :)'}
+                    />
+                    ;
+                </Container>
+            );
+        }
+
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
             console.log(selectedProduct);
             return (
                 <Container className='ScenarioContainer' id='capture' fluid>
-                    <Row>
+                    <Row style={{ padding: 0, margin: 0 }}>
                         <Col>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
@@ -213,7 +228,7 @@ class DetailsComponent extends Component {
             // if state equals modified scenario only
             return (
                 <Container className='ScenarioContainer' id='capture' fluid>
-                    <Row>
+                    <Row style={{ padding: 0, margin: 0 }}>
                         <Col>
                             <ScenarioComponent
                                 loadComparePage={this.state.loadComparePage}
@@ -234,10 +249,9 @@ class DetailsComponent extends Component {
             // if state equals compare scenario
             return (
                 <Container className='ScenarioContainer' id='capture' fluid>
-                    <Row gutterWidth={0}>
-                        <Col className='CompareColLeft' xs={6} sm={6} md={6} lg={6}>
+                    <Row justify='around' gutterWidth={0}>
+                        <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
                             {this.state.loadingBaseline && <LoadingComponent loading />}
-
                             {!this.state.loadingBaseline && (
                                 <ScenarioComponent
                                     loadComparePage={this.state.loadComparePage}
@@ -253,8 +267,7 @@ class DetailsComponent extends Component {
                             )}
                         </Col>
 
-                        {/* Spacing between the two columns is specified by paddingLeft */}
-                        <Col className='CompareColRight' xs={6} sm={6} md={6} lg={6}>
+                        <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
                             {this.state.loadingModified && <LoadingComponent loading />}
                             {!this.state.loadingModified && (
                                 <ScenarioComponent

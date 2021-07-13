@@ -44,7 +44,10 @@ class SelectScenarioComponent extends Component {
         let scenarioList = [];
 
         // Handle no scenario selected
-        if (this.props.selectedProduct === undefined) {
+        if (
+            this.props.selectedProduct.productID === '' ||
+            this.props.selectedProduct === undefined
+        ) {
             return;
         }
 
@@ -78,15 +81,15 @@ class SelectScenarioComponent extends Component {
         return (
             <div className='w3-row w3-margin-top'>
                 <div className='w3-right'>
-                    <div className='w3-dropdown-hover'>
+                    <div className='w3-dropdown-hover w3-white'>
                         <button className='w3-button dropDown'>
                             {this.props.selectedScenarioType}
                         </button>
-                        <div className='w3-dropdown-content w3-bar-block w3-border'>
+                        <div className='w3-dropdown-content w3-bar-block w3-border dropDown'>
                             {this.state.scenarios.map((item) => (
                                 <button
                                     onClick={() => this.onDropDownItemSelectedHandler(item)}
-                                    className='w3-bar-item w3-button'
+                                    className='w3-bar-item w3-button dropDown'
                                     key={item.id}
                                 >
                                     {item.name}

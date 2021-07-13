@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
     },
     container: {
         display: 'flex',
-        height: 40,
+        height: 50,
         cursor: 'pointer',
         '&:hover': {
             backgroundColor: ({ theme }) => theme.color.paleBlueTransparent

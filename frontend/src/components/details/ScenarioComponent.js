@@ -19,8 +19,8 @@ class ScenarioComponent extends Component {
         return (
             <Container
                 id={this.props.scenarioName + ' ScenarioComponent'}
-                fluid={true}
-                style={{ padding: 0, margin: 0, backgroundColor: 'white' }}
+                fluid
+                style={{ padding: 0, margin: 25, backgroundColor: 'white' }}
             >
                 <Row style={{ padding: 0, margin: 0 }}>
                     <NavbarComponent
@@ -33,7 +33,7 @@ class ScenarioComponent extends Component {
                         onCloseClick={this.props.onCloseClick}
                     />
                 </Row>
-                <Container fluid={true} style={{ padding: 'auto' }}>
+                <Container fluid style={{ padding: 'auto' }}>
                     <SelectScenarioComponent
                         selectedProduct={this.props.selectedProduct}
                         loadComparePage={this.props.loadComparePage}
@@ -92,18 +92,20 @@ class ScenarioComponent extends Component {
                         <Col>
                             {/* dynamic display of product and model */}
                             <Row justify='center' align='center'>
-                                <h5 className='CardTitle'>
+                                <h5 className='TableTitle'>
                                     {this.props.selectedProduct.productName}
                                 </h5>
                             </Row>
                             <Row justify='center' align='center'>
-                                <h6 className='CardTitle'>
-                                    {this.props.selectedProduct.modelName ===
-                                        this.props.selectedProduct.productName ||
-                                    this.props.selectedProduct.modelName === undefined
-                                        ? ''
-                                        : this.props.selectedProduct.modelName}
-                                </h6>
+                                {this.props.selectedProduct.modelName ===
+                                    this.props.selectedProduct.productName ||
+                                this.props.selectedProduct.modelName === undefined ? (
+                                    <div />
+                                ) : (
+                                    <h6 className='TableTitle'>
+                                        {this.props.selectedProduct.modelName}
+                                    </h6>
+                                )}
                             </Row>
                             <Row justify='center' align='center' style={{ margin: 0 }}>
                                 <div id='captureTable' className='TableContainer'>
