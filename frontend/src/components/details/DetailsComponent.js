@@ -199,6 +199,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 exportHandler={handleExportPdfButton}
                                 scenarioName={scenarioNames.baseline}
+                                scenarioDisplayName={this.props.scenarioType}
                                 selectedScenarioType={this.state.selectedScenarioType}
                                 selectedProduct={selectedProduct}
                                 onExportClicked={this.state.onExportClicked}
@@ -219,6 +220,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 exportHandler={handleExportPdfButton}
                                 scenarioName={scenarioNames.modified}
+                                scenarioDisplayName={this.props.scenarioType}
                                 selectedScenarioType={this.state.secondSelectedScenarioType}
                                 selectedProduct={selectedProduct}
                                 onExportClicked={this.state.onExportClicked}
@@ -243,6 +245,7 @@ class DetailsComponent extends Component {
                                     onExportClick={handleExportPdfButton}
                                     onCloseClick={handleCloseBaselineButton}
                                     scenarioName={scenarioNames.baseline}
+                                    scenarioDisplayName={this.props.scenarioType}
                                     selectedScenarioType={this.state.selectedScenarioType}
                                     selectedProduct={selectedProduct}
                                     newScenarioHandler={handleNewScenarioSelection}
@@ -260,6 +263,7 @@ class DetailsComponent extends Component {
                                     onExportClick={handleExportPdfButton}
                                     onCloseClick={handleCloseModifiedButton}
                                     scenarioName={scenarioNames.modified}
+                                    scenarioDisplayName={this.props.scenarioType}
                                     selectedScenarioType={this.state.secondSelectedScenarioType}
                                     selectedProduct={selectedProduct}
                                     newScenarioHandler={handleNewScenarioSelection}
@@ -281,7 +285,7 @@ DetailsComponent.propTypes = {
         productID: PropTypes.string.isRequired, // 'dummydum-13b0-4e09-9fb4-50398483ecfd'
         productImage: PropTypes.string, //ImagePath?
         productName: PropTypes.string, //'please select a Product'
-        scenarioType: PropTypes.string
+        scenarioType: PropTypes.string //'Scenario_baseline; Scenario_scenario2'
     })
 };
 

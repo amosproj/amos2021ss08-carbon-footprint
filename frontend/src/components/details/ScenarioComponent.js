@@ -23,6 +23,7 @@ class ScenarioComponent extends Component {
                         loadComparePage={this.props.loadComparePage}
                         onCompareClick={this.props.onCompareClick}
                         scenarioName={this.props.scenarioName}
+                        scenarioDisplayName={this.props.selectedScenarioType}
                         onExportClicked={this.props.onExportClicked}
                         exportHandler={this.props.exportHandler}
                         onCloseClick={this.props.onCloseClick}
@@ -127,7 +128,8 @@ ScenarioComponent.propTypes = {
     newScenarioHandler: PropTypes.func.isRequired,
     onCompareClick: PropTypes.func.isRequired,
     onExportClicked: PropTypes.bool,
-    scenarioName: PropTypes.string,
+    scenarioName: PropTypes.string, // Baseline or Modified (Where modified basically means second page)
+    scenarioDisplayName: PropTypes.string.isRequired, //scenario_baseline; scenario_copper
     selectedProduct: PropTypes.shape({
         modelID: PropTypes.string,
         modelName: PropTypes.string,

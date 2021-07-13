@@ -1,8 +1,6 @@
 # Carbon Footprint Visualization | AMOS Project 8
 
-
 ![Carbon Footpront Visuakization Banner-Logo](https://github.com/amosproj/amos-ss2021-carbon-footprint/blob/main/deliverables/Proj8-AMOS-Banner-Logo-Carbon-Footprint-Black.png?raw=true)
-
 
 ## Software Build and Deployment Document
 
@@ -10,12 +8,12 @@
 - [Project Repository](#project-repository)
 - [Current Dependencies:](#current-dependencies)
 - [Build Process](#build-process)
-  * [Setup and start the Frontend](#setup-and-start-the-frontend)
-  * [Setup and start of the Backend](#setup-and-start-of-the-backend)
-    + [General](#general)
-    + [Launching](#launching)
-  * [Testing](#testing)
-  * [CI](#ci)
+  - [Setup and start the Frontend](#setup-and-start-the-frontend)
+  - [Setup and start of the Backend](#setup-and-start-of-the-backend)
+    - [General](#general)
+    - [Launching](#launching)
+  - [Testing](#testing)
+  - [CI](#ci)
 
 # Introduction
 
@@ -136,7 +134,6 @@ Includes the git files, Solution.sln, and a [project] folder for every [project]
 - **/Test**:
   includes the source code files of the unit test project for the backend.
 
-
 # Current Dependencies
 
 **Frontend**:
@@ -147,13 +144,9 @@ Includes the git files, Solution.sln, and a [project] folder for every [project]
 
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom): routing.
 
-- [simple-flexbox](https://www.npmjs.com/package/simple-flexbox): flexbox utility.
-
 - [react-grid-system](https://www.npmjs.com/package/react-grid-system): page layout
 
 - [react-apexcharts](https://www.npmjs.com/package/react-apexcharts): pie and column chart
-
-- [jsPDF](https://www.npmjs.com/package/jspdf): library to generate PDFs in JavaScript
 
 - [jQuery](https://www.npmjs.com/package/jquery): JavaScript library for DOM operations
 
@@ -202,7 +195,6 @@ Includes the git files, Solution.sln, and a [project] folder for every [project]
 Frontend: Unit tests will automatically be executed by the CI pipeline.
 
 Backend: Existing unit tests can be found, modified, and executed via the Test Project.
-
 
 ## CI
 
