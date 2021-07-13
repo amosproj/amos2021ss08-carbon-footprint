@@ -70,7 +70,7 @@ function CardComponent(props) {
             className={[classes.container, containerStyles].join(' ')}
             breakpoints={{ 426: classes.containerMobile }}
         >
-            <Row justify='space-between'>
+            <Row justify='between'>
                 <Col>
                     <span className={classes.title}>{title}</span>
                     <Row style={{ marginTop: 8, marginBottom: 16 }}>
