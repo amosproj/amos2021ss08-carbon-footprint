@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { processBackendData } from 'interface/processBackendData';
 import { dummyProcessBackendData } from 'interface/processBackendData';
+import { ErrorAlert } from 'assets/alert/alert';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -34,7 +35,7 @@ export async function getSimaProProjects() {
  */
 export async function postCalculationRequest(projectId, scenarioName, callback) {
     // Bypass using the SimaPro Data
-    const useDummyData = true;
+    const useDummyData = false;
 
     if (useDummyData) {
         return dummyPostCalculationRequest(projectId, scenarioName, callback);
@@ -53,6 +54,15 @@ export async function postCalculationRequest(projectId, scenarioName, callback) 
 
         .then(function (data) {
             processBackendData(data, scenarioName, callback);
+        })
+        .catch((error) => {
+            console.log(error);
+            let errorMessage = JSON.stringify(error);
+            if (errorMessage.split(/[ ,:,\\]/).includes('400')) {
+                ErrorAlert(400);
+            } else if (errorMessage.split(/[ ,:,\\]/).includes('502')) {
+                ErrorAlert(502);
+            }
         });
 }
 
