@@ -83,10 +83,10 @@ NavbarComponent.propTypes = {
     loadComparePage: PropTypes.bool.isRequired,
     onCloseClick: PropTypes.func,
     onCompareClick: PropTypes.func,
-    onExportClicked: PropTypes.bool.isRequired,
+    onExportClicked: PropTypes.bool,
     scenarioName: PropTypes.string.isRequired,
-    scenarioDisplayName: PropTypes.string.isRequired,
-    exportHandler: PropTypes.func.isRequired
+    scenarioDisplayName: PropTypes.string,
+    exportHandler: PropTypes.func
 };
 
 export default NavbarComponent;
