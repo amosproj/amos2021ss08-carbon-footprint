@@ -147,6 +147,21 @@ class DetailsComponent extends Component {
         let pdfExportDoneCallback = () => {
             this.setState({ onExportClicked: false });
         };
+
+        if (
+            this.props.selectedProduct.productID === undefined ||
+            this.props.selectedProduct.productID === ''
+        ) {
+            return (
+                <Container className='ScenarioContainer' id='capture' fluid>
+                    <LoadingComponent
+                        loading
+                        text={'Please go to Categories and select something :)'}
+                    />
+                    ;
+                </Container>
+            );
+        }
         /*
          * Important function that is given as the callback parameter to the postCalculationRequest in order to be called
          * when the data processing is finished. Then the state stillLoading will be set to false.
@@ -187,20 +202,6 @@ class DetailsComponent extends Component {
 
         /* Depending on the state, display the corresponding scenario(s)
          */
-        if (
-            this.props.selectedProduct.productID === undefined ||
-            this.props.selectedProduct.productID === ''
-        ) {
-            return (
-                <Container className='ScenarioContainer' id='capture' fluid>
-                    <LoadingComponent
-                        loading
-                        text={'Please go to Categories and select something :)'}
-                    />
-                    ;
-                </Container>
-            );
-        }
 
         if (this.state.baselineScenario) {
             // if state equals baseline scenario only
