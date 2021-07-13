@@ -19,6 +19,19 @@
     background-color: #974cc2;
     color: white !important;
     padding: 2px;
+    border-radius: 8px;
+    width: 480px;
+    height:350px;
+    margin-top:50px;
+}
+
+
+.imageCards{
+    background-color: #974cc2;
+    color: white !important;
+    padding: 2px;
+    border-radius: 8px;
+    margin-top:50px;
 }
 
 .ProductGridLink {

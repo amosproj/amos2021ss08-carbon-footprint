@@ -13,7 +13,7 @@ import { simaProTypes } from 'resources/globalConstants/SimaProProductCategories
 import { processScenarios } from './processProjects';
 
 // Toggle to NOT use SimaPro Data
-let useDummyData = false;
+let useDummyData = true;
 
 /**
  *

@@ -9,6 +9,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+
     /* border: 3px solid var(--global--button--color); */
     /* background-color: var(--global--panel--color); */
 }
@@ -124,4 +127,5 @@
     text-decoration: none;
     font-weight: bold;
     font-size: 22px;
+    border-radius: 8px;
 }

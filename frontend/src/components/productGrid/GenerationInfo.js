@@ -25,7 +25,7 @@ function GenerationInfo() {
                 </p>
             </div>
             <div className='w3-col m6 l6 w3-padding-small'>
-                <div className='w3-card-4 imageTitle'>
+                <div className='w3-card-4 imageCards'>
                     <img src={GenerationImage} alt='Generation' />
                     <div className='w3-container w3-center'>
                         <p>Generation</p>

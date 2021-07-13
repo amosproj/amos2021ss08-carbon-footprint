@@ -20,7 +20,7 @@ class ScenarioComponent extends Component {
             <Container
                 id={this.props.scenarioName + ' ScenarioComponent'}
                 fluid
-                style={{ padding: 0, margin: 25, backgroundColor: 'white' }}
+                style={{ padding: 0, margin: 25, backgroundColor: 'white', borderRadius:'8px' }}
             >
                 <Row style={{ padding: 0, margin: 0 }}>
                     <NavbarComponent
