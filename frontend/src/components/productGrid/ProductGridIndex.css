@@ -19,6 +19,7 @@
     background-color: #974cc2;
     color: white !important;
     padding: 2px;
+    margin: 10px;
     border-radius: 8px;
     width: calc(60% * 480px);
     height: calc(60% * 350px);
