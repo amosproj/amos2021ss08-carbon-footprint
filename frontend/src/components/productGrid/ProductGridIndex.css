@@ -38,7 +38,13 @@
     background-repeat: no-repeat;
     width: 100%;
     font-size: var(--global--text--FontSize);
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px;
     border: 1px solid #ddd;
     margin-bottom: 12px;
+    border-radius: 6px;
+}
+
+#myInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #8a00e5;
 }

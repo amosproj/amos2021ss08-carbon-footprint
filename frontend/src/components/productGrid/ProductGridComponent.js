@@ -119,7 +119,7 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
                     id='myInput'
                     onChange={updateInput}
                     placeholder='&#61442;  Search for a product..'
-                    title='Type in a name'
+                    title='Enter a name'
                 />
             </Row>
             <Row justify='start'>
