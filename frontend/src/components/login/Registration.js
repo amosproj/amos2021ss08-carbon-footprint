@@ -13,7 +13,6 @@ export default function Registration() {
     } = useForm();
     const onSubmit = (data) => console.log(data);
     console.log(errors);
-
     return (
         <div>
             <div

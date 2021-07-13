@@ -7,6 +7,8 @@
 @import url('components/cards/miniCard.css');
 @import url('components/productGrid/ProductGridIndex.css');
 @import url('routes/privateSection.css');
+@import url('components/details/details.css');
+@import url('components/mydashboard/mydashboard.css');
 
 /* css resets */
 /* Box sizing rules */
@@ -144,7 +146,6 @@ body,
     font-weight: bold;
     font-size: 22px;
     letter-spacing: 0.5px;
-    margin-left: 15px;
     color: #4d217a;
     margin-bottom: 10px;
 }
@@ -158,7 +159,6 @@ body,
     letter-spacing: 0.5px;
     color: #000000;
     margin-top: 25px;
-    margin-left: 15px;
 }
 
 /* Reconfiguration of the text style on details pages */

@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
  * Displaying a label.
  *
- * @author Mani Anand, Martin Wagner
  */
 
 function LabelComponent({ productName }) {
@@ -16,5 +16,9 @@ function LabelComponent({ productName }) {
         </span>
     );
 }
+
+LabelComponent.propTypes = {
+    productName: PropTypes.string.isRequired
+};
 
 export default LabelComponent;

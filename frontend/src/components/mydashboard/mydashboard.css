@@ -1,0 +1,215 @@
+.MySlideshowContainer {
+    background-color: #ffffff;
+    /* border:0.5px solid #00b300; */
+    cursor: 'pointer';
+    border: 1.5px solid #ad65dd;
+    padding: 0;
+}
+
+.img {
+    max-width: 100%;
+    display: block;
+}
+.MyCardsContainer {
+    background-color: #ffffff;
+    cursor: 'pointer';
+    margin-top: 20px;
+    border: 1.5px solid #ad65dd;
+}
+
+.MyChartCardsContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    cursor: 'pointer';
+    margin-top: 20px;
+    min-width: 360;
+    max-width: 450;
+    min-height: 550px;
+    max-height: 550px;
+    border: 1.5px solid #ad65dd;
+    position: fixed;
+    overflow-y: scroll;
+    justify-content: first baseline;
+}
+.MyMiniCardsContainer {
+    display: flex;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    margin-top: 20px;
+    padding: 20px;
+    flex-direction: column;
+    background-color: #ffffff;
+    cursor: 'pointer';
+    position: fixed;
+    justify-content: first baseline;
+    float: right;
+    border: 1.5px solid #ad65dd;
+}
+
+.MyMiniCardsContainer p {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: var(--global--text--color);
+}
+.ContactContainer {
+    width: 100%;
+    height: 150px; /* Height of the footer */
+    background: #6cf;
+    cursor: 'pointer';
+    background-color: #643082;
+    color: #ffffff;
+}
+
+.ContactContainer p {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    color: #ffffff;
+    font-size: var(--global--text-title--FontSize)-8;
+}
+
+.SignUp {
+    background-color: #ad65dd;
+    color: white;
+    border-color: #ad65dd;
+}
+.SignUp:hover {
+    opacity: 0.8;
+    background-color: #bc79fa !important;
+    color: white !important;
+}
+
+.star {
+    float: left;
+    color: var(--global--button--text--color);
+    text-decoration: none;
+    font-size: 24px;
+    border-style: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.favouritesContent {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: var(--global--text--color);
+    white-space: nowrap;
+}
+
+.MyCardsContainer .statContainer {
+    border-bottom: 2px solid #643082;
+}
+
+.statContainer {
+    padding: auto;
+}
+.dashboardCardSubTitle i {
+    font-size: 10px;
+}
+
+.dashboardCardSubTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize)-2;
+    letter-spacing: 0.5px;
+    color: #643082;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+.dashboardTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--panel-title--FontSize);
+    letter-spacing: 0.5px;
+    color: #643082;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: auto;
+    margin-left: 0px;
+}
+
+.dashboardTitle p {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--global--text-title--FontSize);
+    letter-spacing: 0.5px;
+    margin: auto;
+    padding: auto;
+}
+
+.dashboardCardSubTitle p {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--global--text-subtitle--FontSize);
+    letter-spacing: 0.5px;
+    color: var(--global--text--color);
+}
+
+.dashboardMiniTitle {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    letter-spacing: 0.5px;
+    padding: 10px;
+    color: var(--global--text--color);
+    white-space: nowrap;
+    margin: auto;
+    width: auto;
+}
+
+.dashboardTitle i {
+    margin-right: 5px;
+    margin-left: 0px;
+}
+
+.favIcon {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    /* color: var(--global--panel--color); */
+    background-color: var(--global--background--color);
+    color: var(--global--button--text--color);
+    text-decoration: none;
+    font-size: 22px;
+    text-align: right; /* If you want the text to be centered */
+    border-style: none;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.Collapsible :hover {
+    cursor: pointer;
+    color: #643082;
+}
+.active,
+.collapsible:hover {
+    background-color: #ccc;
+}
+
+/* Style the collapsible content*/
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+.alice-carousel ul li img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}

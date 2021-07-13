@@ -2,6 +2,8 @@
  * slugs.js defines all known path extensions
  */
 
+import { types } from './globalConstants/categories';
+
 const slugs = {
     // private
     comparison: '/comparison',
@@ -10,9 +12,9 @@ const slugs = {
     generation: '/generation',
     transmission: '/transmission',
     industrialApplications: '/industrialApplications',
-    products: '/products',
-    solutions: '/solutions',
-    services: '/services',
+    products: '/' + types.product,
+    solutions: '/' + types.solution,
+    services: '/' + types.service,
     overview: '/overview',
     quickguide: '/quickguide',
     overviewTwo: '/overview/two',

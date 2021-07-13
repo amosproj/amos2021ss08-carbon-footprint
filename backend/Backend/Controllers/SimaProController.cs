@@ -36,5 +36,11 @@ namespace Backend.Controllers
             return this.HttpProxyAsync($"{rest}{queryString}", httpProxyOptions);
         }
 
+        [HttpOptions]
+        public IActionResult PreflightRoute()
+        {
+            return NoContent();
+        }
+
     }
 }

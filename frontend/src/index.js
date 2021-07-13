@@ -7,14 +7,17 @@ import Routes from 'routes';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { GlobalStateProvider } from 'hooks/GlobalContext';
-
+import store from './store'
+import { Provider } from 'react-redux'
 ReactDOM.render(
     <ThemeProvider theme={Theme}>
+        <Provider store={store}>
         <GlobalStateProvider>
             <Router>
                 <Routes />
             </Router>
         </GlobalStateProvider>
+        </Provider>
     </ThemeProvider>,
     document.getElementById('root')
 );

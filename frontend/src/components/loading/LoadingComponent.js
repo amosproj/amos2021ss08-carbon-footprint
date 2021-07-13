@@ -1,43 +1,29 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { Column } from 'simple-flexbox';
+import { Col, Container, Row } from 'react-grid-system';
 
 const useStyles = createUseStyles({
     '@keyframes loadingSpin': {
         from: { transform: 'rotate(0deg)' },
         to: { transform: 'rotate(360deg)' }
     },
-    container: {
-        backgroundColor: ({ theme, noTransparency, backgroundColor }) => {
-            if (backgroundColor) {
-                return noTransparency ? backgroundColor : `${backgroundColor}A0`;
-            }
-            return noTransparency
-                ? theme.color.veryDarkGrayishBlue
-                : `${theme.color.veryDarkGrayishBlue}A0`;
-        },
-        height: '100%',
-        minHeight: ({ fullScreen }) => (fullScreen ? '100vh' : '100%'),
-        width: ({ fullScreen }) => (fullScreen ? '100vw' : '100%'),
-        position: ({ fullScreen }) => (fullScreen ? 'fixed' : 'relative'),
-        top: 0,
-        left: 0,
-        zIndex: ({ zIndex }) => zIndex
-    },
+    container: { margin: 0, padding: 0 },
     loading: {
-        border: ({ theme }) => `16px solid ${theme.color.lightGrayishBlue}`,
+        border: `12px dotted`,
         borderRadius: '50%',
-        borderTop: ({ theme }) => `16px solid ${theme.color.brightBlue}`,
+        borderTop: `12px groove #8a00e5`,
+        borderRight: '12px solid #f0f0f0',
         width: 120,
         height: 120,
         animationName: '$loadingSpin',
         animationTimingFunction: 'linear',
-        animationDuration: '2s',
+        animationDuration: '3s',
         animationIterationCount: 'infinite'
     },
     loadingSpan: {
-        color: 'white',
-        marginTop: 10,
+        color: '#8a00e5',
+        marginTop: '12px',
         fontSize: 18
     }
 });
@@ -56,17 +42,40 @@ function LoadingComponent({
     const theme = useTheme();
     const classes = useStyles({ theme, fullScreen, noTransparency, backgroundColor, zIndex });
     return (
-        <div style={{ position: 'relative', height, width }}>
+        <div style={{ flexGrow: true }}>
             {loading && (
-                <Column className={classes.container} horizontal='center' vertical='center'>
-                    <div className={classes.loading}></div>
-                    {!hideText && <span className={classes.loadingSpan}>Loading...</span>}
-                </Column>
+                <>
+                    <Container fluid>
+                        <Row>
+                            <div style={{ marginTop: '30vh', marginRight: 0, marginLeft: 0 }} />
+                        </Row>
+                        <Row>
+                            <Col className={classes.container} align='center' justify='center'>
+                                <div className={classes.loading}></div>
+                                {!hideText && (
+                                    <div className={classes.loadingSpan}>Loading ...</div>
+                                )}
+                            </Col>
+                        </Row>
+                    </Container>
+                </>
             )}
             {children || <div />}
         </div>
     );
 }
+
+LoadingComponent.propTypes = {
+    backgroundColor: PropTypes.string,
+    children: PropTypes.any,
+    fullScreen: PropTypes.bool,
+    height: PropTypes.number,
+    hideText: PropTypes.any,
+    loading: PropTypes.any,
+    noTransparency: PropTypes.bool,
+    width: PropTypes.number,
+    zIndex: PropTypes.number
+};
 
 LoadingComponent.defaultProps = {
     fullScreen: true,

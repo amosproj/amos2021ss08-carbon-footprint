@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import React, { useContext, useState } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
-import { getCategorizedProducts } from 'interface/simaProInterface';
 import ProductDropdown from './ModelDropdownComponent';
 import SLUGS from 'resources/slugs';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,8 @@ import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import LabelComponent from './LabelComponent';
 import LoadingComponent from 'components/loading';
 
+import { useSelector } from 'react-redux';
+import { categories, types } from 'resources/globalConstants/categories';
 /**
  * The Component creates new cards for the product items using the minicard components form 'components/cards/MiniCardComponent'
  * it displays all the related products images attached to each card in a certain category.
@@ -16,54 +18,87 @@ import LoadingComponent from 'components/loading';
  * /**
  *
  * @returns the product and model properties
- * @author Irem Toroslu, Martin Wagner, Mani Anand
  */
 
-function ProductGridComponent({ selectedCategory }) {
+function ProductGridComponent({ selectedCategory, selectedType }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
-    const [productList, setProductList] = useState([]);
+    const [productList] = useState([]);
 
-    /*
-     * useEffect declars the async function getProducts to be executed after the initial render and
-     * hooks it so the Component reloads on change. At the moment the specified change is the selectedCategory.
-     */
-    useEffect(() => {
-        async function getProducts(theSelectedCategory) {
-            const products = await getCategorizedProducts(theSelectedCategory);
-            setProductList(products);
-            console.log(products);
-        }
-        getProducts(selectedCategory);
-    }, [selectedCategory]);
+    let preProducts = useSelector((state) => state);
+    let products;
+
+    switch (selectedCategory) {
+        case categories.generation:
+            switch (selectedType) {
+                case types.product:
+                    products = preProducts?.generation?.products;
+                    break;
+                case types.solution:
+                    products = preProducts?.generation?.solutions;
+                    break;
+                case types.service:
+                    products = preProducts?.generation?.services;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case categories.transmission:
+            switch (selectedType) {
+                case types.product:
+                    products = preProducts?.transmission?.products;
+                    break;
+                case types.solution:
+                    products = preProducts?.transmission?.solutions;
+                    break;
+                case types.service:
+                    products = preProducts?.transmission?.services;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case categories.industrialApplications:
+            switch (selectedType) {
+                case types.product:
+                    products = preProducts?.industrialApplications?.products;
+                    break;
+                case types.solution:
+                    products = preProducts?.industrialApplications?.solutions;
+                    break;
+                case types.service:
+                    products = preProducts?.industrialApplications?.services;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            products = [];
+            break;
+    }
 
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
-    const newSelectedProducts = [
-        {
-            productID: selectedProducts[0].productID,
-            productName: selectedProducts[0].productName,
-            modelID: selectedProducts[0].modelID,
-            modelName: selectedProducts[0].modelName
-        }
-    ];
+    const newSelectedProducts = [selectedProducts[0]];
 
     if (productList === [] || productList === undefined || productList === null) {
-        return <LoadingComponent />;
+        console.error(
+            'Products data not recieved.Please verify the API calls and Backend Connection.'
+        );
+        return <LoadingComponent loading />;
     }
     // else:
     return (
         <Container fluid className='ProductGridTopContainer'>
             <Row justify='start'>
-                {productList.map((product, index) => (
+                {products?.map((product, index) => (
                     <Col className='ProductGridContainer' key={'Column' + index}>
                         <Row justify='center'>
                             <Link
                                 className='ProductGridLink'
-                                onClick={(props) => {
+                                onClick={() => {
                                     // Save selection to ContextProvider
-                                    newSelectedProducts[0].productID = product.productID;
-                                    newSelectedProducts[0].productName = product.productName;
-                                    newSelectedProducts[0].modelID = product.productID; // for now 1 Product has 1 Model (itself)
-                                    newSelectedProducts[0].modelName = product.productName;
+                                    newSelectedProducts[0] = product;
                                     setSelectedProducts(newSelectedProducts);
                                 }}
                                 to={{
@@ -109,5 +144,10 @@ function ProductGridComponent({ selectedCategory }) {
         </Container>
     );
 }
+
+ProductGridComponent.propTypes = {
+    selectedCategory: PropTypes.string.isRequired,
+    selectedType: PropTypes.string.isRequired
+};
 
 export default ProductGridComponent;

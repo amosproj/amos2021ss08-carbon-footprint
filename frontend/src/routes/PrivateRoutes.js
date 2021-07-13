@@ -15,11 +15,13 @@ import { PrivateSectionContext } from 'hooks/PrivateSectionContext';
 import GenerationInfo from 'components/productGrid/GenerationInfo';
 import TransmissionInfo from 'components/productGrid/TransmissionInfo';
 import IndustrialApplicationInfo from 'components/productGrid/IndustrialApplicationInfo';
-const ProductSolutionsServices = lazy(() =>
-    import('./dynamicPaths/ProductSolutionsServicesComponent')
-);
+import CategoryIndex from 'components/productGrid/CategoryIndex';
+import ProductSolutionsServicesComponent from 'routes/dynamicPaths/ProductSolutionsServicesComponent';
+import { categories } from 'resources/globalConstants/categories';
+
 // importing required components
-const DashboardComponent = lazy(() => import('../components/dashboard'));
+//const DashboardComponent = lazy(() => import('../components/dashboard'));
+const mydashboardComponent = lazy(() => import('../components/mydashboard/MydashboardComponent'));
 
 /**
  * Defining new Routes using private routes function
@@ -33,14 +35,9 @@ function PrivateRoutes() {
         <Router history={useHistory()}>
             <Suspense fallback={<LoadingComponent loading />}>
                 <Switch>
-                    <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
+                    <Route exact path={SLUGS.dashboard} component={mydashboardComponent} />
 
-                    <Route
-                        exact
-                        path={SLUGS.categories}
-                        render={() => <div className='TextContent'>categories</div>}
-                    />
-
+                    <Route exact path={SLUGS.categories} component={CategoryIndex} />
                     <Route exact path={SLUGS.generation} component={GenerationInfo} />
                     <Route exact path={SLUGS.transmission} component={TransmissionInfo} />
                     <Route
@@ -51,15 +48,23 @@ function PrivateRoutes() {
 
                     <Route
                         path={SLUGS.generation + '/:type'}
-                        component={ProductSolutionsServices}
+                        render={() => (
+                            <ProductSolutionsServicesComponent category={categories.generation} />
+                        )}
                     />
                     <Route
                         path={SLUGS.transmission + '/:type'}
-                        component={ProductSolutionsServices}
+                        render={() => (
+                            <ProductSolutionsServicesComponent category={categories.transmission} />
+                        )}
                     />
                     <Route
                         path={SLUGS.industrialApplications + '/:type'}
-                        component={ProductSolutionsServices}
+                        render={() => (
+                            <ProductSolutionsServicesComponent
+                                category={categories.industrialApplications}
+                            />
+                        )}
                     />
 
                     <Route
