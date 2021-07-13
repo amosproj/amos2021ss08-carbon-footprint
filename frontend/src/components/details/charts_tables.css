@@ -8,6 +8,7 @@
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
     color: #1b1534;
+    margin-top: 15px;
 }
 
 /* Reconfiguration of the title style on Column chart  */
@@ -25,7 +26,7 @@
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: var(--global--chart-items--FontSize);
+    font-size: var(--global--table-items--FontSize);
     margin-left: 0;
     color: #000000;
     margin-top: 10px;
@@ -40,9 +41,9 @@
     background-color: #ffffff;
     /* border:0.5px solid #00b300; */
     cursor: 'pointer';
-    margin-top: 25px;
-    margin-bottom: 50px;
-    max-width: 900px !important;
+    max-width: 600px !important;
+    min-width: 350px !important;
+    max-height: 600px !important;
 }
 
 .PieChartCardsContainer {
@@ -53,7 +54,11 @@
     padding: auto;
     justify-content: center;
     margin-top: 10px;
-    max-width: 500px !important;
+    max-width: 800px !important;
+    min-width: 300px !important;
+    max-height: 600px !important;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Table related styling */
@@ -66,7 +71,7 @@
     font-size: var(--global--text-title--FontSize);
     letter-spacing: 0.5px;
     color: #1b1534;
-    margin-bottom: 10px;
+    margin-top: 30px;
 }
 /* Reconfiguration of the title style on cards  */
 .CardTitle {
@@ -77,7 +82,8 @@
     letter-spacing: 0.5px;
     padding-left: 17px;
     color: #1b1534;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    margin-top: 15px;
 }
 
 /* Reconfiguration of the subtitle style on table  */
@@ -85,7 +91,7 @@
     font-family: inherit;
     font-style: normal;
     font-weight: normal;
-    font-size: var(--global--text-subtitle--FontSize);
+    font-size: var(--global--table-subtitle--FontSize);
     letter-spacing: 0.5px;
     color: #1b1534;
 }
@@ -98,16 +104,20 @@
     font-size: var(--global--table-items--FontSize);
     margin-left: 0;
     color: #1b1534;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 10px;
+}
+.tableCorner {
+    border-radius: 8px;
 }
 
 .TableContainer {
     background-color: #ffffff;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: 'pointer';
     padding: 10px; /* To make it display the shadow properly */
     overflow: auto; /* To make it scrollable whenever it does not fit for some reason. */
+    margin-bottom: 50px;
 }
 
 .TableHeader {

@@ -24,13 +24,16 @@ const ColumnChartComponent = (props) => {
     const options = {
         chart: {
             type: 'bar',
-            height: '150'
+            height: 'auto',
+            toolbar: {
+                show: false
+            }
         },
 
         plotOptions: {
             bar: {
-                columnWidth: '75%',
-                BorderRadius: 10,
+                columnWidth: '70%',
+                borderRadius: 5,
                 dataLabels: {
                     position: 'top' // top, center, bottom
                 }
@@ -42,12 +45,12 @@ const ColumnChartComponent = (props) => {
 
         dataLabels: {
             enabled: true,
-            formatter: function (val) {
-                return val + '%';
+            formatter: function (value) {
+                return value + '%';
             },
             offsetY: -20,
             style: {
-                fontSize: '10px',
+                fontSize: '14px',
                 colors: ['#21cc82']
             }
         },
@@ -60,36 +63,38 @@ const ColumnChartComponent = (props) => {
             labels: {
                 formatter: function (y) {
                     return y.toFixed(0) + '%';
+                },
+                style: {
+                    fontSize: 14
                 }
             }
         },
         xaxis: {
             categories: getLifeCycleStages(),
             labels: {
-                rotate: -90,
                 style: {
-                    fontSize: 6.8
+                    fontSize: 14
                 }
-            },
-            responsive: [
-                {
-                    breakpoint: 6400,
-                    options: {
-                        chart: {
-                            width: 600
-                        },
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }
-            ]
+            }
+        },
+        dropShadow: {
+            enabled: true,
+            top: 0,
+            left: 0,
+            blur: 3,
+            opacity: 0.5
         }
     };
 
     return (
-        <div className='ChartItems' id='chart'>
-            <ReactApexChart options={options} series={series} type='bar' height={350} />
+        <div id='chart'>
+            <ReactApexChart
+                options={options}
+                series={series}
+                type='bar'
+                height={350}
+                width={'100%'}
+            />
         </div>
     );
 };

@@ -26,6 +26,7 @@
     --global--text-title--FontSize: 20px;
     --global--text-subtitle--FontSize: 19px;
     --global--chart-items--FontSize: 10px;
-    --global--table-items--FontSize: 10px;
+    --global--table-items--FontSize: 14px;
+    --global--table-subtitle--FontSize: 16px;
     --global--button-title--FontSize: 14px;
 }

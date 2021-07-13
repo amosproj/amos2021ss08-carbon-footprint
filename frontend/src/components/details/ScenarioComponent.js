@@ -17,7 +17,11 @@ class ScenarioComponent extends Component {
     render() {
         // The styling of the Container, Row and Col can not be moved to css, as the css has a lower priority than the react-grid-system default.
         return (
-            <Container fluid={true} style={{ padding: 0, margin: 0, backgroundColor: 'white' }}>
+            <Container
+                id={this.props.scenarioName + ' ScenarioComponent'}
+                fluid={true}
+                style={{ padding: 0, margin: 0, backgroundColor: 'white' }}
+            >
                 <Row style={{ padding: 0, margin: 0 }}>
                     <NavbarComponent
                         loadComparePage={this.props.loadComparePage}
@@ -38,31 +42,48 @@ class ScenarioComponent extends Component {
                         newScenarioHandler={this.props.newScenarioHandler}
                     />
                     <Container fluid>
-                        <Row justify='center' align='center'>
-                            <Col className='BarChartContainer'>
+                        <Row justify='around' align='start'>
+                            <Col>
                                 <Row justify='center' align='center'>
-                                    <div className='CardTitle'>
-                                        <span>Results of the impact assessment</span>
-                                    </div>
-                                </Row>
-                                <Row justify='center' align='center'>
-                                    <div id='captureColumnDiagram'>
-                                        <ColumnChartComponent
-                                            scenarioName={this.props.scenarioName}
-                                        />
-                                    </div>
+                                    <Col className='BarChartContainer'>
+                                        <Row justify='center' align='center'>
+                                            <div className='CardTitle'>
+                                                <span>Results of the impact assessment</span>
+                                            </div>
+                                        </Row>
+                                        <Row
+                                            justify='center'
+                                            align='center'
+                                            style={{ margin: 0, padding: 0, display: 'block' }}
+                                        >
+                                            <div id='captureColumnDiagram'>
+                                                <ColumnChartComponent
+                                                    scenarioName={this.props.scenarioName}
+                                                />
+                                            </div>
+                                        </Row>
+                                    </Col>
                                 </Row>
                             </Col>
-                            <Col style={{ margin: 'auto' }} className='PieChartCardsContainer'>
+                            <Col>
                                 <Row justify='center' align='center'>
-                                    <div className='CardTitle'>
-                                        <span>Material Composition</span>
-                                    </div>
-                                </Row>
-                                <Row justify='center' align='center'>
-                                    <div id='capturePieChart'>
-                                        <PieChartComponent scenarioName={this.props.scenarioName} />
-                                    </div>
+                                    <Col
+                                        style={{ margin: 'auto' }}
+                                        className='PieChartCardsContainer'
+                                    >
+                                        <Row justify='center' align='center'>
+                                            <div className='CardTitle'>
+                                                <span>Material Composition</span>
+                                            </div>
+                                        </Row>
+                                        <Row justify='center' align='center'>
+                                            <div id='capturePieChart'>
+                                                <PieChartComponent
+                                                    scenarioName={this.props.scenarioName}
+                                                />
+                                            </div>
+                                        </Row>
+                                    </Col>
                                 </Row>
                             </Col>
                         </Row>
@@ -71,12 +92,12 @@ class ScenarioComponent extends Component {
                         <Col>
                             {/* dynamic display of product and model */}
                             <Row justify='center' align='center'>
-                                <h5 className='TableTitle'>
+                                <h5 className='CardTitle'>
                                     {this.props.selectedProduct.productName}
                                 </h5>
                             </Row>
                             <Row justify='center' align='center'>
-                                <h6 className='TableSubTitle'>
+                                <h6 className='CardTitle'>
                                     {this.props.selectedProduct.modelName ===
                                         this.props.selectedProduct.productName ||
                                     this.props.selectedProduct.modelName === undefined
