@@ -26,7 +26,8 @@
         "react-scripts": "^4.0.3",
         "react-select": "^4.3.0",
         "react-svg-line-chart": "^2.0.2",
-        "react-table": "^7.7.0"
+        "react-table": "^7.7.0",
+        "simple-flexbox": "^2.3.3"
     },
     "scripts": {
         "start": "react-scripts start",
