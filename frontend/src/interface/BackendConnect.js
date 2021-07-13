@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { processBackendData } from 'interface/processBackendData';
 import { dummyProcessBackendData } from 'interface/processBackendData';
+import { ErrorAlert } from 'assets/alert/alert';
 /**
  * Get request to det the details of all the projects from the API via backend.
  * @returns the list of all the projects.
@@ -34,7 +35,7 @@ export async function getSimaProProjects() {
  */
 export async function postCalculationRequest(projectId, scenarioName, callback) {
     // Bypass using the SimaPro Data
-    const useDummyData = true;
+    const useDummyData = false;
 
     if (useDummyData) {
         return dummyPostCalculationRequest(projectId, scenarioName, callback);
@@ -53,6 +54,19 @@ export async function postCalculationRequest(projectId, scenarioName, callback) 
 
         .then(function (data) {
             processBackendData(data, scenarioName, callback);
+        })
+
+        // Read the errors from SimaPro and throw alerts.
+        .catch((error) => {
+            console.log(error);
+            let errorMessage = JSON.stringify(error);
+            if (errorMessage.split(/[ ,:,\\]/).includes('400')) {
+                ErrorAlert(400);
+            } else if (errorMessage.split(/[ ,:,\\]/).includes('502')) {
+                ErrorAlert(502);
+            } else if (errorMessage.split(/[ ,:,\\]/).includes('401')) {
+                ErrorAlert(401);
+            }
         });
 }
 
@@ -65,6 +79,8 @@ function dummyPostCalculationRequest(projectId, scenarioName, callback) {
  *   This request is caught by the backend.
  *   Which then checks if the calculation is stored based on the calculationId generated.
  *   If the calculation is stored returns the results of calculation here.
+ *
+ *   This function is not used at present. Can be used in future.
  */
 export async function postCalculationRequestCustomSetup(projectId, processId, processName) {
     // POST request using axios with set headers
@@ -113,7 +129,7 @@ export async function postCalculationRequestCustomSetup(projectId, processId, pr
 
 /**
  *  Getrequest to get the processes for a model based on the project Id
- *
+ *  This function is not used at present. Can be used in future.
  */
 export async function getProjectProcesses(projectId) {
     const headers = {
