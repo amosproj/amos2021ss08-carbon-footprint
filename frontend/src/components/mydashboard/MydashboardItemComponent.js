@@ -164,14 +164,14 @@ function MydashboardItemComponent() {
                         <Collapsible trigger='Q2: How to export results into pdf?'>
                             <div className=' w3-card'>
                                 <p>
-                                    Answer: You can go to Categories- Choose Products - Use Export
+                                    Answer: You can go to Categories - Choose Products - Use Export
                                     button on the screen to download the pdf
                                 </p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Q3: Where to find my fav projects ?'>
+                        <Collapsible trigger='Q3: Where to find my fav projects?'>
                             <div className=' w3-card'>
-                                <p> Answer:You can find favorite projects in "My Dashboard"</p>
+                                <p> Answer: You can find favorite projects in "My Dashboard"</p>
                             </div>
                         </Collapsible>
                     </div>
