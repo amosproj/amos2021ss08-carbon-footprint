@@ -7,14 +7,12 @@ import {
 //import theme from 'resources/theme';
 /**
  * Pie Chart Diagram
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
 
-const PieChartComponent = () => {
-    const series = getMaterialCompositionData();
-    const labels = getMaterialCompositionLabels();
-
-    console.log(series);
-    console.log(labels);
+const PieChartComponent = (props) => {
+    const series = getMaterialCompositionData(props.scenarioName);
+    const labels = getMaterialCompositionLabels(props.scenarioName);
 
     const options = {
         //TODO

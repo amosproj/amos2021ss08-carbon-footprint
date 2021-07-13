@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 class MobileTableComponent extends Component {
     state = {
         headers: getImpactCategoriesTableHeaders(),
-        rows: getImpactAssessmentData()
+        rows: getImpactAssessmentData(this.props.scenarioName)
     };
     render() {
         const idKey = this.props.tableKey;
@@ -57,7 +57,8 @@ MobileTableComponent.propTypes = {
     modelID: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
     modelName: PropTypes.string.isRequired,
-    tableKey: PropTypes.string.isRequired
+    tableKey: PropTypes.string.isRequired,
+    scenarioName: PropTypes.string
 };
 
 export default MobileTableComponent;
@@ -70,6 +71,7 @@ export default MobileTableComponent;
  * @param {number} rowIndex - the index of the current row
  * @param rows - the rowdata that will be accesed
  * @returns the <td/> element of the corresponding row
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
 function getRowDataHelper(idKey, rowIndex, rows) {
     switch (rowIndex) {

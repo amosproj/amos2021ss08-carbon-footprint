@@ -9,9 +9,11 @@ import { getColumnChartData, getLifeCycleStages } from 'interface/projectInterfa
  * The categories are fixed. Recieves the categories from projectInterface.js using "getLifeCycleStages()"
  * Those categories represent the life cycle stages. They don't change - there are the same for all products and projects.
  * Look up: https://apexcharts.com/docs/react-charts/ for the chart options specified
+ * @param {*} props.scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
-const ColumnChartComponent = () => {
-    const values = getColumnChartData();
+
+const ColumnChartComponent = (props) => {
+    const values = getColumnChartData(props.scenarioName);
     const series = [
         {
             name: 'Global warming in kg CO2 equivalents',

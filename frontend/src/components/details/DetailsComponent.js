@@ -6,7 +6,12 @@ import './navbar.css';
 import { postCalculationRequest } from 'interface/BackendConnect';
 import LoadingComponent from 'components/loading';
 import { exportPdf } from '../../interface/PdfExporter.js';
+import { handleAddingSecondScenario } from 'interface/projectInterface';
 
+export const scenarioNames = {
+    baseline: 'Baseline Scenario',
+    modified: 'Modified Scenario'
+};
 /**
  * The DetailsComponent is the page, which is the top component for the Details Page.
  * Depending on the state it contains a single or two scenriaos (for comparison).
@@ -19,19 +24,28 @@ class DetailsComponent extends Component {
     /*
      * selectedScenarioId: for storing the id of the selected scenario to send the calculation request to server
      * selectedScenarioType: for sending it to SelectScenarioComponent
+     * secondSelectedScenarioId: for storing the id of the selected modified scenario to send the calculation request to server
+     * secondSelectedScenarioType: for sending it(modified) to SelectScenarioComponent
+     * state at the beginng: only show baseline scenario
      * baselineScenario: only display the baseline scenario, default: true
      * modifiedScenario: only display the modified scenario, default: false
      * loadComparePage: display both the baseline and modified scenario, default: false
      * stillLoading: variable to check, if still waiting for response of the API call to backend/database, default: true
-     * onExportClicked: ... , default: false
+     * onExportClicked: state required to handle the loading time during document generation, default: false
+     * loadingBaseline: reload the data for baseline scenario and send out a post calculation request if required
+     * loadingModified: reload the data for modified scenario and send out a post calculation request if required
      */
     state = {
         selectedScenarioId: '',
         selectedScenarioType: '',
+        secondSelectedScenarioId: '',
+        secondSelectedScenarioType: '',
         baselineScenario: true,
         modifiedScenario: false,
         loadComparePage: false,
         stillLoading: true,
+        loadingBaseline: false,
+        loadingModified: false,
         onExportClicked: false
     };
 
@@ -43,6 +57,8 @@ class DetailsComponent extends Component {
         super(props);
         this.state.selectedScenarioType = props.selectedProduct.scenarioType;
         this.state.selectedScenarioId = props.selectedProduct.productID;
+        this.state.secondSelectedScenarioType = props.selectedProduct.scenarioType;
+        this.state.secondSelectedScenarioId = props.selectedProduct.productID;
     }
 
     render() {
@@ -55,6 +71,7 @@ class DetailsComponent extends Component {
             const baselineScenario = false;
             const modifiedScenario = false;
             const loadComparePage = true;
+            handleAddingSecondScenario();
             this.setState({ baselineScenario, modifiedScenario, loadComparePage });
         };
 
@@ -88,11 +105,29 @@ class DetailsComponent extends Component {
          *
          * @param item: selected scenario
          */
-        let handleNewScenarioSelection = (item) => {
-            this.setState({ selectedScenarioId: item.id }, () => {
-                this.setState({ stillLoading: true });
-                this.setState({ selectedScenarioType: item.name });
-            });
+        let handleNewScenarioSelection = (item, scenarioName) => {
+            if (!this.state.loadComparePage) {
+                console.log('No Compare' + scenarioName);
+                this.setState({ selectedScenarioId: item.id }, () => {
+                    this.setState({ stillLoading: true });
+                    this.setState({ selectedScenarioType: item.name });
+                });
+            }
+            // if the first scenario in drop down menue is changed
+            else if (scenarioName === scenarioNames.baseline) {
+                console.log('first scenario is changed: ' + scenarioName);
+                this.setState({ selectedScenarioId: item.id }, () => {
+                    this.setState({ loadingBaseline: true });
+                    this.setState({ selectedScenarioType: item.name });
+                });
+                // if the second scenario in drop down menue is changed
+            } else {
+                console.log('second scenario is changed: ' + scenarioName);
+                this.setState({ secondSelectedScenarioId: item.id }, () => {
+                    this.setState({ loadingModified: true });
+                    this.setState({ secondSelectedScenarioType: item.name });
+                });
+            }
         };
 
         /*
@@ -120,17 +155,34 @@ class DetailsComponent extends Component {
          */
         let handleFinishedDataRequest = () => {
             this.setState({ stillLoading: false });
+            this.setState({ loadingBaseline: false });
+            this.setState({ loadingModified: false });
         };
-        const scenarioNames = {
-            baseline: 'Baseline Scenario',
-            modified: 'Modified Scenario'
-        };
-        const { selectedProduct } = this.props;
 
-        // Whil stillLoading display the LoadingComponent (turning circle)
+        const { selectedProduct } = this.props;
+        /**
+         * Reloading the webage based on which scenario is selected/modified.
+         * While stillLoading display the LoadingComponent (turning circle)
+         */
         if (this.state.stillLoading) {
-            postCalculationRequest(this.state.selectedScenarioId, handleFinishedDataRequest);
+            postCalculationRequest(
+                this.state.selectedScenarioId,
+                scenarioNames.baseline,
+                handleFinishedDataRequest
+            );
             return <LoadingComponent loading />;
+        } else if (this.state.loadingBaseline) {
+            postCalculationRequest(
+                this.state.selectedScenarioId,
+                scenarioNames.baseline,
+                handleFinishedDataRequest
+            );
+        } else if (this.state.loadingModified) {
+            postCalculationRequest(
+                this.state.secondSelectedScenarioId,
+                scenarioNames.modified,
+                handleFinishedDataRequest
+            );
         }
 
         /* Depending on the state, display the corresponding scenario(s)
@@ -167,7 +219,7 @@ class DetailsComponent extends Component {
                                 onCompareClick={handleCompareButton}
                                 exportHandler={handleExportPdfButton}
                                 scenarioName={scenarioNames.modified}
-                                selectedScenarioType={this.state.selectedScenarioType}
+                                selectedScenarioType={this.state.secondSelectedScenarioType}
                                 selectedProduct={selectedProduct}
                                 onExportClicked={this.state.onExportClicked}
                                 newScenarioHandler={handleNewScenarioSelection}
@@ -182,30 +234,37 @@ class DetailsComponent extends Component {
                 <Container className='ScenarioContainer' id='capture' fluid>
                     <Row gutterWidth={0}>
                         <Col className='CompareColLeft' xs={6} sm={6} md={6} lg={6}>
-                            <ScenarioComponent
-                                loadComparePage={this.state.loadComparePage}
-                                onCompareClick={handleCompareButton}
-                                onExportClick={handleExportPdfButton}
-                                onCloseClick={handleCloseBaselineButton}
-                                scenarioName={scenarioNames.baseline}
-                                selectedScenarioType={this.state.selectedScenarioType}
-                                selectedProduct={selectedProduct}
-                                newScenarioHandler={handleNewScenarioSelection}
-                            />
+                            {this.state.loadingBaseline && <LoadingComponent loading />}
+
+                            {!this.state.loadingBaseline && (
+                                <ScenarioComponent
+                                    loadComparePage={this.state.loadComparePage}
+                                    onCompareClick={handleCompareButton}
+                                    onExportClick={handleExportPdfButton}
+                                    onCloseClick={handleCloseBaselineButton}
+                                    scenarioName={scenarioNames.baseline}
+                                    selectedScenarioType={this.state.selectedScenarioType}
+                                    selectedProduct={selectedProduct}
+                                    newScenarioHandler={handleNewScenarioSelection}
+                                />
+                            )}
                         </Col>
 
                         {/* Spacing between the two columns is specified by paddingLeft */}
                         <Col className='CompareColRight' xs={6} sm={6} md={6} lg={6}>
-                            <ScenarioComponent
-                                loadComparePage={this.state.loadComparePage}
-                                onCompareClick={handleCompareButton}
-                                onExportClick={handleExportPdfButton}
-                                onCloseClick={handleCloseModifiedButton}
-                                scenarioName={scenarioNames.modified}
-                                selectedScenarioType={this.state.selectedScenarioType}
-                                selectedProduct={selectedProduct}
-                                newScenarioHandler={handleNewScenarioSelection}
-                            />
+                            {this.state.loadingModified && <LoadingComponent loading />}
+                            {!this.state.loadingModified && (
+                                <ScenarioComponent
+                                    loadComparePage={this.state.loadComparePage}
+                                    onCompareClick={handleCompareButton}
+                                    onExportClick={handleExportPdfButton}
+                                    onCloseClick={handleCloseModifiedButton}
+                                    scenarioName={scenarioNames.modified}
+                                    selectedScenarioType={this.state.secondSelectedScenarioType}
+                                    selectedProduct={selectedProduct}
+                                    newScenarioHandler={handleNewScenarioSelection}
+                                />
+                            )}
                         </Col>
                     </Row>
                 </Container>

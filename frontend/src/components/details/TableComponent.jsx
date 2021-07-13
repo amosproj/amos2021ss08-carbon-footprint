@@ -7,11 +7,12 @@ import {
 } from 'interface/projectInterface';
 /**
  * displays the impact catagories table of the selected model of the related product.
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
 class TableComponent extends Component {
     state = {
         headers: getImpactCategoriesTableHeaders(),
-        rows: getImpactAssessmentData()
+        rows: getImpactAssessmentData(this.props.scenarioName)
     };
     render() {
         const idKey = this.props.tableKey;
@@ -55,5 +56,6 @@ TableComponent.propTypes = {
     modelID: PropTypes.string.isRequired,
     modelName: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
+    scenarioName: PropTypes.string,
     tableKey: PropTypes.string.isRequired
 };

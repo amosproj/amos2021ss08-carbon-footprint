@@ -32,6 +32,7 @@ class ScenarioComponent extends Component {
                     <SelectScenarioComponent
                         selectedProduct={this.props.selectedProduct}
                         loadComparePage={this.props.loadComparePage}
+                        scenarioName={this.props.scenarioName}
                         selectedScenarioType={this.props.selectedScenarioType}
                         newScenarioHandler={this.props.newScenarioHandler}
                     />
@@ -45,7 +46,9 @@ class ScenarioComponent extends Component {
                                 </Row>
                                 <Row justify='center' align='center'>
                                     <div id='captureColumnDiagram'>
-                                        <ColumnChartComponent />
+                                        <ColumnChartComponent
+                                            scenarioName={this.props.scenarioName}
+                                        />
                                     </div>
                                 </Row>
                             </Col>
@@ -57,7 +60,7 @@ class ScenarioComponent extends Component {
                                 </Row>
                                 <Row justify='center' align='center'>
                                     <div id='capturePieChart'>
-                                        <PieChartComponent />
+                                        <PieChartComponent scenarioName={this.props.scenarioName} />
                                     </div>
                                 </Row>
                             </Col>
@@ -92,6 +95,7 @@ class ScenarioComponent extends Component {
                                             productName={this.props.selectedProduct.productName}
                                             modelID={this.props.selectedProduct.modelID}
                                             modelName={this.props.selectedProduct.modelName}
+                                            scenarioName={this.props.scenarioName}
                                             tableKey={this.props.scenarioName}
                                         />
                                     </Hidden>
@@ -103,6 +107,7 @@ class ScenarioComponent extends Component {
                                             productName={this.props.selectedProduct.productName}
                                             modelName={this.props.selectedProduct.modelName}
                                             modelID={this.props.selectedProduct.modelID}
+                                            scenarioName={this.props.scenarioName}
                                             tableKey={this.props.scenarioName}
                                         />
                                     </Hidden>
