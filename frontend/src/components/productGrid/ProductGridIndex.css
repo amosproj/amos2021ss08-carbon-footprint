@@ -1,3 +1,4 @@
+@import '//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css';
 .App {
     font-family: sans-serif;
     text-align: center;
@@ -31,4 +32,21 @@
 .ProductGridContainer {
     padding: 10px;
     margin: 10px;
+}
+
+#myInput {
+    font-family: FontAwesome;
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: var(--global--text--FontSize);
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    border-radius: 6px;
+}
+
+#myInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #8a00e5;
 }

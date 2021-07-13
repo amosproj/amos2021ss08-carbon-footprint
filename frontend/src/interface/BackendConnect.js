@@ -35,7 +35,7 @@ export async function getSimaProProjects() {
  */
 export async function postCalculationRequest(projectId, scenarioName, callback) {
     // Bypass using the SimaPro Data
-    const useDummyData = false;
+    const useDummyData = true;
 
     if (useDummyData) {
         return dummyPostCalculationRequest(projectId, scenarioName, callback);
