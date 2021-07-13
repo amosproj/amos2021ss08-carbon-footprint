@@ -14,7 +14,7 @@ function CategoryIndex() {
                     sustainable world requires a complex journey. But you're not without a partner.
                     At Siemen's Carbon Visualization, we work closely with our customers to drive
                     the energy transition, step by step, with our rich history of innovative
-                    technology,extensive energy experience and ambitious strategy to drive the
+                    technology, extensive energy experience and ambitious strategy to drive the
                     decarbonization of global energy systems.
                 </p>
             </div>
