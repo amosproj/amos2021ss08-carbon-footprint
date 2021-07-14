@@ -5,16 +5,37 @@
 
 import logo_1 from 'assets/dummyImages/Image_1.PNG';
 import logo_3 from 'assets/dummyImages/Logo2.png';
+import { scenarioNames } from 'components/details/DetailsComponent';
 
+/**
+ * the variables for the baseline scenario
+ */
 var materialCompositionLabels;
 var materialCompositionData;
 let materialDataInPercent;
 var assessmentValues;
 let chartDataInPercent = [];
 
-export function handOverBackendData(data) {
-    console.log('data');
-    console.log(data);
+/**
+ * the variables for the modified scenario
+ */
+var modifiedMaterialCompositionLabels;
+var modifiedMaterialCompositionData;
+let modifiedMaterialDataInPercent;
+var modifiedAssessmentValues;
+let modifiedChartDataInPercent = [];
+
+/**
+ * initializing the modified scenario with the baseline
+ * inorder to display the same values for the modified scenario
+ * when the user click on add scenario
+ */
+export function handleAddingSecondScenario() {
+    modifiedMaterialCompositionLabels = materialCompositionLabels;
+    modifiedMaterialCompositionData = materialCompositionData;
+    modifiedMaterialDataInPercent = materialDataInPercent;
+    modifiedAssessmentValues = assessmentValues;
+    modifiedChartDataInPercent = chartDataInPercent;
 }
 
 /**
@@ -44,22 +65,31 @@ export function getModels() {
  * Calculates the percentage values and returns them.
  * @param compositionData filtered data from backendconnnect
  */
-export function setMaterialCompositionData(compositionData) {
-    console.log('compositionData');
-    materialDataInPercent = [];
-    materialCompositionData = Array.from(compositionData);
-    console.log(materialCompositionData);
-    for (let i = 0; i < materialCompositionData.length; i++) {
-        materialDataInPercent[i] = Number(materialCompositionData[i]);
+export function setMaterialCompositionData(scenarioName, compositionData) {
+    if (scenarioName === scenarioNames.baseline) {
+        materialDataInPercent = [];
+        materialCompositionData = Array.from(compositionData);
+        for (let i = 0; i < materialCompositionData.length; i++) {
+            materialDataInPercent[i] = Number(materialCompositionData[i]);
+        }
+    } else if (scenarioName === scenarioNames.modified) {
+        modifiedMaterialDataInPercent = [];
+        modifiedMaterialCompositionData = Array.from(compositionData);
+        for (let i = 0; i < modifiedMaterialCompositionData.length; i++) {
+            modifiedMaterialDataInPercent[i] = Number(modifiedMaterialCompositionData[i]);
+        }
     }
-    console.log(materialDataInPercent);
 }
 
 /**
  * Getter method to recieve the filtered Material Composititon Data from API
  */
-export function getMaterialCompositionData() {
-    return materialDataInPercent;
+export function getMaterialCompositionData(scenarioName) {
+    if (scenarioName === scenarioNames.baseline) {
+        return materialDataInPercent;
+    } else if (scenarioName === scenarioNames.modified) {
+        return modifiedMaterialDataInPercent;
+    }
 }
 
 /**
@@ -67,16 +97,23 @@ export function getMaterialCompositionData() {
  * Calculates the percentage values and returns them.
  * @param compositionData filtered data from backendconnnect
  */
-export function setMaterialCompositionLabels(compositionLabels) {
-    materialCompositionLabels = Array.from(compositionLabels);
-    console.log(materialCompositionLabels);
+export function setMaterialCompositionLabels(scenarioName, compositionLabels) {
+    if (scenarioName === scenarioNames.baseline) {
+        materialCompositionLabels = Array.from(compositionLabels);
+    } else if (scenarioName === scenarioNames.modified) {
+        modifiedMaterialCompositionLabels = Array.from(compositionLabels);
+    }
 }
 
 /**
  * Getter method to recieve the filtered Material Composititon Labels from API
  */
-export function getMaterialCompositionLabels() {
-    return materialCompositionLabels;
+export function getMaterialCompositionLabels(scenarioName) {
+    if (scenarioName === scenarioNames.baseline) {
+        return materialCompositionLabels;
+    } else if (scenarioName === scenarioNames.modified) {
+        return modifiedMaterialCompositionLabels;
+    }
 }
 
 /**
@@ -85,7 +122,12 @@ export function getMaterialCompositionLabels() {
  * @param modelID id of the model, which we want to get the Data
  */
 export function getLifeCycleStages(modelID) {
-    return ['Materials', 'Manufacturing and Transport', 'Operation 30a (75% load)', 'End of Life'];
+    return [
+        'Materials',
+        ['Manufacturing', 'and Transport'],
+        ['Operation 30a', '(75% load)'],
+        'End of Life'
+    ];
 }
 
 /**
@@ -93,15 +135,23 @@ export function getLifeCycleStages(modelID) {
  * Impact Assessment is done for each of the life cycle stage
  * @param assessmentData recieved from Backendconnect
  */
-export function setImpactAssessmentData(assessmentData) {
-    assessmentValues = assessmentData;
+export function setImpactAssessmentData(scenarioName, assessmentData) {
+    if (scenarioName === scenarioNames.baseline) {
+        assessmentValues = assessmentData;
+    } else if (scenarioName === scenarioNames.modified) {
+        modifiedAssessmentValues = assessmentData;
+    }
 }
 
 /**
  * Getter method to recieve the filtered Impact Assessment Data from API
  */
-export function getImpactAssessmentData() {
-    return assessmentValues;
+export function getImpactAssessmentData(scenarioName) {
+    if (scenarioName === scenarioNames.baseline) {
+        return assessmentValues;
+    } else if (scenarioName === scenarioNames.modified) {
+        return modifiedAssessmentValues;
+    }
 }
 
 /**
@@ -110,14 +160,22 @@ export function getImpactAssessmentData() {
  * Percentage is calulated
  * @param assessmentData recieved from Backendconnect
  */
-export function setColumnChartData(assessmentDataInPercent) {
-    chartDataInPercent = assessmentDataInPercent;
+export function setColumnChartData(scenarioName, assessmentDataInPercent) {
+    if (scenarioName === scenarioNames.baseline) {
+        chartDataInPercent = assessmentDataInPercent;
+    } else if (scenarioName === scenarioNames.modified) {
+        modifiedChartDataInPercent = assessmentDataInPercent;
+    }
 }
 /**
  * Getter method to recieve the filtered Impact Assessment Data from API
  */
-export function getColumnChartData() {
-    return chartDataInPercent;
+export function getColumnChartData(scenarioName) {
+    if (scenarioName === scenarioNames.baseline) {
+        return chartDataInPercent;
+    } else if (scenarioName === scenarioNames.modified) {
+        return modifiedChartDataInPercent;
+    }
 }
 /**
  * * QUESTION: life cycle stages fixed?
@@ -139,6 +197,10 @@ export function getImpactCategoriesTableHeaders(modelID) {
  * Impact Assessment is done for each of the life cycle stage
  * @param assessmentData recieved from Backendconnect and filtered here
  */
-export function getImpactCategoriesTableData() {
-    return assessmentValues;
+export function getImpactCategoriesTableData(scenarioName) {
+    if (scenarioName === scenarioNames.baseline) {
+        return assessmentValues;
+    } else if (scenarioName === scenarioNames.modified) {
+        return modifiedAssessmentValues;
+    }
 }

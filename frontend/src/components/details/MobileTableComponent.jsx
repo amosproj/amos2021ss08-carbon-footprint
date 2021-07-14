@@ -13,14 +13,14 @@ import PropTypes from 'prop-types';
 class MobileTableComponent extends Component {
     state = {
         headers: getImpactCategoriesTableHeaders(),
-        rows: getImpactAssessmentData()
+        rows: getImpactAssessmentData(this.props.scenarioName)
     };
     render() {
         const idKey = this.props.tableKey;
         return (
             <Container fluid={true}>
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
-                    {/* style needs to be defined in js */}
+                    {/* future TODO: style needs to be defined in js */}
                     <tbody>
                         {this.state.headers.map((header, index) => (
                             <tr
@@ -35,15 +35,6 @@ class MobileTableComponent extends Component {
                                     {header.value}
                                 </th>
                                 {getRowDataHelper(idKey, index, this.state.rows)}
-                                {/* <td key={'table1' + idKey + 'thead' + header.key + index + '3'}>
-                                    {Object.values(this.state.rows[3])[index + 1]}
-                                </td>
-                                <td key={'table1' + idKey + 'thead' + header.key + index + '4'}>
-                                    {Object.values(this.state.rows[4])[index + 1]}
-                                </td>
-                                <td key={'table1' + idKey + 'thead' + header.key + index + '5'}>
-                                    {Object.values(this.state.rows[5])[index + 1]}
-                                </td> */}
                             </tr>
                         ))}
                     </tbody>
@@ -57,7 +48,8 @@ MobileTableComponent.propTypes = {
     modelID: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
     modelName: PropTypes.string.isRequired,
-    tableKey: PropTypes.string.isRequired
+    tableKey: PropTypes.string.isRequired,
+    scenarioName: PropTypes.string
 };
 
 export default MobileTableComponent;
@@ -70,6 +62,7 @@ export default MobileTableComponent;
  * @param {number} rowIndex - the index of the current row
  * @param rows - the rowdata that will be accesed
  * @returns the <td/> element of the corresponding row
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
 function getRowDataHelper(idKey, rowIndex, rows) {
     switch (rowIndex) {

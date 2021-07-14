@@ -1,3 +1,4 @@
+@import '//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css';
 .App {
     font-family: sans-serif;
     text-align: center;
@@ -6,6 +7,7 @@
 .dropDown {
     background-color: #8a00e5;
     color: white;
+    border-radius: 8px;
 }
 .dropDown:hover {
     opacity: 0.8;
@@ -16,6 +18,25 @@
 .imageTitle {
     background-color: #974cc2;
     color: white !important;
+    padding: 2px;
+    margin: 10px;
+    border-radius: 8px;
+    width: calc(60% * 480px);
+    height: calc(60% * 350px);
+    margin-top: 50px;
+}
+
+.imageCards {
+    background-color: #974cc2;
+    color: white !important;
+    padding: 2px;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.imageTitle img,
+.imageCards img {
+    border-radius: 8px;
 }
 
 .ProductGridLink {
@@ -29,4 +50,21 @@
 .ProductGridContainer {
     padding: 10px;
     margin: 10px;
+}
+
+#myInput {
+    font-family: FontAwesome;
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: var(--global--text--FontSize);
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    border-radius: 6px;
+}
+
+#myInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #8a00e5;
 }

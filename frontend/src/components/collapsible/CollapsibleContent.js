@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useScrollHeight } from 'react-collapsible-content';
 
-
+/**
+ * Different predefined states of the component used for styling
+ */
 const STATUS = {
     COLLAPSED: 'COLLAPSED',
     PRE_EXPANDED: 'PRE_EXPANDED',
@@ -11,7 +13,8 @@ const STATUS = {
 };
 
 /**
- * This component returns the collapsible items on the sidebar component. 
+ * This component returns the collapsible items on the sidebar component.
+ * Currently used for My-Dashboard, Categories and Details in the sidebar.
  */
 function CollapsibleContent({
     children,
@@ -29,8 +32,8 @@ function CollapsibleContent({
         onTransitionStart,
         onTransitionEnd
     });
-    
-    /* This styling needs to be done in JS code.*/
+
+    /* Future TODO: This styling needs to be done in JS code.*/
 
     let transitionStyles;
     switch (status) {

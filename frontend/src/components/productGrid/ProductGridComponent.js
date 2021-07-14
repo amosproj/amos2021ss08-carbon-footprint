@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import MiniCardComponent from 'components/cards/MiniCardComponent';
 import ProductDropdown from './ModelDropdownComponent';
@@ -23,7 +23,6 @@ import { categories, types } from 'resources/globalConstants/categories';
 function ProductGridComponent({ selectedCategory, selectedType }) {
     const [selectedProducts, setSelectedProducts] = useContext(PrivateSectionContext);
     const [productList] = useState([]);
-
     let preProducts = useSelector((state) => state);
     let products;
 
@@ -78,6 +77,30 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
             break;
     }
 
+    const [filteredProducts, setFilteredProducts] = useState([...products]);
+
+    useEffect(() => {
+        setFilteredProducts([...products]);
+        document.getElementById('myInput').value = '';
+    }, [selectedType, products]);
+
+    /**
+     * updating the filtered list
+     * and notigying react to render the list again
+     * and show the updated list
+     *
+     * @param e : the input of the search bar
+     */
+    let updateInput = async (e) => {
+        // initializing the filtered products with the actual products
+        let allProducts = [...products];
+        const filtered = allProducts.filter((product) => {
+            return product.productName.toLowerCase().includes(e.target.value.toLowerCase());
+        });
+
+        setFilteredProducts([...filtered]);
+    };
+
     // TODO: We cannot keep the selection like this, if models are implemented. See #58
     const newSelectedProducts = [selectedProducts[0]];
 
@@ -90,8 +113,17 @@ function ProductGridComponent({ selectedCategory, selectedType }) {
     // else:
     return (
         <Container fluid className='ProductGridTopContainer'>
+            <Row>
+                <input
+                    type='text'
+                    id='myInput'
+                    onChange={updateInput}
+                    placeholder='&#61442;  Search for a product..'
+                    title='Enter a name'
+                />
+            </Row>
             <Row justify='start'>
-                {products?.map((product, index) => (
+                {filteredProducts?.map((product, index) => (
                     <Col className='ProductGridContainer' key={'Column' + index}>
                         <Row justify='center'>
                             <Link

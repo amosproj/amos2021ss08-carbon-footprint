@@ -34,7 +34,7 @@ function RecoverPasswordComponent() {
                         <input
                             className='recover'
                             type='text'
-                            placeholder='abc@siemens.com'
+                            placeholder='abc@company.com'
                             name='uname'
                             required
                         />

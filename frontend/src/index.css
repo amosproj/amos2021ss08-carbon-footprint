@@ -7,7 +7,6 @@
 @import url('components/cards/miniCard.css');
 @import url('components/productGrid/ProductGridIndex.css');
 @import url('routes/privateSection.css');
-@import url('components/details/details.css');
 @import url('components/mydashboard/mydashboard.css');
 
 /* css resets */
@@ -147,7 +146,6 @@ body,
     font-size: 22px;
     letter-spacing: 0.5px;
     color: #4d217a;
-    margin-bottom: 10px;
 }
 
 /* Reconfiguration of the text style on pages */
@@ -158,7 +156,7 @@ body,
     font-size: var(--global--text--FontSize);
     letter-spacing: 0.5px;
     color: #000000;
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 /* Reconfiguration of the text style on details pages */

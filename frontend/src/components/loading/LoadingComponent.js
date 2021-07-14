@@ -28,16 +28,19 @@ const useStyles = createUseStyles({
     }
 });
 
+/**
+ * loading component is always being used, when no data is available yet
+ * @returns a fany spinning circle
+ */
 function LoadingComponent({
     backgroundColor,
     children,
     fullScreen,
-    height,
     hideText,
     loading,
     noTransparency,
-    width,
-    zIndex
+    zIndex,
+    text
 }) {
     const theme = useTheme();
     const classes = useStyles({ theme, fullScreen, noTransparency, backgroundColor, zIndex });
@@ -53,7 +56,9 @@ function LoadingComponent({
                             <Col className={classes.container} align='center' justify='center'>
                                 <div className={classes.loading}></div>
                                 {!hideText && (
-                                    <div className={classes.loadingSpan}>Loading ...</div>
+                                    <div className={classes.loadingSpan}>
+                                        {text === undefined ? 'Loading ...' : text}
+                                    </div>
                                 )}
                             </Col>
                         </Row>

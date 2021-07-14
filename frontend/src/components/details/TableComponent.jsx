@@ -7,16 +7,17 @@ import {
 } from 'interface/projectInterface';
 /**
  * displays the impact catagories table of the selected model of the related product.
+ * @scenarioName - props to spicify whether we need values for Modified/Baseline Scenario
  */
 class TableComponent extends Component {
     state = {
         headers: getImpactCategoriesTableHeaders(),
-        rows: getImpactAssessmentData()
+        rows: getImpactAssessmentData(this.props.scenarioName)
     };
     render() {
         const idKey = this.props.tableKey;
         return (
-            <Container fluid={true}>
+            <Container fluid={true} className='TableCorner'>
                 <table className='w3-table-all w3-card-4 w3-small w3-center'>
                     <thead className='TableHeader'>
                         <tr className='TableHeader' key={'FirstRow'}>
@@ -55,5 +56,6 @@ TableComponent.propTypes = {
     modelID: PropTypes.string.isRequired,
     modelName: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
+    scenarioName: PropTypes.string,
     tableKey: PropTypes.string.isRequired
 };

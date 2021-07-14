@@ -3,12 +3,13 @@ import { Col, Container, Row, Visible } from 'react-grid-system';
 import Collapsible from 'react-collapsible';
 import SlideshowComponent from './SlideshowComponent';
 
-const data = [];
-
-for (let x = 1; x <= 24; x++) {
-    data.push({ x: x, y: Math.floor(Math.random() * 100) });
-}
-
+/**
+ * This component creates the first page after logged in
+ *
+ * It involves the necessary information regarding the web site.
+ *
+ * @returns the required components for the mydashboard page.
+ */
 function MydashboardItemComponent() {
     function renderMiniCards(title, value) {
         return (
@@ -163,14 +164,14 @@ function MydashboardItemComponent() {
                         <Collapsible trigger='Q2: How to export results into pdf?'>
                             <div className=' w3-card'>
                                 <p>
-                                    Answer: You can go to Categories- Choose Products - Use Export
+                                    Answer: You can go to Categories - Choose Products - Use Export
                                     button on the screen to download the pdf
                                 </p>
                             </div>
                         </Collapsible>
-                        <Collapsible trigger='Q3: Where to find my fav projects ?'>
+                        <Collapsible trigger='Q3: Where to find my fav projects?'>
                             <div className=' w3-card'>
-                                <p> Answer:You can find favorite projects in "My Dashboard"</p>
+                                <p> Answer: You can find favorite projects in "My Dashboard"</p>
                             </div>
                         </Collapsible>
                     </div>

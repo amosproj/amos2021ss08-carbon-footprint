@@ -17,48 +17,73 @@ class ScenarioComponent extends Component {
     render() {
         // The styling of the Container, Row and Col can not be moved to css, as the css has a lower priority than the react-grid-system default.
         return (
-            <Container fluid={true} style={{ padding: 0, margin: 0, backgroundColor: 'white' }}>
+            <Container
+                id={this.props.scenarioName + ' ScenarioComponent'}
+                fluid
+                style={{ padding: 0, margin: 25, backgroundColor: 'white', borderRadius:'8px' }}
+            >
                 <Row style={{ padding: 0, margin: 0 }}>
                     <NavbarComponent
                         loadComparePage={this.props.loadComparePage}
                         onCompareClick={this.props.onCompareClick}
                         scenarioName={this.props.scenarioName}
+                        scenarioDisplayName={this.props.selectedScenarioType}
                         onExportClicked={this.props.onExportClicked}
                         exportHandler={this.props.exportHandler}
                         onCloseClick={this.props.onCloseClick}
                     />
                 </Row>
-                <Container fluid={true} style={{ padding: 'auto' }}>
+                <Container fluid style={{ padding: 'auto' }}>
                     <SelectScenarioComponent
                         selectedProduct={this.props.selectedProduct}
                         loadComparePage={this.props.loadComparePage}
+                        scenarioName={this.props.scenarioName}
                         selectedScenarioType={this.props.selectedScenarioType}
                         newScenarioHandler={this.props.newScenarioHandler}
                     />
                     <Container fluid>
-                        <Row justify='center' align='center'>
-                            <Col className='BarChartContainer'>
+                        <Row justify='around' align='start'>
+                            <Col>
                                 <Row justify='center' align='center'>
-                                    <div className='CardTitle'>
-                                        <span>Results of the impact assessment</span>
-                                    </div>
-                                </Row>
-                                <Row justify='center' align='center'>
-                                    <div id='captureColumnDiagram'>
-                                        <ColumnChartComponent />
-                                    </div>
+                                    <Col className='BarChartContainer'>
+                                        <Row justify='center' align='center'>
+                                            <div className='CardTitle'>
+                                                <span>Results of the impact assessment</span>
+                                            </div>
+                                        </Row>
+                                        <Row
+                                            justify='center'
+                                            align='center'
+                                            style={{ margin: 0, padding: 0, display: 'block' }}
+                                        >
+                                            <div id='captureColumnDiagram'>
+                                                <ColumnChartComponent
+                                                    scenarioName={this.props.scenarioName}
+                                                />
+                                            </div>
+                                        </Row>
+                                    </Col>
                                 </Row>
                             </Col>
-                            <Col style={{ margin: 'auto' }} className='PieChartCardsContainer'>
+                            <Col>
                                 <Row justify='center' align='center'>
-                                    <div className='CardTitle'>
-                                        <span>Material Composition</span>
-                                    </div>
-                                </Row>
-                                <Row justify='center' align='center'>
-                                    <div id='capturePieChart'>
-                                        <PieChartComponent />
-                                    </div>
+                                    <Col
+                                        style={{ margin: 'auto' }}
+                                        className='PieChartCardsContainer'
+                                    >
+                                        <Row justify='center' align='center'>
+                                            <div className='CardTitle'>
+                                                <span>Material Composition</span>
+                                            </div>
+                                        </Row>
+                                        <Row justify='center' align='center'>
+                                            <div id='capturePieChart'>
+                                                <PieChartComponent
+                                                    scenarioName={this.props.scenarioName}
+                                                />
+                                            </div>
+                                        </Row>
+                                    </Col>
                                 </Row>
                             </Col>
                         </Row>
@@ -72,13 +97,15 @@ class ScenarioComponent extends Component {
                                 </h5>
                             </Row>
                             <Row justify='center' align='center'>
-                                <h6 className='TableSubTitle'>
-                                    {this.props.selectedProduct.modelName ===
-                                        this.props.selectedProduct.productName ||
-                                    this.props.selectedProduct.modelName === undefined
-                                        ? ''
-                                        : this.props.selectedProduct.modelName}
-                                </h6>
+                                {this.props.selectedProduct.modelName ===
+                                    this.props.selectedProduct.productName ||
+                                this.props.selectedProduct.modelName === undefined ? (
+                                    <div />
+                                ) : (
+                                    <h6 className='TableTitle'>
+                                        {this.props.selectedProduct.modelName}
+                                    </h6>
+                                )}
                             </Row>
                             <Row justify='center' align='center' style={{ margin: 0 }}>
                                 <div id='captureTable' className='TableContainer'>
@@ -92,6 +119,7 @@ class ScenarioComponent extends Component {
                                             productName={this.props.selectedProduct.productName}
                                             modelID={this.props.selectedProduct.modelID}
                                             modelName={this.props.selectedProduct.modelName}
+                                            scenarioName={this.props.scenarioName}
                                             tableKey={this.props.scenarioName}
                                         />
                                     </Hidden>
@@ -103,6 +131,7 @@ class ScenarioComponent extends Component {
                                             productName={this.props.selectedProduct.productName}
                                             modelName={this.props.selectedProduct.modelName}
                                             modelID={this.props.selectedProduct.modelID}
+                                            scenarioName={this.props.scenarioName}
                                             tableKey={this.props.scenarioName}
                                         />
                                     </Hidden>
@@ -122,7 +151,8 @@ ScenarioComponent.propTypes = {
     newScenarioHandler: PropTypes.func.isRequired,
     onCompareClick: PropTypes.func.isRequired,
     onExportClicked: PropTypes.bool,
-    scenarioName: PropTypes.string,
+    scenarioName: PropTypes.string, // Baseline or Modified (Where modified basically means second page)
+    scenarioDisplayName: PropTypes.string.isRequired, //scenario_baseline; scenario_copper
     selectedProduct: PropTypes.shape({
         modelID: PropTypes.string,
         modelName: PropTypes.string,

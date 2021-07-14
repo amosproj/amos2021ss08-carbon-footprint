@@ -5,9 +5,9 @@
     font-weight: normal;
     font-size: var(--global--icon-title--FontSize);
     color: var(--global--header--color);
-    padding-right: 100;
     margin-bottom: 3px;
     letter-spacing: 0.5px;
+    margin-right: 6px;
 }
 
 .SideBarIconStyle :active {
@@ -23,7 +23,7 @@
 .SideBarContainer {
     color: 'white';
     background: var(--global--sidebar--color);
-    /* position: 'fixed'; */
+    position: 'fixed';
     height: '100%';
 }
 

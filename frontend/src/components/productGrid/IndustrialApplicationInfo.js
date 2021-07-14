@@ -25,7 +25,7 @@ function IndustrialApplicationInfo() {
                 </p>
             </div>
             <div className='w3-col m6 l6 w3-padding-small'>
-                <div className='w3-card-4 imageTitle'>
+                <div className='w3-card-4 imageCards'>
                     <img src={IndustrialImage} alt='Industry' />
                     <div className='w3-container w3-center'>
                         <p>Industrial Application</p>

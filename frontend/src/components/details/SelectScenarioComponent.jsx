@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { scenarioNames } from './DetailsComponent';
 
 /**
- * a drop down component for selecting a scenario
+ * a drop down menu component for selecting a scenario
  */
 class SelectScenarioComponent extends Component {
     state = {
-        secondScenario: '', // TODO: for comparing scenarios this should be removed and use props from detail component
         scenarios: [{ id: '', name: '' }]
     };
 
@@ -17,14 +17,12 @@ class SelectScenarioComponent extends Component {
      * based on new selected scenario
      *
      * @param item: selected scenario
+     * This will update the data based on where the selection is modified i.e in Baseline scenario/Modified Scenario
      */
     onDropDownItemSelectedHandler = (item) => {
-        this.props.newScenarioHandler(item);
-    };
-
-    onSecondDropDownSelectedHandler = (name) => {
-        const secondScenario = name;
-        this.setState({ secondScenario: secondScenario });
+        if (this.props.scenarioName === scenarioNames.modified)
+            this.props.newScenarioHandler(item, scenarioNames.modified);
+        else this.props.newScenarioHandler(item, scenarioNames.baseline);
     };
 
     /**
@@ -44,6 +42,15 @@ class SelectScenarioComponent extends Component {
      */
     updateStateScenario = () => {
         let scenarioList = [];
+
+        // Handle no scenario selected
+        if (
+            this.props.selectedProduct.productID === '' ||
+            this.props.selectedProduct === undefined
+        ) {
+            return;
+        }
+
         // Handle the first element (baseline)
         scenarioList.push({
             id: this.props.selectedProduct.productID,
@@ -59,7 +66,6 @@ class SelectScenarioComponent extends Component {
 
         // Set State to the calculated List
         let newState = {
-            selectedSecondScenario: '',
             scenarios: scenarioList
         };
         return newState;
@@ -67,23 +73,22 @@ class SelectScenarioComponent extends Component {
 
     render() {
         /*
-        if the loadComparePage state from its parrent (the detail Component) 
-        is set to true, here an extra drop down for the second variable
-         should be rendered 
-        */
+         * if the loadComparePage state from its parent (the detail Component)
+         * is set to true, here an extra drop down for the second variable should be rendered
+         */
 
         return (
             <div className='w3-row w3-margin-top'>
                 <div className='w3-right'>
-                    <div className='w3-dropdown-hover'>
+                    <div className='w3-dropdown-hover w3-white'>
                         <button className='w3-button dropDown'>
                             {this.props.selectedScenarioType}
                         </button>
-                        <div className='w3-dropdown-content w3-bar-block w3-border'>
+                        <div className='w3-dropdown-content w3-bar-block w3-border dropDown'>
                             {this.state.scenarios.map((item) => (
                                 <button
                                     onClick={() => this.onDropDownItemSelectedHandler(item)}
-                                    className='w3-bar-item w3-button'
+                                    className='w3-bar-item w3-button dropDown'
                                     key={item.id}
                                 >
                                     {item.name}
@@ -100,6 +105,7 @@ class SelectScenarioComponent extends Component {
 SelectScenarioComponent.propTypes = {
     newScenarioHandler: PropTypes.func,
     selectedScenarioType: PropTypes.string,
+    scenarioName: PropTypes.string,
     selectedProduct: PropTypes.shape({
         categories: PropTypes.array, // [(categories.generation, categories.transmission)],
         modelID: PropTypes.string, // 'none',

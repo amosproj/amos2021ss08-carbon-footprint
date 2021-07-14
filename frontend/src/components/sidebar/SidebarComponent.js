@@ -22,13 +22,12 @@ const useStyles = createUseStyles({
 /**
  * The SidebarComponent consists out of the functionality and the Look and Feel of the Left-Side-Navigationbar
  *
- * @author Irem Toroslu, Martin Wagner
  */
 function SidebarComponent({ pageWrapId, outerContainerId }) {
     const { push } = useHistory();
     const theme = useTheme();
     const classes = useStyles({ theme });
-    const isMobile = window.innerWidth <= 1080;
+    const isMobile = false;
     const [, setState] = useContext(GlobalContext);
 
     async function logout() {
